@@ -1,0 +1,34 @@
+{
+  "name": "dark-mode",
+  "version": "1.0.0",
+  "description": "A Minimalist Dark Design System for Vue.js",
+  "author": "Julien <julien.le.coupanec@gmail.com>",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint",
+    "deploy": "git subtree push --prefix dist origin gh-pages"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "normalize.css": "^8.0.0",
+    "nuxt": "^1.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.1.5",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.9.3",
+    "nuxt-sass-resources-loader": "^2.0.5",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^7.1.0"
+  }
+}
