@@ -42,10 +42,10 @@ $c: ".c-base-button";
 #{$c} {
   outline: 0;
   border-radius: 4px;
+  background-color: transparent; // Chrome displays white borders sometimes
   font-family: "Heebo Medium";
   user-select: none;
   cursor: pointer;
-  background-color: transparent; // Chrome displays white borders sometimes
 
   // --> COLORS <--
 
