@@ -3,7 +3,14 @@
      ************************************************************************* -->
 
 <template lang="pug">
+.c-common-headlines
+  base-heading(
+    tag="h2"
+  ) {{ title }}
 
+  base-heading(
+    tag="h3"
+  ) {{ description }}
 </template>
 
 <!-- *************************************************************************
@@ -11,11 +18,28 @@
      ************************************************************************* -->
 
 <script>
-export default {};
+export default {
+  props: {
+    description: {
+      type: String,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    }
+  }
+};
 </script>
 
 <!-- *************************************************************************
      STYLE
      ************************************************************************* -->
 
-<style lang="scss"></style>
+<style lang="scss">
+$c: ".c-common-headlines";
+
+#{$c} {
+  margin-bottom: 40px;
+}
+</style>
