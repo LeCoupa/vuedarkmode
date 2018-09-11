@@ -3,26 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-index
-  the-logo(
-    class="c-index__logo"
-  )
-  base-divider
 
-  base-heading(
-    tag="h1"
-  ) A Minimalist Dark Design System for Vue.js
-
-  base-heading(
-    tag="h2"
-    color="grey"
-    fontWeight="regular"
-  ) Designed for the ones who enjoy dark interfaces as much as we do.
-
-  base-divider(
-    color="black"
-    size="big"
-  )
 </template>
 
 <!-- *************************************************************************
@@ -30,23 +11,11 @@
      ************************************************************************* -->
 
 <script>
-// PROJECT
-import TheLogo from "@/components/layouts/TheLogo";
-
-export default {
-  components: {
-    TheLogo
-  }
-};
+export default {};
 </script>
 
 <!-- *************************************************************************
      STYLE
      ************************************************************************* -->
 
-<style lang="scss">
-$c: ".c-index";
-
-#{$c} {
-}
-</style>
+<style lang="scss"></style>
