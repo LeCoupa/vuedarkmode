@@ -3,16 +3,17 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-common-headlines
-  base-heading(
-    tag="h2"
-    class="c-common-headlines__title"
-  ) {{ title }}
+.c-common-color
+  .c-common-color__block
+    div(
+      :style=`{
+        backgroundColor: hex
+      }`
+      class="c-common-color__highlight",
+    )
+    .c-common-color__hex {{ hex }}
 
-  base-heading(
-    tag="h3"
-    class="c-common-headlines__description"
-  ) {{ description }}
+  .c-common-color__name {{ name }}
 </template>
 
 <!-- *************************************************************************
@@ -22,11 +23,11 @@
 <script>
 export default {
   props: {
-    description: {
+    hex: {
       type: String,
       required: true
     },
-    title: {
+    name: {
       type: String,
       required: true
     }
@@ -39,13 +40,35 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-common-headlines";
+$c: ".c-common-color";
 
 #{$c} {
-  margin-bottom: 40px;
+  width: 100px;
+  text-align: center;
 
-  #{$c}__description {
-    margin-bottom: 0;
+  #{$c}__block {
+    overflow: hidden;
+    border-radius: 4px;
+
+    #{$c}__highlight {
+      height: 100px;
+    }
+
+    #{$c}__hex {
+      padding: 10px 0;
+      border: 1px solid #313d4f;
+      border-top: none;
+      background: #273142;
+      color: #ffffff;
+      font-size: 14px;
+      font-family: "Heebo-Bold";
+    }
+  }
+
+  #{$c}__name {
+    margin-top: 10px;
+    color: #8dabc4;
+    font-size: 14px;
   }
 }
 </style>

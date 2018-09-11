@@ -17,7 +17,13 @@
     tag="h2"
     color="grey"
     fontWeight="regular"
-  ) Designed for the ones who enjoy dark interfaces as much as we do.
+  ) Based components designed for the ones who enjoy dark interfaces as much as we do.
+
+  the-github-buttons(
+    class="c-index__github-buttons"
+    repo="dark-mode"
+    user="lecoupa"
+  )
 
   base-divider(
     color="black"
@@ -33,6 +39,17 @@
       :title="section.headlines.title"
       :description="section.headlines.description"
     )
+    div(
+      v-if="section.colors"
+      class="c-index__colors"
+    )
+      common-color(
+        v-for="color in section.colors"
+        :hex="color.hex"
+        :key="color.hex"
+        :name="color.name"
+      )
+
     base-divider(
       color="black"
       size="big"
@@ -45,12 +62,16 @@
 
 <script>
 // PROJECT
+import CommonColor from "@/components/common/CommonColor";
 import CommonHeadlines from "@/components/common/CommonHeadlines";
+import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
 
 export default {
   components: {
+    CommonColor,
     CommonHeadlines,
+    TheGithubButtons,
     TheLogo
   },
 
@@ -62,7 +83,101 @@ export default {
           headlines: {
             title: "COLORS FOR THE FANCIEST DARK PAINTERS 👨‍🎨",
             description: "Gather all colors here in a beautiful way"
-          }
+          },
+          colors: [
+            {
+              hex: "#AB7DF6",
+              name: "$portage"
+            },
+            {
+              hex: "#0079C4",
+              name: "$lochmara"
+            },
+            {
+              hex: "#0093EE",
+              name: "$azure-radiance"
+            },
+            {
+              hex: "#26C1C9",
+              name: "$java"
+            },
+            {
+              hex: "#40B630",
+              name: "$apple"
+            },
+            {
+              hex: "#4ECE3D",
+              name: "$apple2"
+            },
+            {
+              hex: "#81C926",
+              name: "$atlantis"
+            },
+            {
+              hex: "#E0102B",
+              name: "$crimson"
+            },
+            {
+              hex: "#EE334B",
+              name: "$amaranth"
+            },
+            {
+              hex: "#FD7B1F",
+              name: "$pumpkin"
+            },
+            {
+              hex: "#FACA00",
+              name: "$supernova"
+            },
+            {
+              hex: "#FFF5CC",
+              name: "$barley-white"
+            },
+            {
+              hex: "#FFFFFF",
+              name: "$white"
+            },
+            {
+              hex: "#FAFBFC",
+              name: "$athens-gray"
+            },
+            {
+              hex: "#ECF5FD",
+              name: "$selago"
+            },
+            {
+              hex: "#C5D9E8",
+              name: "$periwinkle"
+            },
+            {
+              hex: "#A8C6DF",
+              name: "$regent-st-blue"
+            },
+            {
+              hex: "#8DABC4",
+              name: "$nepal"
+            },
+            {
+              hex: "#3F536E",
+              name: "$fiord"
+            },
+            {
+              hex: "#2C405A",
+              name: "$rhino"
+            },
+            {
+              hex: "#273950",
+              name: "$rhino2"
+            },
+            {
+              hex: "#25374F",
+              name: "$rhino3"
+            },
+            {
+              hex: "#1C293B",
+              name: "$mirage"
+            }
+          ]
         },
         {
           headlines: {
@@ -128,5 +243,15 @@ export default {
 $c: ".c-index";
 
 #{$c} {
+  #{$c}__github-buttons {
+    margin-top: 20px;
+  }
+
+  #{$c}__colors {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, 100px);
+    justify-content: center;
+  }
 }
 </style>
