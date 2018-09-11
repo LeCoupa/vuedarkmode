@@ -61,26 +61,26 @@ $c: ".c-base-divider";
     border-top-color: #ff4b64;
   }
 
-  &--white {
-    border-top-color: $white;
+  &--orange {
+    border-top-color: #faca00;
   }
 
-  &--yellow {
-    border-top-color: #faca00;
+  &--white {
+    border-top-color: $white;
   }
 
   // --> SIZES <--
 
   &--small {
     margin: 15px auto;
-    width: 60px;
+    max-width: 60px;
     height: 4px;
     border-top-width: 4px;
   }
 
   &--big {
     margin: 40px auto;
-    width: 800px;
+    max-width: 800px;
     height: 1px;
     border-top-width: 1px;
   }

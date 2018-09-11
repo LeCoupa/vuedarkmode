@@ -50,6 +50,26 @@
         :name="color.name"
       )
 
+    div(
+      v-if="section.buttons"
+      class="c-index__buttons"
+    )
+      div(
+        v-for="(color, index) in section.buttons.colors"
+        :key="'button' + color + index"
+        class="c-index__buttons-color"
+      )
+        div(
+          v-for="(size, index) in section.buttons.sizes"
+          :key="'button' + color + index + size"
+          class="c-index__buttons-size"
+        )
+          base-button(
+            :color="color"
+            :size="size"
+            class="c-index__button"
+          ) {{ size }} {{ color }}
+
     base-divider(
       color="black"
       size="big"
@@ -181,14 +201,20 @@ export default {
         },
         {
           headlines: {
-            title: "TYPOGRAPHY, HEADINGS & SPACES LIKE YOU HAVE NEVER SEEN 😎",
-            description: "Check the shopify style guide"
+            title: "HEADINGS LIKE YOU HAVE NEVER SEEN 😎",
+            description:
+              "From titles to paragraphs, organizing your content will feel like a breeze"
           }
         },
         {
           headlines: {
-            title: "ONE BUTTON TO RULE THEM ALL 🤴",
-            description: "Add Social Connects"
+            title: "BUTTONS AND TAGS TO RULE THEM ALL 🤴",
+            description:
+              "Make your interfaces stand out from the dark with theses beautiful elements"
+          },
+          buttons: {
+            colors: ["blue", "green", "red", "orange", "black", "white"],
+            sizes: ["large", "medium", "default", "small", "mini"]
           }
         },
         {
@@ -252,6 +278,23 @@ $c: ".c-index";
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fill, 100px);
     justify-content: center;
+  }
+
+  #{$c}__buttons {
+    display: grid;
+    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fill, 260px);
+    justify-content: center;
+
+    #{$c}__buttons-color {
+      #{$c}__buttons-size {
+        margin-bottom: 20px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
 </style>

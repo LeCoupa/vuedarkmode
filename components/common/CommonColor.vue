@@ -47,17 +47,18 @@ $c: ".c-common-color";
   text-align: center;
 
   #{$c}__block {
-    overflow: hidden;
-    border-radius: 4px;
-
     #{$c}__highlight {
       height: 100px;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
     }
 
     #{$c}__hex {
       padding: 10px 0;
       border: 1px solid #313d4f;
       border-top: none;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
       background: #273142;
       color: #ffffff;
       font-size: 14px;
