@@ -18,7 +18,7 @@
 
 <script>
 // PROJECT
-import TheGithubCorner from "@/components/TheGithubCorner";
+import TheGithubCorner from "@/components/layouts/TheGithubCorner";
 
 export default {
   components: {
@@ -37,7 +37,7 @@ $c: ".l-default";
 html {
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 60px 0 80px;
+  padding: 60px 0;
   min-height: 100%;
   background-color: $mirage;
   color: white;

@@ -3,15 +3,12 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-index
-  the-logo(
-    class="c-index__logo"
-  )
-  base-divider
-
-  base-heading(
-    tag="h1"
-  ) A Minimalist Dark Design System for Vue.js
+div(
+  :class=`[
+    "c-base-heading",
+    "c-base-heading--" + tag
+  ]`
+): slot
 </template>
 
 <!-- *************************************************************************
@@ -19,12 +16,12 @@
      ************************************************************************* -->
 
 <script>
-// PROJECT
-import TheLogo from "@/components/layouts/TheLogo";
-
 export default {
-  components: {
-    TheLogo
+  props: {
+    tag: {
+      type: String,
+      required: true
+    }
   }
 };
 </script>
@@ -34,8 +31,37 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-index";
+$c: ".c-base-heading";
 
 #{$c} {
+  // --> TAGS <--
+
+  &--h1 {
+    color: $white;
+    font-size: 32px;
+    font-family: "Heebo Bold";
+    line-height: 44px;
+  }
+
+  &--h2 {
+    color: #fafbfc;
+    font-size: 22px;
+    font-family: "Heebo Medium";
+    line-height: 32px;
+  }
+
+  &--h3 {
+    color: #ecf5fd;
+    font-size: 20px;
+    font-family: "Heebo Regular";
+    line-height: 28px;
+  }
+
+  &--p {
+    color: #ffffff;
+    font-size: 16px;
+    font-family: "Heebo Regular";
+    line-height: 24px;
+  }
 }
 </style>

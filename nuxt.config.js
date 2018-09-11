@@ -20,6 +20,7 @@ module.exports = {
         : "http://localhost:3000"
   },
   css: ["normalize.css/normalize.css"],
+  plugins: [{ src: "@/plugins/global.js" }],
   modules: [
     [
       "nuxt-sass-resources-loader",
