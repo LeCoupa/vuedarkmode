@@ -52,20 +52,28 @@
 
     div(
       v-if="section.buttons"
-      class="c-index__buttons"
+      v-for="circular in [false, true]"
+      :class=`[
+        "c-index__buttons",
+        {
+          "c-index__buttons--circular": circular
+        }
+      ]`
     )
       div(
-        v-for="(color, index) in section.buttons.colors"
-        :key="'button' + color + index"
+        v-for="(color, i) in section.buttons.colors"
+        :key="'button' + color + i"
         class="c-index__buttons-color"
       )
         div(
-          v-for="(size, index) in section.buttons.sizes"
-          :key="'button' + color + index + size"
+          v-for="(size, j) in section.buttons.sizes"
+          :key="'button' + color + j + size"
           class="c-index__buttons-size"
         )
           base-button(
+            :circular="circular"
             :color="color"
+            :leftIcon="section.buttons.icons[i]"
             :size="size"
             class="c-index__button"
           ) {{ size }} {{ color }}
@@ -208,12 +216,20 @@ export default {
         },
         {
           headlines: {
-            title: "BUTTONS AND TAGS TO RULE THEM ALL 🤴",
+            title: "BUTTONS AND BADGES TO RULE THEM ALL 🤴",
             description:
               "Make your interfaces stand out from the dark with theses beautiful elements"
           },
           buttons: {
             colors: ["blue", "green", "red", "orange", "black", "white"],
+            icons: [
+              "add_circle",
+              "check_circle",
+              "favorite_border",
+              "star",
+              "get_app",
+              "camera_alt"
+            ],
             sizes: ["large", "medium", "default", "small", "mini"]
           }
         },
@@ -285,13 +301,38 @@ $c: ".c-index";
     grid-gap: 40px;
     grid-template-columns: repeat(auto-fill, 260px);
     justify-content: center;
+    margin-bottom: 40px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
 
     #{$c}__buttons-color {
       #{$c}__buttons-size {
+        display: flex;
+        justify-content: center;
         margin-bottom: 20px;
 
         &:last-of-type {
           margin-bottom: 0;
+        }
+      }
+    }
+
+    &--circular {
+      #{$c}__buttons-color {
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+
+        #{$c}__buttons-size {
+          display: block;
+          margin-right: 10px;
+          margin-bottom: 0;
+
+          &:first-of-type {
+            margin-right: 0;
+          }
         }
       }
     }
