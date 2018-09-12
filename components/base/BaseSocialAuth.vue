@@ -200,14 +200,10 @@ $networks: facebook, google, messenger, twitter;
     }
   }
 
-  &--small {
+  &--small,
+  &--large {
     padding-right: 40px;
     padding-left: 40px;
-  }
-
-  &--large {
-    padding-right: 60px;
-    padding-left: 60px;
   }
 
   // --> BOOLEANS <--
