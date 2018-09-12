@@ -26,7 +26,7 @@ button(
       span(
         v-if="['large'].includes(size)"
         class="c-base-social-auth__network"
-      )  with {{ network }}
+      )  with {{ network | capitalize }}
 </template>
 
 <!-- *************************************************************************
@@ -75,6 +75,14 @@ export default {
   methods: {
     onClick() {
       this.$emit("click", this.network);
+    }
+  },
+
+  filters: {
+    capitalize(value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
     }
   }
 };
