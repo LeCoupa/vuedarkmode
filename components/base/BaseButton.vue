@@ -10,10 +10,15 @@ button(
     "c-base-button--" + color,
     "c-base-button--" + size,
     {
+      'c-base-button--block': block,
       "c-base-button--capitalize": capitalize,
-      "c-base-button--circular": circular
+      "c-base-button--circular": circular,
+      'c-base-button--rounded': rounded
     }
   ]`
+  :disabled="disabled"
+  :id="id"
+  :type="type"
 )
   base-icon(
     v-if="leftIcon"
@@ -41,6 +46,10 @@ button(
 <script>
 export default {
   props: {
+    block: {
+      type: Boolean,
+      default: false
+    },
     capitalize: {
       type: Boolean,
       default: true
@@ -53,6 +62,14 @@ export default {
       type: String,
       default: "blue"
     },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    id: {
+      type: String,
+      default: null
+    },
     leftIcon: {
       type: String,
       default: null
@@ -61,9 +78,17 @@ export default {
       type: String,
       default: null
     },
+    rounded: {
+      type: Boolean,
+      default: false
+    },
     size: {
       type: String,
       default: "default"
+    },
+    type: {
+      type: String,
+      default: "button"
     }
   },
 
@@ -86,7 +111,7 @@ export default {
 
   methods: {
     onClick() {
-      this.$emit("click");
+      this.$emit("click", this.id);
     }
   }
 };
@@ -108,6 +133,10 @@ $sizes: mini, small, default, medium, large;
   font-family: "Heebo Medium";
   user-select: none;
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 
   // --> COLORS <--
 
@@ -170,6 +199,11 @@ $sizes: mini, small, default, medium, large;
 
   // --> BOOLEANS <--
 
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
   &--capitalize {
     text-transform: capitalize;
   }
@@ -196,6 +230,10 @@ $sizes: mini, small, default, medium, large;
         padding: 8px + (1px * $i);
       }
     }
+  }
+
+  &--rounded {
+    border-radius: 60px;
   }
 }
 </style>
