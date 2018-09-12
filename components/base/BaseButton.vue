@@ -20,23 +20,24 @@ button(
   :id="id"
   :type="type"
 )
-  base-icon(
-    v-if="leftIcon"
-    :name="leftIcon"
-    :size="iconSize"
-    class="c-base-button__left-icon"
-  )
-  span(
-    v-if="$slots.default && $slots.default[0].text.trim()"
-    class="c-base-button__label"
-  ): slot
+  span.c-base-button__inner
+    base-icon(
+      v-if="leftIcon"
+      :name="leftIcon"
+      :size="iconSize"
+      class="c-base-button__left-icon"
+    )
+    span(
+      v-if="$slots.default && $slots.default[0].text.trim()"
+      class="c-base-button__label"
+    ): slot
 
-  base-icon(
-    v-if="rightIcon"
-    :name="rightIcon"
-    :size="iconSize"
-    class="c-base-button__right-icon"
-  )
+    base-icon(
+      v-if="rightIcon"
+      :name="rightIcon"
+      :size="iconSize"
+      class="c-base-button__right-icon"
+    )
 </template>
 
 <!-- *************************************************************************
@@ -126,9 +127,9 @@ $c: ".c-base-button";
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
-  display: flex;
-  align-items: center;
+  display: inline-block;
   outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: transparent; // Chrome displays white borders sometimes
   font-family: "Heebo Medium";
   user-select: none;
@@ -136,6 +137,12 @@ $sizes: mini, small, default, medium, large;
 
   &:disabled {
     cursor: not-allowed;
+  }
+
+  #{$c}__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   // --> COLORS <--
@@ -147,19 +154,16 @@ $sizes: mini, small, default, medium, large;
   }
 
   &--blue {
-    border: 1px solid rgba(0, 0, 0, 0.1);
     background-image: linear-gradient(-1deg, #1991eb 2%, #2da1f8 98%);
     color: $white;
   }
 
   &--green {
-    border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: #4ece3d;
     color: $white;
   }
 
   &--orange {
-    border: 1px solid rgba(0, 0, 0, 0.1);
     background-image: linear-gradient(-1deg, #fdc018 2%, #ffc82e 98%);
     color: $white;
   }
@@ -187,12 +191,14 @@ $sizes: mini, small, default, medium, large;
       font-size: 12px + (1px * $i);
       line-height: 14px + (2px * $i);
 
-      #{$c}__left-icon {
-        margin-right: 2px + (1px * $i);
-      }
+      #{$c}__inner {
+        #{$c}__left-icon {
+          margin-right: 2px + (1px * $i);
+        }
 
-      #{$c}__right-icon {
-        margin-left: 2px + (1px * $i);
+        #{$c}__right-icon {
+          margin-left: 2px + (1px * $i);
+        }
       }
     }
   }
