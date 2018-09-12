@@ -17,7 +17,7 @@
     tag="h2"
     color="grey"
     fontWeight="regular"
-  ) Based components designed for the ones who enjoy dark interfaces as much as we do.
+  ) Based components designed for the night crawlers who enjoy dark interfaces as much as we do.
 
   the-github-buttons(
     class="c-index__github-buttons"
@@ -97,6 +97,26 @@
             :size="size"
             class="c-index__badge"
           ) {{ size }}
+
+    div(
+      v-if="section.socialAuths"
+      class="c-index__elements c-index__elements--social-auths c-index__elements--horizontal c-index__elements--vertical-on-mobile"
+    )
+      div(
+        v-for="(network, i) in section.socialAuths.networks"
+        :key="'socialAuth' + network + i"
+        class="c-index__elements-color"
+      )
+        div(
+          v-for="(size, j) in section.socialAuths.sizes"
+          :key="'socialAuth' + network + j + size"
+          class="c-index__elements-size"
+        )
+          base-social-auth(
+            :network="network"
+            :size="size"
+            class="c-index__social-auth"
+          )
 
     base-divider(
       color="black"
@@ -261,6 +281,10 @@ export default {
           headlines: {
             title: "INCREASE YOUR CONVERSION RATE WITH SOCIAL LOGINS 🤩",
             description: "Time is precious and we are in 2018."
+          },
+          socialAuths: {
+            networks: ["facebook", "messenger", "twitter", "google"],
+            sizes: ["mini", "small", "large"]
           }
         },
         {
@@ -350,6 +374,7 @@ $c: ".c-index";
         }
       }
     }
+
     @include mq($from: mobile, $until: tablet) {
       &--vertical-on-mobile {
         #{$c}__elements-color {
@@ -381,6 +406,10 @@ $c: ".c-index";
 
     &--badges {
       grid-template-columns: repeat(auto-fill, 410px);
+    }
+
+    &--social-auths {
+      grid-gap: 20px;
     }
   }
 }
