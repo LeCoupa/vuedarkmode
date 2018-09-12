@@ -169,7 +169,6 @@ $sizes: mini, small, default, medium, large;
   }
 
   &--red {
-    border: 1px solid rgba(0, 0, 0, 0.1);
     background-image: linear-gradient(0deg, #c8270c 0%, #e44023 100%);
     color: $white;
   }
@@ -217,16 +216,18 @@ $sizes: mini, small, default, medium, large;
   &--circular {
     border-radius: 100%;
 
-    #{$c}__label {
-      display: none;
-    }
+    #{$c}__inner {
+      #{$c}__label {
+        display: none;
+      }
 
-    #{$c}__left-icon {
-      margin-right: 0;
-    }
+      #{$c}__left-icon {
+        margin-right: 0;
+      }
 
-    #{$c}__right-icon {
-      margin-left: 0;
+      #{$c}__right-icon {
+        margin-left: 0;
+      }
     }
 
     @each $size in $sizes {
