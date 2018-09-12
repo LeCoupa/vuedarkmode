@@ -41,7 +41,7 @@
     )
     div(
       v-if="section.colors"
-      class="c-index__colors"
+      class="c-index__elements c-index__elements--colors"
     )
       common-color(
         v-for="color in section.colors"
@@ -54,21 +54,21 @@
       v-if="section.buttons"
       v-for="circular in [false, true]"
       :class=`[
-        "c-index__buttons",
+        "c-index__elements c-index__elements--buttons",
         {
-          "c-index__buttons--circular": circular
+          "c-index__elements--horizontal": circular
         }
       ]`
     )
       div(
         v-for="(color, i) in section.buttons.colors"
         :key="'button' + color + i"
-        class="c-index__buttons-color"
+        class="c-index__elements-color"
       )
         div(
           v-for="(size, j) in section.buttons.sizes"
           :key="'button' + color + j + size"
-          class="c-index__buttons-size"
+          class="c-index__elements-size"
         )
           base-button(
             :circular="circular"
@@ -77,6 +77,26 @@
             :size="size"
             class="c-index__button"
           ) {{ size }} {{ color }}
+
+    div(
+      v-if="section.badges"
+      class="c-index__elements c-index__elements--badges c-index__elements--horizontal c-index__elements--vertical-on-mobile"
+    )
+      div(
+        v-for="(color, i) in section.badges.colors"
+        :key="'badge' + color + i"
+        class="c-index__elements-color"
+      )
+        div(
+          v-for="(size, j) in section.badges.sizes"
+          :key="'badge' + color + j + size"
+          class="c-index__elements-size"
+        )
+          base-badge(
+            :color="color"
+            :size="size"
+            class="c-index__badge"
+          ) {{ size }}
 
     base-divider(
       color="black"
@@ -231,6 +251,10 @@ export default {
               "camera_alt"
             ],
             sizes: ["large", "medium", "default", "small", "mini"]
+          },
+          badges: {
+            colors: ["blue", "green", "red", "orange", "black", "white"],
+            sizes: ["large", "medium", "default", "small", "mini"]
           }
         },
         {
@@ -289,26 +313,13 @@ $c: ".c-index";
     margin-top: 20px;
   }
 
-  #{$c}__colors {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, 100px);
-    justify-content: center;
-  }
-
-  #{$c}__buttons {
+  #{$c}__elements {
     display: grid;
     grid-gap: 40px;
-    grid-template-columns: repeat(auto-fill, 260px);
     justify-content: center;
-    margin-bottom: 40px;
 
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    #{$c}__buttons-color {
-      #{$c}__buttons-size {
+    #{$c}__elements-color {
+      #{$c}__elements-size {
         display: flex;
         justify-content: center;
         margin-bottom: 20px;
@@ -319,13 +330,16 @@ $c: ".c-index";
       }
     }
 
-    &--circular {
-      #{$c}__buttons-color {
+    // --> ORIENTATIONS
+
+    &--horizontal {
+      #{$c}__elements-color {
         display: flex;
         align-items: center;
         flex-direction: row-reverse;
+        justify-content: center;
 
-        #{$c}__buttons-size {
+        #{$c}__elements-size {
           display: block;
           margin-right: 10px;
           margin-bottom: 0;
@@ -335,6 +349,38 @@ $c: ".c-index";
           }
         }
       }
+    }
+    @include mq($from: mobile, $until: tablet) {
+      &--vertical-on-mobile {
+        #{$c}__elements-color {
+          display: block;
+
+          #{$c}__elements-size {
+            margin-bottom: 20px;
+            margin-right: 0;
+
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+    // --> SECTIONS <--
+
+    &--colors {
+      grid-gap: 20px;
+      grid-template-columns: repeat(auto-fill, 100px);
+    }
+
+    &--buttons {
+      grid-template-columns: repeat(auto-fill, 260px);
+      margin-bottom: 40px;
+    }
+
+    &--badges {
+      grid-template-columns: repeat(auto-fill, 410px);
     }
   }
 }

@@ -21,7 +21,10 @@ button(
     :size="iconSize"
     class="c-base-button__left-icon"
   )
-  span.c-base-button__label: slot
+  span(
+    v-if="$slots.default && $slots.default[0].text.trim()"
+    class="c-base-button__label"
+  ): slot
 
   base-icon(
     v-if="rightIcon"
@@ -95,6 +98,7 @@ export default {
 
 <style lang="scss">
 $c: ".c-base-button";
+$sizes: mini, small, default, medium, large;
 
 #{$c} {
   display: flex;
@@ -145,78 +149,22 @@ $c: ".c-base-button";
 
   // --> SIZES <--
 
-  &--mini {
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    line-height: 14px;
+  @each $size in $sizes {
+    $i: index($sizes, $size) - 1;
 
-    #{$c}__left-icon {
-      margin-right: 3px;
-    }
+    &--#{$size} {
+      padding: (8px + 2px * $i) (12px + 2px * $i);
+      border-radius: 4px + (1px * $i);
+      font-size: 12px + (1px * $i);
+      line-height: 14px + (2px * $i);
 
-    #{$c}__right-icon {
-      margin-left: 3px;
-    }
-  }
+      #{$c}__left-icon {
+        margin-right: 2px + (1px * $i);
+      }
 
-  &--small {
-    padding: 10px 14px;
-    border-radius: 5px;
-    font-size: 14px;
-    line-height: 16px;
-
-    #{$c}__left-icon {
-      margin-right: 4px;
-    }
-
-    #{$c}__right-icon {
-      margin-left: 4px;
-    }
-  }
-
-  &--default {
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 16px;
-    line-height: 18px;
-
-    #{$c}__left-icon {
-      margin-right: 5px;
-    }
-
-    #{$c}__right-icon {
-      margin-left: 5px;
-    }
-  }
-
-  &--medium {
-    padding: 14px 18px;
-    border-radius: 7px;
-    font-size: 18px;
-    line-height: 20px;
-
-    #{$c}__left-icon {
-      margin-right: 6px;
-    }
-
-    #{$c}__right-icon {
-      margin-left: 6px;
-    }
-  }
-
-  &--large {
-    padding: 16px 20px;
-    border-radius: 8px;
-    font-size: 20px;
-    line-height: 22px;
-
-    #{$c}__left-icon {
-      margin-right: 7px;
-    }
-
-    #{$c}__right-icon {
-      margin-left: 7px;
+      #{$c}__right-icon {
+        margin-left: 2px + (1px * $i);
+      }
     }
   }
 
@@ -241,24 +189,12 @@ $c: ".c-base-button";
       margin-left: 0;
     }
 
-    &#{$c}--mini {
-      padding: 8px;
-    }
+    @each $size in $sizes {
+      $i: index($sizes, $size) - 1;
 
-    &#{$c}--small {
-      padding: 9px;
-    }
-
-    &#{$c}--default {
-      padding: 10px;
-    }
-
-    &#{$c}--medium {
-      padding: 11px;
-    }
-
-    &#{$c}--large {
-      padding: 12px;
+      &#{$c}--#{$size} {
+        padding: 8px + (1px * $i);
+      }
     }
   }
 }
