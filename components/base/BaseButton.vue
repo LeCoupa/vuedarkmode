@@ -13,6 +13,7 @@ button(
       'c-base-button--block': block,
       "c-base-button--capitalize": capitalize,
       "c-base-button--circular": circular,
+      'c-base-button--reverse': reverse,
       'c-base-button--rounded': rounded
     }
   ]`
@@ -75,6 +76,10 @@ export default {
       type: String,
       default: null
     },
+    reverse: {
+      type: Boolean,
+      default: false
+    },
     rightIcon: {
       type: String,
       default: null
@@ -130,6 +135,7 @@ $sizes: mini, small, default, medium, large;
   display: inline-block;
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  color: $white;
   background-color: transparent; // Chrome displays white borders sometimes
   font-family: "Heebo Medium";
   user-select: none;
@@ -150,27 +156,22 @@ $sizes: mini, small, default, medium, large;
   &--black {
     border: 1px solid #313d4f;
     background-color: #222c3c;
-    color: $white;
   }
 
   &--blue {
-    background-image: linear-gradient(-1deg, #1991eb 2%, #2da1f8 98%);
-    color: $white;
+    background-image: linear-gradient(-1deg, #0093ee 2%, #2da1f8 98%);
   }
 
   &--green {
     background-color: #4ece3d;
-    color: $white;
   }
 
   &--orange {
     background-image: linear-gradient(-1deg, #fdc018 2%, #ffc82e 98%);
-    color: $white;
   }
 
   &--red {
-    background-image: linear-gradient(0deg, #c8270c 0%, #e44023 100%);
-    color: $white;
+    background-image: linear-gradient(0deg, #e0102b 0%, #e44023 100%);
   }
 
   &--white {
@@ -192,11 +193,11 @@ $sizes: mini, small, default, medium, large;
 
       #{$c}__inner {
         #{$c}__left-icon {
-          margin-right: 2px + (1px * $i);
+          margin-right: 3px + (1px * $i);
         }
 
         #{$c}__right-icon {
-          margin-left: 2px + (1px * $i);
+          margin-left: 3px + (1px * $i);
         }
       }
     }
@@ -239,8 +240,35 @@ $sizes: mini, small, default, medium, large;
     }
   }
 
+  &--reverse {
+    background: transparent;
+    color: $white;
+
+    &#{$c}--black {
+      border-color: $black;
+      color: $black;
+    }
+
+    &#{$c}--blue {
+      border-color: #0093ee;
+    }
+
+    &#{$c}--green {
+      border-color: #81c926;
+    }
+
+    &#{$c}--orange {
+      border-color: #faca00;
+    }
+
+    &#{$c}--red {
+      border-color: #e0102b;
+    }
+  }
+
   &--rounded {
     border-radius: 60px;
+    color: $white;
   }
 }
 </style>
