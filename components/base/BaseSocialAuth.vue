@@ -35,6 +35,14 @@ button(
 
 <script>
 export default {
+  filters: {
+    capitalize(value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+  },
+
   props: {
     action: {
       type: String,
@@ -75,14 +83,6 @@ export default {
   methods: {
     onClick() {
       this.$emit("click", this.network);
-    }
-  },
-
-  filters: {
-    capitalize(value) {
-      if (!value) return "";
-      value = value.toString();
-      return value.charAt(0).toUpperCase() + value.slice(1);
     }
   }
 };

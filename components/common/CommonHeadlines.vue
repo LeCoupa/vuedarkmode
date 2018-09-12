@@ -7,7 +7,7 @@
   base-heading(
     tag="h2"
     class="c-common-headlines__title"
-  ) {{ title }}
+  ) {{ title }}
 
   base-heading(
     tag="h3"

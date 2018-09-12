@@ -92,7 +92,7 @@ $c: ".c-the-github-buttons";
         width: 160px;
       }
 
-      &:nth-last-of-type  {
+      &:nth-last-of-type {
         margin-bottom: 0;
       }
     }
