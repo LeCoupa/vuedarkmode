@@ -16,12 +16,12 @@
 
   base-button(
     v-if="hasDocumentation"
-    @click="showDocumentation"
+    @click="toggleDocumentation"
     :reverse="true"
     size="small"
     color="blue"
     class="c-common-headlines__documentation"
-  ) Show documentation
+  ) {{ documentationVisible ? "Hide" : "Show" }} documentation
 </template>
 
 <!-- *************************************************************************
@@ -45,9 +45,17 @@ export default {
     }
   },
 
+  data() {
+    return {
+      documentationVisible: false
+    };
+  },
+
   methods: {
-    showDocumentation() {
-      this.$emit("showDocumentation");
+    toggleDocumentation() {
+      this.documentationVisible = !this.documentationVisible;
+
+      this.$emit("toggleDocumentation", this.documentationVisible);
     }
   }
 };
