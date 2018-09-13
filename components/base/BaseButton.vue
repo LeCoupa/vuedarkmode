@@ -245,8 +245,7 @@ $sizes: mini, small, default, medium, large;
     color: $white;
 
     &#{$c}--black {
-      border-color: $black;
-      color: $black;
+      border-color: #222c3c;
     }
 
     &#{$c}--blue {
