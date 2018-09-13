@@ -135,9 +135,10 @@ $sizes: mini, small, default, medium, large;
   display: inline-block;
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  color: $white;
   background-color: transparent; // Chrome displays white borders sometimes
+  color: $white;
   font-family: "Heebo Medium";
+  transition: all ease-in-out 250ms;
   user-select: none;
   cursor: pointer;
 
@@ -147,8 +148,8 @@ $sizes: mini, small, default, medium, large;
 
   #{$c}__inner {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
   }
 
   // --> COLORS <--
@@ -246,22 +247,60 @@ $sizes: mini, small, default, medium, large;
 
     &#{$c}--black {
       border-color: #222c3c;
+
+      &:active {
+        color: #222c3c;
+      }
     }
 
     &#{$c}--blue {
       border-color: #0093ee;
+
+      &:active {
+        color: #0093ee;
+      }
     }
 
     &#{$c}--green {
       border-color: #81c926;
+
+      &:active {
+        color: #81c926;
+      }
     }
 
     &#{$c}--orange {
       border-color: #faca00;
+
+      &:active {
+        color: #faca00;
+      }
     }
 
     &#{$c}--red {
       border-color: #e0102b;
+
+      &:active {
+        color: #e0102b;
+      }
+    }
+
+    &#{$c}--white {
+      &:hover {
+        border-color: #0093ee;
+      }
+
+      &:active {
+        background-color: #0093ee;
+      }
+    }
+
+    &:hover {
+      border-color: $white;
+    }
+
+    &:active {
+      background: $white;
     }
   }
 

@@ -467,7 +467,7 @@ $c: ".c-index";
     &--avatars {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 100%);
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     &--colors {
