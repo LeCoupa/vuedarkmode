@@ -21,15 +21,13 @@
 
   the-github-buttons(
     class="c-index__github-buttons"
-    repo="dark-mode"
+    repo="awesome-cheatsheets"
     user="lecoupa"
   )
-
   base-divider(
     color="black"
     size="large"
   )
-
   section(
     v-for="(section, index) in sections"
     :key="index"
@@ -37,6 +35,7 @@
   )
     common-headlines(
       :title="section.headlines.title"
+      :hasDocumentation="section.headlines.hasDocumentation"
       :description="section.headlines.description"
     )
     div(
@@ -170,7 +169,8 @@ export default {
         {
           headlines: {
             title: "COLORS FOR THE FANCIEST DARK PAINTERS 👨‍🎨",
-            description: "Gather all colors here in a beautiful way"
+            description: "Gather all colors here in a beautiful way",
+            hasDocumentation: false
           },
           colors: [
             {
@@ -271,14 +271,16 @@ export default {
           headlines: {
             title: "HEADINGS LIKE YOU HAVE NEVER SEEN 😎",
             description:
-              "From titles to paragraphs, organizing your content will feel like a breeze"
+              "From titles to paragraphs, organizing your content will feel like a breeze",
+            hasDocumentation: true
           }
         },
         {
           headlines: {
             title: "BUTTONS AND BADGES TO RULE THEM ALL 🤴",
             description:
-              "Make your interfaces stand out from the dark with theses beautiful elements"
+              "Make your interfaces stand out from the dark with theses beautiful elements",
+            hasDocumentation: true
           },
           buttons: {
             colors: ["blue", "green", "red", "orange", "black", "white"],
@@ -300,7 +302,8 @@ export default {
         {
           headlines: {
             title: "INCREASE YOUR CONVERSION RATE WITH SOCIAL LOGINS 🤩",
-            description: "Time is precious and we are in 2018."
+            description: "Time is precious and we are in 2018.",
+            hasDocumentation: true
           },
           socialAuths: {
             networks: ["facebook", "messenger", "twitter", "google"],
@@ -310,13 +313,15 @@ export default {
         {
           headlines: {
             title: "BUILDING FORMS HAS NEVER BEEN THIS DELICIOUS 😋",
-            description: "With all these form elements"
+            description: "With all these form elements",
+            hasDocumentation: true
           }
         },
         {
           headlines: {
             title: "DIVIDE AND CONQUER 👨‍💻",
-            description: "Small and big, large and thin. We have them all."
+            description: "Small and large, big and thin. We have them all.",
+            hasDocumentation: true
           },
           dividers: {
             colors: ["blue", "green", "red", "orange", "black", "white"],
@@ -327,20 +332,23 @@ export default {
           headlines: {
             title: "DON’T MAKE THEM WAIT TOO LONG… 😉",
             description:
-              "From blue to yellow, you’re ready to unlock a great loading experience."
+              "From blue to yellow, you’re ready to unlock a great loading experience.",
+            hasDocumentation: true
           }
         },
         {
           headlines: {
             title: "AVATARS & THUMBNAILS 🧞",
-            description: "Make your users stand out from the dark"
+            description: "Make your users stand out from the dark",
+            hasDocumentation: true
           }
         },
         {
           headlines: {
             title: "200+ ICONS FROM MATERIAL DESIGN 👻",
             description:
-              "Material icons are delightful, beautifully crafted symbols for common actions and items."
+              "Material icons are delightful, beautifully crafted symbols for common actions and items.",
+            hasDocumentation: true
           }
         }
       ]

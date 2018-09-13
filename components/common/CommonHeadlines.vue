@@ -13,6 +13,15 @@
     tag="h3"
     class="c-common-headlines__description"
   ) {{ description }}
+
+  base-button(
+    v-if="hasDocumentation"
+    @click="showDocumentation"
+    :reverse="true"
+    size="small"
+    color="white"
+    class="c-common-headlines__documentation"
+  ) Show documentation
 </template>
 
 <!-- *************************************************************************
@@ -26,9 +35,19 @@ export default {
       type: String,
       required: true
     },
+    hasDocumentation: {
+      type: Boolean,
+      default: true
+    },
     title: {
       type: String,
       required: true
+    }
+  },
+
+  methods: {
+    showDocumentation() {
+      this.$emit("showDocumentation");
     }
   }
 };
@@ -46,6 +65,10 @@ $c: ".c-common-headlines";
 
   #{$c}__description {
     margin-bottom: 0;
+  }
+
+  #{$c}__documentation {
+    margin-top: 15px;
   }
 }
 </style>
