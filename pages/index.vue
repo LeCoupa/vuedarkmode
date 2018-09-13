@@ -139,14 +139,24 @@
 
     div(
       v-if="section.icons"
-      class="c-index__elements c-index__elements--icons"
+      class="c-index__icons"
     )
-      base-icon(
-        v-for="icon in section.icons"
-        :key="icon"
-        :name="icon"
-        color="white"
-      )
+      .c-index__elements.c-index__elements--icons
+        base-icon(
+          v-for="(icon, i) in section.icons"
+          v-if="i < maxIcons"
+          :key="icon"
+          :name="icon"
+          color="white"
+        )
+
+      base-button(
+        v-if="maxIcons !== 1000"
+        @click="showIcons"
+        :reverse="true"
+        color="blue"
+        size="small"
+      ) Show all icons
 
     base-divider(
       color="black"
@@ -178,6 +188,9 @@ export default {
 
   data() {
     return {
+      // --> DATA <--
+      maxIcons: 207,
+
       // --> COMPONENTS <--
       sections: [
         {
@@ -275,6 +288,12 @@ export default {
         }
       ]
     };
+  },
+
+  methods: {
+    showIcons() {
+      this.maxIcons = 1000;
+    }
   }
 };
 </script>
@@ -373,6 +392,7 @@ $c: ".c-index";
     &--icons {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 24px);
+      margin-bottom: 30px;
     }
 
     &--social-auths {
