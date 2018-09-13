@@ -155,6 +155,39 @@
         )
 
     div(
+      v-if="section.avatars"
+      v-for="type in ['avatars', 'thumbnails']"
+      :class=`[
+        "c-index__elements",
+        "c-index__elements--" + type,
+        "c-index__elements--horizontal",
+        "c-index__elements--vertical-on-mobile"
+      ]`
+    )
+      .c-index__elements-color
+        div(
+          v-for="(size, i) in section.avatars.sizes"
+          :key="'avatar' + size + i"
+          class="c-index__elements-size"
+        )
+          base-avatar(
+            v-if="type === 'avatars'"
+            :size="size"
+            src="/images/medley/nada.jpg"
+            class="c-index__avatar"
+          )
+          base-avatar(
+            v-else-if="type === 'thumbnails'"
+            :bordered="true"
+            :circular="false"
+            :complementaries="section.avatars.complementaries[size]"
+            :description="size"
+            :size="size"
+            src="/images/medley/tesla.jpg"
+            class="c-index__thumbnail"
+          )
+
+    div(
       v-if="section.icons"
       class="c-index__icons"
     )
@@ -321,9 +354,27 @@ export default {
         },
         {
           headlines: {
-            title: "AVATARS & THUMBNAILS 🧞",
+            title: "AVATARS AND THUMBNAILS 🧞",
             description: "Make your users stand out from the dark",
             hasDocumentation: true
+          },
+          avatars: {
+            sizes: ["huge", "large", "medium", "default", "small", "mini"],
+            complementaries: {
+              huge: [
+                {
+                  src: "/images/medley/mastercard.jpg"
+                },
+                {
+                  src: "/images/medley/visa.jpg"
+                }
+              ],
+              large: [
+                {
+                  src: "/images/medley/paypal.jpg"
+                }
+              ]
+            }
           }
         },
         {
@@ -413,6 +464,12 @@ $c: ".c-index";
 
     // --> SECTIONS <--
 
+    &--avatars {
+      grid-gap: 20px;
+      grid-template-columns: repeat(auto-fill, 100%);
+      margin-bottom: 30px;
+    }
+
     &--colors {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 100px);
@@ -450,7 +507,7 @@ $c: ".c-index";
     }
 
     &--social-auths {
-      grid-gap: 30px;
+      grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 100%);
     }
   }
