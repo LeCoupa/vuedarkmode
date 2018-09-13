@@ -62,12 +62,12 @@
       div(
         v-for="(color, i) in section.buttons.colors"
         :key="'button' + color + i"
-        class="c-index__elements-color"
+        class="c-index__elements-row"
       )
         div(
           v-for="(size, j) in section.buttons.sizes"
           :key="'button' + color + j + size"
-          class="c-index__elements-size"
+          class="c-index__elements-column"
         )
           base-button(
             :circular="circular"
@@ -84,12 +84,12 @@
       div(
         v-for="(color, i) in section.badges.colors"
         :key="'badge' + color + i"
-        class="c-index__elements-color"
+        class="c-index__elements-row"
       )
         div(
           v-for="(size, j) in section.badges.sizes"
           :key="'badge' + color + j + size"
-          class="c-index__elements-size"
+          class="c-index__elements-column"
         )
           base-badge(
             :color="color"
@@ -104,12 +104,12 @@
       div(
         v-for="(network, i) in section.socialAuths.networks"
         :key="'socialAuth' + network + i"
-        class="c-index__elements-color"
+        class="c-index__elements-row"
       )
         div(
           v-for="(size, j) in section.socialAuths.sizes"
           :key="'socialAuth' + network + j + size"
-          class="c-index__elements-size"
+          class="c-index__elements-column"
         )
           base-social-auth(
             :network="network"
@@ -124,12 +124,12 @@
       div(
         v-for="(color, i) in section.dividers.colors"
         :key="'divider' + color + i"
-        class="c-index__elements-color"
+        class="c-index__elements-row"
       )
         div(
           v-for="(size, j) in section.dividers.sizes"
           :key="'divider' + color + j + size"
-          class="c-index__elements-size"
+          class="c-index__elements-column"
         )
           base-divider(
             :color="color"
@@ -144,7 +144,7 @@
       div(
         v-for="(loader, i) in section.loaders"
         :key="'loader' + i"
-        class="c-index__elements-color"
+        class="c-index__elements-row"
       )
         base-loader(
           :color="loader.color"
@@ -164,11 +164,11 @@
         "c-index__elements--vertical-on-mobile"
       ]`
     )
-      .c-index__elements-color
+      .c-index__elements-row
         div(
           v-for="(size, i) in section.avatars.sizes"
           :key="'avatar' + size + i"
-          class="c-index__elements-size"
+          class="c-index__elements-column"
         )
           base-avatar(
             v-if="type === 'avatars'"
@@ -414,8 +414,8 @@ $c: ".c-index";
     display: grid;
     justify-content: center;
 
-    #{$c}__elements-color {
-      #{$c}__elements-size {
+    #{$c}__elements-row {
+      #{$c}__elements-column {
         margin-bottom: 20px;
 
         &:last-of-type {
@@ -427,13 +427,13 @@ $c: ".c-index";
     // --> ORIENTATIONS
 
     &--horizontal {
-      #{$c}__elements-color {
+      #{$c}__elements-row {
         display: flex;
         align-items: center;
         flex-direction: row-reverse;
         justify-content: center;
 
-        #{$c}__elements-size {
+        #{$c}__elements-column {
           display: block;
           margin-right: 10px;
           margin-bottom: 0;
@@ -447,10 +447,10 @@ $c: ".c-index";
 
     &--vertical-on-mobile {
       @include mq($from: mobile, $until: tablet) {
-        #{$c}__elements-color {
+        #{$c}__elements-row {
           display: block;
 
-          #{$c}__elements-size {
+          #{$c}__elements-column {
             margin-right: 0;
             margin-bottom: 20px;
 
