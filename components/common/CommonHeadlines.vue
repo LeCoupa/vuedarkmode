@@ -19,7 +19,7 @@
     @click="showDocumentation"
     :reverse="true"
     size="small"
-    color="white"
+    color="blue"
     class="c-common-headlines__documentation"
   ) Show documentation
 </template>

@@ -138,6 +138,23 @@
           )
 
     div(
+      v-if="section.loaders"
+      class="c-index__elements c-index__elements--loaders"
+    )
+      div(
+        v-for="(loader, i) in section.loaders"
+        :key="'loader' + i"
+        class="c-index__elements-color"
+      )
+        base-loader(
+          :color="loader.color"
+          :labelMain="loader.labelMain"
+          :labelSecondary="loader.labelSecondary"
+          :progress="(i + 1) * 10"
+          class="c-index__loader"
+        )
+
+    div(
       v-if="section.icons"
       class="c-index__icons"
     )
@@ -154,7 +171,7 @@
         v-if="maxIcons !== 1000"
         @click="showIcons"
         :reverse="true"
-        color="blue"
+        color="white"
         size="small"
       ) Show all icons
 
@@ -268,7 +285,39 @@ export default {
             description:
               "From blue to yellow, you’re ready to unlock a great loading experience.",
             hasDocumentation: true
-          }
+          },
+          loaders: [
+            {
+              color: "blue",
+              labelMain: "Loading",
+              labelSecondary: "10%"
+            },
+            {
+              color: "green",
+              labelMain: "Progression",
+              labelSecondary: "20%"
+            },
+            {
+              color: "red",
+              labelMain: "Experience",
+              labelSecondary: "30%"
+            },
+            {
+              color: "orange",
+              labelMain: "XPs until next level",
+              labelSecondary: "2/5"
+            },
+            {
+              color: "black",
+              labelMain: "Remaining Steps",
+              labelSecondary: "5/10"
+            },
+            {
+              color: "white",
+              labelMain: "Completed Steps",
+              labelSecondary: "6/10"
+            }
+          ]
         },
         {
           headlines: {
@@ -393,6 +442,11 @@ $c: ".c-index";
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 24px);
       margin-bottom: 30px;
+    }
+
+    &--loaders {
+      grid-gap: 30px;
+      grid-template-columns: repeat(auto-fill, 80%);
     }
 
     &--social-auths {
