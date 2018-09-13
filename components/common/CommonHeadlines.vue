@@ -5,12 +5,12 @@
 <template lang="pug">
 .c-common-headlines
   base-heading(
-    tag="h2"
+    type="h2"
     class="c-common-headlines__title"
   ) {{ title }}
 
   base-heading(
-    tag="h3"
+    type="h3"
     class="c-common-headlines__description"
   ) {{ description }}
 

@@ -8,7 +8,7 @@ div(
     "c-base-heading",
     "c-base-heading--" + computedColor,
     "c-base-heading--" + computedFontWeight,
-    "c-base-heading--" + tag
+    "c-base-heading--" + type
   ]`
 ): slot
 </template>
@@ -28,7 +28,7 @@ export default {
       type: String,
       default: null
     },
-    tag: {
+    type: {
       type: String,
       required: true
     }
@@ -39,7 +39,7 @@ export default {
       // Directly return prop when defined
       if (this.color) return this.color;
 
-      switch (this.tag) {
+      switch (this.type) {
         case "h1":
           return "white";
         case "h2":
@@ -55,7 +55,7 @@ export default {
       // Directly return prop when defined
       if (this.fontWeight) return this.fontWeight;
 
-      switch (this.tag) {
+      switch (this.type) {
         case "h1":
           return "bold";
         case "h2":
@@ -106,7 +106,7 @@ $c: ".c-base-heading";
     font-family: "Heebo Bold";
   }
 
-  // --> TAGS <--
+  // --> TYPES <--
 
   &--h1 {
     font-size: 26px;

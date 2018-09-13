@@ -10,14 +10,14 @@
   base-divider
 
   base-heading(
-    tag="h1"
+    type="h1"
   ) A MINIMALIST DARK DESIGN SYSTEM FOR VUE.JS
 
   base-heading(
-    tag="h2"
+    type="h2"
     color="grey"
     fontWeight="regular"
-  ) Based components designed for the night crawlers who enjoy dark interfaces as much as we do.
+  ) Based components designed for the night people who enjoy dark interfaces as much as we do.
 
   the-github-buttons(
     class="c-index__github-buttons"
@@ -49,6 +49,9 @@
         :name="color.name"
       )
 
+    common-headings(
+      v-if="section.headings"
+    )
     div(
       v-if="section.buttons"
       v-for="circular in [false, true]"
@@ -221,6 +224,7 @@
 <script>
 // PROJECT
 import CommonColor from "@/components/common/CommonColor";
+import CommonHeadings from "@/components/common/CommonHeadings";
 import CommonHeadlines from "@/components/common/CommonHeadlines";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
@@ -231,6 +235,7 @@ import icons from "@/schemas/icons";
 export default {
   components: {
     CommonColor,
+    CommonHeadings,
     CommonHeadlines,
     TheGithubButtons,
     TheLogo
@@ -257,7 +262,8 @@ export default {
             description:
               "From titles to paragraphs, organizing your content will feel like a breeze",
             hasDocumentation: true
-          }
+          },
+          headings: []
         },
         {
           headlines: {
@@ -354,7 +360,7 @@ export default {
         },
         {
           headlines: {
-            title: "AVATARS AND THUMBNAILS 🧞",
+            title: "AVATARS & COMPANY THUMBNAILS 🧞",
             description: "Make your users stand out from the dark",
             hasDocumentation: true
           },
