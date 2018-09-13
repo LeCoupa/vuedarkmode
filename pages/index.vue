@@ -27,7 +27,7 @@
 
   base-divider(
     color="black"
-    size="big"
+    size="large"
   )
 
   section(
@@ -118,9 +118,29 @@
             class="c-index__social-auth"
           )
 
+    div(
+      v-if="section.dividers"
+      class="c-index__elements c-index__elements--dividers"
+    )
+      div(
+        v-for="(color, i) in section.dividers.colors"
+        :key="'divider' + color + i"
+        class="c-index__elements-color"
+      )
+        div(
+          v-for="(size, j) in section.dividers.sizes"
+          :key="'divider' + color + j + size"
+          class="c-index__elements-size"
+        )
+          base-divider(
+            :color="color"
+            :size="size"
+            class="c-index__divider"
+          )
+
     base-divider(
       color="black"
-      size="big"
+      size="large"
     )
 </template>
 
@@ -297,6 +317,10 @@ export default {
           headlines: {
             title: "DIVIDE AND CONQUER 👨‍💻",
             description: "Small and big, large and thin. We have them all."
+          },
+          dividers: {
+            colors: ["blue", "green", "red", "orange", "black", "white"],
+            sizes: ["large", "small"]
           }
         },
         {
@@ -339,13 +363,10 @@ $c: ".c-index";
 
   #{$c}__elements {
     display: grid;
-    grid-gap: 40px;
     justify-content: center;
 
     #{$c}__elements-color {
       #{$c}__elements-size {
-        display: flex;
-        justify-content: center;
         margin-bottom: 20px;
 
         &:last-of-type {
@@ -375,14 +396,14 @@ $c: ".c-index";
       }
     }
 
-    @include mq($from: mobile, $until: tablet) {
-      &--vertical-on-mobile {
+    &--vertical-on-mobile {
+      @include mq($from: mobile, $until: tablet) {
         #{$c}__elements-color {
           display: block;
 
           #{$c}__elements-size {
-            margin-bottom: 20px;
             margin-right: 0;
+            margin-bottom: 20px;
 
             &:last-of-type {
               margin-bottom: 0;
@@ -400,16 +421,28 @@ $c: ".c-index";
     }
 
     &--buttons {
-      grid-template-columns: repeat(auto-fill, 260px);
+      grid-gap: 40px;
+      grid-template-columns: repeat(auto-fill, 250px);
       margin-bottom: 40px;
     }
 
     &--badges {
-      grid-template-columns: repeat(auto-fill, 410px);
+      grid-gap: 40px;
+      grid-template-columns: repeat(auto-fill, 400px);
+    }
+
+    &--dividers {
+      grid-gap: 20px;
+      grid-template-columns: repeat(auto-fill, 100%);
+
+      #{$c}__divider {
+        margin: 0 auto;
+      }
     }
 
     &--social-auths {
-      grid-gap: 20px;
+      grid-gap: 30px;
+      grid-template-columns: repeat(auto-fill, 100%);
     }
   }
 }

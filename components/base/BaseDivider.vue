@@ -50,7 +50,7 @@ $c: ".c-base-divider";
   }
 
   &--blue {
-    border-top-color: #1991eb;
+    border-top-color: #0093ee;
   }
 
   &--green {
@@ -58,7 +58,7 @@ $c: ".c-base-divider";
   }
 
   &--red {
-    border-top-color: #ff4b64;
+    border-top-color: #e0102b;
   }
 
   &--orange {
@@ -78,7 +78,7 @@ $c: ".c-base-divider";
     border-top-width: 4px;
   }
 
-  &--big {
+  &--large {
     margin: 40px auto;
     max-width: 800px;
     height: 1px;

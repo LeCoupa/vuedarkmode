@@ -57,7 +57,7 @@ html {
 
     #{$c}__inner {
       margin: 0 auto;
-      max-width: 1140px;
+      max-width: 1000px;
     }
   }
 }
