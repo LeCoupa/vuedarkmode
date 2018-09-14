@@ -1,0 +1,14 @@
+/**************************************************************************
+ELEMENTS > HEADINGS
+***************************************************************************/
+
+a {
+  color: #0093ee;
+  text-decoration: none;
+  transition: color ease-in-out 0.2s;
+  font-family: "Heebo Medium";
+
+  &:hover {
+    color: #fafbfc;
+  }
+}

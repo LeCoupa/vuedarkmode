@@ -32,12 +32,15 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// Unclassed HTML elements (e.g. a {}, blockquote {}, address {})
+@import "./assets/elements/inline";
+
 $c: ".l-default";
 
 html {
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 60px 0;
+  padding: 60px 0 40px;
   min-height: 100%;
   background-color: $mirage;
   color: white;

@@ -24,15 +24,16 @@
     repo="awesome-cheatsheets"
     user="lecoupa"
   )
-  base-divider(
-    color="black"
-    size="large"
-  )
   section(
-    v-for="(section, index) in sections"
-    :key="index"
+    v-for="section in sections"
+    :id="section.id"
+    :key="section.id"
     class="c-index__section"
   )
+    base-divider(
+      color="black"
+      size="large"
+    )
     common-headlines(
       :title="section.headlines.title"
       :hasDocumentation="section.headlines.hasDocumentation"
@@ -210,11 +211,6 @@
         color="white"
         size="small"
       ) Show all icons
-
-    base-divider(
-      color="black"
-      size="large"
-    )
 </template>
 
 <!-- *************************************************************************
@@ -249,6 +245,7 @@ export default {
       // --> COMPONENTS <--
       sections: [
         {
+          id: "colors",
           headlines: {
             title: "COLORS FOR THE FANCIEST DARK PAINTERS 👨‍🎨",
             description: "Gather all colors here in a beautiful way",
@@ -257,6 +254,7 @@ export default {
           colors: colors
         },
         {
+          id: "headings",
           headlines: {
             title: "HEADINGS LIKE YOU HAVE NEVER SEEN 😎",
             description:
@@ -266,6 +264,7 @@ export default {
           headings: []
         },
         {
+          id: "buttons",
           headlines: {
             title: "BUTTONS AND BADGES TO RULE THEM ALL 🤴",
             description:
@@ -290,6 +289,7 @@ export default {
           }
         },
         {
+          id: "socialLogins",
           headlines: {
             title: "INCREASE YOUR CONVERSION RATE WITH SOCIAL LOGINS 🤩",
             description: "Time is precious and we are in 2018.",
@@ -301,6 +301,7 @@ export default {
           }
         },
         {
+          id: "form",
           headlines: {
             title: "BUILDING FORMS HAS NEVER BEEN THIS DELICIOUS 😋",
             description: "With all these form elements",
@@ -308,6 +309,7 @@ export default {
           }
         },
         {
+          id: "dividers",
           headlines: {
             title: "DIVIDE AND CONQUER 👨‍💻",
             description: "Small and large, big and thin. We have them all.",
@@ -319,6 +321,7 @@ export default {
           }
         },
         {
+          id: "loaders",
           headlines: {
             title: "DON’T MAKE THEM WAIT TOO LONG… 😉",
             description:
@@ -359,6 +362,7 @@ export default {
           ]
         },
         {
+          id: "avatars",
           headlines: {
             title: "AVATARS & COMPANY THUMBNAILS 🧞",
             description: "Make your users stand out from the dark",
@@ -384,6 +388,7 @@ export default {
           }
         },
         {
+          id: "icons",
           headlines: {
             title: "900+ ICONS FROM MATERIAL DESIGN 👻",
             description:

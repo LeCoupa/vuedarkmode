@@ -73,7 +73,7 @@
     span.c-common-headings__type
       base-heading(
         type="p"
-      ) Paragraph Style - Dashboard doesn't currently offer two-way syncing features like version merging or version conflict resolution...
+      ) Paragraph Style - Dashboard doesn't currently offer two-way syncing features like version...
 
     span.c-common-headings__font-weight Heebo Regular
 
@@ -88,7 +88,10 @@
       )
 
   .c-common-headings__row.c-common-headings__row--body
-    span.c-common-headings__type Link Style
+    span.c-common-headings__type
+      a(
+        href="#headings"
+      ) Link Style
 
     span.c-common-headings__font-weight.c-common-headings__font-weight--medium Heebo Medium
 
@@ -103,7 +106,7 @@
       )
       span(
         class="c-common-headings__color"
-        style="background-color: #0079C4;"
+        style="background-color: #fafbfc;"
       )
 </template>
 
@@ -128,7 +131,6 @@ $c: ".c-common-headings";
   #{$c}__row {
     display: flex;
     align-items: center;
-    padding: 15px 0;
     color: $white;
 
     &:last-of-type {
@@ -174,14 +176,19 @@ $c: ".c-common-headings";
 
       #{$c}__color {
         display: inline-block;
-        margin-right: 16px;
+        margin-right: 10px;
         width: 40px;
         height: 40px;
         border-radius: 4px;
+        box-shadow: 0 1px 5px 0 rgba(#171819, 0.6);
 
         &:last-of-type {
           margin-right: 0;
         }
+      }
+
+      @include mq($until: tablet) {
+        display: none;
       }
     }
 
@@ -191,12 +198,14 @@ $c: ".c-common-headings";
       padding-bottom: 20px;
       color: #8dabc4;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 14px;
       font-family: "Heebo Bold";
       user-select: none;
     }
 
     &--body {
+      padding: 10px 0;
+
       &:nth-of-type(odd) {
         border: 1px solid #313d4f;
         border-radius: 4px;
