@@ -137,7 +137,7 @@
           class="c-index__item"
         )
           base-input(
-            :id="size"
+            :id="size + ' '  + status"
             :label="size + ' input (' + status + ')'"
             :placeholder="status + ' ' + size + ' input'"
             :size="size"

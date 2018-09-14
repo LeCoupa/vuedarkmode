@@ -7,6 +7,7 @@
 label(
   :class=`[
     "c-base-label",
+    "c-base-label--" + size,
     {
       "c-base-label--uppercase": uppercase
     }
@@ -54,7 +55,7 @@ $sizes: mini, small, default, medium, large;
   display: inline-block;
   margin-bottom: 8px;
   color: #a8c6df;
-  font-weight: "Heboo Bold";
+  font-family: "Heebo Medium";
   cursor: pointer;
 
   // --> SIZES <--

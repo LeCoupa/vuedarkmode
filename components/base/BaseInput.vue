@@ -17,6 +17,7 @@ div(
   base-label(
     v-if="label"
     :forField="id"
+    :size="size"
     class="c-base-input__label"
   ) {{ label }}
 
