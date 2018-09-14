@@ -34,7 +34,7 @@
       color="black"
       size="large"
     )
-    common-headlines(
+    knowledge-headlines(
       :title="section.headlines.title"
       :hasDocumentation="section.headlines.hasDocumentation"
       :description="section.headlines.description"
@@ -43,14 +43,14 @@
       v-if="section.colors"
       class="c-index__elements c-index__elements--colors"
     )
-      common-color(
+      knowledge-color(
         v-for="color in section.colors"
         :hex="color.hex"
         :key="color.hex"
         :name="color.name"
       )
 
-    common-headings(
+    knowledge-headings(
       v-if="section.headings"
     )
     div(
@@ -219,9 +219,9 @@
 
 <script>
 // PROJECT
-import CommonColor from "@/components/common/CommonColor";
-import CommonHeadings from "@/components/common/CommonHeadings";
-import CommonHeadlines from "@/components/common/CommonHeadlines";
+import KnowledgeColor from "@/components/knowledge/KnowledgeColor";
+import KnowledgeHeadings from "@/components/knowledge/KnowledgeHeadings";
+import KnowledgeHeadlines from "@/components/knowledge/KnowledgeHeadlines";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
 
@@ -230,9 +230,9 @@ import icons from "@/schemas/icons";
 
 export default {
   components: {
-    CommonColor,
-    CommonHeadings,
-    CommonHeadlines,
+    KnowledgeColor,
+    KnowledgeHeadings,
+    KnowledgeHeadlines,
     TheGithubButtons,
     TheLogo
   },
@@ -392,7 +392,7 @@ export default {
           headlines: {
             title: "900+ ICONS FROM MATERIAL DESIGN 👻",
             description:
-              "Material icons are delightful, beautifully crafted symbols for common actions and items.",
+              "Material icons are delightful, beautifully crafted symbols for knowledge actions and items.",
             hasDocumentation: true
           },
           icons: icons

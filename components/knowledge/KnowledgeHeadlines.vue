@@ -3,15 +3,15 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-common-headlines
+.c-knowledge-headlines
   base-heading(
     type="h2"
-    class="c-common-headlines__title"
+    class="c-knowledge-headlines__title"
   ) {{ title }}
 
   base-heading(
     type="h3"
-    class="c-common-headlines__description"
+    class="c-knowledge-headlines__description"
   ) {{ description }}
 
   base-button(
@@ -20,7 +20,7 @@
     :reverse="true"
     size="small"
     color="blue"
-    class="c-common-headlines__documentation"
+    class="c-knowledge-headlines__documentation"
   ) {{ documentationVisible ? "Hide" : "Show" }} documentation
 </template>
 
@@ -66,7 +66,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-common-headlines";
+$c: ".c-knowledge-headlines";
 
 #{$c} {
   margin-bottom: 40px;
