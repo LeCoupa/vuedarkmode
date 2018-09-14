@@ -121,7 +121,7 @@ $c: ".c-base-loader";
   &--green {
     #{$c}__bar,
     #{$c}__progress {
-      background-color: #81c926;
+      background-color: #1bb934;
     }
   }
 

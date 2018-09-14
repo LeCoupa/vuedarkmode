@@ -54,7 +54,7 @@ $c: ".c-base-divider";
   }
 
   &--green {
-    border-top-color: #81c926;
+    border-top-color: #1bb934;
   }
 
   &--red {

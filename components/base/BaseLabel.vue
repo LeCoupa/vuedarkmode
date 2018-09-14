@@ -2,77 +2,60 @@
      TEMPLATE
      ************************************************************************* -->
 
+
 <template lang="pug">
-span(
+label(
   :class=`[
-    "c-base-badge",
-    "c-base-badge--" + color,
-    "c-base-badge--" + size
+    "c-base-label",
+    {
+      "c-base-label--uppercase": uppercase
+    }
   ]`
+  :for="forField"
 ): slot
 </template>
+
 
 <!-- *************************************************************************
      SCRIPT
      ************************************************************************* -->
 
+
 <script>
 export default {
   props: {
-    color: {
+    forField: {
       type: String,
-      default: "blue"
+      required: true
     },
     size: {
       type: String,
-      default: "default"
+      required: true
+    },
+    uppercase: {
+      type: Boolean,
+      default: true
     }
   }
 };
 </script>
 
+
 <!-- *************************************************************************
      STYLE
      ************************************************************************* -->
 
+
 <style lang="scss">
-$c: ".c-base-badge";
+$c: ".c-base-label";
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
   display: inline-block;
-  border-width: 1px;
-  border-style: solid;
-  text-transform: uppercase;
-  border-radius: 100px;
-  user-select: none;
-  color: $white;
-
-  // --> COLORS <--
-
-  &--black {
-    border-color: #313d4f;
-  }
-
-  &--blue {
-    border-color: #0093ee;
-  }
-
-  &--green {
-    border-color: #1bb934;
-  }
-
-  &--red {
-    border-color: #e0102b;
-  }
-
-  &--orange {
-    border-color: #faca00;
-  }
-
-  &--white {
-    border-color: $white;
-  }
+  margin-bottom: 8px;
+  color: #a8c6df;
+  font-weight: "Heboo Bold";
+  cursor: pointer;
 
   // --> SIZES <--
 
@@ -80,10 +63,14 @@ $sizes: mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      padding: 0 (10px + 1px * $i);
-      font-size: 12 + (1px * $i);
-      line-height: 20px + (2px * $i);
+      font-size: 12px + (1px * $i);
     }
+  }
+
+  // --> BOOLEANS <--
+
+  &--uppercase {
+    text-transform: uppercase;
   }
 }
 </style>

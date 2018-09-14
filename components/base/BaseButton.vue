@@ -262,10 +262,10 @@ $sizes: mini, small, default, medium, large;
     }
 
     &#{$c}--green {
-      border-color: #81c926;
+      border-color: #1bb934;
 
       &:active {
-        color: #81c926;
+        color: #1bb934;
       }
     }
 

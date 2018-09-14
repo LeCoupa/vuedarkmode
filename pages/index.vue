@@ -66,12 +66,12 @@
       div(
         v-for="(color, i) in section.buttons.colors"
         :key="'button' + color + i"
-        class="c-index__elements-row"
+        class="c-index__category"
       )
         div(
           v-for="(size, j) in section.buttons.sizes"
           :key="'button' + color + j + size"
-          class="c-index__elements-column"
+          class="c-index__item"
         )
           base-button(
             :circular="circular"
@@ -88,12 +88,12 @@
       div(
         v-for="(color, i) in section.badges.colors"
         :key="'badge' + color + i"
-        class="c-index__elements-row"
+        class="c-index__category"
       )
         div(
           v-for="(size, j) in section.badges.sizes"
           :key="'badge' + color + j + size"
-          class="c-index__elements-column"
+          class="c-index__item"
         )
           base-badge(
             :color="color"
@@ -108,17 +108,42 @@
       div(
         v-for="(network, i) in section.socialAuths.networks"
         :key="'socialAuth' + network + i"
-        class="c-index__elements-row"
+        class="c-index__category"
       )
         div(
           v-for="(size, j) in section.socialAuths.sizes"
           :key="'socialAuth' + network + j + size"
-          class="c-index__elements-column"
+          class="c-index__item"
         )
           base-social-auth(
             :network="network"
             :size="size"
             class="c-index__social-auth"
+          )
+
+    div(
+      v-if="section.form"
+      v-for="type in ['inputs']"
+      class="c-index__elements c-index__elements--form"
+    )
+      div(
+        v-for="(status, i) in section.form[type].statuses"
+        :key="'button' + status + i"
+        class="c-index__category"
+      )
+        div(
+          v-for="(size, j) in section.form.inputs.sizes"
+          :key="'button' + status + j + size"
+          class="c-index__item"
+        )
+          base-input(
+            :id="size"
+            :label="size + ' input (' + status + ')'"
+            :placeholder="status + ' ' + size + ' input'"
+            :size="size"
+            :status="status"
+            :value="status === 'empty' ? null : 'Dark Mode FTW'"
+            class="c-index__input"
           )
 
     div(
@@ -128,12 +153,12 @@
       div(
         v-for="(color, i) in section.dividers.colors"
         :key="'divider' + color + i"
-        class="c-index__elements-row"
+        class="c-index__category"
       )
         div(
           v-for="(size, j) in section.dividers.sizes"
           :key="'divider' + color + j + size"
-          class="c-index__elements-column"
+          class="c-index__item"
         )
           base-divider(
             :color="color"
@@ -148,7 +173,7 @@
       div(
         v-for="(loader, i) in section.loaders"
         :key="'loader' + i"
-        class="c-index__elements-row"
+        class="c-index__category"
       )
         base-loader(
           :color="loader.color"
@@ -168,11 +193,11 @@
         "c-index__elements--vertical-on-mobile"
       ]`
     )
-      .c-index__elements-row
+      .c-index__category
         div(
           v-for="(size, i) in section.avatars.sizes"
           :key="'avatar' + size + i"
-          class="c-index__elements-column"
+          class="c-index__item"
         )
           base-avatar(
             v-if="type === 'avatars'"
@@ -306,6 +331,12 @@ export default {
             title: "BUILDING FORMS HAS NEVER BEEN THIS DELICIOUS 😋",
             description: "With all these form elements",
             hasDocumentation: true
+          },
+          form: {
+            inputs: {
+              sizes: ["large", "medium", "default", "small", "mini"],
+              statuses: ["empty", "filled", "selected", "error", "success"]
+            }
           }
         },
         {
@@ -425,8 +456,8 @@ $c: ".c-index";
     display: grid;
     justify-content: center;
 
-    #{$c}__elements-row {
-      #{$c}__elements-column {
+    #{$c}__category {
+      #{$c}__item {
         margin-bottom: 20px;
 
         &:last-of-type {
@@ -438,13 +469,13 @@ $c: ".c-index";
     // --> ORIENTATIONS
 
     &--horizontal {
-      #{$c}__elements-row {
+      #{$c}__category {
         display: flex;
         align-items: center;
         flex-direction: row-reverse;
         justify-content: center;
 
-        #{$c}__elements-column {
+        #{$c}__item {
           display: block;
           margin-right: 10px;
           margin-bottom: 0;
@@ -458,10 +489,10 @@ $c: ".c-index";
 
     &--vertical-on-mobile {
       @include mq($from: mobile, $until: tablet) {
-        #{$c}__elements-row {
+        #{$c}__category {
           display: block;
 
-          #{$c}__elements-column {
+          #{$c}__item {
             margin-right: 0;
             margin-bottom: 20px;
 
@@ -503,6 +534,18 @@ $c: ".c-index";
 
       #{$c}__divider {
         margin: 0 auto;
+      }
+    }
+
+    &--form {
+      grid-gap: 40px;
+      grid-template-columns: repeat(auto-fill, 250px);
+      margin-bottom: 40px;
+
+      #{$c}__input {
+        input::placeholder {
+          text-transform: capitalize;
+        }
       }
     }
 
