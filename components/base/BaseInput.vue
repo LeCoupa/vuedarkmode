@@ -7,9 +7,11 @@ div(
   :class=`[
     'c-base-input',
     'c-base-input--' + size,
-    'c-base-input--' + status,
+    'c-base-input--' + computedStatus,
     {
       'c-base-input--block': block,
+      'c-base-input--left-icon': leftIcon,
+      'c-base-input--right-icon': rightIcon,
       'c-base-input--rounded': rounded
     }
   ]`
@@ -22,7 +24,15 @@ div(
   ) {{ label }}
 
   .c-base-input__container
+    base-icon(
+      v-if="leftIcon"
+      :name="leftIcon"
+      color="white"
+      class="c-base-input__left-icon"
+    )
     input(
+      @blur="onBlur"
+      @focus="onFocus"
       @keyup="onKeyUp"
       :autocomplete="autocomplete"
       :disabled="disabled"
@@ -31,6 +41,12 @@ div(
       :type="type"
       :value="value"
       class="c-base-input__field"
+    )
+    base-icon(
+      v-if="rightIcon"
+      :name="rightIcon"
+      color="white"
+      class="c-base-input__right-icon"
     )
 </template>
 
@@ -61,7 +77,15 @@ export default {
       type: String,
       default: null
     },
+    leftIcon: {
+      type: String,
+      default: null
+    },
     placeholder: {
+      type: String,
+      default: null
+    },
+    rightIcon: {
       type: String,
       default: null
     },
@@ -87,7 +111,29 @@ export default {
     }
   },
 
+  data() {
+    return {
+      // --> STATE <--
+      focus: false
+    };
+  },
+
+  computed: {
+    computedStatus() {
+      // Return the status when defined as prop
+      if (this.focus) {
+        return "focus";
+      } else if (this.status) {
+        return this.status;
+      }
+    }
+  },
+
   methods: {
+    onBlur() {
+      this.focus = false;
+    },
+
     onKeyUp(event) {
       let value = event.target.value || "";
 
@@ -96,6 +142,10 @@ export default {
       }
 
       this.$emit("keyup", this.id, value);
+    },
+
+    onFocus() {
+      this.focus = true;
     }
   }
 };
@@ -115,12 +165,22 @@ $sizes: mini, small, default, medium, large;
   #{$c}__container {
     display: flex;
     align-items: center;
+    box-sizing: border-box;
+    border: 1px solid #313d4f;
+    border-radius: 6px;
+    background-color: #273142;
+    transition: border-color ease-in-out 0.2s;
+
+    &:focus {
+      border-color: #0093ee;
+    }
 
     #{$c}__field {
       flex: 1;
-      border: 1px solid #313d4f;
-      border-radius: 6px;
-      background-color: #273142;
+      height: 100%;
+      padding: 0 15px;
+      border: none;
+      background-color: transparent;
       color: $white;
 
       &::placeholder {
@@ -140,11 +200,10 @@ $sizes: mini, small, default, medium, large;
 
     &--#{$size} {
       #{$c}__container {
+        height: 34px + (4px * $i);
+        border-radius: 4px + (1px * $i);
+
         #{$c}__field {
-          box-sizing: border-box;
-          padding: 0 15px;
-          height: 34px + (4px * $i);
-          border-radius: 4px + (1px * $i);
           font-size: 12px + (1px * $i);
         }
       }
@@ -155,25 +214,19 @@ $sizes: mini, small, default, medium, large;
 
   &--error {
     #{$c}__container {
-      #{$c}__field {
-        border-color: #e0102b;
-      }
+      border-color: #e0102b;
     }
   }
 
-  &--selected {
+  &--focus {
     #{$c}__container {
-      #{$c}__field {
-        border-color: #0093ee;
-      }
+      border-color: #0093ee;
     }
   }
 
   &--success {
     #{$c}__container {
-      #{$c}__field {
-        border-color: #1bb934;
-      }
+      border-color: #1bb934;
     }
   }
 
@@ -182,20 +235,21 @@ $sizes: mini, small, default, medium, large;
   &--block {
     width: 100%;
 
+    #{$c}__label {
+      width: 100%;
+    }
+
     #{$c}__container {
-      #{$c}__field {
-        display: block;
-        width: 100%;
-      }
+      width: 100%;
     }
   }
 
   &--rounded {
     #{$c}__container {
-      #{$c}__field {
-        border-radius: 40px;
-      }
+      border-radius: 40px;
     }
   }
+
+  // --> INTERACTIONS <--
 }
 </style>

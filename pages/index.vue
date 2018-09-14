@@ -335,7 +335,7 @@ export default {
           form: {
             inputs: {
               sizes: ["large", "medium", "default", "small", "mini"],
-              statuses: ["empty", "filled", "selected", "error", "success"]
+              statuses: ["empty", "fill", "focus", "error", "success"]
             }
           }
         },
