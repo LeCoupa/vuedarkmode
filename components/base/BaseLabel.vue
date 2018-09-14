@@ -53,7 +53,7 @@ $sizes: mini, small, default, medium, large;
 
 #{$c} {
   display: inline-block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   color: #a8c6df;
   font-family: "Heebo Medium";
   cursor: pointer;

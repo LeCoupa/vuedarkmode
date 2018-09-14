@@ -10,8 +10,7 @@ div(
     'c-base-input--' + computedStatus,
     {
       'c-base-input--block': block,
-      'c-base-input--left-icon': leftIcon,
-      'c-base-input--right-icon': rightIcon,
+      'c-base-input--with-icon': leftIcon || rightIcon,
       'c-base-input--rounded': rounded
     }
   ]`
@@ -23,17 +22,19 @@ div(
     class="c-base-input__label"
   ) {{ label }}
 
-  .c-base-input__container
+  div(
+    @click="onContainerClick"
+    class="c-base-input__container"
+  )
     base-icon(
       v-if="leftIcon"
       :name="leftIcon"
-      color="white"
-      class="c-base-input__left-icon"
+      class="c-base-input__icon c-base-input__icon--left"
     )
     input(
-      @blur="onBlur"
-      @focus="onFocus"
-      @keyup="onKeyUp"
+      @blur="onInputBlur"
+      @focus="onInputFocus"
+      @keyup="onInputKeyUp"
       :autocomplete="autocomplete"
       :disabled="disabled"
       :id="id"
@@ -43,10 +44,9 @@ div(
       class="c-base-input__field"
     )
     base-icon(
-      v-if="rightIcon"
-      :name="rightIcon"
-      color="white"
-      class="c-base-input__right-icon"
+      v-if="computedRightIcon"
+      :name="computedRightIcon"
+      class="c-base-input__icon c-base-input__icon--right"
     )
 </template>
 
@@ -119,6 +119,17 @@ export default {
   },
 
   computed: {
+    computedRightIcon() {
+      // Return the status when defined as prop
+      if (this.status === "error") {
+        return "close";
+      } else if (this.status === "success") {
+        return "check";
+      } else if (this.rightIcon) {
+        return this.rightIcon;
+      }
+    },
+
     computedStatus() {
       // Return the status when defined as prop
       if (this.focus) {
@@ -130,11 +141,15 @@ export default {
   },
 
   methods: {
-    onBlur() {
+    onContainerClick() {
+      this.$el.querySelector("input").focus();
+    },
+
+    onInputBlur() {
       this.focus = false;
     },
 
-    onKeyUp(event) {
+    onInputKeyUp(event) {
       let value = event.target.value || "";
 
       if (value && this.type === "number") {
@@ -144,7 +159,7 @@ export default {
       this.$emit("keyup", this.id, value);
     },
 
-    onFocus() {
+    onInputFocus() {
       this.focus = true;
     }
   }
@@ -169,16 +184,30 @@ $sizes: mini, small, default, medium, large;
     border: 1px solid #313d4f;
     border-radius: 6px;
     background-color: #273142;
-    transition: border-color ease-in-out 0.2s;
+    transition: all ease-in-out 0.2s;
 
-    &:focus {
-      border-color: #0093ee;
+    &:hover {
+      cursor: text;
+    }
+
+    #{$c}__icon {
+      flex: 0 0 auto;
+
+      &--left {
+        margin-right: 5px;
+        margin-left: 9px;
+      }
+
+      &--right {
+        margin-right: 9px;
+        margin-left: 5px;
+      }
     }
 
     #{$c}__field {
       flex: 1;
-      height: 100%;
       padding: 0 15px;
+      height: 100%;
       border: none;
       background-color: transparent;
       color: $white;
@@ -203,6 +232,11 @@ $sizes: mini, small, default, medium, large;
         height: 34px + (4px * $i);
         border-radius: 4px + (1px * $i);
 
+        #{$c}__icon {
+          // Will override the font-size set in style attribute
+          font-size: 16px + (1px * $i) !important;
+        }
+
         #{$c}__field {
           font-size: 12px + (1px * $i);
         }
@@ -215,18 +249,21 @@ $sizes: mini, small, default, medium, large;
   &--error {
     #{$c}__container {
       border-color: #e0102b;
+      color: #e0102b;
     }
   }
 
   &--focus {
     #{$c}__container {
       border-color: #0093ee;
+      color: #0093ee;
     }
   }
 
   &--success {
     #{$c}__container {
       border-color: #1bb934;
+      color: #1bb934;
     }
   }
 
@@ -235,10 +272,7 @@ $sizes: mini, small, default, medium, large;
   &--block {
     width: 100%;
 
-    #{$c}__label {
-      width: 100%;
-    }
-
+    #{$c}__label,
     #{$c}__container {
       width: 100%;
     }
@@ -250,6 +284,12 @@ $sizes: mini, small, default, medium, large;
     }
   }
 
-  // --> INTERACTIONS <--
+  &--with-icon {
+    #{$c}__container {
+      #{$c}__field {
+        padding: 0;
+      }
+    }
+  }
 }
 </style>
