@@ -346,7 +346,14 @@ export default {
           form: {
             inputs: {
               sizes: ["large", "medium", "default", "small", "mini"],
-              statuses: ["empty", "fill", "focus", "error", "success"]
+              statuses: [
+                "empty",
+                "fill",
+                "focus",
+                "success",
+                "error",
+                "warning"
+              ]
             },
             textareas: {
               sizes: ["large", "medium", "default", "small", "mini"],

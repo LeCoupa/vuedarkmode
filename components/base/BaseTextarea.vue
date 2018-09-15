@@ -77,9 +77,9 @@ export default {
       // Return the status when defined as prop
       if (this.focus) {
         return "focus";
-      } else if (this.status) {
-        return this.status;
       }
+
+      return this.status;
     }
   },
 

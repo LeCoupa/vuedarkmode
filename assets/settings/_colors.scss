@@ -3,7 +3,7 @@
    To get the color name: http://veli.ee/colorpedia/?c=354052
    ************************************************************************** */
 
-// Black
+// BLACK
 
 $black: #000000;
 $ebony-clay: #222c3c;
@@ -12,37 +12,37 @@ $mirage: #1b2431;
 $oxford-blue: #313d4f;
 $woodsmoke: #171819;
 
-// Blue
+// BLUE
 
 $azure-radiance: #0093ee;
 $dodger-blue: #2da1f8;
 
-// Green
+// GREEN
 
 $apple: #4ece3d;
 $malachite: #1bb934;
 
-// Grey
+// GREY
 
 $nepal: #8dabc4;
 $regent-st-blue: #a8c6df;
 
-// Orange
+// ORANGE
 
 $sunglow: #ffc82e;
 $supernova: #faca00;
 
-// Red
+// RED
 
 $cinnabar: #e44023;
 $crimson: #e0102b;
 
-// White
+// WHITE
 
 $athens-gray: #fafbfc;
 $white: #ffffff;
 
-// Social
+// SOCIAL
 
 $facebook: #3b5998;
 $google: #db4437;
@@ -70,5 +70,6 @@ $socialColors: (
 $statusColors: (
   error: $crimson,
   focus: $azure-radiance,
-  success: $malachite
+  success: $malachite,
+  warning: $supernova
 );

@@ -129,18 +129,20 @@ export default {
         return "close";
       } else if (this.status === "success") {
         return "check";
-      } else if (this.rightIcon) {
-        return this.rightIcon;
+      } else if (this.status === "warning") {
+        return "warning";
       }
+
+      return this.rightIcon;
     },
 
     computedStatus() {
       // Return the status when defined as prop
       if (this.focus) {
         return "focus";
-      } else if (this.status) {
-        return this.status;
       }
+
+      return this.status;
     }
   },
 
@@ -187,7 +189,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-input";
 $sizes: mini, small, default, medium, large;
-$statuses: error, focus, success;
+$statuses: error, focus, success, warning;
 
 #{$c} {
   display: flex;
