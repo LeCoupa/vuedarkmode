@@ -136,8 +136,8 @@ export default {
   },
 
   methods: {
-    getInputValue(event) {
-      let value = event.target.value || "";
+    getInputValue() {
+      let value = this.$el.querySelector("input").value || "";
 
       if (value && this.type === "number") {
         value = parseInt(value);
