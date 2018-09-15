@@ -17,11 +17,11 @@ button(
   span.c-base-social-auth__inner
     span.c-base-social-auth__icon
 
-    span.c-base-social-auth__label
-      span(
-        v-if="['small', 'large'].includes(size)"
-        class="c-base-social-auth__action"
-      ) {{ computedAction }}
+    span(
+      v-if="['small', 'large'].includes(size)"
+      class="c-base-social-auth__label"
+    )
+      span.c-base-social-auth__action {{ computedAction }}
 
       span(
         v-if="['large'].includes(size)"
@@ -96,11 +96,10 @@ export default {
 $c: ".c-base-social-auth";
 $iconPath: "/images/components/base/BaseSocialLogin";
 $networks: facebook, google, messenger, twitter;
+$sizes: mini, small, large;
 
 #{$c} {
   display: inline-block;
-  padding-top: 10px;
-  padding-bottom: 10px;
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 4px;
@@ -116,12 +115,12 @@ $networks: facebook, google, messenger, twitter;
 
     #{$c}__icon {
       display: inline-block;
-      margin-right: 8px;
       width: 20px;
       height: 20px;
     }
 
     #{$c}__label {
+      margin-left: 8px;
       font-size: 15px;
       font-family: "Heebo Medium";
       line-height: 20px;
@@ -148,21 +147,12 @@ $networks: facebook, google, messenger, twitter;
 
   // --> SIZES <--
 
-  &--mini {
-    padding-right: 10px;
-    padding-left: 10px;
+  @each $size in $sizes {
+    $i: index($sizes, $size) - 1;
 
-    #{$c}__inner {
-      #{$c}__icon {
-        margin-right: 0;
-      }
+    &--#{$size} {
+      padding: 10px (10px + 20px * $i);
     }
-  }
-
-  &--small,
-  &--large {
-    padding-right: 40px;
-    padding-left: 40px;
   }
 
   // --> BOOLEANS <--
