@@ -132,12 +132,12 @@
     )
       div(
         v-for="(statuses, i) in section.form.inputs.statuses"
-        :key="types + ' ' + i"
+        :key="type + ' ' + i"
         class="c-index__category"
       )
         div(
           v-for="(size, j) in section.form.inputs.sizes"
-          :key="types + ' ' + i + ' ' + j"
+          :key="type + ' ' + i + ' ' + j"
           class="c-index__item"
         )
           base-input(
@@ -605,7 +605,7 @@ $c: ".c-index";
 
     &--inputs {
       grid-gap: 40px;
-      grid-template-columns: repeat(auto-fill, 400px);
+      grid-template-columns: repeat(auto-fill, 360px);
       margin-bottom: 40px;
     }
 
@@ -621,7 +621,7 @@ $c: ".c-index";
 
     &--textareas {
       grid-gap: 40px;
-      grid-template-columns: repeat(auto-fill, 400px);
+      grid-template-columns: repeat(auto-fill, 360px);
       margin-bottom: 40px;
     }
   }

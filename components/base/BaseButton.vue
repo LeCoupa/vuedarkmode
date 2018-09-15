@@ -139,9 +139,17 @@ $sizes: mini, small, default, medium, large;
   background-color: transparent; // Chrome displays white borders sometimes
   color: $white;
   font-family: "Heebo Medium";
-  transition: all ease-in-out 250ms;
+  transition: all ease-in-out 200ms;
   user-select: none;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 
   &:disabled {
     cursor: not-allowed;

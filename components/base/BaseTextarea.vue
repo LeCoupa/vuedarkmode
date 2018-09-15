@@ -172,7 +172,7 @@ $statuses: error, focused, success, warning;
       #{$c}__field {
         border-radius: 4px + (1px * $i);
         font-size: 12px + (1px * $i);
-        min-height: 80px + (20px * $i);
+        min-height: 60px + (20px * $i);
       }
     }
   }
