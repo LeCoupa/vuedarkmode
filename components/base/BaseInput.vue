@@ -9,7 +9,6 @@ div(
     'c-base-input--' + size,
     'c-base-input--' + computedStatus,
     {
-      'c-base-input--block': block,
       'c-base-input--with-icon': leftIcon || rightIcon,
       'c-base-input--rounded': rounded
     }
@@ -60,10 +59,6 @@ export default {
     autocomplete: {
       type: String,
       default: "off"
-    },
-    block: {
-      type: Boolean,
-      default: true
     },
     disabled: {
       type: Boolean,
@@ -141,26 +136,36 @@ export default {
   },
 
   methods: {
-    onContainerClick() {
-      this.$el.querySelector("input").focus();
-    },
-
-    onInputBlur() {
-      this.focus = false;
-    },
-
-    onInputKeyUp(event) {
+    getInputValue(event) {
       let value = event.target.value || "";
 
       if (value && this.type === "number") {
         value = parseInt(value);
       }
 
-      this.$emit("keyup", this.id, value);
+      return value;
+    },
+
+    onContainerClick() {
+      this.$el.querySelector("input").focus();
+
+      this.$emit("click", this.id, this.getInputValue());
+    },
+
+    onInputBlur() {
+      this.focus = false;
+
+      this.$emit("blur", this.id, this.getInputValue());
+    },
+
+    onInputKeyUp() {
+      this.$emit("keyup", this.id, this.getInputValue());
     },
 
     onInputFocus() {
       this.focus = true;
+
+      this.$emit("focus", this.id, this.getInputValue());
     }
   }
 };
@@ -175,6 +180,8 @@ $c: ".c-base-input";
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
+  display: flex;
+  flex-direction: column;
   text-align: left;
 
   #{$c}__container {
@@ -268,15 +275,6 @@ $sizes: mini, small, default, medium, large;
   }
 
   // --> BOOLEANS <--
-
-  &--block {
-    width: 100%;
-
-    #{$c}__label,
-    #{$c}__container {
-      width: 100%;
-    }
-  }
 
   &--rounded {
     #{$c}__container {
