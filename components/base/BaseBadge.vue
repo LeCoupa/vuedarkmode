@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss">
 $c: ".c-base-badge";
-$colors: black, blue, green, red, orange, white;
+$colors: black, blue, green, orange, purple, red, turquoise, white;
 $sizes: mini, small, default, medium, large;
 
 #{$c} {

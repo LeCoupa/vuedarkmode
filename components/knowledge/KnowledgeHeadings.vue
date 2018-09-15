@@ -142,7 +142,7 @@ $c: ".c-knowledge-headings";
     }
 
     #{$c}__type {
-      flex: 3;
+      flex: 2;
       padding-left: 20px;
 
       > * {

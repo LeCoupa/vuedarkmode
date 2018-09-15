@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss">
 $c: ".c-base-divider";
-$colors: black, blue, green, red, orange, white;
+$colors: black, blue, green, orange, purple, red, turquoise, white;
 
 #{$c} {
   display: block;

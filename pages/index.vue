@@ -320,7 +320,16 @@ export default {
             sizes: ["large", "medium", "default", "small", "mini"]
           },
           badges: {
-            colors: ["blue", "green", "red", "orange", "black", "white"],
+            colors: [
+              "blue",
+              "green",
+              "red",
+              "orange",
+              "turquoise",
+              "purple",
+              "black",
+              "white"
+            ],
             sizes: ["large", "medium", "default", "small", "mini"]
           }
         },
@@ -333,7 +342,7 @@ export default {
           },
           socialAuths: {
             networks: ["facebook", "messenger", "twitter", "google"],
-            sizes: ["mini", "small", "large"]
+            sizes: ["large", "small", "mini"]
           }
         },
         {
@@ -369,7 +378,16 @@ export default {
             hasDocumentation: true
           },
           dividers: {
-            colors: ["blue", "green", "red", "orange", "black", "white"],
+            colors: [
+              "blue",
+              "green",
+              "red",
+              "orange",
+              "turquoise",
+              "purple",
+              "black",
+              "white"
+            ],
             sizes: ["large", "small"]
           }
         },
@@ -403,14 +421,24 @@ export default {
               labelSecondary: "2/5"
             },
             {
+              color: "turquoise",
+              labelMain: "XPs until next level",
+              labelSecondary: "5/10"
+            },
+            {
+              color: "purple",
+              labelMain: "XPs until next level",
+              labelSecondary: "6/10"
+            },
+            {
               color: "black",
               labelMain: "Remaining Steps",
-              labelSecondary: "5/10"
+              labelSecondary: "7/10"
             },
             {
               color: "white",
               labelMain: "Completed Steps",
-              labelSecondary: "6/10"
+              labelSecondary: "8/10"
             }
           ]
         },

@@ -32,14 +32,23 @@ $regent-st-blue: #a8c6df;
 $sunglow: #ffc82e;
 $supernova: #faca00;
 
+// PURPLE
+
+$portage: #ab7df6;
+
 // RED
 
 $cinnabar: #e44023;
 $crimson: #e0102b;
 
+// TURQUOISE
+
+$java: #26c1c9;
+
 // WHITE
 
 $athens-gray: #fafbfc;
+$barley-white: #fff5cc;
 $white: #ffffff;
 
 // SOCIAL
@@ -55,8 +64,10 @@ $mainColors: (
   black: $oxford-blue,
   blue: $azure-radiance,
   green: $malachite,
-  red: $crimson,
   orange: $supernova,
+  purple: $portage,
+  red: $crimson,
+  turquoise: $java,
   white: $white
 );
 
