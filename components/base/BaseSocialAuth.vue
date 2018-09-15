@@ -105,8 +105,17 @@ $sizes: mini, small, large;
   border-radius: 4px;
   box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
   color: $white;
+  transition: all ease-in-out 200ms;
   user-select: none;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 
   #{$c}__inner {
     display: flex;
