@@ -18,3 +18,10 @@ $facebook: #3b5998;
 $google: #db4437;
 $messenger: #0084ff;
 $twitter: #1da1f2;
+
+$socialColors: (
+  facebook: $facebook,
+  google: $google,
+  messenger: $messenger,
+  twitter: $twitter
+);

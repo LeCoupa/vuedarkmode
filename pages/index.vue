@@ -123,7 +123,7 @@
 
     div(
       v-if="section.form"
-      v-for="type in ['inputs']"
+      v-for="type in ['inputs', 'textareas']"
       class="c-index__elements c-index__elements--form"
     )
       div(
@@ -137,6 +137,7 @@
           class="c-index__item"
         )
           base-input(
+            v-if="type === 'inputs'"
             :id="size + ' '  + status"
             :label="size + ' input (' + status + ')'"
             :placeholder="status + ' ' + size + ' input'"
@@ -144,6 +145,16 @@
             :status="status"
             :value="status === 'empty' ? null : 'Dark Mode FTW'"
             class="c-index__input"
+          )
+          base-textarea(
+            v-if="type === 'textareas'"
+            :id="size + ' '  + status"
+            :label="size + ' input (' + status + ')'"
+            :placeholder="status + ' ' + size + ' input'"
+            :size="size"
+            :status="status"
+            :value="status === 'empty' ? null : 'Dark Mode FTW'"
+            class="c-index__textarea"
           )
 
     div(
@@ -336,6 +347,10 @@ export default {
             inputs: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: ["empty", "fill", "focus", "error", "success"]
+            },
+            textareas: {
+              sizes: ["large", "medium", "default", "small", "mini"],
+              statuses: ["empty"]
             }
           }
         },

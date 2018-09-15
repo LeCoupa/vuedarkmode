@@ -130,59 +130,18 @@ $networks: facebook, google, messenger, twitter;
 
   // --> NETWORKS <--
 
-  // @each $network in $networks {
-  //   &--#{$network} {
-  //     background: var($network);
+  @each $network in $networks {
+    &--#{$network} {
+      background: map-get($socialColors, $network);
 
-  //     #{$c}__inner {
-  //       #{$c}__icon {
-  //         background-image: url("#{$iconPath}/#{$network}.svg");
+      #{$c}__inner {
+        #{$c}__icon {
+          background-image: url("#{$iconPath}/#{$network}.svg");
 
-  //         @if $network equals "twitter" {
-  //           height: 16px;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
-
-  &--facebook {
-    background: $facebook;
-
-    #{$c}__inner {
-      #{$c}__icon {
-        background-image: url("#{$iconPath}/facebook.svg");
-      }
-    }
-  }
-
-  &--google {
-    background: $google;
-
-    #{$c}__inner {
-      #{$c}__icon {
-        background-image: url("#{$iconPath}/google.svg");
-      }
-    }
-  }
-
-  &--messenger {
-    background: $messenger;
-
-    #{$c}__inner {
-      #{$c}__icon {
-        background-image: url("#{$iconPath}/messenger.svg");
-      }
-    }
-  }
-
-  &--twitter {
-    background: $twitter;
-
-    #{$c}__inner {
-      #{$c}__icon {
-        height: 16px;
-        background-image: url("#{$iconPath}/twitter.svg");
+          @if ($network == "twitter") {
+            height: 16px;
+          }
+        }
       }
     }
   }
