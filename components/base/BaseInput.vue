@@ -47,6 +47,11 @@ div(
       :name="computedRightIcon"
       class="c-base-input__icon c-base-input__icon--right"
     )
+
+  p(
+    v-if="description"
+    class="c-base-input__description"
+  ) {{ description }}
 </template>
 
 <!-- *************************************************************************
@@ -59,6 +64,10 @@ export default {
     autocomplete: {
       type: String,
       default: "off"
+    },
+    description: {
+      type: String,
+      default: null
     },
     disabled: {
       type: Boolean,
@@ -229,6 +238,11 @@ $sizes: mini, small, default, medium, large;
     }
   }
 
+  #{$c}__description {
+    margin: 10px 0 0;
+    color: #8dabc4;
+  }
+
   // --> SIZES <--
 
   @each $size in $sizes {
@@ -247,6 +261,11 @@ $sizes: mini, small, default, medium, large;
         #{$c}__field {
           font-size: 12px + (1px * $i);
         }
+      }
+
+      #{$c}__description {
+        font-size: 12px + (1px * $i);
+        line-height: 14px + (2px * $i);
       }
     }
   }
