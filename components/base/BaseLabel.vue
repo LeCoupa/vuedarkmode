@@ -54,7 +54,7 @@ $sizes: mini, small, default, medium, large;
 #{$c} {
   display: inline-block;
   margin-bottom: 8px;
-  color: #a8c6df;
+  color: $regent-st-blue;
   font-family: "Heebo Medium";
   cursor: pointer;
 

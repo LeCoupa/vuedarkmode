@@ -184,7 +184,7 @@ $c: ".c-knowledge-headings";
         width: 40px;
         height: 40px;
         border-radius: 4px;
-        box-shadow: 0 1px 5px 0 rgba(#171819, 0.6);
+        box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
 
         &:last-of-type {
           margin-right: 0;
@@ -196,7 +196,7 @@ $c: ".c-knowledge-headings";
 
     &--header {
       padding-bottom: 20px;
-      color: #8dabc4;
+      color: $nepal;
       text-transform: uppercase;
       font-size: 14px;
       font-family: "Heebo Bold";
@@ -207,9 +207,9 @@ $c: ".c-knowledge-headings";
       padding: 10px 0;
 
       &:nth-of-type(odd) {
-        border: 1px solid #313d4f;
+        border: 1px solid $oxford-blue;
         border-radius: 4px;
-        background: rgba(#273142, 0.4);
+        background: rgba($ebony-clay-2, 0.4);
       }
     }
   }

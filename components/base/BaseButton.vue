@@ -156,30 +156,33 @@ $sizes: mini, small, default, medium, large;
   // --> COLORS <--
 
   &--black {
-    border: 1px solid #313d4f;
-    background-color: #222c3c;
+    border: 1px solid $oxford-blue;
+    background-color: $ebony-clay;
   }
 
   &--blue {
-    background-image: linear-gradient(0deg, #0093ee 0%, #2da1f8 100%);
+    background-image: linear-gradient(
+      0deg,
+      $azure-radiance 0%,
+      $dodger-blue 100%
+    );
   }
 
   &--green {
-    background-image: linear-gradient(0deg, #1bb934 0%, #4ece3d 100%);
+    background-image: linear-gradient(0deg, $malachite 0%, $apple 100%);
   }
 
   &--orange {
-    background-image: linear-gradient(0deg, #fdc018 0%, #ffc82e 100%);
+    background-image: linear-gradient(0deg, $supernova 0%, $sunglow 100%);
   }
 
   &--red {
-    background-image: linear-gradient(0deg, #e0102b 0%, #e44023 100%);
+    background-image: linear-gradient(0deg, $crimson 0%, $cinnabar 100%);
   }
 
   &--white {
-    border: 1px solid #e6eaee;
-    background-image: linear-gradient(0deg, #f4f7fa 0%, #ffffff 100%);
-    color: #2c405a;
+    background-image: linear-gradient(0deg, $athens-gray 0%, $white 100%);
+    color: $oxford-blue;
   }
 
   // --> SIZES <--

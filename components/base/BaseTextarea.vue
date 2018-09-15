@@ -125,12 +125,12 @@ $sizes: mini, small, default, medium, large;
     padding: 0 15px;
     border: 1px solid #313d4f;
     border-radius: 6px;
-    background-color: #273142;
+    background-color: $ebony-clay-2;
     color: $white;
     transition: all ease-in-out 0.2s;
 
     &::placeholder {
-      color: #8dabc4;
+      color: $nepal;
     }
 
     &:focus {

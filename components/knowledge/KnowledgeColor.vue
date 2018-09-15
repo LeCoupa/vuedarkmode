@@ -59,8 +59,8 @@ $c: ".c-knowledge-color";
       border-top: none;
       border-bottom-right-radius: 4px;
       border-bottom-left-radius: 4px;
-      background: #273142;
-      color: #ffffff;
+      background: $ebony-clay-2;
+      color: $white;
       font-size: 14px;
       font-family: "Heebo-Bold";
     }
@@ -68,7 +68,7 @@ $c: ".c-knowledge-color";
 
   #{$c}__name {
     margin-top: 10px;
-    color: #8dabc4;
+    color: $nepal;
     font-size: 14px;
   }
 }

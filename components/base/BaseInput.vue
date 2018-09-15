@@ -198,9 +198,9 @@ $statuses: error, focus, success;
     display: flex;
     align-items: center;
     box-sizing: border-box;
-    border: 1px solid #313d4f;
+    border: 1px solid $oxford-blue;
     border-radius: 6px;
-    background-color: #273142;
+    background-color: $ebony-clay-2;
     transition: all ease-in-out 0.2s;
 
     &:hover {
@@ -230,7 +230,7 @@ $statuses: error, focus, success;
       color: $white;
 
       &::placeholder {
-        color: #8dabc4;
+        color: $nepal;
       }
 
       &:focus {
@@ -241,7 +241,7 @@ $statuses: error, focus, success;
 
   #{$c}__description {
     margin: 10px 0 0;
-    color: #8dabc4;
+    color: $nepal;
   }
 
   // --> SIZES <--

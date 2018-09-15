@@ -81,7 +81,7 @@ $c: ".c-base-heading";
   // --> COLORS <--
 
   &--grey {
-    color: #a8c6df;
+    color: $regent-st-blue;
   }
 
   &--white {
@@ -89,7 +89,7 @@ $c: ".c-base-heading";
   }
 
   &--white2 {
-    color: #fafbfc;
+    color: $athens-gray;
   }
 
   // --> FONT-WEIGHT <--

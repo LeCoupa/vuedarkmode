@@ -99,7 +99,7 @@ $sizes: mini, small, default, medium, large, huge;
     display: inline-block;
     box-sizing: border-box;
     background-size: cover;
-    box-shadow: 0 1px 5px 0 rgba(#171819, 0.6);
+    box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
   }
 
   #{$c}__complementaries {
