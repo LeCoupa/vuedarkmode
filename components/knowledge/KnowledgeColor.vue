@@ -51,16 +51,18 @@ $c: ".c-knowledge-color";
       height: 100px;
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
+      box-shadow: inset 0px 0px 0px 1px $oxford-blue;
     }
 
     #{$c}__hex {
       padding: 10px 0;
-      border: 1px solid #313d4f;
+      border: 1px solid $oxford-blue;
       border-top: none;
       border-bottom-right-radius: 4px;
       border-bottom-left-radius: 4px;
       background: $ebony-clay-2;
       color: $white;
+      text-transform: uppercase;
       font-size: 14px;
       font-family: "Heebo-Bold";
     }

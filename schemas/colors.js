@@ -8,92 +8,84 @@ const colors = [
     name: "$portage"
   },
   {
-    hex: "#0079C4",
-    name: "$lochmara"
+    hex: "#0093ee",
+    name: "$azure-radiance"
   },
   {
-    hex: "#0093EE",
-    name: "$azure-radiance"
+    hex: "#2da1f8",
+    name: "$dodger-blue"
   },
   {
     hex: "#26C1C9",
     name: "$java"
   },
   {
-    hex: "#40B630",
+    hex: "#4ece3d",
     name: "$apple"
   },
   {
-    hex: "#4ECE3D",
-    name: "$apple2"
-  },
-  {
-    hex: "#81C926",
-    name: "$atlantis"
+    hex: "#1bb934",
+    name: "$malachite"
   },
   {
     hex: "#E0102B",
     name: "$crimson"
   },
   {
-    hex: "#EE334B",
-    name: "$amaranth"
+    hex: "#e44023",
+    name: "$cinnabar"
   },
   {
-    hex: "#FD7B1F",
-    name: "$pumpkin"
-  },
-  {
-    hex: "#FACA00",
+    hex: "#faca00",
     name: "$supernova"
+  },
+  {
+    hex: "#ffc82e",
+    name: "$sunglow"
   },
   {
     hex: "#FFF5CC",
     name: "$barley-white"
   },
   {
+    hex: "#fafbfc",
+    name: "$athens-gray"
+  },
+  {
     hex: "#FFFFFF",
     name: "$white"
   },
   {
-    hex: "#FAFBFC",
-    name: "$athens-gray"
-  },
-  {
-    hex: "#ECF5FD",
-    name: "$selago"
-  },
-  {
-    hex: "#C5D9E8",
-    name: "$periwinkle"
-  },
-  {
-    hex: "#A8C6DF",
+    hex: "#a8c6df",
     name: "$regent-st-blue"
   },
   {
-    hex: "#8DABC4",
+    hex: "#8dabc4",
     name: "$nepal"
   },
   {
-    hex: "#3F536E",
-    name: "$fiord"
+    hex: "#313d4f",
+    name: "$oxford-blue"
   },
   {
-    hex: "#2C405A",
-    name: "$rhino"
+    hex: "#222c3c",
+    name: "$ebony-clay"
   },
   {
-    hex: "#273950",
-    name: "$rhino2"
+    hex: "#273142",
+    name: "$ebony-clay-2"
   },
   {
-    hex: "#25374F",
-    name: "$rhino3"
-  },
-  {
-    hex: "#1C293B",
+    hex: "#1b2431",
     name: "$mirage"
+  },
+  {
+    hex: "#171819",
+    name: "$woodsmoke"
+  },
+  {
+    hex: "#000000",
+    name: "$black"
   }
 ];
 

@@ -123,7 +123,7 @@ $sizes: mini, small, default, medium, large;
   #{$c}__field {
     box-sizing: border-box;
     padding: 0 15px;
-    border: 1px solid #313d4f;
+    border: 1px solid $oxford-blue;
     border-radius: 6px;
     background-color: $ebony-clay-2;
     color: $white;
