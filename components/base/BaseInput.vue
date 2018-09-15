@@ -187,6 +187,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-input";
 $sizes: mini, small, default, medium, large;
+$statuses: error, focus, success;
 
 #{$c} {
   display: flex;
@@ -272,24 +273,12 @@ $sizes: mini, small, default, medium, large;
 
   // --> STATUSES <--
 
-  &--error {
-    #{$c}__container {
-      border-color: #e0102b;
-      color: #e0102b;
-    }
-  }
-
-  &--focus {
-    #{$c}__container {
-      border-color: #0093ee;
-      color: #0093ee;
-    }
-  }
-
-  &--success {
-    #{$c}__container {
-      border-color: #1bb934;
-      color: #1bb934;
+  @each $status in $statuses {
+    &--#{$status} {
+      #{$c}__container {
+        border-color: map-get($statusColors, $status);
+        color: map-get($statusColors, $status);
+      }
     }
   }
 

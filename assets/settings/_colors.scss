@@ -7,6 +7,23 @@
 
 $black: #000000;
 $mirage: #1b2431;
+$oxford-blue: #313d4f;
+
+// Blue
+
+$azure-radiance: #0093ee;
+
+// Green
+
+$malachite: #1bb934;
+
+// Orange
+
+$supernova: #faca00;
+
+// Red
+
+$crimson: #e0102b;
 
 // White
 
@@ -19,9 +36,26 @@ $google: #db4437;
 $messenger: #0084ff;
 $twitter: #1da1f2;
 
+// DATASETS
+
+$mainColors: (
+  black: $oxford-blue,
+  blue: $azure-radiance,
+  green: $malachite,
+  red: $crimson,
+  orange: $supernova,
+  white: $white
+);
+
 $socialColors: (
   facebook: $facebook,
   google: $google,
   messenger: $messenger,
   twitter: $twitter
+);
+
+$statusColors: (
+  error: $crimson,
+  focus: $azure-radiance,
+  success: $malachite
 );

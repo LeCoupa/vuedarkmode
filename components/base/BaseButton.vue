@@ -129,6 +129,7 @@ export default {
 
 <style lang="scss">
 $c: ".c-base-button";
+$colors: black, blue, green, red, orange, white;
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
@@ -160,15 +161,15 @@ $sizes: mini, small, default, medium, large;
   }
 
   &--blue {
-    background-image: linear-gradient(-1deg, #0093ee 2%, #2da1f8 98%);
+    background-image: linear-gradient(0deg, #0093ee 0%, #2da1f8 100%);
   }
 
   &--green {
-    background-color: #4ece3d;
+    background-image: linear-gradient(0deg, #1bb934 0%, #4ece3d 100%);
   }
 
   &--orange {
-    background-image: linear-gradient(-1deg, #fdc018 2%, #ffc82e 98%);
+    background-image: linear-gradient(0deg, #fdc018 0%, #ffc82e 100%);
   }
 
   &--red {
@@ -245,53 +246,13 @@ $sizes: mini, small, default, medium, large;
     background: transparent;
     color: $white;
 
-    &#{$c}--black {
-      border-color: #222c3c;
+    @each $color in $colors {
+      &#{$c}--#{$color} {
+        border-color: map-get($mainColors, $color);
 
-      &:active {
-        color: #222c3c;
-      }
-    }
-
-    &#{$c}--blue {
-      border-color: #0093ee;
-
-      &:active {
-        color: #0093ee;
-      }
-    }
-
-    &#{$c}--green {
-      border-color: #1bb934;
-
-      &:active {
-        color: #1bb934;
-      }
-    }
-
-    &#{$c}--orange {
-      border-color: #faca00;
-
-      &:active {
-        color: #faca00;
-      }
-    }
-
-    &#{$c}--red {
-      border-color: #e0102b;
-
-      &:active {
-        color: #e0102b;
-      }
-    }
-
-    &#{$c}--white {
-      &:hover {
-        border-color: #0093ee;
-      }
-
-      &:active {
-        background-color: #0093ee;
+        &:active {
+          color: map-get($mainColors, $color);
+        }
       }
     }
 

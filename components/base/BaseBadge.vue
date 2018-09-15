@@ -37,6 +37,7 @@ export default {
 
 <style lang="scss">
 $c: ".c-base-badge";
+$colors: black, blue, green, red, orange, white;
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
@@ -50,28 +51,10 @@ $sizes: mini, small, default, medium, large;
 
   // --> COLORS <--
 
-  &--black {
-    border-color: #313d4f;
-  }
-
-  &--blue {
-    border-color: #0093ee;
-  }
-
-  &--green {
-    border-color: #1bb934;
-  }
-
-  &--red {
-    border-color: #e0102b;
-  }
-
-  &--orange {
-    border-color: #faca00;
-  }
-
-  &--white {
-    border-color: $white;
+  @each $color in $colors {
+    &--#{$color} {
+      border-color: map-get($mainColors, $color);
+    }
   }
 
   // --> SIZES <--

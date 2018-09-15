@@ -66,6 +66,7 @@ export default {
 
 <style lang="scss">
 $c: ".c-base-loader";
+$colors: black, blue, green, red, orange, white;
 
 #{$c} {
   text-align: left;
@@ -104,45 +105,12 @@ $c: ".c-base-loader";
 
   // --> COLORS <--
 
-  &--black {
-    #{$c}__bar,
-    #{$c}__progress {
-      background-color: #313d4f;
-    }
-  }
-
-  &--blue {
-    #{$c}__bar,
-    #{$c}__progress {
-      background-color: #0093ee;
-    }
-  }
-
-  &--green {
-    #{$c}__bar,
-    #{$c}__progress {
-      background-color: #1bb934;
-    }
-  }
-
-  &--red {
-    #{$c}__bar,
-    #{$c}__progress {
-      background-color: #e0102b;
-    }
-  }
-
-  &--orange {
-    #{$c}__bar,
-    #{$c}__progress {
-      background-color: #faca00;
-    }
-  }
-
-  &--white {
-    #{$c}__bar,
-    #{$c}__progress {
-      background-color: $white;
+  @each $color in $colors {
+    &--#{$color} {
+      #{$c}__bar,
+      #{$c}__progress {
+        background-color: map-get($mainColors, $color);
+      }
     }
   }
 }

@@ -37,6 +37,7 @@ export default {
 
 <style lang="scss">
 $c: ".c-base-divider";
+$colors: black, blue, green, red, orange, white;
 
 #{$c} {
   display: block;
@@ -45,28 +46,10 @@ $c: ".c-base-divider";
 
   // --> COLORS <--
 
-  &--black {
-    border-top-color: #313d4f;
-  }
-
-  &--blue {
-    border-top-color: #0093ee;
-  }
-
-  &--green {
-    border-top-color: #1bb934;
-  }
-
-  &--red {
-    border-top-color: #e0102b;
-  }
-
-  &--orange {
-    border-top-color: #faca00;
-  }
-
-  &--white {
-    border-top-color: $white;
+  @each $color in $colors {
+    &--#{$color} {
+      border-top-color: map-get($mainColors, $color);
+    }
   }
 
   // --> SIZES <--
