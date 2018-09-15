@@ -268,10 +268,12 @@ $sizes: mini, small, default, medium, large;
     }
 
     &:hover {
+      transform: initial;
       border-color: $white;
     }
 
     &:active {
+      transform: initial;
       background: $white;
     }
   }

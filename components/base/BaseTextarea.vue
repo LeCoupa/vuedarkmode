@@ -153,6 +153,10 @@ $statuses: error, focused, success, warning;
       color: $nepal;
     }
 
+    &:disabled {
+      cursor: not-allowed;
+    }
+
     &:focus {
       outline: none;
     }

@@ -123,7 +123,7 @@
 
     div(
       v-if="section.form"
-      v-for="type in ['inputs', 'textareas']"
+      v-for="type in ['inputs', 'selects', 'textareas']"
       :class=`[
         'c-index__elements',
         'c-index__elements--form',
@@ -131,18 +131,18 @@
       ]`
     )
       div(
-        v-for="(statuses, i) in section.form.inputs.statuses"
+        v-for="(statuses, i) in section.form[type].statuses"
         :key="type + ' ' + i"
         class="c-index__category"
       )
         div(
-          v-for="(size, j) in section.form.inputs.sizes"
+          v-for="(size, j) in section.form[type].sizes"
           :key="type + ' ' + i + ' ' + j"
           class="c-index__item"
         )
           base-input(
-            v-if="type === 'inputs'"
-            :id="type + ' ' + size + ' '  + statuses[j]"
+            v-if="type === 'inputs' && statuses[j]"
+            :id="type + '_' + size + '_'  + statuses[j]"
             :label="size + ' input (' + statuses[j] + ')'"
             :placeholder="statuses[j] + ' ' + size + ' input'"
             :size="size"
@@ -150,9 +150,23 @@
             :value="statuses[j] === 'empty' ? null : 'Dark Mode FTW'"
             class="c-index__input"
           )
+          base-select(
+            v-if="type === 'selects' && statuses[j]"
+            :id="type + '_' + size + '_'  + statuses[j]"
+            :label="size + ' select (' + statuses[j] + ')'"
+            :options=`[
+              { label: 'value 1', value: 'value 1' },
+              { label: 'value 2', value: 'value 2' },
+              { label: 'value 3', value: 'value 3' },
+              { label: 'value 4', value: 'value 4' }
+            ]`
+            :size="size"
+            :status="statuses[j]"
+            class="c-index__input"
+          )
           base-textarea(
-            v-if="type === 'textareas'"
-            :id="type + ' ' + size + ' '  + statuses[j]"
+            v-if="type === 'textareas' && statuses[j]"
+            :id="type + '_' + size + '_'  + statuses[j]"
             :label="size + ' textarea (' + statuses[j] + ')'"
             :placeholder="statuses[j] + ' ' + size + ' textarea'"
             :size="size"
@@ -361,14 +375,21 @@ export default {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
                 ["empty", "empty", "empty", "empty", "empty"],
-                ["filled", "focused", "success", "error", "warning"]
+                ["focused", "success", "error", "warning"]
+              ]
+            },
+            selects: {
+              sizes: ["large", "medium", "default", "small", "mini"],
+              statuses: [
+                ["filled", "filled", "filled", "filled", "filled"],
+                ["focused", "success", "error", "warning"]
               ]
             },
             textareas: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
                 ["empty", "empty", "empty", "empty", "empty"],
-                ["filled", "focused", "success", "error", "warning"]
+                ["focused", "success", "error", "warning"]
               ]
             }
           }
@@ -617,6 +638,12 @@ $c: ".c-index";
     &--social-auths {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 100%);
+    }
+
+    &--selects {
+      grid-gap: 40px;
+      grid-template-columns: repeat(auto-fill, 360px);
+      margin-bottom: 40px;
     }
 
     &--textareas {

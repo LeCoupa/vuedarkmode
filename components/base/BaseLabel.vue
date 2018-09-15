@@ -56,6 +56,7 @@ $sizes: mini, small, default, medium, large;
   margin-bottom: 8px;
   color: $regent-st-blue;
   font-family: "Heebo Medium";
+  user-select: none;
   cursor: pointer;
 
   // --> SIZES <--

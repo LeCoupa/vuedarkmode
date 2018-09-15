@@ -5,47 +5,41 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-base-input',
-    'c-base-input--' + size,
-    'c-base-input--' + computedStatus,
-    {
-      'c-base-input--with-icon': leftIcon || rightIcon,
-      'c-base-input--rounded': rounded
-    }
+    'c-base-select',
+    'c-base-select--' + size,
+    'c-base-select--' + computedStatus
   ]`
 )
   base-label(
     v-if="label"
     :forField="id"
     :size="size"
-    class="c-base-input__label"
+    class="c-base-select__label"
   ) {{ label }}
 
-  div(
-    @click="onContainerClick"
-    class="c-base-input__container"
-  )
+  .c-base-select__container
     base-icon(
       v-if="leftIcon"
       :name="leftIcon"
-      class="c-base-input__icon c-base-input__icon--left"
+      class="c-base-select__icon c-base-select__icon--left"
     )
-    input(
-      @blur="onInputBlur"
-      @focus="onInputFocus"
-      @keyup="onInputKeyUp"
-      :autocomplete="autocomplete"
+    select(
+      @blur="onSelectBlur"
+      @click="onSelectClick"
+      @focus="onSelectFocus"
+      @change="onSelectChange"
       :disabled="disabled"
       :id="id"
-      :placeholder="placeholder"
-      :type="type"
-      :value="value"
-      class="c-base-input__field"
+      class="c-base-select__field"
     )
+      option(
+        v-for="option in options"
+        :value="option.value"
+      ) {{ option.label }}
+
     base-icon(
-      v-if="computedRightIcon"
       :name="computedRightIcon"
-      class="c-base-input__icon c-base-input__icon--right"
+      class="c-base-select__icon c-base-select__icon--right"
     )
 
   p(
@@ -61,10 +55,6 @@ div(
 <script>
 export default {
   props: {
-    autocomplete: {
-      type: String,
-      default: "off"
-    },
     description: {
       type: String,
       default: null
@@ -85,17 +75,9 @@ export default {
       type: String,
       default: null
     },
-    placeholder: {
-      type: String,
-      default: null
-    },
-    rightIcon: {
-      type: String,
-      default: null
-    },
-    rounded: {
-      type: Boolean,
-      default: false
+    options: {
+      type: Array,
+      required: true
     },
     size: {
       type: String,
@@ -104,21 +86,14 @@ export default {
     status: {
       type: String,
       default: "normal"
-    },
-    type: {
-      type: String,
-      default: "text"
-    },
-    value: {
-      type: [String, Number],
-      default: null
     }
   },
 
   data() {
     return {
       // --> STATE <--
-      focused: false
+      focused: false,
+      rightIcon: "arrow_drop_down"
     };
   },
 
@@ -147,36 +122,34 @@ export default {
   },
 
   methods: {
-    getInputValue() {
-      let value = this.$el.querySelector("input").value || "";
-
-      if (value && this.type === "number") {
-        value = parseInt(value);
-      }
-
-      return value;
+    getSelectedValue() {
+      return this.$el.querySelector("select").value || "";
     },
 
-    onContainerClick() {
-      this.$el.querySelector("input").focus();
-
-      this.$emit("click", this.id, this.getInputValue());
-    },
-
-    onInputBlur() {
+    onSelectBlur() {
       this.focused = false;
+      this.rightIcon = "arrow_drop_down";
 
-      this.$emit("blur", this.id, this.getInputValue());
+      this.$emit("blur", this.id, this.getSelectedValue());
     },
 
-    onInputKeyUp() {
-      this.$emit("keyup", this.id, this.getInputValue());
+    onSelectChange() {
+      this.rightIcon = "arrow_drop_down";
+
+      this.$emit("change", this.id, this.getSelectedValue());
     },
 
-    onInputFocus() {
+    onSelectClick() {
+      this.rightIcon = "arrow_drop_up";
+
+      this.$emit("click", this.id, this.getSelectedValue());
+    },
+
+    onSelectFocus() {
       this.focused = true;
+      this.rightIcon = "arrow_drop_up";
 
-      this.$emit("focus", this.id, this.getInputValue());
+      this.$emit("focus", this.id, this.getSelectedValue());
     }
   }
 };
@@ -187,7 +160,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-base-input";
+$c: ".c-base-select";
 $sizes: mini, small, default, medium, large;
 $statuses: error, focused, success, warning;
 
@@ -198,16 +171,13 @@ $statuses: error, focused, success, warning;
 
   #{$c}__container {
     display: flex;
+    overflow: hidden;
     align-items: center;
     box-sizing: border-box;
     border: 1px solid $oxford-blue;
     border-radius: 6px;
     background-color: $ebony-clay-2;
     transition: border ease-in-out 0.2s;
-
-    &:hover {
-      cursor: text;
-    }
 
     #{$c}__icon {
       flex: 0 0 auto;
@@ -229,11 +199,12 @@ $statuses: error, focused, success, warning;
       height: 100%;
       border: none;
       background-color: transparent;
+      background-image: none;
+      box-shadow: none;
       color: $white;
+      cursor: pointer;
 
-      &::placeholder {
-        color: $nepal;
-      }
+      -webkit-appearance: none;
 
       &:disabled {
         cursor: not-allowed;
@@ -284,22 +255,6 @@ $statuses: error, focused, success, warning;
       #{$c}__container {
         border-color: map-get($statusColors, $status);
         color: map-get($statusColors, $status);
-      }
-    }
-  }
-
-  // --> BOOLEANS <--
-
-  &--rounded {
-    #{$c}__container {
-      border-radius: 40px;
-    }
-  }
-
-  &--with-icon {
-    #{$c}__container {
-      #{$c}__field {
-        padding: 0;
       }
     }
   }
