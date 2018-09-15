@@ -124,36 +124,40 @@
     div(
       v-if="section.form"
       v-for="type in ['inputs', 'textareas']"
-      class="c-index__elements c-index__elements--form"
+      :class=`[
+        'c-index__elements',
+        'c-index__elements--form',
+        'c-index__elements--' + type
+      ]`
     )
       div(
-        v-for="(status, i) in section.form[type].statuses"
-        :key="'button' + status + i"
+        v-for="(statuses, i) in section.form.inputs.statuses"
+        :key="types + ' ' + i"
         class="c-index__category"
       )
         div(
           v-for="(size, j) in section.form.inputs.sizes"
-          :key="'button' + status + j + size"
+          :key="types + ' ' + i + ' ' + j"
           class="c-index__item"
         )
           base-input(
             v-if="type === 'inputs'"
-            :id="size + ' '  + status"
-            :label="size + ' input (' + status + ')'"
-            :placeholder="status + ' ' + size + ' input'"
+            :id="type + ' ' + size + ' '  + statuses[j]"
+            :label="size + ' input (' + statuses[j] + ')'"
+            :placeholder="statuses[j] + ' ' + size + ' input'"
             :size="size"
-            :status="status"
-            :value="status === 'empty' ? null : 'Dark Mode FTW'"
+            :status="statuses[j]"
+            :value="statuses[j] === 'empty' ? null : 'Dark Mode FTW'"
             class="c-index__input"
           )
           base-textarea(
             v-if="type === 'textareas'"
-            :id="size + ' '  + status"
-            :label="size + ' input (' + status + ')'"
-            :placeholder="status + ' ' + size + ' input'"
+            :id="type + ' ' + size + ' '  + statuses[j]"
+            :label="size + ' textarea (' + statuses[j] + ')'"
+            :placeholder="statuses[j] + ' ' + size + ' textarea'"
             :size="size"
-            :status="status"
-            :value="status === 'empty' ? null : 'Dark Mode FTW'"
+            :status="statuses[j]"
+            :value="statuses[j] === 'empty' ? null : 'Dark Mode FTW'"
             class="c-index__textarea"
           )
 
@@ -356,17 +360,16 @@ export default {
             inputs: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
-                "empty",
-                "fill",
-                "focus",
-                "success",
-                "error",
-                "warning"
+                ["empty", "empty", "empty", "empty", "empty"],
+                ["filled", "focused", "success", "error", "warning"]
               ]
             },
             textareas: {
               sizes: ["large", "medium", "default", "small", "mini"],
-              statuses: ["empty"]
+              statuses: [
+                ["empty", "empty", "empty", "empty", "empty"],
+                ["filled", "focused", "success", "error", "warning"]
+              ]
             }
           }
         },
@@ -588,14 +591,9 @@ $c: ".c-index";
     }
 
     &--form {
-      grid-gap: 40px;
-      grid-template-columns: repeat(auto-fill, 250px);
-      margin-bottom: 40px;
-
-      #{$c}__input {
-        input::placeholder {
-          text-transform: capitalize;
-        }
+      input::placeholder,
+      textarea::placeholder {
+        text-transform: capitalize;
       }
     }
 
@@ -603,6 +601,12 @@ $c: ".c-index";
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 24px);
       margin-bottom: 30px;
+    }
+
+    &--inputs {
+      grid-gap: 40px;
+      grid-template-columns: repeat(auto-fill, 400px);
+      margin-bottom: 40px;
     }
 
     &--loaders {
@@ -613,6 +617,12 @@ $c: ".c-index";
     &--social-auths {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 100%);
+    }
+
+    &--textareas {
+      grid-gap: 40px;
+      grid-template-columns: repeat(auto-fill, 400px);
+      margin-bottom: 40px;
     }
   }
 }

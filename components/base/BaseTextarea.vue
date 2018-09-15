@@ -21,11 +21,18 @@ div(
     @blur="onTextareaBlur"
     @focus="onTextareaFocus"
     @keyup="onTextareaKeyUp"
+    :cols="cols"
     :disabled="disabled"
     :id="id"
     :placeholder="placeholder"
+    :rows="rows"
     class="c-base-textarea__field"
-  )
+  ) {{ value }}
+
+  p(
+    v-if="description"
+    class="c-base-textarea__description"
+  ) {{ description }}
 </template>
 
 <!-- *************************************************************************
@@ -35,6 +42,14 @@ div(
 <script>
 export default {
   props: {
+    cols: {
+      type: Number,
+      default: null
+    },
+    description: {
+      type: String,
+      default: null
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -51,6 +66,10 @@ export default {
       type: String,
       default: null
     },
+    rows: {
+      type: Number,
+      default: null
+    },
     size: {
       type: String,
       default: "default"
@@ -60,7 +79,7 @@ export default {
       default: "normal"
     },
     value: {
-      type: [String, Number],
+      type: String,
       default: null
     }
   },
@@ -68,15 +87,15 @@ export default {
   data() {
     return {
       // --> STATE <--
-      focus: false
+      focused: false
     };
   },
 
   computed: {
     computedStatus() {
       // Return the status when defined as prop
-      if (this.focus) {
-        return "focus";
+      if (this.focused) {
+        return "focused";
       }
 
       return this.status;
@@ -89,7 +108,7 @@ export default {
     },
 
     onTextareaBlur() {
-      this.focus = false;
+      this.focused = false;
 
       this.$emit("blur", this.id, this.getTextareaValue());
     },
@@ -99,7 +118,7 @@ export default {
     },
 
     onTextareaFocus() {
-      this.focus = true;
+      this.focused = true;
 
       this.$emit("focus", this.id, this.getTextareaValue());
     }
@@ -114,6 +133,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-textarea";
 $sizes: mini, small, default, medium, large;
+$statuses: error, focused, success, warning;
 
 #{$c} {
   display: flex;
@@ -122,12 +142,12 @@ $sizes: mini, small, default, medium, large;
 
   #{$c}__field {
     box-sizing: border-box;
-    padding: 0 15px;
+    padding: 10px 15px;
     border: 1px solid $oxford-blue;
     border-radius: 6px;
     background-color: $ebony-clay-2;
     color: $white;
-    transition: all ease-in-out 0.2s;
+    transition: border ease-in-out 0.2s;
 
     &::placeholder {
       color: $nepal;
@@ -138,24 +158,31 @@ $sizes: mini, small, default, medium, large;
     }
   }
 
+  #{$c}__description {
+    margin: 10px 0 0;
+    color: $nepal;
+  }
+
   // --> SIZES <--
 
   @each $size in $sizes {
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      #{$c}__container {
-        height: 34px + (4px * $i);
+      #{$c}__field {
         border-radius: 4px + (1px * $i);
+        font-size: 12px + (1px * $i);
+        min-height: 80px + (20px * $i);
+      }
+    }
+  }
 
-        #{$c}__icon {
-          // Will override the font-size set in style attribute
-          font-size: 16px + (1px * $i) !important;
-        }
+  // --> STATUSES <--
 
-        #{$c}__field {
-          font-size: 12px + (1px * $i);
-        }
+  @each $status in $statuses {
+    &--#{$status} {
+      #{$c}__field {
+        border-color: map-get($statusColors, $status);
       }
     }
   }

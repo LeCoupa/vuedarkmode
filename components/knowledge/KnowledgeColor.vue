@@ -48,10 +48,11 @@ $c: ".c-knowledge-color";
 
   #{$c}__block {
     #{$c}__highlight {
+      box-sizing: border-box;
       height: 100px;
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
-      box-shadow: inset 0px 0px 0px 1px $oxford-blue;
+      border: 1px solid $oxford-blue;
     }
 
     #{$c}__hex {

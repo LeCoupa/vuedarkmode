@@ -118,7 +118,7 @@ export default {
   data() {
     return {
       // --> STATE <--
-      focus: false
+      focused: false
     };
   },
 
@@ -138,8 +138,8 @@ export default {
 
     computedStatus() {
       // Return the status when defined as prop
-      if (this.focus) {
-        return "focus";
+      if (this.focused) {
+        return "focused";
       }
 
       return this.status;
@@ -164,7 +164,7 @@ export default {
     },
 
     onInputBlur() {
-      this.focus = false;
+      this.focused = false;
 
       this.$emit("blur", this.id, this.getInputValue());
     },
@@ -174,7 +174,7 @@ export default {
     },
 
     onInputFocus() {
-      this.focus = true;
+      this.focused = true;
 
       this.$emit("focus", this.id, this.getInputValue());
     }
@@ -189,7 +189,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-input";
 $sizes: mini, small, default, medium, large;
-$statuses: error, focus, success, warning;
+$statuses: error, focused, success, warning;
 
 #{$c} {
   display: flex;
@@ -203,7 +203,7 @@ $statuses: error, focus, success, warning;
     border: 1px solid $oxford-blue;
     border-radius: 6px;
     background-color: $ebony-clay-2;
-    transition: all ease-in-out 0.2s;
+    transition: border ease-in-out 0.2s;
 
     &:hover {
       cursor: text;
