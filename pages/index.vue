@@ -123,7 +123,7 @@
 
     div(
       v-if="section.form"
-      v-for="type in ['inputs', 'selects', 'textareas']"
+      v-for="type in ['inputs', 'selects', 'textareas', 'checkboxes']"
       :class=`[
         'c-index__elements',
         'c-index__elements--form',
@@ -155,10 +155,10 @@
             :id="type + '_' + size + '_'  + statuses[j]"
             :label="size + ' select (' + statuses[j] + ')'"
             :options=`[
-              { label: 'value 1', value: 'value 1' },
-              { label: 'value 2', value: 'value 2' },
-              { label: 'value 3', value: 'value 3' },
-              { label: 'value 4', value: 'value 4' }
+              { label: 'Value 1', value: 'value 1' },
+              { label: 'Value 2', value: 'value 2' },
+              { label: 'Value 3', value: 'value 3' },
+              { label: 'Value 4', value: 'value 4' }
             ]`
             :size="size"
             :status="statuses[j]"
@@ -173,6 +173,15 @@
             :status="statuses[j]"
             :value="statuses[j] === 'empty' ? null : 'Dark Mode FTW'"
             class="c-index__textarea"
+          )
+          base-checkbox(
+            v-if="type === 'checkboxes' && statuses[j]"
+            :checked="statuses[j] === 'checked'"
+            :id="type + '_' + size + '_'  + statuses[j]"
+            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
+            :size="size"
+            :status="statuses[j]"
+            class="c-index__checkbox"
           )
 
     div(
@@ -391,6 +400,13 @@ export default {
                 ["empty", "empty", "empty", "empty", "empty"],
                 ["focused", "success", "error", "warning"]
               ]
+            },
+            checkboxes: {
+              sizes: ["large", "medium", "default", "small", "mini"],
+              statuses: [
+                ["empty", "empty", "empty", "empty", "empty"],
+                ["checked", "success", "error", "warning"]
+              ]
             }
           }
         },
@@ -529,6 +545,8 @@ $c: ".c-index";
   #{$c}__elements {
     display: grid;
     justify-content: center;
+    grid-gap: 40px;
+    margin-bottom: 40px;
 
     #{$c}__category {
       #{$c}__item {
@@ -589,22 +607,22 @@ $c: ".c-index";
     &--colors {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 100px);
+      margin-bottom: 0;
     }
 
     &--buttons {
-      grid-gap: 40px;
       grid-template-columns: repeat(auto-fill, 250px);
-      margin-bottom: 40px;
     }
 
     &--badges {
-      grid-gap: 40px;
       grid-template-columns: repeat(auto-fill, 400px);
+      margin-bottom: 0;
     }
 
     &--dividers {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 100%);
+      margin-bottom: 0;
 
       #{$c}__divider {
         margin: 0 auto;
@@ -612,6 +630,8 @@ $c: ".c-index";
     }
 
     &--form {
+      grid-template-columns: repeat(auto-fill, 360px);
+
       input::placeholder,
       textarea::placeholder {
         text-transform: capitalize;
@@ -621,35 +641,18 @@ $c: ".c-index";
     &--icons {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 24px);
-      margin-bottom: 30px;
-    }
-
-    &--inputs {
-      grid-gap: 40px;
-      grid-template-columns: repeat(auto-fill, 360px);
-      margin-bottom: 40px;
     }
 
     &--loaders {
       grid-gap: 30px;
       grid-template-columns: repeat(auto-fill, 80%);
+      margin-bottom: 0;
     }
 
     &--social-auths {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 100%);
-    }
-
-    &--selects {
-      grid-gap: 40px;
-      grid-template-columns: repeat(auto-fill, 360px);
-      margin-bottom: 40px;
-    }
-
-    &--textareas {
-      grid-gap: 40px;
-      grid-template-columns: repeat(auto-fill, 360px);
-      margin-bottom: 40px;
+      margin-bottom: 0;
     }
   }
 }
