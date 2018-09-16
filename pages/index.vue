@@ -121,41 +121,53 @@
             class="c-index__social-auth"
           )
 
+    //- ['inputs', 'selects', 'textareas', 'checkboxes', 'radios', 'toggles']
+
     div(
-      v-if="section.form"
-      v-for="type in ['inputs', 'selects', 'textareas', 'checkboxes', 'radios', 'toggles']"
-      :class=`[
-        'c-index__elements',
-        'c-index__elements--form',
-        'c-index__elements--' + type
-      ]`
+      v-if="section.inputs"
+      class="c-index__elements c-index__elements--form c-index__elements--inputs"
     )
       div(
-        v-for="(statuses, i) in section.form[type].statuses"
-        :key="type + ' ' + i"
+        v-for="(statuses, i) in section.inputs.statuses"
+        :key="'inputs ' + i"
         class="c-index__category"
       )
         div(
-          v-for="(size, j) in section.form[type].sizes"
-          :key="type + ' ' + i + ' ' + j"
+          v-for="(size, j) in section.inputs.sizes"
+          :key="'inputs ' + i + ' ' + j"
           class="c-index__item"
         )
           base-input(
-            v-if="type === 'inputs' && statuses[j]"
-            :id="type + '_' + size + '_'  + statuses[j] + i + j"
+            v-if="statuses[j]"
+            :id="'input' + '_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' input (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j] + i + j"
+            :name="'input' + '_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' input'"
             :size="size"
             :status="statuses[j]"
             :value="statuses[j] === 'empty' ? null : 'Dark Mode FTW'"
             class="c-index__input"
           )
+
+    div(
+      v-if="section.selects"
+      class="c-index__elements c-index__elements--form c-index__elements--selects"
+    )
+      div(
+        v-for="(statuses, i) in section.selects.statuses"
+        :key="'selects ' + i"
+        class="c-index__category"
+      )
+        div(
+          v-for="(size, j) in section.selects.sizes"
+          :key="'selects ' + i + ' ' + j"
+          class="c-index__item"
+        )
           base-select(
-            v-if="type === 'selects' && statuses[j]"
-            :id="type + '_' + size + '_'  + statuses[j] + i + j"
+            v-if="statuses[j]"
+            :id="'select_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' select (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j] + i + j"
+            :name="'select_' + size + '_'  + statuses[j] + i + j"
             :options=`[
               { label: 'Dark Mode FTW 1', value: 'Dark Mode FTW 1' },
               { label: 'Dark Mode FTW 2', value: 'Dark Mode FTW 2' },
@@ -166,46 +178,105 @@
             :status="statuses[j]"
             class="c-index__input"
           )
+
+    div(
+      v-if="section.textareas"
+      class="c-index__elements c-index__elements--form c-index__elements--textareas"
+    )
+      div(
+        v-for="(statuses, i) in section.textareas.statuses"
+        :key="'textareas ' + i"
+        class="c-index__category"
+      )
+        div(
+          v-for="(size, j) in section.textareas.sizes"
+          :key="'textareas ' + i + ' ' + j"
+          class="c-index__item"
+        )
           base-textarea(
-            v-if="type === 'textareas' && statuses[j]"
-            :id="type + '_' + size + '_'  + statuses[j] + i + j"
+            v-if="statuses[j]"
+            :id="'textarea_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' textarea (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j] + i + j"
+            :name="'textarea_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' textarea'"
             :size="size"
             :status="statuses[j]"
             :value="statuses[j] === 'empty' ? null : 'Dark Mode FTW'"
             class="c-index__textarea"
           )
+
+    div(
+      v-if="section.checkboxes"
+      class="c-index__elements c-index__elements--form c-index__elements--checkboxes"
+    )
+      div(
+        v-for="(statuses, i) in section.checkboxes.statuses"
+        :key="'checkboxes ' + i"
+        class="c-index__category"
+      )
+        div(
+          v-for="(size, j) in section.checkboxes.sizes"
+          :key="'checkboxes ' + i + ' ' + j"
+          class="c-index__item"
+        )
           base-checkbox(
-            v-if="type === 'checkboxes' && statuses[j]"
+            v-if="statuses[j]"
             :block="false"
             :checked="i === 1"
-            :id="type + '_' + size + '_'  + statuses[j] + i + j"
+            :id="'checkbox_' + size + '_'  + statuses[j] + i + j"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j] + i + j"
+            :name="'checkbox_' + size + '_'  + statuses[j] + i + j"
             :size="size"
             :status="statuses[j]"
             class="c-index__checkbox"
           )
+    div(
+      v-if="section.radios"
+      class="c-index__elements c-index__elements--form c-index__elements--radios"
+    )
+      div(
+        v-for="(statuses, i) in section.radios.statuses"
+        :key="'radios ' + i"
+        class="c-index__category"
+      )
+        div(
+          v-for="(size, j) in section.radios.sizes"
+          :key="'radios ' + i + ' ' + j"
+          class="c-index__item"
+        )
           base-radio(
-            v-if="type === 'radios' && statuses[j]"
+            v-if="statuses[j]"
             :block="false"
             :checked="j === 0"
-            :id="type + '_' + size + '_'  + statuses[j] + i + j"
+            :id="'radio_' + size + '_'  + statuses[j] + i + j"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' radio (' + statuses[j] + ')'"
-            :name="type + i"
+            :name="'radios_' + i"
             :size="size"
             :status="statuses[j]"
             class="c-index__radio"
           )
+
+    div(
+      v-if="section.toggles"
+      class="c-index__elements c-index__elements--form c-index__elements--toggles"
+    )
+      div(
+        v-for="(statuses, i) in section.toggles.statuses"
+        :key="'toggles ' + i"
+        class="c-index__category"
+      )
+        div(
+          v-for="(size, j) in section.toggles.sizes"
+          :key="'toggles ' + i + ' ' + j"
+          class="c-index__item"
+        )
           base-toggle(
-            v-if="type === 'toggles' && statuses[j]"
+            v-if="statuses[j]"
             :block="false"
             :checked="i === 1"
-            :id="type + '_' + size + '_'  + statuses[j] + i + j"
+            :id="'toggle_' + size + '_'  + statuses[j] + i + j"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' toggle (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j] + i + j"
+            :name="'toggle_' + size + '_'  + statuses[j] + i + j"
             :size="size"
             :status="statuses[j]"
             class="c-index__toggle"
@@ -337,8 +408,8 @@ export default {
         {
           id: "colors",
           headlines: {
-            title: "COLORS FOR THE FANCIEST DARK PAINTERS 👨‍🎨",
-            description: "Gather all colors here in a beautiful way",
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
             hasDocumentation: false
           },
           colors: colors
@@ -346,9 +417,8 @@ export default {
         {
           id: "headings",
           headlines: {
-            title: "HEADINGS LIKE YOU HAVE NEVER SEEN 😎",
-            description:
-              "From titles to paragraphs, organizing your content will feel like a breeze",
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
             hasDocumentation: true
           },
           headings: []
@@ -356,9 +426,8 @@ export default {
         {
           id: "buttons",
           headlines: {
-            title: "BUTTONS AND BADGES TO RULE THEM ALL 🤴",
-            description:
-              "Make your interfaces stand out from the dark with theses beautiful elements",
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
             hasDocumentation: true
           },
           buttons: {
@@ -372,6 +441,14 @@ export default {
               "camera_alt"
             ],
             sizes: ["large", "medium", "default", "small", "mini"]
+          }
+        },
+        {
+          id: "badges",
+          headlines: {
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
+            hasDocumentation: true
           },
           badges: {
             colors: [
@@ -390,8 +467,8 @@ export default {
         {
           id: "socialLogins",
           headlines: {
-            title: "INCREASE YOUR CONVERSION RATE WITH SOCIAL LOGINS 🤩",
-            description: "Time is precious and we are in 2018.",
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
             hasDocumentation: true
           },
           socialAuths: {
@@ -400,62 +477,100 @@ export default {
           }
         },
         {
-          id: "form",
+          id: "inputs",
           headlines: {
-            title: "BUILDING FORMS HAS NEVER BEEN THIS DELICIOUS 😋",
-            description: "With all these form elements",
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
             hasDocumentation: true
           },
-          form: {
-            inputs: {
-              sizes: ["large", "medium", "default", "small", "mini"],
-              statuses: [
-                ["normal", "normal", "normal", "normal", "normal"],
-                ["success", "error", "warning"]
-              ]
-            },
-            selects: {
-              sizes: ["large", "medium", "default", "small", "mini"],
-              statuses: [
-                ["normal", "normal", "normal", "normal", "normal"],
-                ["success", "error", "warning"]
-              ]
-            },
-            textareas: {
-              sizes: ["large", "medium", "default", "small", "mini"],
-              statuses: [
-                ["normal", "normal", "normal", "normal", "normal"],
-                ["success", "error", "warning"]
-              ]
-            },
-            checkboxes: {
-              sizes: ["large", "medium", "default", "small", "mini"],
-              statuses: [
-                ["normal", "normal", "normal", "normal", "normal"],
-                ["normal", "success", "error", "warning"]
-              ]
-            },
-            radios: {
-              sizes: ["large", "medium", "default", "small", "mini"],
-              statuses: [
-                ["normal", "normal", "normal", "normal", "normal"],
-                ["normal", "success", "error", "warning"]
-              ]
-            },
-            toggles: {
-              sizes: ["large", "medium", "default", "small", "mini"],
-              statuses: [
-                ["normal", "normal", "normal", "normal", "normal"],
-                ["normal", "success", "error", "warning"]
-              ]
-            }
+          inputs: {
+            sizes: ["large", "medium", "default", "small", "mini"],
+            statuses: [
+              ["normal", "normal", "normal", "normal", "normal"],
+              ["success", "error", "warning"]
+            ]
+          }
+        },
+        {
+          id: "selects",
+          headlines: {
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
+            hasDocumentation: true
+          },
+          selects: {
+            sizes: ["large", "medium", "default", "small", "mini"],
+            statuses: [
+              ["normal", "normal", "normal", "normal", "normal"],
+              ["success", "error", "warning"]
+            ]
+          }
+        },
+        {
+          id: "textareas",
+          headlines: {
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
+            hasDocumentation: true
+          },
+          textareas: {
+            sizes: ["large", "medium", "default", "small", "mini"],
+            statuses: [
+              ["normal", "normal", "normal", "normal", "normal"],
+              ["success", "error", "warning"]
+            ]
+          }
+        },
+        {
+          id: "checkboxes",
+          headlines: {
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
+            hasDocumentation: true
+          },
+          checkboxes: {
+            sizes: ["large", "medium", "default", "small", "mini"],
+            statuses: [
+              ["normal", "normal", "normal", "normal", "normal"],
+              ["normal", "success", "error", "warning"]
+            ]
+          }
+        },
+        {
+          id: "radios",
+          headlines: {
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
+            hasDocumentation: true
+          },
+          radios: {
+            sizes: ["large", "medium", "default", "small", "mini"],
+            statuses: [
+              ["normal", "normal", "normal", "normal", "normal"],
+              ["normal", "success", "error", "warning"]
+            ]
+          }
+        },
+        {
+          id: "toggles",
+          headlines: {
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
+            hasDocumentation: true
+          },
+          toggles: {
+            sizes: ["large", "medium", "default", "small", "mini"],
+            statuses: [
+              ["normal", "normal", "normal", "normal", "normal"],
+              ["normal", "success", "error", "warning"]
+            ]
           }
         },
         {
           id: "dividers",
           headlines: {
-            title: "DIVIDE AND CONQUER 👨‍💻",
-            description: "Small and large, big and thin. We have them all.",
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
             hasDocumentation: true
           },
           dividers: {
@@ -475,9 +590,8 @@ export default {
         {
           id: "loaders",
           headlines: {
-            title: "DON’T MAKE THEM WAIT TOO LONG… 😉",
-            description:
-              "From blue to yellow, you’re ready to unlock a great loading experience.",
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
             hasDocumentation: true
           },
           loaders: [
@@ -526,8 +640,8 @@ export default {
         {
           id: "avatars",
           headlines: {
-            title: "AVATARS & COMPANY THUMBNAILS 🧞",
-            description: "Make your users stand out from the dark",
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
             hasDocumentation: true
           },
           avatars: {
@@ -552,9 +666,8 @@ export default {
         {
           id: "icons",
           headlines: {
-            title: "900+ ICONS FROM MATERIAL DESIGN 👻",
-            description:
-              "Material icons are delightful, beautifully crafted symbols for knowledge actions and items.",
+            title: "FIND A GOOD TITLE",
+            description: "With a great description",
             hasDocumentation: true
           },
           icons: icons
