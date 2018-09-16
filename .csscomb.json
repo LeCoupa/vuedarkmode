@@ -263,7 +263,6 @@
       "list-style-type",
       "list-style-image",
       "quotes",
-      "content",
       "counter-increment",
       "counter-reset",
       "-ms-writing-mode",
@@ -453,6 +452,7 @@
       "user-select",
       "user-zoom",
       "orientation",
+      "content",
       "cursor"
     ]
   ]
