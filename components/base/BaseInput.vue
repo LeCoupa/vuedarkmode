@@ -78,7 +78,7 @@ export default {
     },
     id: {
       type: String,
-      required: true
+      default: null
     },
     label: {
       type: String,
