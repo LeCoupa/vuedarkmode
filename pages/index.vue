@@ -121,8 +121,6 @@
             class="c-index__social-auth"
           )
 
-    //- ['inputs', 'selects', 'textareas', 'checkboxes', 'radios', 'toggles']
-
     div(
       v-if="section.inputs"
       class="c-index__elements c-index__elements--form c-index__elements--inputs"
@@ -133,20 +131,21 @@
         class="c-index__category"
       )
         div(
+          v-if="statuses[j]"
           v-for="(size, j) in section.inputs.sizes"
           :key="'inputs ' + i + ' ' + j"
           class="c-index__item"
         )
           base-input(
-            v-if="statuses[j]"
             :id="'input' + '_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' input (' + statuses[j] + ')'"
             :name="'input' + '_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' input'"
             :size="size"
             :status="statuses[j]"
-            :value="statuses[j] === 'empty' ? null : 'Dark Mode FTW'"
             class="c-index__input"
+            description="This is a customizable description for inputs."
+            value="Dark Mode FTW"
           )
 
     div(
@@ -159,12 +158,12 @@
         class="c-index__category"
       )
         div(
+          v-if="statuses[j]"
           v-for="(size, j) in section.selects.sizes"
           :key="'selects ' + i + ' ' + j"
           class="c-index__item"
         )
           base-select(
-            v-if="statuses[j]"
             :id="'select_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' select (' + statuses[j] + ')'"
             :name="'select_' + size + '_'  + statuses[j] + i + j"
@@ -177,6 +176,7 @@
             :size="size"
             :status="statuses[j]"
             class="c-index__input"
+            description="This is a customizable description for selects."
           )
 
     div(
@@ -189,20 +189,21 @@
         class="c-index__category"
       )
         div(
+          v-if="statuses[j]"
           v-for="(size, j) in section.textareas.sizes"
           :key="'textareas ' + i + ' ' + j"
           class="c-index__item"
         )
           base-textarea(
-            v-if="statuses[j]"
             :id="'textarea_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' textarea (' + statuses[j] + ')'"
             :name="'textarea_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' textarea'"
             :size="size"
             :status="statuses[j]"
-            :value="statuses[j] === 'empty' ? null : 'Dark Mode FTW'"
             class="c-index__textarea"
+            description="This is a customizable description for textareas."
+            value="Dark Mode FTW"
           )
 
     div(
@@ -215,12 +216,12 @@
         class="c-index__category"
       )
         div(
+          v-if="statuses[j]"
           v-for="(size, j) in section.checkboxes.sizes"
           :key="'checkboxes ' + i + ' ' + j"
           class="c-index__item"
         )
           base-checkbox(
-            v-if="statuses[j]"
             :block="false"
             :checked="i === 1"
             :id="'checkbox_' + size + '_'  + statuses[j] + i + j"
@@ -229,6 +230,7 @@
             :size="size"
             :status="statuses[j]"
             class="c-index__checkbox"
+            description="This is a customizable description for checkboxes."
           )
     div(
       v-if="section.radios"
@@ -240,12 +242,12 @@
         class="c-index__category"
       )
         div(
+          v-if="statuses[j]"
           v-for="(size, j) in section.radios.sizes"
           :key="'radios ' + i + ' ' + j"
           class="c-index__item"
         )
           base-radio(
-            v-if="statuses[j]"
             :block="false"
             :checked="j === 0"
             :id="'radio_' + size + '_'  + statuses[j] + i + j"
@@ -254,6 +256,7 @@
             :size="size"
             :status="statuses[j]"
             class="c-index__radio"
+            description="This is a customizable description for radios."
           )
 
     div(
@@ -266,12 +269,12 @@
         class="c-index__category"
       )
         div(
+          v-if="statuses[j]"
           v-for="(size, j) in section.toggles.sizes"
           :key="'toggles ' + i + ' ' + j"
           class="c-index__item"
         )
           base-toggle(
-            v-if="statuses[j]"
             :block="false"
             :checked="i === 1"
             :id="'toggle_' + size + '_'  + statuses[j] + i + j"
@@ -280,6 +283,7 @@
             :size="size"
             :status="statuses[j]"
             class="c-index__toggle"
+            description="This is a customizable description for toggles."
           )
 
     div(
@@ -408,7 +412,7 @@ export default {
         {
           id: "colors",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "COLORS",
             description: "With a great description",
             hasDocumentation: false
           },
@@ -417,7 +421,7 @@ export default {
         {
           id: "headings",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "HEADINGS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -426,7 +430,7 @@ export default {
         {
           id: "buttons",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "BUTTONS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -446,7 +450,7 @@ export default {
         {
           id: "badges",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "BADGES",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -467,7 +471,7 @@ export default {
         {
           id: "socialLogins",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "SOCIAL LOGINS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -479,7 +483,7 @@ export default {
         {
           id: "inputs",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "INPUTS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -494,7 +498,7 @@ export default {
         {
           id: "selects",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "SELECTS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -509,7 +513,7 @@ export default {
         {
           id: "textareas",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "TEXTAREAS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -524,7 +528,7 @@ export default {
         {
           id: "checkboxes",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "CHECKBOXES",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -539,7 +543,7 @@ export default {
         {
           id: "radios",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "RADIOS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -554,7 +558,7 @@ export default {
         {
           id: "toggles",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "TOGGLES",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -569,7 +573,7 @@ export default {
         {
           id: "dividers",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "DIVIDERS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -590,7 +594,7 @@ export default {
         {
           id: "loaders",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "LOADERS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -640,7 +644,7 @@ export default {
         {
           id: "avatars",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "AVATARS",
             description: "With a great description",
             hasDocumentation: true
           },
@@ -666,7 +670,7 @@ export default {
         {
           id: "icons",
           headlines: {
-            title: "FIND A GOOD TITLE",
+            title: "ICONS",
             description: "With a great description",
             hasDocumentation: true
           },
