@@ -6,39 +6,40 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-base-checkbox',
-    'c-base-checkbox--' + size,
-    'c-base-checkbox--' + status,
+    'c-base-radio',
+    'c-base-radio--' + size,
+    'c-base-radio--' + status,
     {
-      'c-base-checkbox--block': block
+      'c-base-radio--block': block
     }
   ]`
 )
   div(
-    class="c-base-checkbox__container"
+    class="c-base-radio__container"
   )
     input(
-      @change="onCheckboxChange"
+      @change="onRadioChange"
       :checked="checked"
       :disabled="disabled"
       :id="id"
+      :name="name"
       :required="required"
-      class="c-base-checkbox__field"
-      type="checkbox"
+      class="c-base-radio__field"
+      type="radio"
     )
     base-label(
       v-if="label"
       :forField="id"
       :size="size"
       :uppercase="false"
-      class="c-base-checkbox__label"
+      class="c-base-radio__label"
     ) {{ label }}
 
   base-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-base-checkbox__description"
+    class="c-base-radio__description"
   )
 </template>
 
@@ -75,6 +76,10 @@ export default {
       type: String,
       default: ""
     },
+    name: {
+      type: String,
+      required: true
+    },
     required: {
       type: Boolean,
       default: false
@@ -90,7 +95,7 @@ export default {
   },
 
   methods: {
-    onCheckboxChange(event) {
+    onRadioChange(event) {
       this.$emit("change", this.id, event.target.checked);
     }
   }
@@ -104,7 +109,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".c-base-checkbox";
+$c: ".c-base-radio";
 $sizes: mini, small, default, medium, large;
 $statuses: error, success, warning;
 
@@ -137,19 +142,20 @@ $statuses: error, success, warning;
         left: 0;
         display: inline-block;
         border: 1px solid $regent-st-blue;
-        border-radius: 3px;
+        border-radius: 100%;
         background-color: $white;
         content: "";
       }
 
       &:after {
+        top: 50%;
+        left: 50%;
         display: none;
-        border-width: 2px;
-        border-style: solid;
-        border-top: 0;
-        border-left: 0;
+        width: 6px;
+        height: 6px;
+        border-radius: 100%;
         content: "";
-        transform: rotate(45deg);
+        transform: translate(-50%, -50%);
       }
 
       &:hover:before {
@@ -158,9 +164,7 @@ $statuses: error, success, warning;
 
       &:hover:after {
         display: block;
-        border-color: $oxford-blue;
-        border-right-width: 2px;
-        border-bottom-width: 2px;
+        background-color: $oxford-blue;
       }
 
       &:checked {
@@ -172,7 +176,7 @@ $statuses: error, success, warning;
 
         &:after {
           display: block;
-          border-color: $white;
+          background-color: $white;
         }
       }
 
@@ -224,35 +228,6 @@ $statuses: error, success, warning;
           &:before {
             width: 12px + (2px * $i);
             height: 12px + (2px * $i);
-          }
-
-          &:after {
-            @if ($size == "mini") {
-              width: 4px;
-              height: 8px;
-              top: 1px;
-              left: 4px;
-            } @else if ($size == "small") {
-              width: 4px;
-              height: 8px;
-              top: 2px;
-              left: 5px;
-            } @else if ($size == "default") {
-              width: 5px;
-              height: 10px;
-              top: 2px;
-              left: 6px;
-            } @else if ($size == "medium") {
-              width: 5px;
-              height: 10px;
-              top: 3px;
-              left: 7px;
-            } @else if ($size == "large") {
-              width: 6px;
-              height: 12px;
-              top: 3px;
-              left: 8px;
-            }
           }
         }
 

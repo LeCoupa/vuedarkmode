@@ -123,7 +123,7 @@
 
     div(
       v-if="section.form"
-      v-for="type in ['inputs', 'selects', 'textareas', 'checkboxes']"
+      v-for="type in ['inputs', 'selects', 'textareas', 'checkboxes', 'radios']"
       :class=`[
         'c-index__elements',
         'c-index__elements--form',
@@ -155,10 +155,10 @@
             :id="type + '_' + size + '_'  + statuses[j]"
             :label="size + ' select (' + statuses[j] + ')'"
             :options=`[
-              { label: 'Value 1', value: 'value 1' },
-              { label: 'Value 2', value: 'value 2' },
-              { label: 'Value 3', value: 'value 3' },
-              { label: 'Value 4', value: 'value 4' }
+              { label: 'Dark Mode FTW 1', value: 'Dark Mode FTW 1' },
+              { label: 'Dark Mode FTW 2', value: 'Dark Mode FTW 2' },
+              { label: 'Dark Mode FTW 3', value: 'Dark Mode FTW 3' },
+              { label: 'Dark Mode FTW 4', value: 'Dark Mode FTW 4' }
             ]`
             :size="size"
             :status="statuses[j]"
@@ -176,12 +176,24 @@
           )
           base-checkbox(
             v-if="type === 'checkboxes' && statuses[j]"
+            :block="false"
             :checked="statuses[j] === 'checked'"
             :id="type + '_' + size + '_'  + statuses[j]"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
             :size="size"
             :status="statuses[j]"
             class="c-index__checkbox"
+          )
+          base-radio(
+            v-if="type === 'radios' && statuses[j]"
+            :block="false"
+            :checked="statuses[j] === 'checked'"
+            :id="type + '_' + size + '_'  + statuses[j]"
+            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' radio (' + statuses[j] + ')'"
+            :name="type + i"
+            :size="size"
+            :status="statuses[j]"
+            class="c-index__radio"
           )
 
     div(
@@ -404,7 +416,20 @@ export default {
             checkboxes: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
-                ["empty", "empty", "empty", "empty", "empty"],
+                [
+                  "unchecked",
+                  "unchecked",
+                  "unchecked",
+                  "unchecked",
+                  "unchecked"
+                ],
+                ["checked", "success", "error", "warning"]
+              ]
+            },
+            radios: {
+              sizes: ["large", "medium", "default", "small", "mini"],
+              statuses: [
+                ["unchecked", "unchecked", "unchecked", "unchecked", "checked"],
                 ["checked", "success", "error", "warning"]
               ]
             }
@@ -630,6 +655,7 @@ $c: ".c-index";
     }
 
     &--form {
+      text-align: left;
       grid-template-columns: repeat(auto-fill, 360px);
 
       input::placeholder,
