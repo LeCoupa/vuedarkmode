@@ -62,7 +62,7 @@ export default {
     },
     description: {
       type: String,
-      default: ""
+      default: null
     },
     disabled: {
       type: Boolean,
@@ -74,7 +74,7 @@ export default {
     },
     label: {
       type: String,
-      default: ""
+      default: null
     },
     name: {
       type: String,
@@ -111,7 +111,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-toggle";
 $sizes: mini, small, default, medium, large;
-$statuses: error, success, warning;
+$statuses: error, normal, success, warning;
 
 #{$c} {
   display: inline-block;
@@ -135,7 +135,7 @@ $statuses: error, success, warning;
         position: absolute;
         display: inline-block;
         box-sizing: border-box;
-        transition: all ease-in-out 0.4s;
+        transition: all ease-in-out 0.3s;
       }
 
       &:before {
@@ -158,10 +158,9 @@ $statuses: error, success, warning;
         content: "";
       }
 
-      &:checked {
+      &:hover {
         &:before {
-          border-color: #1a91eb;
-          background-color: rgba(#1991eb, 0.4);
+          border-color: lighten($oxford-blue, 10%);
         }
       }
     }
@@ -218,10 +217,12 @@ $statuses: error, success, warning;
               background-color: rgba(map-get($statusColors, $status), 0.4);
             }
           }
-        }
 
-        #{$c}__label {
-          color: map-get($statusColors, $status);
+          &:hover {
+            &:before {
+              border-color: lighten(map-get($statusColors, $status), 10%);
+            }
+          }
         }
       }
     }

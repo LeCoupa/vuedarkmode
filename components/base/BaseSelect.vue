@@ -7,8 +7,9 @@ div(
   :class=`[
     'c-base-select',
     'c-base-select--' + size,
-    'c-base-select--' + computedStatus,
+    'c-base-select--' + status,
     {
+      'c-base-select--focused': focused,
       'c-base-select--with-left-icon': leftIcon
     }
   ]`
@@ -119,15 +120,6 @@ export default {
       }
 
       return this.rightIcon;
-    },
-
-    computedStatus() {
-      // Return the status when defined as prop
-      if (this.focused) {
-        return "focused";
-      }
-
-      return this.status;
     }
   },
 
@@ -172,7 +164,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-select";
 $sizes: mini, small, default, medium, large;
-$statuses: error, focused, success, warning;
+$statuses: error, normal, success, warning;
 
 #{$c} {
   display: flex;
@@ -185,14 +177,15 @@ $statuses: error, focused, success, warning;
     overflow: hidden;
     align-items: center;
     box-sizing: border-box;
-    border: 1px solid $oxford-blue;
+    border-width: 1px;
+    border-style: solid;
     border-radius: 6px;
     background-color: $ebony-clay-2;
     transition: border ease-in-out 0.2s;
 
     #{$c}__icon {
-      z-index: 1;
       position: absolute;
+      z-index: 1;
 
       &--left {
         left: 9px;
@@ -254,13 +247,25 @@ $statuses: error, focused, success, warning;
   @each $status in $statuses {
     &--#{$status} {
       #{$c}__container {
-        border-color: map-get($statusColors, $status);
-        color: map-get($statusColors, $status);
+        @if ($status != "normal") {
+          border-color: map-get($statusColors, $status);
+          color: map-get($statusColors, $status);
+        } @else {
+          border-color: $oxford-blue;
+          color: $white;
+        }
       }
     }
   }
 
   // --> BOOLEANS <--
+
+  &--focused {
+    #{$c}__container {
+      border-color: $azure-radiance;
+      color: $azure-radiance;
+    }
+  }
 
   &--with-left-icon {
     #{$c}__container {

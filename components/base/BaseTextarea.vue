@@ -7,7 +7,7 @@ div(
   :class=`[
     'c-base-textarea',
     'c-base-textarea--' + size,
-    'c-base-textarea--' + computedStatus
+    'c-base-textarea--' + status
   ]`
 )
   base-label(
@@ -91,32 +91,12 @@ export default {
     }
   },
 
-  data() {
-    return {
-      // --> STATE <--
-      focused: false
-    };
-  },
-
-  computed: {
-    computedStatus() {
-      // Return the status when defined as prop
-      if (this.focused) {
-        return "focused";
-      }
-
-      return this.status;
-    }
-  },
-
   methods: {
     getTextareaValue() {
       return this.$el.querySelector("textarea").value || "";
     },
 
     onTextareaBlur() {
-      this.focused = false;
-
       this.$emit("blur", this.name, this.getTextareaValue());
     },
 
@@ -125,8 +105,6 @@ export default {
     },
 
     onTextareaFocus() {
-      this.focused = true;
-
       this.$emit("focus", this.name, this.getTextareaValue());
     }
   }
@@ -140,7 +118,7 @@ export default {
 <style lang="scss">
 $c: ".c-base-textarea";
 $sizes: mini, small, default, medium, large;
-$statuses: error, focused, success, warning;
+$statuses: error, normal, success, warning;
 
 #{$c} {
   display: flex;
@@ -150,7 +128,8 @@ $statuses: error, focused, success, warning;
   #{$c}__field {
     box-sizing: border-box;
     padding: 10px 15px;
-    border: 1px solid $oxford-blue;
+    border-width: 1px;
+    border-style: solid;
     border-radius: 6px;
     background-color: $ebony-clay-2;
     color: $white;
@@ -166,6 +145,7 @@ $statuses: error, focused, success, warning;
 
     &:focus {
       outline: none;
+      border-color: $azure-radiance;
     }
   }
 
@@ -176,9 +156,9 @@ $statuses: error, focused, success, warning;
 
     &--#{$size} {
       #{$c}__field {
+        min-height: 60px + (20px * $i);
         border-radius: 4px + (1px * $i);
         font-size: 12px + (1px * $i);
-        min-height: 60px + (20px * $i);
       }
     }
   }
@@ -188,7 +168,11 @@ $statuses: error, focused, success, warning;
   @each $status in $statuses {
     &--#{$status} {
       #{$c}__field {
-        border-color: map-get($statusColors, $status);
+        @if ($status != "normal") {
+          border-color: map-get($statusColors, $status);
+        } @else {
+          border-color: $oxford-blue;
+        }
       }
     }
   }

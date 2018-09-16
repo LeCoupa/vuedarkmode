@@ -142,9 +142,9 @@
         )
           base-input(
             v-if="type === 'inputs' && statuses[j]"
-            :id="type + '_' + size + '_'  + statuses[j]"
+            :id="type + '_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' input (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j]"
+            :name="type + '_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' input'"
             :size="size"
             :status="statuses[j]"
@@ -153,9 +153,9 @@
           )
           base-select(
             v-if="type === 'selects' && statuses[j]"
-            :id="type + '_' + size + '_'  + statuses[j]"
+            :id="type + '_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' select (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j]"
+            :name="type + '_' + size + '_'  + statuses[j] + i + j"
             :options=`[
               { label: 'Dark Mode FTW 1', value: 'Dark Mode FTW 1' },
               { label: 'Dark Mode FTW 2', value: 'Dark Mode FTW 2' },
@@ -168,9 +168,9 @@
           )
           base-textarea(
             v-if="type === 'textareas' && statuses[j]"
-            :id="type + '_' + size + '_'  + statuses[j]"
+            :id="type + '_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' textarea (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j]"
+            :name="type + '_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' textarea'"
             :size="size"
             :status="statuses[j]"
@@ -180,10 +180,10 @@
           base-checkbox(
             v-if="type === 'checkboxes' && statuses[j]"
             :block="false"
-            :checked="statuses[j] === 'checked'"
-            :id="type + '_' + size + '_'  + statuses[j]"
+            :checked="i === 1"
+            :id="type + '_' + size + '_'  + statuses[j] + i + j"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j]"
+            :name="type + '_' + size + '_'  + statuses[j] + i + j"
             :size="size"
             :status="statuses[j]"
             class="c-index__checkbox"
@@ -191,8 +191,8 @@
           base-radio(
             v-if="type === 'radios' && statuses[j]"
             :block="false"
-            :checked="statuses[j] === 'checked'"
-            :id="type + '_' + size + '_'  + statuses[j]"
+            :checked="j === 0"
+            :id="type + '_' + size + '_'  + statuses[j] + i + j"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' radio (' + statuses[j] + ')'"
             :name="type + i"
             :size="size"
@@ -202,10 +202,10 @@
           base-toggle(
             v-if="type === 'toggles' && statuses[j]"
             :block="false"
-            :checked="statuses[j] === 'checked'"
-            :id="type + '_' + size + '_'  + statuses[j]"
+            :checked="i === 1"
+            :id="type + '_' + size + '_'  + statuses[j] + i + j"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' toggle (' + statuses[j] + ')'"
-            :name="type + '_' + size + '_'  + statuses[j]"
+            :name="type + '_' + size + '_'  + statuses[j] + i + j"
             :size="size"
             :status="statuses[j]"
             class="c-index__toggle"
@@ -410,55 +410,43 @@ export default {
             inputs: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
-                ["empty", "empty", "empty", "empty", "empty"],
-                ["focused", "success", "error", "warning"]
+                ["normal", "normal", "normal", "normal", "normal"],
+                ["success", "error", "warning"]
               ]
             },
             selects: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
-                ["filled", "filled", "filled", "filled", "filled"],
-                ["focused", "success", "error", "warning"]
+                ["normal", "normal", "normal", "normal", "normal"],
+                ["success", "error", "warning"]
               ]
             },
             textareas: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
-                ["empty", "empty", "empty", "empty", "empty"],
-                ["focused", "success", "error", "warning"]
+                ["normal", "normal", "normal", "normal", "normal"],
+                ["success", "error", "warning"]
               ]
             },
             checkboxes: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
-                [
-                  "unchecked",
-                  "unchecked",
-                  "unchecked",
-                  "unchecked",
-                  "unchecked"
-                ],
-                ["checked", "success", "error", "warning"]
+                ["normal", "normal", "normal", "normal", "normal"],
+                ["normal", "success", "error", "warning"]
               ]
             },
             radios: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
-                ["unchecked", "unchecked", "unchecked", "unchecked", "checked"],
-                ["checked", "success", "error", "warning"]
+                ["normal", "normal", "normal", "normal", "normal"],
+                ["normal", "success", "error", "warning"]
               ]
             },
             toggles: {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
-                [
-                  "unchecked",
-                  "unchecked",
-                  "unchecked",
-                  "unchecked",
-                  "unchecked"
-                ],
-                ["checked", "success", "error", "warning"]
+                ["normal", "normal", "normal", "normal", "normal"],
+                ["normal", "success", "error", "warning"]
               ]
             }
           }
