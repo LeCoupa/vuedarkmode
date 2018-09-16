@@ -10,7 +10,7 @@ div(
     'c-base-select--' + status,
     {
       'c-base-select--focused': focused,
-      'c-base-select--with-left-icon': leftIcon
+      'c-base-select--with-left-icon': computedLeftIcon
     }
   ]`
 )
@@ -23,8 +23,8 @@ div(
 
   .c-base-select__container
     base-icon(
-      v-if="leftIcon"
-      :name="leftIcon"
+      v-if="computedLeftIcon"
+      :name="computedLeftIcon"
       class="c-base-select__icon c-base-select__icon--left"
     )
     select(
@@ -43,7 +43,7 @@ div(
       ) {{ option.label }}
 
     base-icon(
-      :name="computedRightIcon"
+      :name="rightIcon"
       class="c-base-select__icon c-base-select__icon--right"
     )
 
@@ -109,8 +109,8 @@ export default {
   },
 
   computed: {
-    computedRightIcon() {
-      // Return the status when defined as prop
+    computedLeftIcon() {
+      // Return the left icon when defined as prop
       if (this.status === "error") {
         return "close";
       } else if (this.status === "success") {
@@ -119,7 +119,7 @@ export default {
         return "warning";
       }
 
-      return this.rightIcon;
+      return this.leftIcon;
     }
   },
 
