@@ -6,40 +6,40 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-base-radio',
-    'c-base-radio--' + size,
-    'c-base-radio--' + status,
+    'c-base-toggle',
+    'c-base-toggle--' + size,
+    'c-base-toggle--' + status,
     {
-      'c-base-radio--block': block
+      'c-base-toggle--block': block
     }
   ]`
 )
   div(
-    class="c-base-radio__container"
+    class="c-base-toggle__container"
   )
     input(
-      @change="onRadioChange"
+      @change="onToggleChange"
       :checked="checked"
       :disabled="disabled"
       :id="id"
       :name="name"
       :required="required"
-      class="c-base-radio__field"
-      type="radio"
+      class="c-base-toggle__field"
+      type="checkbox"
     )
     base-label(
       v-if="label"
       :forField="id"
       :size="size"
       :uppercase="false"
-      class="c-base-radio__label"
+      class="c-base-toggle__label"
     ) {{ label }}
 
   base-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-base-radio__description"
+    class="c-base-toggle__description"
   )
 </template>
 
@@ -95,7 +95,7 @@ export default {
   },
 
   methods: {
-    onRadioChange(event) {
+    onToggleChange(event) {
       this.$emit("change", this.name, event.target.checked);
     }
   }
@@ -109,7 +109,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".c-base-radio";
+$c: ".c-base-toggle";
 $sizes: mini, small, default, medium, large;
 $statuses: error, success, warning;
 
@@ -142,20 +142,18 @@ $statuses: error, success, warning;
         left: 0;
         display: inline-block;
         border: 1px solid $regent-st-blue;
-        border-radius: 100%;
+        border-radius: 3px;
         background-color: $white;
         content: "";
       }
 
       &:after {
-        top: 50%;
-        left: 50%;
         display: none;
-        width: 6px;
-        height: 6px;
-        border-radius: 100%;
+        border-width: 2px;
+        border-style: solid;
+        border-top: 0;
+        border-left: 0;
         content: "";
-        transform: translate(-50%, -50%);
       }
 
       &:hover:before {
@@ -164,7 +162,9 @@ $statuses: error, success, warning;
 
       &:hover:after {
         display: block;
-        background-color: $oxford-blue;
+        border-color: $oxford-blue;
+        border-right-width: 2px;
+        border-bottom-width: 2px;
       }
 
       &:checked {
@@ -176,7 +176,7 @@ $statuses: error, success, warning;
 
         &:after {
           display: block;
-          background-color: $white;
+          border-color: $white;
         }
       }
     }
@@ -203,6 +203,35 @@ $statuses: error, success, warning;
           &:before {
             width: 12px + (2px * $i);
             height: 12px + (2px * $i);
+          }
+
+          &:after {
+            @if ($size == "mini") {
+              width: 4px;
+              height: 8px;
+              top: 1px;
+              left: 4px;
+            } @else if ($size == "small") {
+              width: 4px;
+              height: 8px;
+              top: 2px;
+              left: 5px;
+            } @else if ($size == "default") {
+              width: 5px;
+              height: 10px;
+              top: 2px;
+              left: 6px;
+            } @else if ($size == "medium") {
+              width: 5px;
+              height: 10px;
+              top: 3px;
+              left: 7px;
+            } @else if ($size == "large") {
+              width: 6px;
+              height: 12px;
+              top: 3px;
+              left: 8px;
+            }
           }
         }
 

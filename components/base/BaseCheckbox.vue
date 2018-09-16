@@ -180,31 +180,6 @@ $statuses: error, success, warning;
           border-color: $white;
         }
       }
-
-      &[disabled] {
-        color: $crimson;
-        cursor: not-allowed;
-
-        &:hover,
-        &:before,
-        &:after {
-          cursor: not-allowed;
-        }
-
-        &:hover:before {
-          border: 1px solid $crimson;
-          animation-name: none;
-        }
-
-        &:before {
-          border-color: $crimson;
-        }
-
-        &:checked:before {
-          border: $regent-st-blue;
-          background: $regent-st-blue;
-        }
-      }
     }
 
     #{$c}__label {

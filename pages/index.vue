@@ -123,7 +123,7 @@
 
     div(
       v-if="section.form"
-      v-for="type in ['inputs', 'selects', 'textareas', 'checkboxes', 'radios']"
+      v-for="type in ['inputs', 'selects', 'textareas', 'checkboxes', 'radios', 'toggles']"
       :class=`[
         'c-index__elements',
         'c-index__elements--form',
@@ -198,6 +198,17 @@
             :size="size"
             :status="statuses[j]"
             class="c-index__radio"
+          )
+          base-toggle(
+            v-if="type === 'toggles' && statuses[j]"
+            :block="false"
+            :checked="statuses[j] === 'checked'"
+            :id="type + '_' + size + '_'  + statuses[j]"
+            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' toggle (' + statuses[j] + ')'"
+            :name="type + '_' + size + '_'  + statuses[j]"
+            :size="size"
+            :status="statuses[j]"
+            class="c-index__toggle"
           )
 
     div(
@@ -434,6 +445,19 @@ export default {
               sizes: ["large", "medium", "default", "small", "mini"],
               statuses: [
                 ["unchecked", "unchecked", "unchecked", "unchecked", "checked"],
+                ["checked", "success", "error", "warning"]
+              ]
+            },
+            toggles: {
+              sizes: ["large", "medium", "default", "small", "mini"],
+              statuses: [
+                [
+                  "unchecked",
+                  "unchecked",
+                  "unchecked",
+                  "unchecked",
+                  "unchecked"
+                ],
                 ["checked", "success", "error", "warning"]
               ]
             }
