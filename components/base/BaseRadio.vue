@@ -133,6 +133,7 @@ $statuses: error, normal, success, warning;
       &:before,
       &:after {
         position: absolute;
+        display: inline-block;
         box-sizing: border-box;
         transition: all ease-in-out 0.2s;
       }
@@ -140,7 +141,6 @@ $statuses: error, normal, success, warning;
       &:before {
         top: 0;
         left: 0;
-        display: inline-block;
         width: 100%;
         height: 100%;
         border: 1px solid $regent-st-blue;
@@ -152,24 +152,22 @@ $statuses: error, normal, success, warning;
       &:after {
         top: 50%;
         left: 50%;
-        display: none;
         width: 6px;
         height: 6px;
         border-radius: 100%;
+        background-color: $white;
         transform: translate(-50%, -50%);
         content: "";
       }
 
       &:hover {
         &:after {
-          display: inline-block;
           background-color: $oxford-blue;
         }
       }
 
       &:checked {
         &:after {
-          display: inline-block;
           background-color: $white;
         }
       }

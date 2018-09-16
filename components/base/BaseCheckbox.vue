@@ -133,6 +133,7 @@ $statuses: error, normal, success, warning;
       &:before,
       &:after {
         position: absolute;
+        display: inline-block;
         box-sizing: border-box;
         transition: all ease-in-out 0.2s;
       }
@@ -140,7 +141,6 @@ $statuses: error, normal, success, warning;
       &:before {
         top: 0;
         left: 0;
-        display: inline-block;
         width: 100%;
         height: 100%;
         border: 1px solid $regent-st-blue;
@@ -150,9 +150,7 @@ $statuses: error, normal, success, warning;
       }
 
       &:after {
-        display: none;
-        border-width: 2px;
-        border-style: solid;
+        border: 2px solid $white;
         border-top: 0;
         border-left: 0;
         transform: rotate(45deg);
@@ -161,7 +159,6 @@ $statuses: error, normal, success, warning;
 
       &:hover {
         &:after {
-          display: inline-block;
           border-color: $oxford-blue;
           border-right-width: 2px;
           border-bottom-width: 2px;
@@ -170,7 +167,6 @@ $statuses: error, normal, success, warning;
 
       &:checked {
         &:after {
-          display: inline-block;
           border-color: $white;
         }
       }
