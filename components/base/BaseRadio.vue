@@ -141,6 +141,8 @@ $statuses: error, success, warning;
         top: 0;
         left: 0;
         display: inline-block;
+        width: 100%;
+        height: 100%;
         border: 1px solid $regent-st-blue;
         border-radius: 100%;
         background-color: $white;
@@ -154,28 +156,29 @@ $statuses: error, success, warning;
         width: 6px;
         height: 6px;
         border-radius: 100%;
-        content: "";
         transform: translate(-50%, -50%);
+        content: "";
       }
 
-      &:hover:before {
-        border-color: $white;
-      }
+      &:hover {
+        &:before {
+          border-color: $white;
+        }
 
-      &:hover:after {
-        display: block;
-        background-color: $oxford-blue;
+        &:after {
+          display: inline-block;
+          background-color: $oxford-blue;
+        }
       }
 
       &:checked {
         &:before {
           border-color: $azure-radiance;
           background: $azure-radiance;
-          animation-name: none;
         }
 
         &:after {
-          display: block;
+          display: inline-block;
           background-color: $white;
         }
       }
@@ -199,11 +202,6 @@ $statuses: error, success, warning;
         #{$c}__field {
           width: 12px + (2px * $i);
           height: 12px + (2px * $i);
-
-          &:before {
-            width: 12px + (2px * $i);
-            height: 12px + (2px * $i);
-          }
         }
 
         #{$c}__label {
@@ -223,12 +221,13 @@ $statuses: error, success, warning;
             border-color: map-get($statusColors, $status);
           }
 
-          &:hover:before {
-            border-color: map-get($statusColors, $status);
+          &:hover {
+            &:before {
+              border-color: map-get($statusColors, $status);
+            }
           }
 
-          &:checked,
-          &:indeterminate {
+          &:checked {
             &:before {
               border-color: map-get($statusColors, $status);
               background: map-get($statusColors, $status);

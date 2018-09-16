@@ -141,6 +141,8 @@ $statuses: error, success, warning;
         top: 0;
         left: 0;
         display: inline-block;
+        width: 100%;
+        height: 100%;
         border: 1px solid $regent-st-blue;
         border-radius: 3px;
         background-color: $white;
@@ -153,30 +155,31 @@ $statuses: error, success, warning;
         border-style: solid;
         border-top: 0;
         border-left: 0;
-        content: "";
         transform: rotate(45deg);
+        content: "";
       }
 
-      &:hover:before {
-        border-color: $white;
-      }
+      &:hover {
+        &:before {
+          border-color: $white;
+        }
 
-      &:hover:after {
-        display: block;
-        border-color: $oxford-blue;
-        border-right-width: 2px;
-        border-bottom-width: 2px;
+        &:after {
+          display: inline-block;
+          border-color: $oxford-blue;
+          border-right-width: 2px;
+          border-bottom-width: 2px;
+        }
       }
 
       &:checked {
         &:before {
           border-color: $azure-radiance;
           background: $azure-radiance;
-          animation-name: none;
         }
 
         &:after {
-          display: block;
+          display: inline-block;
           border-color: $white;
         }
       }
@@ -201,37 +204,32 @@ $statuses: error, success, warning;
           width: 12px + (2px * $i);
           height: 12px + (2px * $i);
 
-          &:before {
-            width: 12px + (2px * $i);
-            height: 12px + (2px * $i);
-          }
-
           &:after {
             @if ($size == "mini") {
-              width: 4px;
-              height: 8px;
               top: 1px;
               left: 4px;
-            } @else if ($size == "small") {
               width: 4px;
               height: 8px;
+            } @else if ($size == "small") {
               top: 2px;
               left: 5px;
+              width: 4px;
+              height: 8px;
             } @else if ($size == "default") {
-              width: 5px;
-              height: 10px;
               top: 2px;
               left: 6px;
-            } @else if ($size == "medium") {
               width: 5px;
               height: 10px;
+            } @else if ($size == "medium") {
               top: 3px;
               left: 7px;
+              width: 5px;
+              height: 10px;
             } @else if ($size == "large") {
-              width: 6px;
-              height: 12px;
               top: 3px;
               left: 8px;
+              width: 6px;
+              height: 12px;
             }
           }
         }
@@ -253,12 +251,13 @@ $statuses: error, success, warning;
             border-color: map-get($statusColors, $status);
           }
 
-          &:hover:before {
-            border-color: map-get($statusColors, $status);
+          &:hover {
+            &:before {
+              border-color: map-get($statusColors, $status);
+            }
           }
 
-          &:checked,
-          &:indeterminate {
+          &:checked {
             &:before {
               border-color: map-get($statusColors, $status);
               background: map-get($statusColors, $status);

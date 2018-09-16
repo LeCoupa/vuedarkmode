@@ -133,50 +133,35 @@ $statuses: error, success, warning;
       &:before,
       &:after {
         position: absolute;
+        display: inline-block;
         box-sizing: border-box;
-        transition: all ease-in-out 0.2s;
+        transition: all ease-in-out 0.4s;
       }
 
       &:before {
         top: 0;
         left: 0;
-        display: inline-block;
-        border: 1px solid $regent-st-blue;
-        border-radius: 3px;
-        background-color: $white;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $oxford-blue;
+        border-radius: 20px;
+        background-color: rgba($ebony-clay-2, 0.4);
         content: "";
       }
 
       &:after {
-        display: none;
-        border-width: 2px;
-        border-style: solid;
-        border-top: 0;
-        border-left: 0;
+        top: 4px;
+        right: initial;
+        border-radius: 100%;
+        background: $white;
+        transform: translateX(4px);
         content: "";
-      }
-
-      &:hover:before {
-        border-color: $white;
-      }
-
-      &:hover:after {
-        display: block;
-        border-color: $oxford-blue;
-        border-right-width: 2px;
-        border-bottom-width: 2px;
       }
 
       &:checked {
         &:before {
-          border-color: $azure-radiance;
-          background: $azure-radiance;
-          animation-name: none;
-        }
-
-        &:after {
-          display: block;
-          border-color: $white;
+          border-color: #1a91eb;
+          background-color: rgba(#1991eb, 0.4);
         }
       }
     }
@@ -197,46 +182,25 @@ $statuses: error, success, warning;
     &--#{$size} {
       #{$c}__container {
         #{$c}__field {
-          width: 12px + (2px * $i);
-          height: 12px + (2px * $i);
-
-          &:before {
-            width: 12px + (2px * $i);
-            height: 12px + (2px * $i);
-          }
+          width: (18px + (2px * $i)) * 2;
+          height: 18px + (2px * $i);
 
           &:after {
-            @if ($size == "mini") {
-              width: 4px;
-              height: 8px;
-              top: 1px;
-              left: 4px;
-            } @else if ($size == "small") {
-              width: 4px;
-              height: 8px;
-              top: 2px;
-              left: 5px;
-            } @else if ($size == "default") {
-              width: 5px;
-              height: 10px;
-              top: 2px;
-              left: 6px;
-            } @else if ($size == "medium") {
-              width: 5px;
-              height: 10px;
-              top: 3px;
-              left: 7px;
-            } @else if ($size == "large") {
-              width: 6px;
-              height: 12px;
-              top: 3px;
-              left: 8px;
+            width: 10px + (2px * $i);
+            height: 10px + (2px * $i);
+          }
+
+          &:checked {
+            &:after {
+              transform: translateX(
+                ((18px + (2px * $i)) * 2) - (10px + (2px * $i) + 4px)
+              );
             }
           }
         }
 
         #{$c}__label {
-          line-height: 12px + (2px * $i);
+          line-height: 18px + (2px * $i);
         }
       }
     }
@@ -248,23 +212,10 @@ $statuses: error, success, warning;
     &--#{$status} {
       #{$c}__container {
         #{$c}__field {
-          &:before {
-            border-color: map-get($statusColors, $status);
-          }
-
-          &:hover:before {
-            border-color: map-get($statusColors, $status);
-          }
-
-          &:checked,
-          &:indeterminate {
+          &:checked {
             &:before {
               border-color: map-get($statusColors, $status);
-              background: map-get($statusColors, $status);
-            }
-
-            &:after {
-              border-color: $white;
+              background-color: rgba(map-get($statusColors, $status), 0.4);
             }
           }
         }
