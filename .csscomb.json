@@ -443,6 +443,7 @@
       "page-break-before",
       "page-break-inside",
       "page-break-after",
+      "appearance",
       "orphans",
       "widows",
       "-ms-zoom",
