@@ -34,10 +34,12 @@ div(
       class="c-base-checkbox__label"
     ) {{ label }}
 
-  p(
+  base-description(
     v-if="description"
+    :description="description"
+    :size="size"
     class="c-base-checkbox__description"
-  ) {{ description }}
+  )
 </template>
 
 
@@ -219,11 +221,6 @@ $statuses: error, success, warning;
     }
   }
 
-  #{$c}__description {
-    margin: 10px 0 0;
-    color: $nepal;
-  }
-
   // --> SIZES <--
 
   @each $size in $sizes {
@@ -288,10 +285,6 @@ $statuses: error, success, warning;
           }
 
           &:hover:before {
-            border-color: map-get($statusColors, $status);
-          }
-
-          &:hover:after {
             border-color: map-get($statusColors, $status);
           }
 

@@ -48,10 +48,12 @@ div(
       class="c-base-input__icon c-base-input__icon--right"
     )
 
-  p(
+  base-description(
     v-if="description"
+    :description="description"
+    :size="size"
     class="c-base-input__description"
-  ) {{ description }}
+  )
 </template>
 
 <!-- *************************************************************************
@@ -245,11 +247,6 @@ $statuses: error, focused, success, warning;
     }
   }
 
-  #{$c}__description {
-    margin: 10px 0 0;
-    color: $nepal;
-  }
-
   // --> SIZES <--
 
   @each $size in $sizes {
@@ -268,11 +265,6 @@ $statuses: error, focused, success, warning;
         #{$c}__field {
           font-size: 12px + (1px * $i);
         }
-      }
-
-      #{$c}__description {
-        font-size: 12px + (1px * $i);
-        line-height: 14px + (2px * $i);
       }
     }
   }

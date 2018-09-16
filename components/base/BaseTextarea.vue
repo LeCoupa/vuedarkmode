@@ -29,10 +29,12 @@ div(
     class="c-base-textarea__field"
   ) {{ value }}
 
-  p(
+  base-description(
     v-if="description"
+    :description="description"
+    :size="size"
     class="c-base-textarea__description"
-  ) {{ description }}
+  )
 </template>
 
 <!-- *************************************************************************
@@ -160,11 +162,6 @@ $statuses: error, focused, success, warning;
     &:focus {
       outline: none;
     }
-  }
-
-  #{$c}__description {
-    margin: 10px 0 0;
-    color: $nepal;
   }
 
   // --> SIZES <--
