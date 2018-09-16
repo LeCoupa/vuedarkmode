@@ -7,7 +7,10 @@ div(
   :class=`[
     'c-base-select',
     'c-base-select--' + size,
-    'c-base-select--' + computedStatus
+    'c-base-select--' + computedStatus,
+    {
+      'c-base-select--with-left-icon': leftIcon
+    }
   ]`
 )
   base-label(
@@ -170,6 +173,7 @@ $statuses: error, focused, success, warning;
   text-align: left;
 
   #{$c}__container {
+    position: relative;
     display: flex;
     overflow: hidden;
     align-items: center;
@@ -180,22 +184,22 @@ $statuses: error, focused, success, warning;
     transition: border ease-in-out 0.2s;
 
     #{$c}__icon {
-      flex: 0 0 auto;
+      z-index: 1;
+      position: absolute;
 
       &--left {
-        margin-right: 5px;
-        margin-left: 9px;
+        left: 9px;
       }
 
       &--right {
-        margin-right: 9px;
-        margin-left: 5px;
+        right: 9px;
       }
     }
 
     #{$c}__field {
+      z-index: 2;
       flex: 1;
-      padding: 0 15px;
+      padding: 0 35px 0 15px;
       height: 100%;
       border: none;
       background-color: transparent;
@@ -255,6 +259,16 @@ $statuses: error, focused, success, warning;
       #{$c}__container {
         border-color: map-get($statusColors, $status);
         color: map-get($statusColors, $status);
+      }
+    }
+  }
+
+  // --> BOOLEANS <--
+
+  &--with-left-icon {
+    #{$c}__container {
+      #{$c}__field {
+        padding-left: 35px;
       }
     }
   }
