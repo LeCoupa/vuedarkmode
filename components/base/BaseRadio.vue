@@ -96,7 +96,7 @@ export default {
 
   methods: {
     onRadioChange(event) {
-      this.$emit("change", this.id, event.target.checked);
+      this.$emit("change", this.name, event.target.checked);
     }
   }
 };

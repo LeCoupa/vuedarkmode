@@ -24,6 +24,7 @@ div(
     :cols="cols"
     :disabled="disabled"
     :id="id"
+    :name="name"
     :placeholder="placeholder"
     :rows="rows"
     class="c-base-textarea__field"
@@ -67,6 +68,10 @@ export default {
     placeholder: {
       type: String,
       default: null
+    },
+    name: {
+      type: String,
+      required: true
     },
     rows: {
       type: Number,
@@ -112,17 +117,17 @@ export default {
     onTextareaBlur() {
       this.focused = false;
 
-      this.$emit("blur", this.id, this.getTextareaValue());
+      this.$emit("blur", this.name, this.getTextareaValue());
     },
 
     onTextareaKeyUp() {
-      this.$emit("keyup", this.id, this.getTextareaValue());
+      this.$emit("keyup", this.name, this.getTextareaValue());
     },
 
     onTextareaFocus() {
       this.focused = true;
 
-      this.$emit("focus", this.id, this.getTextareaValue());
+      this.$emit("focus", this.name, this.getTextareaValue());
     }
   }
 };

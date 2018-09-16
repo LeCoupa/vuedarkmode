@@ -22,6 +22,7 @@ div(
       :checked="checked"
       :disabled="disabled"
       :id="id"
+      :name="name"
       :required="required"
       class="c-base-checkbox__field"
       type="checkbox"
@@ -75,6 +76,10 @@ export default {
       type: String,
       default: ""
     },
+    name: {
+      type: String,
+      required: true
+    },
     required: {
       type: Boolean,
       default: false
@@ -91,7 +96,7 @@ export default {
 
   methods: {
     onCheckboxChange(event) {
-      this.$emit("change", this.id, event.target.checked);
+      this.$emit("change", this.name, event.target.checked);
     }
   }
 };

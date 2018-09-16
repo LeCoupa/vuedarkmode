@@ -33,6 +33,7 @@ div(
       @change="onSelectChange"
       :disabled="disabled"
       :id="id"
+      :name="name"
       class="c-base-select__field"
     )
       option(
@@ -79,6 +80,10 @@ export default {
     leftIcon: {
       type: String,
       default: null
+    },
+    name: {
+      type: String,
+      required: true
     },
     options: {
       type: Array,
@@ -135,26 +140,26 @@ export default {
       this.focused = false;
       this.rightIcon = "arrow_drop_down";
 
-      this.$emit("blur", this.id, this.getSelectedValue());
+      this.$emit("blur", this.name, this.getSelectedValue());
     },
 
     onSelectChange() {
       this.rightIcon = "arrow_drop_down";
 
-      this.$emit("change", this.id, this.getSelectedValue());
+      this.$emit("change", this.name, this.getSelectedValue());
     },
 
     onSelectClick() {
       this.rightIcon = "arrow_drop_up";
 
-      this.$emit("click", this.id, this.getSelectedValue());
+      this.$emit("click", this.name, this.getSelectedValue());
     },
 
     onSelectFocus() {
       this.focused = true;
       this.rightIcon = "arrow_drop_up";
 
-      this.$emit("focus", this.id, this.getSelectedValue());
+      this.$emit("focus", this.name, this.getSelectedValue());
     }
   }
 };

@@ -37,6 +37,7 @@ div(
       :autocomplete="autocomplete"
       :disabled="disabled"
       :id="id"
+      :name="name"
       :placeholder="placeholder"
       :type="type"
       :value="value"
@@ -86,6 +87,10 @@ export default {
     leftIcon: {
       type: String,
       default: null
+    },
+    name: {
+      type: String,
+      required: true
     },
     placeholder: {
       type: String,
@@ -162,23 +167,23 @@ export default {
     onContainerClick() {
       this.$el.querySelector("input").focus();
 
-      this.$emit("click", this.id, this.getInputValue());
+      this.$emit("click", this.name, this.getInputValue());
     },
 
     onInputBlur() {
       this.focused = false;
 
-      this.$emit("blur", this.id, this.getInputValue());
+      this.$emit("blur", this.name, this.getInputValue());
     },
 
     onInputKeyUp() {
-      this.$emit("keyup", this.id, this.getInputValue());
+      this.$emit("keyup", this.name, this.getInputValue());
     },
 
     onInputFocus() {
       this.focused = true;
 
-      this.$emit("focus", this.id, this.getInputValue());
+      this.$emit("focus", this.name, this.getInputValue());
     }
   }
 };

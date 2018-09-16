@@ -144,6 +144,7 @@
             v-if="type === 'inputs' && statuses[j]"
             :id="type + '_' + size + '_'  + statuses[j]"
             :label="size + ' input (' + statuses[j] + ')'"
+            :name="type + '_' + size + '_'  + statuses[j]"
             :placeholder="statuses[j] + ' ' + size + ' input'"
             :size="size"
             :status="statuses[j]"
@@ -154,6 +155,7 @@
             v-if="type === 'selects' && statuses[j]"
             :id="type + '_' + size + '_'  + statuses[j]"
             :label="size + ' select (' + statuses[j] + ')'"
+            :name="type + '_' + size + '_'  + statuses[j]"
             :options=`[
               { label: 'Dark Mode FTW 1', value: 'Dark Mode FTW 1' },
               { label: 'Dark Mode FTW 2', value: 'Dark Mode FTW 2' },
@@ -168,6 +170,7 @@
             v-if="type === 'textareas' && statuses[j]"
             :id="type + '_' + size + '_'  + statuses[j]"
             :label="size + ' textarea (' + statuses[j] + ')'"
+            :name="type + '_' + size + '_'  + statuses[j]"
             :placeholder="statuses[j] + ' ' + size + ' textarea'"
             :size="size"
             :status="statuses[j]"
@@ -180,6 +183,7 @@
             :checked="statuses[j] === 'checked'"
             :id="type + '_' + size + '_'  + statuses[j]"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
+            :name="type + '_' + size + '_'  + statuses[j]"
             :size="size"
             :status="statuses[j]"
             class="c-index__checkbox"
