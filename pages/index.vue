@@ -358,8 +358,10 @@
         base-icon(
           v-for="(icon, i) in section.icons"
           v-if="i < maxIcons"
+          :data-balloon="icon"
           :key="icon"
           :name="icon"
+          data-balloon-pos="up"
           color="white"
         )
 

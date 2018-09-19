@@ -14,6 +14,7 @@
     "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
+    "balloon-css": "^0.5.0",
     "lodash": "^4.17.10",
     "normalize.css": "^8.0.0",
     "nuxt": "^1.0.0"
