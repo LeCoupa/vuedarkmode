@@ -28,7 +28,7 @@ div(
     @click="onContainerClick"
     class="c-field-input__container"
   )
-    base-icon(
+    common-icon(
       v-if="leftIcon"
       :name="leftIcon"
       class="c-field-input__icon c-field-input__icon--left"
@@ -46,7 +46,7 @@ div(
       :value="value"
       class="c-field-input__field"
     )
-    base-icon(
+    common-icon(
       v-if="computedRightIcon"
       :name="computedRightIcon"
       class="c-field-input__icon c-field-input__icon--right"
@@ -67,11 +67,13 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
+import CommonIcon from "@/components/common/CommonIcon";
 import FieldDescription from "@/components/form/FieldDescription";
 import FieldLabel from "@/components/form/FieldLabel";
 
 export default {
   components: {
+    CommonIcon,
     FieldDescription,
     FieldLabel
   },

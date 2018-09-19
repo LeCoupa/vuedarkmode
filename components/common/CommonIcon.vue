@@ -10,7 +10,7 @@ i(
     fontSize: size
   }`
   aria-hidden="true"
-  class="c-base-icon"
+  class="c-common-icon"
 ) {{ name }}
 </template>
 
@@ -50,7 +50,7 @@ export default {
 <style lang="scss">
 // Based on Material Icons
 // https://google.github.io/material-design-icons/#icon-font-for-the-web
-.c-base-icon {
+.c-common-icon {
   display: inline-block;
   color: inherit;
   text-transform: none;

@@ -5,10 +5,10 @@
 <template lang="pug">
 div(
   :class=`[
-    "c-base-heading",
-    "c-base-heading--" + computedColor,
-    "c-base-heading--" + computedFontWeight,
-    "c-base-heading--" + type
+    "c-common-heading",
+    "c-common-heading--" + computedColor,
+    "c-common-heading--" + computedFontWeight,
+    "c-common-heading--" + type
   ]`
 ): slot
 </template>
@@ -75,7 +75,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-base-heading";
+$c: ".c-common-heading";
 
 #{$c} {
   // --> COLORS <--

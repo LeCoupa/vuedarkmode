@@ -6,12 +6,12 @@
 div(
   @click="onClick"
   :class=`[
-    "c-base-avatar",
-    "c-base-avatar--" + size,
+    "c-common-avatar",
+    "c-common-avatar--" + size,
     {
-      "c-base-avatar--bordered": bordered,
-      "c-base-avatar--circular": circular,
-      "c-base-avatar--complementaries": complementaries
+      "c-common-avatar--bordered": bordered,
+      "c-common-avatar--circular": circular,
+      "c-common-avatar--complementaries": complementaries
     }
   ]`
 )
@@ -19,25 +19,25 @@ div(
     :style=`{
       backgroundImage: "url(" + src + ")"
     }`
-    class="c-base-avatar__image"
+    class="c-common-avatar__image"
   )
     span(
       v-if="complementaries"
-      class="c-base-avatar__complementaries"
+      class="c-common-avatar__complementaries"
     )
-      base-avatar(
+      common-avatar(
         v-for="complementary in complementaries"
         :bordered="true"
         :circular="false"
         :key="complementary.src"
         :src="complementary.src"
         size="mini"
-        class="c-base-avatar__complementary"
+        class="c-common-avatar__complementary"
       )
 
   span(
     v-if="description"
-    class="c-base-avatar__description"
+    class="c-common-avatar__description"
   ) {{ description }}
 </template>
 
@@ -46,7 +46,16 @@ div(
      ************************************************************************* -->
 
 <script>
+// PROJECT
+import CommonAvatar from "@/components/common/CommonAvatar";
+
 export default {
+  name: "CommonAvatar",
+
+  components: {
+    CommonAvatar
+  },
+
   props: {
     bordered: {
       type: Boolean,
@@ -87,7 +96,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-base-avatar";
+$c: ".c-common-avatar";
 $sizes: mini, small, default, medium, large, huge;
 
 #{$c} {

@@ -24,7 +24,7 @@ div(
   ) {{ label }}
 
   .c-field-select__container
-    base-icon(
+    common-icon(
       v-if="computedLeftIcon"
       :name="computedLeftIcon"
       class="c-field-select__icon c-field-select__icon--left"
@@ -44,7 +44,7 @@ div(
         :value="option.value"
       ) {{ option.label }}
 
-    base-icon(
+    common-icon(
       :name="rightIcon"
       class="c-field-select__icon c-field-select__icon--right"
     )
@@ -53,7 +53,7 @@ div(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-base-input__description"
+    class="c-common-input__description"
   )
 </template>
 
@@ -64,11 +64,13 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
+import CommonIcon from "@/components/common/CommonIcon";
 import FieldDescription from "@/components/form/FieldDescription";
 import FieldLabel from "@/components/form/FieldLabel";
 
 export default {
   components: {
+    CommonIcon,
     FieldDescription,
     FieldLabel
   },

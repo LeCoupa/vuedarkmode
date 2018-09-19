@@ -17,7 +17,7 @@
 
   .c-guide-headings__row.c-guide-headings__row--body
     span.c-guide-headings__type
-      base-heading(
+      common-heading(
         type="h1"
       ) Heading 1
 
@@ -35,7 +35,7 @@
 
   .c-guide-headings__row.c-guide-headings__row--body
     span.c-guide-headings__type
-      base-heading(
+      common-heading(
         type="h2"
       ) Heading 2
 
@@ -53,7 +53,7 @@
 
   .c-guide-headings__row.c-guide-headings__row--body
     span.c-guide-headings__type
-      base-heading(
+      common-heading(
         type="h3"
       ) Heading 3
 
@@ -71,7 +71,7 @@
 
   .c-guide-headings__row.c-guide-headings__row--body
     span.c-guide-headings__type
-      base-heading(
+      common-heading(
         type="p"
       ) Paragraph Style - Dashboard doesn't currently offer two-way syncing features like version...
 
@@ -115,7 +115,14 @@
      ************************************************************************* -->
 
 <script>
-export default {};
+// PROJECT
+import CommonHeading from "@/components/common/CommonHeading";
+
+export default {
+  components: {
+    CommonHeading
+  }
+};
 </script>
 
 <!-- *************************************************************************

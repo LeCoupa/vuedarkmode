@@ -3,13 +3,13 @@
      ************************************************************************* -->
 
 <template lang="pug">
-span(
+hr(
   :class=`[
-    "c-base-badge",
-    "c-base-badge--" + color,
-    "c-base-badge--" + size
+    "c-common-divider",
+    "c-common-divider--" + size,
+    "c-common-divider--" + color
   ]`
-): slot
+)
 </template>
 
 <!-- *************************************************************************
@@ -25,7 +25,7 @@ export default {
     },
     size: {
       type: String,
-      default: "default"
+      default: "small"
     }
   }
 };
@@ -36,37 +36,36 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-base-badge";
+$c: ".c-common-divider";
 $colors: black, blue, green, orange, purple, red, turquoise, white;
-$sizes: mini, small, default, medium, large;
 
 #{$c} {
-  display: inline-block;
-  border-width: 1px;
-  border-style: solid;
-  text-transform: uppercase;
-  border-radius: 100px;
-  user-select: none;
-  color: $white;
+  display: block;
+  border: 0;
+  border-top-style: solid;
 
   // --> COLORS <--
 
   @each $color in $colors {
     &--#{$color} {
-      border-color: map-get($mainColors, $color);
+      border-top-color: map-get($mainColors, $color);
     }
   }
 
   // --> SIZES <--
 
-  @each $size in $sizes {
-    $i: index($sizes, $size) - 1;
+  &--small {
+    margin: 15px auto;
+    max-width: 60px;
+    height: 4px;
+    border-top-width: 4px;
+  }
 
-    &--#{$size} {
-      padding: 0 (10px + 1px * $i);
-      font-size: 12 + (1px * $i);
-      line-height: 20px + (2px * $i);
-    }
+  &--large {
+    margin: 40px auto;
+    max-width: 800px;
+    height: 1px;
+    border-top-width: 1px;
   }
 }
 </style>

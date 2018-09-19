@@ -6,38 +6,38 @@
 button(
   @click="onClick"
   :class=`[
-    "c-base-button",
-    "c-base-button--" + color,
-    "c-base-button--" + size,
+    "c-common-button",
+    "c-common-button--" + color,
+    "c-common-button--" + size,
     {
-      'c-base-button--block': block,
-      "c-base-button--capitalize": capitalize,
-      "c-base-button--circular": circular,
-      'c-base-button--reverse': reverse,
-      'c-base-button--rounded': rounded
+      'c-common-button--block': block,
+      "c-common-button--capitalize": capitalize,
+      "c-common-button--circular": circular,
+      'c-common-button--reverse': reverse,
+      'c-common-button--rounded': rounded
     }
   ]`
   :disabled="disabled"
   :id="id"
   :type="type"
 )
-  span.c-base-button__inner
-    base-icon(
+  span.c-common-button__inner
+    common-icon(
       v-if="leftIcon"
       :name="leftIcon"
       :size="iconSize"
-      class="c-base-button__left-icon"
+      class="c-common-button__left-icon"
     )
     span(
       v-if="$slots.default && $slots.default[0].text.trim()"
-      class="c-base-button__label"
+      class="c-common-button__label"
     ): slot
 
-    base-icon(
+    common-icon(
       v-if="rightIcon"
       :name="rightIcon"
       :size="iconSize"
-      class="c-base-button__right-icon"
+      class="c-common-button__right-icon"
     )
 </template>
 
@@ -46,7 +46,14 @@ button(
      ************************************************************************* -->
 
 <script>
+// PROJECT
+import CommonIcon from "@/components/common/CommonIcon";
+
 export default {
+  components: {
+    CommonIcon
+  },
+
   props: {
     block: {
       type: Boolean,
@@ -128,7 +135,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-base-button";
+$c: ".c-common-button";
 $colors: black, blue, green, red, orange, white;
 $sizes: mini, small, default, medium, large;
 

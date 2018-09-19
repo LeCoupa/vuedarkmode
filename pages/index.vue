@@ -7,13 +7,13 @@
   the-logo(
     class="c-index__logo"
   )
-  base-divider
+  common-divider
 
-  base-heading(
+  common-heading(
     type="h1"
   ) A MINIMALIST DARK DESIGN SYSTEM FOR VUE.JS
 
-  base-heading(
+  common-heading(
     type="h2"
     color="grey"
     fontWeight="regular"
@@ -30,7 +30,7 @@
     :key="section.id"
     class="c-index__section"
   )
-    base-divider(
+    common-divider(
       color="black"
       size="large"
     )
@@ -73,7 +73,7 @@
           :key="'button' + color + j + size"
           class="c-index__item"
         )
-          base-button(
+          common-button(
             :circular="circular"
             :color="color"
             :leftIcon="section.buttons.icons[i]"
@@ -95,7 +95,7 @@
           :key="'badge' + color + j + size"
           class="c-index__item"
         )
-          base-badge(
+          common-badge(
             :color="color"
             :size="size"
             class="c-index__badge"
@@ -115,7 +115,7 @@
           :key="'socialAuth' + network + j + size"
           class="c-index__item"
         )
-          base-social-auth(
+          common-social-auth(
             :network="network"
             :size="size"
             class="c-index__social-auth"
@@ -294,7 +294,7 @@
           :key="'divider' + color + j + size"
           class="c-index__item"
         )
-          base-divider(
+          common-divider(
             :color="color"
             :size="size"
             class="c-index__divider"
@@ -309,7 +309,7 @@
         :key="'loader' + i"
         class="c-index__category"
       )
-        base-loader(
+        common-loader(
           :color="loader.color"
           :labelMain="loader.labelMain"
           :labelSecondary="loader.labelSecondary"
@@ -333,13 +333,13 @@
           :key="'avatar' + size + i"
           class="c-index__item"
         )
-          base-avatar(
+          common-avatar(
             v-if="type === 'avatars'"
             :size="size"
             src="/images/medley/nada.jpg"
             class="c-index__avatar"
           )
-          base-avatar(
+          common-avatar(
             v-else-if="type === 'thumbnails'"
             :bordered="true"
             :circular="false"
@@ -355,7 +355,7 @@
       class="c-index__icons"
     )
       .c-index__elements.c-index__elements--icons
-        base-icon(
+        common-icon(
           v-for="(icon, i) in section.icons"
           v-if="i < maxIcons"
           :aria-label="icon"
@@ -365,7 +365,7 @@
           color="white"
         )
 
-      base-button(
+      common-button(
         v-if="maxIcons !== 1000"
         @click="showIcons"
         :reverse="true"
@@ -373,7 +373,7 @@
         size="small"
       ) Show all icons
 
-  base-divider(
+  common-divider(
     color="black"
     size="large"
   )
@@ -390,24 +390,39 @@
 
 <script>
 // PROJECT
-import GuideColor from "@/components/guide/GuideColor";
-import GuideHeadings from "@/components/guide/GuideHeadings";
-import GuideHeadlines from "@/components/guide/GuideHeadlines";
-import TheGithubButtons from "@/components/layouts/TheGithubButtons";
-import TheLogo from "@/components/layouts/TheLogo";
-
+import CommonAvatar from "@/components/common/CommonAvatar";
+import CommonBadge from "@/components/common/CommonBadge";
+import CommonButton from "@/components/common/CommonButton";
+import CommonDivider from "@/components/common/CommonDivider";
+import CommonHeading from "@/components/common/CommonHeading";
+import CommonIcon from "@/components/common/CommonIcon";
+import CommonLoader from "@/components/common/CommonLoader";
+import CommonSocialAuth from "@/components/common/CommonSocialAuth";
 import FieldCheckbox from "@/components/form/FieldCheckbox";
 import FieldInput from "@/components/form/FieldInput";
 import FieldRadio from "@/components/form/FieldRadio";
 import FieldSelect from "@/components/form/FieldSelect";
 import FieldTextarea from "@/components/form/FieldTextarea";
 import FieldToggle from "@/components/form/FieldToggle";
+import GuideColor from "@/components/guide/GuideColor";
+import GuideHeadings from "@/components/guide/GuideHeadings";
+import GuideHeadlines from "@/components/guide/GuideHeadlines";
+import TheGithubButtons from "@/components/layouts/TheGithubButtons";
+import TheLogo from "@/components/layouts/TheLogo";
 
 import colors from "@/schemas/colors";
 import icons from "@/schemas/icons";
 
 export default {
   components: {
+    CommonAvatar,
+    CommonBadge,
+    CommonButton,
+    CommonDivider,
+    CommonHeading,
+    CommonIcon,
+    CommonLoader,
+    CommonSocialAuth,
     FieldCheckbox,
     FieldInput,
     FieldRadio,

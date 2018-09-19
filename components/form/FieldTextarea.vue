@@ -39,7 +39,7 @@ div(
       class="c-field-textarea__field"
     ) {{ value }}
 
-    base-icon(
+    common-icon(
       v-if="statusIcon"
       :name="statusIcon"
       class="c-field-textarea__icon"
@@ -60,11 +60,13 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
+import CommonIcon from "@/components/common/CommonIcon";
 import FieldDescription from "@/components/form/FieldDescription";
 import FieldLabel from "@/components/form/FieldLabel";
 
 export default {
   components: {
+    CommonIcon,
     FieldDescription,
     FieldLabel
   },

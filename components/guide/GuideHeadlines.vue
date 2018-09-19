@@ -4,17 +4,17 @@
 
 <template lang="pug">
 .c-guide-headlines
-  base-heading(
+  common-heading(
     type="h2"
     class="c-guide-headlines__title"
   ) {{ title }}
 
-  base-heading(
+  common-heading(
     type="h3"
     class="c-guide-headlines__description"
   ) {{ description }}
 
-  base-button(
+  common-button(
     v-if="hasDocumentation"
     @click="toggleDocumentation"
     :reverse="true"
@@ -30,7 +30,18 @@
      ************************************************************************* -->
 
 <script>
+// PROJECT
+import CommonButton from "@/components/common/CommonButton";
+import CommonHeading from "@/components/common/CommonHeading";
+import CommonIcon from "@/components/common/CommonIcon";
+
 export default {
+  components: {
+    CommonButton,
+    CommonHeading,
+    CommonIcon
+  },
+
   props: {
     description: {
       type: String,

@@ -6,26 +6,26 @@
 button(
   @click="onClick"
   :class=`[
-    "c-base-social-auth",
-    "c-base-social-auth--" + network,
-    "c-base-social-auth--" + size,
+    "c-common-social-auth",
+    "c-common-social-auth--" + network,
+    "c-common-social-auth--" + size,
     {
-      "c-base-social-auth--block": block
+      "c-common-social-auth--block": block
     }
   ]`
 )
-  span.c-base-social-auth__inner
-    span.c-base-social-auth__icon
+  span.c-common-social-auth__inner
+    span.c-common-social-auth__icon
 
     span(
       v-if="['small', 'large'].includes(size)"
-      class="c-base-social-auth__label"
+      class="c-common-social-auth__label"
     )
-      span.c-base-social-auth__action {{ computedAction }}
+      span.c-common-social-auth__action {{ computedAction }}
 
       span(
         v-if="['large'].includes(size)"
-        class="c-base-social-auth__network"
+        class="c-common-social-auth__network"
       )  with {{ network | capitalize }}
 </template>
 
@@ -93,8 +93,8 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-base-social-auth";
-$iconPath: "/images/components/base/BaseSocialLogin";
+$c: ".c-common-social-auth";
+$iconPath: "/images/components/common/commonSocialAuth";
 $networks: facebook, google, messenger, twitter;
 $sizes: mini, small, large;
 
