@@ -3,17 +3,17 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-knowledge-color
-  .c-knowledge-color__block
+.c-guide-color
+  .c-guide-color__block
     div(
       :style=`{
         backgroundColor: hex
       }`
-      class="c-knowledge-color__highlight",
+      class="c-guide-color__highlight",
     )
-    .c-knowledge-color__hex {{ hex }}
+    .c-guide-color__hex {{ hex }}
 
-  .c-knowledge-color__name {{ name }}
+  .c-guide-color__name {{ name }}
 </template>
 
 <!-- *************************************************************************
@@ -40,7 +40,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-knowledge-color";
+$c: ".c-guide-color";
 
 #{$c} {
   width: 100px;

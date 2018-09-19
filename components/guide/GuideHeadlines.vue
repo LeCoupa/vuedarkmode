@@ -3,15 +3,15 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-knowledge-headlines
+.c-guide-headlines
   base-heading(
     type="h2"
-    class="c-knowledge-headlines__title"
+    class="c-guide-headlines__title"
   ) {{ title }}
 
   base-heading(
     type="h3"
-    class="c-knowledge-headlines__description"
+    class="c-guide-headlines__description"
   ) {{ description }}
 
   base-button(
@@ -21,7 +21,7 @@
     rightIcon="explore"
     size="small"
     color="blue"
-    class="c-knowledge-headlines__documentation"
+    class="c-guide-headlines__documentation"
   ) {{ documentationVisible ? "Hide" : "Show" }} documentation
 </template>
 
@@ -67,7 +67,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-knowledge-headlines";
+$c: ".c-guide-headlines";
 
 #{$c} {
   margin-bottom: 40px;

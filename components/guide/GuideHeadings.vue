@@ -3,109 +3,109 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-knowledge-headings
-  .c-knowledge-headings__row.c-knowledge-headings__row--header
-    span.c-knowledge-headings__type Type
+.c-guide-headings
+  .c-guide-headings__row.c-guide-headings__row--header
+    span.c-guide-headings__type Type
 
-    span.c-knowledge-headings__font-weight Font / Weight
+    span.c-guide-headings__font-weight Font / Weight
 
-    span.c-knowledge-headings__font-size Font Size
+    span.c-guide-headings__font-size Font Size
 
-    span.c-knowledge-headings__line-height Line-Height
+    span.c-guide-headings__line-height Line-Height
 
-    span.c-knowledge-headings__normal-hover Normal / Hover
+    span.c-guide-headings__normal-hover Normal / Hover
 
-  .c-knowledge-headings__row.c-knowledge-headings__row--body
-    span.c-knowledge-headings__type
+  .c-guide-headings__row.c-guide-headings__row--body
+    span.c-guide-headings__type
       base-heading(
         type="h1"
       ) Heading 1
 
-    span.c-knowledge-headings__font-weight.c-knowledge-headings__font-weight--bold Heebo Bold
+    span.c-guide-headings__font-weight.c-guide-headings__font-weight--bold Heebo Bold
 
-    span.c-knowledge-headings__font-size 32px
+    span.c-guide-headings__font-size 32px
 
-    span.c-knowledge-headings__line-height 44px
+    span.c-guide-headings__line-height 44px
 
-    span.c-knowledge-headings__normal-hover
+    span.c-guide-headings__normal-hover
       span(
-        class="c-knowledge-headings__color"
+        class="c-guide-headings__color"
         style="background-color: #ffffff;"
       )
 
-  .c-knowledge-headings__row.c-knowledge-headings__row--body
-    span.c-knowledge-headings__type
+  .c-guide-headings__row.c-guide-headings__row--body
+    span.c-guide-headings__type
       base-heading(
         type="h2"
       ) Heading 2
 
-    span.c-knowledge-headings__font-weight.c-knowledge-headings__font-weight--medium Heebo Medium
+    span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
 
-    span.c-knowledge-headings__font-size 22px
+    span.c-guide-headings__font-size 22px
 
-    span.c-knowledge-headings__line-height 32px
+    span.c-guide-headings__line-height 32px
 
-    span.c-knowledge-headings__normal-hover
+    span.c-guide-headings__normal-hover
       span(
-        class="c-knowledge-headings__color"
+        class="c-guide-headings__color"
         style="background-color: #fafbfc;"
       )
 
-  .c-knowledge-headings__row.c-knowledge-headings__row--body
-    span.c-knowledge-headings__type
+  .c-guide-headings__row.c-guide-headings__row--body
+    span.c-guide-headings__type
       base-heading(
         type="h3"
       ) Heading 3
 
-    span.c-knowledge-headings__font-weight Heebo Regular
+    span.c-guide-headings__font-weight Heebo Regular
 
-    span.c-knowledge-headings__font-size 20px
+    span.c-guide-headings__font-size 20px
 
-    span.c-knowledge-headings__line-height 28px
+    span.c-guide-headings__line-height 28px
 
-    span.c-knowledge-headings__normal-hover
+    span.c-guide-headings__normal-hover
       span(
-        class="c-knowledge-headings__color"
+        class="c-guide-headings__color"
         style="background-color: #a8c6df;"
       )
 
-  .c-knowledge-headings__row.c-knowledge-headings__row--body
-    span.c-knowledge-headings__type
+  .c-guide-headings__row.c-guide-headings__row--body
+    span.c-guide-headings__type
       base-heading(
         type="p"
       ) Paragraph Style - Dashboard doesn't currently offer two-way syncing features like version...
 
-    span.c-knowledge-headings__font-weight Heebo Regular
+    span.c-guide-headings__font-weight Heebo Regular
 
-    span.c-knowledge-headings__font-size 16px
+    span.c-guide-headings__font-size 16px
 
-    span.c-knowledge-headings__line-height 24px
+    span.c-guide-headings__line-height 24px
 
-    span.c-knowledge-headings__normal-hover
+    span.c-guide-headings__normal-hover
       span(
-        class="c-knowledge-headings__color"
+        class="c-guide-headings__color"
         style="background-color: #ffffff;"
       )
 
-  .c-knowledge-headings__row.c-knowledge-headings__row--body
-    span.c-knowledge-headings__type
+  .c-guide-headings__row.c-guide-headings__row--body
+    span.c-guide-headings__type
       a(
         href="#headings"
       ) Link Style
 
-    span.c-knowledge-headings__font-weight.c-knowledge-headings__font-weight--medium Heebo Medium
+    span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
 
-    span.c-knowledge-headings__font-size 16px
+    span.c-guide-headings__font-size 16px
 
-    span.c-knowledge-headings__line-height 24px
+    span.c-guide-headings__line-height 24px
 
-    span.c-knowledge-headings__normal-hover
+    span.c-guide-headings__normal-hover
       span(
-        class="c-knowledge-headings__color"
+        class="c-guide-headings__color"
         style="background-color: #0093EE;"
       )
       span(
-        class="c-knowledge-headings__color"
+        class="c-guide-headings__color"
         style="background-color: #fafbfc;"
       )
 </template>
@@ -123,7 +123,7 @@ export default {};
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-knowledge-headings";
+$c: ".c-guide-headings";
 
 #{$c} {
   text-align: left;

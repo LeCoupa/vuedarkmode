@@ -34,7 +34,7 @@
       color="black"
       size="large"
     )
-    knowledge-headlines(
+    guide-headlines(
       :title="section.headlines.title"
       :hasDocumentation="section.headlines.hasDocumentation"
       :description="section.headlines.description"
@@ -43,14 +43,14 @@
       v-if="section.colors"
       class="c-index__elements c-index__elements--colors"
     )
-      knowledge-color(
+      guide-color(
         v-for="color in section.colors"
         :hex="color.hex"
         :key="color.hex"
         :name="color.name"
       )
 
-    knowledge-headings(
+    guide-headings(
       v-if="section.headings"
     )
     div(
@@ -390,9 +390,9 @@
 
 <script>
 // PROJECT
-import KnowledgeColor from "@/components/knowledge/KnowledgeColor";
-import KnowledgeHeadings from "@/components/knowledge/KnowledgeHeadings";
-import KnowledgeHeadlines from "@/components/knowledge/KnowledgeHeadlines";
+import GuideColor from "@/components/guide/GuideColor";
+import GuideHeadings from "@/components/guide/GuideHeadings";
+import GuideHeadlines from "@/components/guide/GuideHeadlines";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
 
@@ -414,9 +414,9 @@ export default {
     FieldSelect,
     FieldTextarea,
     FieldToggle,
-    KnowledgeColor,
-    KnowledgeHeadings,
-    KnowledgeHeadlines,
+    GuideColor,
+    GuideHeadings,
+    GuideHeadlines,
     TheGithubButtons,
     TheLogo
   },
