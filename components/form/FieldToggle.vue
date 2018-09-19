@@ -133,10 +133,10 @@ $statuses: error, normal, success, warning;
 #{$c} {
   display: inline-block;
   text-align: left;
-  user-select: none;
 
   #{$c}__container {
     display: flex;
+    user-select: none;
 
     #{$c}__field {
       position: relative;

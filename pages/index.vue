@@ -281,6 +281,31 @@
           )
 
     div(
+      v-if="section.files"
+      class="c-index__elements c-index__elements--form c-index__elements--files"
+    )
+      div(
+        v-for="(statuses, i) in section.files.statuses"
+        :key="'files ' + i"
+        class="c-index__category"
+      )
+        div(
+          v-if="statuses[j]"
+          v-for="(size, j) in section.files.sizes"
+          :key="'files ' + i + ' ' + j"
+          class="c-index__item"
+        )
+          field-file(
+            :block="false"
+            :name="'file_' + size + '_'  + statuses[j] + i + j"
+            :size="size"
+            :status="statuses[j]"
+            :title="size.charAt(0).toUpperCase() + size.slice(1) + ' file upload (' + statuses[j] + ')'"
+            description="JPG, max. 500KB"
+            class="c-index__file"
+          )
+
+    div(
       v-if="section.dividers"
       class="c-index__elements c-index__elements--dividers"
     )
@@ -399,6 +424,7 @@ import CommonIcon from "@/components/common/CommonIcon";
 import CommonLoader from "@/components/common/CommonLoader";
 import CommonSocialAuth from "@/components/common/CommonSocialAuth";
 import FieldCheckbox from "@/components/form/FieldCheckbox";
+import FieldFile from "@/components/form/FieldFile";
 import FieldInput from "@/components/form/FieldInput";
 import FieldRadio from "@/components/form/FieldRadio";
 import FieldSelect from "@/components/form/FieldSelect";
@@ -425,6 +451,7 @@ export default {
     CommonSocialAuth,
     FieldCheckbox,
     FieldInput,
+    FieldFile,
     FieldRadio,
     FieldSelect,
     FieldTextarea,
@@ -601,6 +628,21 @@ export default {
             statuses: [
               ["normal", "normal", "normal", "normal", "normal"],
               ["normal", "success", "error", "warning"]
+            ]
+          }
+        },
+        {
+          id: "files",
+          headlines: {
+            title: "FILE UPLOAD",
+            description: "With a great description",
+            hasDocumentation: true
+          },
+          files: {
+            sizes: ["large", "medium", "default", "small", "mini"],
+            statuses: [
+              ["normal", "normal", "normal", "normal", "normal"],
+              ["success", "error", "warning"]
             ]
           }
         },
