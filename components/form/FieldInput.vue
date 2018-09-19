@@ -9,6 +9,7 @@ div(
     'c-field-input--' + size,
     'c-field-input--' + status,
     {
+      'c-field-input--borders': borders,
       'c-field-input--focused': focused,
       'c-field-input--rounded': rounded,
       'c-field-input--with-icon': leftIcon || rightIcon
@@ -78,6 +79,10 @@ export default {
     autocomplete: {
       type: String,
       default: "off"
+    },
+    borders: {
+      type: Boolean,
+      default: true
     },
     description: {
       type: String,
@@ -209,12 +214,6 @@ $statuses: error, normal, success, warning;
   #{$c}__container {
     display: flex;
     align-items: center;
-    box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 6px;
-    background-color: $ebony-clay-2;
-    transition: border ease-in-out 0.2s;
 
     &:hover {
       cursor: text;
@@ -295,6 +294,17 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--borders {
+    #{$c}__container {
+      box-sizing: border-box;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 6px;
+      background-color: $ebony-clay-2;
+      transition: border ease-in-out 0.2s;
+    }
+  }
 
   &--focused {
     #{$c}__container {

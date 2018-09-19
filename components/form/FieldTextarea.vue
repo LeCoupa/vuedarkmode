@@ -7,7 +7,10 @@ div(
   :class=`[
     'c-field-textarea',
     'c-field-textarea--' + size,
-    'c-field-textarea--' + status
+    'c-field-textarea--' + status,
+    {
+      'c-field-textarea--borders': borders
+    }
   ]`
 )
   field-label(
@@ -55,6 +58,10 @@ export default {
   },
 
   props: {
+    borders: {
+      type: Boolean,
+      default: true
+    },
     cols: {
       type: Number,
       default: null
@@ -143,14 +150,10 @@ $statuses: error, normal, success, warning;
   text-align: left;
 
   #{$c}__field {
-    box-sizing: border-box;
     padding: 10px 15px;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 6px;
-    background-color: $ebony-clay-2;
+    border: none;
+    background-color: transparent;
     color: $white;
-    transition: border ease-in-out 0.2s;
 
     &::placeholder {
       color: $nepal;
@@ -191,6 +194,19 @@ $statuses: error, normal, success, warning;
           border-color: $oxford-blue;
         }
       }
+    }
+  }
+
+  // --> BOOLEANS <--
+
+  &--borders {
+    #{$c}__field {
+      box-sizing: border-box;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 6px;
+      background-color: $ebony-clay-2;
+      transition: border ease-in-out 0.2s;
     }
   }
 }

@@ -9,6 +9,7 @@ div(
     'c-field-select--' + size,
     'c-field-select--' + status,
     {
+      'c-field-select--borders': borders,
       'c-field-select--focused': focused,
       'c-field-select--with-left-icon': computedLeftIcon
     }
@@ -72,6 +73,10 @@ export default {
   },
 
   props: {
+    borders: {
+      type: Boolean,
+      default: true
+    },
     description: {
       type: String,
       default: null
@@ -187,12 +192,6 @@ $statuses: error, normal, success, warning;
     display: flex;
     overflow: hidden;
     align-items: center;
-    box-sizing: border-box;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 6px;
-    background-color: $ebony-clay-2;
-    transition: border ease-in-out 0.2s;
 
     #{$c}__icon {
       position: absolute;
@@ -270,6 +269,17 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--borders {
+    #{$c}__container {
+      box-sizing: border-box;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 6px;
+      background-color: $ebony-clay-2;
+      transition: border ease-in-out 0.2s;
+    }
+  }
 
   &--focused {
     #{$c}__container {
