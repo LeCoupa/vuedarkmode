@@ -219,6 +219,7 @@ $statuses: error, normal, success, warning;
   #{$c}__container {
     display: flex;
     align-items: center;
+    transition: all ease-in-out 0.2s;
 
     &:hover {
       cursor: text;
@@ -311,7 +312,6 @@ $statuses: error, normal, success, warning;
       border-style: solid;
       border-radius: 6px;
       background-color: $ebony-clay-2;
-      transition: border ease-in-out 0.2s;
     }
   }
 

@@ -197,10 +197,10 @@ $statuses: error, normal, success, warning;
     display: flex;
     overflow: hidden;
     align-items: center;
+    transition: all ease-in-out 0.2s;
 
     #{$c}__icon {
       position: absolute;
-      z-index: 1;
 
       &--left {
         left: 9px;
@@ -212,7 +212,6 @@ $statuses: error, normal, success, warning;
     }
 
     #{$c}__field {
-      z-index: 2;
       flex: 1;
       padding: 0 35px 0 15px;
       height: 100%;
@@ -286,7 +285,6 @@ $statuses: error, normal, success, warning;
       border-style: solid;
       border-radius: 6px;
       background-color: $ebony-clay-2;
-      transition: border ease-in-out 0.2s;
     }
   }
 
