@@ -372,6 +372,16 @@
         color="white"
         size="small"
       ) Show all icons
+
+  base-divider(
+    color="black"
+    size="large"
+  )
+
+  div(
+    class="c-index__copyright"
+  )
+    span.c-index__line Made in the dark by Nada Rifki &amp; Julien Le Coupanec.
 </template>
 
 <!-- *************************************************************************
@@ -833,6 +843,14 @@ $c: ".c-index";
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 100%);
       margin-bottom: 0;
+    }
+  }
+
+  #{$c}__copyright {
+    #{$c}__line {
+      display: block;
+      font-size: 14px;
+      line-height: 22px;
     }
   }
 }
