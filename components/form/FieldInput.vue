@@ -9,6 +9,7 @@ div(
     'c-field-input--' + size,
     'c-field-input--' + status,
     {
+      'c-field-input--block': block,
       'c-field-input--borders': borders,
       'c-field-input--focused': focused,
       'c-field-input--rounded': rounded,
@@ -79,6 +80,10 @@ export default {
     autocomplete: {
       type: String,
       default: "off"
+    },
+    block: {
+      type: Boolean,
+      default: true
     },
     borders: {
       type: Boolean,
@@ -294,6 +299,10 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--block {
+    width: 100%;
+  }
 
   &--borders {
     #{$c}__container {

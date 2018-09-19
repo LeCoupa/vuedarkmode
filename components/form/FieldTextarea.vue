@@ -9,6 +9,7 @@ div(
     'c-field-textarea--' + size,
     'c-field-textarea--' + status,
     {
+      'c-field-textarea--block': block,
       'c-field-textarea--borders': borders
     }
   ]`
@@ -58,6 +59,10 @@ export default {
   },
 
   props: {
+    block: {
+      type: Boolean,
+      default: true
+    },
     borders: {
       type: Boolean,
       default: true
@@ -198,6 +203,10 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--block {
+    width: 100%;
+  }
 
   &--borders {
     #{$c}__field {

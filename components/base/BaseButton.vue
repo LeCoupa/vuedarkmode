@@ -219,7 +219,6 @@ $sizes: mini, small, default, medium, large;
   // --> BOOLEANS <--
 
   &--block {
-    display: block;
     width: 100%;
   }
 

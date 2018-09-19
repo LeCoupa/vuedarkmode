@@ -9,6 +9,7 @@ div(
     'c-field-select--' + size,
     'c-field-select--' + status,
     {
+      'c-field-select--block': block,
       'c-field-select--borders': borders,
       'c-field-select--focused': focused,
       'c-field-select--with-left-icon': computedLeftIcon
@@ -73,6 +74,10 @@ export default {
   },
 
   props: {
+    block: {
+      type: Boolean,
+      default: true
+    },
     borders: {
       type: Boolean,
       default: true
@@ -269,6 +274,10 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--block {
+    width: 100%;
+  }
 
   &--borders {
     #{$c}__container {

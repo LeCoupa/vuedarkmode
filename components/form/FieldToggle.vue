@@ -248,7 +248,6 @@ $statuses: error, normal, success, warning;
   // --> BOOLEANS <--
 
   &--block {
-    display: block;
     width: 100%;
   }
 }

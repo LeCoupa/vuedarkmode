@@ -167,7 +167,6 @@ $sizes: mini, small, large;
   // --> BOOLEANS <--
 
   &--block {
-    display: block;
     width: 100%;
   }
 }
