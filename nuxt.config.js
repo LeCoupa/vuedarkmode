@@ -19,7 +19,7 @@ module.exports = {
         ? "https://lecoupa.github.io/dark-mode/"
         : "http://localhost:3000"
   },
-  css: ["normalize.css/normalize.css", "balloon-css/balloon.css"],
+  css: ["normalize.css/normalize.css", "hint.css/hint.min.css"],
   plugins: [{ src: "@/plugins/global.js" }],
   modules: [
     [

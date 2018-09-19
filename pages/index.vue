@@ -358,10 +358,10 @@
         base-icon(
           v-for="(icon, i) in section.icons"
           v-if="i < maxIcons"
-          :data-balloon="icon"
+          :aria-label="icon"
           :key="icon"
           :name="icon"
-          data-balloon-pos="up"
+          class="c-index__icon hint--top hint--no-animate"
           color="white"
         )
 
@@ -809,6 +809,18 @@ $c: ".c-index";
     &--icons {
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 24px);
+
+      #{$c}__icon {
+        cursor: pointer;
+
+        // Update tooltip color
+        &::before {
+          border-top-color: $black;
+        }
+        &::after {
+          background: $black;
+        }
+      }
     }
 
     &--loaders {
