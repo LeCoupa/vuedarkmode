@@ -863,6 +863,12 @@ $c: ".c-index";
       }
     }
 
+    &--files {
+      .c-field-file__information {
+        min-width: 235px;
+      }
+    }
+
     &--form {
       text-align: left;
       grid-template-columns: repeat(auto-fill, 360px);
