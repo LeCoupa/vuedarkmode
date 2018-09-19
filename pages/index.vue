@@ -136,9 +136,9 @@
           :key="'inputs ' + i + ' ' + j"
           class="c-index__item"
         )
-          base-input(
+          field-input(
             :label="size + ' input (' + statuses[j] + ')'"
-            :name="'input' + '_' + size + '_'  + statuses[j] + i + j"
+            :name="'input_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' input'"
             :size="size"
             :status="statuses[j]"
@@ -162,7 +162,7 @@
           :key="'selects ' + i + ' ' + j"
           class="c-index__item"
         )
-          base-select(
+          field-select(
             :label="size + ' select (' + statuses[j] + ')'"
             :name="'select_' + size + '_'  + statuses[j] + i + j"
             :options=`[
@@ -192,7 +192,7 @@
           :key="'textareas ' + i + ' ' + j"
           class="c-index__item"
         )
-          base-textarea(
+          field-textarea(
             :label="size + ' textarea (' + statuses[j] + ')'"
             :name="'textarea_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' textarea'"
@@ -218,7 +218,7 @@
           :key="'checkboxes ' + i + ' ' + j"
           class="c-index__item"
         )
-          base-checkbox(
+          field-checkbox(
             :block="false"
             :checked="i === 1"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
@@ -243,7 +243,7 @@
           :key="'radios ' + i + ' ' + j"
           class="c-index__item"
         )
-          base-radio(
+          field-radio(
             :block="false"
             :checked="j === 0"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' radio (' + statuses[j] + ')'"
@@ -269,7 +269,7 @@
           :key="'toggles ' + i + ' ' + j"
           class="c-index__item"
         )
-          base-toggle(
+          field-toggle(
             :block="false"
             :checked="i === 1"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' toggle (' + statuses[j] + ')'"
@@ -384,11 +384,24 @@ import KnowledgeHeadlines from "@/components/knowledge/KnowledgeHeadlines";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
 
+import FieldCheckbox from "@/components/form/FieldCheckbox";
+import FieldInput from "@/components/form/FieldInput";
+import FieldRadio from "@/components/form/FieldRadio";
+import FieldSelect from "@/components/form/FieldSelect";
+import FieldTextarea from "@/components/form/FieldTextarea";
+import FieldToggle from "@/components/form/FieldToggle";
+
 import colors from "@/schemas/colors";
 import icons from "@/schemas/icons";
 
 export default {
   components: {
+    FieldCheckbox,
+    FieldInput,
+    FieldRadio,
+    FieldSelect,
+    FieldTextarea,
+    FieldToggle,
     KnowledgeColor,
     KnowledgeHeadings,
     KnowledgeHeadlines,

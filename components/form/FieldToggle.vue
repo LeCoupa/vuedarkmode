@@ -6,40 +6,40 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-base-radio',
-    'c-base-radio--' + size,
-    'c-base-radio--' + status,
+    'c-field-toggle',
+    'c-field-toggle--' + size,
+    'c-field-toggle--' + status,
     {
-      'c-base-radio--block': block
+      'c-field-toggle--block': block
     }
   ]`
 )
   div(
-    class="c-base-radio__container"
+    class="c-field-toggle__container"
   )
     input(
-      @change="onRadioChange"
+      @change="onToggleChange"
       :checked="checked"
       :disabled="disabled"
       :id="uuid"
       :name="name"
       :required="required"
-      class="c-base-radio__field"
-      type="radio"
+      class="c-field-toggle__field"
+      type="checkbox"
     )
-    base-label(
+    field-label(
       v-if="label"
       :forField="uuid"
       :size="size"
       :uppercase="false"
-      class="c-base-radio__label"
+      class="c-field-toggle__label"
     ) {{ label }}
 
-  base-description(
+  field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-base-radio__description"
+    class="c-field-toggle__description"
   )
 </template>
 
@@ -52,8 +52,15 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
+import FieldDescription from "@/components/form/FieldDescription";
+import FieldLabel from "@/components/form/FieldLabel";
 
 export default {
+  components: {
+    FieldDescription,
+    FieldLabel
+  },
+
   props: {
     block: {
       type: Boolean,
@@ -96,16 +103,16 @@ export default {
   data() {
     return {
       // --> STATE <--
-      uuid: null
+      uuid: ""
     };
   },
 
-  created() {
+  mounted() {
     this.uuid = generateUUID();
   },
 
   methods: {
-    onRadioChange(event) {
+    onToggleChange(event) {
       this.$emit("change", this.name, event.target.checked);
     }
   }
@@ -119,7 +126,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".c-base-radio";
+$c: ".c-field-toggle";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
@@ -145,7 +152,7 @@ $statuses: error, normal, success, warning;
         position: absolute;
         display: inline-block;
         box-sizing: border-box;
-        transition: all ease-in-out 0.2s;
+        transition: all ease-in-out 0.3s;
       }
 
       &:before {
@@ -153,32 +160,24 @@ $statuses: error, normal, success, warning;
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid $regent-st-blue;
-        border-radius: 100%;
-        background-color: $white;
+        border: 1px solid $oxford-blue;
+        border-radius: 20px;
+        background-color: rgba($ebony-clay-2, 0.4);
         content: "";
       }
 
       &:after {
-        top: 50%;
-        left: 50%;
-        width: 6px;
-        height: 6px;
+        top: 4px;
+        right: initial;
         border-radius: 100%;
-        background-color: $white;
-        transform: translate(-50%, -50%);
+        background: $white;
+        transform: translateX(4px);
         content: "";
       }
 
       &:hover {
-        &:after {
-          background-color: $oxford-blue;
-        }
-      }
-
-      &:checked {
-        &:after {
-          background-color: $white;
+        &:before {
+          border-color: lighten($oxford-blue, 10%);
         }
       }
     }
@@ -199,12 +198,25 @@ $statuses: error, normal, success, warning;
     &--#{$size} {
       #{$c}__container {
         #{$c}__field {
-          width: 12px + (2px * $i);
-          height: 12px + (2px * $i);
+          width: (18px + (2px * $i)) * 2;
+          height: 18px + (2px * $i);
+
+          &:after {
+            width: 10px + (2px * $i);
+            height: 10px + (2px * $i);
+          }
+
+          &:checked {
+            &:after {
+              transform: translateX(
+                ((18px + (2px * $i)) * 2) - (10px + (2px * $i) + 4px)
+              );
+            }
+          }
         }
 
         #{$c}__label {
-          line-height: 12px + (2px * $i);
+          line-height: 18px + (2px * $i);
         }
       }
     }
@@ -216,16 +228,16 @@ $statuses: error, normal, success, warning;
     &--#{$status} {
       #{$c}__container {
         #{$c}__field {
-          &:hover {
-            &:before {
-              border-color: map-get($statusColors, $status);
-            }
-          }
-
           &:checked {
             &:before {
               border-color: map-get($statusColors, $status);
-              background: map-get($statusColors, $status);
+              background-color: rgba(map-get($statusColors, $status), 0.4);
+            }
+          }
+
+          &:hover {
+            &:before {
+              border-color: lighten(map-get($statusColors, $status), 10%);
             }
           }
         }

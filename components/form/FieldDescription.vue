@@ -2,77 +2,53 @@
      TEMPLATE
      ************************************************************************* -->
 
-
 <template lang="pug">
-label(
+p(
   :class=`[
-    "c-base-label",
-    "c-base-label--" + size,
-    {
-      "c-base-label--uppercase": uppercase
-    }
+    "c-field-description",
+    "c-field-description--" + size
   ]`
-  :for="forField"
-): slot
+) {{ description }}
 </template>
-
 
 <!-- *************************************************************************
      SCRIPT
      ************************************************************************* -->
 
-
 <script>
 export default {
   props: {
-    forField: {
+    description: {
       type: String,
       required: true
     },
     size: {
       type: String,
-      required: true
-    },
-    uppercase: {
-      type: Boolean,
-      default: true
+      default: "default"
     }
   }
 };
 </script>
 
-
 <!-- *************************************************************************
      STYLE
      ************************************************************************* -->
 
-
 <style lang="scss">
-$c: ".c-base-label";
+$c: ".c-field-description";
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
-  display: inline-block;
-  margin-bottom: 8px;
-  color: $regent-st-blue;
-  font-family: "Heebo Medium";
-  user-select: none;
-  cursor: pointer;
-
-  // --> SIZES <--
+  margin: 10px 0 0;
+  color: $nepal;
 
   @each $size in $sizes {
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
       font-size: 12px + (1px * $i);
+      line-height: 14px + (2px * $i);
     }
-  }
-
-  // --> BOOLEANS <--
-
-  &--uppercase {
-    text-transform: uppercase;
   }
 }
 </style>

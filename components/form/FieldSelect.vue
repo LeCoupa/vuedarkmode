@@ -5,27 +5,27 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-base-select',
-    'c-base-select--' + size,
-    'c-base-select--' + status,
+    'c-field-select',
+    'c-field-select--' + size,
+    'c-field-select--' + status,
     {
-      'c-base-select--focused': focused,
-      'c-base-select--with-left-icon': computedLeftIcon
+      'c-field-select--focused': focused,
+      'c-field-select--with-left-icon': computedLeftIcon
     }
   ]`
 )
-  base-label(
+  field-label(
     v-if="label"
     :forField="uuid"
     :size="size"
-    class="c-base-select__label"
+    class="c-field-select__label"
   ) {{ label }}
 
-  .c-base-select__container
+  .c-field-select__container
     base-icon(
       v-if="computedLeftIcon"
       :name="computedLeftIcon"
-      class="c-base-select__icon c-base-select__icon--left"
+      class="c-field-select__icon c-field-select__icon--left"
     )
     select(
       @blur="onSelectBlur"
@@ -35,7 +35,7 @@ div(
       :disabled="disabled"
       :id="uuid"
       :name="name"
-      class="c-base-select__field"
+      class="c-field-select__field"
     )
       option(
         v-for="option in options"
@@ -44,10 +44,10 @@ div(
 
     base-icon(
       :name="rightIcon"
-      class="c-base-select__icon c-base-select__icon--right"
+      class="c-field-select__icon c-field-select__icon--right"
     )
 
-  base-description(
+  field-description(
     v-if="description"
     :description="description"
     :size="size"
@@ -62,8 +62,15 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
+import FieldDescription from "@/components/form/FieldDescription";
+import FieldLabel from "@/components/form/FieldLabel";
 
 export default {
+  components: {
+    FieldDescription,
+    FieldLabel
+  },
+
   props: {
     description: {
       type: String,
@@ -104,7 +111,7 @@ export default {
       // --> STATE <--
       focused: false,
       rightIcon: "arrow_drop_down",
-      uuid: null
+      uuid: ""
     };
   },
 
@@ -123,7 +130,7 @@ export default {
     }
   },
 
-  created() {
+  mounted() {
     this.uuid = generateUUID();
   },
 
@@ -166,7 +173,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-base-select";
+$c: ".c-field-select";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

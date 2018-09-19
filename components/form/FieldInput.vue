@@ -5,31 +5,31 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-base-input',
-    'c-base-input--' + size,
-    'c-base-input--' + status,
+    'c-field-input',
+    'c-field-input--' + size,
+    'c-field-input--' + status,
     {
-      'c-base-input--focused': focused,
-      'c-base-input--rounded': rounded,
-      'c-base-input--with-icon': leftIcon || rightIcon
+      'c-field-input--focused': focused,
+      'c-field-input--rounded': rounded,
+      'c-field-input--with-icon': leftIcon || rightIcon
     }
   ]`
 )
-  base-label(
+  field-label(
     v-if="label"
     :forField="uuid"
     :size="size"
-    class="c-base-input__label"
+    class="c-field-input__label"
   ) {{ label }}
 
   div(
     @click="onContainerClick"
-    class="c-base-input__container"
+    class="c-field-input__container"
   )
     base-icon(
       v-if="leftIcon"
       :name="leftIcon"
-      class="c-base-input__icon c-base-input__icon--left"
+      class="c-field-input__icon c-field-input__icon--left"
     )
     input(
       @blur="onInputBlur"
@@ -42,19 +42,19 @@ div(
       :placeholder="placeholder"
       :type="type"
       :value="value"
-      class="c-base-input__field"
+      class="c-field-input__field"
     )
     base-icon(
       v-if="computedRightIcon"
       :name="computedRightIcon"
-      class="c-base-input__icon c-base-input__icon--right"
+      class="c-field-input__icon c-field-input__icon--right"
     )
 
-  base-description(
+  field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-base-input__description"
+    class="c-field-input__description"
   )
 </template>
 
@@ -65,8 +65,15 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
+import FieldDescription from "@/components/form/FieldDescription";
+import FieldLabel from "@/components/form/FieldLabel";
 
 export default {
+  components: {
+    FieldDescription,
+    FieldLabel
+  },
+
   props: {
     autocomplete: {
       type: String,
@@ -126,7 +133,7 @@ export default {
     return {
       // --> STATE <--
       focused: false,
-      uuid: null
+      uuid: ""
     };
   },
 
@@ -145,7 +152,7 @@ export default {
     }
   },
 
-  created() {
+  mounted() {
     this.uuid = generateUUID();
   },
 
@@ -190,7 +197,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-base-input";
+$c: ".c-field-input";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

@@ -6,16 +6,16 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-base-checkbox',
-    'c-base-checkbox--' + size,
-    'c-base-checkbox--' + status,
+    'c-field-checkbox',
+    'c-field-checkbox--' + size,
+    'c-field-checkbox--' + status,
     {
-      'c-base-checkbox--block': block
+      'c-field-checkbox--block': block
     }
   ]`
 )
   div(
-    class="c-base-checkbox__container"
+    class="c-field-checkbox__container"
   )
     input(
       @change="onCheckboxChange"
@@ -24,22 +24,22 @@ div(
       :id="uuid"
       :name="name"
       :required="required"
-      class="c-base-checkbox__field"
+      class="c-field-checkbox__field"
       type="checkbox"
     )
-    base-label(
+    field-label(
       v-if="label"
       :forField="uuid"
       :size="size"
       :uppercase="false"
-      class="c-base-checkbox__label"
+      class="c-field-checkbox__label"
     ) {{ label }}
 
-  base-description(
+  field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-base-checkbox__description"
+    class="c-field-checkbox__description"
   )
 </template>
 
@@ -52,8 +52,15 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
+import FieldDescription from "@/components/form/FieldDescription";
+import FieldLabel from "@/components/form/FieldLabel";
 
 export default {
+  components: {
+    FieldDescription,
+    FieldLabel
+  },
+
   props: {
     block: {
       type: Boolean,
@@ -96,11 +103,11 @@ export default {
   data() {
     return {
       // --> STATE <--
-      uuid: null
+      uuid: ""
     };
   },
 
-  created() {
+  mounted() {
     this.uuid = generateUUID();
   },
 
@@ -119,7 +126,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".c-base-checkbox";
+$c: ".c-field-checkbox";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

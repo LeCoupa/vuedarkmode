@@ -5,16 +5,16 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-base-textarea',
-    'c-base-textarea--' + size,
-    'c-base-textarea--' + status
+    'c-field-textarea',
+    'c-field-textarea--' + size,
+    'c-field-textarea--' + status
   ]`
 )
-  base-label(
+  field-label(
     v-if="label"
     :forField="uuid"
     :size="size"
-    class="c-base-textarea__label"
+    class="c-field-textarea__label"
   ) {{ label }}
 
   textarea(
@@ -27,14 +27,14 @@ div(
     :name="name"
     :placeholder="placeholder"
     :rows="rows"
-    class="c-base-textarea__field"
+    class="c-field-textarea__field"
   ) {{ value }}
 
-  base-description(
+  field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-base-textarea__description"
+    class="c-field-textarea__description"
   )
 </template>
 
@@ -45,8 +45,15 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
+import FieldDescription from "@/components/form/FieldDescription";
+import FieldLabel from "@/components/form/FieldLabel";
 
 export default {
+  components: {
+    FieldDescription,
+    FieldLabel
+  },
+
   props: {
     cols: {
       type: Number,
@@ -93,11 +100,11 @@ export default {
   data() {
     return {
       // --> STATE <--
-      uuid: null
+      uuid: ""
     };
   },
 
-  created() {
+  mounted() {
     this.uuid = generateUUID();
   },
 
@@ -126,7 +133,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-base-textarea";
+$c: ".c-field-textarea";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
