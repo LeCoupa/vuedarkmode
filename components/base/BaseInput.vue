@@ -17,7 +17,7 @@ div(
 )
   base-label(
     v-if="label"
-    :forField="id"
+    :forField="uuid"
     :size="size"
     class="c-base-input__label"
   ) {{ label }}
@@ -37,7 +37,7 @@ div(
       @keyup="onInputKeyUp"
       :autocomplete="autocomplete"
       :disabled="disabled"
-      :id="id"
+      :id="uuid"
       :name="name"
       :placeholder="placeholder"
       :type="type"
@@ -63,6 +63,9 @@ div(
      ************************************************************************* -->
 
 <script>
+// PROJECT
+import { generateUUID } from "@/helpers/helpers";
+
 export default {
   props: {
     autocomplete: {
@@ -76,10 +79,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    id: {
-      type: String,
-      default: null
     },
     label: {
       type: String,
@@ -126,7 +125,8 @@ export default {
   data() {
     return {
       // --> STATE <--
-      focused: false
+      focused: false,
+      uuid: null
     };
   },
 
@@ -143,6 +143,10 @@ export default {
 
       return this.rightIcon;
     }
+  },
+
+  created() {
+    this.uuid = generateUUID();
   },
 
   methods: {

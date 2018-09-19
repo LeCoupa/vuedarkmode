@@ -137,7 +137,6 @@
           class="c-index__item"
         )
           base-input(
-            :id="'input' + '_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' input (' + statuses[j] + ')'"
             :name="'input' + '_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' input'"
@@ -164,7 +163,6 @@
           class="c-index__item"
         )
           base-select(
-            :id="'select_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' select (' + statuses[j] + ')'"
             :name="'select_' + size + '_'  + statuses[j] + i + j"
             :options=`[
@@ -195,7 +193,6 @@
           class="c-index__item"
         )
           base-textarea(
-            :id="'textarea_' + size + '_'  + statuses[j] + i + j"
             :label="size + ' textarea (' + statuses[j] + ')'"
             :name="'textarea_' + size + '_'  + statuses[j] + i + j"
             :placeholder="statuses[j] + ' ' + size + ' textarea'"
@@ -224,7 +221,6 @@
           base-checkbox(
             :block="false"
             :checked="i === 1"
-            :id="'checkbox_' + size + '_'  + statuses[j] + i + j"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
             :name="'checkbox_' + size + '_'  + statuses[j] + i + j"
             :size="size"
@@ -250,7 +246,6 @@
           base-radio(
             :block="false"
             :checked="j === 0"
-            :id="'radio_' + size + '_'  + statuses[j] + i + j"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' radio (' + statuses[j] + ')'"
             :name="'radios_' + i"
             :size="size"
@@ -277,7 +272,6 @@
           base-toggle(
             :block="false"
             :checked="i === 1"
-            :id="'toggle_' + size + '_'  + statuses[j] + i + j"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' toggle (' + statuses[j] + ')'"
             :name="'toggle_' + size + '_'  + statuses[j] + i + j"
             :size="size"

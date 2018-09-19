@@ -12,7 +12,7 @@ div(
 )
   base-label(
     v-if="label"
-    :forField="id"
+    :forField="uuid"
     :size="size"
     class="c-base-textarea__label"
   ) {{ label }}
@@ -23,7 +23,7 @@ div(
     @keyup="onTextareaKeyUp"
     :cols="cols"
     :disabled="disabled"
-    :id="id"
+    :id="uuid"
     :name="name"
     :placeholder="placeholder"
     :rows="rows"
@@ -43,6 +43,9 @@ div(
      ************************************************************************* -->
 
 <script>
+// PROJECT
+import { generateUUID } from "@/helpers/helpers";
+
 export default {
   props: {
     cols: {
@@ -56,10 +59,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    id: {
-      type: String,
-      default: null
     },
     label: {
       type: String,
@@ -89,6 +88,17 @@ export default {
       type: String,
       default: null
     }
+  },
+
+  data() {
+    return {
+      // --> STATE <--
+      uuid: null
+    };
+  },
+
+  created() {
+    this.uuid = generateUUID();
   },
 
   methods: {

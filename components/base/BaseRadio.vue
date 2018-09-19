@@ -21,7 +21,7 @@ div(
       @change="onRadioChange"
       :checked="checked"
       :disabled="disabled"
-      :id="id"
+      :id="uuid"
       :name="name"
       :required="required"
       class="c-base-radio__field"
@@ -29,7 +29,7 @@ div(
     )
     base-label(
       v-if="label"
-      :forField="id"
+      :forField="uuid"
       :size="size"
       :uppercase="false"
       class="c-base-radio__label"
@@ -50,6 +50,9 @@ div(
 
 
 <script>
+// PROJECT
+import { generateUUID } from "@/helpers/helpers";
+
 export default {
   props: {
     block: {
@@ -67,10 +70,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    id: {
-      type: String,
-      default: null
     },
     label: {
       type: String,
@@ -92,6 +91,17 @@ export default {
       type: String,
       default: "normal"
     }
+  },
+
+  data() {
+    return {
+      // --> STATE <--
+      uuid: null
+    };
+  },
+
+  created() {
+    this.uuid = generateUUID();
   },
 
   methods: {

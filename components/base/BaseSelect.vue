@@ -16,7 +16,7 @@ div(
 )
   base-label(
     v-if="label"
-    :forField="id"
+    :forField="uuid"
     :size="size"
     class="c-base-select__label"
   ) {{ label }}
@@ -33,7 +33,7 @@ div(
       @focus="onSelectFocus"
       @change="onSelectChange"
       :disabled="disabled"
-      :id="id"
+      :id="uuid"
       :name="name"
       class="c-base-select__field"
     )
@@ -60,6 +60,9 @@ div(
      ************************************************************************* -->
 
 <script>
+// PROJECT
+import { generateUUID } from "@/helpers/helpers";
+
 export default {
   props: {
     description: {
@@ -69,10 +72,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    id: {
-      type: String,
-      default: null
     },
     label: {
       type: String,
@@ -104,7 +103,8 @@ export default {
     return {
       // --> STATE <--
       focused: false,
-      rightIcon: "arrow_drop_down"
+      rightIcon: "arrow_drop_down",
+      uuid: null
     };
   },
 
@@ -121,6 +121,10 @@ export default {
 
       return this.leftIcon;
     }
+  },
+
+  created() {
+    this.uuid = generateUUID();
   },
 
   methods: {
