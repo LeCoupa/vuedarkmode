@@ -102,15 +102,15 @@ export default {
     iconSize() {
       switch (this.size) {
         case "mini":
-          return "14px";
+          return "12px";
         case "small":
-          return "16px";
+          return "14px";
         case "default":
-          return "18px";
+          return "16px";
         case "medium":
-          return "20px";
+          return "18px";
         case "large":
-          return "22px";
+          return "20px";
       }
     }
   },
@@ -199,10 +199,10 @@ $sizes: mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      padding: (8px + 2px * $i) (12px + 2px * $i);
+      padding: (10px + 2px * $i) (12px + 2px * $i);
       border-radius: 4px + (1px * $i);
       font-size: 12px + (1px * $i);
-      line-height: 14px + (2px * $i);
+      line-height: 12px + (2px * $i);
 
       #{$c}__inner {
         #{$c}__left-icon {

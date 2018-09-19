@@ -196,8 +196,8 @@ $statuses: error, normal, success, warning;
 
     #{$c}__icon {
       position: absolute;
-      right: 8px;
-      bottom: 8px;
+      right: 7px;
+      bottom: 7px;
     }
 
     #{$c}__field {

@@ -18,6 +18,7 @@
     v-if="hasDocumentation"
     @click="toggleDocumentation"
     :reverse="true"
+    rightIcon="explore"
     size="small"
     color="blue"
     class="c-knowledge-headlines__documentation"
