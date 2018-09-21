@@ -297,12 +297,41 @@
         )
           field-file(
             :block="false"
+            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' file upload (' + statuses[j] + ')'"
             :name="'file_' + size + '_'  + statuses[j] + i + j"
             :size="size"
             :status="statuses[j]"
-            :title="size.charAt(0).toUpperCase() + size.slice(1) + ' file upload (' + statuses[j] + ')'"
             description="JPG, max. 500KB"
             class="c-index__file"
+          )
+
+    div(
+      v-if="section.tabs"
+      class="c-index__elements c-index__elements--form c-index__elements--tabs"
+    )
+      div(
+        v-for="(statuses, i) in section.tabs.statuses"
+        :key="'tabs ' + i"
+        class="c-index__category"
+      )
+        div(
+          v-if="statuses[j]"
+          v-for="(size, j) in section.tabs.sizes"
+          :key="'tabs ' + i + ' ' + j"
+          class="c-index__item"
+        )
+          field-tabs(
+            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' tabs (' + statuses[j] + ')'"
+            :size="size"
+            :status="statuses[j]"
+            :tabs=`[
+              { id: "auto", name: 'Auto', active: true },
+              { id: "none", name: 'None', active: false },
+              { id: "k", name: 'K', active: false },
+              { id: "M", name: 'M', active: false },
+              { id: "B", name: 'B', active: false }
+            ]`
+            class="c-index__tabs"
           )
 
     div(
@@ -428,6 +457,7 @@ import FieldFile from "@/components/form/FieldFile";
 import FieldInput from "@/components/form/FieldInput";
 import FieldRadio from "@/components/form/FieldRadio";
 import FieldSelect from "@/components/form/FieldSelect";
+import FieldTabs from "@/components/form/FieldTabs";
 import FieldTextarea from "@/components/form/FieldTextarea";
 import FieldToggle from "@/components/form/FieldToggle";
 import GuideColor from "@/components/guide/GuideColor";
@@ -454,6 +484,7 @@ export default {
     FieldFile,
     FieldRadio,
     FieldSelect,
+    FieldTabs,
     FieldTextarea,
     FieldToggle,
     GuideColor,
@@ -647,6 +678,21 @@ export default {
           }
         },
         {
+          id: "tabs",
+          headlines: {
+            title: "TABS",
+            description: "With a great description",
+            hasDocumentation: true
+          },
+          tabs: {
+            sizes: ["large", "medium", "default", "small", "mini"],
+            statuses: [
+              ["normal", "normal", "normal", "normal", "normal"],
+              ["success", "error", "warning"]
+            ]
+          }
+        },
+        {
           id: "dividers",
           headlines: {
             title: "DIVIDERS",
@@ -792,7 +838,7 @@ $c: ".c-index";
       }
     }
 
-    // --> ORIENTATIONS
+    // --> ORIENTATIONS <--
 
     &--horizontal {
       #{$c}__category {

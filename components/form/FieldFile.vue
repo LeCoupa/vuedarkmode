@@ -15,10 +15,10 @@ div(
 )
   .c-field-file__container
     div(
-      v-if="title"
+      v-if="label"
       class="c-field-file__information"
     )
-      span.c-field-file__title {{ title }}
+      span.c-field-file__label {{ label }}
 
       span(
         v-if="description"
@@ -27,7 +27,7 @@ div(
 
     label(
       :for="uuid"
-      class="c-field-file__label"
+      class="c-field-file__upload"
     )
       common-icon(
         name="cloud_upload"
@@ -67,6 +67,10 @@ export default {
       type: String,
       default: null
     },
+    label: {
+      type: String,
+      default: null
+    },
     multiple: {
       type: Boolean,
       default: false
@@ -82,10 +86,6 @@ export default {
     status: {
       type: String,
       default: "normal"
-    },
-    title: {
-      type: String,
-      default: null
     }
   },
 
@@ -128,11 +128,11 @@ $statuses: error, normal, success, warning;
       display: flex;
       flex-direction: column;
       margin-right: 20px;
-      color: $regent-st-blue;
       text-align: left;
 
-      #{$c}__title {
+      #{$c}__label {
         margin-bottom: 6px;
+        color: $regent-st-blue;
         text-transform: uppercase;
         font-family: "Heebo Bold";
       }
@@ -141,13 +141,14 @@ $statuses: error, normal, success, warning;
         color: $nepal;
       }
     }
-    #{$c}__label {
+    #{$c}__upload {
       position: relative;
       box-sizing: border-box;
       border-width: 2px;
       border-style: solid;
       border-radius: 100%;
       background-color: rgba($ebony-clay, 0.9);
+      box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
       transition: all ease-in-out 0.2s;
       cursor: pointer;
 
@@ -178,7 +179,7 @@ $statuses: error, normal, success, warning;
 
     &--#{$size} {
       #{$c}__information {
-        #{$c}__title {
+        #{$c}__label {
           font-size: 12px + (1px * $i);
         }
 
@@ -187,7 +188,7 @@ $statuses: error, normal, success, warning;
         }
       }
 
-      #{$c}__label {
+      #{$c}__upload {
         width: 40px + (5px * $i);
         height: 40px + (5px * $i);
 
@@ -203,7 +204,7 @@ $statuses: error, normal, success, warning;
 
   @each $status in $statuses {
     &--#{$status} {
-      #{$c}__label {
+      #{$c}__upload {
         @if ($status != "normal") {
           border-color: map-get($statusColors, $status);
         } @else {

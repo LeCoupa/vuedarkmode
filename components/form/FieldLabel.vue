@@ -9,6 +9,7 @@ label(
     "c-field-label",
     "c-field-label--" + size,
     {
+      "c-field-label--for-field": forField,
       "c-field-label--uppercase": uppercase
     }
   ]`
@@ -27,11 +28,11 @@ export default {
   props: {
     forField: {
       type: String,
-      required: true
+      default: null
     },
     size: {
       type: String,
-      required: true
+      default: "default"
     },
     uppercase: {
       type: Boolean,
@@ -52,12 +53,11 @@ $c: ".c-field-label";
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
-  display: inline-block;
-  margin-bottom: 8px;
+  display: block;
+  margin-bottom: 10px;
   color: $regent-st-blue;
   font-family: "Heebo Medium";
   user-select: none;
-  cursor: pointer;
 
   // --> SIZES <--
 
@@ -70,6 +70,10 @@ $sizes: mini, small, default, medium, large;
   }
 
   // --> BOOLEANS <--
+
+  &--for-field {
+    cursor: pointer;
+  }
 
   &--uppercase {
     text-transform: uppercase;
