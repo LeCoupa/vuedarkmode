@@ -54,7 +54,7 @@ export default {
     },
     multiple: {
       type: Boolean,
-      default: true
+      default: false
     },
     size: {
       type: String,
