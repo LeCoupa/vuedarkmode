@@ -101,6 +101,8 @@ export default {
   },
 
   methods: {
+    // --> EVENT LISTENERS <--
+
     onFileChange() {
       this.$emit("change", this.name);
     }

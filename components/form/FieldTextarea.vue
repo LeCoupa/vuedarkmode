@@ -148,9 +148,13 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
     getTextareaValue() {
       return this.$el.querySelector("textarea").value || "";
     },
+
+    // --> EVENT LISTENERS <--
 
     onContainerClick() {
       this.$el.querySelector("textarea").focus();

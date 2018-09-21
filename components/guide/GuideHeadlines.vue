@@ -64,6 +64,8 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
     toggleDocumentation() {
       this.documentationVisible = !this.documentationVisible;
 

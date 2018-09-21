@@ -803,6 +803,8 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
     showIcons() {
       this.maxIcons = 1000;
     }

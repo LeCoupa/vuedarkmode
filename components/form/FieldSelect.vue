@@ -147,9 +147,13 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
     getSelectedValue() {
       return this.$el.querySelector("select").value || "";
     },
+
+    // --> EVENT LISTENERS <--
 
     onSelectBlur() {
       this.focused = false;

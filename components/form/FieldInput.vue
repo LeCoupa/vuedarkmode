@@ -169,6 +169,8 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
     getInputValue() {
       let value = this.$el.querySelector("input").value || "";
 
@@ -178,6 +180,8 @@ export default {
 
       return value;
     },
+
+    // --> EVENT LISTENERS <--
 
     onContainerClick() {
       this.$el.querySelector("input").focus();

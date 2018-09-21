@@ -112,6 +112,8 @@ export default {
   },
 
   methods: {
+    // --> EVENT LISTENERS <--
+
     onRadioChange(event) {
       this.$emit("change", this.name, event.target.checked);
     }

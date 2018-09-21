@@ -123,6 +123,8 @@ export default {
   },
 
   methods: {
+    // --> EVENT LISTENERS <--
+
     onClick() {
       this.$emit("click", this.id);
     }
