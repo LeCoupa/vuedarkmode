@@ -421,7 +421,7 @@
 
       common-button(
         v-if="maxIcons !== 1000"
-        @click="showIcons"
+        @click="maxIcons = 1000;"
         :reverse="true"
         color="white"
         size="small"
@@ -800,14 +800,6 @@ export default {
         }
       ]
     };
-  },
-
-  methods: {
-    // --> HELPERS <--
-
-    showIcons() {
-      this.maxIcons = 1000;
-    }
   }
 };
 </script>
