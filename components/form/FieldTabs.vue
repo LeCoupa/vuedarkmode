@@ -178,10 +178,6 @@ $statuses: error, normal, success, warning;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      #{$c}__label {
-        font-size: 12px + (1px * $i);
-      }
-
       #{$c}__container {
         #{$c}__tab {
           padding: (6px + (1px * $i)) (12px + (2px * $i));
