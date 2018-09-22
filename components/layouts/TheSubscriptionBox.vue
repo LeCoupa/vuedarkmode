@@ -60,9 +60,9 @@ $c: ".c-the-subscription-box";
   }
 
   #{$c}__message {
-    text-align: left;
     margin: 10px 0 0;
     color: $nepal;
+    text-align: left;
     font-size: 14px;
     line-height: 20px;
   }
