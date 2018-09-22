@@ -146,7 +146,7 @@ $statuses: error, normal, success, warning;
       margin-bottom: 0;
       outline: none;
       border: none;
-      appearance: none;
+      -webkit-appearance: none;
       cursor: pointer;
 
       &:before,
