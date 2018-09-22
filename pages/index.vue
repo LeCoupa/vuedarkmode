@@ -11,7 +11,7 @@
 
   common-heading(
     type="h1"
-  ) A MINIMALIST DARK DESIGN SYSTEM FOR VUE.JS
+  ) A MINIMALIST DARK DESIGN SYSTEM FOR VUE.JS 👩‍🎨👨‍🎨
 
   common-heading(
     type="h2"
@@ -24,6 +24,8 @@
     repo="awesome-cheatsheets"
     user="lecoupa"
   )
+  the-subscription-box
+
   section(
     v-for="section in sections"
     :id="section.id"
@@ -466,6 +468,7 @@ import GuideHeadings from "@/components/guide/GuideHeadings";
 import GuideHeadlines from "@/components/guide/GuideHeadlines";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
+import TheSubscriptionBox from "@/components/layouts/TheSubscriptionBox";
 
 import colors from "@/schemas/colors";
 import icons from "@/schemas/icons";
@@ -492,7 +495,8 @@ export default {
     GuideHeadings,
     GuideHeadlines,
     TheGithubButtons,
-    TheLogo
+    TheLogo,
+    TheSubscriptionBox
   },
 
   data() {
@@ -815,6 +819,10 @@ $c: ".c-index";
 #{$c} {
   #{$c}__github-buttons {
     margin-top: 20px;
+  }
+
+  #{$c}__subscription-box {
+    // max-width: 500px;
   }
 
   #{$c}__elements {
