@@ -20,6 +20,7 @@ div(
     )
       field-label(
         :size="size"
+        class="c-field-file__label"
       ) {{ label }}
 
       span(
@@ -135,6 +136,10 @@ $statuses: error, normal, success, warning;
       flex-direction: column;
       margin-right: 20px;
       text-align: left;
+
+      #{$c}__label {
+        margin-bottom: 6px;
+      }
 
       #{$c}__description {
         color: $nepal;
