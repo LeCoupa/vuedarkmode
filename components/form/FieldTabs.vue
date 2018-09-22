@@ -32,6 +32,13 @@ div(
         }
       ]`
     ) {{ tab.name }}
+
+  field-description(
+    v-if="description"
+    :description="description"
+    :size="size"
+    class="c-field-tabs__description"
+  )
 </template>
 
 <!-- *************************************************************************
@@ -40,14 +47,20 @@ div(
 
 <script>
 // PROJECT
+import FieldDescription from "@/components/form/FieldDescription";
 import FieldLabel from "@/components/form/FieldLabel";
 
 export default {
   components: {
+    FieldDescription,
     FieldLabel
   },
 
   props: {
+    description: {
+      type: String,
+      default: null
+    },
     label: {
       type: String,
       default: null
