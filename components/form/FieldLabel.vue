@@ -66,6 +66,7 @@ $sizes: mini, small, default, medium, large;
 
     &--#{$size} {
       font-size: 12px + (1px * $i);
+      line-height: 14px + (2px * $i);
     }
   }
 
