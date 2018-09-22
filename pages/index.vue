@@ -21,7 +21,7 @@
 
   the-github-buttons(
     class="c-index__github-buttons"
-    repo="awesome-cheatsheets"
+    repo="dark-mode"
     user="lecoupa"
   )
   the-subscription-box
@@ -854,8 +854,8 @@ $c: ".c-index";
 
   #{$c}__elements {
     display: grid;
-    justify-content: center;
     grid-gap: 40px;
+    justify-content: center;
     margin-bottom: 40px;
 
     #{$c}__category {
@@ -946,8 +946,8 @@ $c: ".c-index";
     }
 
     &--form {
-      text-align: left;
       grid-template-columns: repeat(auto-fill, 360px);
+      text-align: left;
 
       input::placeholder,
       textarea::placeholder {
@@ -956,6 +956,7 @@ $c: ".c-index";
     }
 
     &--icons {
+      overflow: hidden;
       grid-gap: 20px;
       grid-template-columns: repeat(auto-fill, 24px);
 

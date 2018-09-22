@@ -6,11 +6,11 @@
 .l-default
   .l-default__inner
     the-github-corner(
-      class="l-default__github-corner"
-      link="https://github.com/LeCoupa/awesome-cheatsheets"
+      link="https://github.com/LeCoupa/dark-mode"
     )
-    the-light-switch
-
+    the-shortcuts-bar(
+      class="l-default__shortcuts-bar"
+    )
     nuxt
 </template>
 
@@ -20,13 +20,13 @@
 
 <script>
 // PROJECT
+import TheShortcutsBar from "@/components/layouts/TheShortcutsBar";
 import TheGithubCorner from "@/components/layouts/TheGithubCorner";
-import TheLightSwitch from "@/components/layouts/TheLightSwitch";
 
 export default {
   components: {
-    TheGithubCorner,
-    TheLightSwitch
+    TheShortcutsBar,
+    TheGithubCorner
   }
 };
 </script>
@@ -44,7 +44,7 @@ $c: ".l-default";
 html {
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 60px 0 40px;
+  padding: 60px 0 90px;
   min-height: 100%;
   background-color: $mirage;
   color: white;
