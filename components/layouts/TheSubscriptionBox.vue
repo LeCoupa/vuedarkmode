@@ -42,18 +42,35 @@ export default {
 $c: ".c-the-subscription-box";
 
 #{$c} {
-  display: flex;
-  align-items: flex-end;
-  margin: 30px auto;
-  max-width: 550px;
+  margin: 30px auto 0;
 
   #{$c}__field {
-    flex: 1;
-    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 100%;
   }
 
   #{$c}__button {
-    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+@include mq($from: tablet) {
+  #{$c} {
+    display: flex;
+    align-items: flex-end;
+    max-width: 550px;
+
+    #{$c}__field {
+      flex: 1;
+      margin-right: 10px;
+      margin-bottom: 0;
+      width: initial;
+    }
+
+    #{$c}__button {
+      flex: 0 0 auto;
+      width: initial;
+    }
   }
 }
 </style>
