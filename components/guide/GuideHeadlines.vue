@@ -16,13 +16,13 @@
 
   common-button(
     v-if="hasDocumentation"
-    @click="toggleDocumentation"
+    @click="onToggleDocumentation"
     :reverse="true"
-    rightIcon="explore"
+    :rightIcon="documentationVisibility ? 'close' : 'explore'"
     size="small"
     color="blue"
     class="c-guide-headlines__documentation"
-  ) {{ documentationVisible ? "Hide" : "Show" }} documentation
+  ) {{ documentationVisibility ? "Hide" : "Show" }} documentation
 </template>
 
 <!-- *************************************************************************
@@ -51,6 +51,10 @@ export default {
       type: Boolean,
       default: true
     },
+    section: {
+      type: String,
+      required: true
+    },
     title: {
       type: String,
       required: true
@@ -59,17 +63,21 @@ export default {
 
   data() {
     return {
-      documentationVisible: false
+      documentationVisibility: false
     };
   },
 
   methods: {
-    // --> HELPERS <--
+    // --> EVENT LISTENERS <--
 
-    toggleDocumentation() {
-      this.documentationVisible = !this.documentationVisible;
+    onToggleDocumentation() {
+      this.documentationVisibility = !this.documentationVisibility;
 
-      this.$emit("toggleDocumentation", this.documentationVisible);
+      this.$emit(
+        "toggleDocumentation",
+        this.section,
+        this.documentationVisibility
+      );
     }
   }
 };

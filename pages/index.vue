@@ -37,9 +37,11 @@
       size="large"
     )
     guide-headlines(
-      :title="section.headlines.title"
-      :hasDocumentation="section.headlines.hasDocumentation"
+      @toggleDocumentation="onToggleDocumentation"
       :description="section.headlines.description"
+      :hasDocumentation="section.headlines.hasDocumentation"
+      :section="section.id"
+      :title="section.headlines.title"
     )
     div(
       v-if="section.colors"
@@ -56,7 +58,7 @@
       v-if="section.headings"
     )
     div(
-      v-if="section.buttons"
+      v-if="section.buttons && !docs.buttons"
       v-for="circular in [false, true]"
       :class=`[
         "c-index__elements c-index__elements--buttons",
@@ -84,7 +86,7 @@
           ) {{ size }} {{ color }}
 
     div(
-      v-if="section.badges"
+      v-if="section.badges && !docs.badges"
       class="c-index__elements c-index__elements--badges c-index__elements--horizontal c-index__elements--vertical-on-mobile"
     )
       div(
@@ -104,7 +106,7 @@
           ) {{ size }}
 
     div(
-      v-if="section.socialAuths"
+      v-if="section.socialAuths && !docs.socialAuths"
       class="c-index__elements c-index__elements--social-auths c-index__elements--horizontal c-index__elements--vertical-on-mobile"
     )
       div(
@@ -124,7 +126,7 @@
           )
 
     div(
-      v-if="section.inputs"
+      v-if="section.inputs && !docs.inputs"
       class="c-index__elements c-index__elements--form c-index__elements--inputs"
     )
       div(
@@ -150,7 +152,7 @@
           )
 
     div(
-      v-if="section.selects"
+      v-if="section.selects && !docs.selects"
       class="c-index__elements c-index__elements--form c-index__elements--selects"
     )
       div(
@@ -180,7 +182,7 @@
           )
 
     div(
-      v-if="section.textareas"
+      v-if="section.textareas && !docs.textareas"
       class="c-index__elements c-index__elements--form c-index__elements--textareas"
     )
       div(
@@ -206,7 +208,7 @@
           )
 
     div(
-      v-if="section.checkboxes"
+      v-if="section.checkboxes && !docs.checkboxes"
       class="c-index__elements c-index__elements--form c-index__elements--checkboxes"
     )
       div(
@@ -231,7 +233,7 @@
             description="This is a customizable description for checkboxes."
           )
     div(
-      v-if="section.radios"
+      v-if="section.radios && !docs.radios"
       class="c-index__elements c-index__elements--form c-index__elements--radios"
     )
       div(
@@ -257,7 +259,7 @@
           )
 
     div(
-      v-if="section.toggles"
+      v-if="section.toggles && !docs.toggles"
       class="c-index__elements c-index__elements--form c-index__elements--toggles"
     )
       div(
@@ -283,7 +285,7 @@
           )
 
     div(
-      v-if="section.files"
+      v-if="section.files && !docs.files"
       class="c-index__elements c-index__elements--form c-index__elements--files"
     )
       div(
@@ -308,7 +310,7 @@
           )
 
     div(
-      v-if="section.tabs"
+      v-if="section.tabs && !docs.tabs"
       class="c-index__elements c-index__elements--form"
     )
       div(
@@ -338,7 +340,7 @@
           )
 
     div(
-      v-if="section.dividers"
+      v-if="section.dividers && !docs.dividers"
       class="c-index__elements c-index__elements--dividers"
     )
       div(
@@ -358,7 +360,7 @@
           )
 
     div(
-      v-if="section.loaders"
+      v-if="section.loaders && !docs.loaders"
       class="c-index__elements c-index__elements--loaders"
     )
       div(
@@ -375,7 +377,7 @@
         )
 
     div(
-      v-if="section.avatars"
+      v-if="section.avatars && !docs.avatars"
       v-for="type in ['avatars', 'thumbnails']"
       :class=`[
         "c-index__elements",
@@ -408,7 +410,7 @@
           )
 
     div(
-      v-if="section.icons"
+      v-if="section.icons && !docs.icons"
       class="c-index__icons"
     )
       .c-index__elements.c-index__elements--icons
@@ -501,7 +503,26 @@ export default {
 
   data() {
     return {
-      // --> DATA <--
+      // --> STATE <--
+      docs: {
+        colors: false,
+        headings: false,
+        buttons: false,
+        badges: false,
+        socialAuths: false,
+        inputs: false,
+        selects: false,
+        textareas: false,
+        checkboxes: false,
+        radios: false,
+        toggles: false,
+        files: false,
+        tabs: false,
+        dividers: false,
+        loaders: false,
+        avatars: false,
+        icons: false
+      },
       maxIcons: 207,
 
       // --> COMPONENTS <--
@@ -566,7 +587,7 @@ export default {
           }
         },
         {
-          id: "socialLogins",
+          id: "socialAuths",
           headlines: {
             title: "SOCIAL LOGINS",
             description: "With a great description",
@@ -805,6 +826,12 @@ export default {
         }
       ]
     };
+  },
+
+  methods: {
+    onToggleDocumentation(section, visibility) {
+      this.docs[section] = visibility;
+    }
   }
 };
 </script>
