@@ -139,8 +139,13 @@ $sizes: mini, small, default, medium, large, huge;
 
     &--#{$size} {
       #{$c}__image {
-        width: 20px + (20px * $i);
-        height: 20px + (20px * $i);
+        @if ($size == "mini") {
+          width: 30px;
+          height: 30px;
+        } @else {
+          width: 20px + (20px * $i);
+          height: 20px + (20px * $i);
+        }
         border-radius: 2px + (2px * $i);
       }
 
