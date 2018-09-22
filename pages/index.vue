@@ -307,7 +307,7 @@
 
     div(
       v-if="section.tabs"
-      class="c-index__elements c-index__elements--form c-index__elements--tabs"
+      class="c-index__elements c-index__elements--form"
     )
       div(
         v-for="(statuses, i) in section.tabs.statuses"
@@ -331,6 +331,7 @@
               { id: "M", name: 'M', active: false },
               { id: "B", name: 'B', active: false }
             ]`
+            description="This is a customizable description for tabs."
             class="c-index__tabs"
           )
 
