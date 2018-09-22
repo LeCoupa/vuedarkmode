@@ -18,11 +18,11 @@
     v-if="hasDocumentation"
     @click="onToggleDocumentation"
     :reverse="true"
-    :rightIcon="documentationVisibility ? 'close' : 'explore'"
+    :rightIcon="documentationVisibility ? 'extension' : 'explore'"
     size="small"
     color="blue"
     class="c-guide-headlines__documentation"
-  ) {{ documentationVisibility ? "Hide" : "Show" }} documentation
+  ) {{ documentationVisibility ? "Show components" : "Read documentation" }}
 </template>
 
 <!-- *************************************************************************

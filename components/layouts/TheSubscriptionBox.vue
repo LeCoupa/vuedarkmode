@@ -14,8 +14,9 @@
       class="c-the-subscription-box__field"
     )
     common-button(
+      rightIcon="thumb_up"
       class="c-the-subscription-box__button"
-    ) Subscribe 🎉
+    ) Subscribe
 
   p.c-the-subscription-box__message We'll never send you more than one email per month.
 </template>

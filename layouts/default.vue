@@ -9,6 +9,8 @@
       class="l-default__github-corner"
       link="https://github.com/LeCoupa/awesome-cheatsheets"
     )
+    the-light-switch
+
     nuxt
 </template>
 
@@ -19,10 +21,12 @@
 <script>
 // PROJECT
 import TheGithubCorner from "@/components/layouts/TheGithubCorner";
+import TheLightSwitch from "@/components/layouts/TheLightSwitch";
 
 export default {
   components: {
-    TheGithubCorner
+    TheGithubCorner,
+    TheLightSwitch
   }
 };
 </script>
