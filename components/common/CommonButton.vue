@@ -4,7 +4,9 @@
 
 <template lang="pug">
 button(
+  @blur="onBlur"
   @click="onClick"
+  @focus="onFocus"
   :class=`[
     "c-common-button",
     "c-common-button--" + color,
@@ -125,8 +127,16 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
+    onBlur() {
+      this.$emit("blur", this.id);
+    },
+
     onClick() {
       this.$emit("click", this.id);
+    },
+
+    onFocus() {
+      this.$emit("focus", this.id);
     }
   }
 };
