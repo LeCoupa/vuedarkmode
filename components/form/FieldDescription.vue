@@ -8,7 +8,8 @@ p(
     "c-field-description",
     "c-field-description--" + size
   ]`
-) {{ description }}
+  v-html="description"
+)
 </template>
 
 <!-- *************************************************************************
