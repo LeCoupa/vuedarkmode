@@ -6,40 +6,39 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-field-toggle",
-    "dm-field-toggle--" + size,
-    "dm-field-toggle--" + status,
+    "dm-field-radio",
+    "dm-field-radio--" + size,
+    "dm-field-radio--" + status,
     {
-      "dm-field-toggle--full-width": fullWidth
+      "dm-field-radio--full-width": fullWidth
     }
   ]`
 )
   div(
-    class="dm-field-toggle__container"
+    class="dm-field-radio__container"
   )
     input(
-      @change="onToggleChange"
+      @change="onRadioChange"
       :checked="checked"
       :disabled="disabled"
       :id="uuid"
       :name="name"
       :required="required"
-      class="dm-field-toggle__field"
-      type="checkbox"
+      class="dm-field-radio__field"
+      type="radio"
     )
     field-label(
       v-if="label"
       :forField="uuid"
       :size="size"
       :uppercase="false"
-      class="dm-field-toggle__label"
+      class="dm-field-radio__label"
     ) {{ label }}
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="dm-field-toggle__description"
   )
 </template>
 
@@ -52,8 +51,8 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
-import FieldDescription from "@/components/form/FieldDescription";
-import FieldLabel from "@/components/form/FieldLabel";
+import FieldDescription from "@/components/darkmode/form/FieldDescription";
+import FieldLabel from "@/components/darkmode/form/FieldLabel";
 
 export default {
   components: {
@@ -114,7 +113,7 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onToggleChange(event) {
+    onRadioChange(event) {
       this.$emit("change", this.name, event.target.checked);
     }
   }
@@ -128,7 +127,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".dm-field-toggle";
+$c: ".dm-field-radio";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
@@ -154,7 +153,7 @@ $statuses: error, normal, success, warning;
         position: absolute;
         display: inline-block;
         box-sizing: border-box;
-        transition: all ease-in-out 0.3s;
+        transition: all ease-in-out 0.2s;
       }
 
       &:before {
@@ -162,24 +161,32 @@ $statuses: error, normal, success, warning;
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid $oxford-blue;
-        border-radius: 20px;
-        background-color: rgba($ebony-clay-2, 0.4);
+        border: 1px solid $regent-st-blue;
+        border-radius: 100%;
+        background-color: $white;
         content: "";
       }
 
       &:after {
-        top: 4px;
-        right: initial;
+        top: 50%;
+        left: 50%;
+        width: 6px;
+        height: 6px;
         border-radius: 100%;
-        background: $white;
-        transform: translateX(4px);
+        background-color: $white;
+        transform: translate(-50%, -50%);
         content: "";
       }
 
       &:hover {
-        &:before {
-          border-color: lighten($oxford-blue, 10%);
+        &:after {
+          background-color: $oxford-blue;
+        }
+      }
+
+      &:checked {
+        &:after {
+          background-color: $white;
         }
       }
     }
@@ -200,25 +207,12 @@ $statuses: error, normal, success, warning;
     &--#{$size} {
       #{$c}__container {
         #{$c}__field {
-          width: (18px + (2px * $i)) * 2;
-          height: 18px + (2px * $i);
-
-          &:after {
-            width: 10px + (2px * $i);
-            height: 10px + (2px * $i);
-          }
-
-          &:checked {
-            &:after {
-              transform: translateX(
-                ((18px + (2px * $i)) * 2) - (10px + (2px * $i) + 4px)
-              );
-            }
-          }
+          width: 12px + (2px * $i);
+          height: 12px + (2px * $i);
         }
 
         #{$c}__label {
-          line-height: 18px + (2px * $i);
+          line-height: 12px + (2px * $i);
         }
       }
     }
@@ -230,16 +224,16 @@ $statuses: error, normal, success, warning;
     &--#{$status} {
       #{$c}__container {
         #{$c}__field {
-          &:checked {
+          &:hover {
             &:before {
               border-color: map-get($statusColors, $status);
-              background-color: rgba(map-get($statusColors, $status), 0.4);
             }
           }
 
-          &:hover {
+          &:checked {
             &:before {
-              border-color: lighten(map-get($statusColors, $status), 10%);
+              border-color: map-get($statusColors, $status);
+              background: map-get($statusColors, $status);
             }
           }
         }

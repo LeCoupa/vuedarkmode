@@ -10,7 +10,7 @@ i(
     fontSize: size
   }`
   aria-hidden="true"
-  class="dm-common-icon"
+  class="dm-base-icon"
 ) {{ name }}
 </template>
 
@@ -52,7 +52,7 @@ export default {
 <style lang="scss">
 // Based on Material Icons
 // https://google.github.io/material-design-icons/#icon-font-for-the-web
-.dm-common-icon {
+.dm-base-icon {
   display: inline-block;
   color: inherit;
   text-transform: none;

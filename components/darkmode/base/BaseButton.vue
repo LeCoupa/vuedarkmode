@@ -8,38 +8,38 @@ button(
   @click="onClick"
   @focus="onFocus"
   :class=`[
-    "dm-common-button",
-    "dm-common-button--" + color,
-    "dm-common-button--" + size,
+    "dm-base-button",
+    "dm-base-button--" + color,
+    "dm-base-button--" + size,
     {
-      "dm-common-button--capitalize": capitalize,
-      "dm-common-button--circular": circular,
-      "dm-common-button--full-width": fullWidth,
-      "dm-common-button--reverse": reverse,
-      "dm-common-button--rounded": rounded
+      "dm-base-button--capitalize": capitalize,
+      "dm-base-button--circular": circular,
+      "dm-base-button--full-width": fullWidth,
+      "dm-base-button--reverse": reverse,
+      "dm-base-button--rounded": rounded
     }
   ]`
   :disabled="disabled"
   :id="id"
   :type="type"
 )
-  span.dm-common-button__inner
-    common-icon(
+  span.dm-base-button__inner
+    base-icon(
       v-if="leftIcon"
       :name="leftIcon"
       :size="iconSize"
-      class="dm-common-button__left-icon"
+      class="dm-base-button__left-icon"
     )
     span(
       v-if="$slots.default && $slots.default[0].text.trim()"
-      class="dm-common-button__label"
+      class="dm-base-button__label"
     ): slot
 
-    common-icon(
+    base-icon(
       v-if="rightIcon"
       :name="rightIcon"
       :size="iconSize"
-      class="dm-common-button__right-icon"
+      class="dm-base-button__right-icon"
     )
 </template>
 
@@ -49,11 +49,11 @@ button(
 
 <script>
 // PROJECT
-import CommonIcon from "@/components/common/CommonIcon";
+import BaseIcon from "@/components/darkmode/base/BaseIcon";
 
 export default {
   components: {
-    CommonIcon
+    BaseIcon
   },
 
   props: {
@@ -147,7 +147,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".dm-common-button";
+$c: ".dm-base-button";
 $colors: black, blue, green, red, orange, white;
 $sizes: mini, small, default, medium, large;
 

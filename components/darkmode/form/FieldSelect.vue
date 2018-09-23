@@ -5,15 +5,14 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-field-input",
-    "dm-field-input--" + size,
-    "dm-field-input--" + status,
+    "dm-field-select",
+    "dm-field-select--" + size,
+    "dm-field-select--" + status,
     {
-      "dm-field-input--borders": borders,
-      "dm-field-input--focused": focused,
-      "dm-field-input--full-width": fullWidth,
-      "dm-field-input--rounded": rounded,
-      "dm-field-input--with-icon": leftIcon || rightIcon
+      "dm-field-select--borders": borders,
+      "dm-field-select--focused": focused,
+      "dm-field-select--full-width": fullWidth,
+      "dm-field-select--with-left-icon": computedLeftIcon
     }
   ]`
 )
@@ -21,42 +20,39 @@ div(
     v-if="label"
     :forField="uuid"
     :size="size"
-    class="dm-field-input__label"
+    class="dm-field-select__label"
   ) {{ label }}
 
-  div(
-    @click="onContainerClick"
-    class="dm-field-input__container"
-  )
-    common-icon(
-      v-if="leftIcon"
-      :name="leftIcon"
-      class="dm-field-input__icon dm-field-input__icon--left"
+  .dm-field-select__container
+    base-icon(
+      v-if="computedLeftIcon"
+      :name="computedLeftIcon"
+      class="dm-field-select__icon dm-field-select__icon--left"
     )
-    input(
-      @blur="onInputBlur"
-      @focus="onInputFocus"
-      @keyup="onInputKeyUp"
-      :autocomplete="autocomplete"
+    select(
+      @blur="onSelectBlur"
+      @click="onSelectClick"
+      @focus="onSelectFocus"
+      @change="onSelectChange"
       :disabled="disabled"
       :id="uuid"
       :name="name"
-      :placeholder="placeholder"
-      :type="type"
-      :value="value"
-      class="dm-field-input__field"
+      class="dm-field-select__field"
     )
-    common-icon(
-      v-if="computedRightIcon"
-      :name="computedRightIcon"
-      class="dm-field-input__icon dm-field-input__icon--right"
+      option(
+        v-for="option in options"
+        :value="option.value"
+      ) {{ option.label }}
+
+    base-icon(
+      :name="rightIcon"
+      class="dm-field-select__icon dm-field-select__icon--right"
     )
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="dm-field-input__description"
   )
 </template>
 
@@ -67,22 +63,18 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
-import CommonIcon from "@/components/common/CommonIcon";
-import FieldDescription from "@/components/form/FieldDescription";
-import FieldLabel from "@/components/form/FieldLabel";
+import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import FieldDescription from "@/components/darkmode/form/FieldDescription";
+import FieldLabel from "@/components/darkmode/form/FieldLabel";
 
 export default {
   components: {
-    CommonIcon,
+    BaseIcon,
     FieldDescription,
     FieldLabel
   },
 
   props: {
-    autocomplete: {
-      type: String,
-      default: "off"
-    },
     borders: {
       type: Boolean,
       default: true
@@ -111,17 +103,9 @@ export default {
       type: String,
       required: true
     },
-    placeholder: {
-      type: String,
-      default: null
-    },
-    rightIcon: {
-      type: String,
-      default: null
-    },
-    rounded: {
-      type: Boolean,
-      default: false
+    options: {
+      type: Array,
+      required: true
     },
     size: {
       type: String,
@@ -130,14 +114,6 @@ export default {
     status: {
       type: String,
       default: "normal"
-    },
-    type: {
-      type: String,
-      default: "text"
-    },
-    value: {
-      type: [String, Number],
-      default: null
     }
   },
 
@@ -145,13 +121,14 @@ export default {
     return {
       // --> STATE <--
       focused: false,
+      rightIcon: "arrow_drop_down",
       uuid: ""
     };
   },
 
   computed: {
-    computedRightIcon() {
-      // Return the status when defined as prop
+    computedLeftIcon() {
+      // Return the left icon when defined as prop
       if (this.status === "error") {
         return "close";
       } else if (this.status === "success") {
@@ -160,7 +137,7 @@ export default {
         return "warning";
       }
 
-      return this.rightIcon;
+      return this.leftIcon;
     }
   },
 
@@ -171,38 +148,36 @@ export default {
   methods: {
     // --> HELPERS <--
 
-    getInputValue() {
-      let value = this.$el.querySelector("input").value || "";
-
-      if (value && this.type === "number") {
-        value = parseInt(value);
-      }
-
-      return value;
+    getSelectedValue() {
+      return this.$el.querySelector("select").value || "";
     },
 
     // --> EVENT LISTENERS <--
 
-    onContainerClick() {
-      this.$el.querySelector("input").focus();
-
-      this.$emit("click", this.name, this.getInputValue());
-    },
-
-    onInputBlur() {
+    onSelectBlur() {
       this.focused = false;
+      this.rightIcon = "arrow_drop_down";
 
-      this.$emit("blur", this.name, this.getInputValue());
+      this.$emit("blur", this.name, this.getSelectedValue());
     },
 
-    onInputKeyUp() {
-      this.$emit("keyup", this.name, this.getInputValue());
+    onSelectChange() {
+      this.rightIcon = "arrow_drop_down";
+
+      this.$emit("change", this.name, this.getSelectedValue());
     },
 
-    onInputFocus() {
+    onSelectClick() {
+      this.rightIcon = "arrow_drop_up";
+
+      this.$emit("click", this.name, this.getSelectedValue());
+    },
+
+    onSelectFocus() {
       this.focused = true;
+      this.rightIcon = "arrow_drop_up";
 
-      this.$emit("focus", this.name, this.getInputValue());
+      this.$emit("focus", this.name, this.getSelectedValue());
     }
   }
 };
@@ -213,7 +188,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".dm-field-input";
+$c: ".dm-field-select";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
@@ -223,39 +198,36 @@ $statuses: error, normal, success, warning;
   text-align: left;
 
   #{$c}__container {
+    position: relative;
     display: flex;
+    overflow: hidden;
     align-items: center;
     transition: all ease-in-out 0.2s;
 
-    &:hover {
-      cursor: text;
-    }
-
     #{$c}__icon {
-      flex: 0 0 auto;
+      position: absolute;
 
       &--left {
-        margin-right: 5px;
-        margin-left: 9px;
+        left: 9px;
       }
 
       &--right {
-        margin-right: 9px;
-        margin-left: 5px;
+        right: 9px;
       }
     }
 
     #{$c}__field {
       flex: 1;
-      padding: 0 15px;
+      padding: 0 35px 0 15px;
       height: 100%;
       border: none;
       background-color: transparent;
+      background-image: none;
+      box-shadow: none;
       color: $white;
+      cursor: pointer;
 
-      &::placeholder {
-        color: $nepal;
-      }
+      -webkit-appearance: none;
 
       &:disabled {
         cursor: not-allowed;
@@ -328,16 +300,10 @@ $statuses: error, normal, success, warning;
     width: 100%;
   }
 
-  &--rounded {
-    #{$c}__container {
-      border-radius: 40px;
-    }
-  }
-
-  &--with-icon {
+  &--with-left-icon {
     #{$c}__container {
       #{$c}__field {
-        padding: 0;
+        padding-left: 35px;
       }
     }
   }

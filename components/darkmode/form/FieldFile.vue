@@ -32,7 +32,7 @@ div(
       :for="uuid"
       class="dm-field-file__upload"
     )
-      common-icon(
+      base-icon(
         name="cloud_upload"
         class="dm-field-file__icon"
       )
@@ -54,12 +54,12 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
-import CommonIcon from "@/components/common/CommonIcon";
-import FieldLabel from "@/components/form/FieldLabel";
+import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import FieldLabel from "@/components/darkmode/form/FieldLabel";
 
 export default {
   components: {
-    CommonIcon,
+    BaseIcon,
     FieldLabel
   },
 

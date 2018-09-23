@@ -6,25 +6,25 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-field-checkbox",
-    "dm-field-checkbox--" + size,
-    "dm-field-checkbox--" + status,
+    "dm-field-toggle",
+    "dm-field-toggle--" + size,
+    "dm-field-toggle--" + status,
     {
-      "dm-field-checkbox--full-width": fullWidth
+      "dm-field-toggle--full-width": fullWidth
     }
   ]`
 )
   div(
-    class="dm-field-checkbox__container"
+    class="dm-field-toggle__container"
   )
     input(
-      @change="onCheckboxChange"
+      @change="onToggleChange"
       :checked="checked"
       :disabled="disabled"
       :id="uuid"
       :name="name"
       :required="required"
-      class="dm-field-checkbox__field"
+      class="dm-field-toggle__field"
       type="checkbox"
     )
     field-label(
@@ -32,14 +32,13 @@ div(
       :forField="uuid"
       :size="size"
       :uppercase="false"
-      class="dm-field-checkbox__label"
+      class="dm-field-toggle__label"
     ) {{ label }}
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="dm-field-checkbox__description"
   )
 </template>
 
@@ -52,8 +51,8 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
-import FieldDescription from "@/components/form/FieldDescription";
-import FieldLabel from "@/components/form/FieldLabel";
+import FieldDescription from "@/components/darkmode/form/FieldDescription";
+import FieldLabel from "@/components/darkmode/form/FieldLabel";
 
 export default {
   components: {
@@ -114,7 +113,7 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onCheckboxChange(event) {
+    onToggleChange(event) {
       this.$emit("change", this.name, event.target.checked);
     }
   }
@@ -128,7 +127,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".dm-field-checkbox";
+$c: ".dm-field-toggle";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
@@ -154,7 +153,7 @@ $statuses: error, normal, success, warning;
         position: absolute;
         display: inline-block;
         box-sizing: border-box;
-        transition: all ease-in-out 0.2s;
+        transition: all ease-in-out 0.3s;
       }
 
       &:before {
@@ -162,31 +161,24 @@ $statuses: error, normal, success, warning;
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid $regent-st-blue;
-        border-radius: 3px;
-        background-color: $white;
+        border: 1px solid $oxford-blue;
+        border-radius: 20px;
+        background-color: rgba($ebony-clay-2, 0.4);
         content: "";
       }
 
       &:after {
-        border: 2px solid $white;
-        border-top: 0;
-        border-left: 0;
-        transform: rotate(45deg);
+        top: 4px;
+        right: initial;
+        border-radius: 100%;
+        background: $white;
+        transform: translateX(4px);
         content: "";
       }
 
       &:hover {
-        &:after {
-          border-color: $oxford-blue;
-          border-right-width: 2px;
-          border-bottom-width: 2px;
-        }
-      }
-
-      &:checked {
-        &:after {
-          border-color: $white;
+        &:before {
+          border-color: lighten($oxford-blue, 10%);
         }
       }
     }
@@ -207,41 +199,25 @@ $statuses: error, normal, success, warning;
     &--#{$size} {
       #{$c}__container {
         #{$c}__field {
-          width: 12px + (2px * $i);
-          height: 12px + (2px * $i);
+          width: (18px + (2px * $i)) * 2;
+          height: 18px + (2px * $i);
 
           &:after {
-            @if ($size == "mini") {
-              top: 1px;
-              left: 4px;
-              width: 4px;
-              height: 8px;
-            } @else if ($size == "small") {
-              top: 2px;
-              left: 5px;
-              width: 4px;
-              height: 8px;
-            } @else if ($size == "default") {
-              top: 2px;
-              left: 6px;
-              width: 5px;
-              height: 10px;
-            } @else if ($size == "medium") {
-              top: 3px;
-              left: 7px;
-              width: 5px;
-              height: 10px;
-            } @else if ($size == "large") {
-              top: 3px;
-              left: 8px;
-              width: 6px;
-              height: 12px;
+            width: 10px + (2px * $i);
+            height: 10px + (2px * $i);
+          }
+
+          &:checked {
+            &:after {
+              transform: translateX(
+                ((18px + (2px * $i)) * 2) - (10px + (2px * $i) + 4px)
+              );
             }
           }
         }
 
         #{$c}__label {
-          line-height: 12px + (2px * $i);
+          line-height: 18px + (2px * $i);
         }
       }
     }
@@ -253,16 +229,16 @@ $statuses: error, normal, success, warning;
     &--#{$status} {
       #{$c}__container {
         #{$c}__field {
-          &:hover {
-            &:before {
-              border-color: map-get($statusColors, $status);
-            }
-          }
-
           &:checked {
             &:before {
               border-color: map-get($statusColors, $status);
-              background: map-get($statusColors, $status);
+              background-color: rgba(map-get($statusColors, $status), 0.4);
+            }
+          }
+
+          &:hover {
+            &:before {
+              border-color: lighten(map-get($statusColors, $status), 10%);
             }
           }
         }

@@ -7,13 +7,13 @@
   the-logo(
     class="c-index__logo"
   )
-  common-divider
+  base-divider
 
-  common-heading(
+  base-heading(
     type="h1"
   ) A MINIMALIST DARK DESIGN SYSTEM FOR VUE.JS 👩‍🎨👨‍🎨
 
-  common-heading(
+  base-heading(
     type="h2"
     color="grey"
     fontWeight="regular"
@@ -32,7 +32,7 @@
     :key="section.id"
     class="c-index__section"
   )
-    common-divider(
+    base-divider(
       color="black"
       size="large"
     )
@@ -77,7 +77,7 @@
           :key="'button' + color + j + size"
           class="c-index__item"
         )
-          common-button(
+          base-button(
             :circular="circular"
             :color="color"
             :leftIcon="section.buttons.icons[i]"
@@ -99,7 +99,7 @@
           :key="'badge' + color + j + size"
           class="c-index__item"
         )
-          common-badge(
+          base-badge(
             :color="color"
             :size="size"
             class="c-index__badge"
@@ -119,7 +119,7 @@
           :key="'socialAuth' + network + j + size"
           class="c-index__item"
         )
-          common-social-auth(
+          base-social-auth(
             :network="network"
             :size="size"
             class="c-index__social-auth"
@@ -353,7 +353,7 @@
           :key="'divider' + color + j + size"
           class="c-index__item"
         )
-          common-divider(
+          base-divider(
             :color="color"
             :size="size"
             class="c-index__divider"
@@ -368,7 +368,7 @@
         :key="'loader' + i"
         class="c-index__category"
       )
-        common-loader(
+        base-loader(
           :color="loader.color"
           :labelMain="loader.labelMain"
           :labelSecondary="loader.labelSecondary"
@@ -392,13 +392,13 @@
           :key="'avatar' + size + i"
           class="c-index__item"
         )
-          common-avatar(
+          base-avatar(
             v-if="type === 'avatars'"
             :size="size"
             src="/images/medley/nada.jpg"
             class="c-index__avatar"
           )
-          common-avatar(
+          base-avatar(
             v-else-if="type === 'thumbnails'"
             :bordered="true"
             :circular="false"
@@ -414,7 +414,7 @@
       class="c-index__icons"
     )
       .c-index__elements.c-index__elements--icons
-        common-icon(
+        base-icon(
           v-for="(icon, i) in section.icons"
           v-if="i < maxIcons"
           :aria-label="icon"
@@ -424,7 +424,7 @@
           color="white"
         )
 
-      common-button(
+      base-button(
         v-if="maxIcons !== 1000"
         @click="maxIcons = 1000;"
         :reverse="true"
@@ -432,7 +432,7 @@
         size="small"
       ) Show all icons
 
-  common-divider(
+  base-divider(
     color="black"
     size="large"
   )
@@ -449,22 +449,22 @@
 
 <script>
 // PROJECT
-import CommonAvatar from "@/components/common/CommonAvatar";
-import CommonBadge from "@/components/common/CommonBadge";
-import CommonButton from "@/components/common/CommonButton";
-import CommonDivider from "@/components/common/CommonDivider";
-import CommonHeading from "@/components/common/CommonHeading";
-import CommonIcon from "@/components/common/CommonIcon";
-import CommonLoader from "@/components/common/CommonLoader";
-import CommonSocialAuth from "@/components/common/CommonSocialAuth";
-import FieldCheckbox from "@/components/form/FieldCheckbox";
-import FieldFile from "@/components/form/FieldFile";
-import FieldInput from "@/components/form/FieldInput";
-import FieldRadio from "@/components/form/FieldRadio";
-import FieldSelect from "@/components/form/FieldSelect";
-import FieldTabs from "@/components/form/FieldTabs";
-import FieldTextarea from "@/components/form/FieldTextarea";
-import FieldToggle from "@/components/form/FieldToggle";
+import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
+import BaseBadge from "@/components/darkmode/base/BaseBadge";
+import BaseButton from "@/components/darkmode/base/BaseButton";
+import BaseDivider from "@/components/darkmode/base/BaseDivider";
+import BaseHeading from "@/components/darkmode/base/BaseHeading";
+import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import BaseLoader from "@/components/darkmode/base/BaseLoader";
+import BaseSocialAuth from "@/components/darkmode/base/BaseSocialAuth";
+import FieldCheckbox from "@/components/darkmode/form/FieldCheckbox";
+import FieldFile from "@/components/darkmode/form/FieldFile";
+import FieldInput from "@/components/darkmode/form/FieldInput";
+import FieldRadio from "@/components/darkmode/form/FieldRadio";
+import FieldSelect from "@/components/darkmode/form/FieldSelect";
+import FieldTabs from "@/components/darkmode/form/FieldTabs";
+import FieldTextarea from "@/components/darkmode/form/FieldTextarea";
+import FieldToggle from "@/components/darkmode/form/FieldToggle";
 import GuideColor from "@/components/guide/GuideColor";
 import GuideHeadings from "@/components/guide/GuideHeadings";
 import GuideHeadlines from "@/components/guide/GuideHeadlines";
@@ -477,14 +477,14 @@ import icons from "@/schemas/icons";
 
 export default {
   components: {
-    CommonAvatar,
-    CommonBadge,
-    CommonButton,
-    CommonDivider,
-    CommonHeading,
-    CommonIcon,
-    CommonLoader,
-    CommonSocialAuth,
+    BaseAvatar,
+    BaseBadge,
+    BaseButton,
+    BaseDivider,
+    BaseHeading,
+    BaseIcon,
+    BaseLoader,
+    BaseSocialAuth,
     FieldCheckbox,
     FieldInput,
     FieldFile,
@@ -940,7 +940,7 @@ $c: ".c-index";
     }
 
     &--files {
-      .c-field-file__information {
+      .dm-field-file__information {
         min-width: 235px;
       }
     }

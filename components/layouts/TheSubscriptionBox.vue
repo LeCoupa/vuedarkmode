@@ -13,7 +13,7 @@
       size="medium"
       class="c-the-subscription-box__field"
     )
-    common-button(
+    base-button(
       rightIcon="thumb_up"
       class="c-the-subscription-box__button"
     ) Subscribe
@@ -27,12 +27,12 @@
 
 <script>
 // PROJECT
-import CommonButton from "@/components/common/CommonButton";
-import FieldInput from "@/components/form/FieldInput";
+import BaseButton from "@/components/darkmode/base/BaseButton";
+import FieldInput from "@/components/darkmode/form/FieldInput";
 
 export default {
   components: {
-    CommonButton,
+    BaseButton,
     FieldInput
   }
 };

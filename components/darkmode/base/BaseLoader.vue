@@ -5,31 +5,31 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-common-loader",
-    "dm-common-loader--" + color
+    "dm-base-loader",
+    "dm-base-loader--" + color
   ]`
 )
   span(
     v-if="labelMain || labelSecondary"
-    class="dm-common-loader__content"
+    class="dm-base-loader__content"
   )
     span(
       v-if="labelMain"
-      class="dm-common-loader__label-main"
+      class="dm-base-loader__label-main"
     ) {{ labelMain }}
 
     span(
       v-if="labelSecondary"
-      class="dm-common-loader__label-secondary"
+      class="dm-base-loader__label-secondary"
     ) {{ labelSecondary }}
 
-  div.dm-common-loader__bar
+  div.dm-base-loader__bar
 
   div(
     :style=`{
       width: progress + "%"
     }`
-    class="dm-common-loader__progress"
+    class="dm-base-loader__progress"
   )
 </template>
 
@@ -65,7 +65,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".dm-common-loader";
+$c: ".dm-base-loader";
 $colors: black, blue, green, orange, purple, red, turquoise, white;
 
 #{$c} {

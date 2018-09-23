@@ -37,7 +37,6 @@ div(
     v-if="description"
     :description="description"
     :size="size"
-    class="dm-field-tabs__description"
   )
 </template>
 
@@ -47,8 +46,8 @@ div(
 
 <script>
 // PROJECT
-import FieldDescription from "@/components/form/FieldDescription";
-import FieldLabel from "@/components/form/FieldLabel";
+import FieldDescription from "@/components/darkmode/form/FieldDescription";
+import FieldLabel from "@/components/darkmode/form/FieldLabel";
 
 export default {
   components: {

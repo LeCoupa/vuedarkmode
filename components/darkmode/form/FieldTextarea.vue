@@ -5,14 +5,13 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-field-select",
-    "dm-field-select--" + size,
-    "dm-field-select--" + status,
+    "dm-field-textarea",
+    "dm-field-textarea--" + size,
+    "dm-field-textarea--" + status,
     {
-      "dm-field-select--borders": borders,
-      "dm-field-select--focused": focused,
-      "dm-field-select--full-width": fullWidth,
-      "dm-field-select--with-left-icon": computedLeftIcon
+      "dm-field-textarea--borders": borders,
+      "dm-field-textarea--focused": focused,
+      "dm-field-textarea--full-width": fullWidth
     }
   ]`
 )
@@ -20,40 +19,36 @@ div(
     v-if="label"
     :forField="uuid"
     :size="size"
-    class="dm-field-select__label"
+    class="dm-field-textarea__label"
   ) {{ label }}
 
-  .dm-field-select__container
-    common-icon(
-      v-if="computedLeftIcon"
-      :name="computedLeftIcon"
-      class="dm-field-select__icon dm-field-select__icon--left"
-    )
-    select(
-      @blur="onSelectBlur"
-      @click="onSelectClick"
-      @focus="onSelectFocus"
-      @change="onSelectChange"
+  div(
+    @click="onContainerClick"
+    class="dm-field-textarea__container"
+  )
+    textarea(
+      @blur="onTextareaBlur"
+      @focus="onTextareaFocus"
+      @keyup="onTextareaKeyUp"
+      :cols="cols"
       :disabled="disabled"
       :id="uuid"
       :name="name"
-      class="dm-field-select__field"
-    )
-      option(
-        v-for="option in options"
-        :value="option.value"
-      ) {{ option.label }}
+      :placeholder="placeholder"
+      :rows="rows"
+      class="dm-field-textarea__field"
+    ) {{ value }}
 
-    common-icon(
-      :name="rightIcon"
-      class="dm-field-select__icon dm-field-select__icon--right"
+    base-icon(
+      v-if="statusIcon"
+      :name="statusIcon"
+      class="dm-field-textarea__icon"
     )
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-common-input__description"
   )
 </template>
 
@@ -64,13 +59,13 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
-import CommonIcon from "@/components/common/CommonIcon";
-import FieldDescription from "@/components/form/FieldDescription";
-import FieldLabel from "@/components/form/FieldLabel";
+import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import FieldDescription from "@/components/darkmode/form/FieldDescription";
+import FieldLabel from "@/components/darkmode/form/FieldLabel";
 
 export default {
   components: {
-    CommonIcon,
+    BaseIcon,
     FieldDescription,
     FieldLabel
   },
@@ -79,6 +74,10 @@ export default {
     borders: {
       type: Boolean,
       default: true
+    },
+    cols: {
+      type: Number,
+      default: null
     },
     description: {
       type: String,
@@ -96,7 +95,7 @@ export default {
       type: String,
       default: null
     },
-    leftIcon: {
+    placeholder: {
       type: String,
       default: null
     },
@@ -104,9 +103,9 @@ export default {
       type: String,
       required: true
     },
-    options: {
-      type: Array,
-      required: true
+    rows: {
+      type: Number,
+      default: null
     },
     size: {
       type: String,
@@ -115,6 +114,10 @@ export default {
     status: {
       type: String,
       default: "normal"
+    },
+    value: {
+      type: String,
+      default: null
     }
   },
 
@@ -122,13 +125,12 @@ export default {
     return {
       // --> STATE <--
       focused: false,
-      rightIcon: "arrow_drop_down",
       uuid: ""
     };
   },
 
   computed: {
-    computedLeftIcon() {
+    statusIcon() {
       // Return the left icon when defined as prop
       if (this.status === "error") {
         return "close";
@@ -137,8 +139,6 @@ export default {
       } else if (this.status === "warning") {
         return "warning";
       }
-
-      return this.leftIcon;
     }
   },
 
@@ -149,36 +149,32 @@ export default {
   methods: {
     // --> HELPERS <--
 
-    getSelectedValue() {
-      return this.$el.querySelector("select").value || "";
+    getTextareaValue() {
+      return this.$el.querySelector("textarea").value || "";
     },
 
     // --> EVENT LISTENERS <--
 
-    onSelectBlur() {
+    onContainerClick() {
+      this.$el.querySelector("textarea").focus();
+
+      this.$emit("click", this.name, this.getTextareaValue());
+    },
+
+    onTextareaBlur() {
       this.focused = false;
-      this.rightIcon = "arrow_drop_down";
 
-      this.$emit("blur", this.name, this.getSelectedValue());
+      this.$emit("blur", this.name, this.getTextareaValue());
     },
 
-    onSelectChange() {
-      this.rightIcon = "arrow_drop_down";
-
-      this.$emit("change", this.name, this.getSelectedValue());
+    onTextareaKeyUp() {
+      this.$emit("keyup", this.name, this.getTextareaValue());
     },
 
-    onSelectClick() {
-      this.rightIcon = "arrow_drop_up";
-
-      this.$emit("click", this.name, this.getSelectedValue());
-    },
-
-    onSelectFocus() {
+    onTextareaFocus() {
       this.focused = true;
-      this.rightIcon = "arrow_drop_up";
 
-      this.$emit("focus", this.name, this.getSelectedValue());
+      this.$emit("focus", this.name, this.getTextareaValue());
     }
   }
 };
@@ -189,7 +185,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".dm-field-select";
+$c: ".dm-field-textarea";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
@@ -201,34 +197,26 @@ $statuses: error, normal, success, warning;
   #{$c}__container {
     position: relative;
     display: flex;
-    overflow: hidden;
-    align-items: center;
     transition: all ease-in-out 0.2s;
 
     #{$c}__icon {
       position: absolute;
-
-      &--left {
-        left: 9px;
-      }
-
-      &--right {
-        right: 9px;
-      }
+      right: 7px;
+      bottom: 7px;
     }
 
     #{$c}__field {
-      flex: 1;
-      padding: 0 35px 0 15px;
+      padding: 10px 15px;
+      width: 100%;
       height: 100%;
       border: none;
       background-color: transparent;
-      background-image: none;
-      box-shadow: none;
       color: $white;
-      cursor: pointer;
+      resize: none;
 
-      -webkit-appearance: none;
+      &::placeholder {
+        color: $nepal;
+      }
 
       &:disabled {
         cursor: not-allowed;
@@ -246,18 +234,10 @@ $statuses: error, normal, success, warning;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      #{$c}__container {
-        height: 34px + (4px * $i);
+      #{$c}__field {
+        min-height: 60px + (20px * $i);
         border-radius: 4px + (1px * $i);
-
-        #{$c}__icon {
-          // Will override the font-size set in style attribute
-          font-size: 16px + (1px * $i) !important;
-        }
-
-        #{$c}__field {
-          font-size: 12px + (1px * $i);
-        }
+        font-size: 12px + (1px * $i);
       }
     }
   }
@@ -299,14 +279,6 @@ $statuses: error, normal, success, warning;
 
   &--full-width {
     width: 100%;
-  }
-
-  &--with-left-icon {
-    #{$c}__container {
-      #{$c}__field {
-        padding-left: 35px;
-      }
-    }
   }
 }
 </style>

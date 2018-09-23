@@ -9,7 +9,7 @@
     target="_blank"
     class="c-the-shortcuts-bar__contact-box"
   )
-    common-avatar(
+    base-avatar(
       size="mini"
       src="/images/medley/nada.jpg"
     )
@@ -33,7 +33,7 @@
       name="theme"
       class="c-the-shortcuts-bar__field"
     )
-    common-icon(
+    base-icon(
       size="20px"
       name="flash_on"
       class="c-the-shortcuts-bar__icon"
@@ -46,14 +46,14 @@
 
 <script>
 // PROJECT
-import CommonAvatar from "@/components/common/CommonAvatar";
-import CommonIcon from "@/components/common/CommonIcon";
-import FieldToggle from "@/components/form/FieldToggle";
+import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
+import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import FieldToggle from "@/components/darkmode/form/FieldToggle";
 
 export default {
   components: {
-    CommonAvatar,
-    CommonIcon,
+    BaseAvatar,
+    BaseIcon,
     FieldToggle
   },
 

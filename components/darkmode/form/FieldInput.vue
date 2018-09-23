@@ -5,13 +5,15 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-field-textarea",
-    "dm-field-textarea--" + size,
-    "dm-field-textarea--" + status,
+    "dm-field-input",
+    "dm-field-input--" + size,
+    "dm-field-input--" + status,
     {
-      "dm-field-textarea--borders": borders,
-      "dm-field-textarea--focused": focused,
-      "dm-field-textarea--full-width": fullWidth
+      "dm-field-input--borders": borders,
+      "dm-field-input--focused": focused,
+      "dm-field-input--full-width": fullWidth,
+      "dm-field-input--rounded": rounded,
+      "dm-field-input--with-icon": leftIcon || rightIcon
     }
   ]`
 )
@@ -19,37 +21,41 @@ div(
     v-if="label"
     :forField="uuid"
     :size="size"
-    class="dm-field-textarea__label"
+    class="dm-field-input__label"
   ) {{ label }}
 
   div(
     @click="onContainerClick"
-    class="dm-field-textarea__container"
+    class="dm-field-input__container"
   )
-    textarea(
-      @blur="onTextareaBlur"
-      @focus="onTextareaFocus"
-      @keyup="onTextareaKeyUp"
-      :cols="cols"
+    base-icon(
+      v-if="leftIcon"
+      :name="leftIcon"
+      class="dm-field-input__icon dm-field-input__icon--left"
+    )
+    input(
+      @blur="onInputBlur"
+      @focus="onInputFocus"
+      @keyup="onInputKeyUp"
+      :autocomplete="autocomplete"
       :disabled="disabled"
       :id="uuid"
       :name="name"
       :placeholder="placeholder"
-      :rows="rows"
-      class="dm-field-textarea__field"
-    ) {{ value }}
-
-    common-icon(
-      v-if="statusIcon"
-      :name="statusIcon"
-      class="dm-field-textarea__icon"
+      :type="type"
+      :value="value"
+      class="dm-field-input__field"
+    )
+    base-icon(
+      v-if="computedRightIcon"
+      :name="computedRightIcon"
+      class="dm-field-input__icon dm-field-input__icon--right"
     )
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="dm-field-textarea__description"
   )
 </template>
 
@@ -60,25 +66,25 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
-import CommonIcon from "@/components/common/CommonIcon";
-import FieldDescription from "@/components/form/FieldDescription";
-import FieldLabel from "@/components/form/FieldLabel";
+import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import FieldDescription from "@/components/darkmode/form/FieldDescription";
+import FieldLabel from "@/components/darkmode/form/FieldLabel";
 
 export default {
   components: {
-    CommonIcon,
+    BaseIcon,
     FieldDescription,
     FieldLabel
   },
 
   props: {
+    autocomplete: {
+      type: String,
+      default: "off"
+    },
     borders: {
       type: Boolean,
       default: true
-    },
-    cols: {
-      type: Number,
-      default: null
     },
     description: {
       type: String,
@@ -96,7 +102,7 @@ export default {
       type: String,
       default: null
     },
-    placeholder: {
+    leftIcon: {
       type: String,
       default: null
     },
@@ -104,9 +110,17 @@ export default {
       type: String,
       required: true
     },
-    rows: {
-      type: Number,
+    placeholder: {
+      type: String,
       default: null
+    },
+    rightIcon: {
+      type: String,
+      default: null
+    },
+    rounded: {
+      type: Boolean,
+      default: false
     },
     size: {
       type: String,
@@ -116,8 +130,12 @@ export default {
       type: String,
       default: "normal"
     },
-    value: {
+    type: {
       type: String,
+      default: "text"
+    },
+    value: {
+      type: [String, Number],
       default: null
     }
   },
@@ -131,8 +149,8 @@ export default {
   },
 
   computed: {
-    statusIcon() {
-      // Return the left icon when defined as prop
+    computedRightIcon() {
+      // Return the status when defined as prop
       if (this.status === "error") {
         return "close";
       } else if (this.status === "success") {
@@ -140,6 +158,8 @@ export default {
       } else if (this.status === "warning") {
         return "warning";
       }
+
+      return this.rightIcon;
     }
   },
 
@@ -150,32 +170,38 @@ export default {
   methods: {
     // --> HELPERS <--
 
-    getTextareaValue() {
-      return this.$el.querySelector("textarea").value || "";
+    getInputValue() {
+      let value = this.$el.querySelector("input").value || "";
+
+      if (value && this.type === "number") {
+        value = parseInt(value);
+      }
+
+      return value;
     },
 
     // --> EVENT LISTENERS <--
 
     onContainerClick() {
-      this.$el.querySelector("textarea").focus();
+      this.$el.querySelector("input").focus();
 
-      this.$emit("click", this.name, this.getTextareaValue());
+      this.$emit("click", this.name, this.getInputValue());
     },
 
-    onTextareaBlur() {
+    onInputBlur() {
       this.focused = false;
 
-      this.$emit("blur", this.name, this.getTextareaValue());
+      this.$emit("blur", this.name, this.getInputValue());
     },
 
-    onTextareaKeyUp() {
-      this.$emit("keyup", this.name, this.getTextareaValue());
+    onInputKeyUp() {
+      this.$emit("keyup", this.name, this.getInputValue());
     },
 
-    onTextareaFocus() {
+    onInputFocus() {
       this.focused = true;
 
-      this.$emit("focus", this.name, this.getTextareaValue());
+      this.$emit("focus", this.name, this.getInputValue());
     }
   }
 };
@@ -186,7 +212,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".dm-field-textarea";
+$c: ".dm-field-input";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
@@ -196,24 +222,35 @@ $statuses: error, normal, success, warning;
   text-align: left;
 
   #{$c}__container {
-    position: relative;
     display: flex;
+    align-items: center;
     transition: all ease-in-out 0.2s;
 
+    &:hover {
+      cursor: text;
+    }
+
     #{$c}__icon {
-      position: absolute;
-      right: 7px;
-      bottom: 7px;
+      flex: 0 0 auto;
+
+      &--left {
+        margin-right: 5px;
+        margin-left: 9px;
+      }
+
+      &--right {
+        margin-right: 9px;
+        margin-left: 5px;
+      }
     }
 
     #{$c}__field {
-      padding: 10px 15px;
-      width: 100%;
+      flex: 1;
+      padding: 0 15px;
       height: 100%;
       border: none;
       background-color: transparent;
       color: $white;
-      resize: none;
 
       &::placeholder {
         color: $nepal;
@@ -235,10 +272,18 @@ $statuses: error, normal, success, warning;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      #{$c}__field {
-        min-height: 60px + (20px * $i);
+      #{$c}__container {
+        height: 34px + (4px * $i);
         border-radius: 4px + (1px * $i);
-        font-size: 12px + (1px * $i);
+
+        #{$c}__icon {
+          // Will override the font-size set in style attribute
+          font-size: 16px + (1px * $i) !important;
+        }
+
+        #{$c}__field {
+          font-size: 12px + (1px * $i);
+        }
       }
     }
   }
@@ -280,6 +325,20 @@ $statuses: error, normal, success, warning;
 
   &--full-width {
     width: 100%;
+  }
+
+  &--rounded {
+    #{$c}__container {
+      border-radius: 40px;
+    }
+  }
+
+  &--with-icon {
+    #{$c}__container {
+      #{$c}__field {
+        padding: 0;
+      }
+    }
   }
 }
 </style>

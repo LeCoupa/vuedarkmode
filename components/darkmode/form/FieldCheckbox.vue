@@ -6,40 +6,39 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-field-radio",
-    "dm-field-radio--" + size,
-    "dm-field-radio--" + status,
+    "dm-field-checkbox",
+    "dm-field-checkbox--" + size,
+    "dm-field-checkbox--" + status,
     {
-      "dm-field-radio--full-width": fullWidth
+      "dm-field-checkbox--full-width": fullWidth
     }
   ]`
 )
   div(
-    class="dm-field-radio__container"
+    class="dm-field-checkbox__container"
   )
     input(
-      @change="onRadioChange"
+      @change="onCheckboxChange"
       :checked="checked"
       :disabled="disabled"
       :id="uuid"
       :name="name"
       :required="required"
-      class="dm-field-radio__field"
-      type="radio"
+      class="dm-field-checkbox__field"
+      type="checkbox"
     )
     field-label(
       v-if="label"
       :forField="uuid"
       :size="size"
       :uppercase="false"
-      class="dm-field-radio__label"
+      class="dm-field-checkbox__label"
     ) {{ label }}
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="dm-field-radio__description"
   )
 </template>
 
@@ -52,8 +51,8 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "@/helpers/helpers";
-import FieldDescription from "@/components/form/FieldDescription";
-import FieldLabel from "@/components/form/FieldLabel";
+import FieldDescription from "@/components/darkmode/form/FieldDescription";
+import FieldLabel from "@/components/darkmode/form/FieldLabel";
 
 export default {
   components: {
@@ -114,7 +113,7 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onRadioChange(event) {
+    onCheckboxChange(event) {
       this.$emit("change", this.name, event.target.checked);
     }
   }
@@ -128,7 +127,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".dm-field-radio";
+$c: ".dm-field-checkbox";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
@@ -163,31 +162,30 @@ $statuses: error, normal, success, warning;
         width: 100%;
         height: 100%;
         border: 1px solid $regent-st-blue;
-        border-radius: 100%;
+        border-radius: 3px;
         background-color: $white;
         content: "";
       }
 
       &:after {
-        top: 50%;
-        left: 50%;
-        width: 6px;
-        height: 6px;
-        border-radius: 100%;
-        background-color: $white;
-        transform: translate(-50%, -50%);
+        border: 2px solid $white;
+        border-top: 0;
+        border-left: 0;
+        transform: rotate(45deg);
         content: "";
       }
 
       &:hover {
         &:after {
-          background-color: $oxford-blue;
+          border-color: $oxford-blue;
+          border-right-width: 2px;
+          border-bottom-width: 2px;
         }
       }
 
       &:checked {
         &:after {
-          background-color: $white;
+          border-color: $white;
         }
       }
     }
@@ -210,6 +208,35 @@ $statuses: error, normal, success, warning;
         #{$c}__field {
           width: 12px + (2px * $i);
           height: 12px + (2px * $i);
+
+          &:after {
+            @if ($size == "mini") {
+              top: 1px;
+              left: 4px;
+              width: 4px;
+              height: 8px;
+            } @else if ($size == "small") {
+              top: 2px;
+              left: 5px;
+              width: 4px;
+              height: 8px;
+            } @else if ($size == "default") {
+              top: 2px;
+              left: 6px;
+              width: 5px;
+              height: 10px;
+            } @else if ($size == "medium") {
+              top: 3px;
+              left: 7px;
+              width: 5px;
+              height: 10px;
+            } @else if ($size == "large") {
+              top: 3px;
+              left: 8px;
+              width: 6px;
+              height: 12px;
+            }
+          }
         }
 
         #{$c}__label {

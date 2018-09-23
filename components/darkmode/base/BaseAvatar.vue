@@ -6,12 +6,12 @@
 div(
   @click="onClick"
   :class=`[
-    "dm-common-avatar",
-    "dm-common-avatar--" + size,
+    "dm-base-avatar",
+    "dm-base-avatar--" + size,
     {
-      "dm-common-avatar--bordered": bordered,
-      "dm-common-avatar--circular": circular,
-      "dm-common-avatar--complementaries": complementaries
+      "dm-base-avatar--bordered": bordered,
+      "dm-base-avatar--circular": circular,
+      "dm-base-avatar--complementaries": complementaries
     }
   ]`
 )
@@ -19,25 +19,25 @@ div(
     :style=`{
       backgroundImage: "url(" + src + ")"
     }`
-    class="dm-common-avatar__image"
+    class="dm-base-avatar__image"
   )
     span(
       v-if="complementaries"
-      class="dm-common-avatar__complementaries"
+      class="dm-base-avatar__complementaries"
     )
-      common-avatar(
+      base-avatar(
         v-for="complementary in complementaries"
         :bordered="true"
         :circular="false"
         :key="complementary.src"
         :src="complementary.src"
         size="mini"
-        class="dm-common-avatar__complementary"
+        class="dm-base-avatar__complementary"
       )
 
   span(
     v-if="description"
-    class="dm-common-avatar__description"
+    class="dm-base-avatar__description"
   ) {{ description }}
 </template>
 
@@ -47,13 +47,13 @@ div(
 
 <script>
 // PROJECT
-import CommonAvatar from "@/components/common/CommonAvatar";
+import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
 
 export default {
-  name: "CommonAvatar",
+  name: "BaseAvatar",
 
   components: {
-    CommonAvatar
+    BaseAvatar
   },
 
   props: {
@@ -98,7 +98,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".dm-common-avatar";
+$c: ".dm-base-avatar";
 $sizes: mini, small, default, medium, large, huge;
 
 #{$c} {
