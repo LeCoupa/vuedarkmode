@@ -30,15 +30,6 @@
       height="20px"
       class="c-the-github-buttons__button c-the-github-buttons__button--fork"
     )
-
-  span.c-the-github-buttons__wrapper
-    iframe(
-      :src="'https://ghbtns.com/github-btn.html?user=' + user + '&type=follow&count=true'"
-      frameborder="0"
-      scrolling="0"
-      height="20px"
-      class="c-the-github-buttons__button c-the-github-buttons__button--follow"
-    )
 </template>
 
 <!-- *************************************************************************
@@ -77,19 +68,15 @@ $c: ".c-the-github-buttons";
       margin: 0 auto;
 
       &--star {
-        width: 110px;
+        width: 90px;
       }
 
       &--watch {
-        width: 110px;
-      }
-
-      &--fork {
         width: 100px;
       }
 
-      &--follow {
-        width: 160px;
+      &--fork {
+        width: 80px;
       }
 
       &:nth-last-of-type {
