@@ -17,7 +17,7 @@
     type="h2"
     color="grey"
     fontWeight="regular"
-  ) Based components designed for the night people who enjoy dark interfaces as much as we do.
+  ) Based components designed for the insomniacs who enjoy dark interfaces as much as we do.
 
   the-github-buttons(
     class="c-index__github-buttons"

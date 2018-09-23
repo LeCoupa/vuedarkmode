@@ -13,7 +13,7 @@
       size="mini"
       src="/images/medley/nada.jpg"
     )
-    span.c-the-shortcuts-bar__description Looking for a Vue.js or Nuxt.js freelancer? Ping me, I'm available! 👩‍🎨
+    span.c-the-shortcuts-bar__description Looking for a Vue.js / Nuxt.js freelancer? Ping me, I'm available! 👩‍🎨
 
   .c-the-shortcuts-bar__actions
 
