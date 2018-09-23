@@ -6,12 +6,12 @@
 div(
   @click="onClick"
   :class=`[
-    "c-common-avatar",
-    "c-common-avatar--" + size,
+    "dm-common-avatar",
+    "dm-common-avatar--" + size,
     {
-      "c-common-avatar--bordered": bordered,
-      "c-common-avatar--circular": circular,
-      "c-common-avatar--complementaries": complementaries
+      "dm-common-avatar--bordered": bordered,
+      "dm-common-avatar--circular": circular,
+      "dm-common-avatar--complementaries": complementaries
     }
   ]`
 )
@@ -19,11 +19,11 @@ div(
     :style=`{
       backgroundImage: "url(" + src + ")"
     }`
-    class="c-common-avatar__image"
+    class="dm-common-avatar__image"
   )
     span(
       v-if="complementaries"
-      class="c-common-avatar__complementaries"
+      class="dm-common-avatar__complementaries"
     )
       common-avatar(
         v-for="complementary in complementaries"
@@ -32,12 +32,12 @@ div(
         :key="complementary.src"
         :src="complementary.src"
         size="mini"
-        class="c-common-avatar__complementary"
+        class="dm-common-avatar__complementary"
       )
 
   span(
     v-if="description"
-    class="c-common-avatar__description"
+    class="dm-common-avatar__description"
   ) {{ description }}
 </template>
 
@@ -98,7 +98,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-common-avatar";
+$c: ".dm-common-avatar";
 $sizes: mini, small, default, medium, large, huge;
 
 #{$c} {

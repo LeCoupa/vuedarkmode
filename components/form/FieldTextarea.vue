@@ -5,13 +5,13 @@
 <template lang="pug">
 div(
   :class=`[
-    "c-field-textarea",
-    "c-field-textarea--" + size,
-    "c-field-textarea--" + status,
+    "dm-field-textarea",
+    "dm-field-textarea--" + size,
+    "dm-field-textarea--" + status,
     {
-      "c-field-textarea--borders": borders,
-      "c-field-textarea--focused": focused,
-      "c-field-textarea--full-width": fullWidth
+      "dm-field-textarea--borders": borders,
+      "dm-field-textarea--focused": focused,
+      "dm-field-textarea--full-width": fullWidth
     }
   ]`
 )
@@ -19,12 +19,12 @@ div(
     v-if="label"
     :forField="uuid"
     :size="size"
-    class="c-field-textarea__label"
+    class="dm-field-textarea__label"
   ) {{ label }}
 
   div(
     @click="onContainerClick"
-    class="c-field-textarea__container"
+    class="dm-field-textarea__container"
   )
     textarea(
       @blur="onTextareaBlur"
@@ -36,20 +36,20 @@ div(
       :name="name"
       :placeholder="placeholder"
       :rows="rows"
-      class="c-field-textarea__field"
+      class="dm-field-textarea__field"
     ) {{ value }}
 
     common-icon(
       v-if="statusIcon"
       :name="statusIcon"
-      class="c-field-textarea__icon"
+      class="dm-field-textarea__icon"
     )
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-field-textarea__description"
+    class="dm-field-textarea__description"
   )
 </template>
 
@@ -186,7 +186,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-field-textarea";
+$c: ".dm-field-textarea";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

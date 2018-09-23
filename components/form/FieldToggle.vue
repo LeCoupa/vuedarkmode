@@ -6,16 +6,16 @@
 <template lang="pug">
 div(
   :class=`[
-    "c-field-toggle",
-    "c-field-toggle--" + size,
-    "c-field-toggle--" + status,
+    "dm-field-toggle",
+    "dm-field-toggle--" + size,
+    "dm-field-toggle--" + status,
     {
-      "c-field-toggle--full-width": fullWidth
+      "dm-field-toggle--full-width": fullWidth
     }
   ]`
 )
   div(
-    class="c-field-toggle__container"
+    class="dm-field-toggle__container"
   )
     input(
       @change="onToggleChange"
@@ -24,7 +24,7 @@ div(
       :id="uuid"
       :name="name"
       :required="required"
-      class="c-field-toggle__field"
+      class="dm-field-toggle__field"
       type="checkbox"
     )
     field-label(
@@ -32,14 +32,14 @@ div(
       :forField="uuid"
       :size="size"
       :uppercase="false"
-      class="c-field-toggle__label"
+      class="dm-field-toggle__label"
     ) {{ label }}
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-field-toggle__description"
+    class="dm-field-toggle__description"
   )
 </template>
 
@@ -128,7 +128,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".c-field-toggle";
+$c: ".dm-field-toggle";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

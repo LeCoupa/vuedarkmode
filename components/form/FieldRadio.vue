@@ -6,16 +6,16 @@
 <template lang="pug">
 div(
   :class=`[
-    "c-field-radio",
-    "c-field-radio--" + size,
-    "c-field-radio--" + status,
+    "dm-field-radio",
+    "dm-field-radio--" + size,
+    "dm-field-radio--" + status,
     {
-      "c-field-radio--full-width": fullWidth
+      "dm-field-radio--full-width": fullWidth
     }
   ]`
 )
   div(
-    class="c-field-radio__container"
+    class="dm-field-radio__container"
   )
     input(
       @change="onRadioChange"
@@ -24,7 +24,7 @@ div(
       :id="uuid"
       :name="name"
       :required="required"
-      class="c-field-radio__field"
+      class="dm-field-radio__field"
       type="radio"
     )
     field-label(
@@ -32,14 +32,14 @@ div(
       :forField="uuid"
       :size="size"
       :uppercase="false"
-      class="c-field-radio__label"
+      class="dm-field-radio__label"
     ) {{ label }}
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-field-radio__description"
+    class="dm-field-radio__description"
   )
 </template>
 
@@ -128,7 +128,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".c-field-radio";
+$c: ".dm-field-radio";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

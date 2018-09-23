@@ -8,38 +8,38 @@ button(
   @click="onClick"
   @focus="onFocus"
   :class=`[
-    "c-common-button",
-    "c-common-button--" + color,
-    "c-common-button--" + size,
+    "dm-common-button",
+    "dm-common-button--" + color,
+    "dm-common-button--" + size,
     {
-      "c-common-button--capitalize": capitalize,
-      "c-common-button--circular": circular,
-      "c-common-button--full-width": fullWidth,
-      "c-common-button--reverse": reverse,
-      "c-common-button--rounded": rounded
+      "dm-common-button--capitalize": capitalize,
+      "dm-common-button--circular": circular,
+      "dm-common-button--full-width": fullWidth,
+      "dm-common-button--reverse": reverse,
+      "dm-common-button--rounded": rounded
     }
   ]`
   :disabled="disabled"
   :id="id"
   :type="type"
 )
-  span.c-common-button__inner
+  span.dm-common-button__inner
     common-icon(
       v-if="leftIcon"
       :name="leftIcon"
       :size="iconSize"
-      class="c-common-button__left-icon"
+      class="dm-common-button__left-icon"
     )
     span(
       v-if="$slots.default && $slots.default[0].text.trim()"
-      class="c-common-button__label"
+      class="dm-common-button__label"
     ): slot
 
     common-icon(
       v-if="rightIcon"
       :name="rightIcon"
       :size="iconSize"
-      class="c-common-button__right-icon"
+      class="dm-common-button__right-icon"
     )
 </template>
 
@@ -147,7 +147,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-common-button";
+$c: ".dm-common-button";
 $colors: black, blue, green, red, orange, white;
 $sizes: mini, small, default, medium, large;
 

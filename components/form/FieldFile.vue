@@ -5,36 +5,36 @@
 <template lang="pug">
 div(
   :class=`[
-    "c-field-file",
-    "c-field-file--" + size,
-    "c-field-file--" + status,
+    "dm-field-file",
+    "dm-field-file--" + size,
+    "dm-field-file--" + status,
     {
-      "c-field-file--full-width": fullWidth
+      "dm-field-file--full-width": fullWidth
     }
   ]`
 )
-  .c-field-file__container
+  .dm-field-file__container
     div(
       v-if="label"
-      class="c-field-file__information"
+      class="dm-field-file__information"
     )
       field-label(
         :size="size"
-        class="c-field-file__label"
+        class="dm-field-file__label"
       ) {{ label }}
 
       span(
         v-if="description"
-        class="c-field-file__description"
+        class="dm-field-file__description"
       ) {{ description }}
 
     label(
       :for="uuid"
-      class="c-field-file__upload"
+      class="dm-field-file__upload"
     )
       common-icon(
         name="cloud_upload"
-        class="c-field-file__icon"
+        class="dm-field-file__icon"
       )
 
     input(
@@ -43,7 +43,7 @@ div(
       :multiple="multiple"
       :name="name"
       type="file"
-      class="c-field-file__field"
+      class="dm-field-file__field"
     )
 </template>
 
@@ -120,7 +120,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-field-file";
+$c: ".dm-field-file";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

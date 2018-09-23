@@ -5,9 +5,9 @@
 <template lang="pug">
 span(
   :class=`[
-    "c-common-badge",
-    "c-common-badge--" + color,
-    "c-common-badge--" + size
+    "dm-common-badge",
+    "dm-common-badge--" + color,
+    "dm-common-badge--" + size
   ]`
 ): slot
 </template>
@@ -36,7 +36,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-common-badge";
+$c: ".dm-common-badge";
 $colors: black, blue, green, orange, purple, red, turquoise, white;
 $sizes: mini, small, default, medium, large;
 

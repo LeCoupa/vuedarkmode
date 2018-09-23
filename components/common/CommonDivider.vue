@@ -5,9 +5,9 @@
 <template lang="pug">
 hr(
   :class=`[
-    "c-common-divider",
-    "c-common-divider--" + size,
-    "c-common-divider--" + color
+    "dm-common-divider",
+    "dm-common-divider--" + size,
+    "dm-common-divider--" + color
   ]`
 )
 </template>
@@ -36,7 +36,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-common-divider";
+$c: ".dm-common-divider";
 $colors: black, blue, green, orange, purple, red, turquoise, white;
 
 #{$c} {

@@ -6,11 +6,11 @@
 <template lang="pug">
 label(
   :class=`[
-    "c-field-label",
-    "c-field-label--" + size,
+    "dm-field-label",
+    "dm-field-label--" + size,
     {
-      "c-field-label--for-field": forField,
-      "c-field-label--uppercase": uppercase
+      "dm-field-label--for-field": forField,
+      "dm-field-label--uppercase": uppercase
     }
   ]`
   :for="forField"
@@ -49,7 +49,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".c-field-label";
+$c: ".dm-field-label";
 $sizes: mini, small, default, medium, large;
 
 #{$c} {

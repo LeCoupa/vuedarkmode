@@ -5,14 +5,14 @@
 <template lang="pug">
 div(
   :class=`[
-    "c-field-select",
-    "c-field-select--" + size,
-    "c-field-select--" + status,
+    "dm-field-select",
+    "dm-field-select--" + size,
+    "dm-field-select--" + status,
     {
-      "c-field-select--borders": borders,
-      "c-field-select--focused": focused,
-      "c-field-select--full-width": fullWidth,
-      "c-field-select--with-left-icon": computedLeftIcon
+      "dm-field-select--borders": borders,
+      "dm-field-select--focused": focused,
+      "dm-field-select--full-width": fullWidth,
+      "dm-field-select--with-left-icon": computedLeftIcon
     }
   ]`
 )
@@ -20,14 +20,14 @@ div(
     v-if="label"
     :forField="uuid"
     :size="size"
-    class="c-field-select__label"
+    class="dm-field-select__label"
   ) {{ label }}
 
-  .c-field-select__container
+  .dm-field-select__container
     common-icon(
       v-if="computedLeftIcon"
       :name="computedLeftIcon"
-      class="c-field-select__icon c-field-select__icon--left"
+      class="dm-field-select__icon dm-field-select__icon--left"
     )
     select(
       @blur="onSelectBlur"
@@ -37,7 +37,7 @@ div(
       :disabled="disabled"
       :id="uuid"
       :name="name"
-      class="c-field-select__field"
+      class="dm-field-select__field"
     )
       option(
         v-for="option in options"
@@ -46,7 +46,7 @@ div(
 
     common-icon(
       :name="rightIcon"
-      class="c-field-select__icon c-field-select__icon--right"
+      class="dm-field-select__icon dm-field-select__icon--right"
     )
 
   field-description(
@@ -189,7 +189,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-field-select";
+$c: ".dm-field-select";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

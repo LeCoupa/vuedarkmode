@@ -6,16 +6,16 @@
 <template lang="pug">
 div(
   :class=`[
-    "c-field-checkbox",
-    "c-field-checkbox--" + size,
-    "c-field-checkbox--" + status,
+    "dm-field-checkbox",
+    "dm-field-checkbox--" + size,
+    "dm-field-checkbox--" + status,
     {
-      "c-field-checkbox--full-width": fullWidth
+      "dm-field-checkbox--full-width": fullWidth
     }
   ]`
 )
   div(
-    class="c-field-checkbox__container"
+    class="dm-field-checkbox__container"
   )
     input(
       @change="onCheckboxChange"
@@ -24,7 +24,7 @@ div(
       :id="uuid"
       :name="name"
       :required="required"
-      class="c-field-checkbox__field"
+      class="dm-field-checkbox__field"
       type="checkbox"
     )
     field-label(
@@ -32,14 +32,14 @@ div(
       :forField="uuid"
       :size="size"
       :uppercase="false"
-      class="c-field-checkbox__label"
+      class="dm-field-checkbox__label"
     ) {{ label }}
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-field-checkbox__description"
+    class="dm-field-checkbox__description"
   )
 </template>
 
@@ -128,7 +128,7 @@ export default {
 
 
 <style lang="scss">
-$c: ".c-field-checkbox";
+$c: ".dm-field-checkbox";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

@@ -5,8 +5,8 @@
 <template lang="pug">
 p(
   :class=`[
-    "c-field-description",
-    "c-field-description--" + size
+    "dm-field-description",
+    "dm-field-description--" + size
   ]`
   v-html="description"
 )
@@ -36,7 +36,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-field-description";
+$c: ".dm-field-description";
 $sizes: mini, small, default, medium, large;
 
 #{$c} {

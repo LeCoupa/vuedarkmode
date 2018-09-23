@@ -5,30 +5,30 @@
 <template lang="pug">
 div(
   :class=`[
-    "c-field-tabs",
-    "c-field-tabs--" + size,
-    "c-field-tabs--" + status,
+    "dm-field-tabs",
+    "dm-field-tabs--" + size,
+    "dm-field-tabs--" + status,
     {
-      "c-field-tabs--multiple": multiple
+      "dm-field-tabs--multiple": multiple
     }
   ]`
 )
   field-label(
     v-if="label"
     :size="size"
-    class="c-field-tabs__label"
+    class="dm-field-tabs__label"
   ) {{ label }}
 
-  .c-field-tabs__container
+  .dm-field-tabs__container
     span(
       v-for="(tab, i) in tabs"
       @click="onTabClick(tab.id)"
       :class=`[
-        "c-field-tabs__tab",
+        "dm-field-tabs__tab",
         {
-          "c-field-tabs__tab--active": activeTabs.includes(tab.id),
-          "c-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
-          "c-field-tabs__tab--active-next": checkActiveBrother("asc", i+1)
+          "dm-field-tabs__tab--active": activeTabs.includes(tab.id),
+          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
+          "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1)
         }
       ]`
     ) {{ tab.name }}
@@ -37,7 +37,7 @@ div(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-field-tabs__description"
+    class="dm-field-tabs__description"
   )
 </template>
 
@@ -141,7 +141,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-field-tabs";
+$c: ".dm-field-tabs";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 

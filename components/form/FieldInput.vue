@@ -5,15 +5,15 @@
 <template lang="pug">
 div(
   :class=`[
-    "c-field-input",
-    "c-field-input--" + size,
-    "c-field-input--" + status,
+    "dm-field-input",
+    "dm-field-input--" + size,
+    "dm-field-input--" + status,
     {
-      "c-field-input--borders": borders,
-      "c-field-input--focused": focused,
-      "c-field-input--full-width": fullWidth,
-      "c-field-input--rounded": rounded,
-      "c-field-input--with-icon": leftIcon || rightIcon
+      "dm-field-input--borders": borders,
+      "dm-field-input--focused": focused,
+      "dm-field-input--full-width": fullWidth,
+      "dm-field-input--rounded": rounded,
+      "dm-field-input--with-icon": leftIcon || rightIcon
     }
   ]`
 )
@@ -21,17 +21,17 @@ div(
     v-if="label"
     :forField="uuid"
     :size="size"
-    class="c-field-input__label"
+    class="dm-field-input__label"
   ) {{ label }}
 
   div(
     @click="onContainerClick"
-    class="c-field-input__container"
+    class="dm-field-input__container"
   )
     common-icon(
       v-if="leftIcon"
       :name="leftIcon"
-      class="c-field-input__icon c-field-input__icon--left"
+      class="dm-field-input__icon dm-field-input__icon--left"
     )
     input(
       @blur="onInputBlur"
@@ -44,19 +44,19 @@ div(
       :placeholder="placeholder"
       :type="type"
       :value="value"
-      class="c-field-input__field"
+      class="dm-field-input__field"
     )
     common-icon(
       v-if="computedRightIcon"
       :name="computedRightIcon"
-      class="c-field-input__icon c-field-input__icon--right"
+      class="dm-field-input__icon dm-field-input__icon--right"
     )
 
   field-description(
     v-if="description"
     :description="description"
     :size="size"
-    class="c-field-input__description"
+    class="dm-field-input__description"
   )
 </template>
 
@@ -213,7 +213,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-field-input";
+$c: ".dm-field-input";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
