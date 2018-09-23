@@ -5,15 +5,15 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-field-input',
-    'c-field-input--' + size,
-    'c-field-input--' + status,
+    "c-field-input",
+    "c-field-input--" + size,
+    "c-field-input--" + status,
     {
-      'c-field-input--block': block,
-      'c-field-input--borders': borders,
-      'c-field-input--focused': focused,
-      'c-field-input--rounded': rounded,
-      'c-field-input--with-icon': leftIcon || rightIcon
+      "c-field-input--borders": borders,
+      "c-field-input--focused": focused,
+      "c-field-input--full-width": fullWidth,
+      "c-field-input--rounded": rounded,
+      "c-field-input--with-icon": leftIcon || rightIcon
     }
   ]`
 )
@@ -83,10 +83,6 @@ export default {
       type: String,
       default: "off"
     },
-    block: {
-      type: Boolean,
-      default: true
-    },
     borders: {
       type: Boolean,
       default: true
@@ -98,6 +94,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    fullWidth: {
+      type: Boolean,
+      default: true
     },
     label: {
       type: String,
@@ -307,10 +307,6 @@ $statuses: error, normal, success, warning;
 
   // --> BOOLEANS <--
 
-  &--block {
-    width: 100%;
-  }
-
   &--borders {
     #{$c}__container {
       box-sizing: border-box;
@@ -326,6 +322,10 @@ $statuses: error, normal, success, warning;
       border-color: $azure-radiance;
       color: $azure-radiance;
     }
+  }
+
+  &--full-width {
+    width: 100%;
   }
 
   &--rounded {

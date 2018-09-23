@@ -223,8 +223,8 @@
           class="c-index__item"
         )
           field-checkbox(
-            :block="false"
             :checked="i === 1"
+            :fullWidth="false"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
             :name="'checkbox_' + size + '_'  + statuses[j] + i + j"
             :size="size"
@@ -248,8 +248,8 @@
           class="c-index__item"
         )
           field-radio(
-            :block="false"
             :checked="j === 0"
+            :fullWidth="false"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' radio (' + statuses[j] + ')'"
             :name="'radios_' + i"
             :size="size"
@@ -274,8 +274,8 @@
           class="c-index__item"
         )
           field-toggle(
-            :block="false"
             :checked="i === 1"
+            :fullWidth="false"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' toggle (' + statuses[j] + ')'"
             :name="'toggle_' + size + '_'  + statuses[j] + i + j"
             :size="size"
@@ -300,7 +300,7 @@
           class="c-index__item"
         )
           field-file(
-            :block="false"
+            :fullWidth="false"
             :label="size.charAt(0).toUpperCase() + size.slice(1) + ' file upload (' + statuses[j] + ')'"
             :name="'file_' + size + '_'  + statuses[j] + i + j"
             :size="size"

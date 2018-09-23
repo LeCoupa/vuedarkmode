@@ -12,11 +12,11 @@ button(
     "c-common-button--" + color,
     "c-common-button--" + size,
     {
-      'c-common-button--block': block,
       "c-common-button--capitalize": capitalize,
       "c-common-button--circular": circular,
-      'c-common-button--reverse': reverse,
-      'c-common-button--rounded': rounded
+      "c-common-button--full-width": fullWidth,
+      "c-common-button--reverse": reverse,
+      "c-common-button--rounded": rounded
     }
   ]`
   :disabled="disabled"
@@ -57,10 +57,6 @@ export default {
   },
 
   props: {
-    block: {
-      type: Boolean,
-      default: false
-    },
     capitalize: {
       type: Boolean,
       default: true
@@ -74,6 +70,10 @@ export default {
       default: "blue"
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    fullWidth: {
       type: Boolean,
       default: false
     },
@@ -237,10 +237,6 @@ $sizes: mini, small, default, medium, large;
 
   // --> BOOLEANS <--
 
-  &--block {
-    width: 100%;
-  }
-
   &--capitalize {
     text-transform: capitalize;
   }
@@ -269,6 +265,10 @@ $sizes: mini, small, default, medium, large;
         padding: 8px + (1px * $i);
       }
     }
+  }
+
+  &--full-width {
+    width: 100%;
   }
 
   &--reverse {

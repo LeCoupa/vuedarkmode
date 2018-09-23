@@ -6,11 +6,11 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-field-checkbox',
-    'c-field-checkbox--' + size,
-    'c-field-checkbox--' + status,
+    "c-field-checkbox",
+    "c-field-checkbox--" + size,
+    "c-field-checkbox--" + status,
     {
-      'c-field-checkbox--block': block
+      "c-field-checkbox--full-width": fullWidth
     }
   ]`
 )
@@ -62,10 +62,6 @@ export default {
   },
 
   props: {
-    block: {
-      type: Boolean,
-      default: true
-    },
     checked: {
       type: Boolean,
       default: false
@@ -77,6 +73,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    fullWidth: {
+      type: Boolean,
+      default: true
     },
     label: {
       type: String,
@@ -272,7 +272,7 @@ $statuses: error, normal, success, warning;
 
   // --> BOOLEANS <--
 
-  &--block {
+  &--full-width {
     width: 100%;
   }
 }

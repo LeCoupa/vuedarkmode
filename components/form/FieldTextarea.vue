@@ -5,13 +5,13 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-field-textarea',
-    'c-field-textarea--' + size,
-    'c-field-textarea--' + status,
+    "c-field-textarea",
+    "c-field-textarea--" + size,
+    "c-field-textarea--" + status,
     {
-      'c-field-textarea--block': block,
-      'c-field-textarea--borders': borders,
-      'c-field-textarea--focused': focused,
+      "c-field-textarea--borders": borders,
+      "c-field-textarea--focused": focused,
+      "c-field-textarea--full-width": fullWidth
     }
   ]`
 )
@@ -72,10 +72,6 @@ export default {
   },
 
   props: {
-    block: {
-      type: Boolean,
-      default: true
-    },
     borders: {
       type: Boolean,
       default: true
@@ -91,6 +87,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    fullWidth: {
+      type: Boolean,
+      default: true
     },
     label: {
       type: String,
@@ -261,10 +261,6 @@ $statuses: error, normal, success, warning;
 
   // --> BOOLEANS <--
 
-  &--block {
-    width: 100%;
-  }
-
   &--borders {
     #{$c}__container {
       box-sizing: border-box;
@@ -280,6 +276,10 @@ $statuses: error, normal, success, warning;
       border-color: $azure-radiance;
       color: $azure-radiance;
     }
+  }
+
+  &--full-width {
+    width: 100%;
   }
 }
 </style>

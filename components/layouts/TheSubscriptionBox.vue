@@ -6,7 +6,7 @@
 .c-the-subscription-box
   .c-the-subscription-box__container
     field-input(
-      :block="false"
+      :fullWidth="false"
       label="Get notified when we release new components"
       name="email"
       placeholder="e.g. you@awesome.com"

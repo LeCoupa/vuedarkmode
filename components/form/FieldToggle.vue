@@ -6,11 +6,11 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-field-toggle',
-    'c-field-toggle--' + size,
-    'c-field-toggle--' + status,
+    "c-field-toggle",
+    "c-field-toggle--" + size,
+    "c-field-toggle--" + status,
     {
-      'c-field-toggle--block': block
+      "c-field-toggle--full-width": fullWidth
     }
   ]`
 )
@@ -62,10 +62,6 @@ export default {
   },
 
   props: {
-    block: {
-      type: Boolean,
-      default: true
-    },
     checked: {
       type: Boolean,
       default: false
@@ -77,6 +73,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    fullWidth: {
+      type: Boolean,
+      default: true
     },
     label: {
       type: String,
@@ -249,7 +249,7 @@ $statuses: error, normal, success, warning;
 
   // --> BOOLEANS <--
 
-  &--block {
+  &--full-width {
     width: 100%;
   }
 }

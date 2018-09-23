@@ -5,14 +5,14 @@
 <template lang="pug">
 div(
   :class=`[
-    'c-field-select',
-    'c-field-select--' + size,
-    'c-field-select--' + status,
+    "c-field-select",
+    "c-field-select--" + size,
+    "c-field-select--" + status,
     {
-      'c-field-select--block': block,
-      'c-field-select--borders': borders,
-      'c-field-select--focused': focused,
-      'c-field-select--with-left-icon': computedLeftIcon
+      "c-field-select--borders": borders,
+      "c-field-select--focused": focused,
+      "c-field-select--full-width": fullWidth,
+      "c-field-select--with-left-icon": computedLeftIcon
     }
   ]`
 )
@@ -76,10 +76,6 @@ export default {
   },
 
   props: {
-    block: {
-      type: Boolean,
-      default: true
-    },
     borders: {
       type: Boolean,
       default: true
@@ -91,6 +87,10 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    },
+    fullWidth: {
+      type: Boolean,
+      default: true
     },
     label: {
       type: String,
@@ -280,10 +280,6 @@ $statuses: error, normal, success, warning;
 
   // --> BOOLEANS <--
 
-  &--block {
-    width: 100%;
-  }
-
   &--borders {
     #{$c}__container {
       box-sizing: border-box;
@@ -299,6 +295,10 @@ $statuses: error, normal, success, warning;
       border-color: $azure-radiance;
       color: $azure-radiance;
     }
+  }
+
+  &--full-width {
+    width: 100%;
   }
 
   &--with-left-icon {

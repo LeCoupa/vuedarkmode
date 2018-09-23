@@ -27,8 +27,8 @@
   )
     field-toggle(
       @change="onThemeUpdate"
-      :block="false"
       :checked="theme === 'light'"
+      :fullWidth="false"
       :label="theme === 'light' ? 'Turn off the lights' : 'Turn on the lights'"
       name="theme"
       class="c-the-shortcuts-bar__field"

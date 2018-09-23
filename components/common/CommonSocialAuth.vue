@@ -10,7 +10,7 @@ button(
     "c-common-social-auth--" + network,
     "c-common-social-auth--" + size,
     {
-      "c-common-social-auth--block": block
+      "c-common-social-auth--full-width": fullWidth
     }
   ]`
 )
@@ -48,7 +48,7 @@ export default {
       type: String,
       default: null
     },
-    block: {
+    fullWidth: {
       type: Boolean,
       default: false
     },
@@ -168,7 +168,7 @@ $sizes: mini, small, large;
 
   // --> BOOLEANS <--
 
-  &--block {
+  &--full-width {
     width: 100%;
   }
 }

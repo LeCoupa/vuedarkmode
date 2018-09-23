@@ -9,7 +9,7 @@ div(
     "c-field-file--" + size,
     "c-field-file--" + status,
     {
-      "c-field-file--block": block
+      "c-field-file--full-width": fullWidth
     }
   ]`
 )
@@ -64,13 +64,13 @@ export default {
   },
 
   props: {
-    block: {
-      type: Boolean,
-      default: true
-    },
     description: {
       type: String,
       default: null
+    },
+    fullWidth: {
+      type: Boolean,
+      default: true
     },
     label: {
       type: String,
@@ -216,7 +216,7 @@ $statuses: error, normal, success, warning;
 
   // --> BOOLEANS <--
 
-  &--block {
+  &--full-width {
     width: 100%;
   }
 }
