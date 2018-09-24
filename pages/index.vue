@@ -123,11 +123,7 @@
     color="black"
     size="large"
   )
-
-  div(
-    class="c-index__copyright"
-  )
-    span.c-index__line Made in the dark by Nada Rifki &amp; Julien Le Coupanec.
+  the-footer
 </template>
 
 <!-- *************************************************************************
@@ -156,6 +152,7 @@ import GuideFieldSelects from "@/components/guide/GuideFieldSelects";
 import GuideFieldTabs from "@/components/guide/GuideFieldTabs";
 import GuideFieldTextareas from "@/components/guide/GuideFieldTextareas";
 import GuideFieldToggles from "@/components/guide/GuideFieldToggles";
+import TheFooter from "@/components/layouts/TheFooter";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
 import TheSubscriptionBox from "@/components/layouts/TheSubscriptionBox";
@@ -186,6 +183,7 @@ export default {
     GuideFieldTextareas,
     GuideFieldToggles,
     TheGithubButtons,
+    TheFooter,
     TheLogo,
     TheSubscriptionBox
   },
@@ -543,14 +541,6 @@ $c: ".c-index";
     input::placeholder,
     textarea::placeholder {
       text-transform: capitalize;
-    }
-  }
-
-  #{$c}__copyright {
-    #{$c}__line {
-      display: block;
-      font-size: 14px;
-      line-height: 22px;
     }
   }
 }
