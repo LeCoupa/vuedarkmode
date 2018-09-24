@@ -63,6 +63,10 @@ export default {
       type: Boolean,
       default: true
     },
+    section: {
+      type: String,
+      default: null
+    },
     title: {
       type: String,
       required: true

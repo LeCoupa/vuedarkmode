@@ -13,6 +13,7 @@
       :name="icon"
       class="c-guide-base-icons__icon hint--top hint--no-animate"
       color="white"
+      cursor="pointer"
     )
 
   base-button(
@@ -69,8 +70,6 @@ $c: ".c-guide-base-icons";
     grid-template-columns: repeat(auto-fill, 24px);
 
     #{$c}__icon {
-      cursor: pointer;
-
       // Update tooltip color
       &::before {
         border-top-color: $black;

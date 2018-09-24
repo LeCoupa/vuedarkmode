@@ -16,9 +16,12 @@ div(
 
     base-icon(
       @click="onCopyCommand"
+      aria-label="Copy to clipboard"
+      class="hint--top hint--no-animate"
       cursor="pointer"
       name="content_copy"
       size="16px"
+      class="c-common-command__icon"
     )
 </template>
 
@@ -76,6 +79,16 @@ $c: ".c-common-command";
       color: $white;
       font-size: 16px;
       line-height: 24px;
+    }
+
+    #{$c}__icon {
+      // Update tooltip color
+      &::before {
+        border-top-color: $black;
+      }
+      &::after {
+        background: $black;
+      }
     }
   }
 
