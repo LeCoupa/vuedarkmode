@@ -23,79 +23,82 @@
       :section="section.id"
       :title="section.headlines.title"
     )
+    guide-install(
+      v-if="section.id === 'install'"
+    )
     guide-colors(
-      v-if="section.colors"
+      v-if="section.id === 'colors'"
       :colors="section.colors"
     )
     guide-base-headings(
-      v-if="section.headings && !docs.headings"
+      v-if="section.id === 'headings' && !docs.headings"
     )
     guide-base-buttons(
-      v-if="section.buttons && !docs.buttons"
+      v-if="section.id === 'buttons' && !docs.buttons"
       :buttons="section.buttons"
     )
     guide-base-badges(
-      v-if="section.badges && !docs.badges"
+      v-if="section.id === 'badges' && !docs.badges"
       :badges="section.badges"
     )
     guide-base-social-logins(
-      v-if="section.socialLogins && !docs.socialLogins"
+      v-if="section.id === 'socialLogins' && !docs.socialLogins"
       :socialLogins="section.socialLogins"
     )
     guide-field-inputs(
-      v-if="section.inputs && !docs.inputs"
+      v-if="section.id === 'inputs' && !docs.inputs"
       :inputs="section.inputs"
       class="c-index__form"
     )
     guide-field-selects(
-      v-if="section.selects && !docs.selects"
+      v-if="section.id === 'selects' && !docs.selects"
       :selects="section.selects"
       class="c-index__form"
     )
     guide-field-textareas(
-      v-if="section.textareas && !docs.textareas"
+      v-if="section.id === 'textareas' && !docs.textareas"
       :textareas="section.textareas"
       class="c-index__form"
     )
     guide-field-checkboxes(
-      v-if="section.checkboxes && !docs.checkboxes"
+      v-if="section.id === 'checkboxes' && !docs.checkboxes"
       :checkboxes="section.checkboxes"
       class="c-index__form"
     )
     guide-field-radios(
-      v-if="section.radios && !docs.radios"
+      v-if="section.id === 'radios' && !docs.radios"
       :radios="section.radios"
       class="c-index__form"
     )
     guide-field-toggles(
-      v-if="section.toggles && !docs.toggles"
+      v-if="section.id === 'toggles' && !docs.toggles"
       :toggles="section.toggles"
       class="c-index__form"
     )
     guide-field-files(
-      v-if="section.files && !docs.files"
+      v-if="section.id === 'files' && !docs.files"
       :files="section.files"
       class="c-index__form"
     )
     guide-field-tabs(
-      v-if="section.tabs && !docs.tabs"
+      v-if="section.id === 'tabs' && !docs.tabs"
       :tabs="section.tabs"
       class="c-index__form"
     )
     guide-base-dividers(
-      v-if="section.dividers && !docs.dividers"
+      v-if="section.id === 'dividers' && !docs.dividers"
       :dividers="section.dividers"
     )
     guide-base-loaders(
-      v-if="section.loaders && !docs.loaders"
+      v-if="section.id === 'loaders' && !docs.loaders"
       :loaders="section.loaders"
     )
     guide-base-avatars(
-      v-if="section.avatars && !docs.avatars"
+      v-if="section.id === 'avatars' && !docs.avatars"
       :avatars="section.avatars"
     )
     guide-base-icons(
-      v-if="section.icons && !docs.icons"
+      v-if="section.id === 'icons' && !docs.icons"
       :icons="section.icons"
     )
 
@@ -113,7 +116,6 @@
 <script>
 // PROJECT
 import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import BaseHeading from "@/components/darkmode/base/BaseHeading";
 import CommonHeadlines from "@/components/common/CommonHeadlines";
 import GuideBaseAvatars from "@/components/guide/GuideBaseAvatars";
 import GuideBaseBadges from "@/components/guide/GuideBaseBadges";
@@ -132,6 +134,7 @@ import GuideFieldSelects from "@/components/guide/GuideFieldSelects";
 import GuideFieldTabs from "@/components/guide/GuideFieldTabs";
 import GuideFieldTextareas from "@/components/guide/GuideFieldTextareas";
 import GuideFieldToggles from "@/components/guide/GuideFieldToggles";
+import GuideInstall from "@/components/guide/GuideInstall";
 import TheFooter from "@/components/layouts/TheFooter";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheHeader from "@/components/layouts/TheHeader";
@@ -144,7 +147,6 @@ import icons from "@/schemas/icons";
 export default {
   components: {
     BaseDivider,
-    BaseHeading,
     CommonHeadlines,
     GuideBaseAvatars,
     GuideBaseBadges,
@@ -163,6 +165,7 @@ export default {
     GuideFieldTabs,
     GuideFieldTextareas,
     GuideFieldToggles,
+    GuideInstall,
     TheGithubButtons,
     TheFooter,
     TheHeader,
@@ -174,32 +177,32 @@ export default {
     return {
       // --> STATE <--
       docs: {
-        colors: false,
-        headings: false,
-        buttons: false,
-        badges: false,
-        socialLogins: false,
-        inputs: false,
-        selects: false,
-        textareas: false,
-        checkboxes: false,
-        radios: false,
-        toggles: false,
-        files: false,
-        tabs: false,
-        dividers: false,
-        loaders: false,
         avatars: false,
-        icons: false
+        badges: false,
+        buttons: false,
+        checkboxes: false,
+        colors: false,
+        dividers: false,
+        files: false,
+        headings: false,
+        icons: false,
+        inputs: false,
+        loaders: false,
+        radios: false,
+        selects: false,
+        socialLogins: false,
+        tabs: false,
+        textareas: false,
+        toggles: false
       },
 
       // --> COMPONENTS <--
       sections: [
         {
-          id: "installation",
+          id: "install",
           headlines: {
             title: "INSTALLATION",
-            description: "Here is how you join us to the dark side 👻",
+            description: "Here is how you can join us in the dark side 👻",
             hasDocumentation: false
           }
         },
@@ -207,7 +210,8 @@ export default {
           id: "colors",
           headlines: {
             title: "COLORS",
-            description: "With a great description",
+            description:
+              "All our components are made using only these colors. No sugar added. 🤞",
             hasDocumentation: false
           },
           colors: colors
@@ -216,7 +220,7 @@ export default {
           id: "headings",
           headlines: {
             title: "HEADINGS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/base-heading",
             hasDocumentation: true
           },
           headings: []
@@ -225,7 +229,7 @@ export default {
           id: "buttons",
           headlines: {
             title: "BUTTONS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/base-button",
             hasDocumentation: true
           },
           buttons: {
@@ -245,7 +249,7 @@ export default {
           id: "badges",
           headlines: {
             title: "BADGES",
-            description: "With a great description",
+            description: "npm install --save @darkmode/base-badge",
             hasDocumentation: true
           },
           badges: {
@@ -266,7 +270,7 @@ export default {
           id: "socialLogins",
           headlines: {
             title: "SOCIAL LOGINS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/base-social-login",
             hasDocumentation: true
           },
           socialLogins: {
@@ -278,7 +282,7 @@ export default {
           id: "inputs",
           headlines: {
             title: "INPUTS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/field-input",
             hasDocumentation: true
           },
           inputs: {
@@ -293,7 +297,7 @@ export default {
           id: "selects",
           headlines: {
             title: "SELECTS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/field-select",
             hasDocumentation: true
           },
           selects: {
@@ -308,7 +312,7 @@ export default {
           id: "textareas",
           headlines: {
             title: "TEXTAREAS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/field-textarea",
             hasDocumentation: true
           },
           textareas: {
@@ -323,7 +327,7 @@ export default {
           id: "checkboxes",
           headlines: {
             title: "CHECKBOXES",
-            description: "With a great description",
+            description: "npm install --save @darkmode/field-checkbox",
             hasDocumentation: true
           },
           checkboxes: {
@@ -338,7 +342,7 @@ export default {
           id: "radios",
           headlines: {
             title: "RADIOS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/field-radio",
             hasDocumentation: true
           },
           radios: {
@@ -353,7 +357,7 @@ export default {
           id: "toggles",
           headlines: {
             title: "TOGGLES",
-            description: "With a great description",
+            description: "npm install --save @darkmode/field-toggle",
             hasDocumentation: true
           },
           toggles: {
@@ -368,7 +372,7 @@ export default {
           id: "files",
           headlines: {
             title: "FILE UPLOAD",
-            description: "With a great description",
+            description: "npm install --save @darkmode/field-file",
             hasDocumentation: true
           },
           files: {
@@ -383,7 +387,7 @@ export default {
           id: "tabs",
           headlines: {
             title: "TABS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/field-tabs",
             hasDocumentation: true
           },
           tabs: {
@@ -398,7 +402,7 @@ export default {
           id: "dividers",
           headlines: {
             title: "DIVIDERS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/base-divider",
             hasDocumentation: true
           },
           dividers: {
@@ -419,7 +423,7 @@ export default {
           id: "loaders",
           headlines: {
             title: "LOADERS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/base-loader",
             hasDocumentation: true
           },
           loaders: [
@@ -469,7 +473,7 @@ export default {
           id: "avatars",
           headlines: {
             title: "AVATARS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/base-avatar",
             hasDocumentation: true
           },
           avatars: {
@@ -495,7 +499,7 @@ export default {
           id: "icons",
           headlines: {
             title: "ICONS",
-            description: "With a great description",
+            description: "npm install --save @darkmode/base-icon",
             hasDocumentation: true
           },
           icons: icons

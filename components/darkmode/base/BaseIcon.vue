@@ -7,6 +7,7 @@ i(
   @click="onClick"
   :style=`{
     color: color,
+    cursor: cursor,
     fontSize: size
   }`
   aria-hidden="true"
@@ -22,6 +23,10 @@ i(
 export default {
   props: {
     color: {
+      type: String,
+      default: null
+    },
+    cursor: {
       type: String,
       default: null
     },
