@@ -47,7 +47,7 @@ $c: ".l-default";
 html {
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 60px 0 85px;
+  padding: 60px 0 90px;
   min-height: 100%;
   background-color: $mirage;
   color: $white;

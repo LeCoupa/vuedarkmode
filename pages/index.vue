@@ -18,6 +18,7 @@
     )
     common-headlines(
       @toggleDocumentation="onToggleDocumentation"
+      :command="section.headlines.command"
       :description="section.headlines.description"
       :hasDocumentation="section.headlines.hasDocumentation"
       :section="section.id"
@@ -202,7 +203,7 @@ export default {
           id: "install",
           headlines: {
             title: "INSTALLATION",
-            description: "Here is how you can join us in the dark side 👻",
+            description: "Come and join us to the dark side 👻",
             hasDocumentation: false
           }
         },
@@ -211,7 +212,7 @@ export default {
           headlines: {
             title: "COLORS",
             description:
-              "All our components are made using only these colors. No sugar added. 🤞",
+              "We made all our components using only these colors. No sugar added. 🤞",
             hasDocumentation: false
           },
           colors: colors
@@ -220,7 +221,7 @@ export default {
           id: "headings",
           headlines: {
             title: "HEADINGS",
-            description: "npm install --save @darkmode/base-heading",
+            command: "npm install --save @darkmode/base-heading",
             hasDocumentation: true
           },
           headings: []
@@ -229,7 +230,7 @@ export default {
           id: "buttons",
           headlines: {
             title: "BUTTONS",
-            description: "npm install --save @darkmode/base-button",
+            command: "npm install --save @darkmode/base-button",
             hasDocumentation: true
           },
           buttons: {
@@ -249,7 +250,7 @@ export default {
           id: "badges",
           headlines: {
             title: "BADGES",
-            description: "npm install --save @darkmode/base-badge",
+            command: "npm install --save @darkmode/base-badge",
             hasDocumentation: true
           },
           badges: {
@@ -270,7 +271,7 @@ export default {
           id: "socialLogins",
           headlines: {
             title: "SOCIAL LOGINS",
-            description: "npm install --save @darkmode/base-social-login",
+            command: "npm install --save @darkmode/base-social-login",
             hasDocumentation: true
           },
           socialLogins: {
@@ -282,7 +283,7 @@ export default {
           id: "inputs",
           headlines: {
             title: "INPUTS",
-            description: "npm install --save @darkmode/field-input",
+            command: "npm install --save @darkmode/field-input",
             hasDocumentation: true
           },
           inputs: {
@@ -297,7 +298,7 @@ export default {
           id: "selects",
           headlines: {
             title: "SELECTS",
-            description: "npm install --save @darkmode/field-select",
+            command: "npm install --save @darkmode/field-select",
             hasDocumentation: true
           },
           selects: {
@@ -312,7 +313,7 @@ export default {
           id: "textareas",
           headlines: {
             title: "TEXTAREAS",
-            description: "npm install --save @darkmode/field-textarea",
+            command: "npm install --save @darkmode/field-textarea",
             hasDocumentation: true
           },
           textareas: {
@@ -327,7 +328,7 @@ export default {
           id: "checkboxes",
           headlines: {
             title: "CHECKBOXES",
-            description: "npm install --save @darkmode/field-checkbox",
+            command: "npm install --save @darkmode/field-checkbox",
             hasDocumentation: true
           },
           checkboxes: {
@@ -342,7 +343,7 @@ export default {
           id: "radios",
           headlines: {
             title: "RADIOS",
-            description: "npm install --save @darkmode/field-radio",
+            command: "npm install --save @darkmode/field-radio",
             hasDocumentation: true
           },
           radios: {
@@ -357,7 +358,7 @@ export default {
           id: "toggles",
           headlines: {
             title: "TOGGLES",
-            description: "npm install --save @darkmode/field-toggle",
+            command: "npm install --save @darkmode/field-toggle",
             hasDocumentation: true
           },
           toggles: {
@@ -372,7 +373,7 @@ export default {
           id: "files",
           headlines: {
             title: "FILE UPLOAD",
-            description: "npm install --save @darkmode/field-file",
+            command: "npm install --save @darkmode/field-file",
             hasDocumentation: true
           },
           files: {
@@ -387,7 +388,7 @@ export default {
           id: "tabs",
           headlines: {
             title: "TABS",
-            description: "npm install --save @darkmode/field-tabs",
+            command: "npm install --save @darkmode/field-tabs",
             hasDocumentation: true
           },
           tabs: {
@@ -402,7 +403,7 @@ export default {
           id: "dividers",
           headlines: {
             title: "DIVIDERS",
-            description: "npm install --save @darkmode/base-divider",
+            command: "npm install --save @darkmode/base-divider",
             hasDocumentation: true
           },
           dividers: {
@@ -423,7 +424,7 @@ export default {
           id: "loaders",
           headlines: {
             title: "LOADERS",
-            description: "npm install --save @darkmode/base-loader",
+            command: "npm install --save @darkmode/base-loader",
             hasDocumentation: true
           },
           loaders: [
@@ -473,7 +474,7 @@ export default {
           id: "avatars",
           headlines: {
             title: "AVATARS",
-            description: "npm install --save @darkmode/base-avatar",
+            command: "npm install --save @darkmode/base-avatar",
             hasDocumentation: true
           },
           avatars: {
@@ -499,7 +500,7 @@ export default {
           id: "icons",
           headlines: {
             title: "ICONS",
-            description: "npm install --save @darkmode/base-icon",
+            command: "npm install --save @darkmode/base-icon",
             hasDocumentation: true
           },
           icons: icons

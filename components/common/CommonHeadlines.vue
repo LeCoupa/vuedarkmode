@@ -10,9 +10,15 @@
   ) {{ title }}
 
   base-heading(
+    v-if="description"
     type="h3"
     class="c-common-headlines__description"
   ) {{ description }}
+
+  common-command(
+    v-if="command"
+    class="c-common-headlines__command"
+  ) {{ command }}
 
   base-button(
     v-if="hasDocumentation"
@@ -32,28 +38,30 @@
 <script>
 // PROJECT
 import BaseButton from "@/components/darkmode/base/BaseButton";
+import CommonCommand from "@/components/common/CommonCommand";
 import BaseHeading from "@/components/darkmode/base/BaseHeading";
 import BaseIcon from "@/components/darkmode/base/BaseIcon";
 
 export default {
   components: {
     BaseButton,
+    CommonCommand,
     BaseHeading,
     BaseIcon
   },
 
   props: {
+    command: {
+      type: String,
+      default: null
+    },
     description: {
       type: String,
-      required: true
+      default: null
     },
     hasDocumentation: {
       type: Boolean,
       default: true
-    },
-    section: {
-      type: String,
-      required: true
     },
     title: {
       type: String,
@@ -91,14 +99,32 @@ export default {
 $c: ".c-common-headlines";
 
 #{$c} {
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
 
-  #{$c}__description {
-    margin-bottom: 0;
+  #{$c}__title,
+  #{$c}__description,
+  #{$c}__command,
+  #{$c}__documentation {
+    flex: 0 0 auto;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
-  #{$c}__documentation {
-    margin-top: 15px;
+  #{$c}__title {
+    margin-bottom: 8px;
+  }
+
+  #{$c}__description {
+    margin-bottom: 15px;
+  }
+
+  #{$c}__command {
+    margin-bottom: 15px;
   }
 }
 </style>

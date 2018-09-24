@@ -62,7 +62,7 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
   }
 
   &--large {
-    margin: 40px auto;
+    margin: 50px auto;
     max-width: 800px;
     height: 1px;
     border-top-width: 1px;

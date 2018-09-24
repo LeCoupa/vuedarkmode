@@ -75,6 +75,7 @@ $c: ".c-common-command";
       margin-right: 10px;
       color: $white;
       font-size: 16px;
+      line-height: 24px;
     }
   }
 
