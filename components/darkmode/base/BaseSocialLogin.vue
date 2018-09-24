@@ -6,26 +6,26 @@
 button(
   @click="onClick"
   :class=`[
-    "dm-base-social-auth",
-    "dm-base-social-auth--" + network,
-    "dm-base-social-auth--" + size,
+    "dm-base-social-login",
+    "dm-base-social-login--" + network,
+    "dm-base-social-login--" + size,
     {
-      "dm-base-social-auth--full-width": fullWidth
+      "dm-base-social-login--full-width": fullWidth
     }
   ]`
 )
-  span.dm-base-social-auth__inner
-    span.dm-base-social-auth__icon
+  span.dm-base-social-login__inner
+    span.dm-base-social-login__icon
 
     span(
       v-if="['small', 'large'].includes(size)"
-      class="dm-base-social-auth__label"
+      class="dm-base-social-login__label"
     )
-      span.dm-base-social-auth__action {{ computedAction }}
+      span.dm-base-social-login__action {{ computedAction }}
 
       span(
         v-if="['large'].includes(size)"
-        class="dm-base-social-auth__network"
+        class="dm-base-social-login__network"
       )  with {{ network | capitalize }}
 </template>
 
@@ -95,8 +95,8 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".dm-base-social-auth";
-$iconPath: "/images/components/darkmode/base/BaseSocialAuth";
+$c: ".dm-base-social-login";
+$iconPath: "/images/components/darkmode/base/BaseSocialLogin";
 $networks: facebook, google, messenger, twitter;
 $sizes: mini, small, large;
 

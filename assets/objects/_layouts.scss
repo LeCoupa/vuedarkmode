@@ -1,0 +1,58 @@
+/* *************************************************************************
+ * OBJECTS > LAYOUTS
+ * **************************************************************************/
+
+.o-elements {
+  display: grid;
+  grid-gap: 40px;
+  justify-content: center;
+  margin-bottom: 40px;
+
+  .o-elements__category {
+    .o-elements__item {
+      margin-bottom: 20px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // --> ORIENTATIONS <--
+
+  &--horizontal {
+    .o-elements__category {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      justify-content: center;
+
+      .o-elements__item {
+        display: block;
+        margin-right: 10px;
+        margin-bottom: 0;
+
+        &:first-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &--vertical-on-mobile {
+    @include mq($from: mobile, $until: tablet) {
+      .o-elements__category {
+        display: block;
+
+        .o-elements__item {
+          margin-right: 0;
+          margin-bottom: 20px;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,17 +3,17 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-color
-  .c-guide-color__block
+.c-common-color
+  .c-common-color__block
     div(
       :style=`{
         backgroundColor: hex
       }`
-      class="c-guide-color__highlight",
+      class="c-common-color__highlight",
     )
-    .c-guide-color__hex {{ hex }}
+    .c-common-color__hex {{ hex }}
 
-  .c-guide-color__name {{ name }}
+  .c-common-color__name {{ name }}
 </template>
 
 <!-- *************************************************************************
@@ -40,7 +40,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-guide-color";
+$c: ".c-common-color";
 
 #{$c} {
   width: 100px;

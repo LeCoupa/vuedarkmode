@@ -39,6 +39,9 @@ export default {
 // Unclassed HTML elements (e.g. a {}, blockquote {}, address {})
 @import "./assets/elements/inline";
 
+// Objects, abstractions, and design patterns (e.g. .o-flexbox-column {})
+@import "./assets/objects/layouts";
+
 $c: ".l-default";
 
 html {
@@ -47,7 +50,7 @@ html {
   padding: 60px 0 90px;
   min-height: 100%;
   background-color: $mirage;
-  color: white;
+  color: $white;
   text-align: center;
   word-spacing: 1px;
   font-size: 16px;

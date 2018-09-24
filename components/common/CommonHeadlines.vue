@@ -3,15 +3,15 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-headlines
+.c-common-headlines
   base-heading(
     type="h2"
-    class="c-guide-headlines__title"
+    class="c-common-headlines__title"
   ) {{ title }}
 
   base-heading(
     type="h3"
-    class="c-guide-headlines__description"
+    class="c-common-headlines__description"
   ) {{ description }}
 
   base-button(
@@ -19,9 +19,9 @@
     @click="onToggleDocumentation"
     :reverse="true"
     :rightIcon="documentationVisibility ? 'extension' : 'explore'"
-    size="small"
     color="blue"
-    class="c-guide-headlines__documentation"
+    size="small"
+    class="c-common-headlines__documentation"
   ) {{ documentationVisibility ? "Show components" : "Read documentation" }}
 </template>
 
@@ -88,7 +88,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-guide-headlines";
+$c: ".c-common-headlines";
 
 #{$c} {
   margin-bottom: 40px;

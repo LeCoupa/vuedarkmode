@@ -36,401 +36,88 @@
       color="black"
       size="large"
     )
-    guide-headlines(
+    common-headlines(
       @toggleDocumentation="onToggleDocumentation"
       :description="section.headlines.description"
       :hasDocumentation="section.headlines.hasDocumentation"
       :section="section.id"
       :title="section.headlines.title"
     )
-    div(
+    guide-colors(
       v-if="section.colors"
-      class="c-index__elements c-index__elements--colors"
+      :colors="section.colors"
     )
-      guide-color(
-        v-for="color in section.colors"
-        :hex="color.hex"
-        :key="color.hex"
-        :name="color.name"
-      )
-
-    guide-headings(
-      v-if="section.headings"
+    guide-base-headings(
+      v-if="section.headings && !docs.headings"
     )
-    div(
+    guide-base-buttons(
       v-if="section.buttons && !docs.buttons"
-      v-for="circular in [false, true]"
-      :class=`[
-        "c-index__elements c-index__elements--buttons",
-        {
-          "c-index__elements--horizontal": circular
-        }
-      ]`
+      :buttons="section.buttons"
     )
-      div(
-        v-for="(color, i) in section.buttons.colors"
-        :key="'button' + color + i"
-        class="c-index__category"
-      )
-        div(
-          v-for="(size, j) in section.buttons.sizes"
-          :key="'button' + color + j + size"
-          class="c-index__item"
-        )
-          base-button(
-            :circular="circular"
-            :color="color"
-            :leftIcon="section.buttons.icons[i]"
-            :size="size"
-            class="c-index__button"
-          ) {{ size }} {{ color }}
-
-    div(
+    guide-base-badges(
       v-if="section.badges && !docs.badges"
-      class="c-index__elements c-index__elements--badges c-index__elements--horizontal c-index__elements--vertical-on-mobile"
+      :badges="section.badges"
     )
-      div(
-        v-for="(color, i) in section.badges.colors"
-        :key="'badge' + color + i"
-        class="c-index__category"
-      )
-        div(
-          v-for="(size, j) in section.badges.sizes"
-          :key="'badge' + color + j + size"
-          class="c-index__item"
-        )
-          base-badge(
-            :color="color"
-            :size="size"
-            class="c-index__badge"
-          ) {{ size }}
-
-    div(
-      v-if="section.socialAuths && !docs.socialAuths"
-      class="c-index__elements c-index__elements--social-auths c-index__elements--horizontal c-index__elements--vertical-on-mobile"
+    guide-base-social-logins(
+      v-if="section.socialLogins && !docs.socialLogins"
+      :socialLogins="section.socialLogins"
     )
-      div(
-        v-for="(network, i) in section.socialAuths.networks"
-        :key="'socialAuth' + network + i"
-        class="c-index__category"
-      )
-        div(
-          v-for="(size, j) in section.socialAuths.sizes"
-          :key="'socialAuth' + network + j + size"
-          class="c-index__item"
-        )
-          base-social-auth(
-            :network="network"
-            :size="size"
-            class="c-index__social-auth"
-          )
-
-    div(
+    guide-field-inputs(
       v-if="section.inputs && !docs.inputs"
-      class="c-index__elements c-index__elements--form c-index__elements--inputs"
+      :inputs="section.inputs"
+      class="c-index__form"
     )
-      div(
-        v-for="(statuses, i) in section.inputs.statuses"
-        :key="'inputs ' + i"
-        class="c-index__category"
-      )
-        div(
-          v-if="statuses[j]"
-          v-for="(size, j) in section.inputs.sizes"
-          :key="'inputs ' + i + ' ' + j"
-          class="c-index__item"
-        )
-          field-input(
-            :label="size + ' input (' + statuses[j] + ')'"
-            :name="'input_' + size + '_'  + statuses[j] + i + j"
-            :placeholder="statuses[j] + ' ' + size + ' input'"
-            :size="size"
-            :status="statuses[j]"
-            class="c-index__input"
-            description="This is a customizable description for inputs."
-            value="Dark Mode FTW"
-          )
-
-    div(
+    guide-field-selects(
       v-if="section.selects && !docs.selects"
-      class="c-index__elements c-index__elements--form c-index__elements--selects"
+      :selects="section.selects"
+      class="c-index__form"
     )
-      div(
-        v-for="(statuses, i) in section.selects.statuses"
-        :key="'selects ' + i"
-        class="c-index__category"
-      )
-        div(
-          v-if="statuses[j]"
-          v-for="(size, j) in section.selects.sizes"
-          :key="'selects ' + i + ' ' + j"
-          class="c-index__item"
-        )
-          field-select(
-            :label="size + ' select (' + statuses[j] + ')'"
-            :name="'select_' + size + '_'  + statuses[j] + i + j"
-            :options=`[
-              { label: 'Dark Mode FTW 1', value: 'Dark Mode FTW 1' },
-              { label: 'Dark Mode FTW 2', value: 'Dark Mode FTW 2' },
-              { label: 'Dark Mode FTW 3', value: 'Dark Mode FTW 3' },
-              { label: 'Dark Mode FTW 4', value: 'Dark Mode FTW 4' }
-            ]`
-            :size="size"
-            :status="statuses[j]"
-            class="c-index__input"
-            description="This is a customizable description for selects."
-          )
-
-    div(
+    guide-field-textareas(
       v-if="section.textareas && !docs.textareas"
-      class="c-index__elements c-index__elements--form c-index__elements--textareas"
+      :textareas="section.textareas"
+      class="c-index__form"
     )
-      div(
-        v-for="(statuses, i) in section.textareas.statuses"
-        :key="'textareas ' + i"
-        class="c-index__category"
-      )
-        div(
-          v-if="statuses[j]"
-          v-for="(size, j) in section.textareas.sizes"
-          :key="'textareas ' + i + ' ' + j"
-          class="c-index__item"
-        )
-          field-textarea(
-            :label="size + ' textarea (' + statuses[j] + ')'"
-            :name="'textarea_' + size + '_'  + statuses[j] + i + j"
-            :placeholder="statuses[j] + ' ' + size + ' textarea'"
-            :size="size"
-            :status="statuses[j]"
-            class="c-index__textarea"
-            description="This is a customizable description for textareas."
-            value="Dark Mode FTW"
-          )
-
-    div(
+    guide-field-checkboxes(
       v-if="section.checkboxes && !docs.checkboxes"
-      class="c-index__elements c-index__elements--form c-index__elements--checkboxes"
+      :checkboxes="section.checkboxes"
+      class="c-index__form"
     )
-      div(
-        v-for="(statuses, i) in section.checkboxes.statuses"
-        :key="'checkboxes ' + i"
-        class="c-index__category"
-      )
-        div(
-          v-if="statuses[j]"
-          v-for="(size, j) in section.checkboxes.sizes"
-          :key="'checkboxes ' + i + ' ' + j"
-          class="c-index__item"
-        )
-          field-checkbox(
-            :checked="i === 1"
-            :fullWidth="false"
-            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
-            :name="'checkbox_' + size + '_'  + statuses[j] + i + j"
-            :size="size"
-            :status="statuses[j]"
-            class="c-index__checkbox"
-            description="This is a customizable description for checkboxes."
-          )
-    div(
+    guide-field-radios(
       v-if="section.radios && !docs.radios"
-      class="c-index__elements c-index__elements--form c-index__elements--radios"
+      :radios="section.radios"
+      class="c-index__form"
     )
-      div(
-        v-for="(statuses, i) in section.radios.statuses"
-        :key="'radios ' + i"
-        class="c-index__category"
-      )
-        div(
-          v-if="statuses[j]"
-          v-for="(size, j) in section.radios.sizes"
-          :key="'radios ' + i + ' ' + j"
-          class="c-index__item"
-        )
-          field-radio(
-            :checked="j === 0"
-            :fullWidth="false"
-            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' radio (' + statuses[j] + ')'"
-            :name="'radios_' + i"
-            :size="size"
-            :status="statuses[j]"
-            class="c-index__radio"
-            description="This is a customizable description for radios."
-          )
-
-    div(
+    guide-field-toggles(
       v-if="section.toggles && !docs.toggles"
-      class="c-index__elements c-index__elements--form c-index__elements--toggles"
+      :toggles="section.toggles"
+      class="c-index__form"
     )
-      div(
-        v-for="(statuses, i) in section.toggles.statuses"
-        :key="'toggles ' + i"
-        class="c-index__category"
-      )
-        div(
-          v-if="statuses[j]"
-          v-for="(size, j) in section.toggles.sizes"
-          :key="'toggles ' + i + ' ' + j"
-          class="c-index__item"
-        )
-          field-toggle(
-            :checked="i === 1"
-            :fullWidth="false"
-            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' toggle (' + statuses[j] + ')'"
-            :name="'toggle_' + size + '_'  + statuses[j] + i + j"
-            :size="size"
-            :status="statuses[j]"
-            class="c-index__toggle"
-            description="This is a customizable description for toggles."
-          )
-
-    div(
+    guide-field-files(
       v-if="section.files && !docs.files"
-      class="c-index__elements c-index__elements--form c-index__elements--files"
+      :files="section.files"
+      class="c-index__form"
     )
-      div(
-        v-for="(statuses, i) in section.files.statuses"
-        :key="'files ' + i"
-        class="c-index__category"
-      )
-        div(
-          v-if="statuses[j]"
-          v-for="(size, j) in section.files.sizes"
-          :key="'files ' + i + ' ' + j"
-          class="c-index__item"
-        )
-          field-file(
-            :fullWidth="false"
-            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' file upload (' + statuses[j] + ')'"
-            :name="'file_' + size + '_'  + statuses[j] + i + j"
-            :size="size"
-            :status="statuses[j]"
-            description="JPG, max. 500KB"
-            class="c-index__file"
-          )
-
-    div(
+    guide-field-tabs(
       v-if="section.tabs && !docs.tabs"
-      class="c-index__elements c-index__elements--form"
+      :tabs="section.tabs"
+      class="c-index__form"
     )
-      div(
-        v-for="(statuses, i) in section.tabs.statuses"
-        :key="'tabs ' + i"
-        class="c-index__category"
-      )
-        div(
-          v-if="statuses[j]"
-          v-for="(size, j) in section.tabs.sizes"
-          :key="'tabs ' + i + ' ' + j"
-          class="c-index__item"
-        )
-          field-tabs(
-            :label="size.charAt(0).toUpperCase() + size.slice(1) + ' tabs (' + statuses[j] + ')'"
-            :size="size"
-            :status="statuses[j]"
-            :tabs=`[
-              { id: "auto", name: 'Auto', active: true },
-              { id: "none", name: 'None', active: false },
-              { id: "k", name: 'K', active: false },
-              { id: "M", name: 'M', active: false },
-              { id: "B", name: 'B', active: false }
-            ]`
-            description="This is a customizable description for tabs."
-            class="c-index__tabs"
-          )
-
-    div(
+    guide-base-dividers(
       v-if="section.dividers && !docs.dividers"
-      class="c-index__elements c-index__elements--dividers"
+      :dividers="section.dividers"
     )
-      div(
-        v-for="(color, i) in section.dividers.colors"
-        :key="'divider' + color + i"
-        class="c-index__category"
-      )
-        div(
-          v-for="(size, j) in section.dividers.sizes"
-          :key="'divider' + color + j + size"
-          class="c-index__item"
-        )
-          base-divider(
-            :color="color"
-            :size="size"
-            class="c-index__divider"
-          )
-
-    div(
+    guide-base-loaders(
       v-if="section.loaders && !docs.loaders"
-      class="c-index__elements c-index__elements--loaders"
+      :loaders="section.loaders"
     )
-      div(
-        v-for="(loader, i) in section.loaders"
-        :key="'loader' + i"
-        class="c-index__category"
-      )
-        base-loader(
-          :color="loader.color"
-          :labelMain="loader.labelMain"
-          :labelSecondary="loader.labelSecondary"
-          :progress="(i + 1) * 10"
-          class="c-index__loader"
-        )
-
-    div(
+    guide-base-avatars(
       v-if="section.avatars && !docs.avatars"
-      v-for="type in ['avatars', 'thumbnails']"
-      :class=`[
-        "c-index__elements",
-        "c-index__elements--" + type,
-        "c-index__elements--horizontal",
-        "c-index__elements--vertical-on-mobile"
-      ]`
+      :avatars="section.avatars"
     )
-      .c-index__category
-        div(
-          v-for="(size, i) in section.avatars.sizes"
-          :key="'avatar' + size + i"
-          class="c-index__item"
-        )
-          base-avatar(
-            v-if="type === 'avatars'"
-            :size="size"
-            src="/images/medley/nada.jpg"
-            class="c-index__avatar"
-          )
-          base-avatar(
-            v-else-if="type === 'thumbnails'"
-            :bordered="true"
-            :circular="false"
-            :complementaries="section.avatars.complementaries[size]"
-            :description="size"
-            :size="size"
-            src="/images/medley/tesla.jpg"
-            class="c-index__thumbnail"
-          )
-
-    div(
+    guide-base-icons(
       v-if="section.icons && !docs.icons"
-      class="c-index__icons"
+      :icons="section.icons"
     )
-      .c-index__elements.c-index__elements--icons
-        base-icon(
-          v-for="(icon, i) in section.icons"
-          v-if="i < maxIcons"
-          :aria-label="icon"
-          :key="icon"
-          :name="icon"
-          class="c-index__icon hint--top hint--no-animate"
-          color="white"
-        )
-
-      base-button(
-        v-if="maxIcons !== 1000"
-        @click="maxIcons = 1000;"
-        :reverse="true"
-        color="white"
-        size="small"
-      ) Show all icons
 
   base-divider(
     color="black"
@@ -449,25 +136,26 @@
 
 <script>
 // PROJECT
-import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
-import BaseBadge from "@/components/darkmode/base/BaseBadge";
-import BaseButton from "@/components/darkmode/base/BaseButton";
 import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import BaseHeading from "@/components/darkmode/base/BaseHeading";
-import BaseIcon from "@/components/darkmode/base/BaseIcon";
-import BaseLoader from "@/components/darkmode/base/BaseLoader";
-import BaseSocialAuth from "@/components/darkmode/base/BaseSocialAuth";
-import FieldCheckbox from "@/components/darkmode/form/FieldCheckbox";
-import FieldFile from "@/components/darkmode/form/FieldFile";
-import FieldInput from "@/components/darkmode/form/FieldInput";
-import FieldRadio from "@/components/darkmode/form/FieldRadio";
-import FieldSelect from "@/components/darkmode/form/FieldSelect";
-import FieldTabs from "@/components/darkmode/form/FieldTabs";
-import FieldTextarea from "@/components/darkmode/form/FieldTextarea";
-import FieldToggle from "@/components/darkmode/form/FieldToggle";
-import GuideColor from "@/components/guide/GuideColor";
-import GuideHeadings from "@/components/guide/GuideHeadings";
-import GuideHeadlines from "@/components/guide/GuideHeadlines";
+import CommonHeadlines from "@/components/common/CommonHeadlines";
+import GuideBaseAvatars from "@/components/guide/GuideBaseAvatars";
+import GuideBaseBadges from "@/components/guide/GuideBaseBadges";
+import GuideBaseButtons from "@/components/guide/GuideBaseButtons";
+import GuideBaseDividers from "@/components/guide/GuideBaseDividers";
+import GuideBaseHeadings from "@/components/guide/GuideBaseHeadings";
+import GuideBaseIcons from "@/components/guide/GuideBaseIcons";
+import GuideBaseLoaders from "@/components/guide/GuideBaseLoaders";
+import GuideBaseSocialLogins from "@/components/guide/GuideBaseSocialLogins";
+import GuideColors from "@/components/guide/GuideColors";
+import GuideFieldCheckboxes from "@/components/guide/GuideFieldCheckboxes";
+import GuideFieldFiles from "@/components/guide/GuideFieldFiles";
+import GuideFieldInputs from "@/components/guide/GuideFieldInputs";
+import GuideFieldRadios from "@/components/guide/GuideFieldRadios";
+import GuideFieldSelects from "@/components/guide/GuideFieldSelects";
+import GuideFieldTabs from "@/components/guide/GuideFieldTabs";
+import GuideFieldTextareas from "@/components/guide/GuideFieldTextareas";
+import GuideFieldToggles from "@/components/guide/GuideFieldToggles";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
 import TheSubscriptionBox from "@/components/layouts/TheSubscriptionBox";
@@ -477,25 +165,26 @@ import icons from "@/schemas/icons";
 
 export default {
   components: {
-    BaseAvatar,
-    BaseBadge,
-    BaseButton,
     BaseDivider,
     BaseHeading,
-    BaseIcon,
-    BaseLoader,
-    BaseSocialAuth,
-    FieldCheckbox,
-    FieldInput,
-    FieldFile,
-    FieldRadio,
-    FieldSelect,
-    FieldTabs,
-    FieldTextarea,
-    FieldToggle,
-    GuideColor,
-    GuideHeadings,
-    GuideHeadlines,
+    CommonHeadlines,
+    GuideBaseAvatars,
+    GuideBaseBadges,
+    GuideBaseButtons,
+    GuideBaseDividers,
+    GuideBaseHeadings,
+    GuideBaseIcons,
+    GuideBaseLoaders,
+    GuideBaseSocialLogins,
+    GuideColors,
+    GuideFieldCheckboxes,
+    GuideFieldFiles,
+    GuideFieldInputs,
+    GuideFieldRadios,
+    GuideFieldSelects,
+    GuideFieldTabs,
+    GuideFieldTextareas,
+    GuideFieldToggles,
     TheGithubButtons,
     TheLogo,
     TheSubscriptionBox
@@ -509,7 +198,7 @@ export default {
         headings: false,
         buttons: false,
         badges: false,
-        socialAuths: false,
+        socialLogins: false,
         inputs: false,
         selects: false,
         textareas: false,
@@ -523,7 +212,6 @@ export default {
         avatars: false,
         icons: false
       },
-      maxIcons: 207,
 
       // --> COMPONENTS <--
       sections: [
@@ -587,13 +275,13 @@ export default {
           }
         },
         {
-          id: "socialAuths",
+          id: "socialLogins",
           headlines: {
             title: "SOCIAL LOGINS",
             description: "With a great description",
             hasDocumentation: true
           },
-          socialAuths: {
+          socialLogins: {
             networks: ["facebook", "messenger", "twitter", "google"],
             sizes: ["large", "small", "mini"]
           }
@@ -848,141 +536,13 @@ $c: ".c-index";
     margin-top: 20px;
   }
 
-  #{$c}__subscription-box {
-    // max-width: 500px;
-  }
+  #{$c}__form {
+    grid-template-columns: repeat(auto-fill, 360px);
+    text-align: left;
 
-  #{$c}__elements {
-    display: grid;
-    grid-gap: 40px;
-    justify-content: center;
-    margin-bottom: 40px;
-
-    #{$c}__category {
-      #{$c}__item {
-        margin-bottom: 20px;
-
-        &:last-of-type {
-          margin-bottom: 0;
-        }
-      }
-    }
-
-    // --> ORIENTATIONS <--
-
-    &--horizontal {
-      #{$c}__category {
-        display: flex;
-        align-items: center;
-        flex-direction: row-reverse;
-        justify-content: center;
-
-        #{$c}__item {
-          display: block;
-          margin-right: 10px;
-          margin-bottom: 0;
-
-          &:first-of-type {
-            margin-right: 0;
-          }
-        }
-      }
-    }
-
-    &--vertical-on-mobile {
-      @include mq($from: mobile, $until: tablet) {
-        #{$c}__category {
-          display: block;
-
-          #{$c}__item {
-            margin-right: 0;
-            margin-bottom: 20px;
-
-            &:last-of-type {
-              margin-bottom: 0;
-            }
-          }
-        }
-      }
-    }
-
-    // --> SECTIONS <--
-
-    &--avatars {
-      grid-gap: 20px;
-      grid-template-columns: repeat(auto-fill, 100%);
-      margin-bottom: 20px;
-    }
-
-    &--colors {
-      grid-gap: 20px;
-      grid-template-columns: repeat(auto-fill, 100px);
-      margin-bottom: 0;
-    }
-
-    &--buttons {
-      grid-template-columns: repeat(auto-fill, 250px);
-    }
-
-    &--badges {
-      grid-template-columns: repeat(auto-fill, 400px);
-      margin-bottom: 0;
-    }
-
-    &--dividers {
-      grid-gap: 20px;
-      grid-template-columns: repeat(auto-fill, 100%);
-      margin-bottom: 0;
-
-      #{$c}__divider {
-        margin: 0 auto;
-      }
-    }
-
-    &--files {
-      .dm-field-file__information {
-        min-width: 235px;
-      }
-    }
-
-    &--form {
-      grid-template-columns: repeat(auto-fill, 360px);
-      text-align: left;
-
-      input::placeholder,
-      textarea::placeholder {
-        text-transform: capitalize;
-      }
-    }
-
-    &--icons {
-      overflow: hidden;
-      grid-gap: 20px;
-      grid-template-columns: repeat(auto-fill, 24px);
-
-      #{$c}__icon {
-        cursor: pointer;
-
-        // Update tooltip color
-        &::before {
-          border-top-color: $black;
-        }
-        &::after {
-          background: $black;
-        }
-      }
-    }
-
-    &--loaders {
-      grid-gap: 30px;
-      grid-template-columns: repeat(auto-fill, 80%);
-      margin-bottom: 0;
-    }
-
-    &--social-auths {
-      grid-gap: 20px;
-      grid-template-columns: repeat(auto-fill, 100%);
-      margin-bottom: 0;
+    input::placeholder,
+    textarea::placeholder {
+      text-transform: capitalize;
     }
   }
 
