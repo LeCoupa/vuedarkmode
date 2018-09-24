@@ -4,27 +4,7 @@
 
 <template lang="pug">
 .c-index
-  the-logo(
-    class="c-index__logo"
-  )
-  base-divider
-
-  base-heading(
-    type="h1"
-  ) A MINIMALIST DARK DESIGN SYSTEM FOR VUE.JS 👩‍🎨👨‍🎨
-
-  base-heading(
-    type="h2"
-    color="grey"
-    fontWeight="regular"
-  ) Based components designed for the insomniacs who enjoy dark interfaces as much as we do.
-
-  the-github-buttons(
-    class="c-index__github-buttons"
-    repo="dark-mode"
-    user="lecoupa"
-  )
-  the-subscription-box
+  the-header
 
   section(
     v-for="section in sections"
@@ -154,6 +134,7 @@ import GuideFieldTextareas from "@/components/guide/GuideFieldTextareas";
 import GuideFieldToggles from "@/components/guide/GuideFieldToggles";
 import TheFooter from "@/components/layouts/TheFooter";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
+import TheHeader from "@/components/layouts/TheHeader";
 import TheLogo from "@/components/layouts/TheLogo";
 import TheSubscriptionBox from "@/components/layouts/TheSubscriptionBox";
 
@@ -184,6 +165,7 @@ export default {
     GuideFieldToggles,
     TheGithubButtons,
     TheFooter,
+    TheHeader,
     TheLogo,
     TheSubscriptionBox
   },
@@ -213,6 +195,14 @@ export default {
 
       // --> COMPONENTS <--
       sections: [
+        {
+          id: "installation",
+          headlines: {
+            title: "INSTALLATION",
+            description: "Here is how you join us to the dark side 👻",
+            hasDocumentation: false
+          }
+        },
         {
           id: "colors",
           headlines: {
@@ -530,10 +520,6 @@ export default {
 $c: ".c-index";
 
 #{$c} {
-  #{$c}__github-buttons {
-    margin-top: 20px;
-  }
-
   #{$c}__form {
     grid-template-columns: repeat(auto-fill, 360px);
     text-align: left;
