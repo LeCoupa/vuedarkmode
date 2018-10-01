@@ -5,6 +5,10 @@
 <template lang="pug">
 footer.c-the-footer
   span.c-the-footer__line Made in the dark by Nada Rifki &amp; Julien Le Coupanec.
+
+  the-logo(
+    size="50px"
+  )
 </template>
 
 <!-- *************************************************************************
@@ -12,7 +16,14 @@ footer.c-the-footer
      ************************************************************************* -->
 
 <script>
-export default {};
+// PROJECT
+import TheLogo from "@/components/layouts/TheLogo";
+
+export default {
+  components: {
+    TheLogo
+  }
+};
 </script>
 
 <!-- *************************************************************************
@@ -25,6 +36,7 @@ $c: ".c-the-footer";
 #{$c} {
   #{$c}__line {
     display: block;
+    margin-bottom: 12px;
     font-size: 14px;
     line-height: 22px;
   }

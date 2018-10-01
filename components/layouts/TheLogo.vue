@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg :width="size" :height="size" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
     <g id="Dark-Mode" transform="translate(-545.000000, -60.000000)">
       <g id="Content-[40v-c]" transform="translate(-75.000000, 60.000000)">
@@ -34,7 +34,14 @@
      ************************************************************************* -->
 
 <script>
-export default {};
+export default {
+  props: {
+    size: {
+      type: String,
+      default: "200px"
+    }
+  }
+};
 </script>
 
 <!-- *************************************************************************
