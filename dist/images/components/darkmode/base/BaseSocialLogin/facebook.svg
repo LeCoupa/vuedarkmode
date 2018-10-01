@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>facebook</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dark-Mode" transform="translate(-441.000000, -3009.000000)" fill="#FFFFFF">
+            <g id="Content-[40v-c]" transform="translate(-75.000000, 60.000000)">
+                <g id="Social-Connects-[40v-c]" transform="translate(355.000000, 2836.000000)">
+                    <g id="Content-[20v-c]" transform="translate(0.000000, 103.000000)">
+                        <g id="Facebook-[20h-m]">
+                            <g id="Large-[c-m]">
+                                <g id="Label" transform="translate(161.000000, 10.000000)">
+                                    <path d="M18.896191,0 L1.103809,0 C0.494128755,0 0,0.494126904 0,1.10380487 L0,18.8961202 C0,19.5057232 0.494128755,20 1.103809,20 L10.682668,20 L10.682668,12.2549317 L8.07624001,12.2549317 L8.07624001,9.23651623 L10.682668,9.23651623 L10.682668,7.01054722 C10.682668,4.42735907 12.260373,3.02073849 14.5648085,3.02073849 C15.6686924,3.02073849 16.6173837,3.10286817 16.893823,3.13958673 L16.893823,5.83922516 L15.2955855,5.83997452 C14.0423539,5.83997452 13.7996358,6.43548961 13.7996358,7.30939133 L13.7996358,9.23651623 L16.7886127,9.23651623 L16.3994695,12.2549317 L13.7996358,12.2549317 L13.7996358,20 L18.896191,20 C19.5057963,20 20,19.5057232 20,18.8961202 L20,1.10380487 C20,0.494126904 19.5057963,0 18.896191,0" id="facebook"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
