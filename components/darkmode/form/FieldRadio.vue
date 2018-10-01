@@ -10,13 +10,12 @@ div(
     "dm-field-radio--" + size,
     "dm-field-radio--" + status,
     {
+      "dm-field-radio--disabled": disabled,
       "dm-field-radio--full-width": fullWidth
     }
   ]`
 )
-  div(
-    class="dm-field-radio__container"
-  )
+  .dm-field-radio__container
     input(
       @change="onRadioChange"
       :checked="checked"
@@ -137,7 +136,6 @@ $statuses: error, normal, success, warning;
 
   #{$c}__container {
     display: flex;
-    user-select: none;
 
     #{$c}__field {
       position: relative;
@@ -242,6 +240,17 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--disabled {
+    opacity: 0.7;
+
+    #{$c}__container {
+      #{$c}__field,
+      #{$c}__label {
+        cursor: not-allowed;
+      }
+    }
+  }
 
   &--full-width {
     width: 100%;

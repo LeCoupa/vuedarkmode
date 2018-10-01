@@ -10,13 +10,12 @@ div(
     "dm-field-checkbox--" + size,
     "dm-field-checkbox--" + status,
     {
+      "dm-field-checkbox--disabled": disabled,
       "dm-field-checkbox--full-width": fullWidth
     }
   ]`
 )
-  div(
-    class="dm-field-checkbox__container"
-  )
+  .dm-field-checkbox__container
     input(
       @change="onCheckboxChange"
       :checked="checked"
@@ -137,7 +136,6 @@ $statuses: error, normal, success, warning;
 
   #{$c}__container {
     display: flex;
-    user-select: none;
 
     #{$c}__field {
       position: relative;
@@ -270,6 +268,17 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--disabled {
+    opacity: 0.7;
+
+    #{$c}__container {
+      #{$c}__field,
+      #{$c}__label {
+        cursor: not-allowed;
+      }
+    }
+  }
 
   &--full-width {
     width: 100%;

@@ -10,13 +10,12 @@ div(
     "dm-field-toggle--" + size,
     "dm-field-toggle--" + status,
     {
+      "dm-field-toggle--disabled": disabled,
       "dm-field-toggle--full-width": fullWidth
     }
   ]`
 )
-  div(
-    class="dm-field-toggle__container"
-  )
+  .dm-field-toggle__container
     input(
       @change="onToggleChange"
       :checked="checked"
@@ -137,7 +136,6 @@ $statuses: error, normal, success, warning;
 
   #{$c}__container {
     display: flex;
-    user-select: none;
 
     #{$c}__field {
       position: relative;
@@ -247,6 +245,25 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--disabled {
+    opacity: 0.7;
+
+    #{$c}__container {
+      #{$c}__field,
+      #{$c}__label {
+        cursor: not-allowed;
+      }
+
+      #{$c}__field {
+        &:hover {
+          &:before {
+            border-color: lighten($crimson, 10%);
+          }
+        }
+      }
+    }
+  }
 
   &--full-width {
     width: 100%;

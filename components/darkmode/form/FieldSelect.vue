@@ -10,6 +10,7 @@ div(
     "dm-field-select--" + status,
     {
       "dm-field-select--borders": borders,
+      "dm-field-select--disabled": disabled,
       "dm-field-select--focused": focused,
       "dm-field-select--full-width": fullWidth,
       "dm-field-select--with-left-icon": computedLeftIcon
@@ -286,6 +287,15 @@ $statuses: error, normal, success, warning;
       border-style: solid;
       border-radius: 6px;
       background-color: $ebony-clay-2;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.7;
+
+    #{$c}__label,
+    #{$c}__container {
+      cursor: not-allowed;
     }
   }
 

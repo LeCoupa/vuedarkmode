@@ -10,6 +10,7 @@ div(
     "dm-field-textarea--" + status,
     {
       "dm-field-textarea--borders": borders,
+      "dm-field-textarea--disabled": disabled,
       "dm-field-textarea--focused": focused,
       "dm-field-textarea--full-width": fullWidth
     }
@@ -259,6 +260,15 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--disabled {
+    opacity: 0.7;
+
+    #{$c}__label,
+    #{$c}__container {
+      cursor: not-allowed;
+    }
+  }
 
   &--borders {
     #{$c}__container {

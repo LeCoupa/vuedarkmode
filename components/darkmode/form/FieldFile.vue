@@ -9,6 +9,7 @@ div(
     "dm-field-file--" + size,
     "dm-field-file--" + status,
     {
+      "dm-field-file--disabled": disabled,
       "dm-field-file--full-width": fullWidth
     }
   ]`
@@ -39,6 +40,7 @@ div(
 
     input(
       @change="onFileChange"
+      :disabled="disabled"
       :id="uuid"
       :multiple="multiple"
       :name="name"
@@ -67,6 +69,10 @@ export default {
     description: {
       type: String,
       default: null
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     },
     fullWidth: {
       type: Boolean,
@@ -145,6 +151,7 @@ $statuses: error, normal, success, warning;
         color: $nepal;
       }
     }
+
     #{$c}__upload {
       position: relative;
       box-sizing: border-box;
@@ -215,6 +222,20 @@ $statuses: error, normal, success, warning;
   }
 
   // --> BOOLEANS <--
+
+  &--disabled {
+    opacity: 0.7;
+
+    #{$c}__container {
+      #{$c}__upload {
+        cursor: not-allowed;
+
+        &:hover {
+          border-color: $crimson;
+        }
+      }
+    }
+  }
 
   &--full-width {
     width: 100%;

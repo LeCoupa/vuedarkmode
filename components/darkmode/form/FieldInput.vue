@@ -10,6 +10,7 @@ div(
     "dm-field-input--" + status,
     {
       "dm-field-input--borders": borders,
+      "dm-field-input--disabled": disabled,
       "dm-field-input--focused": focused,
       "dm-field-input--full-width": fullWidth,
       "dm-field-input--rounded": rounded,
@@ -313,6 +314,15 @@ $statuses: error, normal, success, warning;
       border-style: solid;
       border-radius: 6px;
       background-color: $ebony-clay-2;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.7;
+
+    #{$c}__label,
+    #{$c}__container {
+      cursor: not-allowed;
     }
   }
 
