@@ -14,6 +14,7 @@ button(
     {
       "dm-base-button--capitalize": capitalize,
       "dm-base-button--circular": circular,
+      "dm-base-button--disabled": disabled,
       "dm-base-button--full-width": fullWidth,
       "dm-base-button--reverse": reverse,
       "dm-base-button--rounded": rounded
@@ -170,10 +171,6 @@ $sizes: mini, small, default, medium, large;
     transform: scale(0.98);
   }
 
-  &:disabled {
-    cursor: not-allowed;
-  }
-
   #{$c}__inner {
     display: flex;
     align-items: center;
@@ -267,6 +264,15 @@ $sizes: mini, small, default, medium, large;
     }
   }
 
+  &--disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    #{$c}__inner {
+      pointer-events: none;
+    }
+  }
+
   &--full-width {
     width: 100%;
   }
@@ -286,13 +292,13 @@ $sizes: mini, small, default, medium, large;
     }
 
     &:hover {
-      transform: initial;
       border-color: $white;
+      transform: initial;
     }
 
     &:active {
-      transform: initial;
       background: $white;
+      transform: initial;
     }
   }
 
