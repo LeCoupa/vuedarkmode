@@ -136,6 +136,13 @@ module.exports = {
 
   css: ["normalize.css/normalize.css", "hint.css/hint.min.css"],
 
+  env: {
+    baseUrl:
+      process.env.NODE_ENV === "production"
+        ? "https://lecoupa.github.io/dark-mode/"
+        : "http://localhost:3000"
+  },
+
   modules: [
     [
       "nuxt-sass-resources-loader",

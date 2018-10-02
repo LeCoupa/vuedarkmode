@@ -177,6 +177,7 @@ export default {
   data() {
     return {
       // --> STATE <--
+
       docs: {
         avatars: false,
         badges: false,

@@ -144,6 +144,7 @@ export default {
   data() {
     return {
       // --> STATE <--
+
       focused: false,
       uuid: ""
     };

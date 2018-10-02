@@ -121,6 +121,7 @@ export default {
   data() {
     return {
       // --> STATE <--
+
       focused: false,
       rightIcon: "arrow_drop_down",
       uuid: ""
