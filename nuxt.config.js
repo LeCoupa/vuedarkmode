@@ -3,7 +3,7 @@
  ***************************************************************************/
 
 const router =
-  process.env.DEPLOY_ENV === "production"
+  process.env.NODE_ENV === "production"
     ? {
         router: {
           base: "/dark-mode/"
