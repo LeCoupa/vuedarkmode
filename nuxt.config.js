@@ -133,7 +133,9 @@ module.exports = {
       }
     ]
   },
+
   css: ["normalize.css/normalize.css", "hint.css/hint.min.css"],
+
   modules: [
     [
       "nuxt-sass-resources-loader",
@@ -146,6 +148,7 @@ module.exports = {
       ]
     ]
   ],
+
   build: {
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
@@ -158,9 +161,6 @@ module.exports = {
       }
     },
     postcss: [require("autoprefixer")()]
-  },
-  generate: {
-    dir: "docs"
   },
 
   ...router
