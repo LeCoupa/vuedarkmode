@@ -1,3 +1,20 @@
+/**************************************************************************
+ * ENVIRONMENT CONFIGURATIONS
+ ***************************************************************************/
+
+const router =
+  process.env.DEPLOY_ENV === "production"
+    ? {
+        router: {
+          base: "/dark-mode/"
+        }
+      }
+    : {};
+
+/**************************************************************************
+ * EXPORT
+ ***************************************************************************/
+
 module.exports = {
   head: {
     title: "Dark Mode | A Minimalist Dark Design System for Vue.js",
@@ -116,12 +133,6 @@ module.exports = {
       }
     ]
   },
-  env: {
-    baseUrl:
-      process.env.NODE_ENV === "production"
-        ? "https://lecoupa.github.io/dark-mode/"
-        : "http://localhost:3000"
-  },
   css: ["normalize.css/normalize.css", "hint.css/hint.min.css"],
   modules: [
     [
@@ -150,5 +161,7 @@ module.exports = {
   },
   generate: {
     dir: "docs"
-  }
+  },
+
+  ...router
 };

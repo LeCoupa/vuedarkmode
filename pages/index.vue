@@ -499,7 +499,7 @@ export default {
         {
           id: "icons",
           headlines: {
-            title: "ICONS",
+            title: "ICONS FROM MATERIAL DESIGN",
             command: "npm install --save @darkmode/base-icon",
             hasDocumentation: true
           },
