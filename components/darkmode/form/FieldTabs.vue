@@ -162,10 +162,11 @@ $statuses: error, normal, success, warning;
   #{$c}__container {
     display: inline-block;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
+    font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+      sans-serif;
     cursor: pointer;
 
     #{$c}__tab {
-      user-select: none;
       display: inline-block;
       border-width: 1px;
       border-style: solid;
@@ -175,6 +176,7 @@ $statuses: error, normal, success, warning;
       background: $ebony-clay;
       color: $nepal;
       transition: all ease-in-out 0.25s;
+      user-select: none;
 
       &:first-of-type {
         border-left-color: $oxford-blue;

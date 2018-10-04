@@ -111,6 +111,8 @@ $sizes: mini, small, default, medium, large, huge;
   display: flex;
   align-items: center;
   flex-direction: column;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
 
   #{$c}__image {
     display: inline-block;
@@ -145,6 +147,7 @@ $sizes: mini, small, default, medium, large, huge;
 
     &--#{$size} {
       #{$c}__image {
+        border-radius: 2px + (2px * $i);
         @if ($size == "mini") {
           width: 30px;
           height: 30px;
@@ -152,7 +155,6 @@ $sizes: mini, small, default, medium, large, huge;
           width: 20px + (20px * $i);
           height: 20px + (20px * $i);
         }
-        border-radius: 2px + (2px * $i);
       }
 
       #{$c}__description {

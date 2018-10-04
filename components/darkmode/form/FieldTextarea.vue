@@ -203,6 +203,8 @@ $statuses: error, normal, success, warning;
   display: flex;
   flex-direction: column;
   text-align: left;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
 
   #{$c}__container {
     position: relative;

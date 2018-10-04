@@ -113,6 +113,8 @@ $sizes: mini, small, large;
   border-radius: 4px;
   box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
   color: $white;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
   transition: all ease-in-out 200ms;
   user-select: none;
   cursor: pointer;
@@ -138,8 +140,8 @@ $sizes: mini, small, large;
 
     #{$c}__label {
       margin-left: 8px;
-      font-size: 15px;
       font-weight: 500;
+      font-size: 15px;
       line-height: 20px;
     }
   }

@@ -62,6 +62,8 @@ $sizes: mini, small, default, medium, large;
   margin-bottom: 10px;
   color: $regent-st-blue;
   font-weight: 500;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
   user-select: none;
 
   // --> SIZES <--

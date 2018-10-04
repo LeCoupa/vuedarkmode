@@ -41,10 +41,6 @@ export default {
 
 // Objects, abstractions, and design patterns (e.g. .o-flexbox-column {})
 @import "./assets/objects/layouts";
-
-// Fonts from Google
-@import url("https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900");
-
 $c: ".l-default";
 
 html {

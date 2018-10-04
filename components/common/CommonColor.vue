@@ -50,9 +50,9 @@ $c: ".c-common-color";
     #{$c}__highlight {
       box-sizing: border-box;
       height: 100px;
+      border: 1px solid $oxford-blue;
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
-      border: 1px solid $oxford-blue;
     }
 
     #{$c}__hex {
@@ -64,8 +64,8 @@ $c: ".c-common-color";
       background: $ebony-clay-2;
       color: $white;
       text-transform: uppercase;
+      font-weight: 700;
       font-size: 14px;
-      font-family: "Heebo-Bold";
     }
   }
 

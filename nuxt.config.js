@@ -59,6 +59,13 @@ module.exports = {
       }
     ],
     link: [
+      // Google Fonts
+      // https://fonts.google.com/specimen/Heebo?selection.family=Heebo:100,300,400,500,700,800,900
+      {
+        href:
+          "https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900",
+        rel: "stylesheet"
+      },
       // Favicons Generated with
       // http://www.favicomatic.com/
       {

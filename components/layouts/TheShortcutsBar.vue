@@ -131,11 +131,11 @@ $c: ".c-the-shortcuts-bar";
       flex: 0 0 auto;
       margin-right: 10px;
       color: white;
-      font-family: "Heebo";
       user-select: none;
 
       #{$c}__description {
         margin-left: 8px;
+        font-weight: 400;
         font-size: 14px;
       }
     }

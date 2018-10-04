@@ -63,10 +63,12 @@ $sizes: mini, small, default, medium, large;
   display: inline-block;
   border-width: 1px;
   border-style: solid;
-  text-transform: uppercase;
   border-radius: 100px;
-  user-select: none;
   color: $white;
+  text-transform: uppercase;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
+  user-select: none;
 
   // --> COLORS <--
 

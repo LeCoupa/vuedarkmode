@@ -85,6 +85,8 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
 #{$c} {
   text-align: left;
   font-size: 14px;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
   user-select: none;
 
   #{$c}__content {

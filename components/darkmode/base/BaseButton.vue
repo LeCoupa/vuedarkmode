@@ -172,6 +172,8 @@ $sizes: mini, small, default, medium, large;
   background-color: transparent; // Chrome displays white borders sometimes
   color: $white;
   font-weight: 500;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
   transition: all ease-in-out 200ms;
   user-select: none;
   cursor: pointer;

@@ -47,6 +47,8 @@ $sizes: mini, small, default, medium, large;
 #{$c} {
   margin: 10px 0 0;
   color: $nepal;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
 
   @each $size in $sizes {
     $i: index($sizes, $size) - 1;

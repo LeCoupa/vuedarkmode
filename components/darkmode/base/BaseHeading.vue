@@ -97,6 +97,9 @@ export default {
 $c: ".dm-base-heading";
 
 #{$c} {
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
+
   // --> COLORS <--
 
   &--grey {
