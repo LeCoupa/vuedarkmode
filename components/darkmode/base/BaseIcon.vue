@@ -72,15 +72,15 @@ export default {
   line-height: 1;
   direction: ltr;
   user-select: none;
+
+  -webkit-font-smoothing: antialiased;
 }
 
 @font-face {
   font-weight: 400;
   font-style: normal;
   font-family: "Material Icons";
-  src: url("/fonts/material-icons/MaterialIcons-Regular.eot"); /* For IE6-8 */
-  src: url("/fonts/material-icons/MaterialIcons-Regular.woff2") format("woff2"),
-    url("/fonts/material-icons/MaterialIcons-Regular.woff") format("woff"),
-    url("/fonts/material-icons/MaterialIcons-Regular.ttf") format("truetype");
+  src: url("https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
+    format("woff2");
 }
 </style>
