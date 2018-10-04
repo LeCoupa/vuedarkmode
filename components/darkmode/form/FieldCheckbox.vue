@@ -201,7 +201,7 @@ $statuses: error, normal, success, warning;
       flex: 1;
       margin-bottom: 0;
       color: $white;
-      font-family: "Heebo Regular";
+      font-weight: 400;
     }
   }
 

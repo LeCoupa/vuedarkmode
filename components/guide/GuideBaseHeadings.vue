@@ -161,11 +161,11 @@ $c: ".c-guide-headings";
       flex: 2;
 
       &--bold {
-        font-family: "Heebo Bold";
+        font-weight: 700;
       }
 
       &--medium {
-        font-family: "Heebo Medium";
+        font-weight: 500;
       }
     }
 
@@ -205,8 +205,8 @@ $c: ".c-guide-headings";
       padding-bottom: 20px;
       color: $nepal;
       text-transform: uppercase;
+      font-weight: 700;
       font-size: 14px;
-      font-family: "Heebo Bold";
       user-select: none;
     }
 

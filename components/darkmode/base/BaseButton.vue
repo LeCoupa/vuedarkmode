@@ -171,7 +171,7 @@ $sizes: mini, small, default, medium, large;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: transparent; // Chrome displays white borders sometimes
   color: $white;
-  font-family: "Heebo Medium";
+  font-weight: 500;
   transition: all ease-in-out 200ms;
   user-select: none;
   cursor: pointer;

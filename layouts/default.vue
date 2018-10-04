@@ -42,6 +42,9 @@ export default {
 // Objects, abstractions, and design patterns (e.g. .o-flexbox-column {})
 @import "./assets/objects/layouts";
 
+// Fonts from Google
+@import url("https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900");
+
 $c: ".l-default";
 
 html {
@@ -54,8 +57,8 @@ html {
   text-align: center;
   word-spacing: 1px;
   font-size: 16px;
-  font-family: "Heebo Regular", "Helvetica Neue", Source Sans Pro, Helvetica,
-    Arial, sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
+    sans-serif;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -75,40 +78,5 @@ html {
 a {
   text-decoration: none;
   cursor: pointer;
-}
-
-@font-face {
-  font-family: "Heebo Thin";
-  src: url("/fonts/heebo/Heebo-Thin.otf");
-}
-
-@font-face {
-  font-family: "Heebo Light";
-  src: url("/fonts/heebo/Heebo-Light.otf");
-}
-
-@font-face {
-  font-family: "Heebo Regular";
-  src: url("/fonts/heebo/Heebo-Regular.otf");
-}
-
-@font-face {
-  font-family: "Heebo Medium";
-  src: url("/fonts/heebo/Heebo-Medium.otf");
-}
-
-@font-face {
-  font-family: "Heebo Bold";
-  src: url("/fonts/heebo/Heebo-Bold.otf");
-}
-
-@font-face {
-  font-family: "Heebo ExtraBold";
-  src: url("/fonts/heebo/Heebo-ExtraBold.otf");
-}
-
-@font-face {
-  font-family: "Heebo Black";
-  src: url("/fonts/heebo/Heebo-Black.otf");
 }
 </style>

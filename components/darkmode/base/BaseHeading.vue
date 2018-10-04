@@ -31,7 +31,17 @@ export default {
       type: String,
       default: null,
       validator(x) {
-        return ["regular", "medium", "bold"].indexOf(x) !== -1;
+        return (
+          [
+            "thin",
+            "light",
+            "regular",
+            "medium",
+            "bold",
+            "extrabold",
+            "black"
+          ].indexOf(x) !== -1
+        );
       }
     },
     type: {
@@ -103,42 +113,58 @@ $c: ".dm-base-heading";
 
   // --> FONT-WEIGHT <--
 
+  &--thin {
+    font-weight: 100;
+  }
+
+  &--light {
+    font-weight: 300;
+  }
+
   &--regular {
-    font-family: "Heebo Regular";
+    font-weight: 400;
   }
 
   &--medium {
-    font-family: "Heebo Medium";
+    font-weight: 500;
   }
 
   &--bold {
-    font-family: "Heebo Bold";
+    font-weight: 700;
+  }
+
+  &--extrabold {
+    font-weight: 800;
+  }
+
+  &--black {
+    font-weight: 900;
   }
 
   // --> TYPES <--
 
   &--h1 {
+    margin-bottom: 6px;
     font-size: 26px;
     line-height: 32px;
-    margin-bottom: 6px;
   }
 
   &--h2 {
+    margin-bottom: 6px;
     font-size: 22px;
     line-height: 28px;
-    margin-bottom: 6px;
   }
 
   &--h3 {
+    margin-bottom: 6px;
     font-size: 18px;
     line-height: 24px;
-    margin-bottom: 6px;
   }
 
   &--p {
+    margin-bottom: 20px;
     font-size: 16px;
     line-height: 24px;
-    margin-bottom: 20px;
   }
 }
 </style>

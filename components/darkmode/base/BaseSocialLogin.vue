@@ -139,7 +139,7 @@ $sizes: mini, small, large;
     #{$c}__label {
       margin-left: 8px;
       font-size: 15px;
-      font-family: "Heebo Medium";
+      font-weight: 500;
       line-height: 20px;
     }
   }
