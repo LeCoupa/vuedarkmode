@@ -42,7 +42,21 @@ export default {
   props: {
     color: {
       type: String,
-      default: "blue"
+      default: "blue",
+      validator(x) {
+        return (
+          [
+            "black",
+            "blue",
+            "green",
+            "orange",
+            "purple",
+            "red",
+            "turquoise",
+            "white"
+          ].indexOf(x) !== -1
+        );
+      }
     },
     labelSecondary: {
       type: String,

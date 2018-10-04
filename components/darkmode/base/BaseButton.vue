@@ -68,7 +68,12 @@ export default {
     },
     color: {
       type: String,
-      default: "blue"
+      default: "blue",
+      validator(x) {
+        return (
+          ["black", "blue", "green", "red", "orange", "white"].indexOf(x) !== -1
+        );
+      }
     },
     disabled: {
       type: Boolean,
@@ -100,11 +105,19 @@ export default {
     },
     size: {
       type: String,
-      default: "default"
+      default: "default",
+      validator(x) {
+        return (
+          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
+        );
+      }
     },
     type: {
       type: String,
-      default: "button"
+      default: "button",
+      validator(x) {
+        return ["button", "reset", "submit"].indexOf(x) !== -1;
+      }
     }
   },
 

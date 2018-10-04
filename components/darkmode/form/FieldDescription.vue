@@ -25,7 +25,12 @@ export default {
     },
     size: {
       type: String,
-      default: "default"
+      default: "default",
+      validator(x) {
+        return (
+          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
+        );
+      }
     }
   }
 };

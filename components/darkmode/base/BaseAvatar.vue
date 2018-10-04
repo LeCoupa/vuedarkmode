@@ -75,7 +75,13 @@ export default {
     },
     size: {
       type: String,
-      default: "default"
+      default: "default",
+      validator(x) {
+        return (
+          ["mini", "small", "default", "medium", "large", "huge"].indexOf(x) !==
+          -1
+        );
+      }
     },
     src: {
       type: String,

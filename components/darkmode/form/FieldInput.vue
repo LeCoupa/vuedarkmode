@@ -81,7 +81,10 @@ export default {
   props: {
     autocomplete: {
       type: String,
-      default: "off"
+      default: "off",
+      validator(x) {
+        return ["off", "on"].indexOf(x) !== -1;
+      }
     },
     borders: {
       type: Boolean,
@@ -125,15 +128,26 @@ export default {
     },
     size: {
       type: String,
-      default: "default"
+      default: "default",
+      validator(x) {
+        return (
+          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
+        );
+      }
     },
     status: {
       type: String,
-      default: "normal"
+      default: "normal",
+      validator(x) {
+        return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
+      }
     },
     type: {
       type: String,
-      default: "text"
+      default: "text",
+      validator(x) {
+        return ["number", "text"].indexOf(x) !== -1;
+      }
     },
     value: {
       type: [String, Number],

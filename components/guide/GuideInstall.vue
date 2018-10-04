@@ -4,7 +4,7 @@
 
 <template lang="pug">
 .c-guide-install
-  common-command npm install --save @darkmode
+  common-command npm install --save darkmode
 </template>
 
 <!-- *************************************************************************

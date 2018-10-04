@@ -54,11 +54,17 @@ export default {
     },
     network: {
       type: String,
-      required: true
+      required: true,
+      validator(x) {
+        return ["facebook", "google", "messenger", "twitter"].indexOf(x) !== -1;
+      }
     },
     size: {
       type: String,
-      default: "large"
+      default: "large",
+      validator(x) {
+        return ["mini", "small", "large"].indexOf(x) !== -1;
+      }
     }
   },
 

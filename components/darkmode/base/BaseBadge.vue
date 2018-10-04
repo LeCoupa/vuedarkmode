@@ -21,11 +21,30 @@ export default {
   props: {
     color: {
       type: String,
-      default: "blue"
+      default: "blue",
+      validator(x) {
+        return (
+          [
+            "black",
+            "blue",
+            "green",
+            "orange",
+            "purple",
+            "red",
+            "turquoise",
+            "white"
+          ].indexOf(x) !== -1
+        );
+      }
     },
     size: {
       type: String,
-      default: "default"
+      default: "default",
+      validator(x) {
+        return (
+          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
+        );
+      }
     }
   }
 };

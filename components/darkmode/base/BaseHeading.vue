@@ -22,15 +22,24 @@ export default {
   props: {
     color: {
       type: String,
-      default: null
+      default: null,
+      validator(x) {
+        return ["grey", "white", "white2"].indexOf(x) !== -1;
+      }
     },
     fontWeight: {
       type: String,
-      default: null
+      default: null,
+      validator(x) {
+        return ["regular", "medium", "bold"].indexOf(x) !== -1;
+      }
     },
     type: {
       type: String,
-      required: true
+      required: true,
+      validator(x) {
+        return ["h1", "h2", "h3", "p"].indexOf(x) !== -1;
+      }
     }
   },
 
