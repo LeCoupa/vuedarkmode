@@ -20,7 +20,7 @@ header.c-the-header
 
   the-github-buttons(
     class="c-the-header__github-buttons"
-    repo="dark-mode"
+    repo="vuedarkmode"
     user="lecoupa"
   )
   the-subscription-box

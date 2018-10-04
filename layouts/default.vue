@@ -6,7 +6,7 @@
 .l-default
   .l-default__inner
     the-github-corner(
-      link="https://github.com/LeCoupa/dark-mode"
+      link="https://github.com/LeCoupa/vuedarkmode"
     )
     the-shortcuts-bar(
       class="l-default__shortcuts-bar"

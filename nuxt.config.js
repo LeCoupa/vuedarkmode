@@ -6,7 +6,7 @@ const router =
   process.env.NODE_ENV === "production"
     ? {
         router: {
-          base: "/dark-mode/"
+          base: "/vuedarkmode/"
         }
       }
     : {};
@@ -146,7 +146,7 @@ module.exports = {
   env: {
     baseUrl:
       process.env.NODE_ENV === "production"
-        ? "https://lecoupa.github.io/dark-mode/"
+        ? "https://lecoupa.github.io/vuedarkmode/"
         : "http://localhost:3000"
   },
 

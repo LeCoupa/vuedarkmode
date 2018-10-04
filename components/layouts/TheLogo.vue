@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-<a href="https://github.com/LeCoupa/dark-mode" target="_blank">
+<a href="https://github.com/LeCoupa/vuedarkmode" target="_blank">
   <svg :width="size" :height="size" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g id="Dark-Mode" transform="translate(-545.000000, -60.000000)">
