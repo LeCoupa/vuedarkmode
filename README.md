@@ -1,4 +1,4 @@
-# Dark Mode
+# Vue Dark Mode
 
 > A Minimalist Dark Design System for Vue.js 👩‍🎨👨‍🎨
 

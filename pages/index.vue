@@ -222,7 +222,7 @@ export default {
           id: "headings",
           headlines: {
             title: "HEADINGS",
-            command: "npm install --save @darkmode/base-heading",
+            command: "npm install --save @vuedarkmode/base-heading",
             hasDocumentation: true
           },
           headings: []
@@ -231,7 +231,7 @@ export default {
           id: "buttons",
           headlines: {
             title: "BUTTONS",
-            command: "npm install --save @darkmode/base-button",
+            command: "npm install --save @vuedarkmode/base-button",
             hasDocumentation: true
           },
           buttons: {
@@ -251,7 +251,7 @@ export default {
           id: "badges",
           headlines: {
             title: "BADGES",
-            command: "npm install --save @darkmode/base-badge",
+            command: "npm install --save @vuedarkmode/base-badge",
             hasDocumentation: true
           },
           badges: {
@@ -272,7 +272,7 @@ export default {
           id: "socialLogins",
           headlines: {
             title: "SOCIAL LOGINS",
-            command: "npm install --save @darkmode/base-social-login",
+            command: "npm install --save @vuedarkmode/base-social-login",
             hasDocumentation: true
           },
           socialLogins: {
@@ -284,7 +284,7 @@ export default {
           id: "inputs",
           headlines: {
             title: "INPUTS",
-            command: "npm install --save @darkmode/field-input",
+            command: "npm install --save @vuedarkmode/field-input",
             hasDocumentation: true
           },
           inputs: {
@@ -299,7 +299,7 @@ export default {
           id: "selects",
           headlines: {
             title: "SELECTS",
-            command: "npm install --save @darkmode/field-select",
+            command: "npm install --save @vuedarkmode/field-select",
             hasDocumentation: true
           },
           selects: {
@@ -314,7 +314,7 @@ export default {
           id: "textareas",
           headlines: {
             title: "TEXTAREAS",
-            command: "npm install --save @darkmode/field-textarea",
+            command: "npm install --save @vuedarkmode/field-textarea",
             hasDocumentation: true
           },
           textareas: {
@@ -329,7 +329,7 @@ export default {
           id: "checkboxes",
           headlines: {
             title: "CHECKBOXES",
-            command: "npm install --save @darkmode/field-checkbox",
+            command: "npm install --save @vuedarkmode/field-checkbox",
             hasDocumentation: true
           },
           checkboxes: {
@@ -344,7 +344,7 @@ export default {
           id: "radios",
           headlines: {
             title: "RADIOS",
-            command: "npm install --save @darkmode/field-radio",
+            command: "npm install --save @vuedarkmode/field-radio",
             hasDocumentation: true
           },
           radios: {
@@ -359,7 +359,7 @@ export default {
           id: "toggles",
           headlines: {
             title: "TOGGLES",
-            command: "npm install --save @darkmode/field-toggle",
+            command: "npm install --save @vuedarkmode/field-toggle",
             hasDocumentation: true
           },
           toggles: {
@@ -374,7 +374,7 @@ export default {
           id: "files",
           headlines: {
             title: "FILE UPLOAD",
-            command: "npm install --save @darkmode/field-file",
+            command: "npm install --save @vuedarkmode/field-file",
             hasDocumentation: true
           },
           files: {
@@ -389,7 +389,7 @@ export default {
           id: "tabs",
           headlines: {
             title: "TABS",
-            command: "npm install --save @darkmode/field-tabs",
+            command: "npm install --save @vuedarkmode/field-tabs",
             hasDocumentation: true
           },
           tabs: {
@@ -404,7 +404,7 @@ export default {
           id: "dividers",
           headlines: {
             title: "DIVIDERS",
-            command: "npm install --save @darkmode/base-divider",
+            command: "npm install --save @vuedarkmode/base-divider",
             hasDocumentation: true
           },
           dividers: {
@@ -425,7 +425,7 @@ export default {
           id: "loaders",
           headlines: {
             title: "LOADERS",
-            command: "npm install --save @darkmode/base-loader",
+            command: "npm install --save @vuedarkmode/base-loader",
             hasDocumentation: true
           },
           loaders: [
@@ -475,7 +475,7 @@ export default {
           id: "avatars",
           headlines: {
             title: "AVATARS",
-            command: "npm install --save @darkmode/base-avatar",
+            command: "npm install --save @vuedarkmode/base-avatar",
             hasDocumentation: true
           },
           avatars: {
@@ -501,7 +501,7 @@ export default {
           id: "icons",
           headlines: {
             title: "ICONS FROM MATERIAL DESIGN",
-            command: "npm install --save @darkmode/base-icon",
+            command: "npm install --save @vuedarkmode/base-icon",
             hasDocumentation: true
           },
           icons: icons

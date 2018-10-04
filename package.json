@@ -1,9 +1,8 @@
 {
-  "name": "darkmode",
-  "version": "1.0.0",
-  "description": "A Minimalist Dark Design System for Vue.js",
+  "name": "vuedarkmode",
+  "version": "0.0.1",
+  "description": "A minimalistic dark design system for vue.js",
   "author": "Julien <julien.le.coupanec@gmail.com>",
-  "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "NODE_ENV=production nuxt build",
