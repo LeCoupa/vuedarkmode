@@ -12,3 +12,6 @@ npm-debug.log
 
 # Nuxt build
 .nuxt
+
+# Build folder
+.dist
