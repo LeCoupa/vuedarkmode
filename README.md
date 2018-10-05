@@ -1,6 +1,6 @@
 <p align="center" style="background: #1b2431; padding: 20px 0;">
   <a href="https://www.vuedarkmode.com" target="_blank">
-    <img height="100" src="https://raw.githubusercontent.com/LeCoupa/vuedarkmode/master/static/images/docs/logo.svg?sanitize=true">
+    <img height="200" src="https://raw.githubusercontent.com/LeCoupa/vuedarkmode/master/static/images/docs/logo.svg?sanitize=true">
   </a>
 </p>
 
