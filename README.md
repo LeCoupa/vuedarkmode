@@ -4,8 +4,6 @@
   </a>
 </p>
 
-<br>
-
 <h2 align="center">Vue Dark Mode</h2>
 
-<p>A minimalistic dark design system for vue.js 👩‍🎨👨‍🎨</p>
+<p align="center">A minimalistic dark design system for vue.js 👩‍🎨👨‍🎨</p>
