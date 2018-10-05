@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="800px" height="280px" viewBox="0 0 800 280" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1000px" height="260px" viewBox="0 0 1000 260" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
-    <title>Group</title>
+    <title>banner</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Dark-Mode" transform="translate(-188.000000, -151.000000)">
             <g id="Content-[40v-c]" transform="translate(-132.000000, 151.000000)">
                 <g id="Header-[15v-c]">
-                    <g id="Group" transform="translate(320.000000, 0.000000)">
-                        <rect id="Rectangle" fill="#1B2431" x="0" y="0" width="800" height="280"></rect>
-                        <g id="logo" transform="translate(300.000000, 40.000000)">
+                    <g id="banner" transform="translate(320.000000, 0.000000)">
+                        <rect id="Rectangle" fill="#1B2431" x="0" y="0" width="1000" height="260"></rect>
+                        <g id="logo" transform="translate(400.000000, 30.000000)">
                             <g id="Background" fill="#1991EB">
                                 <path d="M100.00049,181.55021 L18.4499533,100.000163 L100.00049,18.44979 L181.550047,100.000163 L100.00049,181.55021 Z M19.0885867,100.000163 L100.00049,180.91174 L180.91174,100.000163 L100.00049,19.0884233 L19.0885867,100.000163 Z" id="Inner"></path>
                                 <path d="M100,197.523683 L2.475536,100.000195 L3.025204,99.4507227 L100,2.47631733 L197.524464,100.000195 L100,197.523683 Z M4.673622,100.000195 L100,195.325792 L195.326573,100.000195 L100,4.67440333 L4.673622,100.000195 Z" id="Outer-2"></path>
