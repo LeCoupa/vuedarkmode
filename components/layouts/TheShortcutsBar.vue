@@ -10,8 +10,8 @@
     class="c-the-shortcuts-bar__contact-box"
   )
     base-avatar(
-      :src="baseUrl + '/images/medley/nada.jpg'"
       size="mini"
+      src="/images/medley/nada.jpg"
     )
     span.c-the-shortcuts-bar__description Looking for a Vue.js / Nuxt.js freelancer? Ping me, I'm available! 👩‍🎨
 
@@ -55,15 +55,6 @@ export default {
     BaseAvatar,
     BaseIcon,
     FieldToggle
-  },
-
-  data() {
-    return {
-      // --> STATE <--
-
-      baseUrl: process.env.baseUrl,
-      theme: "dark"
-    };
   },
 
   methods: {
