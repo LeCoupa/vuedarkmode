@@ -1,22 +1,4 @@
 /**************************************************************************
- * ENVIRONMENT CONFIGURATIONS
- ***************************************************************************/
-
-const baseUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://lecoupa.github.io/vuedarkmode"
-    : "http://localhost:3000";
-
-const router =
-  process.env.NODE_ENV === "production"
-    ? {
-        router: {
-          base: "/vuedarkmode/"
-        }
-      }
-    : {};
-
-/**************************************************************************
  * EXPORT
  ***************************************************************************/
 
@@ -44,23 +26,23 @@ module.exports = {
       },
       {
         name: "msapplication-TileImage",
-        content: baseUrl + "/favicons/mstile-144x144.png"
+        content: "/favicons/mstile-144x144.png"
       },
       {
         name: "msapplication-square70x70logo",
-        content: baseUrl + "/favicons/mstile-70x70.png"
+        content: "/favicons/mstile-70x70.png"
       },
       {
         name: "msapplication-square150x150logo",
-        content: baseUrl + "/favicons/mstile-150x150.png"
+        content: "/favicons/mstile-150x150.png"
       },
       {
         name: "msapplication-wide310x150logo",
-        content: baseUrl + "/favicons/mstile-310x150.png"
+        content: "/favicons/mstile-310x150.png"
       },
       {
         name: "msapplication-square310x310logo",
-        content: baseUrl + "/favicons/mstile-310x310.png"
+        content: "/favicons/mstile-310x310.png"
       }
     ],
     link: [
@@ -76,81 +58,77 @@ module.exports = {
       {
         rel: "apple-touch-icon-precomposed",
         sizes: "57x57",
-        href: baseUrl + "/favicons/apple-touch-icon-57x57.png"
+        href: "/favicons/apple-touch-icon-57x57.png"
       },
       {
         rel: "apple-touch-icon-precomposed",
         sizes: "60x60",
-        href: baseUrl + "/favicons/apple-touch-icon-60x60.png"
+        href: "/favicons/apple-touch-icon-60x60.png"
       },
       {
         rel: "apple-touch-icon-precomposed",
         sizes: "72x72",
-        href: baseUrl + "/favicons/apple-touch-icon-72x72.png"
+        href: "/favicons/apple-touch-icon-72x72.png"
       },
       {
         rel: "apple-touch-icon-precomposed",
         sizes: "76x76",
-        href: baseUrl + "/favicons/apple-touch-icon-76x76.png"
+        href: "/favicons/apple-touch-icon-76x76.png"
       },
       {
         rel: "apple-touch-icon-precomposed",
         sizes: "114x114",
-        href: baseUrl + "/favicons/apple-touch-icon-114x114.png"
+        href: "/favicons/apple-touch-icon-114x114.png"
       },
       {
         rel: "apple-touch-icon-precomposed",
         sizes: "120x120",
-        href: baseUrl + "/favicons/apple-touch-icon-120x120.png"
+        href: "/favicons/apple-touch-icon-120x120.png"
       },
       {
         rel: "apple-touch-icon-precomposed",
         sizes: "144x144",
-        href: baseUrl + "/favicons/apple-touch-icon-144x144.png"
+        href: "/favicons/apple-touch-icon-144x144.png"
       },
       {
         rel: "apple-touch-icon-precomposed",
         sizes: "152x152",
-        href: baseUrl + "/favicons/apple-touch-icon-152x152.png"
+        href: "/favicons/apple-touch-icon-152x152.png"
       },
       {
         rel: "icon",
         type: "image/png",
         sizes: "16x16",
-        href: baseUrl + "/favicons/favicon-16x16.png"
+        href: "/favicons/favicon-16x16.png"
       },
       {
         rel: "icon",
         type: "image/png",
         sizes: "32x32",
-        href: baseUrl + "/favicons/favicon-32x32.png"
+        href: "/favicons/favicon-32x32.png"
       },
       {
         rel: "icon",
         type: "image/png",
         sizes: "96x96",
-        href: baseUrl + "/favicons/favicon-96x96.png"
+        href: "/favicons/favicon-96x96.png"
       },
       {
         rel: "icon",
         type: "image/png",
         sizes: "128x128",
-        href: baseUrl + "/favicons/favicon-128x128.png"
+        href: "/favicons/favicon-128x128.png"
       },
       {
         rel: "icon",
         type: "image/png",
         sizes: "196x196",
-        href: baseUrl + "/favicons/favicon-196x196.png"
+        href: "/favicons/favicon-196x196.png"
       }
     ]
   },
 
   css: ["normalize.css/normalize.css", "hint.css/hint.min.css"],
-
-  env: {
-    baseUrl: baseUrl
-  },
 
   modules: [
     [
@@ -177,7 +155,5 @@ module.exports = {
       }
     },
     postcss: [require("autoprefixer")()]
-  },
-
-  ...router
+  }
 };

@@ -9,8 +9,7 @@
     "start": "nuxt start",
     "generate": "NODE_ENV=production nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "precommit": "npm run lint"
   },
   "dependencies": {
     "hint.css": "^2.5.0",
@@ -30,7 +29,6 @@
     "nuxt-sass-resources-loader": "^2.0.5",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
-    "push-dir": "^0.4.1",
     "sass-loader": "^7.1.0"
   }
 }
