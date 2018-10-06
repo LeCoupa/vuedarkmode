@@ -8,9 +8,7 @@ i(
   :style=`{
     color: color,
     cursor: cursor,
-    fontSize: size,
-    height: size,
-    width: size
+    fontSize: size
   }`
   aria-hidden="true"
   class="dm-base-icon"
