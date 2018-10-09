@@ -112,13 +112,14 @@ $sizes: mini, small, default, medium, large, huge;
   align-items: center;
   flex-direction: column;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  sans-serif;
 
   #{$c}__image {
     display: inline-block;
     box-sizing: border-box;
     background-size: cover;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
+    user-select: none;
   }
 
   #{$c}__complementaries {
@@ -180,7 +181,7 @@ $sizes: mini, small, default, medium, large, huge;
   }
 
   &--complementaries {
-    > #{$c}__image {
+     > #{$c}__image {
       position: relative;
 
       #{$c}__complementaries {
@@ -191,4 +192,5 @@ $sizes: mini, small, default, medium, large, huge;
     }
   }
 }
+
 </style>
