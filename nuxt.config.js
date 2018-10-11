@@ -14,6 +14,26 @@ module.exports = {
         content:
           "Based components designed for the night people who enjoy dark interfaces as much as we do."
       },
+
+      // Open Graph
+      // https://smallseotools.com/open-graph-generator/
+      {
+        property: "og:title",
+        content: "A Minimalist Dark Design System for Vue.js 👩‍🎨👨‍🎨"
+      },
+      {
+        property: "og:description",
+        content:
+          "Based components designed for the insomniacs who enjoy dark interfaces as much as we do."
+      },
+      { property: "og:site_name", content: "Vue Dark Mode" },
+      { property: "og:url", content: "https://www.vuedarkmode.com/" },
+      { property: "og:type", content: "website" },
+      {
+        property: "og:image",
+        content: "https://www.vuedarkmode.com/images/docs/og_image.jpg"
+      },
+
       // Favicons Generated with
       // http://www.favicomatic.com/
       {
