@@ -12,7 +12,7 @@ module.exports = {
         hid: "description",
         name: "description",
         content:
-          "Based components designed for the night people who enjoy dark interfaces as much as we do."
+          "Based components for the insomniacs who enjoy dark interfaces as much as we do."
       },
 
       // Open Graph
@@ -24,7 +24,7 @@ module.exports = {
       {
         property: "og:description",
         content:
-          "Based components designed for the insomniacs who enjoy dark interfaces as much as we do."
+          "Based components for the insomniacs who enjoy dark interfaces as much as we do."
       },
       { property: "og:site_name", content: "Vue Dark Mode" },
       { property: "og:url", content: "https://www.vuedarkmode.com/" },
