@@ -112,7 +112,7 @@ $sizes: mini, small, default, medium, large, huge;
   align-items: center;
   flex-direction: column;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-  sans-serif;
+    sans-serif;
 
   #{$c}__image {
     display: inline-block;
@@ -181,7 +181,7 @@ $sizes: mini, small, default, medium, large, huge;
   }
 
   &--complementaries {
-     > #{$c}__image {
+    > #{$c}__image {
       position: relative;
 
       #{$c}__complementaries {
@@ -192,5 +192,4 @@ $sizes: mini, small, default, medium, large, huge;
     }
   }
 }
-
 </style>

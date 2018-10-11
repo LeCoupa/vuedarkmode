@@ -15,7 +15,7 @@ module.exports = {
           "Based components for the insomniacs who enjoy dark interfaces as much as we do."
       },
 
-      // Open Graph
+      // Open Graph Meta Tags
       // https://smallseotools.com/open-graph-generator/
       {
         property: "og:title",

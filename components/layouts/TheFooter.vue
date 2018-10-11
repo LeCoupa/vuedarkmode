@@ -4,7 +4,7 @@
 
 <template lang="pug">
 footer.c-the-footer
-  span.c-the-footer__line Made in the dark by Nada Rifki &amp; Julien Le Coupanec.
+  span.c-the-footer__line Made by Nada Rifki &amp; Julien Le Coupanec.
 
   the-logo(
     size="50px"
