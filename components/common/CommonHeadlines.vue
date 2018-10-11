@@ -15,10 +15,10 @@
     class="c-common-headlines__description"
   ) {{ description }}
 
-  common-command(
-    v-if="command"
-    class="c-common-headlines__command"
-  ) {{ command }}
+  //- common-command(
+  //-   v-if="command"
+  //-   class="c-common-headlines__command"
+  //- ) {{ command }}
 
   base-button(
     v-if="hasDocumentation"
