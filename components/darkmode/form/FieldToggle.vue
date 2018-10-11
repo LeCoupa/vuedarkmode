@@ -238,6 +238,12 @@ $statuses: error, normal, success, warning;
     &--#{$status} {
       #{$c}__container {
         #{$c}__field {
+          @if ($status != "normal") {
+            &:before {
+              border-color: map-get($statusColors, $status);
+            }
+          }
+
           &:checked {
             &:before {
               border-color: map-get($statusColors, $status);
