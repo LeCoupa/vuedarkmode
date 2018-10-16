@@ -32,8 +32,8 @@ div(
         :circular="false"
         :key="complementary.src"
         :src="complementary.src"
-        size="mini"
         class="dm-base-avatar__complementary"
+        size="mini"
       )
 
   span(

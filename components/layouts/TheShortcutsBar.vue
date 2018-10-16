@@ -5,9 +5,9 @@
 <template lang="pug">
 .c-the-shortcuts-bar
   a(
+    class="c-the-shortcuts-bar__contact-box"
     href="https://www.nadarifki.com/"
     target="_blank"
-    class="c-the-shortcuts-bar__contact-box"
   )
     base-avatar(
       size="mini"
@@ -30,13 +30,13 @@
   //-     :checked="theme === 'light'"
   //-     :fullWidth="false"
   //-     :label="theme === 'light' ? 'Turn off the lights' : 'Turn on the lights'"
-  //-     name="theme"
   //-     class="c-the-shortcuts-bar__field"
+  //-     name="theme"
   //-   )
   //-   base-icon(
-  //-     size="20px"
-  //-     name="flash_on"
   //-     class="c-the-shortcuts-bar__icon"
+  //-     name="flash_on"
+  //-     size="20px"
   //-   )
 </template>
 

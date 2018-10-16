@@ -5,14 +5,14 @@
 <template lang="pug">
 .c-common-headlines
   base-heading(
-    type="h2"
     class="c-common-headlines__title"
+    type="h2"
   ) {{ title }}
 
   base-heading(
     v-if="description"
-    type="h3"
     class="c-common-headlines__description"
+    type="h3"
   ) {{ description }}
 
   //- common-command(
@@ -25,9 +25,9 @@
     @click="onToggleDocumentation"
     :reverse="true"
     :rightIcon="documentationVisibility ? 'extension' : 'explore'"
+    class="c-common-headlines__documentation"
     color="blue"
     size="small"
-    class="c-common-headlines__documentation"
   ) {{ documentationVisibility ? "Show components" : "Read documentation" }}
 </template>
 

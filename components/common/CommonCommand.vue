@@ -17,11 +17,10 @@ div(
     base-icon(
       @click="onCopyCommand"
       aria-label="Copy to clipboard"
-      class="hint--top hint--no-animate"
+      class="c-common-command__icon hint--top hint--no-animate"
       cursor="pointer"
       name="content_copy"
       size="16px"
-      class="c-common-command__icon"
     )
 </template>
 

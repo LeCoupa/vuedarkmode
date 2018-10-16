@@ -44,8 +44,8 @@ div(
       :id="uuid"
       :multiple="multiple"
       :name="name"
-      type="file"
       class="dm-field-file__field"
+      type="file"
     )
 </template>
 

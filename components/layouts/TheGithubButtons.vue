@@ -7,28 +7,28 @@
   span.c-the-github-buttons__wrapper
     iframe(
       :src="'https://ghbtns.com/github-btn.html?user=' + user + '&repo=' + repo + '&type=star&count=true'"
-      frameborder="0"
-      scrolling="0"
-      height="20px"
       class="c-the-github-buttons__button c-the-github-buttons__button--star"
+      frameborder="0"
+      height="20px"
+      scrolling="0"
     )
 
   span.c-the-github-buttons__wrapper
     iframe(
       :src="'https://ghbtns.com/github-btn.html?user=' + user + '&repo=' + repo + '&type=watch&count=true&v=2'"
-      frameborder="0"
-      scrolling="0"
-      height="20px"
       class="c-the-github-buttons__button c-the-github-buttons__button--watch"
+      frameborder="0"
+      height="20px"
+      scrolling="0"
     )
 
   span.c-the-github-buttons__wrapper
     iframe(
       :src="'https://ghbtns.com/github-btn.html?user=' + user + '&repo=' + repo + '&type=fork&count=true'"
-      frameborder="0"
-      scrolling="0"
-      height="20px"
       class="c-the-github-buttons__button c-the-github-buttons__button--fork"
+      frameborder="0"
+      height="20px"
+      scrolling="0"
     )
 </template>
 
