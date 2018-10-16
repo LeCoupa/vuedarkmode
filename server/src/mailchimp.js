@@ -14,8 +14,6 @@ import querystring from "querystring";
 // Load environment variables
 dotenv.config();
 
-// TODO: Verify email is right
-// TODO: Trigger message when email added
 // TODO: Trigger message when email were already added previously
 // TODO: Return any error sent by Mailchimp
 exports.handler = async function(event) {
@@ -46,11 +44,14 @@ exports.handler = async function(event) {
       }
     );
   } catch (error) {
-    // return {};
+    return {
+      statusCode: error.response.status,
+      body: error.response.data.detail
+    };
   }
 
   return {
     statusCode: 200,
-    body: "You are now subscribed to the newsletter."
+    body: "You just joined the dark mode! 👻"
   };
 };
