@@ -6,16 +6,18 @@
 .c-the-subscription-box
   .c-the-subscription-box__container
     field-input(
+      v-model="email"
       :fullWidth="false"
+      class="c-the-subscription-box__field"
       label="Get notified when we release new components"
       name="email"
       placeholder="e.g. you@awesome.com"
       size="medium"
-      class="c-the-subscription-box__field"
     )
     base-button(
-      rightIcon="thumb_up"
+      @click="onEmailSubmit"
       class="c-the-subscription-box__button"
+      rightIcon="thumb_up"
     ) Subscribe
 
   p.c-the-subscription-box__message We'll never send you more than one email per month.
@@ -34,6 +36,18 @@ export default {
   components: {
     BaseButton,
     FieldInput
+  },
+
+  data() {
+    return {
+      email: ""
+    };
+  },
+
+  methods: {
+    onEmailSubmit() {
+      console.log(this.email);
+    }
   }
 };
 </script>

@@ -35,16 +35,17 @@ div(
       class="dm-field-input__icon dm-field-input__icon--left"
     )
     input(
-      @blur="onInputBlur"
-      @focus="onInputFocus"
-      @keyup="onInputKeyUp"
+      @blur="onFieldBlur"
+      @change="onFieldChange"
+      @focus="onFieldFocus"
+      @input="onFieldInput"
       :autocomplete="autocomplete"
       :disabled="disabled"
       :id="uuid"
       :name="name"
       :placeholder="placeholder"
       :type="type"
-      :value="value"
+      :value="currentValue"
       class="dm-field-input__field"
     )
     base-icon(
@@ -159,6 +160,8 @@ export default {
     return {
       // --> STATE <--
 
+      currentValue:
+        this.value === undefined || this.value === null ? "" : this.value,
       focused: false,
       uuid: ""
     };
@@ -204,20 +207,27 @@ export default {
       this.$emit("click", this.name, this.getInputValue());
     },
 
-    onInputBlur() {
+    onFieldBlur() {
       this.focused = false;
 
       this.$emit("blur", this.name, this.getInputValue());
     },
 
-    onInputKeyUp() {
-      this.$emit("keyup", this.name, this.getInputValue());
+    onFieldChange() {
+      this.$emit("change", this.getInputValue());
     },
 
-    onInputFocus() {
+    onFieldFocus() {
       this.focused = true;
 
       this.$emit("focus", this.name, this.getInputValue());
+    },
+
+    onFieldInput() {
+      const value = this.getInputValue();
+
+      this.currentValue = value;
+      this.$emit("input", value);
     }
   }
 };
