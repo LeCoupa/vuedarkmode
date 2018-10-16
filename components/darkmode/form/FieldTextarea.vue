@@ -28,9 +28,9 @@ div(
     class="dm-field-textarea__container"
   )
     textarea(
-      @blur="onTextareaBlur"
-      @focus="onTextareaFocus"
-      @keyup="onTextareaKeyUp"
+      @blur="onFieldBlur"
+      @focus="onFieldFocus"
+      @keyup="onFieldKeyUp"
       :cols="cols"
       :disabled="disabled"
       :id="uuid"
@@ -171,20 +171,20 @@ export default {
       this.$emit("click", this.name, this.getTextareaValue());
     },
 
-    onTextareaBlur() {
+    onFieldBlur() {
       this.focused = false;
 
       this.$emit("blur", this.name, this.getTextareaValue());
     },
 
-    onTextareaKeyUp() {
-      this.$emit("keyup", this.name, this.getTextareaValue());
-    },
-
-    onTextareaFocus() {
+    onFieldFocus() {
       this.focused = true;
 
       this.$emit("focus", this.name, this.getTextareaValue());
+    },
+
+    onFieldKeyUp() {
+      this.$emit("keyup", this.name, this.getTextareaValue());
     }
   }
 };

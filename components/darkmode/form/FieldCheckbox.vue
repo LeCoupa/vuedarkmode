@@ -17,7 +17,7 @@ div(
 )
   .dm-field-checkbox__container
     input(
-      @change="onCheckboxChange"
+      @change="onFieldChange"
       :checked="checked"
       :disabled="disabled"
       :id="uuid"
@@ -121,7 +121,7 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onCheckboxChange(event) {
+    onFieldChange(event) {
       this.$emit("change", this.name, event.target.checked);
     }
   }

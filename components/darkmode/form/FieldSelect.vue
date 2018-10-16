@@ -31,10 +31,10 @@ div(
       class="dm-field-select__icon dm-field-select__icon--left"
     )
     select(
-      @blur="onSelectBlur"
-      @click="onSelectClick"
-      @focus="onSelectFocus"
-      @change="onSelectChange"
+      @blur="onFieldBlur"
+      @change="onFieldChange"
+      @click="onFieldClick"
+      @focus="onFieldFocus"
       :disabled="disabled"
       :id="uuid"
       :name="name"
@@ -164,26 +164,26 @@ export default {
 
     // --> EVENT LISTENERS <--
 
-    onSelectBlur() {
+    onFieldBlur() {
       this.focused = false;
       this.rightIcon = "arrow_drop_down";
 
       this.$emit("blur", this.name, this.getSelectedValue());
     },
 
-    onSelectChange() {
+    onFieldChange() {
       this.rightIcon = "arrow_drop_down";
 
       this.$emit("change", this.name, this.getSelectedValue());
     },
 
-    onSelectClick() {
+    onFieldClick() {
       this.rightIcon = "arrow_drop_up";
 
       this.$emit("click", this.name, this.getSelectedValue());
     },
 
-    onSelectFocus() {
+    onFieldFocus() {
       this.focused = true;
       this.rightIcon = "arrow_drop_up";
 
