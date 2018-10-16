@@ -151,7 +151,6 @@ module.exports = {
   css: ["normalize.css/normalize.css", "hint.css/hint.min.css"],
 
   modules: [
-    "@nuxtjs/axios",
     [
       "nuxt-sass-resources-loader",
       [
@@ -163,10 +162,6 @@ module.exports = {
       ]
     ]
   ],
-
-  axios: {
-    // proxyHeaders: false
-  },
 
   build: {
     extend(config, { isDev, isClient }) {
