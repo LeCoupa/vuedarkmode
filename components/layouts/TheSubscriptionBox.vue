@@ -45,9 +45,7 @@ export default {
   },
 
   methods: {
-    onEmailSubmit() {
-      console.log(this.email);
-    }
+    async onEmailSubmit() {}
   }
 };
 </script>
