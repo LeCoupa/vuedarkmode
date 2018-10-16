@@ -17,7 +17,7 @@
         base-avatar(
           v-if="type === 'avatars'"
           :size="size"
-          src="/images/medley/nada.jpg"
+          src="/images/medley/nada.jpeg"
         )
         base-avatar(
           v-else-if="type === 'thumbnails'"

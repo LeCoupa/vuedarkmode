@@ -62,10 +62,6 @@ export default {
       type: Boolean,
       default: false
     },
-    cursor: {
-      type: String,
-      default: "default"
-    },
     circular: {
       type: Boolean,
       default: true
@@ -73,6 +69,10 @@ export default {
     complementaries: {
       type: Array,
       default: null
+    },
+    cursor: {
+      type: String,
+      default: "default"
     },
     description: {
       type: String,
@@ -154,6 +154,7 @@ $sizes: mini, small, default, medium, large, huge;
     &--#{$size} {
       #{$c}__image {
         border-radius: 2px + (2px * $i);
+
         @if ($size == "mini") {
           width: 30px;
           height: 30px;
