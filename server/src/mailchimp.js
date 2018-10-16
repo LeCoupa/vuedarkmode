@@ -14,8 +14,6 @@ import querystring from "querystring";
 // Load environment variables
 dotenv.config();
 
-// TODO: Trigger message when email were already added previously
-// TODO: Return any error sent by Mailchimp
 exports.handler = async function(event) {
   const bodyParams = querystring.parse(event.body);
 
@@ -34,7 +32,7 @@ exports.handler = async function(event) {
     };
   }
 
-  // Add valid email to the Mailchimp list
+  // Subscribe valid email to the Mailchimp list
   try {
     await axios.post(
       "https://us19.api.mailchimp.com/3.0/lists/00f5d5e482/members/",
