@@ -15,3 +15,6 @@ npm-debug.log
 
 # Build folder
 .dist
+
+# Dotenv file
+.env

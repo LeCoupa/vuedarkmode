@@ -1,2 +1,2 @@
 [build]
-  functions = "./server/dist"
+  functions = "./server/dist/"
