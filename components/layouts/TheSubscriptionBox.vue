@@ -23,7 +23,12 @@
       type="submit"
     ) Subscribe
 
-  p.c-the-subscription-box__message We'll never send you more than one email per month.
+  p(
+    :class=`[
+      "c-the-subscription-box__message",
+      "c-the-subscription-box__message--" + message.status
+    ]`
+  ) {{ message.content }}
 </template>
 
 <!-- *************************************************************************
@@ -31,7 +36,6 @@
      ************************************************************************* -->
 
 <script>
-// TODO: Make the form submit with enter.
 // TODO: Show message for users
 // TODO: Validate email field on front-end
 // TODO: Show loader circle icon
@@ -52,30 +56,30 @@ export default {
 
   data() {
     return {
-      email: ""
+      // --> STATE <--
+
+      email: "",
+      message: {
+        status: "normal",
+        content: "We'll never send you more than one email per month."
+      }
     };
   },
 
   methods: {
     async onEmailSubmit() {
-      let status = null;
-      let message = null;
-
       try {
         const result = await axios.post(
           "https://www.vuedarkmode.com/.netlify/functions/mailchimp",
           qs.stringify({ email: this.email })
         );
 
-        status = "success";
-        message = result.data;
+        this.message.status = "success";
+        this.message.content = result.data;
       } catch (error) {
-        status = "error";
-        message = error.response.data;
+        this.message.status = "error";
+        this.message.content = error.response.data;
       }
-
-      console.log(status);
-      console.log(message);
     }
   }
 };
@@ -108,6 +112,14 @@ $c: ".c-the-subscription-box";
     text-align: left;
     font-size: 14px;
     line-height: 20px;
+
+    &--error {
+      color: $crimson;
+    }
+
+    &--success {
+      color: $malachite;
+    }
   }
 }
 
