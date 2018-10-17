@@ -4,7 +4,10 @@
 
 <template lang="pug">
 .c-the-subscription-box
-  .c-the-subscription-box__container
+  form(
+    @submit.prevent="onEmailSubmit"
+    class="c-the-subscription-box__container"
+  )
     field-input(
       v-model="email"
       :fullWidth="false"
@@ -15,9 +18,9 @@
       size="medium"
     )
     base-button(
-      @click="onEmailSubmit"
       class="c-the-subscription-box__button"
       rightIcon="thumb_up"
+      type="submit"
     ) Subscribe
 
   p.c-the-subscription-box__message We'll never send you more than one email per month.
