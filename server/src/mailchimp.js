@@ -16,10 +16,14 @@ dotenv.config();
 
 exports.handler = async function(event) {
   const bodyParams = querystring.parse(event.body);
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type"
+  };
 
   // Only allow POST method
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
+    return { statusCode: 405, headers: headers, body: "Method Not Allowed" };
   }
 
   // Only accept valid email
@@ -28,6 +32,7 @@ exports.handler = async function(event) {
   if (!re.test(bodyParams.email)) {
     return {
       statusCode: 400,
+      headers: headers,
       body: "This is not a valid email"
     };
   }
@@ -44,12 +49,14 @@ exports.handler = async function(event) {
   } catch (error) {
     return {
       statusCode: error.response.status,
+      headers: headers,
       body: error.response.data.detail
     };
   }
 
   return {
     statusCode: 200,
+    headers: headers,
     body: "You just joined the dark mode! 👻"
   };
 };
