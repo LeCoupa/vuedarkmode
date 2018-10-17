@@ -14,7 +14,7 @@ import querystring from "querystring";
 // Load environment variables
 dotenv.config();
 
-exports.handler = async function(event) {
+exports.handler = async function(event, context, callback) {
   const bodyParams = querystring.parse(event.body);
   const headers = {
     "Access-Control-Allow-Origin": "*",
@@ -24,18 +24,22 @@ exports.handler = async function(event) {
 
   // Only allow POST method
   if (event.httpMethod !== "POST") {
-    return { statusCode: 405, headers: headers, body: "Method Not Allowed" };
+    callback(null, {
+      statusCode: 405,
+      headers: headers,
+      body: "Method Not Allowed"
+    });
   }
 
   // Only accept valid email
   const re = /[a-z0-9\._%+!$&*=^|~#%'`?{}/\-]+@([a-z0-9\-]+\.){1,}([a-z]{2,16})/;
 
   if (!re.test(bodyParams.email)) {
-    return {
+    callback(null, {
       statusCode: 400,
       headers: headers,
       body: "This is not a valid email"
-    };
+    });
   }
 
   // Subscribe valid email to the Mailchimp list
@@ -48,16 +52,16 @@ exports.handler = async function(event) {
       }
     );
   } catch (error) {
-    return {
+    callback(null, {
       statusCode: error.response.status,
       headers: headers,
       body: error.response.data.detail
-    };
+    });
   }
 
-  return {
+  callback(null, {
     statusCode: 200,
     headers: headers,
     body: "You just joined the dark mode! 👻"
-  };
+  });
 };
