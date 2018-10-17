@@ -22,8 +22,17 @@ exports.handler = async function(event, context, callback) {
     "Content-Type": "application/json"
   };
 
-  // Only allow POST method and preflight request
-  if (!["POST", "OPTIONS"].includes(event.httpMethod)) {
+  // Take care of preflight request
+  if (event.httpMethod === "OPTIONS") {
+    callback(null, {
+      statusCode: 200,
+      headers: headers,
+      body: "Preflight request taken care of"
+    });
+  }
+
+  // Only allow POST method
+  if (event.httpMethod !== "POST") {
     callback(null, {
       statusCode: 405,
       headers: headers,
