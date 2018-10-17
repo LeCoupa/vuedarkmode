@@ -28,6 +28,15 @@
      ************************************************************************* -->
 
 <script>
+// TODO: Make the form submit with enter.
+// TODO: Show message for users
+// TODO: Validate email field on front-end
+// TODO: Show loader circle icon
+
+// NPM
+import axios from "axios";
+import qs from "qs";
+
 // PROJECT
 import BaseButton from "@/components/darkmode/base/BaseButton";
 import FieldInput from "@/components/darkmode/form/FieldInput";
@@ -45,7 +54,26 @@ export default {
   },
 
   methods: {
-    async onEmailSubmit() {}
+    async onEmailSubmit() {
+      let status = null;
+      let message = null;
+
+      try {
+        const result = await axios.post(
+          "https://www.vuedarkmode.com/.netlify/functions/mailchimp",
+          qs.stringify({ email: this.email })
+        );
+
+        status = "success";
+        message = result.data;
+      } catch (error) {
+        status = "error";
+        message = error.response.data;
+      }
+
+      console.log(status);
+      console.log(message);
+    }
   }
 };
 </script>

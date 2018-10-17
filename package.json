@@ -18,7 +18,8 @@
     "hint.css": "^2.5.0",
     "lodash": "^4.17.10",
     "normalize.css": "^8.0.0",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "qs": "^6.5.2"
   },
   "devDependencies": {
     "@vue/eslint-config-prettier": "^3.0.3",
