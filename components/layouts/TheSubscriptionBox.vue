@@ -36,7 +36,6 @@
      ************************************************************************* -->
 
 <script>
-// TODO: Show message for users
 // TODO: Validate email field on front-end
 // TODO: Show loader circle icon
 
