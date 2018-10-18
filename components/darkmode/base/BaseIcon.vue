@@ -55,6 +55,8 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+@import "assets/settings/_settings.colors.scss";
+
 // Based on Material Icons
 // https://google.github.io/material-design-icons/#icon-font-for-the-web
 .dm-base-icon {

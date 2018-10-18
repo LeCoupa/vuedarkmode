@@ -154,6 +154,8 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+@import "assets/settings/_settings.colors.scss";
+
 $c: ".dm-field-tabs";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;

@@ -53,6 +53,8 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+@import "assets/settings/_settings.colors.scss";
+
 $c: ".dm-base-divider";
 $colors: black, blue, green, orange, purple, red, turquoise, white;
 

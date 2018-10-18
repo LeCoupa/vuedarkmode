@@ -55,6 +55,8 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+@import "assets/settings/_settings.colors.scss";
+
 $c: ".dm-base-badge";
 $colors: black, blue, green, orange, purple, red, turquoise, white;
 $sizes: mini, small, default, medium, large;

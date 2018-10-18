@@ -161,6 +161,8 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+@import "assets/settings/_settings.colors.scss";
+
 $c: ".dm-base-button";
 $colors: black, blue, green, red, orange, white;
 $sizes: mini, small, default, medium, large;

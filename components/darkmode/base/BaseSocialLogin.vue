@@ -101,6 +101,8 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+@import "assets/settings/_settings.colors.scss";
+
 $c: ".dm-base-social-login";
 $iconPath: "/images/components/darkmode/base/BaseSocialLogin";
 $networks: facebook, google, messenger, twitter;
