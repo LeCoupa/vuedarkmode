@@ -175,5 +175,9 @@ module.exports = {
       }
     },
     postcss: [require("autoprefixer")()]
+  },
+
+  generate: {
+    dir: "website"
   }
 };

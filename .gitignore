@@ -10,8 +10,11 @@ node_modules
 # Logs
 npm-debug.log
 
+# Dotenv file
+.env
+
 # Nuxt build
 .nuxt
 
-# Dotenv file
-.env
+# Website build
+website
