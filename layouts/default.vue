@@ -37,10 +37,11 @@ export default {
 
 <style lang="scss">
 // Unclassed HTML elements (e.g. a {}, blockquote {}, address {})
-@import "./assets/elements/inline";
+@import "./assets/elements/elements.inline";
 
 // Objects, abstractions, and design patterns (e.g. .o-flexbox-column {})
-@import "./assets/objects/layouts";
+@import "./assets/objects/objects.layouts";
+
 $c: ".l-default";
 
 html {

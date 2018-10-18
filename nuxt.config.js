@@ -155,10 +155,10 @@ module.exports = {
       "nuxt-sass-resources-loader",
       [
         // Global variables, site-wide settings, config switches, etc
-        "@/assets/settings/_colors.scss",
+        "@/assets/settings/_settings.colors.scss",
 
         // Site-wide mixins and functions
-        "@/assets/tools/_mq.scss"
+        "@/assets/tools/_tools.mq.scss"
       ]
     ]
   ],
