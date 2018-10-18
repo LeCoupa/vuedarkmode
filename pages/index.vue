@@ -142,8 +142,8 @@ import TheHeader from "@/components/layouts/TheHeader";
 import TheLogo from "@/components/layouts/TheLogo";
 import TheSubscriptionBox from "@/components/layouts/TheSubscriptionBox";
 
-import colors from "@/schemas/colors";
-import icons from "@/schemas/icons";
+import colors from "@/data/colors";
+import icons from "@/data/icons";
 
 export default {
   components: {
