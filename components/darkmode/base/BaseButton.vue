@@ -50,7 +50,7 @@ button(
 
 <script>
 // PROJECT
-import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import BaseIcon from "./BaseIcon.vue";
 
 export default {
   components: {

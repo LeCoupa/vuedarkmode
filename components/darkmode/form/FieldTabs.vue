@@ -47,8 +47,8 @@ div(
 
 <script>
 // PROJECT
-import FieldDescription from "@/components/darkmode/form/FieldDescription";
-import FieldLabel from "@/components/darkmode/form/FieldLabel";
+import FieldDescription from "./FieldDescription.vue";
+import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {

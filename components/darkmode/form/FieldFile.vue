@@ -55,9 +55,9 @@ div(
 
 <script>
 // PROJECT
-import { generateUUID } from "@/helpers/helpers";
-import BaseIcon from "@/components/darkmode/base/BaseIcon";
-import FieldLabel from "@/components/darkmode/form/FieldLabel";
+import { generateUUID } from "../../../helpers/helpers.js";
+import BaseIcon from "../base/BaseIcon.vue";
+import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {

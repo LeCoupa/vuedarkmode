@@ -48,7 +48,7 @@ div(
 
 <script>
 // PROJECT
-import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
+import BaseAvatar from "./BaseAvatar.vue";
 
 export default {
   name: "BaseAvatar",

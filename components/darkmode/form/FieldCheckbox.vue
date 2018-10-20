@@ -49,9 +49,9 @@ div(
 
 <script>
 // PROJECT
-import { generateUUID } from "@/helpers/helpers";
-import FieldDescription from "@/components/darkmode/form/FieldDescription";
-import FieldLabel from "@/components/darkmode/form/FieldLabel";
+import { generateUUID } from "../../../helpers/helpers.js";
+import FieldDescription from "./FieldDescription.vue";
+import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {
