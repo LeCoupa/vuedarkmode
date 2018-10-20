@@ -47,5 +47,10 @@
     "rollup-plugin-uglify-es": "0.0.1",
     "rollup-plugin-vue": "^4.3.2",
     "sass-loader": "^7.1.0"
-  }
+  },
+  "files": [
+    "components/darkmode/*",
+    "dist/*",
+    "*.json"
+  ]
 }
