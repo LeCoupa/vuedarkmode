@@ -1,6 +1,6 @@
 {
   "name": "vuedarkmode",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A minimalist dark design system for vue.js",
   "author": "Team <team@vuedarkmode.com>",
   "main": "dist/vuedarkmode.umd.js",
@@ -51,6 +51,7 @@
   "files": [
     "components/darkmode/*",
     "dist/*",
-    "*.json"
+    "package.json",
+    "package-lock.json"
   ]
 }
