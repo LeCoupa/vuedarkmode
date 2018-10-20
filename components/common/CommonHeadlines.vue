@@ -120,7 +120,7 @@ $c: ".c-common-headlines";
   }
 
   #{$c}__title {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   #{$c}__description {

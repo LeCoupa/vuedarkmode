@@ -1,6 +1,6 @@
 {
   "name": "vuedarkmode",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A minimalist dark design system for vue.js",
   "author": "Team <team@vuedarkmode.com>",
   "main": "dist/vuedarkmode.umd.js",
@@ -46,6 +46,7 @@
     "rollup-plugin-buble": "^0.19.4",
     "rollup-plugin-uglify-es": "0.0.1",
     "rollup-plugin-vue": "^4.3.2",
+    "rollup-preset-isomorphic": "^1.1.0-1",
     "sass-loader": "^7.1.0"
   },
   "files": [
