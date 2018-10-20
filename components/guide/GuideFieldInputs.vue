@@ -40,11 +40,16 @@ export default {
     FieldInput
   },
 
-  props: {
-    inputs: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      inputs: {
+        sizes: ["large", "medium", "default", "small", "mini"],
+        statuses: [
+          ["normal", "normal", "normal", "normal", "normal"],
+          ["success", "error", "warning"]
+        ]
+      }
+    };
   }
 };
 </script>

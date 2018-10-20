@@ -39,11 +39,16 @@ export default {
     FieldTextarea
   },
 
-  props: {
-    textareas: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      textareas: {
+        sizes: ["large", "medium", "default", "small", "mini"],
+        statuses: [
+          ["normal", "normal", "normal", "normal", "normal"],
+          ["success", "error", "warning"]
+        ]
+      }
+    };
   }
 };
 </script>

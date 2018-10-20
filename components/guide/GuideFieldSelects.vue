@@ -43,11 +43,16 @@ export default {
     FieldSelect
   },
 
-  props: {
-    selects: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      selects: {
+        sizes: ["large", "medium", "default", "small", "mini"],
+        statuses: [
+          ["normal", "normal", "normal", "normal", "normal"],
+          ["success", "error", "warning"]
+        ]
+      }
+    };
   }
 };
 </script>

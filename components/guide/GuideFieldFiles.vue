@@ -38,11 +38,16 @@ export default {
     FieldFile
   },
 
-  props: {
-    files: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      files: {
+        sizes: ["large", "medium", "default", "small", "mini"],
+        statuses: [
+          ["normal", "normal", "normal", "normal", "normal"],
+          ["success", "error", "warning"]
+        ]
+      }
+    };
   }
 };
 </script>

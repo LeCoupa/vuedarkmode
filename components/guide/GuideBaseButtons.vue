@@ -46,11 +46,21 @@ export default {
     BaseButton
   },
 
-  props: {
-    buttons: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      buttons: {
+        colors: ["blue", "green", "red", "orange", "black", "white"],
+        icons: [
+          "add_circle",
+          "check_circle",
+          "favorite_border",
+          "star",
+          "get_app",
+          "camera_alt"
+        ],
+        sizes: ["large", "medium", "default", "small", "mini"]
+      }
+    };
   }
 };
 </script>

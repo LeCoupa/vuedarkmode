@@ -33,6 +33,7 @@
 // PROJECT
 import BaseButton from "@/components/darkmode/base/BaseButton";
 import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import icons from "@/data/icons";
 
 export default {
   components: {
@@ -40,16 +41,9 @@ export default {
     BaseIcon
   },
 
-  props: {
-    icons: {
-      type: Array,
-      required: true
-    }
-  },
-
   data() {
     return {
-      // --> STATE <--
+      icons: icons,
       maxIcons: 207
     };
   }

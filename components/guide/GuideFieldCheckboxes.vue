@@ -39,11 +39,16 @@ export default {
     FieldCheckbox
   },
 
-  props: {
-    checkboxes: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      checkboxes: {
+        sizes: ["large", "medium", "default", "small", "mini"],
+        statuses: [
+          ["normal", "normal", "normal", "normal", "normal"],
+          ["normal", "success", "error", "warning"]
+        ]
+      }
+    };
   }
 };
 </script>

@@ -39,11 +39,16 @@ export default {
     FieldToggle
   },
 
-  props: {
-    toggles: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      toggles: {
+        sizes: ["large", "medium", "default", "small", "mini"],
+        statuses: [
+          ["normal", "normal", "normal", "normal", "normal"],
+          ["normal", "success", "error", "warning"]
+        ]
+      }
+    };
   }
 };
 </script>

@@ -33,11 +33,22 @@ export default {
     BaseBadge
   },
 
-  props: {
-    badges: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      badges: {
+        colors: [
+          "blue",
+          "green",
+          "red",
+          "orange",
+          "turquoise",
+          "purple",
+          "black",
+          "white"
+        ],
+        sizes: ["large", "medium", "default", "small", "mini"]
+      }
+    };
   }
 };
 </script>

@@ -43,11 +43,16 @@ export default {
     FieldTabs
   },
 
-  props: {
-    tabs: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      tabs: {
+        sizes: ["large", "medium", "default", "small", "mini"],
+        statuses: [
+          ["normal", "normal", "normal", "normal", "normal"],
+          ["success", "error", "warning"]
+        ]
+      }
+    };
   }
 };
 </script>

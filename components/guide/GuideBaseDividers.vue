@@ -34,11 +34,22 @@ export default {
     BaseDivider
   },
 
-  props: {
-    dividers: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      dividers: {
+        colors: [
+          "blue",
+          "green",
+          "red",
+          "orange",
+          "turquoise",
+          "purple",
+          "black",
+          "white"
+        ],
+        sizes: ["large", "small"]
+      }
+    };
   }
 };
 </script>

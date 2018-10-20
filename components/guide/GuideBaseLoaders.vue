@@ -30,11 +30,51 @@ export default {
     BaseLoader
   },
 
-  props: {
-    loaders: {
-      type: Array,
-      required: true
-    }
+  data() {
+    return {
+      loaders: [
+        {
+          color: "blue",
+          labelMain: "Loading",
+          labelSecondary: "10%"
+        },
+        {
+          color: "green",
+          labelMain: "Progression",
+          labelSecondary: "20%"
+        },
+        {
+          color: "red",
+          labelMain: "Experience",
+          labelSecondary: "30%"
+        },
+        {
+          color: "orange",
+          labelMain: "XPs until next level",
+          labelSecondary: "2/5"
+        },
+        {
+          color: "turquoise",
+          labelMain: "XPs until next level",
+          labelSecondary: "5/10"
+        },
+        {
+          color: "purple",
+          labelMain: "XPs until next level",
+          labelSecondary: "6/10"
+        },
+        {
+          color: "black",
+          labelMain: "Remaining Steps",
+          labelSecondary: "7/10"
+        },
+        {
+          color: "white",
+          labelMain: "Completed Steps",
+          labelSecondary: "8/10"
+        }
+      ]
+    };
   }
 };
 </script>

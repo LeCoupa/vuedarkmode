@@ -19,17 +19,17 @@
 <script>
 // PROJECT
 import CommonColor from "@/components/common/CommonColor";
+import colors from "@/data/colors";
 
 export default {
   components: {
     CommonColor
   },
 
-  props: {
-    colors: {
-      type: Array,
-      required: true
-    }
+  data() {
+    return {
+      colors: colors
+    };
   }
 };
 </script>

@@ -43,11 +43,27 @@ export default {
     BaseAvatar
   },
 
-  props: {
-    avatars: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      avatars: {
+        sizes: ["huge", "large", "medium", "default", "small", "mini"],
+        complementaries: {
+          huge: [
+            {
+              src: "/images/medley/mastercard.jpg"
+            },
+            {
+              src: "/images/medley/visa.jpg"
+            }
+          ],
+          large: [
+            {
+              src: "/images/medley/paypal.jpg"
+            }
+          ]
+        }
+      }
+    };
   }
 };
 </script>

@@ -33,11 +33,13 @@ export default {
     BaseSocialLogin
   },
 
-  props: {
-    socialLogins: {
-      type: Object,
-      required: true
-    }
+  data() {
+    return {
+      socialLogins: {
+        networks: ["facebook", "messenger", "twitter", "google"],
+        sizes: ["large", "small", "mini"]
+      }
+    };
   }
 };
 </script>
