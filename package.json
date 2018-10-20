@@ -1,6 +1,6 @@
 {
   "name": "vuedarkmode",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "A minimalist dark design system for vue.js",
   "author": "Team <team@vuedarkmode.com>",
   "main": "dist/vuedarkmode.umd.js",
@@ -11,9 +11,9 @@
     "dev:lambda": "netlify-lambda serve server/src",
     "build": "npm run build:unpkg & npm run build:es & npm run build:umd",
     "build:lambda": "netlify-lambda build server/src",
-    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vuedarkmode.umd.js",
-    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vuedarkmode.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vuedarkmode.min.js",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vuedarkmode.umd.js --environment BUILD:production",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vuedarkmode.esm.js --environment BUILD:production",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vuedarkmode.min.js --environment BUILD:production",
     "generate": "NODE_ENV=production nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
@@ -46,7 +46,6 @@
     "rollup-plugin-buble": "^0.19.4",
     "rollup-plugin-uglify-es": "0.0.1",
     "rollup-plugin-vue": "^4.3.2",
-    "rollup-preset-isomorphic": "^1.1.0-1",
     "sass-loader": "^7.1.0"
   },
   "files": [

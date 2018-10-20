@@ -5,7 +5,6 @@
 import vue from "rollup-plugin-vue";
 import buble from "rollup-plugin-buble";
 import uglify from "rollup-plugin-uglify-es";
-import isomorphic from "rollup-preset-isomorphic";
 import minimist from "minimist";
 
 /**************************************************************************
@@ -24,10 +23,14 @@ const config = {
   plugins: [
     vue({
       css: true,
-      compileTemplate: true
+      compileTemplate: true,
+      template: { optimizeSSR: true }
     }),
-    buble(),
-    isomorphic()
+    buble({
+      transforms: {
+        forOf: false
+      }
+    })
   ]
 };
 
