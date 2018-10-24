@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "vuedarkmode",
-  "version": "0.0.7",
+  "version": "0.0.12",
   "author": "Team <team@vuedarkmode.com>",
   "license": "MIT",
   "description": "A minimalist dark design system for vue.js",
@@ -21,17 +21,15 @@
     "url": "https://github.com/lecoupa/vuedarkmode/issues",
     "email": "team@vuedarkmode.com"
   },
-  "main": "dist/vuedarkmode.umd.js",
-  "module": "dist/vuedarkmode.esm.js",
+  "main": "dist/vuedarkmode.cjs.js",
+  "module": "dist/vuedarkmode.es.js",
   "unpkg": "dist/vuedarkmode.min.js",
+  "jsdelivr": "dist/vuedarkmode.min.js",
   "scripts": {
     "dev": "nuxt",
     "dev:lambda": "netlify-lambda serve server/src",
-    "build": "npm run build:unpkg & npm run build:es & npm run build:umd",
+    "build": "bili build/entry.js --plugin vue --format cjs,es,umd-min",
     "build:lambda": "netlify-lambda build server/src",
-    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vuedarkmode.umd.js --environment BUILD:production",
-    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vuedarkmode.esm.js --environment BUILD:production",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vuedarkmode.min.js --environment BUILD:production",
     "generate": "NODE_ENV=production nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
