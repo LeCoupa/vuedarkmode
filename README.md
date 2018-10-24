@@ -4,10 +4,6 @@
   </a>
 </p>
 
-<h2 align="center">Vue Dark Mode</h2>
-
-<p align="center">A minimalist dark design system for Vue.js 🎨</p>
-
 ## Documentation
 
 You can find the VueDarkMode documentation [on the website](https://www.vuedarkmode.com/).
