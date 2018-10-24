@@ -1,8 +1,26 @@
 {
+  "private": false,
   "name": "vuedarkmode",
-  "version": "0.0.6",
-  "description": "A minimalist dark design system for vue.js",
+  "version": "0.0.7",
   "author": "Team <team@vuedarkmode.com>",
+  "license": "MIT",
+  "description": "A minimalist dark design system for vue.js",
+  "keywords": [
+    "vue",
+    "components",
+    "dark mode",
+    "design system",
+    "bootstrap"
+  ],
+  "homepage": "https://www.vuedarkmode.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lecoupa/vuedarkmode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lecoupa/vuedarkmode/issues",
+    "email": "team@vuedarkmode.com"
+  },
   "main": "dist/vuedarkmode.umd.js",
   "module": "dist/vuedarkmode.esm.js",
   "unpkg": "dist/vuedarkmode.min.js",
@@ -49,7 +67,6 @@
     "sass-loader": "^7.1.0"
   },
   "files": [
-    "components/darkmode/*",
     "dist/*",
     "package.json",
     "package-lock.json"
