@@ -56,25 +56,38 @@ We are releasing new components on monthly basis. [Subscribe to our newsletter](
 
 ### Base Components
 
-- BaseAvatar
-- BaseBadge
-- BaseButton
-- BaseDivider
-- BaseHeading
-- BaseIcon
-- BaseLoader
-- BaseSocialLogin
+- [BaseAvatar](components/darkmode/base/BaseAvatar.vue)
+
+- [BaseBadge](components/darkmode/base/BaseBadge.vue)
+
+- [BaseButton](components/darkmode/base/BaseButton.vue)
+
+- [BaseDivider](components/darkmode/base/BaseDivider.vue)
+
+- [BaseHeading](components/darkmode/base/BaseHeading.vue)
+
+- [BaseIcon](components/darkmode/base/BaseIcon.vue)
+
+- [BaseLoader](components/darkmode/base/BaseLoader.vue)
+
+- [BaseSocialLogin](components/darkmode/base/BaseSocialLogin.vue)
 
 ### Form Components
 
-- FieldCheckbox
-- FieldFile
-- FieldInput
-- FieldRadio
-- FieldSelect
-- FieldTabs
-- FieldTextarea
-- FieldToggle
+- [FieldCheckbox](components/darkmode/base/FieldCheckbox.vue)
+
+- [FieldFile](components/darkmode/base/FieldFile.vue)
+
+- [FieldInput](components/darkmode/base/FieldInput.vue)
+
+- [FieldRadio](components/darkmode/base/FieldRadio.vue)
+
+- [FieldSelect](components/darkmode/base/FieldSelect.vue)
+
+- [FieldTabs](components/darkmode/base/FieldTabs.vue)
+
+- [FieldTextarea](components/darkmode/base/FieldTextarea.vue)
+- [FieldToggle](components/darkmode/base/FieldToggle.vue)
 
 ## Contributing
 
