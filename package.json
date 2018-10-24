@@ -28,7 +28,7 @@
   "scripts": {
     "dev": "nuxt",
     "dev:lambda": "netlify-lambda serve server/src",
-    "build": "bili build/entry.js --plugin vue --format cjs,es,umd-min",
+    "build": "bili",
     "build:lambda": "netlify-lambda build server/src",
     "generate": "NODE_ENV=production nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -47,6 +47,7 @@
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.1",
+    "bili": "^3.1.2",
     "dotenv": "^6.1.0",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",

@@ -3,24 +3,24 @@
  ***************************************************************************/
 
 // BASE COMPONENTS
-import BaseAvatar from "../components/darkmode/base/BaseAvatar.vue";
-import BaseBadge from "../components/darkmode/base/BaseBadge.vue";
-import BaseButton from "../components/darkmode/base/BaseButton.vue";
-import BaseDivider from "../components/darkmode/base/BaseDivider.vue";
-import BaseHeading from "../components/darkmode/base/BaseHeading.vue";
-import BaseIcon from "../components/darkmode/base/BaseIcon.vue";
-import BaseLoader from "../components/darkmode/base/BaseLoader.vue";
-import BaseSocialLogin from "../components/darkmode/base/BaseSocialLogin.vue";
+import BaseAvatar from "./components/darkmode/base/BaseAvatar.vue";
+import BaseBadge from "./components/darkmode/base/BaseBadge.vue";
+import BaseButton from "./components/darkmode/base/BaseButton.vue";
+import BaseDivider from "./components/darkmode/base/BaseDivider.vue";
+import BaseHeading from "./components/darkmode/base/BaseHeading.vue";
+import BaseIcon from "./components/darkmode/base/BaseIcon.vue";
+import BaseLoader from "./components/darkmode/base/BaseLoader.vue";
+import BaseSocialLogin from "./components/darkmode/base/BaseSocialLogin.vue";
 
 // FORM COMPONENTS
-import FieldCheckbox from "../components/darkmode/form/FieldCheckbox.vue";
-import FieldFile from "../components/darkmode/form/FieldFile.vue";
-import FieldInput from "../components/darkmode/form/FieldInput.vue";
-import FieldRadio from "../components/darkmode/form/FieldRadio.vue";
-import FieldSelect from "../components/darkmode/form/FieldSelect.vue";
-import FieldTabs from "../components/darkmode/form/FieldTabs.vue";
-import FieldTextarea from "../components/darkmode/form/FieldTextarea.vue";
-import FieldToggle from "../components/darkmode/form/FieldToggle.vue";
+import FieldCheckbox from "./components/darkmode/form/FieldCheckbox.vue";
+import FieldFile from "./components/darkmode/form/FieldFile.vue";
+import FieldInput from "./components/darkmode/form/FieldInput.vue";
+import FieldRadio from "./components/darkmode/form/FieldRadio.vue";
+import FieldSelect from "./components/darkmode/form/FieldSelect.vue";
+import FieldTabs from "./components/darkmode/form/FieldTabs.vue";
+import FieldTextarea from "./components/darkmode/form/FieldTextarea.vue";
+import FieldToggle from "./components/darkmode/form/FieldToggle.vue";
 
 /**************************************************************************
  * ENVIRONMENT CONFIGURATIONS

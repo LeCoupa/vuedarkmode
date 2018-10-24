@@ -1,3 +1,8 @@
+/*!
+ * vuedarkmode v0.0.12
+ * (c) 2018-present Team <team@vuedarkmode.com>
+ * Released under the MIT License.
+ */
 //
 var script = {
   name: "BaseAvatar",
