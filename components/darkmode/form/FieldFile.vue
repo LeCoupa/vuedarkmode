@@ -191,8 +191,6 @@ $statuses: error, normal, success, warning;
 
     #{$c}__field {
       display: none;
-      width: 100%;
-      height: 100%;
     }
   }
 
