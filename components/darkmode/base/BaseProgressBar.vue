@@ -23,7 +23,7 @@ div(
       class="dm-base-progress-bar__details"
     ) {{ details }}
 
-  div.dm-base-progress-bar__bar
+  .dm-base-progress-bar__bar
     div(
       :style=`{
         width: progress + "%"
