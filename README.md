@@ -59,6 +59,8 @@ Get the latest version from [jsdelivr](https://www.jsdelivr.com/), and import th
   <script src="https://cdn.jsdelivr.net/npm/vuedarkmode@0/dist/vuedarkmode.min.js"></script>
 ```
 
+We recommend our users to lock VueDarkMode's version when using CDN. [Please refer to jsdelivr.com](https://www.jsdelivr.com/features) for more information.
+
 ## Available Components
 
 We are releasing new components on a monthly basis. [Subscribe to our newsletter](http://eepurl.com/dLlKBM) to stay in touch with coming releases.
