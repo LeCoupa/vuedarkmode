@@ -6,7 +6,7 @@
 
 ## Documentation
 
-You can find the VueDarkMode documentation [on the website](https://www.vuedarkmode.com/).
+You can browse the documentation for VueDarkMode [on the website](https://www.vuedarkmode.com/).
 
 ## Installation
 
@@ -61,7 +61,7 @@ Get the latest version from [jsdelivr](https://www.jsdelivr.com/), and import th
 
 ## Available Components
 
-We are releasing new components on monthly basis. [Subscribe to our newsletter](http://eepurl.com/dLlKBM) to stay in touch with coming releases.
+We are releasing new components on a monthly basis. [Subscribe to our newsletter](http://eepurl.com/dLlKBM) to stay in touch with coming releases.
 
 ### Base Components
 
