@@ -77,8 +77,8 @@
     guide-base-dividers(
       v-if="section.id === 'dividers' && !docs.dividers"
     )
-    guide-base-loaders(
-      v-if="section.id === 'loaders' && !docs.loaders"
+    guide-base-progress-bars(
+      v-if="section.id === 'progressBars' && !docs.progressBars"
     )
     guide-base-avatars(
       v-if="section.id === 'avatars' && !docs.avatars"
@@ -108,7 +108,7 @@ import GuideBaseButtons from "@/components/guide/GuideBaseButtons";
 import GuideBaseDividers from "@/components/guide/GuideBaseDividers";
 import GuideBaseHeadings from "@/components/guide/GuideBaseHeadings";
 import GuideBaseIcons from "@/components/guide/GuideBaseIcons";
-import GuideBaseLoaders from "@/components/guide/GuideBaseLoaders";
+import GuideBaseProgressBars from "@/components/guide/GuideBaseProgressBars";
 import GuideBaseSocialLogins from "@/components/guide/GuideBaseSocialLogins";
 import GuideColors from "@/components/guide/GuideColors";
 import GuideFieldCheckboxes from "@/components/guide/GuideFieldCheckboxes";
@@ -136,7 +136,7 @@ export default {
     GuideBaseDividers,
     GuideBaseHeadings,
     GuideBaseIcons,
-    GuideBaseLoaders,
+    GuideBaseProgressBars,
     GuideBaseSocialLogins,
     GuideColors,
     GuideFieldCheckboxes,
@@ -170,7 +170,7 @@ export default {
         headings: false,
         icons: false,
         inputs: false,
-        loaders: false,
+        progressBars: false,
         radios: false,
         selects: false,
         socialLogins: false,
@@ -303,10 +303,10 @@ export default {
           }
         },
         {
-          id: "loaders",
+          id: "progressBars",
           headlines: {
-            title: "LOADERS",
-            command: "npm install --save @vuedarkmode/base-loader",
+            title: "PROGRESS BARS",
+            command: "npm install --save @vuedarkmode/base-progress-bar",
             hasDocumentation: true
           }
         },

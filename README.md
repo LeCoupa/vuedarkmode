@@ -79,7 +79,7 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 - [BaseIcon](/components/darkmode/base/BaseIcon.vue)
 
-- [BaseLoader](/components/darkmode/base/BaseLoader.vue)
+- [BaseProgressBar](/components/darkmode/base/BaseProgressBar.vue)
 
 - [BaseSocialLogin](/components/darkmode/base/BaseSocialLogin.vue)
 

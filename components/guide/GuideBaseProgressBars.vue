@@ -3,16 +3,16 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-base-loaders.o-elements
+.c-guide-base-progress-bars.o-elements
   div(
-    v-for="(loader, i) in loaders"
-    :key="'loader' + i"
+    v-for="(progressBar, i) in progressBars"
+    :key="'progressBar' + i"
     class="o-elements__category"
   )
-    base-loader(
-      :color="loader.color"
-      :labelMain="loader.labelMain"
-      :labelSecondary="loader.labelSecondary"
+    base-progress-bar(
+      :color="progressBar.color"
+      :labelMain="progressBar.labelMain"
+      :labelSecondary="progressBar.labelSecondary"
       :progress="(i + 1) * 10"
     )
 </template>
@@ -23,16 +23,16 @@
 
 <script>
 // PROJECT
-import BaseLoader from "@/components/darkmode/base/BaseLoader";
+import BaseProgressBar from "@/components/darkmode/base/BaseProgressBar";
 
 export default {
   components: {
-    BaseLoader
+    BaseProgressBar
   },
 
   data() {
     return {
-      loaders: [
+      progressBars: [
         {
           color: "blue",
           labelMain: "Loading",
@@ -84,7 +84,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-$c: ".c-guide-base-loaders";
+$c: ".c-guide-base-progress-bars";
 
 #{$c} {
   grid-gap: 30px;

@@ -9,7 +9,7 @@ import BaseButton from "./components/darkmode/base/BaseButton.vue";
 import BaseDivider from "./components/darkmode/base/BaseDivider.vue";
 import BaseHeading from "./components/darkmode/base/BaseHeading.vue";
 import BaseIcon from "./components/darkmode/base/BaseIcon.vue";
-import BaseLoader from "./components/darkmode/base/BaseLoader.vue";
+import BaseProgressBar from "./components/darkmode/base/BaseProgressBar.vue";
 import BaseSocialLogin from "./components/darkmode/base/BaseSocialLogin.vue";
 
 // FORM COMPONENTS
@@ -37,7 +37,7 @@ function install(Vue) {
   Vue.component("dm-divider", BaseDivider);
   Vue.component("dm-heading", BaseHeading);
   Vue.component("dm-icon", BaseIcon);
-  Vue.component("dm-loader", BaseLoader);
+  Vue.component("dm-progress-bar", BaseProgressBar);
   Vue.component("dm-social-login", BaseSocialLogin);
   Vue.component("dm-checkbox", FieldCheckbox);
   Vue.component("dm-file", FieldFile);
