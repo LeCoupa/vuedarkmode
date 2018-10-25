@@ -72,7 +72,7 @@ $c: ".c-the-github-buttons";
       }
 
       &--watch {
-        width: 100px;
+        width: 95px;
       }
 
       &--fork {
