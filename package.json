@@ -23,7 +23,6 @@
   },
   "main": "dist/vuedarkmode.cjs.js",
   "module": "dist/vuedarkmode.es.js",
-  "unpkg": "dist/vuedarkmode.min.js",
   "jsdelivr": "dist/vuedarkmode.min.js",
   "scripts": {
     "dev": "nuxt",
