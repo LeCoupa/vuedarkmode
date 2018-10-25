@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "vuedarkmode",
-  "version": "0.0.12",
+  "version": "0.1.0",
   "author": "Team <team@vuedarkmode.com>",
   "license": "MIT",
   "description": "A minimalist dark design system for vue.js",
@@ -66,8 +66,6 @@
     "sass-loader": "^7.1.0"
   },
   "files": [
-    "dist/*",
-    "package.json",
-    "package-lock.json"
+    "dist/*"
   ]
 }
