@@ -24,6 +24,7 @@
   "main": "dist/vuedarkmode.cjs.js",
   "module": "dist/vuedarkmode.es.js",
   "jsdelivr": "dist/vuedarkmode.min.js",
+  "unpkg": "dist/vuedarkmode.min.js",
   "scripts": {
     "dev": "nuxt",
     "dev:lambda": "netlify-lambda serve server/src",
