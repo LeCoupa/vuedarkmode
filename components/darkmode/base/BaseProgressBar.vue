@@ -10,27 +10,26 @@ div(
   ]`
 )
   span(
-    v-if="labelMain || labelSecondary"
+    v-if="title || details"
     class="dm-base-progress-bar__content"
   )
     span(
-      v-if="labelMain"
-      class="dm-base-progress-bar__label-main"
-    ) {{ labelMain }}
+      v-if="title"
+      class="dm-base-progress-bar__title"
+    ) {{ title }}
 
     span(
-      v-if="labelSecondary"
-      class="dm-base-progress-bar__label-secondary"
-    ) {{ labelSecondary }}
+      v-if="details"
+      class="dm-base-progress-bar__details"
+    ) {{ details }}
 
   div.dm-base-progress-bar__bar
-
-  div(
-    :style=`{
-      width: progress + "%"
-    }`
-    class="dm-base-progress-bar__progress"
-  )
+    div(
+      :style=`{
+        width: progress + "%"
+      }`
+      class="dm-base-progress-bar__progress"
+    )
 </template>
 
 <!-- *************************************************************************
@@ -58,11 +57,11 @@ export default {
         );
       }
     },
-    labelSecondary: {
+    details: {
       type: String,
       default: null
     },
-    labelMain: {
+    title: {
       type: String,
       default: null
     },
@@ -80,7 +79,6 @@ export default {
 
 <style lang="scss">
 @import "assets/settings/_settings.colors.scss";
-
 $c: ".dm-base-progress-bar";
 $colors: black, blue, green, orange, purple, red, turquoise, white;
 
@@ -95,41 +93,56 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
     display: flex;
     margin-bottom: 10px;
 
-    #{$c}__label-main,
-    #{$c}__label-secondary {
+    #{$c}__title,
+    #{$c}__details {
       flex: 1;
     }
 
-    #{$c}__label-main {
+    #{$c}__title {
       text-transform: uppercase;
       font-weight: bold;
     }
 
-    #{$c}__label-secondary {
+    #{$c}__details {
       text-align: right;
     }
   }
 
-  #{$c}__bar,
-  #{$c}__progress {
+  #{$c}__bar {
+    overflow: hidden;
+    margin-bottom: -5px;
     height: 6px;
     border-radius: 10px;
-  }
 
-  #{$c}__bar {
-    margin-bottom: -5px;
-    opacity: 0.2;
+    #{$c}__progress {
+      width: 0;
+      height: 100%;
+      border-radius: 10px;
+      transition: width 0.5s ease-in-out;
+      animation: fillUp 0.5s ease-in-out 0s 1;
+    }
   }
 
   // --> COLORS <--
 
   @each $color in $colors {
     &--#{$color} {
-      #{$c}__bar,
-      #{$c}__progress {
-        background-color: map-get($mainColors, $color);
+      #{$c}__bar {
+        #{$c}__progress {
+          background-color: map-get($mainColors, $color);
+        }
       }
     }
+  }
+}
+
+@keyframes fillUp {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
   }
 }
 </style>

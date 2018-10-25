@@ -181,127 +181,127 @@ export default {
 
       // --> COMPONENTS <--
       sections: [
-        {
-          id: "install",
-          headlines: {
-            title: "INSTALLATION",
-            description: "Come and join us to the dark side 👻",
-            hasDocumentation: false
-          }
-        },
-        {
-          id: "colors",
-          headlines: {
-            title: "COLORS",
-            description:
-              "We made all our components using only these colors. No sugar added. 🤞",
-            hasDocumentation: false
-          }
-        },
-        {
-          id: "headings",
-          headlines: {
-            title: "HEADINGS",
-            command: "npm install --save @vuedarkmode/base-heading",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "buttons",
-          headlines: {
-            title: "BUTTONS",
-            command: "npm install --save @vuedarkmode/base-button",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "badges",
-          headlines: {
-            title: "BADGES",
-            command: "npm install --save @vuedarkmode/base-badge",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "socialLogins",
-          headlines: {
-            title: "SOCIAL LOGINS",
-            command: "npm install --save @vuedarkmode/base-social-login",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "inputs",
-          headlines: {
-            title: "INPUTS",
-            command: "npm install --save @vuedarkmode/field-input",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "selects",
-          headlines: {
-            title: "SELECTS",
-            command: "npm install --save @vuedarkmode/field-select",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "textareas",
-          headlines: {
-            title: "TEXTAREAS",
-            command: "npm install --save @vuedarkmode/field-textarea",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "checkboxes",
-          headlines: {
-            title: "CHECKBOXES",
-            command: "npm install --save @vuedarkmode/field-checkbox",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "radios",
-          headlines: {
-            title: "RADIOS",
-            command: "npm install --save @vuedarkmode/field-radio",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "toggles",
-          headlines: {
-            title: "TOGGLES",
-            command: "npm install --save @vuedarkmode/field-toggle",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "files",
-          headlines: {
-            title: "FILE UPLOAD",
-            command: "npm install --save @vuedarkmode/field-file",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "tabs",
-          headlines: {
-            title: "TABS",
-            command: "npm install --save @vuedarkmode/field-tabs",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "dividers",
-          headlines: {
-            title: "DIVIDERS",
-            command: "npm install --save @vuedarkmode/base-divider",
-            hasDocumentation: true
-          }
-        },
+        // {
+        //   id: "install",
+        //   headlines: {
+        //     title: "INSTALLATION",
+        //     description: "Come and join us to the dark side 👻",
+        //     hasDocumentation: false
+        //   }
+        // },
+        // {
+        //   id: "colors",
+        //   headlines: {
+        //     title: "COLORS",
+        //     description:
+        //       "We made all our components using only these colors. No sugar added. 🤞",
+        //     hasDocumentation: false
+        //   }
+        // },
+        // {
+        //   id: "headings",
+        //   headlines: {
+        //     title: "HEADINGS",
+        //     command: "npm install --save @vuedarkmode/base-heading",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "buttons",
+        //   headlines: {
+        //     title: "BUTTONS",
+        //     command: "npm install --save @vuedarkmode/base-button",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "badges",
+        //   headlines: {
+        //     title: "BADGES",
+        //     command: "npm install --save @vuedarkmode/base-badge",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "socialLogins",
+        //   headlines: {
+        //     title: "SOCIAL LOGINS",
+        //     command: "npm install --save @vuedarkmode/base-social-login",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "inputs",
+        //   headlines: {
+        //     title: "INPUTS",
+        //     command: "npm install --save @vuedarkmode/field-input",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "selects",
+        //   headlines: {
+        //     title: "SELECTS",
+        //     command: "npm install --save @vuedarkmode/field-select",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "textareas",
+        //   headlines: {
+        //     title: "TEXTAREAS",
+        //     command: "npm install --save @vuedarkmode/field-textarea",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "checkboxes",
+        //   headlines: {
+        //     title: "CHECKBOXES",
+        //     command: "npm install --save @vuedarkmode/field-checkbox",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "radios",
+        //   headlines: {
+        //     title: "RADIOS",
+        //     command: "npm install --save @vuedarkmode/field-radio",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "toggles",
+        //   headlines: {
+        //     title: "TOGGLES",
+        //     command: "npm install --save @vuedarkmode/field-toggle",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "files",
+        //   headlines: {
+        //     title: "FILE UPLOAD",
+        //     command: "npm install --save @vuedarkmode/field-file",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "tabs",
+        //   headlines: {
+        //     title: "TABS",
+        //     command: "npm install --save @vuedarkmode/field-tabs",
+        //     hasDocumentation: true
+        //   }
+        // },
+        // {
+        //   id: "dividers",
+        //   headlines: {
+        //     title: "DIVIDERS",
+        //     command: "npm install --save @vuedarkmode/base-divider",
+        //     hasDocumentation: true
+        //   }
+        // },
         {
           id: "progressBars",
           headlines: {

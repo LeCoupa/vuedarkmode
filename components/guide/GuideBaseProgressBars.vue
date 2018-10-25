@@ -11,9 +11,9 @@
   )
     base-progress-bar(
       :color="progressBar.color"
-      :labelMain="progressBar.labelMain"
-      :labelSecondary="progressBar.labelSecondary"
+      :details="progressBar.details"
       :progress="(i + 1) * 10"
+      :title="progressBar.title"
     )
 </template>
 
@@ -35,43 +35,43 @@ export default {
       progressBars: [
         {
           color: "blue",
-          labelMain: "Loading",
-          labelSecondary: "10%"
+          title: "Loading",
+          details: "10%"
         },
         {
           color: "green",
-          labelMain: "Progression",
-          labelSecondary: "20%"
+          title: "Progression",
+          details: "20%"
         },
         {
           color: "red",
-          labelMain: "Experience",
-          labelSecondary: "30%"
+          title: "Experience",
+          details: "30%"
         },
         {
           color: "orange",
-          labelMain: "XPs until next level",
-          labelSecondary: "2/5"
+          title: "XPs until next level",
+          details: "2/5"
         },
         {
           color: "turquoise",
-          labelMain: "XPs until next level",
-          labelSecondary: "5/10"
+          title: "XPs until next level",
+          details: "5/10"
         },
         {
           color: "purple",
-          labelMain: "XPs until next level",
-          labelSecondary: "6/10"
+          title: "XPs until next level",
+          details: "6/10"
         },
         {
           color: "black",
-          labelMain: "Remaining Steps",
-          labelSecondary: "7/10"
+          title: "Remaining Steps",
+          details: "7/10"
         },
         {
           color: "white",
-          labelMain: "Completed Steps",
-          labelSecondary: "8/10"
+          title: "Completed Steps",
+          details: "8/10"
         }
       ]
     };
