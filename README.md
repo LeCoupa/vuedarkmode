@@ -50,6 +50,15 @@ Add this new plugin to `nuxt.config.js`. Don't forget to set ssr to false as Vue
 }
 ```
 
+### CDN
+
+Get the latest version from [jsdelivr](https://www.jsdelivr.com/), and import the JavaScript file in your page.
+
+```html
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuedarkmode@0/dist/vuedarkmode.min.js"></script>
+```
+
 ## Available Components
 
 We are releasing new components on monthly basis. [Subscribe to our newsletter](http://eepurl.com/dLlKBM) to stay in touch with coming releases.
