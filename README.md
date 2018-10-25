@@ -67,39 +67,39 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 ### Base Components
 
-- [BaseAvatar](/components/darkmode/base/BaseAvatar.vue)
+- BaseAvatar: [source code](/components/darkmode/base/BaseAvatar.vue).
 
-- [BaseBadge](/components/darkmode/base/BaseBadge.vue)
+- BaseBadge: [source code](/components/darkmode/base/BaseBadge.vue).
 
-- [BaseButton](/components/darkmode/base/BaseButton.vue)
+- BaseButton: [source code](/components/darkmode/base/BaseButton.vue).
 
-- [BaseDivider](/components/darkmode/base/BaseDivider.vue)
+- BaseDivider: [source code](/components/darkmode/base/BaseDivider.vue).
 
-- [BaseHeading](/components/darkmode/base/BaseHeading.vue)
+- BaseHeading: [source code](/components/darkmode/base/BaseHeading.vue).
 
-- [BaseIcon](/components/darkmode/base/BaseIcon.vue)
+- BaseIcon: [source code](/components/darkmode/base/BaseIcon.vue).
 
-- [BaseProgressBar](/components/darkmode/base/BaseProgressBar.vue)
+- BaseProgressBar: [source code](/components/darkmode/base/BaseProgressBar.vue).
 
-- [BaseSocialLogin](/components/darkmode/base/BaseSocialLogin.vue)
+- BaseSocialLogin: [source code](/components/darkmode/base/BaseSocialLogin.vue).
 
 ### Form Components
 
-- [FieldCheckbox](/components/darkmode/base/FieldCheckbox.vue)
+- FieldCheckbox: [source code](/components/darkmode/base/FieldCheckbox.vue).
 
-- [FieldFile](/components/darkmode/base/FieldFile.vue)
+- FieldFile: [source code](/components/darkmode/base/FieldFile.vue).
 
-- [FieldInput](/components/darkmode/base/FieldInput.vue)
+- FieldInput: [source code](/components/darkmode/base/FieldInput.vue).
 
-- [FieldRadio](/components/darkmode/base/FieldRadio.vue)
+- FieldRadio: [source code](/components/darkmode/base/FieldRadio.vue).
 
-- [FieldSelect](/components/darkmode/base/FieldSelect.vue)
+- FieldSelect: [source code](/components/darkmode/base/FieldSelect.vue).
 
-- [FieldTabs](/components/darkmode/base/FieldTabs.vue)
+- FieldTabs: [source code](/components/darkmode/base/FieldTabs.vue).
 
-- [FieldTextarea](/components/darkmode/base/FieldTextarea.vue)
+- FieldTextarea: [source code](/components/darkmode/base/FieldTextarea.vue).
 
-- [FieldToggle](/components/darkmode/base/FieldToggle.vue)
+- FieldToggle: [source code](/components/darkmode/base/FieldToggle.vue).
 
 ## Contributing
 
