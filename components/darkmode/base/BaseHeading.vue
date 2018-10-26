@@ -95,7 +95,6 @@ export default {
 
 <style lang="scss">
 @import "assets/settings/_settings.colors.scss";
-
 $c: ".dm-base-heading";
 
 #{$c} {
@@ -149,21 +148,21 @@ $c: ".dm-base-heading";
   // --> TYPES <--
 
   &--h1 {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-size: 26px;
     line-height: 32px;
   }
 
   &--h2 {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-size: 24px;
-    line-height: 28px;
+    line-height: 30px;
   }
 
   &--h3 {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-size: 22px;
-    line-height: 26px;
+    line-height: 28px;
   }
 
   &--p {
