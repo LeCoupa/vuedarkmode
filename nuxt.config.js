@@ -168,7 +168,7 @@ module.exports = {
     ]
   ],
 
-  plugins: [{ src: "~/plugins/vue-highlight", ssr: false }],
+  plugins: [{ src: "~/plugins/vue-highlight" }],
 
   build: {
     extend(config, { isDev, isClient }) {
