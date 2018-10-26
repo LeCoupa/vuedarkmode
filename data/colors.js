@@ -4,23 +4,23 @@
 
 const colors = [
   {
-    hex: "#AB7DF6",
+    hex: "#ab7ef6",
     name: "$portage"
   },
   {
-    hex: "#0093ee",
+    hex: "#0194ef",
     name: "$azure-radiance"
   },
   {
-    hex: "#2da1f8",
+    hex: "#2ea2f9",
     name: "$dodger-blue"
   },
   {
-    hex: "#26C1C9",
+    hex: "#26c2c9",
     name: "$java"
   },
   {
-    hex: "#4ece3d",
+    hex: "#4fcf3f",
     name: "$apple"
   },
   {
@@ -28,23 +28,23 @@ const colors = [
     name: "$malachite"
   },
   {
-    hex: "#E0102B",
+    hex: "#e1112c",
     name: "$crimson"
   },
   {
-    hex: "#e44023",
+    hex: "#e54124",
     name: "$cinnabar"
   },
   {
-    hex: "#faca00",
+    hex: "#fbcb01",
     name: "$supernova"
   },
   {
-    hex: "#ffc82e",
+    hex: "#ffc92f",
     name: "$sunglow"
   },
   {
-    hex: "#FFF5CC",
+    hex: "#fff5cd",
     name: "$barley-white"
   },
   {
@@ -52,35 +52,35 @@ const colors = [
     name: "$athens-gray"
   },
   {
-    hex: "#FFFFFF",
+    hex: "#ffffff",
     name: "$white"
   },
   {
-    hex: "#a8c6df",
+    hex: "#a9c7df",
     name: "$regent-st-blue"
   },
   {
-    hex: "#8dabc4",
+    hex: "#8eacc5",
     name: "$nepal"
   },
   {
-    hex: "#313d4f",
+    hex: "#323e4f",
     name: "$oxford-blue"
   },
   {
-    hex: "#222c3c",
+    hex: "#232d3d",
     name: "$ebony-clay"
   },
   {
-    hex: "#273142",
+    hex: "#283243",
     name: "$ebony-clay-2"
   },
   {
-    hex: "#1b2431",
+    hex: "#1c2532",
     name: "$mirage"
   },
   {
-    hex: "#171819",
+    hex: "#18191a",
     name: "$woodsmoke"
   },
   {
