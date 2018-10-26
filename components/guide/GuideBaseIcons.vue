@@ -59,7 +59,6 @@ $c: ".c-guide-base-icons";
 
 #{$c} {
   #{$c}__container {
-    overflow: hidden;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fill, 24px);
 
