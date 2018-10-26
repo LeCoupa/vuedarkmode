@@ -36,6 +36,9 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// Imported stylesheets for Javascript libraries (e.g. nprogress)
+@import "assets/libraries/libraries.highlightjs";
+
 // Unclassed HTML elements (e.g. a {}, blockquote {}, address {})
 @import "./assets/elements/elements.inline";
 

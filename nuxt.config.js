@@ -164,6 +164,8 @@ module.exports = {
     ]
   ],
 
+  plugins: [{ src: "~/plugins/vue-highlight", ssr: false }],
+
   build: {
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
@@ -177,8 +179,6 @@ module.exports = {
     },
     postcss: [require("autoprefixer")()]
   },
-
-  buildDir: "build",
 
   generate: {
     dir: "website"
