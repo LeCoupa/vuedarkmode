@@ -151,7 +151,7 @@ module.exports = {
   css: ["normalize.css/normalize.css", "hint.css/hint.min.css"],
 
   modules: [
-    "@nuxtjs/pwa",
+    ["@nuxtjs/pwa", { onesignal: false }],
     [
       "nuxt-sass-resources-loader",
       [
