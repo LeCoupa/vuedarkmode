@@ -132,7 +132,7 @@ $c: ".c-guide-install";
 
 #{$c} {
   #{$c}__title {
-    margin-top: 40px;
+    margin-top: 35px;
   }
 
   #{$c}__paragraph {
@@ -140,7 +140,7 @@ $c: ".c-guide-install";
   }
 
   #{$c}__code {
-    margin: 40px 0;
+    margin: 35px 0;
   }
 }
 </style>
