@@ -44,6 +44,7 @@ div(
       :id="uuid"
       :name="name"
       :placeholder="placeholder"
+      :read-only="readOnly"
       :type="type"
       :value="currentValue"
       class="dm-field-input__field"
@@ -115,6 +116,10 @@ export default {
     placeholder: {
       type: String,
       default: null
+    },
+    readOnly: {
+      type: Boolean,
+      default: false
     },
     rightIcon: {
       type: String,
