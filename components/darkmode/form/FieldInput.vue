@@ -42,6 +42,10 @@ div(
       :autocomplete="autocomplete ? 'on' : 'false'"
       :disabled="disabled"
       :id="uuid"
+      :max="max"
+      :maxlength="maxLength"
+      :min="min"
+      :minlength="minLength"
       :name="name"
       :placeholder="placeholder"
       :read-only="readOnly"
@@ -107,6 +111,22 @@ export default {
     },
     leftIcon: {
       type: String,
+      default: null
+    },
+    max: {
+      type: Number,
+      default: null
+    },
+    maxLength: {
+      type: Number,
+      default: null
+    },
+    min: {
+      type: Number,
+      default: null
+    },
+    minLength: {
+      type: Number,
       default: null
     },
     name: {
