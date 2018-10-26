@@ -39,7 +39,7 @@ div(
       @change="onFieldChange"
       @focus="onFieldFocus"
       @input="onFieldInput"
-      :autocomplete="autocomplete"
+      :autocomplete="autocomplete ? 'on' : 'false'"
       :disabled="disabled"
       :id="uuid"
       :name="name"
@@ -81,11 +81,8 @@ export default {
 
   props: {
     autocomplete: {
-      type: String,
-      default: "off",
-      validator(x) {
-        return ["off", "on"].indexOf(x) !== -1;
-      }
+      type: Boolean,
+      default: false
     },
     borders: {
       type: Boolean,
