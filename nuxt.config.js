@@ -178,6 +178,8 @@ module.exports = {
     postcss: [require("autoprefixer")()]
   },
 
+  buildDir: "build",
+
   generate: {
     dir: "website"
   }

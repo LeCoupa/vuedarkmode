@@ -26,13 +26,16 @@
   "jsdelivr": "dist/vuedarkmode.min.js",
   "unpkg": "dist/vuedarkmode.min.js",
   "scripts": {
+    "build": "nuxt build",
+    "build:check": "nuxt build --analyze",
+    "build:lambda": "netlify-lambda build server/src",
+    "build:bili": "bili",
     "dev": "nuxt",
     "dev:lambda": "netlify-lambda serve server/src",
-    "build": "bili",
-    "build:lambda": "netlify-lambda build server/src",
     "generate": "NODE_ENV=production nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "start": "nuxt start"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^2.6.0",

@@ -17,4 +17,8 @@ npm-debug.log
 .nuxt
 
 # Website build
+build
+
+# Static build
 website
+
