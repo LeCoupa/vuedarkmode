@@ -17,9 +17,7 @@
 
   .c-guide-headings__row.c-guide-headings__row--body
     span.c-guide-headings__type
-      base-heading(
-        type="h1"
-      ) Heading 1
+      base-heading(type="h1") Heading 1
 
     span.c-guide-headings__font-weight.c-guide-headings__font-weight--bold Heebo Bold
 
@@ -35,9 +33,7 @@
 
   .c-guide-headings__row.c-guide-headings__row--body
     span.c-guide-headings__type
-      base-heading(
-        type="h2"
-      ) Heading 2
+      base-heading(type="h2") Heading 2
 
     span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
 
@@ -53,9 +49,7 @@
 
   .c-guide-headings__row.c-guide-headings__row--body
     span.c-guide-headings__type
-      base-heading(
-        type="h3"
-      ) Heading 3
+      base-heading(type="h3") Heading 3
 
     span.c-guide-headings__font-weight Heebo Regular
 
@@ -71,9 +65,7 @@
 
   .c-guide-headings__row.c-guide-headings__row--body
     span.c-guide-headings__type
-      base-heading(
-        type="p"
-      ) Paragraph Style - Dashboard doesn't currently offer two-way syncing features like version...
+      base-heading(type="p") Paragraph Style
 
     span.c-guide-headings__font-weight Heebo Regular
 
@@ -89,9 +81,7 @@
 
   .c-guide-headings__row.c-guide-headings__row--body
     span.c-guide-headings__type
-      a(
-        href="#headings"
-      ) Link Style
+      a(href="#headings") Link Style
 
     span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
 

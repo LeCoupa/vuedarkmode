@@ -185,7 +185,7 @@ export default {
           id: "install",
           headlines: {
             title: "INSTALLATION",
-            description: "Come and join us to the dark side 👻",
+            description: "The dark side is calling. Come and join us! 👻",
             hasDocumentation: false
           }
         },
@@ -194,7 +194,7 @@ export default {
           headlines: {
             title: "COLORS",
             description:
-              "We made all our components using only these colors. No sugar added. 🤞",
+              "We bake all our components using only these colors. No added sugar. 🤞",
             hasDocumentation: false
           }
         },

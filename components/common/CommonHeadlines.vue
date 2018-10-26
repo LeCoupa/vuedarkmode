@@ -106,7 +106,7 @@ $c: ".c-common-headlines";
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 
   #{$c}__title,
   #{$c}__description,
