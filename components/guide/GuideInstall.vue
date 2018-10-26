@@ -60,6 +60,7 @@
     type="p"
   )
     | Add this new plugin to nuxt.config.js.
+    br
     | Don't forget to set ssr to false as VueDarkMode only works in the browser for the time being.
 
   pre(
@@ -140,7 +141,7 @@ $c: ".c-guide-install";
   }
 
   #{$c}__code {
-    margin: 35px 0;
+    margin: 30px 0;
   }
 }
 </style>
