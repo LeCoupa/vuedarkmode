@@ -149,7 +149,23 @@ export default {
       type: String,
       default: "text",
       validator(x) {
-        return ["number", "text"].indexOf(x) !== -1;
+        return (
+          [
+            "currency",
+            "email",
+            "date",
+            "datetime-local",
+            "month",
+            "number",
+            "password",
+            "search",
+            "tel",
+            "text",
+            "time",
+            "url",
+            "week"
+          ].indexOf(x) !== -1
+        );
       }
     },
     value: {
