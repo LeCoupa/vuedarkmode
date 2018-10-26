@@ -46,7 +46,7 @@ Add this new plugin to `nuxt.config.js`. Don't forget to set ssr to false as Vue
   // ...
   plugins: [
     { src: "@/plugins/vuedarkmode.js", ssr: false }
-  ],
+  ]
 }
 ```
 
