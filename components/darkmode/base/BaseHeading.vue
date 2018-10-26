@@ -156,20 +156,20 @@ $c: ".dm-base-heading";
 
   &--h2 {
     margin-bottom: 6px;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 28px;
   }
 
   &--h3 {
     margin-bottom: 6px;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 22px;
+    line-height: 26px;
   }
 
   &--p {
     margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 26px;
   }
 }
 </style>
