@@ -42,6 +42,12 @@
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
         | &lt;dm-select&gt;&lt;/dm-select&gt;
+
+    no-ssr
+      common-table(
+        :data="table.data"
+        :fields="table.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -50,10 +56,12 @@
 
 <script>
 // PROJECT
+const CommonTable = () => import("@/components/common/CommonTable");
 import FieldSelect from "@/components/darkmode/form/FieldSelect";
 
 export default {
   components: {
+    CommonTable,
     FieldSelect
   },
 
@@ -71,6 +79,38 @@ export default {
         statuses: [
           ["normal", "normal", "normal", "normal", "normal"],
           ["success", "error", "warning"]
+        ]
+      },
+      table: {
+        fields: [
+          {
+            name: "name",
+            title: "Prop Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "type",
+            title: "Type",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "",
+            type: {
+              type: "",
+              additional: ""
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          }
         ]
       }
     };

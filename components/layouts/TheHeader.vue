@@ -10,7 +10,7 @@ header.c-the-header
 
   base-heading(
     type="h1"
-  ) A MINIMALIST DARK DESIGN SYSTEM FOR VUE.JS 👩‍🎨👨‍🎨
+  ) A MINIMALIST DARK DESIGN SYSTEM FOR VUE.JS 🎨
 
   base-heading(
     color="grey"

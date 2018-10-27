@@ -114,14 +114,14 @@ $c: ".c-common-table";
           .c-common-table__description,
           .c-common-table__values {
             display: block;
+            line-height: 26px;
           }
 
           .c-common-table__additional,
           .c-common-table__values {
-            margin-top: 4px;
+            margin-top: 2px;
             color: $nepal;
             font-size: 15px;
-            line-height: 26px;
           }
         }
 

@@ -33,6 +33,12 @@
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
         | &lt;dm-divider&gt;&lt;/dm-divider&gt;
+
+    no-ssr
+      common-table(
+        :data="table.data"
+        :fields="table.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -42,10 +48,12 @@
 <script>
 // PROJECT
 import BaseDivider from "@/components/darkmode/base/BaseDivider";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
-    BaseDivider
+    BaseDivider,
+    CommonTable
   },
 
   props: {
@@ -69,6 +77,38 @@ export default {
           "white"
         ],
         sizes: ["large", "small"]
+      },
+      table: {
+        fields: [
+          {
+            name: "name",
+            title: "Prop Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "type",
+            title: "Type",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "",
+            type: {
+              type: "",
+              additional: ""
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          }
+        ]
       }
     };
   }

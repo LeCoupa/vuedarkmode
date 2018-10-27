@@ -42,6 +42,12 @@
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
         | &lt;dm-avatar&gt;&lt;/dm-avatar&gt;
+
+    no-ssr
+      common-table(
+        :data="table.data"
+        :fields="table.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -51,10 +57,12 @@
 <script>
 // PROJECT
 import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
-    BaseAvatar
+    BaseAvatar,
+    CommonTable
   },
 
   props: {
@@ -83,6 +91,38 @@ export default {
             }
           ]
         }
+      },
+      table: {
+        fields: [
+          {
+            name: "name",
+            title: "Prop Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "type",
+            title: "Type",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "",
+            type: {
+              type: "",
+              additional: ""
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          }
+        ]
       }
     };
   }

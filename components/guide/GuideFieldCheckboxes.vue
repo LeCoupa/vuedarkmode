@@ -38,6 +38,12 @@
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
         | &lt;dm-checkbox&gt;&lt;/dm-checkbox&gt;
+
+    no-ssr
+      common-table(
+        :data="table.data"
+        :fields="table.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -46,10 +52,12 @@
 
 <script>
 // PROJECT
+const CommonTable = () => import("@/components/common/CommonTable");
 import FieldCheckbox from "@/components/darkmode/form/FieldCheckbox";
 
 export default {
   components: {
+    CommonTable,
     FieldCheckbox
   },
 
@@ -67,6 +75,38 @@ export default {
         statuses: [
           ["normal", "normal", "normal", "normal", "normal"],
           ["normal", "success", "error", "warning"]
+        ]
+      },
+      table: {
+        fields: [
+          {
+            name: "name",
+            title: "Prop Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "type",
+            title: "Type",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "",
+            type: {
+              type: "",
+              additional: ""
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          }
         ]
       }
     };

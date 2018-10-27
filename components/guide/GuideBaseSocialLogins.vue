@@ -32,6 +32,12 @@
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
         | &lt;dm-social-login&gt;&lt;/dm-social-login&gt;
+
+    no-ssr
+      common-table(
+        :data="table.data"
+        :fields="table.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -41,10 +47,12 @@
 <script>
 // PROJECT
 import BaseSocialLogin from "@/components/darkmode/base/BaseSocialLogin";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
-    BaseSocialLogin
+    BaseSocialLogin,
+    CommonTable
   },
 
   props: {
@@ -59,6 +67,71 @@ export default {
       socialLogins: {
         networks: ["facebook", "messenger", "twitter", "google"],
         sizes: ["large", "small", "mini"]
+      },
+      table: {
+        fields: [
+          {
+            name: "name",
+            title: "Prop Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "type",
+            title: "Type",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "action",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Set the action verb for the button: sign in, subscribe..."
+            }
+          },
+          {
+            name: "full-width",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description:
+                "When set to true, the social login button will take all the width available in the parent container."
+            }
+          },
+          {
+            name: "network",
+            type: {
+              type: "String",
+              additional: "Required: true"
+            },
+            details: {
+              description: "Set the social network.",
+              values: '"facebook" | "google" | "messenger" | "twitter"'
+            }
+          },
+          {
+            name: "size",
+            type: {
+              type: "String",
+              additional: "Default: large"
+            },
+            details: {
+              description: "Set the button size.",
+              values: '"mini" | "small" | "large"'
+            }
+          }
+        ]
       }
     };
   }

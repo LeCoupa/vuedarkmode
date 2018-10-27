@@ -157,7 +157,7 @@ export default {
             },
             details: {
               description:
-                "When set to true, the button will take all the width space available in the parent container."
+                "When set to true, the button will take all the width available in the parent container."
             }
           },
           {

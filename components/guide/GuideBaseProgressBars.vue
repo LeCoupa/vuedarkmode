@@ -29,6 +29,12 @@
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
         | &lt;dm-progress-bar&gt;&lt;/dm-progress-bar&gt;
+
+    no-ssr
+      common-table(
+        :data="table.data"
+        :fields="table.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -38,10 +44,12 @@
 <script>
 // PROJECT
 import BaseProgressBar from "@/components/darkmode/base/BaseProgressBar";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
-    BaseProgressBar
+    BaseProgressBar,
+    CommonTable
   },
 
   props: {
@@ -94,7 +102,39 @@ export default {
           title: "Completed Steps",
           details: "8/10"
         }
-      ]
+      ],
+      table: {
+        fields: [
+          {
+            name: "name",
+            title: "Prop Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "type",
+            title: "Type",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "",
+            type: {
+              type: "",
+              additional: ""
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          }
+        ]
+      }
     };
   }
 };

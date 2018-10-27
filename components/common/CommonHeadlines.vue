@@ -28,7 +28,7 @@
     class="c-common-headlines__documentation"
     color="blue"
     size="small"
-  ) {{ documentationVisibility ? "Show components" : "Read documentation" }}
+  ) {{ documentationVisibility ? "Show components" : "Show documentation" }}
 </template>
 
 <!-- *************************************************************************
