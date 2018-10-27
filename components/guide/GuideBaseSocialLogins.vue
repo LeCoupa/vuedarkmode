@@ -21,7 +21,7 @@
         base-social-login(
           :network="network"
           :size="size"
-        ) Connect with {{ network }}
+        ) Connect with {{ network | capitalize }}
 
   div(
     v-else
@@ -50,6 +50,14 @@ import BaseSocialLogin from "@/components/darkmode/base/BaseSocialLogin";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
+  filters: {
+    capitalize(value) {
+      if (!value) return "";
+      value = value.toString();
+      return value.charAt(0).toUpperCase() + value.slice(1);
+    }
+  },
+
   components: {
     BaseSocialLogin,
     CommonTable
