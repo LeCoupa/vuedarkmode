@@ -3,28 +3,39 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-field-inputs.o-elements
+.c-guide-field-inputs
   div(
-    v-for="(statuses, i) in inputs.statuses"
-    :key="'inputs ' + i"
-    class="o-elements__category"
+    v-if="!documentation"
+    class="c-guide-field-inputs__showroom o-elements o-elements--form"
   )
     div(
-      v-if="statuses[j]"
-      v-for="(size, j) in inputs.sizes"
-      :key="'inputs ' + i + ' ' + j"
-      class="o-elements__item"
+      v-for="(statuses, i) in inputs.statuses"
+      :key="'inputs ' + i"
+      class="o-elements__category"
     )
-      field-input(
-        :label="size + ' input (' + statuses[j] + ')'"
-        :name="'input_' + size + '_'  + statuses[j] + i + j"
-        :placeholder="statuses[j] + ' ' + size + ' input'"
-        :size="size"
-        :status="statuses[j]"
-        class="c-index__input"
-        description="This is a customizable description for inputs."
-        value="Dark Mode FTW"
+      div(
+        v-if="statuses[j]"
+        v-for="(size, j) in inputs.sizes"
+        :key="'inputs ' + i + ' ' + j"
+        class="o-elements__item"
       )
+        field-input(
+          :label="size + ' input (' + statuses[j] + ')'"
+          :name="'input_' + size + '_'  + statuses[j] + i + j"
+          :placeholder="statuses[j] + ' ' + size + ' input'"
+          :size="size"
+          :status="statuses[j]"
+          class="c-index__input"
+          description="This is a customizable description for inputs."
+          value="Dark Mode FTW"
+        )
+
+  div(v-else)
+    pre(v-highlightjs)
+      code(class="html")
+        | &lt;!-- Insert this component in your code --&gt;
+        | &lt;!-- Customize it with props (see table below) --&gt;
+        | &lt;dm-input&gt;&lt;/dm-input&gt;
 </template>
 
 <!-- *************************************************************************
@@ -38,6 +49,13 @@ import FieldInput from "@/components/darkmode/form/FieldInput";
 export default {
   components: {
     FieldInput
+  },
+
+  props: {
+    documentation: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {

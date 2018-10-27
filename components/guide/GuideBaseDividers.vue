@@ -3,22 +3,33 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-base-dividers.o-elements
+.c-guide-base-dividers
   div(
-    v-for="(color, i) in dividers.colors"
-    :key="'divider' + color + i"
-    class="o-elements__category"
+    v-if="!documentation"
+    class="c-guide-base-dividers__showroom o-elements"
   )
     div(
-      v-for="(size, j) in dividers.sizes"
-      :key="'divider' + color + j + size"
-      class="o-elements__item"
+      v-for="(color, i) in dividers.colors"
+      :key="'divider' + color + i"
+      class="o-elements__category"
     )
-      base-divider(
-        :color="color"
-        :size="size"
-        class="c-guide-base-dividers__divider"
+      div(
+        v-for="(size, j) in dividers.sizes"
+        :key="'divider' + color + j + size"
+        class="o-elements__item"
       )
+        base-divider(
+          :color="color"
+          :size="size"
+          class="c-guide-base-dividers__divider"
+        )
+
+  div(v-else)
+    pre(v-highlightjs)
+      code(class="html")
+        | &lt;!-- Insert this component in your code --&gt;
+        | &lt;!-- Customize it with props (see table below) --&gt;
+        | &lt;dm-divider&gt;&lt;/dm-divider&gt;
 </template>
 
 <!-- *************************************************************************
@@ -32,6 +43,13 @@ import BaseDivider from "@/components/darkmode/base/BaseDivider";
 export default {
   components: {
     BaseDivider
+  },
+
+  props: {
+    documentation: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {
@@ -62,12 +80,14 @@ export default {
 $c: ".c-guide-base-dividers";
 
 #{$c} {
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fill, 100%);
-  margin-bottom: 0;
+  #{$c}__showroom {
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, 100%);
+    margin-bottom: 0;
 
-  #{$c}__divider {
-    margin: 0 auto;
+    #{$c}__divider {
+      margin: 0 auto;
+    }
   }
 }
 </style>

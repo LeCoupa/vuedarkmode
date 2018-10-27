@@ -31,60 +31,68 @@
       v-if="section.id === 'colors'"
     )
     guide-base-headings(
-      v-if="section.id === 'headings' && !docs.headings"
+      v-if="section.id === 'headings'"
+      :documentation="docs.headings"
     )
     guide-base-buttons(
-      v-if="section.id === 'buttons' && !docs.buttons"
+      v-if="section.id === 'buttons'"
+      :documentation="docs.buttons"
     )
     guide-base-badges(
-      v-if="section.id === 'badges' && !docs.badges"
+      v-if="section.id === 'badges'"
+      :documentation="docs.badges"
     )
     guide-base-social-logins(
-      v-if="section.id === 'socialLogins' && !docs.socialLogins"
+      v-if="section.id === 'socialLogins'"
+      :documentation="docs.socialLogins"
     )
     guide-field-inputs(
-      v-if="section.id === 'inputs' && !docs.inputs"
-      class="c-index__form"
+      v-if="section.id === 'inputs'"
+      :documentation="docs.inputs"
     )
     guide-field-selects(
-      v-if="section.id === 'selects' && !docs.selects"
-      class="c-index__form"
+      v-if="section.id === 'selects'"
+      :documentation="docs.selects"
     )
     guide-field-textareas(
-      v-if="section.id === 'textareas' && !docs.textareas"
-      class="c-index__form"
+      v-if="section.id === 'textareas'"
+      :documentation="docs.textareas"
     )
     guide-field-checkboxes(
-      v-if="section.id === 'checkboxes' && !docs.checkboxes"
-      class="c-index__form"
+      v-if="section.id === 'checkboxes'"
+      :documentation="docs.checkboxes"
     )
     guide-field-radios(
-      v-if="section.id === 'radios' && !docs.radios"
-      class="c-index__form"
+      v-if="section.id === 'radios'"
+      :documentation="docs.radios"
     )
     guide-field-toggles(
-      v-if="section.id === 'toggles' && !docs.toggles"
-      class="c-index__form"
+      v-if="section.id === 'toggles'"
+      :documentation="docs.toggles"
     )
     guide-field-files(
-      v-if="section.id === 'files' && !docs.files"
-      class="c-index__form"
+      v-if="section.id === 'files'"
+      :documentation="docs.files"
     )
     guide-field-tabs(
-      v-if="section.id === 'tabs' && !docs.tabs"
-      class="c-index__form"
+      v-if="section.id === 'tabs'"
+      :documentation="docs.tabs"
     )
     guide-base-dividers(
-      v-if="section.id === 'dividers' && !docs.dividers"
+      v-if="section.id === 'dividers'"
+      :documentation="docs.dividers"
     )
     guide-base-progress-bars(
-      v-if="section.id === 'progressBars' && !docs.progressBars"
+      v-if="section.id === 'progressBars'"
+      :documentation="docs.progressBars"
     )
     guide-base-avatars(
-      v-if="section.id === 'avatars' && !docs.avatars"
+      v-if="section.id === 'avatars'"
+      :documentation="docs.avatars"
     )
     guide-base-icons(
-      v-if="section.id === 'icons' && !docs.icons"
+      v-if="section.id === 'icons'"
+      :documentation="docs.icons"
     )
 
   base-divider(
@@ -347,9 +355,6 @@ $c: ".c-index";
 
 #{$c} {
   #{$c}__form {
-    grid-template-columns: repeat(auto-fill, 360px);
-    text-align: left;
-
     input::placeholder,
     textarea::placeholder {
       text-transform: capitalize;

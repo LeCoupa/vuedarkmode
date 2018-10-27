@@ -8,7 +8,7 @@
     v-highlightjs
     class="c-guide-install__code"
   )
-    code(class="Bash")
+    code(class="bash")
       | npm install vuedarkmode
       |
       | # Or if you prefer using yarn
@@ -90,7 +90,7 @@
     v-highlightjs
     class="c-guide-install__code"
   )
-    code(class="HTML")
+    code(class="html")
       | &lt;script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"&gt;&lt;/script&gt;
       | &lt;script src="https://cdn.jsdelivr.net/npm/vuedarkmode@0.1/dist/vuedarkmode.min.js"&gt;&lt;/script&gt;
 
@@ -102,9 +102,6 @@
     | Requesting the latest version (as opposed to "latest major" or "latest minor") is dangerous
     | because major versions usually come with breaking changes. Only do this if you really know
     | what you are doing.
-
-
-
 </template>
 
 <!-- *************************************************************************

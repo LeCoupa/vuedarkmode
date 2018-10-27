@@ -4,25 +4,33 @@
 
 <template lang="pug">
 .c-guide-base-icons
-  .c-guide-base-icons__container.o-elements
-    base-icon(
-      v-for="(icon, i) in icons"
-      v-if="i < maxIcons"
-      :aria-label="icon"
-      :key="icon"
-      :name="icon"
-      class="c-guide-base-icons__icon hint--top hint--no-animate"
-      color="white"
-      cursor="pointer"
-    )
+  div(v-if="!documentation")
+    .c-guide-base-icons__container.o-elements
+      base-icon(
+        v-for="(icon, i) in icons"
+        v-if="i < maxIcons"
+        :aria-label="icon"
+        :key="icon"
+        :name="icon"
+        class="c-guide-base-icons__icon hint--top hint--no-animate"
+        color="white"
+        cursor="pointer"
+      )
 
-  base-button(
-    v-if="maxIcons !== 1000"
-    @click="maxIcons = 1000;"
-    :reverse="true"
-    color="white"
-    size="small"
-  ) Show all icons
+    base-button(
+      v-if="maxIcons !== 1000"
+      @click="maxIcons = 1000;"
+      :reverse="true"
+      color="white"
+      size="small"
+    ) Show all icons
+
+  div(v-else)
+    pre(v-highlightjs)
+      code(class="html")
+        | &lt;!-- Insert this component in your code --&gt;
+        | &lt;!-- Customize it with props (see table below) --&gt;
+        | &lt;dm-icon&gt;&lt;/dm-icon&gt;
 </template>
 
 <!-- *************************************************************************
@@ -39,6 +47,13 @@ export default {
   components: {
     BaseButton,
     BaseIcon
+  },
+
+  props: {
+    documentation: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {

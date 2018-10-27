@@ -4,100 +4,108 @@
 
 <template lang="pug">
 .c-guide-headings
-  .c-guide-headings__row.c-guide-headings__row--header
-    span.c-guide-headings__type Type
+  div(v-if="!documentation")
+    .c-guide-headings__row.c-guide-headings__row--header
+      span.c-guide-headings__type Type
 
-    span.c-guide-headings__font-weight Font / Weight
+      span.c-guide-headings__font-weight Font / Weight
 
-    span.c-guide-headings__font-size Font Size
+      span.c-guide-headings__font-size Font Size
 
-    span.c-guide-headings__line-height Line-Height
+      span.c-guide-headings__line-height Line-Height
 
-    span.c-guide-headings__normal-hover Normal / Hover
+      span.c-guide-headings__normal-hover Normal / Hover
 
-  .c-guide-headings__row.c-guide-headings__row--body
-    span.c-guide-headings__type
-      base-heading(type="h1") Heading 1
+    .c-guide-headings__row.c-guide-headings__row--body
+      span.c-guide-headings__type
+        base-heading(type="h1") Heading 1
 
-    span.c-guide-headings__font-weight.c-guide-headings__font-weight--bold Heebo Bold
+      span.c-guide-headings__font-weight.c-guide-headings__font-weight--bold Heebo Bold
 
-    span.c-guide-headings__font-size 32px
+      span.c-guide-headings__font-size 32px
 
-    span.c-guide-headings__line-height 44px
+      span.c-guide-headings__line-height 44px
 
-    span.c-guide-headings__normal-hover
-      span(
-        class="c-guide-headings__color"
-        style="background-color: #ffffff;"
-      )
+      span.c-guide-headings__normal-hover
+        span(
+          class="c-guide-headings__color"
+          style="background-color: #ffffff;"
+        )
 
-  .c-guide-headings__row.c-guide-headings__row--body
-    span.c-guide-headings__type
-      base-heading(type="h2") Heading 2
+    .c-guide-headings__row.c-guide-headings__row--body
+      span.c-guide-headings__type
+        base-heading(type="h2") Heading 2
 
-    span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
+      span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
 
-    span.c-guide-headings__font-size 22px
+      span.c-guide-headings__font-size 22px
 
-    span.c-guide-headings__line-height 32px
+      span.c-guide-headings__line-height 32px
 
-    span.c-guide-headings__normal-hover
-      span(
-        class="c-guide-headings__color"
-        style="background-color: #fafbfc;"
-      )
+      span.c-guide-headings__normal-hover
+        span(
+          class="c-guide-headings__color"
+          style="background-color: #fafbfc;"
+        )
 
-  .c-guide-headings__row.c-guide-headings__row--body
-    span.c-guide-headings__type
-      base-heading(type="h3") Heading 3
+    .c-guide-headings__row.c-guide-headings__row--body
+      span.c-guide-headings__type
+        base-heading(type="h3") Heading 3
 
-    span.c-guide-headings__font-weight Heebo Regular
+      span.c-guide-headings__font-weight Heebo Regular
 
-    span.c-guide-headings__font-size 20px
+      span.c-guide-headings__font-size 20px
 
-    span.c-guide-headings__line-height 28px
+      span.c-guide-headings__line-height 28px
 
-    span.c-guide-headings__normal-hover
-      span(
-        class="c-guide-headings__color"
-        style="background-color: #a8c6df;"
-      )
+      span.c-guide-headings__normal-hover
+        span(
+          class="c-guide-headings__color"
+          style="background-color: #a8c6df;"
+        )
 
-  .c-guide-headings__row.c-guide-headings__row--body
-    span.c-guide-headings__type
-      base-heading(type="p") Paragraph Style
+    .c-guide-headings__row.c-guide-headings__row--body
+      span.c-guide-headings__type
+        base-heading(type="p") Paragraph Style
 
-    span.c-guide-headings__font-weight Heebo Regular
+      span.c-guide-headings__font-weight Heebo Regular
 
-    span.c-guide-headings__font-size 16px
+      span.c-guide-headings__font-size 16px
 
-    span.c-guide-headings__line-height 24px
+      span.c-guide-headings__line-height 24px
 
-    span.c-guide-headings__normal-hover
-      span(
-        class="c-guide-headings__color"
-        style="background-color: #ffffff;"
-      )
+      span.c-guide-headings__normal-hover
+        span(
+          class="c-guide-headings__color"
+          style="background-color: #ffffff;"
+        )
 
-  .c-guide-headings__row.c-guide-headings__row--body
-    span.c-guide-headings__type
-      a(href="#headings") Link Style
+    .c-guide-headings__row.c-guide-headings__row--body
+      span.c-guide-headings__type
+        a(href="#headings") Link Style
 
-    span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
+      span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
 
-    span.c-guide-headings__font-size 16px
+      span.c-guide-headings__font-size 16px
 
-    span.c-guide-headings__line-height 24px
+      span.c-guide-headings__line-height 24px
 
-    span.c-guide-headings__normal-hover
-      span(
-        class="c-guide-headings__color"
-        style="background-color: #0093EE;"
-      )
-      span(
-        class="c-guide-headings__color"
-        style="background-color: #fafbfc;"
-      )
+      span.c-guide-headings__normal-hover
+        span(
+          class="c-guide-headings__color"
+          style="background-color: #0093EE;"
+        )
+        span(
+          class="c-guide-headings__color"
+          style="background-color: #fafbfc;"
+        )
+
+  div(v-else)
+    pre(v-highlightjs)
+      code(class="html")
+        | &lt;!-- Insert this component in your code --&gt;
+        | &lt;!-- Customize it with props (see table below) --&gt;
+        | &lt;dm-heading&gt;&lt;/dm-heading&gt;
 </template>
 
 <!-- *************************************************************************
@@ -111,6 +119,13 @@ import BaseHeading from "@/components/darkmode/base/BaseHeading";
 export default {
   components: {
     BaseHeading
+  },
+
+  props: {
+    documentation: {
+      type: Boolean,
+      default: false
+    }
   }
 };
 </script>

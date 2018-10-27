@@ -3,18 +3,29 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-base-progress-bars.o-elements
+.c-guide-base-progress-bars
   div(
-    v-for="(progressBar, i) in progressBars"
-    :key="'progressBar' + i"
-    class="o-elements__category"
+    v-if="!documentation"
+    class="c-guide-base-progress-bars__showroom o-elements"
   )
-    base-progress-bar(
-      :color="progressBar.color"
-      :details="progressBar.details"
-      :progress="(i + 1) * 10"
-      :title="progressBar.title"
+    div(
+      v-for="(progressBar, i) in progressBars"
+      :key="'progressBar' + i"
+      class="o-elements__category"
     )
+      base-progress-bar(
+        :color="progressBar.color"
+        :details="progressBar.details"
+        :progress="(i + 1) * 10"
+        :title="progressBar.title"
+      )
+
+  div(v-else)
+    pre(v-highlightjs)
+      code(class="html")
+        | &lt;!-- Insert this component in your code --&gt;
+        | &lt;!-- Customize it with props (see table below) --&gt;
+        | &lt;dm-progress-bar&gt;&lt;/dm-progress-bar&gt;
 </template>
 
 <!-- *************************************************************************
@@ -28,6 +39,13 @@ import BaseProgressBar from "@/components/darkmode/base/BaseProgressBar";
 export default {
   components: {
     BaseProgressBar
+  },
+
+  props: {
+    documentation: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {
@@ -87,8 +105,10 @@ export default {
 $c: ".c-guide-base-progress-bars";
 
 #{$c} {
-  grid-gap: 30px;
-  grid-template-columns: repeat(auto-fill, 80%);
-  margin-bottom: 0;
+  #{$c}__showroom {
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, 80%);
+    margin-bottom: 0;
+  }
 }
 </style>

@@ -4,30 +4,38 @@
 
 <template lang="pug">
 .c-guide-base-avatars
-  div(
-    v-for="type in ['avatars', 'thumbnails']"
-    class="c-guide-base-avatars__container o-elements o-elements--horizontal o-elements--vertical-on-mobile"
-  )
-    .o-elements__category
-      div(
-        v-for="(size, i) in avatars.sizes"
-        :key="'avatar' + size + i"
-        class="o-elements__item"
-      )
-        base-avatar(
-          v-if="type === 'avatars'"
-          :size="size"
-          src="/images/medley/nada.jpeg"
+  div(v-if="!documentation")
+    div(
+      v-for="type in ['avatars', 'thumbnails']"
+      class="c-guide-base-avatars__container o-elements o-elements--horizontal o-elements--vertical-on-mobile"
+    )
+      .o-elements__category
+        div(
+          v-for="(size, i) in avatars.sizes"
+          :key="'avatar' + size + i"
+          class="o-elements__item"
         )
-        base-avatar(
-          v-else-if="type === 'thumbnails'"
-          :bordered="true"
-          :circular="false"
-          :complementaries="avatars.complementaries[size]"
-          :description="size"
-          :size="size"
-          src="/images/medley/tesla.jpg"
-        )
+          base-avatar(
+            v-if="type === 'avatars'"
+            :size="size"
+            src="/images/medley/nada.jpeg"
+          )
+          base-avatar(
+            v-else-if="type === 'thumbnails'"
+            :bordered="true"
+            :circular="false"
+            :complementaries="avatars.complementaries[size]"
+            :description="size"
+            :size="size"
+            src="/images/medley/tesla.jpg"
+          )
+
+  div(v-else)
+    pre(v-highlightjs)
+      code(class="html")
+        | &lt;!-- Insert this component in your code --&gt;
+        | &lt;!-- Customize it with props (see table below) --&gt;
+        | &lt;dm-avatar&gt;&lt;/dm-avatar&gt;
 </template>
 
 <!-- *************************************************************************
@@ -41,6 +49,13 @@ import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
 export default {
   components: {
     BaseAvatar
+  },
+
+  props: {
+    documentation: {
+      type: Boolean,
+      default: false
+    }
   },
 
   data() {
