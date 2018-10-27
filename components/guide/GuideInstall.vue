@@ -136,9 +136,5 @@ $c: ".c-guide-install";
   #{$c}__paragraph {
     margin-top: 10px;
   }
-
-  #{$c}__code {
-    margin: 30px 0;
-  }
 }
 </style>

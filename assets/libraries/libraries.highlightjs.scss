@@ -3,6 +3,10 @@
    Based on https://github.com/highlightjs/highlight.js/blob/master/src/styles/atom-one-dark.css
    ************************************************************************** */
 
+pre {
+  margin: 30px 0;
+}
+
 .hljs {
   display: block;
   overflow-x: auto;

@@ -4,7 +4,10 @@
 
 <template lang="pug">
 .c-guide-base-buttons
-  div(v-if="!documentation")
+  div(
+    v-if="!documentation"
+    class="c-guide-base-buttons__showroom"
+  )
     div(
       v-for="circular in [false, true]"
       :class=`[

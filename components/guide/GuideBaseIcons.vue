@@ -4,7 +4,10 @@
 
 <template lang="pug">
 .c-guide-base-icons
-  div(v-if="!documentation")
+  div(
+    v-if="!documentation"
+    class="c-guide-base-icons__showroom"
+  )
     .c-guide-base-icons__container.o-elements
       base-icon(
         v-for="(icon, i) in icons"

@@ -4,7 +4,10 @@
 
 <template lang="pug">
 .c-guide-base-avatars
-  div(v-if="!documentation")
+  div(
+    v-if="!documentation"
+    class="c-guide-base-avatars__showroom"
+  )
     div(
       v-for="type in ['avatars', 'thumbnails']"
       class="c-guide-base-avatars__container o-elements o-elements--horizontal o-elements--vertical-on-mobile"

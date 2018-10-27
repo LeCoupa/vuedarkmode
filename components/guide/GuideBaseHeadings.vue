@@ -4,7 +4,10 @@
 
 <template lang="pug">
 .c-guide-headings
-  div(v-if="!documentation")
+  div(
+    v-if="!documentation"
+    class="c-guide-headings__showroom"
+  )
     .c-guide-headings__row.c-guide-headings__row--header
       span.c-guide-headings__type Type
 
@@ -100,12 +103,21 @@
           style="background-color: #fafbfc;"
         )
 
-  div(v-else)
+  div(
+    v-else
+    class="c-guide-headings__documentation"
+  )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
         | &lt;dm-heading&gt;&lt;/dm-heading&gt;
+
+    no-ssr
+      common-table(
+        :data="table.data"
+        :fields="table.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -115,10 +127,12 @@
 <script>
 // PROJECT
 import BaseHeading from "@/components/darkmode/base/BaseHeading";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
-    BaseHeading
+    BaseHeading,
+    CommonTable
   },
 
   props: {
@@ -126,6 +140,66 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+
+  data() {
+    return {
+      table: {
+        fields: [
+          {
+            name: "name",
+            title: "Prop Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "type",
+            title: "Type",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "color",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Set the color for the element.",
+              values: '"grey" | "white" | "white2"'
+            }
+          },
+          {
+            name: "font-weight",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Font-weight used for the heading.",
+              values:
+                '"thin" | "light" | "regular" | "medium" | "bold" | "extrabold" | "black"'
+            }
+          },
+          {
+            name: "type",
+            type: {
+              type: "String",
+              additional: "Required: true"
+            },
+            details: {
+              description: "The element name used for the heading.",
+              values: '"h1" | "h2" | "h3" | "p"'
+            }
+          }
+        ]
+      }
+    };
   }
 };
 </script>
