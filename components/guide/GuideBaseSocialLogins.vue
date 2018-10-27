@@ -21,7 +21,7 @@
         base-social-login(
           :network="network"
           :size="size"
-        )
+        ) Connect with {{ network }}
 
   div(
     v-else
@@ -31,7 +31,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-social-login&gt;&lt;/dm-social-login&gt;
+        | &lt;dm-social-login&gt;Subscribe with Facebook&lt;/dm-social-login&gt;
 
     no-ssr
       common-table(
@@ -66,7 +66,7 @@ export default {
     return {
       socialLogins: {
         networks: ["facebook", "messenger", "twitter", "google"],
-        sizes: ["large", "small", "mini"]
+        sizes: ["large", "small"]
       },
       table: {
         fields: [
@@ -87,17 +87,6 @@ export default {
           }
         ],
         data: [
-          {
-            name: "action",
-            type: {
-              type: "String",
-              additional: "Default: null"
-            },
-            details: {
-              description:
-                "Set the action verb for the button: sign in, subscribe..."
-            }
-          },
           {
             name: "full-width",
             type: {
@@ -128,7 +117,7 @@ export default {
             },
             details: {
               description: "Set the button size.",
-              values: '"mini" | "small" | "large"'
+              values: '"small" | "large"'
             }
           }
         ]

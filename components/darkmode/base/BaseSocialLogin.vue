@@ -18,15 +18,9 @@ button(
     span.dm-base-social-login__icon
 
     span(
-      v-if="['small', 'large'].includes(size)"
+      v-if="size === 'large'"
       class="dm-base-social-login__label"
-    )
-      span.dm-base-social-login__action {{ computedAction }}
-
-      span(
-        v-if="['large'].includes(size)"
-        class="dm-base-social-login__network"
-      )  with {{ network | capitalize }}
+    ): slot
 </template>
 
 <!-- *************************************************************************
@@ -35,19 +29,7 @@ button(
 
 <script>
 export default {
-  filters: {
-    capitalize(value) {
-      if (!value) return "";
-      value = value.toString();
-      return value.charAt(0).toUpperCase() + value.slice(1);
-    }
-  },
-
   props: {
-    action: {
-      type: String,
-      default: null
-    },
     fullWidth: {
       type: Boolean,
       default: false
@@ -63,25 +45,7 @@ export default {
       type: String,
       default: "large",
       validator(x) {
-        return ["mini", "small", "large"].indexOf(x) !== -1;
-      }
-    }
-  },
-
-  computed: {
-    computedAction() {
-      // Return the action when defined as prop
-      if (this.action) return this.action;
-
-      switch (this.network) {
-        case "facebook":
-          return "Sign in";
-        case "google":
-          return "Sign in";
-        case "messenger":
-          return "Subscribe";
-        case "twitter":
-          return "Sign in";
+        return ["small", "large"].indexOf(x) !== -1;
       }
     }
   },
@@ -106,7 +70,7 @@ export default {
 $c: ".dm-base-social-login";
 $iconPath: "/images/components/darkmode/base/BaseSocialLogin";
 $networks: facebook, google, messenger, twitter;
-$sizes: mini, small, large;
+$sizes: small, large;
 
 #{$c} {
   display: inline-block;
@@ -120,14 +84,6 @@ $sizes: mini, small, large;
   transition: all ease-in-out 200ms;
   user-select: none;
   cursor: pointer;
-
-  &:hover {
-    transform: scale(1.02);
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
 
   #{$c}__inner {
     display: flex;
@@ -180,6 +136,16 @@ $sizes: mini, small, large;
 
   &--full-width {
     width: 100%;
+  }
+
+  // --> CURSORS <--
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:hover {
+    transform: scale(1.02);
   }
 }
 </style>
