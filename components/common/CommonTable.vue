@@ -13,15 +13,29 @@ vuetable(
     slot="type"
     slot-scope="props"
   )
-    span.c-common-table__type {{ props.rowData.type.type }}
-    span.c-common-table__additional {{ props.rowData.type.additional }}
+    span(
+      v-if="props.rowData.type.type"
+      class="c-common-table__type"
+    ) {{ props.rowData.type.type }}
+
+    span(
+      v-if="props.rowData.type.additional"
+      class="c-common-table__additional"
+    ) {{ props.rowData.type.additional }}
 
   template(
     slot="details"
     slot-scope="props"
   )
-    span.c-common-table__description {{ props.rowData.details.description }}
-    span.c-common-table__values {{ props.rowData.details.values }}
+    span(
+      v-if="props.rowData.details.description"
+      class="c-common-table__description"
+    ) {{ props.rowData.details.description }}
+
+    span(
+      v-if="props.rowData.details.values"
+      class="c-common-table__values"
+    ) {{ props.rowData.details.values }}
 </template>
 
 <!-- *************************************************************************
@@ -59,11 +73,12 @@ $c: ".c-common-table";
 
 #{$c} {
   overflow-x: scroll;
+  text-align: left;
 
   table {
     margin: 0 auto;
     min-width: 640px;
-    max-width: 1000px;
+    max-width: 800px;
     border-collapse: collapse;
 
     thead,
@@ -101,13 +116,9 @@ $c: ".c-common-table";
             display: block;
           }
 
-          .c-common-table__type,
-          .c-common-table__description {
-            margin-bottom: 6px;
-          }
-
           .c-common-table__additional,
           .c-common-table__values {
+            margin-top: 4px;
             color: $nepal;
             font-size: 15px;
             line-height: 26px;

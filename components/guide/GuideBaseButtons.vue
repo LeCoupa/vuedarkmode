@@ -31,7 +31,7 @@
           base-button(
             :circular="circular"
             :color="color"
-            :leftIcon="buttons.icons[i]"
+            :left-icon="buttons.icons[i]"
             :size="size"
             class="o-elements__button"
           ) {{ size }} {{ color }}
@@ -41,7 +41,13 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-button&gt;&lt;/dm-button&gt;
+        | &lt;dm-button&gt;My Button Content&lt;/dm-button&gt;
+
+    no-ssr
+      common-table(
+        :data="table.data"
+        :fields="table.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -51,10 +57,12 @@
 <script>
 // PROJECT
 import BaseButton from "@/components/darkmode/base/BaseButton";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
-    BaseButton
+    BaseButton,
+    CommonTable
   },
 
   props: {
@@ -77,6 +85,151 @@ export default {
           "camera_alt"
         ],
         sizes: ["large", "medium", "default", "small", "mini"]
+      },
+      table: {
+        fields: [
+          {
+            name: "name",
+            title: "Prop Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "type",
+            title: "Type",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "capitalize",
+            type: {
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description: "Capitalize the button content."
+            }
+          },
+          {
+            name: "circular",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Convert the button shape to circular."
+            }
+          },
+          {
+            name: "color",
+            type: {
+              type: "String",
+              additional: "Default: blue"
+            },
+            details: {
+              description: "Set the color of the button.",
+              values: '"black" | "blue" | "green" | "red" | "orange" | "white"'
+            }
+          },
+          {
+            name: "disabled",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Add the disabled tag property to the button."
+            }
+          },
+          {
+            name: "full-width",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description:
+                "When set to true, the button will take all the width space available in the parent container."
+            }
+          },
+          {
+            name: "id",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Set the id property."
+            }
+          },
+          {
+            name: "left-icon",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Add a left icon (see material icons)."
+            }
+          },
+          {
+            name: "reverse",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Reverse the button color."
+            }
+          },
+          {
+            name: "right-icon",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Add a right icon (see material icons)."
+            }
+          },
+          {
+            name: "rounded",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Round the button corners."
+            }
+          },
+          {
+            name: "size",
+            type: {
+              type: "String",
+              additional: 'Default: "default"'
+            },
+            details: {
+              description: "Set the button size.",
+              values: '"mini" | "small" | "default" | "medium" | "large"'
+            }
+          },
+          {
+            name: "type",
+            type: {
+              type: "String",
+              additional: 'Default: "button"'
+            },
+            details: {
+              description: "Set the button type.",
+              values: '"button" | "reset" | "submit"'
+            }
+          }
+        ]
       }
     };
   }
