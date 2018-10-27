@@ -71,7 +71,7 @@ export default {
       default: "blue",
       validator(x) {
         return (
-          ["black", "blue", "green", "red", "orange", "white"].indexOf(x) !== -1
+          ["black", "blue", "green", "orange", "red", "white"].indexOf(x) !== -1
         );
       }
     },

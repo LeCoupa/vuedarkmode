@@ -36,12 +36,15 @@
             class="o-elements__button"
           ) {{ size }} {{ color }}
 
-  div(v-else)
+  div(
+    v-else
+    class="c-guide-base-buttons__documentation"
+  )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-button&gt;My Button Content&lt;/dm-button&gt;
+        | &lt;dm-button&gt;My Button&lt;/dm-button&gt;
 
     no-ssr
       common-table(
@@ -132,8 +135,8 @@ export default {
               additional: "Default: blue"
             },
             details: {
-              description: "Set the color of the button.",
-              values: '"black" | "blue" | "green" | "red" | "orange" | "white"'
+              description: "Set the button color.",
+              values: '"black" | "blue" | "green" | "orange" | "red" | "white"'
             }
           },
           {

@@ -20,7 +20,10 @@
         :title="progressBar.title"
       )
 
-  div(v-else)
+  div(
+    v-else
+    class="c-guide-base-progress-bars__documentation"
+  )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;

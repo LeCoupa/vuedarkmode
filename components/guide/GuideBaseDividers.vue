@@ -24,7 +24,10 @@
           class="c-guide-base-dividers__divider"
         )
 
-  div(v-else)
+  div(
+    v-else
+    class="c-guide-base-dividers__documentation"
+  )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;

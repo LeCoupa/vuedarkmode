@@ -33,7 +33,10 @@
           description="This is a customizable description for selects."
         )
 
-  div(v-else)
+  div(
+    v-else
+    class="c-guide-field-selects__documentation"
+  )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;

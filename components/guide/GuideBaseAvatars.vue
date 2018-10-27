@@ -33,7 +33,10 @@
             src="/images/medley/tesla.jpg"
           )
 
-  div(v-else)
+  div(
+    v-else
+    class="c-guide-base-avatars__documentation"
+  )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;

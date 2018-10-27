@@ -30,7 +30,10 @@
           value="Dark Mode FTW"
         )
 
-  div(v-else)
+  div(
+    v-else
+    class="c-guide-field-inputs__documentation"
+  )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;

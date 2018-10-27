@@ -28,7 +28,10 @@
           description="JPG, max. 500KB"
         )
 
-  div(v-else)
+  div(
+    v-else
+    class="c-guide-field-files__documentation"
+  )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
