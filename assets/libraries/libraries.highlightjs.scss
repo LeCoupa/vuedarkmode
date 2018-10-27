@@ -6,7 +6,10 @@
 .hljs {
   display: block;
   overflow-x: auto;
+  box-sizing: border-box;
+  margin: 0 auto;
   padding: 20px;
+  max-width: 800px;
   border: 1px solid $oxford-blue;
   border-radius: 4px;
   background: rgba($ebony-clay-2, 0.4);
