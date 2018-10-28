@@ -119,7 +119,6 @@ $c: ".c-common-table";
 
           .c-common-table__additional,
           .c-common-table__values {
-            margin-top: 2px;
             color: $nepal;
             font-size: 15px;
           }

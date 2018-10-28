@@ -75,7 +75,7 @@ export default {
   data() {
     return {
       icons: icons,
-      maxIcons: 207,
+      maxIcons: 216,
       table: {
         fields: [
           {

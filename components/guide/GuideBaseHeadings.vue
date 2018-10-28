@@ -17,7 +17,7 @@
 
       span.c-guide-headings__line-height Line-Height
 
-      span.c-guide-headings__normal-hover Normal / Hover
+      span.c-guide-headings__normal-hover Normal
 
     .c-guide-headings__row.c-guide-headings__row--body
       span.c-guide-headings__type
@@ -25,9 +25,9 @@
 
       span.c-guide-headings__font-weight.c-guide-headings__font-weight--bold Heebo Bold
 
-      span.c-guide-headings__font-size 32px
+      span.c-guide-headings__font-size 26px
 
-      span.c-guide-headings__line-height 44px
+      span.c-guide-headings__line-height 32px
 
       span.c-guide-headings__normal-hover
         span(
@@ -41,9 +41,9 @@
 
       span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
 
-      span.c-guide-headings__font-size 22px
+      span.c-guide-headings__font-size 24px
 
-      span.c-guide-headings__line-height 32px
+      span.c-guide-headings__line-height 30px
 
       span.c-guide-headings__normal-hover
         span(
@@ -57,7 +57,7 @@
 
       span.c-guide-headings__font-weight Heebo Regular
 
-      span.c-guide-headings__font-size 20px
+      span.c-guide-headings__font-size 22px
 
       span.c-guide-headings__line-height 28px
 
@@ -75,32 +75,12 @@
 
       span.c-guide-headings__font-size 16px
 
-      span.c-guide-headings__line-height 24px
+      span.c-guide-headings__line-height 28px
 
       span.c-guide-headings__normal-hover
         span(
           class="c-guide-headings__color"
           style="background-color: #ffffff;"
-        )
-
-    .c-guide-headings__row.c-guide-headings__row--body
-      span.c-guide-headings__type
-        a(href="#headings") Link Style
-
-      span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
-
-      span.c-guide-headings__font-size 16px
-
-      span.c-guide-headings__line-height 24px
-
-      span.c-guide-headings__normal-hover
-        span(
-          class="c-guide-headings__color"
-          style="background-color: #0093EE;"
-        )
-        span(
-          class="c-guide-headings__color"
-          style="background-color: #fafbfc;"
         )
 
   div(
@@ -170,7 +150,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Set the color for the element.",
+              description: "Override default color for the element.",
               values: '"grey" | "white" | "white2"'
             }
           },
@@ -181,7 +161,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Font-weight used for the heading.",
+              description: "Override default font-weight for the element.",
               values:
                 '"thin" | "light" | "regular" | "medium" | "bold" | "extrabold" | "black"'
             }
@@ -218,10 +198,6 @@ $c: ".c-guide-headings";
     display: flex;
     align-items: center;
     color: $white;
-
-    &:last-of-type {
-      padding-bottom: 0;
-    }
 
     > * {
       padding-right: 20px;

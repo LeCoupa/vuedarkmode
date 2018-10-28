@@ -167,8 +167,8 @@ $c: ".dm-base-heading";
 
   &--p {
     margin-bottom: 20px;
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 28px;
   }
 }
 </style>
