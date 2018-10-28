@@ -180,14 +180,6 @@ $sizes: mini, small, default, medium, large;
   user-select: none;
   cursor: pointer;
 
-  &:hover {
-    transform: scale(1.02);
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
-
   #{$c}__inner {
     display: flex;
     align-items: center;
@@ -322,6 +314,16 @@ $sizes: mini, small, default, medium, large;
   &--rounded {
     border-radius: 60px;
     color: $white;
+  }
+
+  // --> INTERACTIONS <--
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 }
 </style>

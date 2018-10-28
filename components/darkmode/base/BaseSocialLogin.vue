@@ -138,14 +138,14 @@ $sizes: small, large;
     width: 100%;
   }
 
-  // --> CURSORS <--
-
-  &:active {
-    transform: scale(0.98);
-  }
+  // --> INTERACTIONS <--
 
   &:hover {
     transform: scale(1.02);
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 }
 </style>

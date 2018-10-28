@@ -25,10 +25,14 @@
     @click="onToggleDocumentation"
     :reverse="true"
     :rightIcon="documentationVisibility ? 'extension' : 'explore'"
-    class="c-common-headlines__documentation"
+    class="c-common-headlines__button"
     color="blue"
     size="small"
   ) {{ documentationVisibility ? "Show components" : "Show documentation" }}
+
+  base-divider(
+    class="c-common-headlines__divider"
+  )
 </template>
 
 <!-- *************************************************************************
@@ -38,16 +42,18 @@
 <script>
 // PROJECT
 import BaseButton from "@/components/darkmode/base/BaseButton";
-import CommonCommand from "@/components/common/CommonCommand";
+import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import BaseHeading from "@/components/darkmode/base/BaseHeading";
 import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import CommonCommand from "@/components/common/CommonCommand";
 
 export default {
   components: {
     BaseButton,
-    CommonCommand,
+    BaseDivider,
     BaseHeading,
-    BaseIcon
+    BaseIcon,
+    CommonCommand
   },
 
   props: {
@@ -103,32 +109,19 @@ export default {
 $c: ".c-common-headlines";
 
 #{$c} {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-bottom: 40px;
-
-  #{$c}__title,
-  #{$c}__description,
-  #{$c}__command,
-  #{$c}__documentation {
-    flex: 0 0 auto;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 
   #{$c}__title {
     margin-bottom: 10px;
   }
 
-  #{$c}__description {
-    margin-bottom: 15px;
+  #{$c}__description,
+  #{$c}__button {
+    margin: 0;
   }
 
-  #{$c}__command {
-    margin-bottom: 15px;
+  #{$c}__divider {
+    margin-top: 20px;
   }
 }
 </style>
