@@ -96,10 +96,87 @@ export default {
         ],
         data: [
           {
-            name: "",
+            name: "description",
             type: {
-              type: "",
-              additional: ""
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "disabled",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "full-width",
+            type: {
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "label",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "multiple",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "name",
+            type: {
+              type: "String",
+              additional: "Required: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "size",
+            type: {
+              type: "String",
+              additional: 'Default: "default"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "status",
+            type: {
+              type: "String",
+              additional: 'Default: "normal"'
             },
             details: {
               description: "",

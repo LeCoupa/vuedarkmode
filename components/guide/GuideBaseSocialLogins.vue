@@ -31,7 +31,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-social-login&gt;Subscribe with Facebook&lt;/dm-social-login&gt;
+        | &lt;dm-social-login&gt;Connect with Facebook&lt;/dm-social-login&gt;
 
     no-ssr
       common-table(

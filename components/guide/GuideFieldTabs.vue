@@ -101,10 +101,76 @@ export default {
         ],
         data: [
           {
-            name: "",
+            name: "description",
             type: {
-              type: "",
-              additional: ""
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "disabled",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "label",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "multiple",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "size",
+            type: {
+              type: "String",
+              additional: 'Default: "default"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "status",
+            type: {
+              type: "String",
+              additional: 'Default: "normal"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "tabs",
+            type: {
+              type: "Array",
+              additional: "Required: true"
             },
             details: {
               description: "",

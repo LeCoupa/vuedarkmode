@@ -98,10 +98,218 @@ export default {
         ],
         data: [
           {
-            name: "",
+            name: "autocomplete",
             type: {
-              type: "",
-              additional: ""
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Set the autocomplete attribute to 'on'."
+            }
+          },
+          {
+            name: "borders",
+            type: {
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "description",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "disabled",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "full-width",
+            type: {
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "label",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "left-icon",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "max",
+            type: {
+              type: "Number",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "max-length",
+            type: {
+              type: "Number",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "min",
+            type: {
+              type: "String",
+              additional: "Required: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "min-length",
+            type: {
+              type: "Number",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "name",
+            type: {
+              type: "String",
+              additional: "Required: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "placeholder",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "read-only",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "right-icon",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "rounded",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "size",
+            type: {
+              type: "String",
+              additional: 'Default: "default"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "status",
+            type: {
+              type: "String",
+              additional: 'Default: "normal"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "type",
+            type: {
+              type: "String",
+              additional: 'Default: "text"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "value",
+            type: {
+              type: "[String, Number]",
+              additional: "Default: null"
             },
             details: {
               description: "",

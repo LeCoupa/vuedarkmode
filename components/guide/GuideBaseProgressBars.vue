@@ -123,10 +123,43 @@ export default {
         ],
         data: [
           {
-            name: "",
+            name: "color",
             type: {
-              type: "",
-              additional: ""
+              type: "String",
+              additional: 'Default: "blue"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "details",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "title",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "progress",
+            type: {
+              type: "Number",
+              additional: "Default: 0"
             },
             details: {
               description: "",

@@ -112,10 +112,76 @@ export default {
         ],
         data: [
           {
-            name: "",
+            name: "bordered",
             type: {
-              type: "",
-              additional: ""
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "circular",
+            type: {
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "complementaries",
+            type: {
+              type: "Array",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "cursor",
+            type: {
+              type: "String",
+              additional: 'Default: "default"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "description",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "size",
+            type: {
+              type: "String",
+              additional: 'Default: "default"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "src",
+            type: {
+              type: "String",
+              additional: "Required: true"
             },
             details: {
               description: "",

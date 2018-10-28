@@ -96,10 +96,43 @@ export default {
         ],
         data: [
           {
-            name: "",
+            name: "color",
             type: {
-              type: "",
-              additional: ""
+              type: "String",
+              additional: "Default:  null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "cursor",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "name",
+            type: {
+              type: "String",
+              additional: "Required: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "size",
+            type: {
+              type: "String",
+              additional: 'Default: "24px"'
             },
             details: {
               description: "",

@@ -98,10 +98,21 @@ export default {
         ],
         data: [
           {
-            name: "",
+            name: "color",
             type: {
-              type: "",
-              additional: ""
+              type: "String",
+              additional: 'Default: "blue"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "size",
+            type: {
+              type: "String",
+              additional: 'Default: "small"'
             },
             details: {
               description: "",

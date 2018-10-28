@@ -192,7 +192,7 @@ export default {
           id: "install",
           headlines: {
             title: "INSTALLATION",
-            description: "The dark side is calling you. Come and join us! 👻",
+            description: "The dark side is calling you... Come and join us! 👻",
             hasDocumentation: false
           }
         },

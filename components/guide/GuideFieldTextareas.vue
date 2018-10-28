@@ -97,10 +97,131 @@ export default {
         ],
         data: [
           {
-            name: "",
+            name: "borders",
             type: {
-              type: "",
-              additional: ""
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "cols",
+            type: {
+              type: "Number",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "description",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "disabled",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "full-width",
+            type: {
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "label",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "placeholder",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "name",
+            type: {
+              type: "String",
+              additional: "Required: true"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "rows",
+            type: {
+              type: "Number",
+              additional: "Default: null"
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "size",
+            type: {
+              type: "String",
+              additional: 'Default: "default"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "status",
+            type: {
+              type: "String",
+              additional: 'Default: "normal"'
+            },
+            details: {
+              description: "",
+              values: ""
+            }
+          },
+          {
+            name: "value",
+            type: {
+              type: "String",
+              additional: "Default: null"
             },
             details: {
               description: "",
