@@ -45,7 +45,6 @@ div(
       :max="max"
       :maxlength="maxLength"
       :min="min"
-      :minlength="minLength"
       :name="name"
       :placeholder="placeholder"
       :read-only="readOnly"
@@ -122,10 +121,6 @@ export default {
       default: null
     },
     min: {
-      type: Number,
-      default: null
-    },
-    minLength: {
       type: Number,
       default: null
     },
