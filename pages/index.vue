@@ -18,7 +18,6 @@
     )
     common-headlines(
       @toggleDocumentation="onToggleDocumentation"
-      :command="section.headlines.command"
       :description="section.headlines.description"
       :hasDocumentation="section.headlines.hasDocumentation"
       :section="section.id"
@@ -202,7 +201,7 @@ export default {
           headlines: {
             title: "COLORS",
             description:
-              "We bake all our components using only these colors. No added sugar. 🤞",
+              "All our components are baked using only these colors. No added sugar. 🤞",
             hasDocumentation: false
           }
         },
@@ -210,7 +209,6 @@ export default {
           id: "headings",
           headlines: {
             title: "HEADINGS",
-            command: "npm install --save @vuedarkmode/base-heading",
             hasDocumentation: true
           }
         },
@@ -218,7 +216,6 @@ export default {
           id: "buttons",
           headlines: {
             title: "BUTTONS",
-            command: "npm install --save @vuedarkmode/base-button",
             hasDocumentation: true
           }
         },
@@ -226,7 +223,6 @@ export default {
           id: "badges",
           headlines: {
             title: "BADGES",
-            command: "npm install --save @vuedarkmode/base-badge",
             hasDocumentation: true
           }
         },
@@ -234,7 +230,6 @@ export default {
           id: "socialLogins",
           headlines: {
             title: "SOCIAL LOGINS",
-            command: "npm install --save @vuedarkmode/base-social-login",
             hasDocumentation: true
           }
         },
@@ -242,7 +237,6 @@ export default {
           id: "inputs",
           headlines: {
             title: "INPUTS",
-            command: "npm install --save @vuedarkmode/field-input",
             hasDocumentation: true
           }
         },
@@ -250,7 +244,6 @@ export default {
           id: "selects",
           headlines: {
             title: "SELECTS",
-            command: "npm install --save @vuedarkmode/field-select",
             hasDocumentation: true
           }
         },
@@ -258,7 +251,6 @@ export default {
           id: "textareas",
           headlines: {
             title: "TEXTAREAS",
-            command: "npm install --save @vuedarkmode/field-textarea",
             hasDocumentation: true
           }
         },
@@ -266,7 +258,6 @@ export default {
           id: "checkboxes",
           headlines: {
             title: "CHECKBOXES",
-            command: "npm install --save @vuedarkmode/field-checkbox",
             hasDocumentation: true
           }
         },
@@ -274,7 +265,6 @@ export default {
           id: "radios",
           headlines: {
             title: "RADIOS",
-            command: "npm install --save @vuedarkmode/field-radio",
             hasDocumentation: true
           }
         },
@@ -282,7 +272,6 @@ export default {
           id: "toggles",
           headlines: {
             title: "TOGGLES",
-            command: "npm install --save @vuedarkmode/field-toggle",
             hasDocumentation: true
           }
         },
@@ -290,7 +279,6 @@ export default {
           id: "files",
           headlines: {
             title: "FILE UPLOAD",
-            command: "npm install --save @vuedarkmode/field-file",
             hasDocumentation: true
           }
         },
@@ -298,7 +286,6 @@ export default {
           id: "tabs",
           headlines: {
             title: "TABS",
-            command: "npm install --save @vuedarkmode/field-tabs",
             hasDocumentation: true
           }
         },
@@ -306,7 +293,6 @@ export default {
           id: "dividers",
           headlines: {
             title: "DIVIDERS",
-            command: "npm install --save @vuedarkmode/base-divider",
             hasDocumentation: true
           }
         },
@@ -314,7 +300,6 @@ export default {
           id: "progressBars",
           headlines: {
             title: "PROGRESS BARS",
-            command: "npm install --save @vuedarkmode/base-progress-bar",
             hasDocumentation: true
           }
         },
@@ -322,7 +307,6 @@ export default {
           id: "avatars",
           headlines: {
             title: "AVATARS",
-            command: "npm install --save @vuedarkmode/base-avatar",
             hasDocumentation: true
           }
         },
@@ -330,7 +314,6 @@ export default {
           id: "icons",
           headlines: {
             title: "ICONS FROM MATERIAL DESIGN",
-            command: "npm install --save @vuedarkmode/base-icon",
             hasDocumentation: true
           }
         }

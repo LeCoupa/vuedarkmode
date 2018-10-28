@@ -111,12 +111,10 @@
 <script>
 // PROJECT
 import BaseHeading from "@/components/darkmode/base/BaseHeading";
-import CommonCommand from "@/components/common/CommonCommand";
 
 export default {
   components: {
-    BaseHeading,
-    CommonCommand
+    BaseHeading
   }
 };
 </script>

@@ -15,11 +15,6 @@
     type="h3"
   ) {{ description }}
 
-  //- common-command(
-  //-   v-if="command"
-  //-   class="c-common-headlines__command"
-  //- ) {{ command }}
-
   base-button(
     v-if="hasDocumentation"
     @click="onToggleDocumentation"
@@ -45,22 +40,16 @@ import BaseButton from "@/components/darkmode/base/BaseButton";
 import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import BaseHeading from "@/components/darkmode/base/BaseHeading";
 import BaseIcon from "@/components/darkmode/base/BaseIcon";
-import CommonCommand from "@/components/common/CommonCommand";
 
 export default {
   components: {
     BaseButton,
     BaseDivider,
     BaseHeading,
-    BaseIcon,
-    CommonCommand
+    BaseIcon
   },
 
   props: {
-    command: {
-      type: String,
-      default: null
-    },
     description: {
       type: String,
       default: null
