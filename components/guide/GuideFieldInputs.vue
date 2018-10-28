@@ -114,8 +114,7 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Display the border on the input field."
             }
           },
           {
@@ -125,8 +124,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Display an helping description below the input."
             }
           },
           {
@@ -136,8 +134,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Disable the input."
             }
           },
           {
@@ -147,8 +144,8 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "When set to true, the button will take all the width available in the parent container."
             }
           },
           {
@@ -158,8 +155,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Add a label above the input."
             }
           },
           {
@@ -169,8 +165,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Add a left icon (see material icons)."
             }
           },
           {
@@ -180,8 +175,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specifies the maximum value for the input element."
             }
           },
           {
@@ -191,8 +185,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Specifies the maximum number of characters allowed in the input element."
             }
           },
           {
@@ -202,19 +196,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
-            }
-          },
-          {
-            name: "min-length",
-            type: {
-              type: "Number",
-              additional: "Default: null"
-            },
-            details: {
-              description: "",
-              values: ""
+              description: "Specifies a minimum value for the input element."
             }
           },
           {
@@ -224,8 +206,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specifies the name of the input element."
             }
           },
           {
@@ -235,7 +216,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
+              description:
+                "Specifies a short hint that describes the expected value",
               values: ""
             }
           },
@@ -246,8 +228,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specifies that the input field is read-only"
             }
           },
           {
@@ -257,8 +238,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Add a right icon (see material icons)."
             }
           },
           {
@@ -268,8 +248,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Round the border corner of the input."
             }
           },
           {
@@ -279,8 +258,8 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the input size.",
+              values: '"mini" | "small"  | "default" | "medium" | "large"'
             }
           },
           {
@@ -290,8 +269,8 @@ export default {
               additional: 'Default: "normal"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the input status.",
+              values: '"error" | "normal" | "success" | "warning"'
             }
           },
           {
@@ -301,8 +280,9 @@ export default {
               additional: 'Default: "text"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the input attribute.",
+              values:
+                '"currency" | "email" | "date" | "datetime-local" | "month" | "number" | "password" | "search" | "tel" | "text" | "time" | "url" | "week"'
             }
           },
           {
@@ -312,8 +292,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the value of the input element."
             }
           }
         ]
