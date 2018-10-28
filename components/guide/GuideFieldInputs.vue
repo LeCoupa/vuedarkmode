@@ -114,7 +114,7 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "Display the border on the input field."
+              description: "Display the border on the input element."
             }
           },
           {
@@ -124,7 +124,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Display an helping description below the input."
+              description:
+                "Display an helping description below the input element."
             }
           },
           {
@@ -134,7 +135,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "Disable the input."
+              description: "Disable the input element."
             }
           },
           {
@@ -145,7 +146,7 @@ export default {
             },
             details: {
               description:
-                "When set to true, the button will take all the width available in the parent container."
+                "When set to true, the input element will take all the width available."
             }
           },
           {
@@ -155,7 +156,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Add a label above the input."
+              description: "Add a label above the input element."
             }
           },
           {
@@ -175,7 +176,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Specifies the maximum value for the input element."
+              description: "Specify the maximum value for the input element."
             }
           },
           {
@@ -186,7 +187,7 @@ export default {
             },
             details: {
               description:
-                "Specifies the maximum number of characters allowed in the input element."
+                "Specify the maximum number of characters allowed in the input element."
             }
           },
           {
@@ -196,7 +197,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "Specifies a minimum value for the input element."
+              description: "Specify a minimum value for the input element."
             }
           },
           {
@@ -206,7 +207,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "Specifies the name of the input element."
+              description: "Specify the name of the input element."
             }
           },
           {
@@ -217,7 +218,7 @@ export default {
             },
             details: {
               description:
-                "Specifies a short hint that describes the expected value",
+                "Specify a short hint that describes the expected value.",
               values: ""
             }
           },
@@ -228,7 +229,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "Specifies that the input field is read-only"
+              description: "Specify that the input element is read-only."
             }
           },
           {
@@ -248,7 +249,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "Round the border corner of the input."
+              description: "Round the border corner of the input element."
             }
           },
           {
@@ -258,7 +259,7 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "Specify the input size.",
+              description: "Specify the size of the input element.",
               values: '"mini" | "small"  | "default" | "medium" | "large"'
             }
           },
@@ -269,7 +270,7 @@ export default {
               additional: 'Default: "normal"'
             },
             details: {
-              description: "Specify the input status.",
+              description: "Specify the status for the input element.",
               values: '"error" | "normal" | "success" | "warning"'
             }
           },
@@ -280,7 +281,7 @@ export default {
               additional: 'Default: "text"'
             },
             details: {
-              description: "Specify the input attribute.",
+              description: "Specify the input type attribute.",
               values:
                 '"currency" | "email" | "date" | "datetime-local" | "month" | "number" | "password" | "search" | "tel" | "text" | "time" | "url" | "week"'
             }

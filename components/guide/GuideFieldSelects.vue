@@ -107,8 +107,7 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Display the border on the select element."
             }
           },
           {
@@ -118,8 +117,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Display an helping description below the select element."
             }
           },
           {
@@ -129,8 +128,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Disable the select element."
             }
           },
           {
@@ -140,8 +138,8 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "When set to true, the select element will take all the width available."
             }
           },
           {
@@ -151,8 +149,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Add a label above the select element."
             }
           },
           {
@@ -162,8 +159,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Add a left icon (see material icons)."
             }
           },
           {
@@ -173,8 +169,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the name of the select element."
             }
           },
           {
@@ -184,8 +179,9 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Define the options to display in the select element.",
+              values: '{ label: "My Label", value: "My Value" }'
             }
           },
           {
@@ -195,8 +191,8 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the size of the select element.",
+              values: '"mini" | "small"  | "default" | "medium" | "large"'
             }
           },
           {
@@ -206,8 +202,8 @@ export default {
               additional: 'Default: "normal"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the status for the select element.",
+              values: '"error" | "normal" | "success" | "warning"'
             }
           }
         ]

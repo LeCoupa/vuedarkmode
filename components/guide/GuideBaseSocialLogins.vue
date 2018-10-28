@@ -103,7 +103,7 @@ export default {
             },
             details: {
               description:
-                "When set to true, the social login button will take all the width available in the parent container."
+                "When set to true, the social login button will take all the width available."
             }
           },
           {
