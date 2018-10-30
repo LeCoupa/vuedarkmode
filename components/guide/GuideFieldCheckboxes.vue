@@ -103,8 +103,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Sets the checked state of the checkbox element."
             }
           },
           {
@@ -114,8 +113,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Display an helping description below the checkbox element."
             }
           },
           {
@@ -125,8 +124,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Disable the checkbox element."
             }
           },
           {
@@ -136,8 +134,8 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "When set to true, the checkbox element will take all the width available."
             }
           },
           {
@@ -147,8 +145,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Add a label above the checkbox element."
             }
           },
           {
@@ -158,8 +155,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the name of the checkbox element."
             }
           },
           {
@@ -169,8 +165,8 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Sets whether the checkbox element must be checked before submitting the form."
             }
           },
           {
@@ -180,8 +176,8 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the size of the checkbox element.",
+              values: '"mini" | "small"  | "default" | "medium" | "large"'
             }
           },
           {
@@ -191,8 +187,8 @@ export default {
               additional: 'Default: "normal"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the status for the checkbox element.",
+              values: '"error" | "normal" | "success" | "warning"'
             }
           }
         ]
