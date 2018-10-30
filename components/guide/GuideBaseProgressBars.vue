@@ -129,8 +129,9 @@ export default {
               additional: 'Default: "blue"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the color of the progress bar.",
+              values:
+                '"black" | "blue" | "green" | "orange" | "purple" | "red" | "turquoise" | "white"'
             }
           },
           {
@@ -140,8 +141,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Specify the description to display on the right side of the progress bar."
             }
           },
           {
@@ -151,8 +152,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Specify the title to display on the left side of the progress bar."
             }
           },
           {
@@ -162,8 +163,7 @@ export default {
               additional: "Default: 0"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Speficy the current progression."
             }
           }
         ]
