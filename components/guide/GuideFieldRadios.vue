@@ -103,8 +103,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Sets the checked state of the radio element."
             }
           },
           {
@@ -114,8 +113,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Display an helping description below the radio element."
             }
           },
           {
@@ -125,8 +124,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Disable the radio element."
             }
           },
           {
@@ -136,8 +134,8 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "When set to true, the radio element will take all the width available."
             }
           },
           {
@@ -147,8 +145,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Add a label above the radio element."
             }
           },
           {
@@ -158,8 +155,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the name of the radio element."
             }
           },
           {
@@ -169,8 +165,8 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Sets whether the radio element must be checked before submitting the form."
             }
           },
           {
@@ -180,19 +176,19 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the size of the radio element.",
+              values: '"mini" | "small"  | "default" | "medium" | "large"'
             }
           },
           {
             name: "status",
             type: {
               type: "String",
-              additional: 'Default: "default"'
+              additional: 'Default: "normal"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the status for the radio element.",
+              values: '"error" | "normal" | "success" | "warning"'
             }
           }
         ]
