@@ -30,7 +30,7 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return ["default", "pointer"];
+        return ["default", "pointer"].indexOf(x) !== -1;
       }
     },
     name: {
