@@ -273,14 +273,6 @@ $statuses: error, normal, success, warning;
       #{$c}__label {
         cursor: not-allowed;
       }
-
-      #{$c}__field {
-        &:hover {
-          &:before {
-            border-color: lighten($crimson, 10%);
-          }
-        }
-      }
     }
   }
 
