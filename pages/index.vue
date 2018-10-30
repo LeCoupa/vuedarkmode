@@ -26,6 +26,9 @@
     guide-install(
       v-if="section.id === 'install'"
     )
+    guide-options(
+      v-if="section.id === 'options'"
+    )
     guide-colors(
       v-if="section.id === 'colors'"
     )
@@ -127,6 +130,7 @@ import GuideFieldTabs from "@/components/guide/GuideFieldTabs";
 import GuideFieldTextareas from "@/components/guide/GuideFieldTextareas";
 import GuideFieldToggles from "@/components/guide/GuideFieldToggles";
 import GuideInstall from "@/components/guide/GuideInstall";
+import GuideOptions from "@/components/guide/GuideOptions";
 import TheFooter from "@/components/layouts/TheFooter";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheHeader from "@/components/layouts/TheHeader";
@@ -155,6 +159,7 @@ export default {
     GuideFieldTextareas,
     GuideFieldToggles,
     GuideInstall,
+    GuideOptions,
     TheGithubButtons,
     TheFooter,
     TheHeader,
@@ -193,6 +198,15 @@ export default {
           headlines: {
             title: "INSTALLATION",
             description: "The dark side is calling you... Come and join us! 👻",
+            hasDocumentation: false
+          }
+        },
+        {
+          id: "options",
+          headlines: {
+            title: "PACKAGE OPTIONS",
+            description:
+              "Here are some options you can set to customize the plugin. 🍸",
             hasDocumentation: false
           }
         },

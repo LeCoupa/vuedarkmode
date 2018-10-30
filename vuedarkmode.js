@@ -51,7 +51,7 @@ function install(Vue, options) {
   };
 
   // Declare all components when options is not set or array is empty
-  // Or when the user does want to use it
+  // Or when the user explicitely specify it
   for (let component in components) {
     if (
       !options.components ||
