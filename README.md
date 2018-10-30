@@ -44,9 +44,7 @@ Add this new plugin to `nuxt.config.js`. Don't forget to set ssr to false as Vue
 ```js
 {
   // ...
-  plugins: [
-    { src: "@/plugins/vuedarkmode.js", ssr: false }
-  ]
+  plugins: [{ src: "@/plugins/vuedarkmode.js", ssr: false }];
 }
 ```
 
@@ -85,21 +83,21 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 ### Form Components
 
-- **FieldCheckbox**: [source code](/components/darkmode/base/FieldCheckbox.vue).
+- **FieldCheckbox**: [source code](/components/darkmode/form/FieldCheckbox.vue).
 
-- **FieldFile**: [source code](/components/darkmode/base/FieldFile.vue).
+- **FieldFile**: [source code](/components/darkmode/form/FieldFile.vue).
 
-- **FieldInput**: [source code](/components/darkmode/base/FieldInput.vue).
+- **FieldInput**: [source code](/components/darkmode/form/FieldInput.vue).
 
-- **FieldRadio**: [source code](/components/darkmode/base/FieldRadio.vue).
+- **FieldRadio**: [source code](/components/darkmode/form/FieldRadio.vue).
 
-- **FieldSelect**: [source code](/components/darkmode/base/FieldSelect.vue).
+- **FieldSelect**: [source code](/components/darkmode/form/FieldSelect.vue).
 
-- **FieldTabs**: [source code](/components/darkmode/base/FieldTabs.vue).
+- **FieldTabs**: [source code](/components/darkmode/form/FieldTabs.vue).
 
-- **FieldTextarea**: [source code](/components/darkmode/base/FieldTextarea.vue).
+- **FieldTextarea**: [source code](/components/darkmode/form/FieldTextarea.vue).
 
-- **FieldToggle**: [source code](/components/darkmode/base/FieldToggle.vue).
+- **FieldToggle**: [source code](/components/darkmode/form/FieldToggle.vue).
 
 ## Contributing
 
