@@ -146,6 +146,18 @@ export default {
             }
           },
           {
+            name: "cursor",
+            type: {
+              type: "String",
+              additional: "Default: 'default'"
+            },
+            details: {
+              description:
+                "Specify the shape of the mouse cursor when hovering the avatar.",
+              values: '"default" | "pointer"'
+            }
+          },
+          {
             name: "description",
             type: {
               type: "String",

@@ -17,7 +17,8 @@ div(
 )
   span(
     :style=`{
-      backgroundImage: "url(" + src + ")"
+      backgroundImage: "url(" + src + ")",
+      cursor: cursor
     }`
     class="dm-base-avatar__image"
   )
@@ -68,6 +69,13 @@ export default {
     complementaries: {
       type: Array,
       default: null
+    },
+    cursor: {
+      type: String,
+      default: "default",
+      validator(x) {
+        return ["default", "pointer"];
+      }
     },
     description: {
       type: String,
