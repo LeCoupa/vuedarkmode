@@ -102,8 +102,7 @@ export default {
               additional: 'Default:  "inherit"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the color of the icon."
             }
           },
           {
@@ -113,8 +112,9 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Specify the shape of the mouse cursor when hovering the icon.",
+              values: '"default" | "pointer"'
             }
           },
           {
@@ -124,8 +124,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the name of the icon to display."
             }
           },
           {
@@ -135,8 +134,7 @@ export default {
               additional: 'Default: "24px"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the size in pixels of the icon."
             }
           }
         ]

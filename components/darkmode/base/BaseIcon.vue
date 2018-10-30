@@ -28,7 +28,10 @@ export default {
     },
     cursor: {
       type: String,
-      default: null
+      default: "default",
+      validator(x) {
+        return ["default", "pointer"];
+      }
     },
     name: {
       type: String,
