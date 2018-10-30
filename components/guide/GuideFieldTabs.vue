@@ -107,8 +107,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Display an helping description below the tabs."
             }
           },
           {
@@ -118,8 +117,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Disable the tabs."
             }
           },
           {
@@ -129,8 +127,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Add a label above the tabs."
             }
           },
           {
@@ -140,8 +137,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Allow the selection of multiple tabs."
             }
           },
           {
@@ -151,8 +147,8 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the size of the tabs.",
+              values: '"mini" | "small"  | "default" | "medium" | "large"'
             }
           },
           {
@@ -162,8 +158,8 @@ export default {
               additional: 'Default: "normal"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the status for the tabs.",
+              values: '"error" | "normal" | "success" | "warning"'
             }
           },
           {
@@ -173,8 +169,8 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Define the tabs to display.",
+              values: '{ id: "vuedarkmode", name: "VueDarkMode" }'
             }
           }
         ]
