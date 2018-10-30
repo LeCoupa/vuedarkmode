@@ -15,29 +15,30 @@
     )
     span.c-the-shortcuts-bar__description Looking for a Vue.js / Nuxt.js freelancer? Ping me, I'm available! 👩‍🎨
 
-  //- .c-the-shortcuts-bar__actions
+  .c-the-shortcuts-bar__actions
 
-  //- div(
-  //-   :class=`[
-  //-     "c-the-shortcuts-bar__theme-switch",
-  //-     {
-  //-       "c-the-shortcuts-bar__theme-switch--light": theme === "light"
-  //-     }
-  //-   ]`
-  //- )
-  //-   field-toggle(
-  //-     @change="onThemeUpdate"
-  //-     :checked="theme === 'light'"
-  //-     :fullWidth="false"
-  //-     :label="theme === 'light' ? 'Turn off the lights' : 'Turn on the lights'"
-  //-     class="c-the-shortcuts-bar__field"
-  //-     name="theme"
-  //-   )
-  //-   base-icon(
-  //-     class="c-the-shortcuts-bar__icon"
-  //-     name="flash_on"
-  //-     size="20px"
-  //-   )
+  div(
+    :class=`[
+      "c-the-shortcuts-bar__theme-switch",
+      {
+        "c-the-shortcuts-bar__theme-switch--light": theme === "light"
+      }
+    ]`
+  )
+    field-toggle(
+      @change="onThemeUpdate"
+      :checked="theme === 'dark'"
+      :disabled="true"
+      :fullWidth="false"
+      :label="theme === 'dark' ? 'Dark Mode Activated' : 'Light Mode Activated'"
+      class="c-the-shortcuts-bar__field"
+      name="theme"
+    )
+    base-icon(
+      class="c-the-shortcuts-bar__icon"
+      name="flash_on"
+      size="20px"
+    )
 </template>
 
 <!-- *************************************************************************
@@ -57,9 +58,16 @@ export default {
     FieldToggle
   },
 
+  data() {
+    return {
+      // --> STATE <--
+      theme: "dark"
+    };
+  },
+
   methods: {
     onThemeUpdate(name, value) {
-      this.theme = value ? "light" : "dark";
+      this.theme = value ? "dark" : "light";
     }
   }
 };
@@ -99,10 +107,11 @@ $c: ".c-the-shortcuts-bar";
     justify-content: center;
 
     #{$c}__field {
-      width: 168px;
+      width: 190px;
     }
 
     #{$c}__icon {
+      opacity: 0.7;
       color: $sunglow;
     }
 
