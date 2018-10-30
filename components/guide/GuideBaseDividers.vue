@@ -104,8 +104,9 @@ export default {
               additional: 'Default: "blue"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the color of the divider.",
+              values:
+                '"black" | "blue" | "green" | "orange" | "purple" | "red" | "turquoise" | "white"'
             }
           },
           {
@@ -115,8 +116,8 @@ export default {
               additional: 'Default: "small"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the size of the divider.",
+              values: '"small" | "large"'
             }
           }
         ]
