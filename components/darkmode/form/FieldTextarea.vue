@@ -34,6 +34,7 @@ div(
       :cols="cols"
       :disabled="disabled"
       :id="uuid"
+      :maxlength="maxlength"
       :name="name"
       :placeholder="placeholder"
       :readonly="readOnly"
@@ -95,6 +96,10 @@ export default {
     },
     label: {
       type: String,
+      default: null
+    },
+    maxlength: {
+      type: Number,
       default: null
     },
     placeholder: {

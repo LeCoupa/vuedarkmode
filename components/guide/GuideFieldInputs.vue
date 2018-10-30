@@ -180,7 +180,7 @@ export default {
             }
           },
           {
-            name: "max-length",
+            name: "maxlength",
             type: {
               type: "Number",
               additional: "Default: null"

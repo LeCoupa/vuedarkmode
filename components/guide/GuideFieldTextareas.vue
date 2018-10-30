@@ -160,6 +160,17 @@ export default {
             }
           },
           {
+            name: "maxlength",
+            type: {
+              type: "Number",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the maximum number of characters allowed in the text area element."
+            }
+          },
+          {
             name: "name",
             type: {
               type: "String",
