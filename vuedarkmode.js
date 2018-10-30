@@ -32,22 +32,22 @@ function install(Vue, options) {
   install.installed = true;
 
   const components = {
-    "dm-avatar": BaseAvatar,
-    "dm-badge": BaseBadge,
-    "dm-button": BaseButton,
-    "dm-divider": BaseDivider,
-    "dm-heading": BaseHeading,
-    "dm-icon": BaseIcon,
-    "dm-progress-bar": BaseProgressBar,
-    "dm-social-login": BaseSocialLogin,
-    "dm-checkbox": FieldCheckbox,
-    "dm-file": FieldFile,
-    "dm-input": FieldInput,
-    "dm-radio": FieldRadio,
-    "dm-select": FieldSelect,
-    "dm-tabs": FieldTabs,
-    "dm-textarea": FieldTextarea,
-    "dm-toggle": FieldToggle
+    avatar: BaseAvatar,
+    badge: BaseBadge,
+    button: BaseButton,
+    divider: BaseDivider,
+    heading: BaseHeading,
+    icon: BaseIcon,
+    "progress-bar": BaseProgressBar,
+    "social-login": BaseSocialLogin,
+    checkbox: FieldCheckbox,
+    file: FieldFile,
+    input: FieldInput,
+    radio: FieldRadio,
+    select: FieldSelect,
+    tabs: FieldTabs,
+    textarea: FieldTextarea,
+    toggle: FieldToggle
   };
 
   // Declare all components when options is not set or array is empty
@@ -56,9 +56,9 @@ function install(Vue, options) {
     if (
       !options.components ||
       options.components.length === 0 ||
-      options.components[component].indexOf === 1
+      options.components.indexOf(component) !== -1
     ) {
-      Vue.component(component, components[component]);
+      Vue.component("dm-" + component, components[component]);
     }
   }
 }
