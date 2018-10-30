@@ -118,8 +118,8 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "When set to true, this will display a white border around the image."
             }
           },
           {
@@ -129,8 +129,8 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "When set to true, the image will be shaped like a circle."
             }
           },
           {
@@ -140,19 +140,9 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
-            }
-          },
-          {
-            name: "cursor",
-            type: {
-              type: "String",
-              additional: 'Default: "default"'
-            },
-            details: {
-              description: "",
-              values: ""
+              description:
+                "Add additional images in the bottom right corner of the main image.",
+              values: '{ src: "/path/of/the/resource" }'
             }
           },
           {
@@ -162,8 +152,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Display an helping description below the avatar element."
             }
           },
           {
@@ -173,8 +163,9 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the size of the avatar.",
+              values:
+                '"mini" | "small" | "default" | "medium" | "large" | "huge"'
             }
           },
           {
@@ -184,8 +175,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the path of the image to display."
             }
           }
         ]

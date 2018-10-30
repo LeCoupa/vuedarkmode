@@ -163,7 +163,7 @@ export default {
               additional: "Default: 0"
             },
             details: {
-              description: "Speficy the current progression."
+              description: "Specify the current progression."
             }
           }
         ]
