@@ -27,26 +27,40 @@ import FieldToggle from "./components/darkmode/form/FieldToggle.vue";
  ***************************************************************************/
 
 // install function executed by Vue.use()
-function install(Vue) {
+function install(Vue, options) {
   if (install.installed) return;
   install.installed = true;
 
-  Vue.component("dm-avatar", BaseAvatar);
-  Vue.component("dm-badge", BaseBadge);
-  Vue.component("dm-button", BaseButton);
-  Vue.component("dm-divider", BaseDivider);
-  Vue.component("dm-heading", BaseHeading);
-  Vue.component("dm-icon", BaseIcon);
-  Vue.component("dm-progress-bar", BaseProgressBar);
-  Vue.component("dm-social-login", BaseSocialLogin);
-  Vue.component("dm-checkbox", FieldCheckbox);
-  Vue.component("dm-file", FieldFile);
-  Vue.component("dm-input", FieldInput);
-  Vue.component("dm-radio", FieldRadio);
-  Vue.component("dm-select", FieldSelect);
-  Vue.component("dm-tabs", FieldTabs);
-  Vue.component("dm-textarea", FieldTextarea);
-  Vue.component("dm-toggle", FieldToggle);
+  const components = {
+    "dm-avatar": BaseAvatar,
+    "dm-badge": BaseBadge,
+    "dm-button": BaseButton,
+    "dm-divider": BaseDivider,
+    "dm-heading": BaseHeading,
+    "dm-icon": BaseIcon,
+    "dm-progress-bar": BaseProgressBar,
+    "dm-social-login": BaseSocialLogin,
+    "dm-checkbox": FieldCheckbox,
+    "dm-file": FieldFile,
+    "dm-input": FieldInput,
+    "dm-radio": FieldRadio,
+    "dm-select": FieldSelect,
+    "dm-tabs": FieldTabs,
+    "dm-textarea": FieldTextarea,
+    "dm-toggle": FieldToggle
+  };
+
+  // Declare all components when options is not set or array is empty
+  // Or when the user does want to use it
+  for (let component in components) {
+    if (
+      !options.components ||
+      options.components.length === 0 ||
+      options.components[component].indexOf === 1
+    ) {
+      Vue.component(component, components[component]);
+    }
+  }
 }
 
 // Create module definition for Vue.use()
