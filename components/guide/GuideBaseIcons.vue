@@ -99,7 +99,7 @@ export default {
             name: "color",
             type: {
               type: "String",
-              additional: "Default:  null"
+              additional: 'Default:  "inherit"'
             },
             details: {
               description: "",

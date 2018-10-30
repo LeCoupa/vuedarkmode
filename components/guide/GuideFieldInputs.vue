@@ -218,8 +218,7 @@ export default {
             },
             details: {
               description:
-                "Specify a short hint that describes the expected value.",
-              values: ""
+                "Specify a short hint that describes the expected value."
             }
           },
           {
@@ -289,7 +288,7 @@ export default {
           {
             name: "value",
             type: {
-              type: "[String, Number]",
+              type: "String or Number",
               additional: "Default: null"
             },
             details: {

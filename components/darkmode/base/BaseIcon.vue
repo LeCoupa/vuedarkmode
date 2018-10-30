@@ -24,7 +24,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: null
+      default: "inherit"
     },
     cursor: {
       type: String,

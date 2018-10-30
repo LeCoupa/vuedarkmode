@@ -36,6 +36,7 @@ div(
       :id="uuid"
       :name="name"
       :placeholder="placeholder"
+      :readonly="readOnly"
       :rows="rows"
       class="dm-field-textarea__field"
     ) {{ value }}
@@ -103,6 +104,10 @@ export default {
     name: {
       type: String,
       required: true
+    },
+    readOnly: {
+      type: Boolean,
+      default: false
     },
     rows: {
       type: Number,

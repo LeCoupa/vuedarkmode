@@ -47,7 +47,7 @@ div(
       :min="min"
       :name="name"
       :placeholder="placeholder"
-      :read-only="readOnly"
+      :readonly="readOnly"
       :type="type"
       :value="currentValue"
       class="dm-field-input__field"

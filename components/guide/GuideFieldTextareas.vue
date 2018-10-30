@@ -103,8 +103,7 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Display the border on the text area element."
             }
           },
           {
@@ -114,8 +113,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Specifies the visible width of the text area element."
             }
           },
           {
@@ -125,8 +124,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Display an helping description below the text area element."
             }
           },
           {
@@ -136,8 +135,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Disable the text area element."
             }
           },
           {
@@ -147,8 +145,8 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "When set to true, the text area element will take all the width available."
             }
           },
           {
@@ -158,19 +156,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
-            }
-          },
-          {
-            name: "placeholder",
-            type: {
-              type: "String",
-              additional: "Default: null"
-            },
-            details: {
-              description: "",
-              values: ""
+              description: "Add a label above the text area element."
             }
           },
           {
@@ -180,8 +166,28 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the name of the text area element."
+            }
+          },
+          {
+            name: "placeholder",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a short hint that describes the expected value."
+            }
+          },
+          {
+            name: "read-only",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Specify that the text area element is read-only."
             }
           },
           {
@@ -191,8 +197,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Specifies the visible number of lines in the text area element."
             }
           },
           {
@@ -202,8 +208,8 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the size of the text area element.",
+              values: '"mini" | "small"  | "default" | "medium" | "large"'
             }
           },
           {
@@ -213,8 +219,8 @@ export default {
               additional: 'Default: "normal"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the status for the text area element.",
+              values: '"error" | "normal" | "success" | "warning"'
             }
           },
           {
@@ -224,8 +230,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the value of the text area element."
             }
           }
         ]
