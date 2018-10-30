@@ -102,8 +102,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "Display an helping description below the file element."
             }
           },
           {
@@ -113,8 +113,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Disable the file element."
             }
           },
           {
@@ -124,8 +123,8 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "When set to true, the file element will take all the width available."
             }
           },
           {
@@ -135,8 +134,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Add a label above the file element."
             }
           },
           {
@@ -146,8 +144,8 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "",
-              values: ""
+              description:
+                "When set to true, the file element will accept multiple files."
             }
           },
           {
@@ -157,8 +155,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the name of the file element."
             }
           },
           {
@@ -168,8 +165,8 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the size of the file element.",
+              values: '"mini" | "small"  | "default" | "medium" | "large"'
             }
           },
           {
@@ -179,8 +176,8 @@ export default {
               additional: 'Default: "normal"'
             },
             details: {
-              description: "",
-              values: ""
+              description: "Specify the status for the file element.",
+              values: '"error" | "normal" | "success" | "warning"'
             }
           }
         ]
