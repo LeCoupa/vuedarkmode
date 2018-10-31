@@ -4,7 +4,7 @@
 
 <template lang="pug">
 div(
-  @click="onClick($event)"
+  @click="onClick(id, $event)"
   :class=`[
     "dm-base-avatar",
     "dm-base-avatar--" + size,
@@ -14,6 +14,7 @@ div(
       "dm-base-avatar--complementaries": complementaries
     }
   ]`
+  :id="id"
 )
   span(
     :style=`{
@@ -81,6 +82,10 @@ export default {
       type: String,
       default: null
     },
+    id: {
+      type: String,
+      default: null
+    },
     size: {
       type: String,
       default: "default",
@@ -100,8 +105,8 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onClick(event) {
-      this.$emit("click", event);
+    onClick(id, event) {
+      this.$emit("click", id, event);
     }
   }
 };

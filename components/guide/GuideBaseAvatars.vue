@@ -182,6 +182,17 @@ export default {
             }
           },
           {
+            name: "id",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Set the id property (will be emitted during events)."
+            }
+          },
+          {
             name: "size",
             type: {
               type: "String",
@@ -226,7 +237,7 @@ export default {
         data: [
           {
             name: "click",
-            parameters: "event",
+            parameters: "id, event",
             details: {
               description: "Fires on a mouse click on the element."
             }
