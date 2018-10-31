@@ -171,7 +171,7 @@ export default {
             },
             details: {
               description: "Define the tabs to display.",
-              values: '{ id: "vuedarkmode", name: "VueDarkMode" }'
+              values: '{ id: "vuedarkmode", name: "Vue Dark Mode" }'
             }
           }
         ]

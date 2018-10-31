@@ -6,7 +6,7 @@
 
 ## Documentation
 
-You can browse the documentation for VueDarkMode [on the website](https://www.vuedarkmode.com/).
+You can browse the documentation for Vue Dark Mode [on the website](https://www.vuedarkmode.com/).
 
 ## Installation
 
@@ -57,7 +57,7 @@ Get the latest version from [jsdelivr](https://www.jsdelivr.com/), and import th
   <script src="https://cdn.jsdelivr.net/npm/vuedarkmode@0.1/dist/vuedarkmode.min.js"></script>
 ```
 
-We recommend our users to lock VueDarkMode's version when using CDN. Requesting the latest version (as opposed to "latest major" or "latest minor") is dangerous because major versions usually come with breaking changes. Only do this if you really know what you are doing. [Please refer to jsdelivr.com](https://www.jsdelivr.com/features) for more information.
+We recommend our users to lock Vue Dark Mode's version when using CDN. Requesting the latest version (as opposed to "latest major" or "latest minor") is dangerous because major versions usually come with breaking changes. Only do this if you really know what you are doing. [Please refer to jsdelivr.com](https://www.jsdelivr.com/features) for more information.
 
 ## Available Components
 
@@ -115,4 +115,4 @@ You are more than welcome to contribute to Vue Dark Mode. Just submit changes vi
 
 ## License
 
-VueDarkMode is [MIT licensed](LICENSE).
+Vue Dark Mode is [MIT licensed](LICENSE).

@@ -4,7 +4,7 @@
 
 module.exports = {
   head: {
-    title: "Dark Mode | A Minimalist Dark Design System for Vue.js",
+    title: "Vue Dark Mode | A Minimalist Dark Design System for Vue.js",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
