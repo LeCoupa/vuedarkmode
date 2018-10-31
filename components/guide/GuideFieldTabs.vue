@@ -21,6 +21,7 @@
       )
         field-tabs(
           :label="size.charAt(0).toUpperCase() + size.slice(1) + ' tabs (' + statuses[j] + ')'"
+          :name="'tabs_' + size + '_'  + statuses[j] + i + j"
           :size="size"
           :status="statuses[j]"
           :tabs=`[
