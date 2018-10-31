@@ -272,7 +272,6 @@ export default {
 
 <style lang="scss">
 @import "assets/settings/_settings.colors.scss";
-
 $c: ".dm-field-input";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
@@ -295,6 +294,7 @@ $statuses: error, normal, success, warning;
 
     #{$c}__icon {
       flex: 0 0 auto;
+      pointer-events: none;
 
       &--left {
         margin-right: 5px;

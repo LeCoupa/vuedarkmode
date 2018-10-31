@@ -220,6 +220,7 @@ $statuses: error, normal, success, warning;
 
     #{$c}__icon {
       position: absolute;
+      pointer-events: none;
 
       &--left {
         left: 9px;

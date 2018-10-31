@@ -206,7 +206,6 @@ export default {
 
 <style lang="scss">
 @import "assets/settings/_settings.colors.scss";
-
 $c: ".dm-field-textarea";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
@@ -227,6 +226,7 @@ $statuses: error, normal, success, warning;
       position: absolute;
       right: 7px;
       bottom: 7px;
+      pointer-events: none;
     }
 
     #{$c}__field {
