@@ -4,7 +4,7 @@
 
 <template lang="pug">
 div(
-  @click="onClick"
+  @click="onClick($event)"
   :class=`[
     "dm-base-avatar",
     "dm-base-avatar--" + size,
@@ -100,8 +100,8 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onClick() {
-      this.$emit("click");
+    onClick(event) {
+      this.$emit("click", event);
     }
   }
 };
