@@ -4,7 +4,14 @@
 
 <template lang="pug">
 i(
-  @click="onClick"
+  @click="onClick(id, $event)"
+  @dblclick="onDoubleClick(id, $event)"
+  @mousedown="onMouseDown(id, $event)"
+  @mousemove="onMouseMove(id, $event)"
+  @mouseout="onMouseOut(id, $event)"
+  @mouseover="onMouseOver(id, $event)"
+  @mouseup="onMouseUp(id, $event)"
+  :id="id"
   :style=`{
     color: color,
     cursor: cursor,
@@ -33,6 +40,10 @@ export default {
         return ["default", "pointer"].indexOf(x) !== -1;
       }
     },
+    id: {
+      type: String,
+      default: null
+    },
     name: {
       type: String,
       required: true
@@ -46,8 +57,32 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onClick() {
-      this.$emit("click", this.name);
+    onClick(id, event) {
+      this.$emit("click", id, event);
+    },
+
+    onDoubleClick(id, event) {
+      this.$emit("dblclick", id, event);
+    },
+
+    onMouseDown(id, event) {
+      this.$emit("mousedown", id, event);
+    },
+
+    onMouseMove(id, event) {
+      this.$emit("mousemove", id, event);
+    },
+
+    onMouseOut(id, event) {
+      this.$emit("mouseout", id, event);
+    },
+
+    onMouseOver(id, event) {
+      this.$emit("mouseover", id, event);
+    },
+
+    onMouseUp(id, event) {
+      this.$emit("mouseup", id, event);
     }
   }
 };
