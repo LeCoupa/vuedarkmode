@@ -7,6 +7,8 @@ i(
   @click="onClick(id, $event)"
   @dblclick="onDoubleClick(id, $event)"
   @mousedown="onMouseDown(id, $event)"
+  @mouseenter="onMouseEnter(id, $event)"
+  @mouseleave="onMouseLeave(id, $event)"
   @mousemove="onMouseMove(id, $event)"
   @mouseout="onMouseOut(id, $event)"
   @mouseover="onMouseOver(id, $event)"
@@ -67,6 +69,14 @@ export default {
 
     onMouseDown(id, event) {
       this.$emit("mousedown", id, event);
+    },
+
+    onMouseDown(id, event) {
+      this.$emit("mousedown", id, event);
+    },
+
+    onMouseEnter(id, event) {
+      this.$emit("mouseenter", id, event);
     },
 
     onMouseMove(id, event) {

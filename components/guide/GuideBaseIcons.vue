@@ -205,6 +205,22 @@ export default {
             }
           },
           {
+            name: "mouseenter",
+            parameters: "id, event",
+            details: {
+              description:
+                "The event occurs when the pointer is moved onto an element."
+            }
+          },
+          {
+            name: "mouseleave",
+            parameters: "id, event",
+            details: {
+              description:
+                "The event occurs when the pointer is moved out of an element.s"
+            }
+          },
+          {
             name: "mousemove",
             parameters: "id, event",
             details: {
