@@ -155,6 +155,7 @@ module.exports = {
   css: ["normalize.css/normalize.css", "hint.css/hint.min.css"],
 
   modules: [
+    ["@nuxtjs/google-analytics", { id: "UA-125493236-2" }],
     ["@nuxtjs/pwa", { onesignal: false }],
     [
       "nuxt-sass-resources-loader",
