@@ -27,6 +27,7 @@ button(
   span.dm-base-button__inner
     base-icon(
       v-if="leftIcon"
+      :color="leftIconColor"
       :name="leftIcon"
       :size="iconSize"
       class="dm-base-button__left-icon"
@@ -38,6 +39,7 @@ button(
 
     base-icon(
       v-if="rightIcon"
+      :color="rightIconColor"
       :name="rightIcon"
       :size="iconSize"
       class="dm-base-button__right-icon"
@@ -91,11 +93,19 @@ export default {
       type: String,
       default: null
     },
+    leftIconColor: {
+      type: String,
+      default: null
+    },
     reverse: {
       type: Boolean,
       default: false
     },
     rightIcon: {
+      type: String,
+      default: null
+    },
+    rightIconColor: {
       type: String,
       default: null
     },

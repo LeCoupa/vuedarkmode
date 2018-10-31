@@ -181,6 +181,16 @@ export default {
             }
           },
           {
+            name: "left-icon-color",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Specify the color for the left icon."
+            }
+          },
+          {
             name: "reverse",
             type: {
               type: "Boolean",
@@ -198,6 +208,16 @@ export default {
             },
             details: {
               description: "Add a right icon (see material icons)."
+            }
+          },
+          {
+            name: "right-icon-color",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Specify the color for the right icon."
             }
           },
           {
