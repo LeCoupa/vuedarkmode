@@ -57,6 +57,11 @@
       color="white"
       class="u-mb40"
     )
+    no-ssr
+      common-table(
+        :data="events.data"
+        :fields="events.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -258,6 +263,80 @@ export default {
             details: {
               description: "Set the button type.",
               values: '"button" | "reset" | "submit"'
+            }
+          }
+        ]
+      },
+      events: {
+        fields: [
+          {
+            name: "name",
+            title: "Event Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "parameters",
+            title: "Parameters",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "click",
+            parameters: "id, event",
+            details: {
+              description: "Fires on a mouse click on the element."
+            }
+          },
+          {
+            name: "dblclick",
+            parameters: "id, event",
+            details: {
+              description: "Fires on a mouse double-click on the element."
+            }
+          },
+          {
+            name: "mousedown",
+            parameters: "id, event",
+            details: {
+              description:
+                "Fires when a mouse button is pressed down on an element."
+            }
+          },
+          {
+            name: "mousemove",
+            parameters: "id, event",
+            details: {
+              description:
+                "Fires when the mouse pointer is moving while it is over an element."
+            }
+          },
+          {
+            name: "mouseout",
+            parameters: "id, event",
+            details: {
+              description:
+                "Fires when the mouse pointer moves out of an element."
+            }
+          },
+          {
+            name: "mouseover",
+            parameters: "id, event",
+            details: {
+              description: "Fires when the mouse pointer moves over an element."
+            }
+          },
+          {
+            name: "mouseup",
+            parameters: "id, event",
+            details: {
+              description:
+                "Fires when a mouse button is released over an element."
             }
           }
         ]

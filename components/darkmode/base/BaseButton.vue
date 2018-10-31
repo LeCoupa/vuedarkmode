@@ -4,9 +4,13 @@
 
 <template lang="pug">
 button(
-  @blur="onBlur"
-  @click="onClick"
-  @focus="onFocus"
+  @click="onClick(id, $event)"
+  @dblclick="onDoubleClick(id, $event)"
+  @mousedown="onMouseDown(id, $event)"
+  @mousemove="onMouseMove(id, $event)"
+  @mouseout="onMouseOut(id, $event)"
+  @mouseover="onMouseOver(id, $event)"
+  @mouseup="onMouseUp(id, $event)"
   :class=`[
     "dm-base-button",
     "dm-base-button--" + color,
@@ -151,16 +155,32 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onBlur() {
-      this.$emit("blur", this.id);
+    onClick(id, event) {
+      this.$emit("click", id, event);
     },
 
-    onClick() {
-      this.$emit("click", this.id);
+    onDoubleClick(id, event) {
+      this.$emit("dblclick", id, event);
     },
 
-    onFocus() {
-      this.$emit("focus", this.id);
+    onMouseDown(id, event) {
+      this.$emit("mousedown", id, event);
+    },
+
+    onMouseMove(id, event) {
+      this.$emit("mousemove", id, event);
+    },
+
+    onMouseOut(id, event) {
+      this.$emit("mouseout", id, event);
+    },
+
+    onMouseOver(id, event) {
+      this.$emit("mouseover", id, event);
+    },
+
+    onMouseUp(id, event) {
+      this.$emit("mouseup", id, event);
     }
   }
 };
