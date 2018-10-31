@@ -247,7 +247,7 @@ export default {
     },
 
     onFieldChange() {
-      this.$emit("change", this.getInputValue());
+      this.$emit("change", this.name, this.getInputValue());
     },
 
     onFieldFocus() {
