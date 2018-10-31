@@ -73,6 +73,10 @@ export default {
       type: Boolean,
       default: false
     },
+    name: {
+      type: String,
+      required: true
+    },
     size: {
       type: String,
       default: "default",
@@ -143,7 +147,7 @@ export default {
         }
       }
 
-      this.$emit("click", tabId);
+      this.$emit("click", this.name, tabId);
     }
   }
 };
