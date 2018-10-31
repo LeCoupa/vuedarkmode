@@ -71,12 +71,12 @@ export default {
       this.$emit("mousedown", id, event);
     },
 
-    onMouseDown(id, event) {
-      this.$emit("mousedown", id, event);
-    },
-
     onMouseEnter(id, event) {
       this.$emit("mouseenter", id, event);
+    },
+
+    onMouseLeave(id, event) {
+      this.$emit("mouseleave", id, event);
     },
 
     onMouseMove(id, event) {
