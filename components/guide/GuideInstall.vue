@@ -61,7 +61,7 @@
   )
     | Add this new plugin to nuxt.config.js.
     br
-    | Don't forget to set ssr to false as VueDarkMode only works in the browser for the time being.
+    | Don't forget to set ssr to false as Vue Dark Mode only works in the browser for the time being.
 
   pre(
     v-highlightjs
@@ -98,7 +98,7 @@
     class="c-guide-install__paragraph"
     type="p"
   )
-    | We recommend our users to lock VueDarkMode's version when using CDN.
+    | We recommend our users to lock Vue Dark Mode's version when using CDN.
     | Requesting the latest version (as opposed to "latest major" or "latest minor") is dangerous
     | because major versions usually come with breaking changes. Only do this if you really know
     | what you are doing.
