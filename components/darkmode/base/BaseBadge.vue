@@ -4,12 +4,13 @@
 
 <template lang="pug">
 span(
-  @click="onClick($event)"
+  @click="onClick(id, $event)"
   :class=`[
     "dm-base-badge",
     "dm-base-badge--" + color,
     "dm-base-badge--" + size
   ]`
+  :id="id"
 ): slot
 </template>
 
@@ -38,6 +39,10 @@ export default {
         );
       }
     },
+    id: {
+      type: String,
+      default: null
+    },
     size: {
       type: String,
       default: "default",
@@ -52,8 +57,8 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onClick(event) {
-      this.$emit("click", event);
+    onClick(id, event) {
+      this.$emit("click", id, event);
     }
   }
 };
