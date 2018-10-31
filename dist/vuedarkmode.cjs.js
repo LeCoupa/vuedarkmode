@@ -1,5 +1,5 @@
 /*!
- * vuedarkmode v0.1.6
+ * vuedarkmode v0.1.8
  * (c) 2018-present Team <team@vuedarkmode.com>
  * Released under the MIT License.
  */
@@ -4663,7 +4663,7 @@ function install(Vue, options) {
   // Or when the user explicitely specify it
 
   for (var component in components) {
-    if (!options.components || options.components.length === 0 || options.components.indexOf(component) !== -1) {
+    if (!options || !options.components || options.components.length === 0 || options.components.indexOf(component) !== -1) {
       Vue.component("dm-" + component, components[component]);
     }
   }

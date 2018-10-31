@@ -54,6 +54,7 @@ function install(Vue, options) {
   // Or when the user explicitely specify it
   for (let component in components) {
     if (
+      !options ||
       !options.components ||
       options.components.length === 0 ||
       options.components.indexOf(component) !== -1
