@@ -32,8 +32,8 @@
 
     no-ssr
       common-table(
-        :data="table.data"
-        :fields="table.fields"
+        :data="props.data"
+        :fields="props.fields"
       )
 </template>
 
@@ -103,7 +103,7 @@ export default {
           details: "8/10"
         }
       ],
-      table: {
+      props: {
         fields: [
           {
             name: "name",

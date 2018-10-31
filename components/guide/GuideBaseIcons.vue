@@ -40,8 +40,8 @@
 
     no-ssr
       common-table(
-        :data="table.data"
-        :fields="table.fields"
+        :data="props.data"
+        :fields="props.fields"
       )
 </template>
 
@@ -76,7 +76,7 @@ export default {
     return {
       icons: icons,
       maxIcons: 216,
-      table: {
+      props: {
         fields: [
           {
             name: "name",

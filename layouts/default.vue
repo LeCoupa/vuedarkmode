@@ -46,6 +46,7 @@ export default {
 @import "./assets/objects/objects.layouts";
 
 // High-specificity, very explicit selectors
+@import "./assets/utilities/utilities.alignments";
 @import "./assets/utilities/utilities.inline";
 
 $c: ".l-default";

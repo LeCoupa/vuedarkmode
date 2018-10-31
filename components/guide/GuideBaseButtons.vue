@@ -48,9 +48,15 @@
 
     no-ssr
       common-table(
-        :data="table.data"
-        :fields="table.fields"
+        :data="props.data"
+        :fields="props.fields"
+        class="u-mb40"
       )
+
+    base-divider(
+      color="white"
+      class="u-mb40"
+    )
 </template>
 
 <!-- *************************************************************************
@@ -60,11 +66,13 @@
 <script>
 // PROJECT
 import BaseButton from "@/components/darkmode/base/BaseButton";
+import BaseDivider from "@/components/darkmode/base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
     BaseButton,
+    BaseDivider,
     CommonTable
   },
 
@@ -89,7 +97,7 @@ export default {
         ],
         sizes: ["large", "medium", "default", "small", "mini"]
       },
-      table: {
+      props: {
         fields: [
           {
             name: "name",
