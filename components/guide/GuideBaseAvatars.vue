@@ -21,7 +21,7 @@
           base-avatar(
             v-if="type === 'avatars'"
             :size="size"
-            src="/images/medley/nada.jpeg"
+            src="/images/docs/nada.jpeg"
           )
           base-avatar(
             v-else-if="type === 'thumbnails'"
@@ -30,7 +30,7 @@
             :complementaries="avatars.complementaries[size]"
             :description="size"
             :size="size"
-            src="/images/medley/tesla.jpg"
+            src="/images/docs/tesla.jpg"
           )
 
   div(
@@ -79,15 +79,15 @@ export default {
         complementaries: {
           huge: [
             {
-              src: "/images/medley/mastercard.jpg"
+              src: "/images/docs/mastercard.jpg"
             },
             {
-              src: "/images/medley/visa.jpg"
+              src: "/images/docs/visa.jpg"
             }
           ],
           large: [
             {
-              src: "/images/medley/paypal.jpg"
+              src: "/images/docs/paypal.jpg"
             }
           ]
         }

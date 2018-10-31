@@ -11,7 +11,7 @@
   )
     base-avatar(
       size="mini"
-      src="/images/medley/nada.jpeg"
+      src="/images/docs/nada.jpeg"
     )
     span.c-the-shortcuts-bar__description Looking for a Vue.js / Nuxt.js freelancer? Ping me, I'm available! 👩‍🎨
 
