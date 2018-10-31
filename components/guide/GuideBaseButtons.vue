@@ -180,7 +180,8 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Set the id property."
+              description:
+                "Set the id property (will be emitted during events)."
             }
           },
           {
