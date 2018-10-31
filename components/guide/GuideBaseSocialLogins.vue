@@ -37,6 +37,17 @@
       common-table(
         :data="props.data"
         :fields="props.fields"
+        class="u-mb40"
+      )
+
+    base-divider(
+      color="white"
+      class="u-mb40"
+    )
+    no-ssr
+      common-table(
+        :data="events.data"
+        :fields="events.fields"
       )
 </template>
 
@@ -46,6 +57,7 @@
 
 <script>
 // PROJECT
+import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import BaseSocialLogin from "@/components/darkmode/base/BaseSocialLogin";
 const CommonTable = () => import("@/components/common/CommonTable");
 
@@ -59,6 +71,7 @@ export default {
   },
 
   components: {
+    BaseDivider,
     BaseSocialLogin,
     CommonTable
   },
@@ -126,6 +139,34 @@ export default {
             details: {
               description: "Set the button size.",
               values: '"small" | "large"'
+            }
+          }
+        ]
+      },
+      events: {
+        fields: [
+          {
+            name: "name",
+            title: "Event Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "parameters",
+            title: "Parameters",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "click",
+            parameters: "network, event",
+            details: {
+              description: "Fires on a mouse click on the element."
             }
           }
         ]
