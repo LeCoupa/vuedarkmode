@@ -29,8 +29,9 @@ div(
   )
     textarea(
       @blur="onFieldBlur"
+      @change="onFieldChange"
       @focus="onFieldFocus"
-      @keyup="onFieldKeyUp"
+      @input="onFieldInput"
       :cols="cols"
       :disabled="disabled"
       :id="uuid"
@@ -187,14 +188,18 @@ export default {
       this.$emit("blur", this.name, this.getTextareaValue());
     },
 
+    onFieldChange() {
+      this.$emit("change", this.name, this.getTextareaValue());
+    },
+
     onFieldFocus() {
       this.focused = true;
 
       this.$emit("focus", this.name, this.getTextareaValue());
     },
 
-    onFieldKeyUp() {
-      this.$emit("keyup", this.name, this.getTextareaValue());
+    onFieldInput() {
+      this.$emit("input", this.name, this.getTextareaValue());
     }
   }
 };
