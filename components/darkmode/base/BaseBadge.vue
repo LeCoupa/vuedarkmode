@@ -4,6 +4,7 @@
 
 <template lang="pug">
 span(
+  @click="onClick($event)"
   :class=`[
     "dm-base-badge",
     "dm-base-badge--" + color,
@@ -45,6 +46,14 @@ export default {
           ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
         );
       }
+    }
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    onClick(event) {
+      this.$emit("click", event);
     }
   }
 };
