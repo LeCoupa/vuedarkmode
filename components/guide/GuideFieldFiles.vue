@@ -42,6 +42,17 @@
       common-table(
         :data="props.data"
         :fields="props.fields"
+        class="u-mb40"
+      )
+
+    base-divider(
+      color="white"
+      class="u-mb40"
+    )
+    no-ssr
+      common-table(
+        :data="events.data"
+        :fields="events.fields"
       )
 </template>
 
@@ -51,11 +62,13 @@
 
 <script>
 // PROJECT
-const CommonTable = () => import("@/components/common/CommonTable");
+import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import FieldFile from "@/components/darkmode/form/FieldFile";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
+    BaseDivider,
     CommonTable,
     FieldFile
   },
@@ -178,6 +191,35 @@ export default {
             details: {
               description: "Specify the status for the file element.",
               values: '"error" | "normal" | "success" | "warning"'
+            }
+          }
+        ]
+      },
+      events: {
+        fields: [
+          {
+            name: "name",
+            title: "Event Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "parameters",
+            title: "Parameters",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "change",
+            parameters: "name, event",
+            details: {
+              description:
+                "Fires the moment when the value of the element is changed."
             }
           }
         ]
