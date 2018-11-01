@@ -331,21 +331,21 @@ export default {
         data: [
           {
             name: "click",
-            parameters: "name, value, event",
+            parameters: "value, name, event",
             details: {
               description: "Fires on a mouse click on the element."
             }
           },
           {
             name: "blur",
-            parameters: "name, value, event",
+            parameters: "value, name, event",
             details: {
               description: "Fires the moment that the element loses focus."
             }
           },
           {
             name: "change",
-            parameters: "name, value, event",
+            parameters: "value, name, event",
             details: {
               description:
                 "Fires the moment when the value of the element is changed."
@@ -353,14 +353,14 @@ export default {
           },
           {
             name: "focus",
-            parameters: "name, value, event",
+            parameters: "value, name, event",
             details: {
               description: "Fires the moment when the element gets focus."
             }
           },
           {
             name: "input",
-            parameters: "name, value, event",
+            parameters: "value, name, event",
             details: {
               description: "Fires the moment when the element gets user input."
             }

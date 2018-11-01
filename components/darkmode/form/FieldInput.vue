@@ -237,30 +237,30 @@ export default {
     onContainerClick(name, event) {
       this.$el.querySelector("input").focus();
 
-      this.$emit("click", name, this.getInputValue(), event);
+      this.$emit("click", this.getInputValue(), name, event);
     },
 
     onFieldBlur(name, event) {
       this.focused = false;
 
-      this.$emit("blur", name, this.getInputValue(), event);
+      this.$emit("blur", this.getInputValue(), name, event);
     },
 
     onFieldChange(name, event) {
-      this.$emit("change", name, this.getInputValue(), event);
+      this.$emit("change", this.getInputValue(), name, event);
     },
 
     onFieldFocus(name, event) {
       this.focused = true;
 
-      this.$emit("focus", name, this.getInputValue(), event);
+      this.$emit("focus", this.getInputValue(), name, event);
     },
 
     onFieldInput(name, event) {
       const value = this.getInputValue();
 
       this.currentValue = value;
-      this.$emit("input", name, value, event);
+      this.$emit("input", value, name, event);
     }
   }
 };
