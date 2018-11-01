@@ -44,6 +44,17 @@
       common-table(
         :data="props.data"
         :fields="props.fields"
+        class="u-mb40"
+      )
+
+    base-divider(
+      color="white"
+      class="u-mb40"
+    )
+    no-ssr
+      common-table(
+        :data="events.data"
+        :fields="events.fields"
       )
 </template>
 
@@ -53,11 +64,13 @@
 
 <script>
 // PROJECT
-const CommonTable = () => import("@/components/common/CommonTable");
+import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import FieldInput from "@/components/darkmode/form/FieldInput";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
+    BaseDivider,
     CommonTable,
     FieldInput
   },
@@ -293,6 +306,63 @@ export default {
             },
             details: {
               description: "Specify the value of the input element."
+            }
+          }
+        ]
+      },
+      events: {
+        fields: [
+          {
+            name: "name",
+            title: "Event Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "parameters",
+            title: "Parameters",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "click",
+            parameters: "name, value, event",
+            details: {
+              description: "Fires on a mouse click on the element."
+            }
+          },
+          {
+            name: "blur",
+            parameters: "name, value, event",
+            details: {
+              description: "Fires the moment that the element loses focus."
+            }
+          },
+          {
+            name: "change",
+            parameters: "name, value, event",
+            details: {
+              description:
+                "Fires the moment when the value of the element is changed."
+            }
+          },
+          {
+            name: "focus",
+            parameters: "name, value, event",
+            details: {
+              description: "Fires the moment when the element gets focus."
+            }
+          },
+          {
+            name: "input",
+            parameters: "name, value, event",
+            details: {
+              description: "Fires the moment when the element gets user input."
             }
           }
         ]
