@@ -17,7 +17,7 @@ div(
 )
   .dm-field-radio__container
     input(
-      @change="onFieldChange"
+      @change="onFieldChange(name, $event)"
       :checked="checked"
       :disabled="disabled"
       :id="uuid"
@@ -121,8 +121,8 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onFieldChange(event) {
-      this.$emit("change", this.name, event.target.checked);
+    onFieldChange(name, event) {
+      this.$emit("change", name, event.target.checked, event);
     }
   }
 };

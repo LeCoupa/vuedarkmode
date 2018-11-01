@@ -43,6 +43,17 @@
       common-table(
         :data="props.data"
         :fields="props.fields"
+        class="u-mb40"
+      )
+
+    base-divider(
+      color="white"
+      class="u-mb40"
+    )
+    no-ssr
+      common-table(
+        :data="events.data"
+        :fields="events.fields"
       )
 </template>
 
@@ -52,11 +63,13 @@
 
 <script>
 // PROJECT
-const CommonTable = () => import("@/components/common/CommonTable");
+import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import FieldRadio from "@/components/darkmode/form/FieldRadio";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
+    BaseDivider,
     CommonTable,
     FieldRadio
   },
@@ -189,6 +202,35 @@ export default {
             details: {
               description: "Specify the status for the radio element.",
               values: '"error" | "normal" | "success" | "warning"'
+            }
+          }
+        ]
+      },
+      events: {
+        fields: [
+          {
+            name: "name",
+            title: "Event Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "parameters",
+            title: "Parameters",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "change",
+            parameters: "name, checked, event",
+            details: {
+              description:
+                "Fires the moment when the value of the element is changed"
             }
           }
         ]
