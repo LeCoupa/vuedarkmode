@@ -215,7 +215,7 @@ $sizes: mini, small, default, medium, large;
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: background ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
   user-select: none;
   cursor: pointer;
 
@@ -229,28 +229,34 @@ $sizes: mini, small, default, medium, large;
 
   @each $color in $colors {
     &--#{$color} {
-      background: map-get($mainColors, $color)
-        radial-gradient(circle, transparent 1%, map-get($mainColors, $color) 1%)
-        center/15000%;
-
-      @if ($color == black) {
-        border: 1px solid $oxford-blue;
-        background: $ebony-clay
-          radial-gradient(circle, transparent 1%, $ebony-clay 1%)
+      &:not(#{$c}--reverse) {
+        background: map-get($mainColors, $color)
+          radial-gradient(
+            circle,
+            transparent 1%,
+            map-get($mainColors, $color) 1%
+          )
           center/15000%;
 
-        &:active {
-          background-color: lighten(map-get($mainColors, $color), 5%);
-        }
-      } @else if ($color == white) {
-        color: $oxford-blue;
+        @if ($color == black) {
+          border: 1px solid $oxford-blue;
+          background: $ebony-clay
+            radial-gradient(circle, transparent 1%, $ebony-clay 1%)
+            center/15000%;
 
-        &:active {
-          background-color: darken(map-get($mainColors, $color), 10%);
-        }
-      } @else {
-        &:active {
-          background-color: lighten(map-get($mainColors, $color), 10%);
+          &:active {
+            background-color: lighten(map-get($mainColors, $color), 5%);
+          }
+        } @else if ($color == white) {
+          color: $oxford-blue;
+
+          &:active {
+            background-color: darken(map-get($mainColors, $color), 10%);
+          }
+        } @else {
+          &:active {
+            background-color: lighten(map-get($mainColors, $color), 10%);
+          }
         }
       }
     }
@@ -325,8 +331,7 @@ $sizes: mini, small, default, medium, large;
   }
 
   &--reverse {
-    // Will also override hover state defined above
-    background-color: transparent !important;
+    background-color: transparent;
     color: $white;
 
     @each $color in $colors {
