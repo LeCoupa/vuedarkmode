@@ -76,7 +76,7 @@ $c: ".c-the-github-buttons";
       }
 
       &--fork {
-        width: 80px;
+        width: 90px;
       }
 
       &:nth-last-of-type {
