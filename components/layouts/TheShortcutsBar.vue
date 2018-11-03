@@ -112,7 +112,7 @@ $c: ".c-the-shortcuts-bar";
 
     #{$c}__icon {
       opacity: 0.7;
-      color: $sunglow;
+      color: $sun;
     }
 
     &--light {

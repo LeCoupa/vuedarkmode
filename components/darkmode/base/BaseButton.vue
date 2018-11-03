@@ -245,7 +245,7 @@ $sizes: mini, small, default, medium, large;
   }
 
   &--orange {
-    background-image: linear-gradient(0deg, $supernova 0%, $sunglow 100%);
+    background-image: linear-gradient(0deg, $sun 0%, $sunglow 100%);
   }
 
   &--red {

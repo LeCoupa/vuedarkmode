@@ -29,8 +29,8 @@ $regent-st-blue: #a9c7df;
 
 // ORANGE
 
-$sunglow: #ffc92f;
-$supernova: #fbcb01;
+$sunglow: #ffc02a;
+$sun: #ffb610;
 
 // PURPLE
 
@@ -64,7 +64,7 @@ $mainColors: (
   black: $oxford-blue,
   blue: $azure-radiance,
   green: $malachite,
-  orange: $supernova,
+  orange: $sunglow,
   purple: $portage,
   red: $crimson,
   turquoise: $java,
@@ -82,5 +82,5 @@ $statusColors: (
   error: $crimson,
   normal: $azure-radiance,
   success: $malachite,
-  warning: $supernova
+  warning: $sunglow
 );
