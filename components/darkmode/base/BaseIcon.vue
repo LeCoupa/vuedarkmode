@@ -37,9 +37,9 @@ export default {
     },
     cursor: {
       type: String,
-      default: "default",
+      default: "inherit",
       validator(x) {
-        return ["default", "pointer"].indexOf(x) !== -1;
+        return ["default", "inherit", "pointer"].indexOf(x) !== -1;
       }
     },
     id: {
