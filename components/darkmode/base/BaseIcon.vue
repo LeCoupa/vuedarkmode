@@ -4,15 +4,15 @@
 
 <template lang="pug">
 i(
-  @click="onClick(id, $event)"
-  @dblclick="onDoubleClick(id, $event)"
-  @mousedown="onMouseDown(id, $event)"
-  @mouseenter="onMouseEnter(id, $event)"
-  @mouseleave="onMouseLeave(id, $event)"
-  @mousemove="onMouseMove(id, $event)"
-  @mouseout="onMouseOut(id, $event)"
-  @mouseover="onMouseOver(id, $event)"
-  @mouseup="onMouseUp(id, $event)"
+  @click="onClick"
+  @dblclick="onDoubleClick"
+  @mousedown="onMouseDown"
+  @mouseenter="onMouseEnter"
+  @mouseleave="onMouseLeave"
+  @mousemove="onMouseMove"
+  @mouseout="onMouseOut"
+  @mouseover="onMouseOver"
+  @mouseup="onMouseUp"
   :id="id"
   :style=`{
     color: color,
@@ -59,40 +59,40 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onClick(id, event) {
-      this.$emit("click", id, event);
+    onClick(event) {
+      this.$emit("click", this.id, event);
     },
 
-    onDoubleClick(id, event) {
-      this.$emit("dblclick", id, event);
+    onDoubleClick(event) {
+      this.$emit("dblclick", this.id, event);
     },
 
-    onMouseDown(id, event) {
-      this.$emit("mousedown", id, event);
+    onMouseDown(event) {
+      this.$emit("mousedown", this.id, event);
     },
 
-    onMouseEnter(id, event) {
-      this.$emit("mouseenter", id, event);
+    onMouseEnter(event) {
+      this.$emit("mouseenter", this.id, event);
     },
 
-    onMouseLeave(id, event) {
-      this.$emit("mouseleave", id, event);
+    onMouseLeave(event) {
+      this.$emit("mouseleave", this.id, event);
     },
 
-    onMouseMove(id, event) {
-      this.$emit("mousemove", id, event);
+    onMouseMove(event) {
+      this.$emit("mousemove", this.id, event);
     },
 
-    onMouseOut(id, event) {
-      this.$emit("mouseout", id, event);
+    onMouseOut(event) {
+      this.$emit("mouseout", this.id, event);
     },
 
-    onMouseOver(id, event) {
-      this.$emit("mouseover", id, event);
+    onMouseOver(event) {
+      this.$emit("mouseover", this.id, event);
     },
 
-    onMouseUp(id, event) {
-      this.$emit("mouseup", id, event);
+    onMouseUp(event) {
+      this.$emit("mouseup", this.id, event);
     }
   }
 };
