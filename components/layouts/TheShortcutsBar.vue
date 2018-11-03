@@ -15,30 +15,30 @@
     )
     span.c-the-shortcuts-bar__description Looking for a Vue.js / Nuxt.js freelancer? Ping me, I'm available! 👩‍🎨
 
-  .c-the-shortcuts-bar__actions
+  //- .c-the-shortcuts-bar__actions
 
-  div(
-    :class=`[
-      "c-the-shortcuts-bar__theme-switch",
-      {
-        "c-the-shortcuts-bar__theme-switch--light": theme === "light"
-      }
-    ]`
-  )
-    field-toggle(
-      @change="onThemeUpdate"
-      :checked="theme === 'dark'"
-      :disabled="true"
-      :fullWidth="false"
-      :label="theme === 'dark' ? 'Dark Mode Activated' : 'Light Mode Activated'"
-      class="c-the-shortcuts-bar__field"
-      name="theme"
-    )
-    base-icon(
-      class="c-the-shortcuts-bar__icon"
-      name="flash_on"
-      size="20px"
-    )
+  //- div(
+  //-   :class=`[
+  //-     "c-the-shortcuts-bar__theme-switch",
+  //-     {
+  //-       "c-the-shortcuts-bar__theme-switch--light": theme === "light"
+  //-     }
+  //-   ]`
+  //- )
+  //-   field-toggle(
+  //-     @change="onThemeUpdate"
+  //-     :checked="theme === 'dark'"
+  //-     :disabled="true"
+  //-     :fullWidth="false"
+  //-     :label="theme === 'dark' ? 'Dark Mode Activated' : 'Light Mode Activated'"
+  //-     class="c-the-shortcuts-bar__field"
+  //-     name="theme"
+  //-   )
+  //-   base-icon(
+  //-     class="c-the-shortcuts-bar__icon"
+  //-     name="flash_on"
+  //-     size="20px"
+  //-   )
 </template>
 
 <!-- *************************************************************************
