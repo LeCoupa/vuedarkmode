@@ -108,13 +108,13 @@ $c: ".c-common-table";
         td {
           color: $white;
           font-size: 16px;
+          line-height: 26px;
 
           .c-common-table__type,
           .c-common-table__additional,
           .c-common-table__description,
           .c-common-table__values {
             display: block;
-            line-height: 26px;
           }
 
           .c-common-table__additional,
