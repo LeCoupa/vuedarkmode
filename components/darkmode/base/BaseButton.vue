@@ -202,7 +202,6 @@ export default {
 
 <style lang="scss">
 @import "assets/settings/_settings.colors.scss";
-
 $c: ".dm-base-button";
 $colors: black, blue, green, red, orange, white;
 $sizes: mini, small, default, medium, large;
@@ -211,11 +210,12 @@ $sizes: mini, small, default, medium, large;
   display: inline-block;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: transparent; // Chrome displays white borders sometimes
+  background-position: center;
   color: $white;
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all ease-in-out 200ms;
+  transition: background ease-in-out 0.4s;
   user-select: none;
   cursor: pointer;
 
@@ -229,21 +229,29 @@ $sizes: mini, small, default, medium, large;
 
   @each $color in $colors {
     &--#{$color} {
-      background-color: map-get($mainColors, $color);
-
-      &:hover {
-        background-color: darken(map-get($mainColors, $color), 5%);
-      }
+      background: map-get($mainColors, $color)
+        radial-gradient(circle, transparent 1%, map-get($mainColors, $color) 1%)
+        center/15000%;
 
       @if ($color == black) {
         border: 1px solid $oxford-blue;
-        background-color: $ebony-clay;
+        background: $ebony-clay
+          radial-gradient(circle, transparent 1%, $ebony-clay 1%)
+          center/15000%;
 
-        &:hover {
-          background-color: darken($ebony-clay, 5%);
+        &:active {
+          background-color: lighten(map-get($mainColors, $color), 5%);
         }
       } @else if ($color == white) {
         color: $oxford-blue;
+
+        &:active {
+          background-color: darken(map-get($mainColors, $color), 10%);
+        }
+      } @else {
+        &:active {
+          background-color: lighten(map-get($mainColors, $color), 10%);
+        }
       }
     }
   }
@@ -345,6 +353,13 @@ $sizes: mini, small, default, medium, large;
   &--rounded {
     border-radius: 60px;
     color: $white;
+  }
+
+  // --> CURSORS <--
+
+  &:active {
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 </style>
