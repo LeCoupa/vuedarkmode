@@ -209,7 +209,6 @@ $sizes: mini, small, default, medium, large;
 
 #{$c} {
   display: inline-block;
-  outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-color: transparent; // Chrome displays white borders sometimes
   color: $white;

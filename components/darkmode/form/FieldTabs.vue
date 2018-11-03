@@ -24,6 +24,7 @@ div(
     span(
       v-for="(tab, i) in tabs"
       @click="onTabClick(tab.id, $event)"
+      @keypress.prevent="onTabKeypress"
       :class=`[
         "dm-field-tabs__tab",
         {
@@ -32,6 +33,7 @@ div(
           "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1)
         }
       ]`
+      tabindex="0"
     ) {{ tab.name }}
 
   field-description(
@@ -162,6 +164,12 @@ export default {
       }
 
       this.$emit("click", tabId, this.activeTabs, this.name, event);
+    },
+
+    onTabKeypress(event) {
+      if (event.which === 32) {
+        event.target.click();
+      }
     }
   }
 };

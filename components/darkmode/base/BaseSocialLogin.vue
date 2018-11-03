@@ -74,7 +74,6 @@ $sizes: small, large;
 
 #{$c} {
   display: inline-block;
-  outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);

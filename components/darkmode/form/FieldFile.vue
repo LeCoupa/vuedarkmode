@@ -30,8 +30,10 @@ div(
       ) {{ description }}
 
     label(
+      @keypress.prevent="onLabelKeypress"
       :for="uuid"
       class="dm-field-file__upload"
+      tabindex="0"
     )
       base-icon(
         name="cloud_upload"
@@ -125,6 +127,12 @@ export default {
 
     onFieldChange(event) {
       this.$emit("change", this.name, event);
+    },
+
+    onLabelKeypress(event) {
+      if (event.which === 32) {
+        this.$el.querySelector("input[type='file']").click();
+      }
     }
   }
 };

@@ -154,7 +154,6 @@ $statuses: error, normal, success, warning;
       position: relative;
       margin-right: 8px;
       margin-bottom: 0;
-      outline: none;
       border: none;
       -webkit-appearance: none;
       cursor: pointer;

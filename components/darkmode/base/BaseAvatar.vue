@@ -15,6 +15,7 @@ div(
     }
   ]`
   :id="id"
+  tabindex="0"
 )
   span(
     :style=`{
