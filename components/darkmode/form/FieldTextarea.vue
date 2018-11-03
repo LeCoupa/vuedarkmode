@@ -176,30 +176,30 @@ export default {
 
     // --> EVENT LISTENERS <--
 
-    onContainerClick() {
+    onContainerClick(event) {
       this.$el.querySelector("textarea").focus();
 
-      this.$emit("click", this.name, this.getTextareaValue());
+      this.$emit("click", this.getTextareaValue(), this.name, event);
     },
 
-    onFieldBlur() {
+    onFieldBlur(event) {
       this.focused = false;
 
-      this.$emit("blur", this.name, this.getTextareaValue());
+      this.$emit("blur", this.getTextareaValue(), this.name, event);
     },
 
-    onFieldChange() {
-      this.$emit("change", this.name, this.getTextareaValue());
+    onFieldChange(event) {
+      this.$emit("change", this.getTextareaValue(), this.name, event);
     },
 
-    onFieldFocus() {
+    onFieldFocus(event) {
       this.focused = true;
 
-      this.$emit("focus", this.name, this.getTextareaValue());
+      this.$emit("focus", this.getTextareaValue(), this.name, event);
     },
 
-    onFieldInput() {
-      this.$emit("input", this.name, this.getTextareaValue());
+    onFieldInput(event) {
+      this.$emit("input", this.getTextareaValue(), this.name, event);
     }
   }
 };

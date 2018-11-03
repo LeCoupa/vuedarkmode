@@ -26,7 +26,7 @@ div(
   ) {{ label }}
 
   div(
-    @click="onContainerClick(name, $event)"
+    @click="onContainerClick"
     class="dm-field-input__container"
   )
     base-icon(
@@ -35,10 +35,10 @@ div(
       class="dm-field-input__icon dm-field-input__icon--left"
     )
     input(
-      @blur="onFieldBlur(name, $event)"
-      @change="onFieldChange(name, $event)"
-      @focus="onFieldFocus(name, $event)"
-      @input="onFieldInput(name, $event)"
+      @blur="onFieldBlur"
+      @change="onFieldChange"
+      @focus="onFieldFocus"
+      @input="onFieldInput"
       :autocomplete="autocomplete ? 'on' : 'false'"
       :disabled="disabled"
       :id="uuid"
@@ -234,33 +234,33 @@ export default {
 
     // --> EVENT LISTENERS <--
 
-    onContainerClick(name, event) {
+    onContainerClick(event) {
       this.$el.querySelector("input").focus();
 
-      this.$emit("click", this.getInputValue(), name, event);
+      this.$emit("click", this.getInputValue(), this.name, event);
     },
 
-    onFieldBlur(name, event) {
+    onFieldBlur(event) {
       this.focused = false;
 
-      this.$emit("blur", this.getInputValue(), name, event);
+      this.$emit("blur", this.getInputValue(), this.name, event);
     },
 
-    onFieldChange(name, event) {
-      this.$emit("change", this.getInputValue(), name, event);
+    onFieldChange(event) {
+      this.$emit("change", this.getInputValue(), this.name, event);
     },
 
-    onFieldFocus(name, event) {
+    onFieldFocus(event) {
       this.focused = true;
 
-      this.$emit("focus", this.getInputValue(), name, event);
+      this.$emit("focus", this.getInputValue(), this.name, event);
     },
 
-    onFieldInput(name, event) {
+    onFieldInput(event) {
       const value = this.getInputValue();
 
       this.currentValue = value;
-      this.$emit("input", value, name, event);
+      this.$emit("input", value, this.name, event);
     }
   }
 };

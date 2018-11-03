@@ -164,30 +164,30 @@ export default {
 
     // --> EVENT LISTENERS <--
 
-    onFieldBlur() {
+    onFieldBlur(event) {
       this.focused = false;
       this.rightIcon = "arrow_drop_down";
 
-      this.$emit("blur", this.name, this.getSelectedValue());
+      this.$emit("blur", this.getSelectedValue(), this.name, event);
     },
 
-    onFieldChange() {
+    onFieldChange(event) {
       this.rightIcon = "arrow_drop_down";
 
-      this.$emit("change", this.name, this.getSelectedValue());
+      this.$emit("change", this.getSelectedValue(), this.name, event);
     },
 
-    onFieldClick() {
+    onFieldClick(event) {
       this.rightIcon = "arrow_drop_up";
 
-      this.$emit("click", this.name, this.getSelectedValue());
+      this.$emit("click", this.getSelectedValue(), this.name, event);
     },
 
-    onFieldFocus() {
+    onFieldFocus(event) {
       this.focused = true;
       this.rightIcon = "arrow_drop_up";
 
-      this.$emit("focus", this.name, this.getSelectedValue());
+      this.$emit("focus", this.getSelectedValue(), this.name, event);
     }
   }
 };

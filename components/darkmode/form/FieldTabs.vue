@@ -23,7 +23,7 @@ div(
   .dm-field-tabs__container
     span(
       v-for="(tab, i) in tabs"
-      @click="onTabClick(tab.id)"
+      @click="onTabClick(tab.id, $event)"
       :class=`[
         "dm-field-tabs__tab",
         {
@@ -127,11 +127,11 @@ export default {
 
     // --> EVENT LISTENERS <--
 
-    onTabClick(tabId) {
+    onTabClick(tabId, event) {
       // When multiple values are not allowed and tab is not already active
       if (!this.multiple && !this.activeTabs.includes(tabId)) {
         this.activeTabs = [tabId];
-        this.$emit("change", tabId, "added");
+        this.$emit("change", tabId, "added", this.activeTabs, this.name, event);
       }
 
       // When multiple values are allowed
@@ -139,15 +139,29 @@ export default {
         // Remove the tab when already active
         if (this.activeTabs.includes(tabId)) {
           this.activeTabs.splice(this.activeTabs.indexOf(tabId), 1);
-          this.$emit("change", tabId, "removed", this.activeTabs);
+          this.$emit(
+            "change",
+            tabId,
+            "removed",
+            this.activeTabs,
+            this.name,
+            event
+          );
         } else {
           // Push the tab when not already active
           this.activeTabs.push(tabId);
-          this.$emit("change", tabId, "added", this.activeTabs);
+          this.$emit(
+            "change",
+            tabId,
+            "added",
+            this.activeTabs,
+            this.name,
+            event
+          );
         }
       }
 
-      this.$emit("click", this.name, tabId);
+      this.$emit("click", tabId, this.activeTabs, this.name, event);
     }
   }
 };

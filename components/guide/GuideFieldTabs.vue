@@ -48,6 +48,17 @@
       common-table(
         :data="props.data"
         :fields="props.fields"
+        class="u-mb40"
+      )
+
+    base-divider(
+      color="white"
+      class="u-mb40"
+    )
+    no-ssr
+      common-table(
+        :data="events.data"
+        :fields="events.fields"
       )
 </template>
 
@@ -57,11 +68,13 @@
 
 <script>
 // PROJECT
-const CommonTable = () => import("@/components/common/CommonTable");
+import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import FieldTabs from "@/components/darkmode/form/FieldTabs";
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
+    BaseDivider,
     CommonTable,
     FieldTabs
   },
@@ -172,6 +185,42 @@ export default {
             details: {
               description: "Define the tabs to display.",
               values: '{ id: "vuedarkmode", name: "Vue Dark Mode" }'
+            }
+          }
+        ]
+      },
+      events: {
+        fields: [
+          {
+            name: "name",
+            title: "Event Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "parameters",
+            title: "Parameters",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "change",
+            parameters:
+              'tabId, status ("added"|"removed"), activeTabs, name, event',
+            details: {
+              description: "Fires when a tab is added or removed."
+            }
+          },
+          {
+            name: "click",
+            parameters: "tabId, activeTabs, name, event",
+            details: {
+              description: "Fires on a mouse click on a tab element."
             }
           }
         ]

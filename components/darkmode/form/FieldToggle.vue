@@ -17,7 +17,7 @@ div(
 )
   .dm-field-toggle__container
     input(
-      @change="onFieldChange(name, $event)"
+      @change="onFieldChange"
       :checked="checked"
       :disabled="disabled"
       :id="uuid"
@@ -121,8 +121,8 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onFieldChange(name, event) {
-      this.$emit("change", name, event.target.checked, event);
+    onFieldChange(event) {
+      this.$emit("change", event.target.checked, this.name, event);
     }
   }
 };

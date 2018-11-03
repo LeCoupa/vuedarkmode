@@ -39,7 +39,7 @@ div(
       )
 
     input(
-      @change="onFieldChange(name, $event)"
+      @change="onFieldChange"
       :disabled="disabled"
       :id="uuid"
       :multiple="multiple"
@@ -123,8 +123,8 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onFieldChange(name, event) {
-      this.$emit("change", name, event);
+    onFieldChange(event) {
+      this.$emit("change", this.name, event);
     }
   }
 };

@@ -330,13 +330,6 @@ export default {
         ],
         data: [
           {
-            name: "click",
-            parameters: "value, name, event",
-            details: {
-              description: "Fires on a mouse click on the element."
-            }
-          },
-          {
             name: "blur",
             parameters: "value, name, event",
             details: {
@@ -349,6 +342,13 @@ export default {
             details: {
               description:
                 "Fires the moment when the value of the element is changed."
+            }
+          },
+          {
+            name: "click",
+            parameters: "value, name, event",
+            details: {
+              description: "Fires on a mouse click on the element."
             }
           },
           {

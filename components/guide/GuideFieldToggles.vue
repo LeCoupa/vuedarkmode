@@ -227,7 +227,7 @@ export default {
         data: [
           {
             name: "change",
-            parameters: "name, checked, event",
+            parameters: "checked, name, event",
             details: {
               description:
                 "Fires the moment when the value of the element is changed"
