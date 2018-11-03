@@ -5,14 +5,12 @@
 <template lang="pug">
 span(
   @click="onClick(id, $event)"
-  @keypress.prevent="onKeypress"
   :class=`[
     "dm-base-badge",
     "dm-base-badge--" + color,
     "dm-base-badge--" + size
   ]`
   :id="id"
-  tabindex="0"
 ): slot
 </template>
 
@@ -61,12 +59,6 @@ export default {
 
     onClick(id, event) {
       this.$emit("click", id, event);
-    },
-
-    onKeypress(event) {
-      if (event.which === 32) {
-        event.target.click();
-      }
     }
   }
 };
