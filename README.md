@@ -65,39 +65,39 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 ### Base Components
 
-- **BaseAvatar**: [documentation](https://www.vuedarkmode.com/#base-avatar) | [source code](/components/darkmode/base/BaseAvatar.vue).
+- **BaseAvatar**: [documentation](https://www.vuedarkmode.com/#baseAvatar) | [source code](/components/darkmode/base/BaseAvatar.vue).
 
-- **BaseBadge**: [documentation](https://www.vuedarkmode.com/#base-badge) | [source code](/components/darkmode/base/BaseBadge.vue).
+- **BaseBadge**: [documentation](https://www.vuedarkmode.com/#baseBadge) | [source code](/components/darkmode/base/BaseBadge.vue).
 
-- **BaseButton**: [documentation](https://www.vuedarkmode.com/#base-button) | [source code](/components/darkmode/base/BaseButton.vue).
+- **BaseButton**: [documentation](https://www.vuedarkmode.com/#baseButton) | [source code](/components/darkmode/base/BaseButton.vue).
 
-- **BaseDivider**: [documentation](https://www.vuedarkmode.com/#base-divider) | [source code](/components/darkmode/base/BaseDivider.vue).
+- **BaseDivider**: [documentation](https://www.vuedarkmode.com/#baseDivider) | [source code](/components/darkmode/base/BaseDivider.vue).
 
-- **BaseHeading**: [documentation](https://www.vuedarkmode.com/#base-heading) | [source code](/components/darkmode/base/BaseHeading.vue).
+- **BaseHeading**: [documentation](https://www.vuedarkmode.com/#baseHeading) | [source code](/components/darkmode/base/BaseHeading.vue).
 
-- **BaseIcon**: [documentation](https://www.vuedarkmode.com/#base-icon) | [source code](/components/darkmode/base/BaseIcon.vue).
+- **BaseIcon**: [documentation](https://www.vuedarkmode.com/#baseIcon) | [source code](/components/darkmode/base/BaseIcon.vue).
 
-- **BaseProgressBar**: [documentation](https://www.vuedarkmode.com/#base-progress-bar) | [source code](/components/darkmode/base/BaseProgressBar.vue).
+- **BaseProgressBar**: [documentation](https://www.vuedarkmode.com/#baseProgressBar) | [source code](/components/darkmode/base/BaseProgressBar.vue).
 
-- **BaseSocialLogin**: [documentation](https://www.vuedarkmode.com/#base-social-login) | [source code](/components/darkmode/base/BaseSocialLogin.vue).
+- **BaseSocialLogin**: [documentation](https://www.vuedarkmode.com/#baseSocialLogin) | [source code](/components/darkmode/base/BaseSocialLogin.vue).
 
 ### Form Components
 
-- **FieldCheckbox**: [documentation](https://www.vuedarkmode.com/#field-checkbox) | [source code](/components/darkmode/form/FieldCheckbox.vue).
+- **FieldCheckbox**: [documentation](https://www.vuedarkmode.com/#fieldCheckbox) | [source code](/components/darkmode/form/FieldCheckbox.vue).
 
-- **FieldFile**: [documentation](https://www.vuedarkmode.com/#field-file) | [source code](/components/darkmode/form/FieldFile.vue).
+- **FieldFile**: [documentation](https://www.vuedarkmode.com/#fieldFile) | [source code](/components/darkmode/form/FieldFile.vue).
 
-- **FieldInput**: [documentation](https://www.vuedarkmode.com/#field-input) | [source code](/components/darkmode/form/FieldInput.vue).
+- **FieldInput**: [documentation](https://www.vuedarkmode.com/#fieldInput) | [source code](/components/darkmode/form/FieldInput.vue).
 
-- **FieldRadio**: [documentation](https://www.vuedarkmode.com/#field-radio) | [source code](/components/darkmode/form/FieldRadio.vue).
+- **FieldRadio**: [documentation](https://www.vuedarkmode.com/#fieldRadio) | [source code](/components/darkmode/form/FieldRadio.vue).
 
-- **FieldSelect**: [documentation](https://www.vuedarkmode.com/#field-select) | [source code](/components/darkmode/form/FieldSelect.vue).
+- **FieldSelect**: [documentation](https://www.vuedarkmode.com/#fieldSelect) | [source code](/components/darkmode/form/FieldSelect.vue).
 
-- **FieldTabs**: [documentation](https://www.vuedarkmode.com/#field-tabs) | [source code](/components/darkmode/form/FieldTabs.vue).
+- **FieldTabs**: [documentation](https://www.vuedarkmode.com/#fieldTabs) | [source code](/components/darkmode/form/FieldTabs.vue).
 
-- **FieldTextarea**: [documentation](https://www.vuedarkmode.com/#field-textarea) | [source code](/components/darkmode/form/FieldTextarea.vue).
+- **FieldTextarea**: [documentation](https://www.vuedarkmode.com/#fieldTextarea) | [source code](/components/darkmode/form/FieldTextarea.vue).
 
-- **FieldToggle**: [documentation](https://www.vuedarkmode.com/#field-toggle) | [source code](/components/darkmode/form/FieldToggle.vue).
+- **FieldToggle**: [documentation](https://www.vuedarkmode.com/#fieldToggle) | [source code](/components/darkmode/form/FieldToggle.vue).
 
 ## Contributing
 

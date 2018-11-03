@@ -33,68 +33,68 @@
       v-if="section.id === 'colors'"
     )
     guide-base-headings(
-      v-if="section.id === 'base-heading'"
-      :documentation="docs.headings"
+      v-if="section.id === 'baseHeading'"
+      :documentation="docs.baseHeading"
     )
     guide-base-buttons(
-      v-if="section.id === 'base-button'"
-      :documentation="docs.buttons"
+      v-if="section.id === 'baseButton'"
+      :documentation="docs.baseButton"
     )
     guide-base-badges(
-      v-if="section.id === 'base-badge'"
-      :documentation="docs.badges"
+      v-if="section.id === 'baseBadge'"
+      :documentation="docs.baseBadge"
     )
     guide-base-social-logins(
-      v-if="section.id === 'base-social-login'"
-      :documentation="docs.socialLogins"
+      v-if="section.id === 'baseSocialLogin'"
+      :documentation="docs.baseSocialLogin"
     )
     guide-field-inputs(
-      v-if="section.id === 'base-input'"
-      :documentation="docs.inputs"
+      v-if="section.id === 'fieldInput'"
+      :documentation="docs.fieldInput"
     )
     guide-field-selects(
-      v-if="section.id === 'base-select'"
-      :documentation="docs.selects"
+      v-if="section.id === 'fieldSelect'"
+      :documentation="docs.fieldSelect"
     )
     guide-field-textareas(
-      v-if="section.id === 'base-textarea'"
-      :documentation="docs.textareas"
+      v-if="section.id === 'fieldTextarea'"
+      :documentation="docs.fieldTextarea"
     )
     guide-field-checkboxes(
-      v-if="section.id === 'base-checkbox'"
-      :documentation="docs.checkboxes"
+      v-if="section.id === 'fieldCheckbox'"
+      :documentation="docs.fieldCheckbox"
     )
     guide-field-radios(
-      v-if="section.id === 'base-radio'"
-      :documentation="docs.radios"
+      v-if="section.id === 'fieldRadio'"
+      :documentation="docs.fieldRadio"
     )
     guide-field-toggles(
-      v-if="section.id === 'base-toggle'"
-      :documentation="docs.toggles"
+      v-if="section.id === 'fieldToggle'"
+      :documentation="docs.fieldToggle"
     )
     guide-field-files(
-      v-if="section.id === 'base-file'"
-      :documentation="docs.files"
+      v-if="section.id === 'fieldFile'"
+      :documentation="docs.fieldFile"
     )
     guide-field-tabs(
-      v-if="section.id === 'base-tabs'"
-      :documentation="docs.tabs"
+      v-if="section.id === 'fieldTabs'"
+      :documentation="docs.fieldTabs"
     )
     guide-base-dividers(
-      v-if="section.id === 'base-divider'"
-      :documentation="docs.dividers"
+      v-if="section.id === 'baseDivider'"
+      :documentation="docs.baseDivider"
     )
     guide-base-progress-bars(
-      v-if="section.id === 'base-progress-bar'"
-      :documentation="docs.progressBars"
+      v-if="section.id === 'baseProgressBar'"
+      :documentation="docs.baseProgressBar"
     )
     guide-base-avatars(
-      v-if="section.id === 'base-avatar'"
-      :documentation="docs.avatars"
+      v-if="section.id === 'baseAvatar'"
+      :documentation="docs.baseAvatar"
     )
     guide-base-icons(
-      v-if="section.id === 'base-icon'"
-      :documentation="docs.icons"
+      v-if="section.id === 'baseIcon'"
+      :documentation="docs.baseIcon"
     )
 
   base-divider(
@@ -172,23 +172,22 @@ export default {
       // --> STATE <--
 
       docs: {
-        avatars: false,
-        badges: false,
-        buttons: false,
-        checkboxes: false,
-        colors: false,
-        dividers: false,
-        files: false,
-        headings: false,
-        icons: false,
-        inputs: false,
-        progressBars: false,
-        radios: false,
-        selects: false,
-        socialLogins: false,
-        tabs: false,
-        textareas: false,
-        toggles: false
+        baseAvatar: false,
+        baseBadge: false,
+        baseButton: false,
+        baseDivider: false,
+        baseHeading: false,
+        baseIcon: false,
+        baseProgressBar: false,
+        baseSocialLogin: false,
+        fieldCheckbox: false,
+        fieldFile: false,
+        fieldInput: false,
+        fieldRadio: false,
+        fieldSelect: false,
+        fieldTabs: false,
+        fieldTextarea: false,
+        fieldToggle: false
       },
 
       // --> COMPONENTS <--
@@ -220,112 +219,112 @@ export default {
           }
         },
         {
-          id: "base-heading",
+          id: "baseHeading",
           headlines: {
             title: "HEADINGS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-button",
+          id: "baseButton",
           headlines: {
             title: "BUTTONS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-badge",
+          id: "baseBadge",
           headlines: {
             title: "BADGES",
             hasDocumentation: true
           }
         },
         {
-          id: "base-social-login",
+          id: "baseSocialLogin",
           headlines: {
             title: "SOCIAL LOGINS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-input",
+          id: "fieldInput",
           headlines: {
             title: "INPUTS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-select",
+          id: "fieldSelect",
           headlines: {
             title: "SELECTS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-textarea",
+          id: "fieldTextarea",
           headlines: {
             title: "TEXTAREAS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-checkbox",
+          id: "fieldCheckbox",
           headlines: {
             title: "CHECKBOXES",
             hasDocumentation: true
           }
         },
         {
-          id: "base-radio",
+          id: "fieldRadio",
           headlines: {
             title: "RADIOS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-toggle",
+          id: "fieldToggle",
           headlines: {
             title: "TOGGLES",
             hasDocumentation: true
           }
         },
         {
-          id: "base-file",
+          id: "fieldFile",
           headlines: {
             title: "FILE UPLOAD",
             hasDocumentation: true
           }
         },
         {
-          id: "base-tabs",
+          id: "fieldTabs",
           headlines: {
             title: "TABS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-divider",
+          id: "baseDivider",
           headlines: {
             title: "DIVIDERS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-progress-bar",
+          id: "baseProgressBar",
           headlines: {
             title: "PROGRESS BARS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-avatar",
+          id: "baseAvatar",
           headlines: {
             title: "AVATARS",
             hasDocumentation: true
           }
         },
         {
-          id: "base-icon",
+          id: "baseIcon",
           headlines: {
             title: "ICONS FROM MATERIAL DESIGN",
             hasDocumentation: true
