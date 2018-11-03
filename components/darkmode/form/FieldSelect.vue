@@ -280,7 +280,7 @@ $statuses: error, normal, success, warning;
   @each $status in $statuses {
     &--#{$status} {
       #{$c}__container {
-        @if ($status != "normal") {
+        @if ($status != normal) {
           border-color: map-get($statusColors, $status);
           color: map-get($statusColors, $status);
         } @else {

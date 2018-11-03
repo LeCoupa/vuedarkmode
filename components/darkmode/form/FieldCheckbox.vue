@@ -220,27 +220,27 @@ $statuses: error, normal, success, warning;
           height: 12px + (2px * $i);
 
           &:after {
-            @if ($size == "mini") {
+            @if ($size == mini) {
               top: 1px;
               left: 4px;
               width: 4px;
               height: 8px;
-            } @else if ($size == "small") {
+            } @else if ($size == small) {
               top: 2px;
               left: 5px;
               width: 4px;
               height: 8px;
-            } @else if ($size == "default") {
+            } @else if ($size == default) {
               top: 2px;
               left: 6px;
               width: 5px;
               height: 10px;
-            } @else if ($size == "medium") {
+            } @else if ($size == medium) {
               top: 3px;
               left: 7px;
               width: 5px;
               height: 10px;
-            } @else if ($size == "large") {
+            } @else if ($size == large) {
               top: 3px;
               left: 8px;
               width: 6px;

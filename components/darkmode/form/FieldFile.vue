@@ -231,7 +231,7 @@ $statuses: error, normal, success, warning;
   @each $status in $statuses {
     &--#{$status} {
       #{$c}__upload {
-        @if ($status != "normal") {
+        @if ($status != normal) {
           border-color: map-get($statusColors, $status);
         } @else {
           border-color: $white;

@@ -113,7 +113,7 @@ $sizes: small, large;
         #{$c}__icon {
           background-image: url("#{$iconPath}/#{$network}.svg");
 
-          @if ($network == "twitter") {
+          @if ($network == twitter) {
             height: 16px;
           }
         }

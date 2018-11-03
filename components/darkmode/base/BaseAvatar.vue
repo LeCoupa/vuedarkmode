@@ -163,7 +163,7 @@ $sizes: mini, small, default, medium, large, huge;
       #{$c}__image {
         border-radius: 2px + (2px * $i);
 
-        @if ($size == "mini") {
+        @if ($size == mini) {
           width: 30px;
           height: 30px;
         } @else {
