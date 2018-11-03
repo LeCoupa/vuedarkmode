@@ -227,34 +227,25 @@ $sizes: mini, small, default, medium, large;
 
   // --> COLORS <--
 
-  &--black {
-    border: 1px solid $oxford-blue;
-    background-color: $ebony-clay;
-  }
+  @each $color in $colors {
+    &--#{$color} {
+      background-color: map-get($mainColors, $color);
 
-  &--blue {
-    background-image: linear-gradient(
-      0deg,
-      $azure-radiance 0%,
-      $dodger-blue 100%
-    );
-  }
+      &:hover {
+        background-color: darken(map-get($mainColors, $color), 5%);
+      }
 
-  &--green {
-    background-image: linear-gradient(0deg, $malachite 0%, $apple 100%);
-  }
+      @if ($color == black) {
+        border: 1px solid $oxford-blue;
+        background-color: $ebony-clay;
 
-  &--orange {
-    background-image: linear-gradient(0deg, $sun 0%, $sunglow 100%);
-  }
-
-  &--red {
-    background-image: linear-gradient(0deg, $crimson 0%, $cinnabar 100%);
-  }
-
-  &--white {
-    background-image: linear-gradient(0deg, $athens-gray 0%, $white 100%);
-    color: $oxford-blue;
+        &:hover {
+          background-color: darken($ebony-clay, 5%);
+        }
+      } @else if ($color == white) {
+        color: $oxford-blue;
+      }
+    }
   }
 
   // --> SIZES <--
@@ -326,7 +317,8 @@ $sizes: mini, small, default, medium, large;
   }
 
   &--reverse {
-    background: transparent;
+    // Will also override hover state defined above
+    background-color: transparent !important;
     color: $white;
 
     @each $color in $colors {
@@ -353,16 +345,6 @@ $sizes: mini, small, default, medium, large;
   &--rounded {
     border-radius: 60px;
     color: $white;
-  }
-
-  // --> INTERACTIONS <--
-
-  &:hover {
-    transform: scale(1.02);
-  }
-
-  &:active {
-    transform: scale(0.98);
   }
 }
 </style>
