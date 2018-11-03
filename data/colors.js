@@ -36,11 +36,11 @@ const colors = [
     name: "$cinnabar"
   },
   {
-    hex: "#ffc014",
+    hex: "#ffc02a",
     name: "$sunglow"
   },
   {
-    hex: "#ffb600",
+    hex: "#ffb610",
     name: "$sun"
   },
   {
