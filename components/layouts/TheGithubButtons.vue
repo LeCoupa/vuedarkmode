@@ -68,7 +68,7 @@ $c: ".c-the-github-buttons";
       margin: 0 auto;
 
       &--star {
-        width: 90px;
+        width: 95px;
       }
 
       &--watch {
