@@ -348,11 +348,13 @@ export default {
     scrollToSection(id) {
       const section = this.$el.querySelector(`#${id}`);
 
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest"
-      });
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest"
+        });
+      }
     },
 
     // --> EVENT LISTENERS <--
