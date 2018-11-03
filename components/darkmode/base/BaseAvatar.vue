@@ -23,18 +23,17 @@ div(
     }`
     class="dm-base-avatar__image"
   )
-    span(
+    div(
       v-if="complementaries"
       class="dm-base-avatar__complementaries"
     )
-      base-avatar(
+      span(
         v-for="complementary in complementaries"
-        :bordered="true"
-        :circular="false"
         :key="complementary.src"
-        :src="complementary.src"
-        class="dm-base-avatar__complementary"
-        size="mini"
+        :style=`{
+          backgroundImage: "url(" + complementary.src + ")",
+        }`
+        class="dm-base-avatar__image dm-base-avatar__complementary"
       )
 
   span(
@@ -49,14 +48,14 @@ div(
 
 <script>
 // PROJECT
-import BaseAvatar from "./BaseAvatar.vue";
+// import BaseAvatar from "./BaseAvatar.vue";
 
 export default {
   name: "BaseAvatar",
 
-  components: {
-    BaseAvatar
-  },
+  // components: {
+  //   BaseAvatar
+  // },
 
   props: {
     bordered: {
@@ -143,15 +142,13 @@ $sizes: mini, small, default, medium, large, huge;
 
     #{$c}__complementary {
       margin-right: 4px;
+      width: 30px;
+      height: 30px;
+      border-radius: 4px;
+      border: 1px solid $white;
 
       &:last-of-type {
         margin-right: 0;
-      }
-
-      #{$c}__image {
-        width: 30px;
-        height: 30px;
-        border-radius: 4px;
       }
     }
   }
