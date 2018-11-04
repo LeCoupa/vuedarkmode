@@ -6,7 +6,9 @@
 header.c-the-header
   the-logo
 
-  base-divider
+  base-divider(
+    class="c-the-header__divider"
+  )
 
   base-heading(
     type="h1"
@@ -57,6 +59,10 @@ export default {
 $c: ".c-the-header";
 
 #{$c} {
+  #{$c}__divider {
+    margin: 20px auto 15px;
+  }
+
   #{$c}__github-buttons {
     margin-top: 20px;
   }
