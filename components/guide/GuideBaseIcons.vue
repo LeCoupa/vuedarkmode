@@ -24,6 +24,7 @@
       v-if="maxIcons !== 1000"
       @click="maxIcons = 1000;"
       :reverse="true"
+      class="c-guide-base-icons__button"
       color="white"
       right-icon="mood"
       size="small"
@@ -283,6 +284,10 @@ $c: ".c-guide-base-icons";
           background: $black;
         }
       }
+    }
+
+    #{$c}__button {
+      margin-top: 40px;
     }
   }
 }
