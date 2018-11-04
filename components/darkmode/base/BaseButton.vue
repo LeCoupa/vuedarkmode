@@ -339,14 +339,25 @@ $sizes: mini, small, default, medium, large;
       &#{$c}--#{$color} {
         border-color: map-get($mainColors, $color);
 
+        &:hover {
+          @if ($color == white) {
+            border-color: $azure-radiance;
+          } @else {
+            border-color: $white;
+          }
+        }
+
         &:active {
-          color: map-get($mainColors, $color);
+          @if ($color == white) {
+            color: $oxford-blue;
+          } @else {
+            color: map-get($mainColors, $color);
+          }
         }
       }
     }
 
     &:hover {
-      border-color: $white;
       transform: initial;
     }
 

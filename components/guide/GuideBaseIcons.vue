@@ -26,6 +26,7 @@
       :reverse="true"
       class="c-guide-base-icons__button"
       color="white"
+      right-icon="mood"
       size="small"
     ) Show all icons
 
