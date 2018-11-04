@@ -4,7 +4,7 @@
 
 <template lang="pug">
 div(
-  @click="onClick(id, $event)"
+  @click="onClick"
   :class=`[
     "dm-base-avatar",
     "dm-base-avatar--" + size,
@@ -15,14 +15,15 @@ div(
     }
   ]`
   :id="id"
-  tabindex="0"
 )
   span(
+    @keypress.prevent="onKeypress"
     :style=`{
       backgroundImage: "url(" + src + ")",
       cursor: cursor
     }`
     class="dm-base-avatar__image"
+    tabindex="0"
   )
     div(
       v-if="complementaries"
@@ -105,8 +106,14 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onClick(id, event) {
-      this.$emit("click", id, event);
+    onClick(event) {
+      this.$emit("click", this.id, event);
+    },
+
+    onKeypress(event) {
+      if (event.which === 32) {
+        event.target.click();
+      }
     }
   }
 };
