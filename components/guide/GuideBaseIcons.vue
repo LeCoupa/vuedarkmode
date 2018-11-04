@@ -17,7 +17,6 @@
         :name="icon"
         class="c-guide-base-icons__icon hint--top hint--no-animate"
         color="white"
-        cursor="pointer"
       )
 
     base-button(
