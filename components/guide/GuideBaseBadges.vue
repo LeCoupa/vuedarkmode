@@ -185,10 +185,11 @@ export default {
 <style lang="scss">
 $c: ".c-guide-base-badges";
 
-#{$c} {
-  #{$c}__showroom {
-    grid-template-columns: repeat(auto-fill, 400px);
-    margin-bottom: 0;
+@include mq($from: desktop) {
+  #{$c} {
+    #{$c}__showroom {
+      grid-template-columns: repeat(auto-fill, 400px);
+    }
   }
 }
 </style>

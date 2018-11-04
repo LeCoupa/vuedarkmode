@@ -266,6 +266,8 @@ export default {
 $c: ".c-guide-base-icons";
 
 #{$c} {
+  overflow: hidden;
+
   #{$c}__container {
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fill, 24px);
