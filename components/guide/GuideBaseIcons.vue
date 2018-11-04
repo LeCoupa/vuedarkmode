@@ -24,6 +24,7 @@
       v-if="maxIcons !== 1000"
       @click="maxIcons = 1000;"
       :reverse="true"
+      class="c-guide-base-icons__button"
       color="white"
       size="small"
     ) Show all icons
@@ -268,18 +269,24 @@ $c: ".c-guide-base-icons";
 #{$c} {
   overflow: hidden;
 
-  #{$c}__container {
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, 24px);
+  #{$c}__showroom {
+    #{$c}__container {
+      grid-gap: 20px;
+      grid-template-columns: repeat(auto-fill, 24px);
 
-    #{$c}__icon {
-      // Update tooltip color
-      &::before {
-        border-top-color: $black;
+      #{$c}__icon {
+        // Update tooltip color
+        &::before {
+          border-top-color: $black;
+        }
+        &::after {
+          background: $black;
+        }
       }
-      &::after {
-        background: $black;
-      }
+    }
+
+    #{$c}__button {
+      margin-top: 40px;
     }
   }
 }
