@@ -20,7 +20,6 @@
   ) Vue.js
 
   base-heading(
-    class="c-guide-install__paragraph"
     type="p"
   ) In your main.js file:
 
@@ -40,7 +39,6 @@
   ) Nuxt.js
 
   base-heading(
-    class="c-guide-install__paragraph"
     type="p"
   )
     | Create a new plugin in plugins/vuedarkmode.js:
@@ -56,7 +54,6 @@
       | Vue.use(VueDarkMode);
 
   base-heading(
-    class="c-guide-install__paragraph"
     type="p"
   )
     | Add this new plugin to nuxt.config.js.
@@ -81,7 +78,6 @@
   ) CDN
 
   base-heading(
-    class="c-guide-install__paragraph"
     type="p"
   )
     | Get the latest version from jsdelivr, and import the JavaScript file in your page.
@@ -95,7 +91,6 @@
       | &lt;script src="https://cdn.jsdelivr.net/npm/vuedarkmode@0.1/dist/vuedarkmode.min.js"&gt;&lt;/script&gt;
 
   base-heading(
-    class="c-guide-install__paragraph"
     type="p"
   )
     | We recommend our users to lock Vue Dark Mode's version when using CDN.
@@ -127,12 +122,12 @@ export default {
 $c: ".c-guide-install";
 
 #{$c} {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+
   #{$c}__title {
     margin-top: 35px;
-  }
-
-  #{$c}__paragraph {
-    margin-top: 10px;
   }
 }
 </style>

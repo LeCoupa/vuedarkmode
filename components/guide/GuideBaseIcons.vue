@@ -8,7 +8,7 @@
     v-if="!documentation"
     class="c-guide-base-icons__showroom"
   )
-    .c-guide-base-icons__container.o-elements
+    .c-guide-base-icons__container.o-elements.o-elements--800max
       base-icon(
         v-for="(icon, i) in icons"
         v-if="i < maxIcons"

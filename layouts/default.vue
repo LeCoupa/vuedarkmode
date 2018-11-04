@@ -86,7 +86,7 @@ a {
 
 @include mq($from: tablet) {
   html {
-    padding-bottom: 90px;
+    padding-bottom: 100px;
   }
 }
 </style>

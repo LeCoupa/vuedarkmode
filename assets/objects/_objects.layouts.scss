@@ -58,6 +58,12 @@
 
   // --> OTHER MODIFIERS <--
 
+  &--800max {
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
   &--form {
     text-align: left;
 
