@@ -100,10 +100,6 @@ $c: ".c-common-headlines";
 #{$c} {
   margin-bottom: 40px;
 
-  #{$c}__title {
-    margin-bottom: 6px;
-  }
-
   #{$c}__description,
   #{$c}__button {
     margin: 0;

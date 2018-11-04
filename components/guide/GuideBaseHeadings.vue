@@ -192,11 +192,15 @@ export default {
 $c: ".c-guide-headings";
 
 #{$c} {
+  overflow-x: scroll;
   text-align: left;
 
   #{$c}__row {
     display: flex;
     align-items: center;
+    margin: 0 auto;
+    min-width: 640px;
+    max-width: 800px;
     color: $white;
 
     > * {
@@ -266,7 +270,7 @@ $c: ".c-guide-headings";
     }
 
     &--body {
-      padding: 10px 0;
+      padding: 12px 0;
 
       &:nth-of-type(odd) {
         border: 1px solid $oxford-blue;
