@@ -59,7 +59,10 @@
   // --> OTHER MODIFIERS <--
 
   &--form {
-    grid-template-columns: repeat(auto-fill, 360px);
     text-align: left;
+
+    @include mq($from: tablet) {
+      grid-template-columns: repeat(auto-fill, 360px);
+    }
   }
 }

@@ -229,6 +229,7 @@ $sizes: mini, small, default, medium, large;
 
   @each $color in $colors {
     &--#{$color} {
+      // Reverse buttons have their own defined style (see below)
       &:not(#{$c}--reverse) {
         background: map-get($mainColors, $color)
           radial-gradient(
