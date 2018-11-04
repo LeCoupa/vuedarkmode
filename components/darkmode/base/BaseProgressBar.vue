@@ -96,6 +96,7 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
     #{$c}__title,
     #{$c}__details {
       flex: 1;
+      line-height: 22px;
     }
 
     #{$c}__title {
@@ -110,7 +111,6 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
 
   #{$c}__bar {
     overflow: hidden;
-    margin-bottom: -5px;
     height: 6px;
     border-radius: 10px;
 

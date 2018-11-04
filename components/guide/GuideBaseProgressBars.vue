@@ -182,9 +182,16 @@ $c: ".c-guide-base-progress-bars";
 
 #{$c} {
   #{$c}__showroom {
-    grid-gap: 30px;
-    grid-template-columns: repeat(auto-fill, 80%);
+    grid-template-columns: repeat(auto-fill, 100%);
     margin-bottom: 0;
+  }
+}
+
+@include mq($from: desktop) {
+  #{$c} {
+    #{$c}__showroom {
+      grid-template-columns: repeat(auto-fill, 800px);
+    }
   }
 }
 </style>
