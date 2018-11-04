@@ -26,7 +26,6 @@
           :status="statuses[j]"
           :tabs=`[
             { id: "auto", name: 'Auto', active: true },
-            { id: "none", name: 'None', active: false },
             { id: "k", name: 'K', active: false },
             { id: "M", name: 'M', active: false },
             { id: "B", name: 'B', active: false }

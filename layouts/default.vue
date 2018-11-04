@@ -54,7 +54,7 @@ $c: ".l-default";
 html {
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 60px 0 100px;
+  padding: 60px 0;
   min-height: 100%;
   background-color: $mirage;
   color: $white;
@@ -82,5 +82,11 @@ html {
 a {
   text-decoration: none;
   cursor: pointer;
+}
+
+@include mq($from: tablet) {
+  html {
+    padding-bottom: 90px;
+  }
 }
 </style>

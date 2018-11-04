@@ -81,50 +81,25 @@ export default {
 $c: ".c-the-shortcuts-bar";
 
 #{$c} {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 10px 20px;
-  border-top: 1px solid $oxford-blue;
-  background-color: #171e29;
-  box-shadow: 0 -1px 5px 0 rgba($woodsmoke, 0.6);
-  text-align: left;
-
-  #{$c}__contact-box,
-  #{$c}__actions {
-    display: none;
-  }
-
-  #{$c}__theme-switch {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: center;
-
-    #{$c}__field {
-      width: 190px;
-    }
-
-    #{$c}__icon {
-      opacity: 0.7;
-      color: $sun;
-    }
-
-    &--light {
-      #{$c}__icon {
-        color: $nepal;
-      }
-    }
-  }
+  display: none;
 }
 
 @include mq($from: tablet) {
   #{$c} {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-top: 1px solid $oxford-blue;
+    background-color: #171e29;
+    box-shadow: 0 -1px 5px 0 rgba($woodsmoke, 0.6);
+    text-align: left;
+
     #{$c}__contact-box {
       display: flex;
       align-items: center;
@@ -146,7 +121,26 @@ $c: ".c-the-shortcuts-bar";
     }
 
     #{$c}__theme-switch {
+      display: flex;
+      align-items: center;
       flex: 0 0 auto;
+      flex: 1;
+      justify-content: center;
+
+      #{$c}__field {
+        width: 190px;
+      }
+
+      #{$c}__icon {
+        color: $sun;
+        opacity: 0.7;
+      }
+
+      &--light {
+        #{$c}__icon {
+          color: $nepal;
+        }
+      }
     }
   }
 }
