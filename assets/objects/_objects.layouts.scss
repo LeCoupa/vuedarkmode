@@ -6,6 +6,11 @@
   display: grid;
   grid-gap: 40px;
   justify-content: center;
+  margin-bottom: 40px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 
   .o-elements__category {
     .o-elements__item {
@@ -58,9 +63,9 @@
   // --> OTHER MODIFIERS <--
 
   &--800max {
-    max-width: 800px;
     margin-right: auto;
     margin-left: auto;
+    max-width: 800px;
   }
 
   &--form {
