@@ -62,10 +62,19 @@
 
   // --> OTHER MODIFIERS <--
 
-  &--800max {
+  &--800max,
+  &--900max {
     margin-right: auto;
     margin-left: auto;
     max-width: 800px;
+  }
+
+  &--800max {
+    max-width: 800px;
+  }
+
+  &--900max {
+    max-width: 900px;
   }
 
   &--form {

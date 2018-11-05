@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-colors.o-elements.o-elements--800max
+.c-guide-colors.o-elements.o-elements--900max
   common-color(
     v-for="color in colors"
     :hex="color.hex"
