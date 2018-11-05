@@ -26,7 +26,7 @@ People do. Whether consumers or developers, the end users of software are human 
 
 - Rework focused style for components that we can select with tabulation (form fields, buttons...).
 
-- Rework active style for BaseButton and BaseSocialLogin.
+- Rework style on active state for BaseButton and BaseSocialLogin.
 
 - Update orange colors to make them stand out from the white text color.
 
