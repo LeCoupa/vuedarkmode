@@ -244,18 +244,18 @@ $sizes: mini, small, default, medium, large;
           background: $ebony-clay
             radial-gradient(circle, transparent 1%, $ebony-clay 1%)
             center/15000%;
-
-          &:active {
-            background-color: lighten(map-get($mainColors, $color), 5%);
-          }
         } @else if ($color == white) {
           color: $oxford-blue;
+        }
 
-          &:active {
-            background-color: darken(map-get($mainColors, $color), 10%);
-          }
-        } @else {
-          &:active {
+        &:active {
+          @if ($color == black) {
+            background-color: map-get($mainColors, $color);
+          } @else if ($color == white) {
+            background-color: darken(map-get($mainColors, $color), 15%);
+          } @else if ($color == orange or $color == red) {
+            background-color: lighten(map-get($mainColors, $color), 20%);
+          } @else {
             background-color: lighten(map-get($mainColors, $color), 10%);
           }
         }
@@ -372,7 +372,7 @@ $sizes: mini, small, default, medium, large;
     color: $white;
   }
 
-  // --> CURSORS <--
+  // --> INTERACTIONS <--
 
   &:active {
     background-size: 100%;
