@@ -209,13 +209,12 @@ $sizes: mini, small, default, medium, large;
 #{$c} {
   display: inline-block;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: transparent; // Chrome displays white borders sometimes
   background-position: center;
   color: $white;
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.5s;
   user-select: none;
   cursor: pointer;
 

@@ -66,7 +66,6 @@ export default {
 
 <style lang="scss">
 @import "assets/settings/_settings.colors.scss";
-
 $c: ".dm-base-social-login";
 $iconPath: "/images/components/darkmode/base/BaseSocialLogin";
 $networks: facebook, google, messenger, twitter;
@@ -74,13 +73,14 @@ $sizes: small, large;
 
 #{$c} {
   display: inline-block;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  background-position: center;
   box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
   color: $white;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all ease-in-out 200ms;
+  transition: all ease-in-out 0.5s;
   user-select: none;
   cursor: pointer;
 
@@ -107,7 +107,17 @@ $sizes: small, large;
 
   @each $network in $networks {
     &--#{$network} {
-      background: map-get($socialColors, $network);
+      background: map-get($socialColors, $network)
+        radial-gradient(
+          circle,
+          transparent 1%,
+          map-get($socialColors, $network) 1%
+        )
+        center/15000%;
+
+      &:active {
+        background-color: lighten(map-get($socialColors, $network), 10%);
+      }
 
       #{$c}__inner {
         #{$c}__icon {
@@ -139,12 +149,9 @@ $sizes: small, large;
 
   // --> INTERACTIONS <--
 
-  &:hover {
-    transform: scale(1.02);
-  }
-
   &:active {
-    transform: scale(0.98);
+    background-size: 100%;
+    transition: background 0s;
   }
 }
 </style>
