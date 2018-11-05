@@ -4,7 +4,7 @@
 
 <template lang="pug">
 button(
-  @click="onClick(network, $event)"
+  @click="onClick"
   :class=`[
     "dm-base-social-login",
     "dm-base-social-login--" + network,
@@ -53,8 +53,8 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onClick(network, event) {
-      this.$emit("click", network, event);
+    onClick(event) {
+      this.$emit("click", this.network, event);
     }
   }
 };
