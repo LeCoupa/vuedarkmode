@@ -290,4 +290,10 @@ $c: ".c-guide-base-icons";
     }
   }
 }
+
+@include mq($from: tablet) {
+  #{$c} {
+    overflow: initial;
+  }
+}
 </style>
