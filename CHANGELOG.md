@@ -16,7 +16,7 @@ People do. Whether consumers or developers, the end users of software are human 
 
 ## [Unreleased]
 
-## 0.1.0 - 2018-10-31
+## 0.1.0 - 2018-11-05
 
 ### Added
 
