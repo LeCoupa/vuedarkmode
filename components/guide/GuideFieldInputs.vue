@@ -27,7 +27,7 @@
           :status="statuses[j]"
           class="c-index__input"
           description="This is a customizable description for inputs."
-          value="Dark Mode FTW"
+          value="Vue Dark Mode"
         )
 
   div(

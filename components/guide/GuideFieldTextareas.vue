@@ -26,7 +26,7 @@
           :size="size"
           :status="statuses[j]"
           description="This is a customizable description for textareas."
-          value="Dark Mode FTW"
+          value="Vue Dark Mode"
         )
 
   div(
