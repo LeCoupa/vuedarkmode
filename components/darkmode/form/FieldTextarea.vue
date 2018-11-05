@@ -210,7 +210,10 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// IMPORTS
 @import "assets/settings/_settings.colors.scss";
+
+// VARIABLES
 $c: ".dm-field-textarea";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;

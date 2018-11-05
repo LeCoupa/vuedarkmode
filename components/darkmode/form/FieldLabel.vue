@@ -54,8 +54,10 @@ export default {
 
 
 <style lang="scss">
+// IMPORTS
 @import "assets/settings/_settings.colors.scss";
 
+// VARIABLES
 $c: ".dm-field-label";
 $sizes: mini, small, default, medium, large;
 

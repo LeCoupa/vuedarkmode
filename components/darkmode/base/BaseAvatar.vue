@@ -124,8 +124,10 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// IMPORTS
 @import "assets/settings/_settings.colors.scss";
 
+// VARIABLES
 $c: ".dm-base-avatar";
 $sizes: mini, small, default, medium, large, huge;
 

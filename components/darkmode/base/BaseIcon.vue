@@ -103,6 +103,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// IMPORTS
 @import "assets/settings/_settings.colors.scss";
 
 // Based on Material Icons

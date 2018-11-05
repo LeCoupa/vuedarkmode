@@ -78,7 +78,10 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// IMPORTS
 @import "assets/settings/_settings.colors.scss";
+
+// VARIABLES
 $c: ".dm-base-progress-bar";
 $colors: black, blue, green, orange, purple, red, turquoise, white;
 

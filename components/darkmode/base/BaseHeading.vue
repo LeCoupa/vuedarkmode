@@ -94,7 +94,10 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// IMPORTS
 @import "assets/settings/_settings.colors.scss";
+
+// VARIABLES
 $c: ".dm-base-heading";
 
 #{$c} {
