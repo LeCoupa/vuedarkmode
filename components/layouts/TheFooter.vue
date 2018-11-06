@@ -4,7 +4,20 @@
 
 <template lang="pug">
 footer.c-the-footer
-  span.c-the-footer__line Made by Nada Rifki &amp; Julien Le Coupanec.
+  span.c-the-footer__line
+    | Made by
+    | &#32;
+    a(
+      class="c-the-footer__link"
+      href="https://twitter.com/RifkiNada"
+      target="_blank"
+    ) Nada Rifki
+    | &#32;&amp;&#32;
+    a(
+      class="c-the-footer__link"
+      href="https://twitter.com/LeCoupa"
+      target="_blank"
+    ) Julien Le Coupanec.
 
   the-logo(
     size="50px"
@@ -39,6 +52,11 @@ $c: ".c-the-footer";
     margin-bottom: 12px;
     font-size: 14px;
     line-height: 22px;
+
+    #{$c}__link {
+      color: $white;
+      font-weight: bold;
+    }
   }
 }
 </style>
