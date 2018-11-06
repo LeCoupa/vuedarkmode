@@ -23,7 +23,7 @@ module.exports = {
       // https://smallseotools.com/open-graph-generator/
       {
         property: "og:title",
-        content: "A Minimalist Dark Design System for Vue.js 👩‍🎨👨‍🎨"
+        content: "A Minimalist Dark Design System for Vue.js 🎨"
       },
       {
         property: "og:description",
