@@ -52,11 +52,11 @@
 
 ### What is a changelog?
 
-A changelog is a file which contains a curated, chronologically ordered list of notable changes for each version of a project. All notable changes to Vue Dark Mode will be documented in this file.
+A changelog is a file that chronologically lists notable changes for each project version. All notable changes to Vue Dark Mode are documented here.
 
 ### Why keep a changelog?
 
-To make it easier for users and contributors to see precisely what notable changes have been made between each release (or version) of the project.
+To help users and contributors see notable changes between project releases/versions.
 
 ### Who needs a changelog?
 
