@@ -4,20 +4,27 @@
 
 <template lang="pug">
 .c-guide-base-alert
-  div(
+  .c-guide-base-alert__showroom(
     v-if="!documentation"
-    class="c-guide-base-alert__showroom"
   )
-    div(
-      v-for="(color, i) in alert.colors"
-      :key="'button' + color + i"
-      class="o-elements__category"
-    )
+    .elements
+      base-alert(
+        closable
+        :active.sync="orangeActive"
+        color="orange"
+        icon="warning"
+        colorIcon="white"
+      ) {{ alert.ipsum }}
+    .elements
       base-alert(
         active
-        :color="color"
-        class="o-elements__button"
-      ) {{ color }}
+        closable
+        title="Title, icon and closable example"
+        color="black"
+        icon="star"
+        iconSize="24px"
+        colorIcon="white"
+      ) {{ alert.ipsum }}
   div(
     v-else
     class="c-guide-base-alert__documentation"
@@ -62,8 +69,35 @@ export default {
 
   data() {
     return {
+      orangeActive: true,
       alert: {
-        colors: ["blue", "green", "red", "orange", "black", "white"]
+        colors: [
+          {
+            name:"blue",
+            active: true
+          },
+          {
+            name:"green",
+            active: false
+          },
+          {
+            name:"red",
+            active: false
+          },
+          {
+            name:"orange",
+            active: false
+          },
+          {
+            name:"black",
+            active: false
+          },
+          {
+            name:"white",
+            active: false
+          }
+        ],
+        ipsum: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit ac enim dignissim molestie. Phasellus molestie quis sem malesuada fringilla. Vivamus posuere facilisis scelerisque.'
       },
       props: {
         fields: [
@@ -114,6 +148,28 @@ export default {
             details: {
               description:
                 "If true then the user can close the alert left clicking the \"X\" icon."
+            }
+          },
+          {
+            name: "icon",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Add a left icon (see material icons)."
+            }
+          },
+          {
+            name: "icon-size",
+            type: {
+              type: "String",
+              additional: 'Default: "default"'
+            },
+            details: {
+              description: "Set the icon size.",
+              values: '"mini" | "small" | "default" | "medium" | "large"'
             }
           },
           {

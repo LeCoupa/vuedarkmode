@@ -8,78 +8,34 @@ transition(
   @enter="enter"
   @leave="leave"
 )
-  div(
+  .dm-base-alert(
     v-if="active"
     ref="alert"
-    class="dm-base-alert"
     :class="`dm-base-alert--${color}`"
-    :style="styleAlert"
     v-on="$listeners"
   )
-    div(
+    .dm-base-alert__close(
       v-if="closable"
-      class="con-x vs-alert--close"
-      @click="$emit('update:active',false)"
+      @click="$emit('update:active', false)"
     )
-      vs-icon(:icon-pack="iconPack" :icon="closeIcon")
-    h4(
+      base-icon(
+        name="close"
+      )
+    h4.dm-base-alert__title(
       v-if="title"
       :style="styleTitle"
-      class="titlex vs-alert--title") {{ title }}
-    div.vs-alert
-      <slot/>
-
-//- div(
-//-   :class=`[
-//-     "dm-field-textarea",
-//-     "dm-field-textarea--" + size,
-//-     "dm-field-textarea--" + status,
-//-     {
-//-       "dm-field-textarea--borders": borders,
-//-       "dm-field-textarea--disabled": disabled,
-//-       "dm-field-textarea--focused": focused,
-//-       "dm-field-textarea--full-width": fullWidth
-//-     }
-//-   ]`
-//- )
-//-   field-label(
-//-     v-if="label"
-//-     :forField="uuid"
-//-     :size="size"
-//-     class="dm-field-textarea__label"
-//-   ) {{ label }}
-
-//-   div(
-//-     @click="onContainerClick"
-//-     class="dm-field-textarea__container"
-//-   )
-//-     textarea(
-//-       @blur="onFieldBlur"
-//-       @change="onFieldChange"
-//-       @focus="onFieldFocus"
-//-       @input="onFieldInput"
-//-       :cols="cols"
-//-       :disabled="disabled"
-//-       :id="uuid"
-//-       :maxlength="maxlength"
-//-       :name="name"
-//-       :placeholder="placeholder"
-//-       :readonly="readOnly"
-//-       :rows="rows"
-//-       class="dm-field-textarea__field"
-//-     ) {{ value }}
-
-//-     base-icon(
-//-       v-if="statusIcon"
-//-       :name="statusIcon"
-//-       class="dm-field-textarea__icon"
-//-     )
-
-//-   field-description(
-//-     v-if="description"
-//-     :description="description"
-//-     :size="size"
-//-   )
+    )
+      span {{ title }}
+    .dm-base-alert__main(
+      v-if="$slots.default && $slots.default[0].text.trim()"
+    )
+      base-icon(
+        v-if="icon"
+        :color="colorIcon"
+        :name="icon"
+        :size="iconSize"
+      )
+      slot
 </template>
 
 <!-- *************************************************************************
@@ -87,9 +43,15 @@ transition(
      ************************************************************************* -->
 
 <script>
+import BaseIcon from "./BaseIcon.vue";
+
 // PROJECT
 export default {
   name:"BaseAlert",
+
+  components: {
+    BaseIcon
+  },
 
   props: {
     active: {
@@ -109,54 +71,59 @@ export default {
       default: "blue",
       validator(x) {
         return (
-          ["black", "blue", "green", "orange", "red", "white"].indexOf(x) !== -1
+          ["black", "blue", "green", "orange", "red", "white"].includes(x)
         );
       }
     },
-    // margin:{
-    //   type:[String,Boolean],
-    //   default:'10px'
-    // },
-    // icon:{
-    //   type:String,
-    //   default:null
-    // },
-    // closeIcon:{
-    //   type:String,
-    //   default:'close'
-    // },
-    // iconPack:{
-    //   type:String,
-    //   default:'material-icons'
-    // }
-  },
-  computed: {
-    styleAlert () {
-      return {
-        boxShadow: `0px 0px 25px 0px ${this.color}`,
-        color: 'white'
-      }
+    icon:{
+      type: String,
+      default: null
     },
-    styleTitle () {
-      return {
-        // boxShadow: `0px 6px 15px -7px ${_color.getColor(this.color,.4)}`
+    colorIcon: {
+      type: String,
+      default: "blue",
+      validator(x) {
+        return (
+          ["black", "blue", "green", "orange", "red", "white"].includes(x)
+        );
       }
     }
   },
+
+  computed: {
+    iconSize() {
+      return {
+        "mini": "12px",
+        "small": "14px",
+        "medium": "18px",
+        "large": "20px"
+      }[this.size];
+    },
+    styleTitle() {
+      return {
+        boxShadow: `0px 6px 15px -7px ${this.color}`
+      };
+    }
+  },
+
   methods: {
     beforeEnter(el) {
-      el.style.height = 0
-      el.style.opacity = 0
+      el.style.height = 0;
+      el.style.opacity = 0;
     },
+
     enter(el, done) {
-      let h = this.$refs.alert.scrollHeight
-      this.$refs.alert.style.height = h + 'px'
-      el.style.opacity = 1
-      done()
+      const scrollHeight = this.$refs.alert.scrollHeight;
+
+      this.$refs.alert.style.height = scrollHeight + 'px';
+      el.style.opacity = 1;
+
+      done();
     },
-    leave: function (el) {
-      this.$refs.alert.style.height = 0 + 'px'
-      el.style.opacity = 0
+
+    leave(el) {
+      this.$refs.alert.style.height = 0 + 'px';
+      el.style.opacity = 0;
     }
   }
 }
@@ -174,77 +141,56 @@ export default {
 $c: ".dm-base-alert";
 $colors: black, blue, green, red, orange, white;
 
-
-// .con-vs-alert
-//   // padding: 10px
-//   border-radius: 6px
-//   color: rgb(255,255,255)
-//   width: 100%
-//   position relative
-//   font-size: .8rem
-//   cursor: default
-//   transition: all .25s ease
-//   overflow hidden
-// .icon-alert
-//   height: 100%
-//   position: relative
-//   float: left
-//   padding: 0px 10px
-//   padding-left: 5px
-//   font-size: 1.1rem
-// .vs-alert
-//   padding: 10px
-//   overflow hidden
-//   position relative
-//   display: flex
-//   align-items: center
-// .vs-alert--title
-//   font-size .9rem
-//   font-weight: bold
-//   // margin-bottom: 3px
-//   padding: 8px 10px
-// .vs-alert--close
-//   position: relative
-//   margin-top: 4px
-//   margin-right: 4px
-//   display: inline-block
-//   float: right
-//   padding: 4px
-//   border-radius: 6px
-//   padding-bottom: 1px
-//   // padding-top: 1px
-//   cursor: pointer
-//   transition: all .2s ease
-//   &:hover
-//     box-shadow: 0px 5px 15px 0px rgba(0,0,0,.1)
-
-// for colorx, i in $vs-colors
-//   .con-vs-alert-{colorx}
-//     background: var(colorx, .15)
-//     box-shadow 0px 0px 25px 0px var(colorx, .15)
-//     color: var(colorx, 1)
-//     h4
-//       box-shadow: 0px 6px 15px -7px var(colorx, .4)
-//     .con-x
-//       background: var(colorx, 1)
-//       color: rgb(255,255,255)
-
 #{$c} {
-  display: inline-block;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  width: 100%;
+  position: relative;
+  font-size: .8rem;
+  cursor: default;
+  transition: all .25s ease;
+  overflow: hidden;
   background-position: center;
   color: $white;
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
   transition: all ease-in-out 0.5s;
-  user-select: none;
-  cursor: pointer;
+  margin: 15px;
 
-  #{$c}__inner {
+  // --> CLOSABLE <--
+
+  #{$c}__close {
+    position: relative;
+    margin-top: 4px;
+    margin-right: 4px;
+    float: right;
+    padding: 4px;
+    border-radius: 6px;
+    padding-bottom: 1px;
+    cursor: pointer;
+    transition: all .2s ease;
+    &:hover {
+      box-shadow: 0px 5px 15px 0px rgba(0,0,0,.1);
+    }
+  }
+
+  // --> SLOT <--
+
+  #{$c}__main {
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
+    margin-left: 4px;
+  }
+
+  // --> TITLE <--
+
+  #{$c}__title {
+    font-size: .9rem;
+    font-weight: bold;
+    padding: 0px 10px 8px;
   }
 
   // --> COLORS <--
@@ -283,13 +229,6 @@ $colors: black, blue, green, red, orange, white;
         }
       }
     }
-  }
-
-  // --> INTERACTIONS <--
-
-  &:active {
-    background-size: 100%;
-    transition: background 0s;
   }
 }
 </style>
