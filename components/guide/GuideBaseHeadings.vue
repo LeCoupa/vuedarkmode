@@ -83,6 +83,22 @@
           style="background-color: #ffffff;"
         )
 
+    .c-guide-headings__row.c-guide-headings__row--body
+      span.c-guide-headings__type
+        base-heading(type="small") Small Style
+
+      span.c-guide-headings__font-weight Heebo Regular
+
+      span.c-guide-headings__font-size 14px
+
+      span.c-guide-headings__line-height 24px
+
+      span.c-guide-headings__normal-hover
+        span(
+          class="c-guide-headings__color"
+          style="background-color: #ffffff;"
+        )
+
   div(
     v-else
     class="c-guide-headings__documentation"
@@ -174,7 +190,7 @@ export default {
             },
             details: {
               description: "The element name used for the heading.",
-              values: '"h1" | "h2" | "h3" | "p"'
+              values: '"h1" | "h2" | "h3" | "p" | "small"'
             }
           }
         ]

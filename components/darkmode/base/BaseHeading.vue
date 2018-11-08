@@ -48,7 +48,7 @@ export default {
       type: String,
       required: true,
       validator(x) {
-        return ["h1", "h2", "h3", "p"].indexOf(x) !== -1;
+        return ["h1", "h2", "h3", "p", "small"].indexOf(x) !== -1;
       }
     }
   },
@@ -59,13 +59,11 @@ export default {
       if (this.color) return this.color;
 
       switch (this.type) {
-        case "h1":
-          return "white";
         case "h2":
           return "white2";
         case "h3":
           return "grey";
-        case "p":
+        default:
           return "white";
       }
     },
@@ -79,9 +77,7 @@ export default {
           return "bold";
         case "h2":
           return "medium";
-        case "h3":
-          return "regular";
-        case "p":
+        default:
           return "regular";
       }
     }
@@ -172,6 +168,12 @@ $c: ".dm-base-heading";
     margin-bottom: 20px;
     font-size: 16px;
     line-height: 28px;
+  }
+
+  &--small {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 24px;
   }
 }
 </style>
