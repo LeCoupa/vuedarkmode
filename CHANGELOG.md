@@ -1,7 +1,3 @@
-# Changelog
-
-All notable changes to Vue Dark Mode will be documented in this file.
-
 ## [Unreleased]
 
 ## 0.1.0 - 2018-11-05
@@ -56,7 +52,7 @@ All notable changes to Vue Dark Mode will be documented in this file.
 
 ### What is a changelog?
 
-A changelog is a file which contains a curated, chronologically ordered list of notable changes for each version of a project.
+A changelog is a file which contains a curated, chronologically ordered list of notable changes for each version of a project. All notable changes to Vue Dark Mode will be documented in this file.
 
 ### Why keep a changelog?
 
