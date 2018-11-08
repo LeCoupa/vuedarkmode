@@ -6,7 +6,7 @@
 
 - Ability to define components to import during plugin initialization.
 
-## Changed
+### Changed
 
 - Rework focused style for components that we can select with tabulation (form fields, buttons...).
 
