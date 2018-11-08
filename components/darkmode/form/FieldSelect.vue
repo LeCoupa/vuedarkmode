@@ -43,6 +43,7 @@ div(
       option(
         v-for="option in options"
         :value="option.value"
+        class="dm-field-select__option"
       ) {{ option.label }}
 
     base-icon(
@@ -219,6 +220,10 @@ $statuses: error, normal, success, warning;
     overflow: hidden;
     align-items: center;
     transition: all ease-in-out 0.2s;
+
+    #{$c}__option {
+      color: $black
+    }
 
     #{$c}__icon {
       position: absolute;
