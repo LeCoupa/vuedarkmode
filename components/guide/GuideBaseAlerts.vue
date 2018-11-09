@@ -26,6 +26,7 @@
       base-alert(
         active
         v-for="(color, i) in alert.colors"
+        :key="i"
         :color="color.name"
         :icon="color.icon"
       ) {{ alert.ipsum }}
@@ -145,7 +146,8 @@ export default {
             color: "black"
           }
         ],
-        ipsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel leo lacus. Suspendisse congue enim eu tellus pretium dapibus. In eu convallis tellus, at lobortis libero. Phasellus tincidunt purus orci, quis varius ante tempor vel."
+        ipsum:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel leo lacus. Suspendisse congue enim eu tellus pretium dapibus. In eu convallis tellus, at lobortis libero. Phasellus tincidunt purus orci, quis varius ante tempor vel."
       },
       props: {
         fields: [
@@ -183,8 +185,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description:
-                "Set the alert title."
+              description: "Set the alert title."
             }
           },
           {
@@ -205,8 +206,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description:
-                "Add a left icon (see material icons)."
+              description: "Add a left icon (see material icons)."
             }
           },
           {
