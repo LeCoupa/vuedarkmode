@@ -31,11 +31,11 @@ transition(
     )
       base-icon(
         v-if="icon"
-        :color="colorIcon"
         :name="icon"
-        :size="iconSize"
+        :size="styleIconSize"
       )
-      slot
+      .dm-base-alert__content
+        slot
 </template>
 
 <!-- *************************************************************************
@@ -47,7 +47,7 @@ import BaseIcon from "./BaseIcon.vue";
 
 // PROJECT
 export default {
-  name:"BaseAlert",
+  name: "BaseAlert",
 
   components: {
     BaseIcon
@@ -68,36 +68,33 @@ export default {
     },
     color: {
       type: String,
-      default: "blue",
+      default: "black",
       validator(x) {
-        return (
-          ["black", "blue", "green", "orange", "red", "white"].includes(x)
-        );
+        return ["black", "blue", "green", "orange", "red", "white"].includes(x);
       }
     },
-    icon:{
+    icon: {
       type: String,
       default: null
     },
-    colorIcon: {
+    iconSize: {
       type: String,
-      default: "blue",
+      default: "default",
       validator(x) {
-        return (
-          ["black", "blue", "green", "orange", "red", "white"].includes(x)
-        );
+        return ["mini", "small", "default", "medium", "large"].includes(x);
       }
     }
   },
 
   computed: {
-    iconSize() {
+    styleIconSize() {
       return {
-        "mini": "12px",
-        "small": "14px",
-        "medium": "18px",
-        "large": "20px"
-      }[this.size];
+        mini: "12px",
+        small: "14px",
+        medium: "18px",
+        default: "24px",
+        large: "30px"
+      }[this.iconSize];
     },
     styleTitle() {
       return {
@@ -115,18 +112,18 @@ export default {
     enter(el, done) {
       const scrollHeight = this.$refs.alert.scrollHeight;
 
-      this.$refs.alert.style.height = scrollHeight + 'px';
+      this.$refs.alert.style.height = scrollHeight + "px";
       el.style.opacity = 1;
 
       done();
     },
 
     leave(el) {
-      this.$refs.alert.style.height = 0 + 'px';
+      this.$refs.alert.style.height = 0 + "px";
       el.style.opacity = 0;
     }
   }
-}
+};
 </script>
 
 <!-- *************************************************************************
@@ -145,9 +142,9 @@ $colors: black, blue, green, red, orange, white;
   border-radius: 6px;
   width: 100%;
   position: relative;
-  font-size: .8rem;
+  font-size: 0.8rem;
   cursor: default;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
   overflow: hidden;
   background-position: center;
   color: $white;
@@ -161,36 +158,40 @@ $colors: black, blue, green, red, orange, white;
 
   #{$c}__close {
     position: relative;
-    margin-top: 4px;
-    margin-right: 4px;
-    float: right;
-    padding: 4px;
+    margin: 4px 4px 0 0;
+    padding: 4px 4px 1px 4px;
     border-radius: 6px;
-    padding-bottom: 1px;
+    float: right;
     cursor: pointer;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
     &:hover {
-      box-shadow: 0px 5px 15px 0px rgba(0,0,0,.1);
+      box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.1);
     }
   }
 
   // --> SLOT <--
 
   #{$c}__main {
-    padding: 10px;
-    overflow: hidden;
-    position: relative;
     display: flex;
     align-items: center;
+    position: relative;
+    padding: 12px;
     margin-left: 4px;
+    overflow: hidden;
   }
 
   // --> TITLE <--
 
   #{$c}__title {
-    font-size: .9rem;
+    padding: 0px 10px 14px;
     font-weight: bold;
-    padding: 0px 10px 8px;
+    font-size: 0.9rem;
+  }
+
+  // --> CONTENT <--
+
+  #{$c}__content {
+    padding-left: 11px;
   }
 
   // --> COLORS <--

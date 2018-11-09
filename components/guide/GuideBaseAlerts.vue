@@ -8,22 +8,57 @@
     v-if="!documentation"
   )
     .elements
-      base-alert(
-        closable
-        :active.sync="orangeActive"
-        color="orange"
-        icon="warning"
-        colorIcon="white"
-      ) {{ alert.ipsum }}
-    .elements
+      field-label(
+        :forField="uuid"
+        size="large"
+        class="dm-field-textarea__label"
+      ) NORMAL ALERTS
+      .elements
+        base-alert(
+          active
+          color="red"
+        ) {{ alert.ipsum }}
+      field-label(
+        :forField="uuid"
+        size="large"
+        class="dm-field-textarea__label"
+      ) WITH ICONS
       base-alert(
         active
+        v-for="(color, i) in alert.colors"
+        :color="color.name"
+        :icon="color.icon"
+      ) {{ alert.ipsum }}
+    .elements
+      field-label(
+        :forField="uuid"
+        size="large"
+        class="dm-field-textarea__label"
+      ) CLOSABLE
+      base-alert(
         closable
-        title="Title, icon and closable example"
+        :active.sync="warningActive"
+        color="red"
+      ) {{ alert.ipsum }}
+    .elements
+      field-label(
+        :forField="uuid"
+        size="large"
+        class="dm-field-textarea__label"
+      ) ALL IN ONE
+      base-button(
+        color="blue"
+        size="small"
+        class="o-elements__button"
+        @click="fullExample = !fullExample"
+      ) TOGGLE
+      base-alert(
+        :active.sync="fullExample"
+        closable
+        title="Active alert example with title, icon and close icon"
         color="black"
         icon="star"
-        iconSize="24px"
-        colorIcon="white"
+        iconSize="medium"
       ) {{ alert.ipsum }}
   div(
     v-else
@@ -33,7 +68,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-alert :active="active"&gt;My alert&lt;/dm-alert&gt;
+        | &lt;dm-alert&gt;My alert&lt;/dm-alert&gt;
 
     no-ssr
       common-table(
@@ -51,13 +86,18 @@
 // PROJECT
 import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import BaseAlert from "@/components/darkmode/base/BaseAlert";
+import BaseButton from "@/components/darkmode/base/BaseButton";
+import { generateUUID } from "@/helpers/helpers.js";
+import FieldLabel from "@/components/darkmode/form/FieldLabel.vue";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
     BaseDivider,
     CommonTable,
-    BaseAlert
+    BaseAlert,
+    FieldLabel,
+    BaseButton
   },
 
   props: {
@@ -69,35 +109,43 @@ export default {
 
   data() {
     return {
-      orangeActive: true,
+      uuid: "",
+      warningActive: true,
+      fullExample: true,
       alert: {
         colors: [
           {
-            name:"blue",
-            active: true
+            name: "blue",
+            icon: "add_circle",
+            color: "white"
           },
           {
-            name:"green",
-            active: false
+            name: "green",
+            icon: "check_circle",
+            color: "white"
           },
           {
-            name:"red",
-            active: false
+            name: "red",
+            icon: "cancel",
+            color: "white"
           },
           {
-            name:"orange",
-            active: false
+            name: "orange",
+            icon: "dashboard",
+            color: "white"
           },
           {
-            name:"black",
-            active: false
+            name: "black",
+            icon: "star",
+            color: "white"
           },
           {
-            name:"white",
-            active: false
+            name: "white",
+            icon: "get_app",
+            color: "black"
           }
         ],
-        ipsum: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu elit ac enim dignissim molestie. Phasellus molestie quis sem malesuada fringilla. Vivamus posuere facilisis scelerisque.'
+        ipsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel leo lacus. Suspendisse congue enim eu tellus pretium dapibus. In eu convallis tellus, at lobortis libero. Phasellus tincidunt purus orci, quis varius ante tempor vel."
       },
       props: {
         fields: [
@@ -147,7 +195,7 @@ export default {
             },
             details: {
               description:
-                "If true then the user can close the alert left clicking the \"X\" icon."
+                "If true then the user can close the alert left clicking the close material icon."
             }
           },
           {
@@ -169,14 +217,14 @@ export default {
             },
             details: {
               description: "Set the icon size.",
-              values: '"mini" | "small" | "default" | "medium" | "large"'
+              values: '"mini" | "small" | "default" | "medium" | "large"'
             }
           },
           {
             name: "color",
             type: {
               type: "String",
-              additional: "Default: blue"
+              additional: "Default: black"
             },
             details: {
               description: "Set the alert color.",
@@ -186,6 +234,10 @@ export default {
         ]
       }
     };
+  },
+
+  mounted() {
+    this.uuid = generateUUID();
   }
 };
 </script>

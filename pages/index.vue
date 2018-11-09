@@ -48,6 +48,10 @@
       v-if="section.id === 'baseSocialLogin'"
       :documentation="docs.baseSocialLogin"
     )
+    guide-base-alerts(
+      v-if="section.id === 'baseAlert'"
+      :documentation="docs.baseAlert"
+    )
     guide-field-inputs(
       v-if="section.id === 'fieldInput'"
       :documentation="docs.fieldInput"
@@ -92,15 +96,10 @@
       v-if="section.id === 'baseAvatar'"
       :documentation="docs.baseAvatar"
     )
-    guide-base-alerts(
-      v-if="section.id === 'baseAlert'"
-      :documentation="docs.baseAlert"
-    )
     guide-base-icons(
       v-if="section.id === 'baseIcon'"
       :documentation="docs.baseIcon"
     )
-
   base-divider(
     color="black"
     size="large"
