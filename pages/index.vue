@@ -48,6 +48,10 @@
       v-if="section.id === 'baseSocialLogin'"
       :documentation="docs.baseSocialLogin"
     )
+    guide-base-alerts(
+      v-if="section.id === 'baseAlert'"
+      :documentation="docs.baseAlert"
+    )
     guide-field-inputs(
       v-if="section.id === 'fieldInput'"
       :documentation="docs.fieldInput"
@@ -96,7 +100,6 @@
       v-if="section.id === 'baseIcon'"
       :documentation="docs.baseIcon"
     )
-
   base-divider(
     color="black"
     size="large"
@@ -120,6 +123,7 @@ import GuideBaseHeadings from "@/components/guide/GuideBaseHeadings";
 import GuideBaseIcons from "@/components/guide/GuideBaseIcons";
 import GuideBaseProgressBars from "@/components/guide/GuideBaseProgressBars";
 import GuideBaseSocialLogins from "@/components/guide/GuideBaseSocialLogins";
+import GuideBaseAlerts from "@/components/guide/GuideBaseAlerts";
 import GuideColors from "@/components/guide/GuideColors";
 import GuideFieldCheckboxes from "@/components/guide/GuideFieldCheckboxes";
 import GuideFieldFiles from "@/components/guide/GuideFieldFiles";
@@ -149,6 +153,7 @@ export default {
     GuideBaseIcons,
     GuideBaseProgressBars,
     GuideBaseSocialLogins,
+    GuideBaseAlerts,
     GuideColors,
     GuideFieldCheckboxes,
     GuideFieldFiles,
@@ -180,6 +185,7 @@ export default {
         baseIcon: false,
         baseProgressBar: false,
         baseSocialLogin: false,
+        baseAlert: false,
         fieldCheckbox: false,
         fieldFile: false,
         fieldInput: false,
@@ -243,6 +249,13 @@ export default {
           id: "baseSocialLogin",
           headlines: {
             title: "SOCIAL LOGINS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "baseAlert",
+          headlines: {
+            title: "ALERTS",
             hasDocumentation: true
           }
         },
