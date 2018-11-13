@@ -3,6 +3,7 @@
  ***************************************************************************/
 
 // BASE COMPONENTS
+import BaseAlert from "./components/darkmode/base/BaseAlert.vue";
 import BaseAvatar from "./components/darkmode/base/BaseAvatar.vue";
 import BaseBadge from "./components/darkmode/base/BaseBadge.vue";
 import BaseButton from "./components/darkmode/base/BaseButton.vue";
@@ -32,6 +33,7 @@ function install(Vue, options) {
   install.installed = true;
 
   const components = {
+    alert: BaseAlert,
     avatar: BaseAvatar,
     badge: BaseBadge,
     button: BaseButton,

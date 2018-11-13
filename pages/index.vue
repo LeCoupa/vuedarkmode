@@ -48,6 +48,10 @@
       v-if="section.id === 'baseSocialLogin'"
       :documentation="docs.baseSocialLogin"
     )
+    guide-base-alerts(
+      v-if="section.id === 'baseAlert'"
+      :documentation="docs.baseAlert"
+    )
     guide-field-inputs(
       v-if="section.id === 'fieldInput'"
       :documentation="docs.fieldInput"
@@ -96,7 +100,6 @@
       v-if="section.id === 'baseIcon'"
       :documentation="docs.baseIcon"
     )
-
   base-divider(
     color="black"
     size="large"
@@ -112,6 +115,7 @@
 // PROJECT
 import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import CommonHeadlines from "@/components/common/CommonHeadlines";
+import GuideBaseAlerts from "@/components/guide/GuideBaseAlerts";
 import GuideBaseAvatars from "@/components/guide/GuideBaseAvatars";
 import GuideBaseBadges from "@/components/guide/GuideBaseBadges";
 import GuideBaseButtons from "@/components/guide/GuideBaseButtons";
@@ -141,6 +145,7 @@ export default {
   components: {
     BaseDivider,
     CommonHeadlines,
+    GuideBaseAlerts,
     GuideBaseAvatars,
     GuideBaseBadges,
     GuideBaseButtons,
@@ -172,6 +177,7 @@ export default {
       // --> STATE <--
 
       docs: {
+        baseAlert: false,
         baseAvatar: false,
         baseBadge: false,
         baseButton: false,
@@ -243,6 +249,13 @@ export default {
           id: "baseSocialLogin",
           headlines: {
             title: "SOCIAL LOGINS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "baseAlert",
+          headlines: {
+            title: "ALERTS",
             hasDocumentation: true
           }
         },

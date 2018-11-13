@@ -322,7 +322,7 @@ export default {
             parameters: "id, event",
             details: {
               description:
-                "The event occurs when the pointer is moved out of an element.s"
+                "The event occurs when the pointer is moved out of an element."
             }
           },
           {
