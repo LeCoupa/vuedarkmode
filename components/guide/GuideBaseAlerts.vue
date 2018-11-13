@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       alerts: {
-        colors: ["black", "blue", "green", "orange", "red", "white"]
+        colors: ["blue", "green", "red", "orange", "black", "white"]
       },
       props: {
         fields: [

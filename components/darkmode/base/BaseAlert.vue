@@ -120,6 +120,16 @@ $colors: black, blue, green, red, orange, white;
       @if ($color == white) {
         color: $oxford-blue;
       }
+
+      #{$c}__icon--right {
+        &:hover {
+          @if ($color == white or $color == black) {
+            color: $crimson !important;
+          } @else {
+            color: $oxford-blue !important;
+          }
+        }
+      }
     }
   }
 }
