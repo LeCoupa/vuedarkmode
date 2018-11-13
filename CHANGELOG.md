@@ -1,5 +1,13 @@
 ## [Unreleased]
 
+### Added
+
+- New BaseAlert component.
+
+### Changed
+
+- BaseHeading: type prop now accepts "small" when you need to display smaller content.
+
 ## 0.1.0 - 2018-11-05
 
 ### Added
@@ -61,4 +69,3 @@ To help users and contributors see notable changes between project releases/vers
 ### Who needs a changelog?
 
 People do. Whether consumers or developers, the end users of software are human beings who care about what's in the software. When the software changes, people want to know why and how.
-
