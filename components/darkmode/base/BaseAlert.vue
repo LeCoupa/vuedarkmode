@@ -3,39 +3,31 @@
      ************************************************************************* -->
 
 <template lang="pug">
-transition(
-  @before-enter="beforeEnter"
-  @enter="enter"
-  @leave="leave"
+div(
+  :class=`[
+    "dm-base-alert",
+    "dm-base-alert--" + color
+  ]`
 )
-  .dm-base-alert(
-    v-if="active"
-    ref="alert"
-    :class="`dm-base-alert--${color}`"
-    v-on="$listeners"
+  base-icon(
+    v-if="icon"
+    :name="icon"
+    class="dm-base-alert__icon dm-base-alert__icon--left"
+    size="20px"
   )
-    .dm-base-alert__close(
-      v-if="closable"
-      @click="$emit('update:active', false)"
-    )
-      base-icon(
-        name="close"
-      )
-    h4.dm-base-alert__title(
-      v-if="title"
-      :style="styleTitle"
-    )
-      span {{ title }}
-    .dm-base-alert__main(
-      v-if="$slots.default && $slots.default[0].text.trim()"
-    )
-      base-icon(
-        v-if="icon"
-        :name="icon"
-        :size="styleIconSize"
-      )
-      .dm-base-alert__content
-        slot
+  span(
+    v-if="$slots.default && $slots.default[0].text.trim()"
+    class="dm-base-alert__slot"
+  ): slot
+
+  base-icon(
+    v-if="closable"
+    @click="onClose"
+    class="dm-base-alert__icon dm-base-alert__icon--right"
+    cursor="pointer"
+    name="close"
+    size="20px"
+  )
 </template>
 
 <!-- *************************************************************************
@@ -47,28 +39,18 @@ import BaseIcon from "./BaseIcon.vue";
 
 // PROJECT
 export default {
-  name: "BaseAlert",
-
   components: {
     BaseIcon
   },
 
   props: {
-    active: {
-      type: [Boolean, String],
-      default: false
-    },
-    title: {
-      type: String,
-      default: null
-    },
     closable: {
       type: Boolean,
-      default: false
+      default: true
     },
     color: {
       type: String,
-      default: "black",
+      default: "blue",
       validator(x) {
         return ["black", "blue", "green", "orange", "red", "white"].includes(x);
       }
@@ -76,51 +58,14 @@ export default {
     icon: {
       type: String,
       default: null
-    },
-    iconSize: {
-      type: String,
-      default: "default",
-      validator(x) {
-        return ["mini", "small", "default", "medium", "large"].includes(x);
-      }
-    }
-  },
-
-  computed: {
-    styleIconSize() {
-      return {
-        mini: "12px",
-        small: "14px",
-        medium: "18px",
-        default: "24px",
-        large: "30px"
-      }[this.iconSize];
-    },
-    styleTitle() {
-      return {
-        boxShadow: `0px 6px 15px -7px ${this.color}`
-      };
     }
   },
 
   methods: {
-    beforeEnter(el) {
-      el.style.height = 0;
-      el.style.opacity = 0;
-    },
+    // --> EVENT LISTENERS <--
 
-    enter(el, done) {
-      const scrollHeight = this.$refs.alert.scrollHeight;
-
-      this.$refs.alert.style.height = scrollHeight + "px";
-      el.style.opacity = 1;
-
-      done();
-    },
-
-    leave(el) {
-      this.$refs.alert.style.height = 0 + "px";
-      el.style.opacity = 0;
+    onClose(event) {
+      this.$emit("close", event);
     }
   }
 };
@@ -139,95 +84,41 @@ $c: ".dm-base-alert";
 $colors: black, blue, green, red, orange, white;
 
 #{$c} {
-  border-radius: 6px;
-  width: 100%;
-  position: relative;
-  font-size: 0.8rem;
-  cursor: default;
-  transition: all 0.25s ease;
-  overflow: hidden;
-  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
   color: $white;
-  font-weight: 500;
+  text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all ease-in-out 0.5s;
-  margin: 15px;
+  transition: all 200ms ease-in-out;
 
-  // --> CLOSABLE <--
+  #{$c}__icon {
+    flex: 0 0 auto;
 
-  #{$c}__close {
-    position: relative;
-    margin: 4px 4px 0 0;
-    padding: 4px 4px 1px 4px;
-    border-radius: 6px;
-    float: right;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    &:hover {
-      box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.1);
+    &--left {
+      margin-right: 20px;
+    }
+
+    &--right {
+      margin-left: 20px;
     }
   }
 
-  // --> SLOT <--
-
-  #{$c}__main {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding: 12px;
-    margin-left: 4px;
-    overflow: hidden;
-  }
-
-  // --> TITLE <--
-
-  #{$c}__title {
-    padding: 0px 10px 14px;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-
-  // --> CONTENT <--
-
-  #{$c}__content {
-    padding-left: 11px;
+  #{$c}__slot {
+    flex: 1;
+    font-size: 16px;
+    line-height: 22px;
   }
 
   // --> COLORS <--
 
   @each $color in $colors {
     &--#{$color} {
-      // Reverse buttons have their own defined style (see below)
-      &:not(#{$c}--reverse) {
-        background: map-get($mainColors, $color)
-          radial-gradient(
-            circle,
-            transparent 1%,
-            map-get($mainColors, $color) 1%
-          )
-          center/15000%;
+      background-color: map-get($mainColors, $color);
 
-        @if ($color == black) {
-          border: 1px solid $oxford-blue;
-          background: $ebony-clay
-            radial-gradient(circle, transparent 1%, $ebony-clay 1%)
-            center/15000%;
-        } @else if ($color == white) {
-          color: $oxford-blue;
-        }
-
-        &:active {
-          @if ($color == black) {
-            background-color: map-get($mainColors, $color);
-          } @else if ($color == white) {
-            background-color: darken(map-get($mainColors, $color), 15%);
-          } @else if ($color == orange or $color == red) {
-            background-color: lighten(map-get($mainColors, $color), 20%);
-          } @else {
-            background-color: lighten(map-get($mainColors, $color), 10%);
-          }
-        }
+      @if ($color == white) {
+        color: $oxford-blue;
       }
     }
   }
