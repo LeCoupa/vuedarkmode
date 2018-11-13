@@ -53,8 +53,8 @@ Add this new plugin to `nuxt.config.js`. Don't forget to set ssr to false as Vue
 Get the latest version from [jsdelivr](https://www.jsdelivr.com/), and import the JavaScript file in your page.
 
 ```html
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vuedarkmode@0.1/dist/vuedarkmode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuedarkmode@0.1/dist/vuedarkmode.min.js"></script>
 ```
 
 We recommend our users to lock Vue Dark Mode's version when using CDN. Requesting the latest version (as opposed to "latest major" or "latest minor") is dangerous because major versions usually come with breaking changes. Only do this if you really know what you are doing. [Please refer to jsdelivr.com](https://www.jsdelivr.com/features) for more information.
@@ -64,6 +64,8 @@ We recommend our users to lock Vue Dark Mode's version when using CDN. Requestin
 We are releasing new components on a monthly basis. [Subscribe to our newsletter](http://eepurl.com/dLlKBM) to stay in touch with coming releases.
 
 ### Base Components
+
+- **BaseAlert**: [documentation](https://www.vuedarkmode.com/#baseAlert) | [source code](/components/darkmode/base/BaseAlert.vue).
 
 - **BaseAvatar**: [documentation](https://www.vuedarkmode.com/#baseAvatar) | [source code](/components/darkmode/base/BaseAvatar.vue).
 
