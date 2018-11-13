@@ -222,7 +222,7 @@ $statuses: error, normal, success, warning;
     transition: all ease-in-out 0.2s;
 
     #{$c}__option {
-      color: $black
+      color: $black;
     }
 
     #{$c}__icon {
