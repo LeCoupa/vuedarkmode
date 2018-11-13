@@ -115,6 +115,7 @@
 // PROJECT
 import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import CommonHeadlines from "@/components/common/CommonHeadlines";
+import GuideBaseAlerts from "@/components/guide/GuideBaseAlerts";
 import GuideBaseAvatars from "@/components/guide/GuideBaseAvatars";
 import GuideBaseBadges from "@/components/guide/GuideBaseBadges";
 import GuideBaseButtons from "@/components/guide/GuideBaseButtons";
@@ -123,7 +124,6 @@ import GuideBaseHeadings from "@/components/guide/GuideBaseHeadings";
 import GuideBaseIcons from "@/components/guide/GuideBaseIcons";
 import GuideBaseProgressBars from "@/components/guide/GuideBaseProgressBars";
 import GuideBaseSocialLogins from "@/components/guide/GuideBaseSocialLogins";
-import GuideBaseAlerts from "@/components/guide/GuideBaseAlerts";
 import GuideColors from "@/components/guide/GuideColors";
 import GuideFieldCheckboxes from "@/components/guide/GuideFieldCheckboxes";
 import GuideFieldFiles from "@/components/guide/GuideFieldFiles";
@@ -145,6 +145,7 @@ export default {
   components: {
     BaseDivider,
     CommonHeadlines,
+    GuideBaseAlerts,
     GuideBaseAvatars,
     GuideBaseBadges,
     GuideBaseButtons,
@@ -153,7 +154,6 @@ export default {
     GuideBaseIcons,
     GuideBaseProgressBars,
     GuideBaseSocialLogins,
-    GuideBaseAlerts,
     GuideColors,
     GuideFieldCheckboxes,
     GuideFieldFiles,
@@ -177,6 +177,7 @@ export default {
       // --> STATE <--
 
       docs: {
+        baseAlert: false,
         baseAvatar: false,
         baseBadge: false,
         baseButton: false,
@@ -185,7 +186,6 @@ export default {
         baseIcon: false,
         baseProgressBar: false,
         baseSocialLogin: false,
-        baseAlert: false,
         fieldCheckbox: false,
         fieldFile: false,
         fieldInput: false,
