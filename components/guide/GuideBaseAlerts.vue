@@ -3,79 +3,47 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-base-alert
-  .c-guide-base-alert__showroom(
+.c-guide-base-alerts
+  div(
     v-if="!documentation"
+    class="c-guide-base-alerts__showroom o-elements"
   )
-    .elements
-      field-label(
-        :forField="uuid"
-        size="large"
-        class="dm-field-textarea__label"
-      ) NORMAL ALERTS
-      .elements
-        base-alert(
-          active
-          color="red"
-        ) {{ alert.ipsum }}
-      field-label(
-        :forField="uuid"
-        size="large"
-        class="dm-field-textarea__label"
-      ) WITH ICONS
+    div(
+      v-for="(color, i) in alerts.colors"
+      :key="'alert' + i"
+      class="o-elements__category"
+    )
       base-alert(
-        active
-        v-for="(color, i) in alert.colors"
-        :key="i"
-        :color="color.name"
-        :icon="color.icon"
-      ) {{ alert.ipsum }}
-    .elements
-      field-label(
-        :forField="uuid"
-        size="large"
-        class="dm-field-textarea__label"
-      ) CLOSABLE
-      base-alert(
-        closable
-        :active.sync="warningActive"
-        color="red"
-      ) {{ alert.ipsum }}
-    .elements
-      field-label(
-        :forField="uuid"
-        size="large"
-        class="dm-field-textarea__label"
-      ) ALL IN ONE
-      base-button(
-        color="blue"
-        size="small"
-        class="o-elements__button"
-        @click="fullExample = !fullExample"
-      ) TOGGLE
-      base-alert(
-        :active.sync="fullExample"
-        closable
-        title="Active alert example with title, icon and close icon"
-        color="black"
-        icon="star"
-        iconSize="medium"
-      ) {{ alert.ipsum }}
+        :color="color"
+        class="c-guide-base-alerts__alert"
+        icon="error_outline"
+      ) This is {{ color !== "orange" ? "a" : "an" }} {{ color }} alert you can customize as you wish.
+
   div(
     v-else
-    class="c-guide-base-alert__documentation"
+    class="c-guide-base-alerts__documentation"
   )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-alert&gt;My alert&lt;/dm-alert&gt;
+        | &lt;dm-alert&gt;My Alert&lt;/dm-alert&gt;
 
     no-ssr
       common-table(
         :data="props.data"
         :fields="props.fields"
         class="u-mb40"
+      )
+
+    base-divider(
+      color="white"
+      class="u-mb40"
+    )
+    no-ssr
+      common-table(
+        :data="events.data"
+        :fields="events.fields"
       )
 </template>
 
@@ -85,20 +53,15 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import BaseAlert from "@/components/darkmode/base/BaseAlert";
-import BaseButton from "@/components/darkmode/base/BaseButton";
-import { generateUUID } from "@/helpers/helpers.js";
-import FieldLabel from "@/components/darkmode/form/FieldLabel.vue";
+import BaseDivider from "@/components/darkmode/base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
-    BaseDivider,
-    CommonTable,
     BaseAlert,
-    FieldLabel,
-    BaseButton
+    BaseDivider,
+    CommonTable
   },
 
   props: {
@@ -110,44 +73,8 @@ export default {
 
   data() {
     return {
-      uuid: "",
-      warningActive: true,
-      fullExample: true,
-      alert: {
-        colors: [
-          {
-            name: "blue",
-            icon: "add_circle",
-            color: "white"
-          },
-          {
-            name: "green",
-            icon: "check_circle",
-            color: "white"
-          },
-          {
-            name: "red",
-            icon: "cancel",
-            color: "white"
-          },
-          {
-            name: "orange",
-            icon: "dashboard",
-            color: "white"
-          },
-          {
-            name: "black",
-            icon: "star",
-            color: "white"
-          },
-          {
-            name: "white",
-            icon: "get_app",
-            color: "black"
-          }
-        ],
-        ipsum:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel leo lacus. Suspendisse congue enim eu tellus pretium dapibus. In eu convallis tellus, at lobortis libero. Phasellus tincidunt purus orci, quis varius ante tempor vel."
+      alerts: {
+        colors: ["black", "blue", "green", "orange", "red", "white"]
       },
       props: {
         fields: [
@@ -169,26 +96,6 @@ export default {
         ],
         data: [
           {
-            name: "active",
-            type: {
-              type: "Boolean",
-              additional: "Default: false"
-            },
-            details: {
-              description: "If true then the component is visible."
-            }
-          },
-          {
-            name: "title",
-            type: {
-              type: "String",
-              additional: "Default: null"
-            },
-            details: {
-              description: "Set the alert title."
-            }
-          },
-          {
             name: "closable",
             type: {
               type: "Boolean",
@@ -196,7 +103,18 @@ export default {
             },
             details: {
               description:
-                "If true then the user can close the alert left clicking the close material icon."
+                "When set to true, a cross icon will appear at the right end of the alert."
+            }
+          },
+          {
+            name: "color",
+            type: {
+              type: "String",
+              additional: 'Default: "blue"'
+            },
+            details: {
+              description: "Set the alert color.",
+              values: '"black" | "blue" | "green" | "orange" | "red" | "white"'
             }
           },
           {
@@ -208,36 +126,38 @@ export default {
             details: {
               description: "Add a left icon (see material icons)."
             }
+          }
+        ]
+      },
+      events: {
+        fields: [
+          {
+            name: "name",
+            title: "Event Name",
+            dataClass: "u-bold",
+            width: "150px"
           },
           {
-            name: "icon-size",
-            type: {
-              type: "String",
-              additional: 'Default: "default"'
-            },
-            details: {
-              description: "Set the icon size.",
-              values: '"mini" | "small" | "default" | "medium" | "large"'
-            }
+            name: "parameters",
+            title: "Parameters",
+            width: "150px"
           },
           {
-            name: "color",
-            type: {
-              type: "String",
-              additional: "Default: black"
-            },
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "close",
+            parameters: "event",
             details: {
-              description: "Set the alert color.",
-              values: '"black" | "blue" | "green" | "orange" | "red" | "white"'
+              description: "Fires when the user click on the cross icon."
             }
           }
         ]
       }
     };
-  },
-
-  mounted() {
-    this.uuid = generateUUID();
   }
 };
 </script>
@@ -247,4 +167,21 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+$c: ".c-guide-base-alerts";
+
+#{$c} {
+  #{$c}__showroom {
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, 100%);
+    margin-bottom: 0;
+  }
+}
+
+@include mq($from: desktop) {
+  #{$c} {
+    #{$c}__showroom {
+      grid-template-columns: repeat(auto-fill, 800px);
+    }
+  }
+}
 </style>
