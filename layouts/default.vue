@@ -6,6 +6,7 @@
 .l-default
   the-github-corner(
     link="https://github.com/LeCoupa/vuedarkmode"
+    class="l-default__github-corner"
   )
   .l-default__container
     the-navigation(
@@ -211,6 +212,14 @@ html {
   }
 
   #{$c} {
+    #{$c}__github-corner {
+      position: absolute;
+      top: 0;
+      border: 0;
+      right: 0;
+      z-index: 2;
+    }
+
     #{$c}__container {
       position: absolute;
       top: 0;
