@@ -26,13 +26,18 @@
           name="arrow_left"
         )
 
-      ul(
+      transition-group(
         v-if="category.items && opened === category.id"
+        :appear="true"
         class="c-the-navigation__items"
+        enter-active-class="animated fadeIn"
+        leave-active-class="animated fadeOut"
+        tag="ul"
       )
         li(
           v-for="item in category.items"
           @click="onItemClick(item.id, $event)"
+          :key="item.id"
           class="c-the-navigation__item"
         ) {{ item.label }}
 
