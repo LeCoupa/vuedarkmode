@@ -7,11 +7,16 @@
   the-github-corner(
     link="https://github.com/LeCoupa/vuedarkmode"
   )
-  .l-default__inner
-    the-navigation
-
-    .l-default__content
-      nuxt
+  .l-default__container
+    the-navigation(
+      @titleClick="onNavigationClick"
+      @itemClick="onNavigationClick"
+      :categories="navigation.categories"
+      class="l-default__navigation"
+    )
+    .l-default__page-wrapper
+      .l-default__page-inner
+        nuxt
 </template>
 
 <!-- *************************************************************************
@@ -27,6 +32,139 @@ export default {
   components: {
     TheGithubCorner,
     TheNavigation
+  },
+
+  data() {
+    return {
+      // --> COMPONENTS <--
+
+      navigation: {
+        categories: [
+          {
+            id: "installation",
+            title: "💻 Installation"
+          },
+          {
+            id: "packageOptions",
+            title: "📦 Package Options"
+          },
+          {
+            id: "colors",
+            title: "🎨 Colors"
+          },
+          {
+            id: "base",
+            title: "🤖 Base Components",
+            items: [
+              {
+                label: "Alert",
+                id: "baseAlert"
+              },
+              {
+                label: "Avatar",
+                id: "baseAvatar"
+              },
+              {
+                label: "Badge",
+                id: "baseBadge"
+              },
+              {
+                label: "Button",
+                id: "baseButton"
+              },
+              {
+                label: "Divider",
+                id: "baseDivider"
+              },
+              {
+                label: "Heading",
+                id: "baseHeading"
+              },
+              {
+                label: "Icon",
+                id: "baseIcon"
+              },
+              {
+                label: "Progress Bar",
+                id: "baseProgressBar"
+              },
+              {
+                label: "Social Login",
+                id: "baseSocialLogin"
+              }
+            ]
+          },
+          {
+            id: "form",
+            title: "📃 Form Components",
+            items: [
+              {
+                label: "Checkbox",
+                id: "fieldCheckbox"
+              },
+              {
+                label: "File",
+                id: "fieldFile"
+              },
+              {
+                label: "Input",
+                id: "fieldInput"
+              },
+              {
+                label: "Radio",
+                id: "fieldRadio"
+              },
+              {
+                label: "Select",
+                id: "fieldSelect"
+              },
+              {
+                label: "Tabs",
+                id: "fieldTabs"
+              },
+              {
+                label: "Textarea",
+                id: "fieldTextarea"
+              },
+              {
+                label: "Toggle",
+                id: "fieldToggle"
+              }
+            ]
+          }
+        ]
+      }
+    };
+  },
+
+  mounted() {
+    let hash = this.$route.hash;
+
+    if (hash) {
+      this.scrollToSection(hash.substr(1));
+    }
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    onNavigationClick(id) {
+      this.scrollToSection(id);
+    },
+
+    // --> HELPERS <--
+
+    scrollToSection(id) {
+      const section = this.$el.querySelector(`#${id}`);
+
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest"
+        });
+      }
+    }
   }
 };
 </script>
@@ -49,12 +187,10 @@ export default {
 @import "./assets/utilities/utilities.alignments";
 @import "./assets/utilities/utilities.inline";
 
+// VARIABLES
 $c: ".l-default";
 
 html {
-  overflow-y: scroll;
-  box-sizing: border-box;
-  min-height: 100%;
   background-color: $mirage;
   color: $white;
   text-align: center;
@@ -68,20 +204,36 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 
-  #{$c} {
-    margin: 0 40px;
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
 
-    #{$c}__inner {
-      #{$c}__content {
-        margin: 60px auto;
-        max-width: 1050px;
+  #{$c} {
+    #{$c}__container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      overflow: hidden;
+
+      #{$c}__navigation {
+        flex: 0 0 auto;
+      }
+
+      #{$c}__page-wrapper {
+        overflow-y: scroll;
+        flex: 1;
+        padding: 60px 40px;
+
+        #{$c}__page-inner {
+          margin: 0 auto;
+          max-width: 900px;
+        }
       }
     }
   }
-}
-
-a {
-  text-decoration: none;
-  cursor: pointer;
 }
 </style>

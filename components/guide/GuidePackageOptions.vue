@@ -3,10 +3,10 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-install
+.c-guide-package-options
   pre(
     v-highlightjs
-    class="c-guide-install__code"
+    class="c-guide-package-options__code"
   )
     code(class="javascript")
       | import VueDarkMode from "vuedarkmode";

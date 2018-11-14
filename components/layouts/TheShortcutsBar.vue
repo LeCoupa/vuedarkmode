@@ -78,6 +78,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-the-shortcuts-bar";
 
 #{$c} {

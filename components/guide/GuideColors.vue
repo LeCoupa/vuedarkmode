@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-colors.o-elements.o-elements--900max
+.c-guide-colors.o-elements
   common-color(
     v-for="color in colors"
     :hex="color.hex"
@@ -39,6 +39,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-guide-colors";
 
 #{$c} {

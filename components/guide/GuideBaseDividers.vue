@@ -132,6 +132,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-guide-base-dividers";
 
 #{$c} {

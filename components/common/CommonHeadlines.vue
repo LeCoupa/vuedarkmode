@@ -95,6 +95,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-common-headlines";
 
 #{$c} {

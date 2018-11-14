@@ -40,6 +40,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-common-color";
 
 #{$c} {

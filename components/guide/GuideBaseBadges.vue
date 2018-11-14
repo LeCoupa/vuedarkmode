@@ -183,6 +183,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-guide-base-badges";
 
 @include mq($from: desktop) {

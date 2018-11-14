@@ -6,7 +6,7 @@
 .c-guide-base-alerts
   div(
     v-if="!documentation"
-    class="c-guide-base-alerts__showroom o-elements"
+    class="c-guide-base-alerts__showroom o-elements o-elements--800max"
   )
     div(
       v-for="(color, i) in alerts.colors"
@@ -167,6 +167,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-guide-base-alerts";
 
 #{$c} {
@@ -174,14 +175,6 @@ $c: ".c-guide-base-alerts";
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fill, 100%);
     margin-bottom: 0;
-  }
-}
-
-@include mq($from: desktop) {
-  #{$c} {
-    #{$c}__showroom {
-      grid-template-columns: repeat(auto-fill, 800px);
-    }
   }
 }
 </style>

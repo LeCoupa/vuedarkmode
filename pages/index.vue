@@ -24,81 +24,81 @@
       :title="section.headlines.title"
     )
     guide-install(
-      v-if="section.id === 'install'"
+      v-if="section.id === 'installation'"
     )
-    guide-options(
-      v-if="section.id === 'options'"
+    guide-package-options(
+      v-if="section.id === 'packageOptions'"
     )
     guide-colors(
       v-if="section.id === 'colors'"
-    )
-    guide-base-headings(
-      v-if="section.id === 'baseHeading'"
-      :documentation="docs.baseHeading"
-    )
-    guide-base-buttons(
-      v-if="section.id === 'baseButton'"
-      :documentation="docs.baseButton"
-    )
-    guide-base-badges(
-      v-if="section.id === 'baseBadge'"
-      :documentation="docs.baseBadge"
-    )
-    guide-base-social-logins(
-      v-if="section.id === 'baseSocialLogin'"
-      :documentation="docs.baseSocialLogin"
     )
     guide-base-alerts(
       v-if="section.id === 'baseAlert'"
       :documentation="docs.baseAlert"
     )
-    guide-field-inputs(
-      v-if="section.id === 'fieldInput'"
-      :documentation="docs.fieldInput"
+    guide-base-avatars(
+      v-if="section.id === 'baseAvatar'"
+      :documentation="docs.baseAvatar"
     )
-    guide-field-selects(
-      v-if="section.id === 'fieldSelect'"
-      :documentation="docs.fieldSelect"
+    guide-base-badges(
+      v-if="section.id === 'baseBadge'"
+      :documentation="docs.baseBadge"
     )
-    guide-field-textareas(
-      v-if="section.id === 'fieldTextarea'"
-      :documentation="docs.fieldTextarea"
-    )
-    guide-field-checkboxes(
-      v-if="section.id === 'fieldCheckbox'"
-      :documentation="docs.fieldCheckbox"
-    )
-    guide-field-radios(
-      v-if="section.id === 'fieldRadio'"
-      :documentation="docs.fieldRadio"
-    )
-    guide-field-toggles(
-      v-if="section.id === 'fieldToggle'"
-      :documentation="docs.fieldToggle"
-    )
-    guide-field-files(
-      v-if="section.id === 'fieldFile'"
-      :documentation="docs.fieldFile"
-    )
-    guide-field-tabs(
-      v-if="section.id === 'fieldTabs'"
-      :documentation="docs.fieldTabs"
+    guide-base-buttons(
+      v-if="section.id === 'baseButton'"
+      :documentation="docs.baseButton"
     )
     guide-base-dividers(
       v-if="section.id === 'baseDivider'"
       :documentation="docs.baseDivider"
     )
-    guide-base-progress-bars(
-      v-if="section.id === 'baseProgressBar'"
-      :documentation="docs.baseProgressBar"
-    )
-    guide-base-avatars(
-      v-if="section.id === 'baseAvatar'"
-      :documentation="docs.baseAvatar"
+    guide-base-headings(
+      v-if="section.id === 'baseHeading'"
+      :documentation="docs.baseHeading"
     )
     guide-base-icons(
       v-if="section.id === 'baseIcon'"
       :documentation="docs.baseIcon"
+    )
+    guide-base-progress-bars(
+      v-if="section.id === 'baseProgressBar'"
+      :documentation="docs.baseProgressBar"
+    )
+    guide-base-social-logins(
+      v-if="section.id === 'baseSocialLogin'"
+      :documentation="docs.baseSocialLogin"
+    )
+    guide-field-checkboxes(
+      v-if="section.id === 'fieldCheckbox'"
+      :documentation="docs.fieldCheckbox"
+    )
+    guide-field-files(
+      v-if="section.id === 'fieldFile'"
+      :documentation="docs.fieldFile"
+    )
+    guide-field-inputs(
+      v-if="section.id === 'fieldInput'"
+      :documentation="docs.fieldInput"
+    )
+    guide-field-radios(
+      v-if="section.id === 'fieldRadio'"
+      :documentation="docs.fieldRadio"
+    )
+    guide-field-selects(
+      v-if="section.id === 'fieldSelect'"
+      :documentation="docs.fieldSelect"
+    )
+    guide-field-tabs(
+      v-if="section.id === 'fieldTabs'"
+      :documentation="docs.fieldTabs"
+    )
+    guide-field-textareas(
+      v-if="section.id === 'fieldTextarea'"
+      :documentation="docs.fieldTextarea"
+    )
+    guide-field-toggles(
+      v-if="section.id === 'fieldToggle'"
+      :documentation="docs.fieldToggle"
     )
   base-divider(
     color="black"
@@ -134,7 +134,7 @@ import GuideFieldTabs from "@/components/guide/GuideFieldTabs";
 import GuideFieldTextareas from "@/components/guide/GuideFieldTextareas";
 import GuideFieldToggles from "@/components/guide/GuideFieldToggles";
 import GuideInstall from "@/components/guide/GuideInstall";
-import GuideOptions from "@/components/guide/GuideOptions";
+import GuidePackageOptions from "@/components/guide/GuidePackageOptions";
 import TheFooter from "@/components/layouts/TheFooter";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheHeader from "@/components/layouts/TheHeader";
@@ -164,7 +164,7 @@ export default {
     GuideFieldTextareas,
     GuideFieldToggles,
     GuideInstall,
-    GuideOptions,
+    GuidePackageOptions,
     TheGithubButtons,
     TheFooter,
     TheHeader,
@@ -199,7 +199,7 @@ export default {
       // --> COMPONENTS <--
       sections: [
         {
-          id: "install",
+          id: "installation",
           headlines: {
             title: "INSTALLATION",
             description: "The dark side is calling you... Come and join us! 👻",
@@ -207,7 +207,7 @@ export default {
           }
         },
         {
-          id: "options",
+          id: "packageOptions",
           headlines: {
             title: "PACKAGE OPTIONS",
             description:
@@ -225,107 +225,9 @@ export default {
           }
         },
         {
-          id: "baseHeading",
-          headlines: {
-            title: "HEADINGS",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "baseButton",
-          headlines: {
-            title: "BUTTONS",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "baseBadge",
-          headlines: {
-            title: "BADGES",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "baseSocialLogin",
-          headlines: {
-            title: "SOCIAL LOGINS",
-            hasDocumentation: true
-          }
-        },
-        {
           id: "baseAlert",
           headlines: {
             title: "ALERTS",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "fieldInput",
-          headlines: {
-            title: "INPUTS",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "fieldSelect",
-          headlines: {
-            title: "SELECTS",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "fieldTextarea",
-          headlines: {
-            title: "TEXTAREAS",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "fieldCheckbox",
-          headlines: {
-            title: "CHECKBOXES",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "fieldRadio",
-          headlines: {
-            title: "RADIOS",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "fieldToggle",
-          headlines: {
-            title: "TOGGLES",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "fieldFile",
-          headlines: {
-            title: "FILE UPLOAD",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "fieldTabs",
-          headlines: {
-            title: "TABS",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "baseDivider",
-          headlines: {
-            title: "DIVIDERS",
-            hasDocumentation: true
-          }
-        },
-        {
-          id: "baseProgressBar",
-          headlines: {
-            title: "PROGRESS BARS",
             hasDocumentation: true
           }
         },
@@ -337,9 +239,107 @@ export default {
           }
         },
         {
+          id: "baseBadge",
+          headlines: {
+            title: "BADGES",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "baseButton",
+          headlines: {
+            title: "BUTTONS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "baseDivider",
+          headlines: {
+            title: "DIVIDERS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "baseHeading",
+          headlines: {
+            title: "HEADINGS",
+            hasDocumentation: true
+          }
+        },
+        {
           id: "baseIcon",
           headlines: {
             title: "ICONS FROM MATERIAL DESIGN",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "baseProgressBar",
+          headlines: {
+            title: "PROGRESS BARS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "baseSocialLogin",
+          headlines: {
+            title: "SOCIAL LOGINS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "fieldCheckbox",
+          headlines: {
+            title: "CHECKBOXES",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "fieldFile",
+          headlines: {
+            title: "FILE UPLOAD",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "fieldInput",
+          headlines: {
+            title: "INPUTS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "fieldRadio",
+          headlines: {
+            title: "RADIOS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "fieldSelect",
+          headlines: {
+            title: "SELECTS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "fieldTabs",
+          headlines: {
+            title: "TABS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "fieldTextarea",
+          headlines: {
+            title: "TEXTAREAS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "fieldToggle",
+          headlines: {
+            title: "TOGGLES",
             hasDocumentation: true
           }
         }
@@ -347,29 +347,7 @@ export default {
     };
   },
 
-  mounted() {
-    let hash = this.$route.hash;
-
-    if (hash) {
-      this.scrollToSection(hash.substr(1));
-    }
-  },
-
   methods: {
-    // --> HELPERS <--
-
-    scrollToSection(id) {
-      const section = this.$el.querySelector(`#${id}`);
-
-      if (section) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest"
-        });
-      }
-    },
-
     // --> EVENT LISTENERS <--
 
     onToggleDocumentation(section, visibility) {
@@ -384,6 +362,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-index";
 
 #{$c} {

@@ -6,7 +6,7 @@
 .c-guide-base-progress-bars
   div(
     v-if="!documentation"
-    class="c-guide-base-progress-bars__showroom o-elements"
+    class="c-guide-base-progress-bars__showroom o-elements o-elements--800max"
   )
     div(
       v-for="(progressBar, i) in progressBars"
@@ -178,6 +178,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-guide-base-progress-bars";
 
 #{$c} {
@@ -185,14 +186,6 @@ $c: ".c-guide-base-progress-bars";
     grid-gap: 30px;
     grid-template-columns: repeat(auto-fill, 100%);
     margin-bottom: 0;
-  }
-}
-
-@include mq($from: desktop) {
-  #{$c} {
-    #{$c}__showroom {
-      grid-template-columns: repeat(auto-fill, 800px);
-    }
   }
 }
 </style>

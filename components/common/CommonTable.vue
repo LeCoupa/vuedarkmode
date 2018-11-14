@@ -69,6 +69,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-common-table";
 
 #{$c} {

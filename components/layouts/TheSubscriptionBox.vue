@@ -89,6 +89,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-the-subscription-box";
 
 #{$c} {

@@ -205,6 +205,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-guide-headings";
 
 #{$c} {

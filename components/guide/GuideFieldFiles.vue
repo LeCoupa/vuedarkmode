@@ -234,6 +234,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-guide-field-files";
 
 #{$c} {

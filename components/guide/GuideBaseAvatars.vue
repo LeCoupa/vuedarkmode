@@ -254,6 +254,7 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// VARIABLES
 $c: ".c-guide-base-avatars";
 
 #{$c} {
