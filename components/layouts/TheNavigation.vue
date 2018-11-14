@@ -4,36 +4,49 @@
 
 <template lang="pug">
 .c-the-navigation
-  div(
-    v-for="category in categories"
-    class="c-the-navigation__category"
-  )
-    span(
-      @click="onTitleClick(category.id, category.items, $event)"
-      class="c-the-navigation__main"
+  .c-the-navigation__categories
+    div(
+      v-for="category in categories"
+      class="c-the-navigation__category"
     )
-      .c-the-navigation__title {{ category.title }}
-
-      base-icon(
-        v-if="category.items"
-        :class=`[
-          "c-the-navigation__arrow",
-          {
-            "c-the-navigation__arrow--opened": opened === category.id
-          }
-        ]`
-        name="arrow_left"
+      span(
+        @click="onTitleClick(category.id, category.items, $event)"
+        class="c-the-navigation__main"
       )
+        .c-the-navigation__title {{ category.title }}
 
-    ul(
-      v-if="category.items && opened === category.id"
-      class="c-the-navigation__items"
+        base-icon(
+          v-if="category.items"
+          :class=`[
+            "c-the-navigation__arrow",
+            {
+              "c-the-navigation__arrow--opened": opened === category.id
+            }
+          ]`
+          name="arrow_left"
+        )
+
+      ul(
+        v-if="category.items && opened === category.id"
+        class="c-the-navigation__items"
+      )
+        li(
+          v-for="item in category.items"
+          @click="onItemClick(item.id, $event)"
+          class="c-the-navigation__item"
+        ) {{ item.label }}
+
+  a(
+    class="c-the-navigation__contact"
+    href="https://www.nadarifki.com/"
+    target="_blank"
+  )
+    base-avatar(
+      cursor="pointer"
+      size="mini"
+      src="/images/docs/nada.jpeg"
     )
-      li(
-        v-for="item in category.items"
-        @click="onItemClick(item.id, $event)"
-        class="c-the-navigation__item"
-      ) {{ item.label }}
+    span.c-the-navigation__description Looking for a Vue.js / Nuxt.js freelancer? Ping me, I'm available! 👩‍🎨
 </template>
 
 <!-- *************************************************************************
@@ -42,10 +55,12 @@
 
 <script>
 // PROJECT
+import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
 import BaseIcon from "@/components/darkmode/base/BaseIcon";
 
 export default {
   components: {
+    BaseAvatar,
     BaseIcon
   },
 
@@ -92,74 +107,97 @@ $c: ".c-the-navigation";
 #{$c} {
   display: none;
   overflow-y: scroll;
+  flex-direction: column;
   box-sizing: border-box;
-  padding: 40px;
   width: 300px;
   border-right: 1px solid $oxford-blue;
   background: $ebony-clay-2;
   text-align: left;
   user-select: none;
 
-  #{$c}__category {
-    margin-bottom: 20px;
-    border-bottom: 1px solid $oxford-blue;
+  #{$c}__categories {
+    flex: 1;
+    padding: 40px 0 20px;
 
-    &:last-of-type {
-      margin-bottom: 0;
-    }
+    #{$c}__category {
+      margin: 0 40px 20px;
+      border-bottom: 1px solid $oxford-blue;
 
-    #{$c}__main {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
-
-      #{$c}__title {
-        flex: 1;
+      &:last-of-type {
+        margin-bottom: 0;
       }
 
-      #{$c}__arrow {
-        flex: 0 0 auto;
-        transform: rotate(0deg);
-        transition: all 200ms ease-in-out;
-
-        &--opened {
-          transform: rotate(-90deg);
-        }
-      }
-    }
-
-    #{$c}__items {
-      margin: 0 0 20px;
-      padding-left: 28px;
-      border-left: 1px dashed $oxford-blue;
-      list-style: none;
-
-      #{$c}__item {
-        margin-bottom: 15px;
-        color: $regent-st-blue;
+      #{$c}__main {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
         cursor: pointer;
 
-        &:last-of-type {
-          margin-bottom: 0;
+        #{$c}__title {
+          flex: 1;
         }
 
-        // --> INTERACTIONS <--
+        #{$c}__arrow {
+          flex: 0 0 auto;
+          transition: all 200ms ease-in-out;
+          transform: rotate(0deg);
 
-        &:hover {
-          color: $white;
+          &--opened {
+            transform: rotate(-90deg);
+          }
         }
       }
+
+      #{$c}__items {
+        margin: 0 0 20px;
+        padding-left: 28px;
+        border-left: 1px dashed $oxford-blue;
+        list-style: none;
+
+        #{$c}__item {
+          padding-bottom: 15px;
+          color: $regent-st-blue;
+          transition: all 200ms ease-in-out;
+          cursor: pointer;
+
+          &:last-of-type {
+            padding-bottom: 0;
+          }
+
+          // --> INTERACTIONS <--
+
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  #{$c}__contact {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    margin: 0 40px 20px;
+    background: $ebony-clay-2;
+    color: white;
+    user-select: none;
+
+    #{$c}__description {
+      margin-left: 20px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
     }
   }
 }
 
 @include mq($from: desktop) {
   #{$c} {
-    display: block;
+    display: flex;
   }
 }
 </style>
