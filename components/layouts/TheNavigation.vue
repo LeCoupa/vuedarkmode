@@ -10,11 +10,23 @@
   )
     span(
       @click="onTitleClick(category.id, category.items, $event)"
-      class="c-the-navigation__title"
-    ) {{ category.title }}
+      class="c-the-navigation__main"
+    )
+      .c-the-navigation__title {{ category.title }}
+
+      base-icon(
+        v-if="category.items"
+        :class=`[
+          "c-the-navigation__arrow",
+          {
+            "c-the-navigation__arrow--opened": opened === category.id
+          }
+        ]`
+        name="arrow_left"
+      )
 
     ul(
-      v-if="category.items && opened === category.id "
+      v-if="category.items && opened === category.id"
       class="c-the-navigation__items"
     )
       li(
@@ -29,7 +41,14 @@
      ************************************************************************* -->
 
 <script>
+// PROJECT
+import BaseIcon from "@/components/darkmode/base/BaseIcon";
+
 export default {
+  components: {
+    BaseIcon
+  },
+
   props: {
     categories: {
       type: Array,
@@ -89,13 +108,28 @@ $c: ".c-the-navigation";
       margin-bottom: 0;
     }
 
-    #{$c}__title {
-      display: block;
+    #{$c}__main {
+      display: flex;
+      align-items: center;
       margin-bottom: 20px;
       text-transform: uppercase;
       font-weight: bold;
       font-size: 15px;
       cursor: pointer;
+
+      #{$c}__title {
+        flex: 1;
+      }
+
+      #{$c}__arrow {
+        flex: 0 0 auto;
+        transform: rotate(0deg);
+        transition: all 200ms ease-in-out;
+
+        &--opened {
+          transform: rotate(-90deg);
+        }
+      }
     }
 
     #{$c}__items {
@@ -109,12 +143,14 @@ $c: ".c-the-navigation";
         color: $regent-st-blue;
         cursor: pointer;
 
-        &:hover {
-          color: $azure-radiance;
-        }
-
         &:last-of-type {
           margin-bottom: 0;
+        }
+
+        // --> INTERACTIONS <--
+
+        &:hover {
+          color: $white;
         }
       }
     }
