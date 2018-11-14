@@ -1,0 +1,53 @@
+/**************************************************************************
+LIBRARIES > ANIMATE
+Extending https://github.com/daneden/animate.css
+***************************************************************************/
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  animation-iteration-count: infinite;
+}
+
+.animated.fast {
+  animation-duration: 0.5s;
+}
+
+.animated.slow {
+  animation-duration: 2s;
+}
+
+// FADE IN
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+// FADE OUT
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+}
