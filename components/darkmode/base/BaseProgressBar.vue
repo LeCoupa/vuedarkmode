@@ -95,6 +95,7 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
   #{$c}__content {
     display: flex;
     margin-bottom: 10px;
+    color: $white;
 
     #{$c}__title,
     #{$c}__details {
