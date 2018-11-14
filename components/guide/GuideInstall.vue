@@ -88,7 +88,7 @@
   )
     code(class="html")
       | &lt;script src="https://cdn.jsdelivr.net/npm/vue@2.5/dist/vue.min.js"&gt;&lt;/script&gt;
-      | &lt;script src="https://cdn.jsdelivr.net/npm/vuedarkmode@0.1/dist/vuedarkmode.min.js"&gt;&lt;/script&gt;
+      | &lt;script src="https://cdn.jsdelivr.net/npm/vuedarkmode@latest/dist/vuedarkmode.min.js"&gt;&lt;/script&gt;
 
   base-heading(
     type="p"
