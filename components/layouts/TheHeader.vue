@@ -59,6 +59,10 @@ export default {
 $c: ".c-the-header";
 
 #{$c} {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 800px;
+
   #{$c}__divider {
     margin: 20px auto 15px;
   }
