@@ -5,7 +5,7 @@
 <template lang="pug">
 footer.c-the-footer
   span.c-the-footer__line
-    | Made by
+    | ⚡️Made by
     | &#32;
     a(
       class="c-the-footer__link"
@@ -17,7 +17,7 @@ footer.c-the-footer
       class="c-the-footer__link"
       href="https://twitter.com/LeCoupa"
       target="_blank"
-    ) Julien Le Coupanec.
+    ) Julien Le Coupanec ⚡️
 
   the-logo(
     size="50px"
