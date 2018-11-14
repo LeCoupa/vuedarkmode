@@ -4,14 +4,14 @@
 
 <template lang="pug">
 .l-default
+  the-github-corner(
+    link="https://github.com/LeCoupa/vuedarkmode"
+  )
   .l-default__inner
-    the-github-corner(
-      link="https://github.com/LeCoupa/vuedarkmode"
-    )
-    the-shortcuts-bar(
-      class="l-default__shortcuts-bar"
-    )
-    nuxt
+    the-navigation
+
+    .l-default__content
+      nuxt
 </template>
 
 <!-- *************************************************************************
@@ -20,13 +20,13 @@
 
 <script>
 // PROJECT
-import TheShortcutsBar from "@/components/layouts/TheShortcutsBar";
 import TheGithubCorner from "@/components/layouts/TheGithubCorner";
+import TheNavigation from "@/components/layouts/TheNavigation";
 
 export default {
   components: {
-    TheShortcutsBar,
-    TheGithubCorner
+    TheGithubCorner,
+    TheNavigation
   }
 };
 </script>
@@ -54,7 +54,6 @@ $c: ".l-default";
 html {
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 60px 0;
   min-height: 100%;
   background-color: $mirage;
   color: $white;
@@ -73,8 +72,10 @@ html {
     margin: 0 40px;
 
     #{$c}__inner {
-      margin: 0 auto;
-      max-width: 1050px;
+      #{$c}__content {
+        margin: 60px auto;
+        max-width: 1050px;
+      }
     }
   }
 }
@@ -82,11 +83,5 @@ html {
 a {
   text-decoration: none;
   cursor: pointer;
-}
-
-@include mq($from: tablet) {
-  html {
-    padding-bottom: 100px;
-  }
 }
 </style>
