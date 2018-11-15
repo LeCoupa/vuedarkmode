@@ -117,7 +117,7 @@ You are more than welcome to contribute to Vue Dark Mode. Just submit changes vi
 
 ## Who is using Vue Dark Mode?
 
-Are you using Vue Dark Mode on one of your project? [Tweet me](https://twitter.com/lecoupa) so we can add your logo here. 👻
+Are you using Vue Dark Mode on one of your projects? [Tweet me](https://twitter.com/lecoupa) so we can add your logo here. 👻
 
 ## License
 
