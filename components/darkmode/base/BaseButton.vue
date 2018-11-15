@@ -211,6 +211,7 @@ $sizes: mini, small, default, medium, large;
 
 #{$c} {
   display: inline-block;
+  outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-position: center;
   color: $white;
@@ -250,13 +251,14 @@ $sizes: mini, small, default, medium, large;
           color: $oxford-blue;
         }
 
-        &:active {
+        &:active,
+        &:focus {
           @if ($color == black) {
             background-color: map-get($mainColors, $color);
           } @else if ($color == white) {
             background-color: darken(map-get($mainColors, $color), 15%);
-          } @else if ($color == orange or $color == red) {
-            background-color: lighten(map-get($mainColors, $color), 20%);
+          } @else if ($color == green) {
+            background-color: lighten(map-get($mainColors, $color), 5%);
           } @else {
             background-color: lighten(map-get($mainColors, $color), 10%);
           }
