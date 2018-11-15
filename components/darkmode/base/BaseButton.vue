@@ -211,7 +211,6 @@ $sizes: mini, small, default, medium, large;
 
 #{$c} {
   display: inline-block;
-  outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-position: center;
   color: $white;
@@ -251,8 +250,7 @@ $sizes: mini, small, default, medium, large;
           color: $oxford-blue;
         }
 
-        &:active,
-        &:focus {
+        &:active {
           @if ($color == black) {
             background-color: map-get($mainColors, $color);
           } @else if ($color == white) {
@@ -260,7 +258,7 @@ $sizes: mini, small, default, medium, large;
           } @else if ($color == green) {
             background-color: lighten(map-get($mainColors, $color), 5%);
           } @else {
-            background-color: lighten(map-get($mainColors, $color), 10%);
+            background-color: lighten(map-get($mainColors, $color), 15%);
           }
         }
       }
@@ -343,7 +341,6 @@ $sizes: mini, small, default, medium, large;
       &#{$c}--#{$color} {
         border-color: map-get($mainColors, $color);
 
-        &:focus,
         &:hover {
           @if ($color == white) {
             border-color: $azure-radiance;
