@@ -198,11 +198,18 @@ export default {
             }
           },
           {
+            name: "keypress",
+            parameters: "id, event",
+            details: {
+              description: "Fires when a key is pressed on the element."
+            }
+          },
+          {
             name: "mousedown",
             parameters: "id, event",
             details: {
               description:
-                "Fires when a mouse button is pressed down on an element."
+                "Fires when a mouse button is pressed down on the element."
             }
           },
           {
@@ -210,7 +217,7 @@ export default {
             parameters: "id, event",
             details: {
               description:
-                "The event occurs when the pointer is moved onto an element."
+                "The event occurs when the pointer is moved onto the element."
             }
           },
           {
@@ -218,7 +225,7 @@ export default {
             parameters: "id, event",
             details: {
               description:
-                "The event occurs when the pointer is moved out of an element.s"
+                "The event occurs when the pointer is moved out of the element."
             }
           },
           {
@@ -226,7 +233,7 @@ export default {
             parameters: "id, event",
             details: {
               description:
-                "Fires when the mouse pointer is moving while it is over an element."
+                "Fires when the mouse pointer is moving while it is over the element."
             }
           },
           {
@@ -234,14 +241,15 @@ export default {
             parameters: "id, event",
             details: {
               description:
-                "Fires when the mouse pointer moves out of an element."
+                "Fires when the mouse pointer moves out of the element."
             }
           },
           {
             name: "mouseover",
             parameters: "id, event",
             details: {
-              description: "Fires when the mouse pointer moves over an element."
+              description:
+                "Fires when the mouse pointer moves over the element."
             }
           },
           {
@@ -249,7 +257,7 @@ export default {
             parameters: "id, event",
             details: {
               description:
-                "Fires when a mouse button is released over an element."
+                "Fires when a mouse button is released over the element."
             }
           }
         ]

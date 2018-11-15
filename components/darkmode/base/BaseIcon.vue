@@ -6,6 +6,7 @@
 i(
   @click="onClick"
   @dblclick="onDoubleClick"
+  @keypress="onKeypress"
   @mousedown="onMouseDown"
   @mouseenter="onMouseEnter"
   @mouseleave="onMouseLeave"
@@ -65,6 +66,10 @@ export default {
 
     onDoubleClick(event) {
       this.$emit("dblclick", this.id, event);
+    },
+
+    onKeypress(event) {
+      this.$emit("keypress", this.id, event);
     },
 
     onMouseDown(event) {
