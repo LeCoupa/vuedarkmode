@@ -108,6 +108,7 @@ export default {
 <style lang="scss">
 // VARIABLES
 $c: ".c-the-navigation";
+$gutter: 40px;
 
 #{$c} {
   display: none;
@@ -125,7 +126,7 @@ $c: ".c-the-navigation";
     padding: 40px 0 20px;
 
     #{$c}__category {
-      margin: 0 40px 20px;
+      margin: 0 $gutter 20px;
       border-bottom: 1px solid $oxford-blue;
 
       &:last-of-type {
@@ -158,7 +159,7 @@ $c: ".c-the-navigation";
 
       #{$c}__items {
         margin: 0 0 20px;
-        padding-left: 28px;
+        padding-left: 25px;
         border-left: 1px dashed $oxford-blue;
         list-style: none;
 
@@ -186,7 +187,9 @@ $c: ".c-the-navigation";
     display: flex;
     align-items: center;
     flex: 0 0 auto;
-    margin: 0 40px 20px;
+    margin: 0 $gutter;
+    padding: 20px 0;
+    border-top: 1px solid $oxford-blue;
     background: $ebony-clay-2;
     color: white;
     user-select: none;
