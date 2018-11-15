@@ -133,6 +133,8 @@ $colors: black, blue, green, red, orange, white;
       }
 
       #{$c}__icon--right {
+        outline: 0;
+
         &:focus,
         &:hover {
           @if ($color == white or $color == black) {
