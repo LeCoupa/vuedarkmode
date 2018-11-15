@@ -8,6 +8,8 @@
 
 - BaseHeading: type prop now accepts "small" when you need to display smaller content.
 
+- BaseProgressBar: ability to display an additional description when the user hovers.
+
 ## 0.1.0 - 2018-11-05
 
 ### Added
