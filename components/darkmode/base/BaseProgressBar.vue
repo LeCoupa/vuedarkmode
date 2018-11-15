@@ -6,7 +6,10 @@
 div(
   :class=`[
     "dm-base-progress-bar",
-    "dm-base-progress-bar--" + color
+    "dm-base-progress-bar--" + color,
+    {
+      "dm-base-progress-bar--with-details-hover": detailsHover
+    }
   ]`
 )
   span(
@@ -22,6 +25,11 @@ div(
       v-if="details"
       class="dm-base-progress-bar__details"
     ) {{ details }}
+
+    span(
+      v-if="detailsHover"
+      class="dm-base-progress-bar__details-hover"
+    ) {{ detailsHover }}
 
   .dm-base-progress-bar__bar
     div(
@@ -58,6 +66,10 @@ export default {
       }
     },
     details: {
+      type: String,
+      default: null
+    },
+    detailsHover: {
       type: String,
       default: null
     },
@@ -98,7 +110,8 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
     color: $white;
 
     #{$c}__title,
-    #{$c}__details {
+    #{$c}__details,
+    #{$c}__details-hover {
       flex: 1;
       line-height: 22px;
     }
@@ -108,7 +121,8 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
       font-weight: bold;
     }
 
-    #{$c}__details {
+    #{$c}__details,
+    #{$c}__details-hover {
       text-align: right;
     }
   }
@@ -134,6 +148,28 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
       #{$c}__bar {
         #{$c}__progress {
           background-color: map-get($mainColors, $color);
+        }
+      }
+    }
+  }
+
+  // --> BOOLEANS <--
+
+  &--with-details-hover {
+    #{$c}__content {
+      #{$c}__details-hover {
+        display: none;
+      }
+    }
+
+    &:hover {
+      #{$c}__content {
+        #{$c}__details {
+          display: none;
+        }
+
+        #{$c}__details-hover {
+          display: block;
         }
       }
     }

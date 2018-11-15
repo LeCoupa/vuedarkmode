@@ -16,6 +16,7 @@
       base-progress-bar(
         :color="progressBar.color"
         :details="progressBar.details"
+        :details-hover="progressBar.detailsHover"
         :progress="(i + 1) * 10"
         :title="progressBar.title"
       )
@@ -65,42 +66,50 @@ export default {
         {
           color: "blue",
           title: "Loading",
-          details: "10%"
+          details: "10%",
+          detailsHover: "👻 Hovering"
         },
         {
           color: "green",
           title: "Progression",
-          details: "20%"
+          details: "20%",
+          detailsHover: "👻 Hovering"
         },
         {
           color: "red",
           title: "Experience",
-          details: "30%"
+          details: "30%",
+          detailsHover: "👻 Hovering"
         },
         {
           color: "orange",
           title: "XPs until next level",
-          details: "2/5"
+          details: "2/5",
+          detailsHover: "👻 Hovering"
         },
         {
           color: "turquoise",
           title: "XPs until next level",
-          details: "5/10"
+          details: "5/10",
+          detailsHover: "👻 Hovering"
         },
         {
           color: "purple",
           title: "XPs until next level",
-          details: "6/10"
+          details: "6/10",
+          detailsHover: "👻 Hovering"
         },
         {
           color: "black",
           title: "Remaining Steps",
-          details: "7/10"
+          details: "7/10",
+          detailsHover: "👻 Hovering"
         },
         {
           color: "white",
           title: "Completed Steps",
-          details: "8/10"
+          details: "8/10",
+          detailsHover: "👻 Hovering"
         }
       ],
       props: {
@@ -143,6 +152,17 @@ export default {
             details: {
               description:
                 "Specify the description to display on the right side of the progress bar."
+            }
+          },
+          {
+            name: "details-hover",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the description to display on the right side when the usering is hovering the progress bar."
             }
           },
           {
