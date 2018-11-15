@@ -23,10 +23,12 @@ div(
   base-icon(
     v-if="closable"
     @click="onClose"
+    @keypress="onTabKeypress"
     class="dm-base-alert__icon dm-base-alert__icon--right"
     cursor="pointer"
     name="close"
     size="20px"
+    tabindex="0"
   )
 </template>
 
@@ -65,7 +67,16 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClose(event) {
+      console.log("hey");
       this.$emit("close", event);
+    },
+
+    onTabKeypress(id, event) {
+      event.preventDefault();
+
+      if (event.which === 32) {
+        event.target.click();
+      }
     }
   }
 };
@@ -122,6 +133,7 @@ $colors: black, blue, green, red, orange, white;
       }
 
       #{$c}__icon--right {
+        &:focus,
         &:hover {
           @if ($color == white or $color == black) {
             color: $crimson !important;
