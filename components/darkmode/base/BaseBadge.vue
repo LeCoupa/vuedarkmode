@@ -67,8 +67,9 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(id, event) {
-      this.$emit("click", id, event);
-      console.log("hey");
+      if (this.clickable) {
+        this.$emit("click", id, event);
+      }
     },
 
     onKeypress(event) {
