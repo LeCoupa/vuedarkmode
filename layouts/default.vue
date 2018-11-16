@@ -207,8 +207,17 @@ html {
   -ms-text-size-adjust: 100%;
 
   a {
+    outline: 0;
     text-decoration: none;
     cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus {
+      box-shadow: 0 2px 0 $azure-radiance;
+    }
   }
 
   #{$c} {

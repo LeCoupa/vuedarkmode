@@ -17,7 +17,8 @@ footer.c-the-footer
       class="c-the-footer__link"
       href="https://twitter.com/LeCoupa"
       target="_blank"
-    ) Julien Le Coupanec ⚡️
+    ) Julien Le Coupanec
+    | &#32;⚡️
 
   the-logo(
     size="50px"
