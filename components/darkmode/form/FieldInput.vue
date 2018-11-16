@@ -317,6 +317,7 @@ $statuses: error, normal, success, warning;
       border: none;
       background-color: transparent;
       color: $white;
+      outline: 0;
 
       &::placeholder {
         color: $nepal;
@@ -324,10 +325,6 @@ $statuses: error, normal, success, warning;
 
       &:disabled {
         cursor: not-allowed;
-      }
-
-      &:focus {
-        outline: none;
       }
     }
   }

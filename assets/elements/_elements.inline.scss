@@ -5,7 +5,7 @@ ELEMENTS > HEADINGS
 a {
   color: $azure-radiance;
   text-decoration: none;
-  transition: color ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
   font-weight: 500;
 
   &:hover {

@@ -235,6 +235,7 @@ $sizes: mini, small, default, medium, large;
       &:focus {
         box-shadow: 0 0 0 2px $mirage,
           0 0 0 3px lighten(map-get($mainColors, $color), 10%);
+        transition: box-shadow ease-in-out 0s;
       }
 
       // Reverse buttons have their own defined style (see below)

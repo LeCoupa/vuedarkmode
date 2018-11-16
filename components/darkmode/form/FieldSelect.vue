@@ -242,6 +242,7 @@ $statuses: error, normal, success, warning;
       flex: 1;
       padding: 0 35px 0 15px;
       height: 100%;
+      outline: 0;
       border: none;
       background-color: transparent;
       background-image: none;
@@ -252,10 +253,6 @@ $statuses: error, normal, success, warning;
 
       &:disabled {
         cursor: not-allowed;
-      }
-
-      &:focus {
-        outline: none;
       }
     }
   }

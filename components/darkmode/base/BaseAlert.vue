@@ -134,7 +134,7 @@ $colors: black, blue, green, red, orange, white;
       #{$c}__icon--right {
         outline: 0;
         border-radius: 100%;
-        transition: transform 200ms ease-in-out;
+        transition: all 200ms ease-in-out;
 
         &:hover {
           @if ($color == red) {
@@ -145,6 +145,8 @@ $colors: black, blue, green, red, orange, white;
         }
 
         &:focus {
+          transition: box-shadow ease-in-out 0s;
+
           @if ($color == white) {
             box-shadow: 0 0 0 2px map-get($mainColors, $color),
               0 0 0 3px $oxford-blue;

@@ -241,6 +241,7 @@ $statuses: error, normal, success, warning;
       padding: 10px 15px;
       width: 100%;
       height: 100%;
+      outline: 0;
       border: none;
       background-color: transparent;
       color: $white;
@@ -252,10 +253,6 @@ $statuses: error, normal, success, warning;
 
       &:disabled {
         cursor: not-allowed;
-      }
-
-      &:focus {
-        outline: none;
       }
     }
   }

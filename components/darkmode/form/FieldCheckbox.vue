@@ -283,6 +283,7 @@ $statuses: error, normal, success, warning;
           &:focus {
             box-shadow: 0 0 0 2px $mirage,
               0 0 0 3px map-get($statusColors, $status);
+            transition: box-shadow ease-in-out 0s;
           }
         }
       }

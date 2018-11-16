@@ -217,6 +217,7 @@ html {
 
     &:focus {
       box-shadow: 0 2px 0 $azure-radiance;
+      transition: box-shadow ease-in-out 0s;
     }
   }
 
