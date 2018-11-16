@@ -14,14 +14,19 @@ i(
   @mouseout="onMouseOut"
   @mouseover="onMouseOver"
   @mouseup="onMouseUp"
+  :class=`[
+    "dm-base-icon",
+    {
+      "dm-base-icon--clickable": clickable
+    }
+  ]`
   :id="id"
   :style=`{
     color: color,
-    cursor: cursor,
     fontSize: size
   }`
+  :tabindex="clickable ? '0' : null"
   aria-hidden="true"
-  class="dm-base-icon"
 ) {{ name }}
 </template>
 
@@ -32,16 +37,13 @@ i(
 <script>
 export default {
   props: {
+    clickable: {
+      type: Boolean,
+      default: false
+    },
     color: {
       type: String,
       default: "inherit"
-    },
-    cursor: {
-      type: String,
-      default: "inherit",
-      validator(x) {
-        return ["default", "inherit", "pointer"].indexOf(x) !== -1;
-      }
     },
     id: {
       type: String,
@@ -115,6 +117,8 @@ export default {
 // https://google.github.io/material-design-icons/#icon-font-for-the-web
 .dm-base-icon {
   display: inline-block;
+  outline: 0;
+  border-radius: 2px;
   color: inherit;
   text-transform: none;
   text-rendering: optimizeLegibility;
@@ -130,6 +134,17 @@ export default {
   user-select: none;
 
   -webkit-font-smoothing: antialiased;
+
+  // --> BOOLEANS <--
+
+  &--clickable {
+    cursor: pointer;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $mirage, 0 0 0 3px $azure-radiance;
+      transition: box-shadow ease-in-out 0s;
+    }
+  }
 }
 
 @font-face {

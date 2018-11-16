@@ -6,6 +6,10 @@
 
 - BaseAvatar: new prop to set the image as clickable or not.
 
+- BaseBadge: new prop to set the image as clickable or not.
+
+- BaseIcon: new prop to set the image as clickable or not.
+
 ### Changed
 
 - BaseButton: rework style on hover and focus.

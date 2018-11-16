@@ -13,6 +13,7 @@
         v-for="(icon, i) in icons"
         v-if="i < maxIcons"
         :aria-label="icon"
+        :clickable="true"
         :key="icon"
         :name="icon"
         class="c-guide-base-icons__icon hint--top hint--no-animate"
@@ -110,6 +111,16 @@ export default {
         ],
         data: [
           {
+            name: "clickable",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Whether the icon is clickable or not."
+            }
+          },
+          {
             name: "color",
             type: {
               type: "String",
@@ -117,18 +128,6 @@ export default {
             },
             details: {
               description: "Specify the color of the icon."
-            }
-          },
-          {
-            name: "cursor",
-            type: {
-              type: "String",
-              additional: "Default: null"
-            },
-            details: {
-              description:
-                "Specify the shape of the mouse cursor when hovering the icon.",
-              values: '"default" | "pointer"'
             }
           },
           {
