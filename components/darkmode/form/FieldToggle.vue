@@ -165,7 +165,7 @@ $statuses: error, normal, success, warning;
         position: absolute;
         display: inline-block;
         box-sizing: border-box;
-        transition: all ease-in-out 0.3s;
+        transition: all ease-in-out 300ms;
       }
 
       &:before {

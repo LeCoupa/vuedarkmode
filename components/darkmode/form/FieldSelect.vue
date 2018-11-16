@@ -219,7 +219,7 @@ $statuses: error, normal, success, warning;
     display: flex;
     overflow: hidden;
     align-items: center;
-    transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 200ms;
 
     #{$c}__option {
       color: $black;

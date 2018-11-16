@@ -228,7 +228,7 @@ $statuses: error, normal, success, warning;
   #{$c}__container {
     position: relative;
     display: flex;
-    transition: all ease-in-out 0.2s;
+    transition: all ease-in-out 200ms;
 
     #{$c}__icon {
       position: absolute;

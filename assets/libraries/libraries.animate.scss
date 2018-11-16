@@ -4,7 +4,7 @@ Extending https://github.com/daneden/animate.css
 ***************************************************************************/
 
 .animated {
-  animation-duration: 1s;
+  animation-duration: 1000ms;
   animation-fill-mode: both;
 }
 
@@ -13,11 +13,11 @@ Extending https://github.com/daneden/animate.css
 }
 
 .animated.fast {
-  animation-duration: 0.5s;
+  animation-duration: 500ms;
 }
 
 .animated.slow {
-  animation-duration: 2s;
+  animation-duration: 2000ms;
 }
 
 // FADE IN

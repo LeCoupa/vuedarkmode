@@ -159,6 +159,7 @@ $statuses: error, normal, success, warning;
       outline: 0;
       border: none;
       border-radius: 100%;
+      transition: all ease-in-out 200ms;
       -webkit-appearance: none;
       cursor: pointer;
 
@@ -167,7 +168,7 @@ $statuses: error, normal, success, warning;
         position: absolute;
         display: inline-block;
         box-sizing: border-box;
-        transition: all ease-in-out 0.2s;
+        transition: all ease-in-out 200ms;
       }
 
       &:before {
