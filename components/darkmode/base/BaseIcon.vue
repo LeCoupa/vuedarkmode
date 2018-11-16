@@ -63,7 +63,9 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      this.$emit("click", this.id, event);
+      if (this.clickable) {
+        this.$emit("click", this.id, event);
+      }
     },
 
     onDoubleClick(event) {
@@ -71,6 +73,11 @@ export default {
     },
 
     onKeypress(event) {
+      if (this.clickable && event.which === 32) {
+        event.preventDefault();
+        event.target.click();
+      }
+
       this.$emit("keypress", this.id, event);
     },
 
