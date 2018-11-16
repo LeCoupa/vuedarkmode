@@ -211,13 +211,14 @@ $sizes: mini, small, default, medium, large;
 
 #{$c} {
   display: inline-block;
+  outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-position: center;
   color: $white;
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all ease-in-out 0.5s;
+  transition: all 250ms ease-in-out;
   user-select: none;
   cursor: pointer;
 
@@ -231,6 +232,11 @@ $sizes: mini, small, default, medium, large;
 
   @each $color in $colors {
     &--#{$color} {
+      &:focus {
+        box-shadow: 0 0 0 2px $mirage,
+          0 0 0 3px lighten(map-get($mainColors, $color), 10%);
+      }
+
       // Reverse buttons have their own defined style (see below)
       &:not(#{$c}--reverse) {
         background: map-get($mainColors, $color)
@@ -248,6 +254,18 @@ $sizes: mini, small, default, medium, large;
             center/15000%;
         } @else if ($color == white) {
           color: $oxford-blue;
+        }
+
+        &:hover {
+          @if ($color == black) {
+            background-color: map-get($mainColors, $color);
+          } @else if ($color == white) {
+            background-color: darken(map-get($mainColors, $color), 10%);
+          } @else if ($color == green) {
+            background-color: lighten(map-get($mainColors, $color), 5%);
+          } @else {
+            background-color: lighten(map-get($mainColors, $color), 10%);
+          }
         }
 
         &:active {
