@@ -156,7 +156,9 @@ $statuses: error, normal, success, warning;
       position: relative;
       margin-right: 8px;
       margin-bottom: 0;
+      outline: 0;
       border: none;
+      border-radius: 100%;
       -webkit-appearance: none;
       cursor: pointer;
 
@@ -247,6 +249,11 @@ $statuses: error, normal, success, warning;
               border-color: map-get($statusColors, $status);
               background: map-get($statusColors, $status);
             }
+          }
+
+          &:focus {
+            box-shadow: 0 0 0 2px $mirage,
+              0 0 0 3px map-get($statusColors, $status);
           }
         }
       }

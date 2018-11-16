@@ -20,6 +20,8 @@
 
 - FieldFile: rework style on focus.
 
+- FieldRadio: rework style on focus.
+
 ## 0.1.0 - 2018-11-05
 
 ### Added
