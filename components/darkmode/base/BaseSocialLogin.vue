@@ -76,6 +76,7 @@ $sizes: small, large;
 
 #{$c} {
   display: inline-block;
+  outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   background-position: center;
@@ -83,7 +84,7 @@ $sizes: small, large;
   color: $white;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all ease-in-out 0.5s;
+  transition: all 250ms ease-in-out;
   user-select: none;
   cursor: pointer;
 
@@ -93,10 +94,10 @@ $sizes: small, large;
     justify-content: center;
 
     #{$c}__icon {
-      background-repeat: no-repeat;
       display: inline-block;
       width: 20px;
       height: 20px;
+      background-repeat: no-repeat;
     }
 
     #{$c}__label {
@@ -118,6 +119,15 @@ $sizes: small, large;
           map-get($socialColors, $network) 1%
         )
         center/15000%;
+
+      &:hover {
+        background-color: lighten(map-get($socialColors, $network), 10%);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px $mirage,
+          0 0 0 3px lighten(map-get($socialColors, $network), 10%);
+      }
 
       &:active {
         background-color: lighten(map-get($socialColors, $network), 10%);
