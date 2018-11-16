@@ -77,6 +77,7 @@ $c: ".c-the-logo";
 #{$c} {
   display: block;
   margin: 0 auto;
+  border-radius: 4px;
   outline: 0;
 
   #{$c}__background {

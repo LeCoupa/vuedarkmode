@@ -127,7 +127,6 @@ $sizes: small, large;
       &:focus {
         box-shadow: 0 0 0 2px $mirage,
           0 0 0 3px lighten(map-get($socialColors, $network), 10%);
-        transition: box-shadow ease-in-out 0s;
       }
 
       &:active {
