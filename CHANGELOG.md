@@ -2,9 +2,11 @@
 
 ### Added
 
-- New BaseAlert component.
+- BaseAlert: new component.
 
 ### Changed
+
+- BaseButton: rework focused style.
 
 - BaseHeading: type prop now accepts "small" when you need to display smaller content.
 
@@ -28,35 +30,35 @@
 
 ### Added
 
-- New BaseHeading component.
+- BaseHeading: new component.
 
-- New BaseButton component.
+- BaseButton: new component.
 
-- New BaseSocialLogin component.
+- BaseSocialLogin: new component.
 
-- New FieldInput component.
+- FieldInput: new component.
 
-- New FieldSelect component.
+- FieldSelect: new component.
 
-- New FielTextarea component.
+- FielTextarea: new component.
 
-- New FieldCheckbox component.
+- FieldCheckbox: new component.
 
-- New FieldRadio component.
+- FieldRadio: new component.
 
-- New FieldToggle component.
+- FieldToggle: new component.
 
-- New FieldFile component.
+- FieldFile: new component.
 
-- New FieldTabs component.
+- FieldTabs: new component.
 
-- New BaseDivider component.
+- BaseDivider: new component.
 
-- New BaseProgressBar component.
+- BaseProgressBar: new component.
 
-- New BaseAvatar component.
+- BaseAvatar: new component.
 
-- New BaseIcon component.
+- BaseIcon: new component.
 
 ## Questions
 
