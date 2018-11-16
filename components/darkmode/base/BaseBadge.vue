@@ -5,12 +5,17 @@
 <template lang="pug">
 span(
   @click="onClick(id, $event)"
+  @keypress.prevent="onKeypress"
   :class=`[
     "dm-base-badge",
     "dm-base-badge--" + color,
-    "dm-base-badge--" + size
+    "dm-base-badge--" + size,
+    {
+      "dm-base-badge--clickable": clickable
+    }
   ]`
   :id="id"
+  :tabindex="clickable ? '0' : null"
 ): slot
 </template>
 
@@ -21,6 +26,10 @@ span(
 <script>
 export default {
   props: {
+    clickable: {
+      type: Boolean,
+      default: false
+    },
     color: {
       type: String,
       default: "blue",
@@ -59,6 +68,13 @@ export default {
 
     onClick(id, event) {
       this.$emit("click", id, event);
+      console.log("hey");
+    },
+
+    onKeypress(event) {
+      if (event.which === 32) {
+        event.target.click();
+      }
     }
   }
 };
@@ -79,6 +95,7 @@ $sizes: mini, small, default, medium, large;
 
 #{$c} {
   display: inline-block;
+  outline: 0;
   border-width: 1px;
   border-style: solid;
   border-radius: 100px;
@@ -93,6 +110,10 @@ $sizes: mini, small, default, medium, large;
   @each $color in $colors {
     &--#{$color} {
       border-color: map-get($mainColors, $color);
+
+      &:focus {
+        box-shadow: 0 0 0 2px $mirage, 0 0 0 3px map-get($mainColors, $color);
+      }
     }
   }
 
@@ -106,6 +127,12 @@ $sizes: mini, small, default, medium, large;
       font-size: 12 + (1px * $i);
       line-height: 20px + (2px * $i);
     }
+  }
+
+  // --> BOOLEANS <--
+
+  &--clickable {
+    cursor: pointer;
   }
 }
 </style>

@@ -19,6 +19,7 @@
         class="o-elements__item"
       )
         base-badge(
+          :clickable="true"
           :color="color"
           :size="size"
         ) {{ size }}
@@ -109,6 +110,16 @@ export default {
           }
         ],
         data: [
+          {
+            name: "clickable",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Whether the icon is clickable or not."
+            }
+          },
           {
             name: "color",
             type: {
