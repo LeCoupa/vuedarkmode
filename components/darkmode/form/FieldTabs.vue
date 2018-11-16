@@ -193,7 +193,7 @@ $statuses: error, normal, success, warning;
     display: inline-block;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
     font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+      sans-serif;
     cursor: pointer;
 
     #{$c}__tab {
@@ -258,7 +258,7 @@ $statuses: error, normal, success, warning;
             position: relative;
             z-index: 2;
             box-shadow: 0 0 0 2px $mirage,
-            0 0 0 3px map-get($statusColors, $status);
+              0 0 0 3px map-get($statusColors, $status);
           }
 
           &--active {
@@ -270,16 +270,16 @@ $statuses: error, normal, success, warning;
           &--active-previous {
             // !important overrides first-of-type and last-of-type
             border-left-color: rgba(
-            map-get($statusColors, $status),
-            0.25
+              map-get($statusColors, $status),
+              0.25
             ) !important;
           }
 
           &--active-next {
             // !important overrides first-of-type and last-of-type
             border-right-color: rgba(
-            map-get($statusColors, $status),
-            0.25
+              map-get($statusColors, $status),
+              0.25
             ) !important;
           }
         }
@@ -302,5 +302,4 @@ $statuses: error, normal, success, warning;
     }
   }
 }
-
 </style>
