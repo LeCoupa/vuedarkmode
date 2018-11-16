@@ -11,6 +11,7 @@ div(
     {
       "dm-base-avatar--bordered": bordered,
       "dm-base-avatar--circular": circular,
+      "dm-base-avatar--clickable": clickable,
       "dm-base-avatar--complementaries": complementaries
     }
   ]`
@@ -18,12 +19,9 @@ div(
 )
   span(
     @keypress.prevent="onKeypress"
-    :style=`{
-      backgroundImage: "url(" + src + ")",
-      cursor: cursor
-    }`
+    :style=`{ backgroundImage: "url(" + src + ")" }`
+    :tabindex="clickable ? '0' : null"
     class="dm-base-avatar__image"
-    tabindex="0"
   )
     div(
       v-if="complementaries"
@@ -68,16 +66,13 @@ export default {
       type: Boolean,
       default: true
     },
+    clickable: {
+      type: Boolean,
+      default: false
+    },
     complementaries: {
       type: Array,
       default: null
-    },
-    cursor: {
-      type: String,
-      default: "default",
-      validator(x) {
-        return ["default", "pointer"].indexOf(x) !== -1;
-      }
     },
     description: {
       type: String,
@@ -107,7 +102,9 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      this.$emit("click", this.id, event);
+      if (this.clickable) {
+        this.$emit("click", this.id, event);
+      }
     },
 
     onKeypress(event) {
@@ -141,24 +138,26 @@ $sizes: mini, small, default, medium, large, huge;
   #{$c}__image {
     display: inline-block;
     box-sizing: border-box;
+    outline: 0;
     background-size: cover;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
     user-select: none;
-  }
+    cursor: default;
 
-  #{$c}__complementaries {
-    display: flex;
-    justify-content: flex-end;
+    #{$c}__complementaries {
+      display: flex;
+      justify-content: flex-end;
 
-    #{$c}__complementary {
-      margin-right: 4px;
-      width: 30px;
-      height: 30px;
-      border-radius: 4px;
-      border: 1px solid $white;
+      #{$c}__complementary {
+        margin-right: 4px;
+        width: 30px;
+        height: 30px;
+        border: 1px solid $white;
+        border-radius: 4px;
 
-      &:last-of-type {
-        margin-right: 0;
+        &:last-of-type {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -200,6 +199,16 @@ $sizes: mini, small, default, medium, large, huge;
   &--circular {
     #{$c}__image {
       border-radius: 100%;
+    }
+  }
+
+  &--clickable {
+    #{$c}__image {
+      cursor: pointer;
+
+      &:focus {
+        box-shadow: 0 0 0 2px $mirage, 0 0 0 3px $azure-radiance;
+      }
     }
   }
 

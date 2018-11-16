@@ -20,6 +20,7 @@
         )
           base-avatar(
             v-if="type === 'avatars'"
+            :clickable="true"
             :size="size"
             src="/images/docs/nada.jpeg"
           )
@@ -27,6 +28,7 @@
             v-else-if="type === 'thumbnails'"
             :bordered="true"
             :circular="false"
+            :clickable="true"
             :complementaries="avatars.complementaries[size]"
             :description="size"
             :size="size"
@@ -147,6 +149,16 @@ export default {
             }
           },
           {
+            name: "clickable",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Whether the avatar is clickable or not."
+            }
+          },
+          {
             name: "complementaries",
             type: {
               type: "Array",
@@ -156,18 +168,6 @@ export default {
               description:
                 "Add additional images in the bottom right corner of the main image.",
               values: '{ src: "/path/of/the/resource" }'
-            }
-          },
-          {
-            name: "cursor",
-            type: {
-              type: "String",
-              additional: "Default: 'default'"
-            },
-            details: {
-              description:
-                "Specify the shape of the mouse cursor when hovering the avatar.",
-              values: '"default" | "pointer"'
             }
           },
           {
