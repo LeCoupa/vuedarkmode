@@ -58,39 +58,39 @@ export default {
             title: "🤖 Base Components",
             items: [
               {
-                label: "Alert",
+                label: "Alerts",
                 id: "baseAlert"
               },
               {
-                label: "Avatar",
+                label: "Avatars",
                 id: "baseAvatar"
               },
               {
-                label: "Badge",
+                label: "Badges",
                 id: "baseBadge"
               },
               {
-                label: "Button",
+                label: "Buttons",
                 id: "baseButton"
               },
               {
-                label: "Divider",
+                label: "Dividers",
                 id: "baseDivider"
               },
               {
-                label: "Heading",
+                label: "Headings",
                 id: "baseHeading"
               },
               {
-                label: "Icon",
+                label: "Icons",
                 id: "baseIcon"
               },
               {
-                label: "Progress Bar",
+                label: "Progress Bars",
                 id: "baseProgressBar"
               },
               {
-                label: "Social Login",
+                label: "Social Logins",
                 id: "baseSocialLogin"
               }
             ]
@@ -100,23 +100,23 @@ export default {
             title: "📃 Form Components",
             items: [
               {
-                label: "Checkbox",
+                label: "Checkboxes",
                 id: "fieldCheckbox"
               },
               {
-                label: "File",
+                label: "Files",
                 id: "fieldFile"
               },
               {
-                label: "Input",
+                label: "Inputs",
                 id: "fieldInput"
               },
               {
-                label: "Radio",
+                label: "Radios",
                 id: "fieldRadio"
               },
               {
-                label: "Select",
+                label: "Selects",
                 id: "fieldSelect"
               },
               {
@@ -124,11 +124,11 @@ export default {
                 id: "fieldTabs"
               },
               {
-                label: "Textarea",
+                label: "Textareas",
                 id: "fieldTextarea"
               },
               {
-                label: "Toggle",
+                label: "Toggles",
                 id: "fieldToggle"
               }
             ]
