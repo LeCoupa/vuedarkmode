@@ -3,14 +3,14 @@
      ************************************************************************* -->
 
 <template lang="pug">
-<a href="https://github.com/LeCoupa/vuedarkmode" target="_blank">
-  <svg :width="size" :height="size" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<a @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" :style="{ width: size, height: size }" class="c-the-logo" href="https://github.com/LeCoupa/vuedarkmode" target="_blank">
+  <svg width="100%" height="100%" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
       <g id="Dark-Mode" transform="translate(-545.000000, -60.000000)">
         <g id="Content-[40v-c]" transform="translate(-75.000000, 60.000000)">
           <g id="Header-[15v-c]">
             <g id="Logo" transform="translate(620.000000, 0.000000)">
-              <g id="Background" fill="#1991EB">
+              <g id="Background" class="c-the-logo__background" :fill="hovering? '#FFB610' : '#1991EB'">
                 <path d="M100.00049,181.55021 L18.4499533,100.000163 L100.00049,18.44979 L181.550047,100.000163 L100.00049,181.55021 Z M19.0885867,100.000163 L100.00049,180.91174 L180.91174,100.000163 L100.00049,19.0884233 L19.0885867,100.000163 Z" id="Inner"></path>
                 <path d="M100,197.523683 L2.475536,100.000195 L3.025204,99.4507227 L100,2.47631733 L197.524464,100.000195 L100,197.523683 Z M4.673622,100.000195 L100,195.325792 L195.326573,100.000195 L100,4.67440333 L4.673622,100.000195 Z" id="Outer-2"></path>
                 <path d="M100.0004,199.8122 L0.188,100 L100.0004,0.1878 L199.812,100 L100.0004,199.8122 Z M0.9696,100 L100.0004,199.0304 L199.0302,100 L100.0004,0.9694 L0.9696,100 Z" id="Outer-1"></path>
@@ -42,6 +42,27 @@ export default {
       type: String,
       default: "200px"
     }
+  },
+
+  data() {
+    // --> STATE <--
+
+    return {
+      hovering: false
+    };
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    onMouseEnter() {
+      console.log("enter");
+      this.hovering = true;
+    },
+
+    onMouseLeave() {
+      this.hovering = false;
+    }
   }
 };
 </script>
@@ -51,4 +72,14 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+$c: ".c-the-logo";
+
+#{$c} {
+  display: block;
+  margin: 0 auto;
+
+  #{$c}__background {
+    transition: fill 250ms ease-in-out;
+  }
+}
 </style>
