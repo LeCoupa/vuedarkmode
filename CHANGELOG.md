@@ -16,6 +16,10 @@
 
 - BaseSocialLogin: rework style on hover and focus.
 
+- FieldCheckbox: rework style on focus.
+
+- FieldFile: rework style on focus.
+
 ## 0.1.0 - 2018-11-05
 
 ### Added

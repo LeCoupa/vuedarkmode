@@ -156,11 +156,11 @@ $statuses: error, normal, success, warning;
       position: relative;
       margin-right: 8px;
       margin-bottom: 0;
+      outline: 0;
       border: none;
       border-radius: 2px;
       -webkit-appearance: none;
       cursor: pointer;
-      outline: 0;
 
       &:before,
       &:after {

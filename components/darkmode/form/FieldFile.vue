@@ -178,6 +178,7 @@ $statuses: error, normal, success, warning;
     #{$c}__upload {
       position: relative;
       box-sizing: border-box;
+      outline: 0;
       border-width: 2px;
       border-style: solid;
       border-radius: 100%;
@@ -237,6 +238,11 @@ $statuses: error, normal, success, warning;
           border-color: map-get($statusColors, $status);
         } @else {
           border-color: $white;
+        }
+
+        &:focus {
+          box-shadow: 0 0 0 2px $mirage,
+            0 0 0 3px map-get($statusColors, $status);
         }
       }
     }
