@@ -47,16 +47,7 @@ div(
      ************************************************************************* -->
 
 <script>
-// PROJECT
-// import BaseAvatar from "./BaseAvatar.vue";
-
 export default {
-  name: "BaseAvatar",
-
-  // components: {
-  //   BaseAvatar
-  // },
-
   props: {
     bordered: {
       type: Boolean,
@@ -142,7 +133,6 @@ $sizes: mini, small, default, medium, large, huge;
     background-size: cover;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
     user-select: none;
-    cursor: default;
 
     #{$c}__complementaries {
       display: flex;
