@@ -67,7 +67,6 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClose(event) {
-      console.log("hey");
       this.$emit("close", event);
     },
 
@@ -134,14 +133,28 @@ $colors: black, blue, green, red, orange, white;
 
       #{$c}__icon--right {
         outline: 0;
+        border-radius: 100%;
+        transition: transform 200ms ease-in-out;
 
-        &:focus,
         &:hover {
-          @if ($color == white or $color == black) {
-            color: $crimson !important;
-          } @else {
+          @if ($color == red) {
             color: $oxford-blue !important;
+          } @else {
+            color: $crimson !important;
           }
+        }
+
+        &:focus {
+          @if ($color == white) {
+            box-shadow: 0 0 0 2px map-get($mainColors, $color),
+              0 0 0 3px $oxford-blue;
+          } @else {
+            box-shadow: 0 0 0 2px map-get($mainColors, $color), 0 0 0 3px $white;
+          }
+        }
+
+        &:active {
+          transform: rotate(360deg);
         }
       }
     }
