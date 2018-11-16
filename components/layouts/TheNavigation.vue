@@ -79,7 +79,7 @@ export default {
   data() {
     return {
       // --> STATE <--
-      opened: null
+      opened: "base"
     };
   },
 
