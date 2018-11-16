@@ -117,7 +117,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "Whether the icon is clickable or not."
+              description: "Whether the badge is clickable or not."
             }
           },
           {
