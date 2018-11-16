@@ -239,7 +239,8 @@ export default {
             name: "click",
             parameters: "id, event",
             details: {
-              description: "Fires on a mouse click on the element."
+              description:
+                "Fires on a mouse click on the element (only when clickable is set to true)."
             }
           }
         ]
