@@ -22,6 +22,10 @@
 
 - FieldRadio: rework style on focus.
 
+- FieldTabs: rework style on focus.
+
+- FieldToggle: rework style on focus.
+
 ## 0.1.0 - 2018-11-05
 
 ### Added
