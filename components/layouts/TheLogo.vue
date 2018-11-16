@@ -77,9 +77,16 @@ $c: ".c-the-logo";
 #{$c} {
   display: block;
   margin: 0 auto;
+  outline: 0;
 
   #{$c}__background {
     transition: fill 250ms ease-in-out;
+  }
+
+  // --> INTERACTIONS <--
+
+  &:focus {
+    box-shadow: 0 0 0 2px $mirage, 0 0 0 4px $azure-radiance;
   }
 }
 </style>

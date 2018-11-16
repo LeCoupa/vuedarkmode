@@ -32,8 +32,21 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-.github-corner:hover .octo-arm {
-  animation: octocat-wave 560ms ease-in-out;
+// VARIABLES
+$c: ".github-corner";
+
+#{$c} {
+  outline: 0;
+
+  .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+
+  // --> INTERACTIONS <--
+
+  &:focus {
+    box-shadow: 0 0 0 2px $mirage, 0 0 0 4px $azure-radiance;
+  }
 }
 
 @keyframes octocat-wave {

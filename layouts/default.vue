@@ -234,8 +234,8 @@ html {
         #{$c}__github-corner {
           position: absolute;
           top: 0;
-          border: 0;
           right: 0;
+          border: 0;
         }
 
         #{$c}__page-inner {
