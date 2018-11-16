@@ -47,7 +47,6 @@
     target="_blank"
   )
     base-avatar(
-      cursor="pointer"
       size="mini"
       src="/images/docs/nada.jpeg"
     )
