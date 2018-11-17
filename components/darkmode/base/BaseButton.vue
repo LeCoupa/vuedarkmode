@@ -297,11 +297,13 @@ $sizes: mini, small, default, medium, large;
 
       &:first-of-type {
         border-top: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 4px 4px 0 0;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
       }
 
       &:last-of-type {
-        border-radius: 0 0 4px 4px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
       }
 
       &:hover {
