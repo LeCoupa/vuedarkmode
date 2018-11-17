@@ -19,7 +19,6 @@
         class="o-elements__item"
       )
         base-badge(
-          :clickable="true"
           :color="color"
           :size="size"
         ) {{ size }}
