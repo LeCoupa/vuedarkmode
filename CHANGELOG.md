@@ -12,13 +12,13 @@
 
 ### Changed
 
-- BaseButton: rework style on hover and focus.
+- BaseButton: rework style on hover / focus and add ability to display a list.
 
 - BaseHeading: type prop now accepts "small" when you need to display smaller content.
 
 - BaseProgressBar: ability to display an additional description when the user hovers.
 
-- BaseSocialLogin: rework style on hover and focus.
+- BaseSocialLogin: rework style on hover / focus.
 
 - FieldCheckbox: rework style on focus.
 
