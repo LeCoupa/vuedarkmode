@@ -136,27 +136,30 @@ $colors: black, blue, green, red, orange, white;
         border-radius: 100%;
         transition: all 200ms ease-in-out;
 
-        &:hover {
-          @if ($color == red) {
-            color: $oxford-blue !important;
-          } @else {
-            color: $crimson !important;
-          }
-        }
-
         &:focus {
           transition: box-shadow ease-in-out 0s;
-
-          @if ($color == white) {
-            box-shadow: 0 0 0 2px map-get($mainColors, $color),
-              0 0 0 3px $oxford-blue;
-          } @else {
-            box-shadow: 0 0 0 2px map-get($mainColors, $color), 0 0 0 3px $white;
-          }
         }
 
-        &:active {
-          transform: rotate(360deg);
+        @if ($color == red) {
+          &:hover {
+            color: $oxford-blue !important;
+          }
+
+          &:focus {
+            color: $oxford-blue !important;
+            box-shadow: 0 0 0 2px map-get($mainColors, $color),
+              0 0 0 3px $oxford-blue;
+          }
+        } @else {
+          &:hover {
+            color: $crimson !important;
+          }
+
+          &:focus {
+            color: $crimson !important;
+            box-shadow: 0 0 0 2px map-get($mainColors, $color),
+              0 0 0 3px $crimson;
+          }
         }
       }
     }
