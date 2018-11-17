@@ -39,7 +39,7 @@ button(
       class="dm-base-button__left-icon"
     )
     span(
-      v-if="$slots.default && $slots.default[0].text.trim()"
+      v-if="$slots.default && $slots.default[0].text.trim() && !circular"
       class="dm-base-button__label"
     ): slot
 
@@ -316,10 +316,6 @@ $sizes: mini, small, default, medium, large;
     border-radius: 100%;
 
     #{$c}__inner {
-      #{$c}__label {
-        display: none;
-      }
-
       #{$c}__left-icon {
         margin-right: 0;
       }
