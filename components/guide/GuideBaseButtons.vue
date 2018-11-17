@@ -205,6 +205,18 @@ export default {
             }
           },
           {
+            name: "list",
+            type: {
+              type: "Array",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Will display a list below the button when the user clicks on it.",
+              values: '[{ id: "id", label: "label" }]'
+            }
+          },
+          {
             name: "reverse",
             type: {
               type: "Boolean",
@@ -299,6 +311,13 @@ export default {
             parameters: "id, event",
             details: {
               description: "Fires on a mouse double-click on the element."
+            }
+          },
+          {
+            name: "itemclick",
+            parameters: "id, itemId, event",
+            details: {
+              description: "Fires on a mouse click on a list item element."
             }
           },
           {

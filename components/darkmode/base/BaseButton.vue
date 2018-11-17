@@ -35,7 +35,7 @@ button(
       v-if="leftIcon"
       :color="leftIconColor"
       :name="leftIcon"
-      :size="iconSize"
+      :size="computedIconSize"
       class="dm-base-button__left-icon"
     )
     span(
@@ -44,12 +44,27 @@ button(
     ): slot
 
     base-icon(
-      v-if="rightIcon"
+      v-if="computedRightIcon"
       :color="rightIconColor"
-      :name="rightIcon"
-      :size="iconSize"
+      :name="computedRightIcon"
+      :size="computedIconSize"
       class="dm-base-button__right-icon"
     )
+
+  transition(
+    enter-active-class="animated fadeIn"
+    leave-active-class="animated fadeOut"
+  )
+    span(
+      v-if="list && listOpened"
+      class="dm-base-button__list"
+    )
+      span(
+        v-for="item in list"
+        @click="onItemClick(item.id, $event)"
+        :key="item.id"
+        class="dm-base-button__item"
+      ) {{ item.label }}
 </template>
 
 <!-- *************************************************************************
@@ -103,6 +118,13 @@ export default {
       type: String,
       default: null
     },
+    list: {
+      type: Array,
+      default: null,
+      validator(x) {
+        return x.length > 0;
+      }
+    },
     reverse: {
       type: Boolean,
       default: false
@@ -137,8 +159,16 @@ export default {
     }
   },
 
+  data() {
+    return {
+      // --> STATE <--
+
+      listOpened: false
+    };
+  },
+
   computed: {
-    iconSize() {
+    computedIconSize() {
       switch (this.size) {
         case "mini":
           return "12px";
@@ -151,6 +181,14 @@ export default {
         case "large":
           return "20px";
       }
+    },
+
+    computedRightIcon() {
+      if (this.list && !this.circular) {
+        return this.listOpened ? "arrow_drop_up" : "arrow_drop_down";
+      }
+
+      return this.rightIcon;
     }
   },
 
@@ -158,11 +196,19 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
+      if (this.list) {
+        this.listOpened = !this.listOpened;
+      }
+
       this.$emit("click", this.id, event);
     },
 
     onDoubleClick(event) {
       this.$emit("dblclick", this.id, event);
+    },
+
+    onItemClick(itemId, event) {
+      this.$emit("itemclick", this.id, itemId, event);
     },
 
     onMouseDown(event) {
@@ -210,6 +256,7 @@ $colors: black, blue, green, red, orange, white;
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
+  position: relative;
   display: inline-block;
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -226,6 +273,41 @@ $sizes: mini, small, default, medium, large;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  #{$c}__list {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 100;
+    display: block;
+    padding-top: 10px;
+    min-width: 100%;
+    transform: translate(-50%, 100%);
+
+    #{$c}__item {
+      display: block;
+      padding: 10px 14px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: none;
+      background: $white;
+      color: $oxford-blue;
+      white-space: nowrap;
+      transition: all 250ms ease-in-out;
+
+      &:first-of-type {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 4px 4px 0 0;
+      }
+
+      &:last-of-type {
+        border-radius: 0 0 4px 4px;
+      }
+
+      &:hover {
+        background-color: darken($white, 5%);
+      }
+    }
   }
 
   // --> COLORS <--
@@ -302,6 +384,10 @@ $sizes: mini, small, default, medium, large;
         #{$c}__right-icon {
           margin-left: 3px + (1px * $i);
         }
+      }
+
+      #{$c}__list {
+        border-radius: 4px + (1px * $i);
       }
     }
   }
@@ -393,6 +479,40 @@ $sizes: mini, small, default, medium, large;
   &:active {
     background-size: 100%;
     transition: background 0s;
+  }
+}
+
+// --> ANIMATIONS <--
+
+.fadeIn {
+  animation-name: fadeIn;
+  animation-duration: 200ms;
+  animation-fill-mode: both;
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+  animation-duration: 200ms;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
   }
 }
 </style>

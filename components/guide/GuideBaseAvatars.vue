@@ -167,7 +167,7 @@ export default {
             details: {
               description:
                 "Add additional images in the bottom right corner of the main image.",
-              values: '{ src: "/path/of/the/resource" }'
+              values: '[{ src: "/path/of/the/resource" }]'
             }
           },
           {
