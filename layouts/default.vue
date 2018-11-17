@@ -199,12 +199,12 @@ html {
   word-spacing: 1px;
   font-size: 16px;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-  sans-serif;
+    sans-serif;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 
   a {
     outline: 0;
@@ -252,5 +252,4 @@ html {
     }
   }
 }
-
 </style>
