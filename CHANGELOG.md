@@ -8,6 +8,8 @@
 
 - BaseBadge: new prop to set the image as clickable or not.
 
+- BaseButton: new prop to set the button as loading.
+
 - BaseIcon: new prop to set the image as clickable or not.
 
 - BaseSpinner: new component.

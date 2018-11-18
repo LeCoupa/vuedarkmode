@@ -19,46 +19,50 @@ button(
     "dm-base-button--" + size,
     {
       "dm-base-button--capitalize": capitalize,
-      "dm-base-button--circular": circular,
-      "dm-base-button--disabled": disabled,
+      "dm-base-button--circular": circular || loading,
+      "dm-base-button--disabled": disabled || loading,
       "dm-base-button--full-width": fullWidth,
+      "dm-base-button--loading": loading,
       "dm-base-button--reverse": reverse,
       "dm-base-button--rounded": rounded
     }
   ]`
-  :disabled="disabled"
+  :disabled="disabled || loading"
   :id="id"
   :type="type"
 )
   span.dm-base-button__inner
     base-icon(
-      v-if="leftIcon"
+      v-if="leftIcon && !loading"
       :color="leftIconColor"
       :name="leftIcon"
       :size="computedIconSize"
       class="dm-base-button__left-icon"
     )
     span(
-      v-if="$slots.default && $slots.default[0].text.trim() && !circular"
+      v-if="$slots.default && $slots.default[0].text.trim() && !circular && !loading"
       class="dm-base-button__label"
     ): slot
 
     base-icon(
-      v-if="computedRightIcon"
+      v-if="computedRightIcon && !loading"
       :color="rightIconColor"
       :name="computedRightIcon"
       :size="computedIconSize"
       class="dm-base-button__right-icon"
     )
+    base-spinner(
+      v-if="loading"
+      :color="computedSpinnerColor"
+      size="mini"
+    )
 
   transition(
+    v-if="list && listOpened && !loading"
     enter-active-class="animated fadeIn"
     leave-active-class="animated fadeOut"
   )
-    span(
-      v-if="list && listOpened"
-      class="dm-base-button__list"
-    )
+    .dm-base-button__list
       span(
         v-for="item in list"
         @click="onItemClick(item.id, $event)"
@@ -74,10 +78,12 @@ button(
 <script>
 // PROJECT
 import BaseIcon from "./BaseIcon.vue";
+import BaseSpinner from "./BaseSpinner.vue";
 
 export default {
   components: {
-    BaseIcon
+    BaseIcon,
+    BaseSpinner
   },
 
   props: {
@@ -124,6 +130,10 @@ export default {
       validator(x) {
         return x.length > 0;
       }
+    },
+    loading: {
+      type: Boolean,
+      default: false
     },
     reverse: {
       type: Boolean,
@@ -189,6 +199,10 @@ export default {
       }
 
       return this.rightIcon;
+    },
+
+    computedSpinnerColor() {
+      return this.color === "white" ? "black" : "white";
     }
   },
 
@@ -302,8 +316,8 @@ $sizes: mini, small, default, medium, large;
       }
 
       &:last-of-type {
-        border-bottom-left-radius: 4px;
         border-bottom-right-radius: 4px;
+        border-bottom-left-radius: 4px;
       }
 
       &:hover {
@@ -433,6 +447,11 @@ $sizes: mini, small, default, medium, large;
 
   &--full-width {
     width: 100%;
+  }
+
+  &--loading {
+    opacity: 1;
+    cursor: wait;
   }
 
   &--reverse {
