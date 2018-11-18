@@ -83,6 +83,8 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 - **BaseSocialLogin**: [documentation](https://www.vuedarkmode.com/#baseSocialLogin) | [source code](/components/darkmode/base/BaseSocialLogin.vue).
 
+- **BaseSpinner**: [documentation](https://www.vuedarkmode.com/#BaseSpinner) | [source code](/components/darkmode/base/BaseSpinner.vue).
+
 ### Form Components
 
 - **FieldCheckbox**: [documentation](https://www.vuedarkmode.com/#fieldCheckbox) | [source code](/components/darkmode/form/FieldCheckbox.vue).
