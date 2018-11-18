@@ -74,7 +74,7 @@ $sizes: mini, small, default, medium, large;
     height: 100%;
     border-radius: 50%;
     opacity: 0.6;
-    animation: sk-bounce 2s infinite ease-in-out;
+    animation: bounce 2s infinite ease-in-out;
 
     &--second {
       animation-delay: -1s;
@@ -105,17 +105,7 @@ $sizes: mini, small, default, medium, large;
 
 // --> ANIMATIONS <--
 
-@-webkit-keyframes sk-bounce {
-  0%,
-  100% {
-    -webkit-transform: scale(0);
-  }
-  50% {
-    -webkit-transform: scale(1);
-  }
-}
-
-@keyframes sk-bounce {
+@keyframes bounce {
   0%,
   100% {
     -webkit-transform: scale(0);
