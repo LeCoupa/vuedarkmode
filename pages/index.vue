@@ -68,6 +68,10 @@
       v-if="section.id === 'baseSocialLogin'"
       :documentation="docs.baseSocialLogin"
     )
+    guide-base-spinners(
+      v-if="section.id === 'baseSpinner'"
+      :documentation="docs.baseSpinner"
+    )
     guide-field-checkboxes(
       v-if="section.id === 'fieldCheckbox'"
       :documentation="docs.fieldCheckbox"
@@ -124,6 +128,7 @@ import GuideBaseHeadings from "@/components/guide/GuideBaseHeadings";
 import GuideBaseIcons from "@/components/guide/GuideBaseIcons";
 import GuideBaseProgressBars from "@/components/guide/GuideBaseProgressBars";
 import GuideBaseSocialLogins from "@/components/guide/GuideBaseSocialLogins";
+import GuideBaseSpinners from "@/components/guide/GuideBaseSpinners";
 import GuideColors from "@/components/guide/GuideColors";
 import GuideFieldCheckboxes from "@/components/guide/GuideFieldCheckboxes";
 import GuideFieldFiles from "@/components/guide/GuideFieldFiles";
@@ -154,6 +159,7 @@ export default {
     GuideBaseIcons,
     GuideBaseProgressBars,
     GuideBaseSocialLogins,
+    GuideBaseSpinners,
     GuideColors,
     GuideFieldCheckboxes,
     GuideFieldFiles,
@@ -186,6 +192,7 @@ export default {
         baseIcon: false,
         baseProgressBar: false,
         baseSocialLogin: false,
+        baseSpinner: false,
         fieldCheckbox: false,
         fieldFile: false,
         fieldInput: false,
@@ -284,6 +291,13 @@ export default {
           id: "baseSocialLogin",
           headlines: {
             title: "SOCIAL LOGINS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "baseSpinner",
+          headlines: {
+            title: "SPINNERS",
             hasDocumentation: true
           }
         },

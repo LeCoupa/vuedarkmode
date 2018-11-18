@@ -10,6 +10,8 @@
 
 - BaseIcon: new prop to set the image as clickable or not.
 
+- BaseSpinner: new component.
+
 ### Changed
 
 - BaseButton: rework style on hover / focus and add ability to display a list.

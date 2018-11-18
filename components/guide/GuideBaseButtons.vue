@@ -145,7 +145,7 @@ export default {
             name: "color",
             type: {
               type: "String",
-              additional: "Default: blue"
+              additional: 'Default: "blue"'
             },
             details: {
               description: "Set the button color.",

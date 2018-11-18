@@ -92,6 +92,10 @@ export default {
               {
                 label: "Social Logins",
                 id: "baseSocialLogin"
+              },
+              {
+                label: "Spinners",
+                id: "baseSpinner"
               }
             ]
           },
