@@ -103,7 +103,7 @@ $sizes: mini, small, default, medium, large;
   }
 }
 
-// --> ANIMATIONS <--
+// --> KEYFRAMES <--
 
 @keyframes bounce {
   0%,
