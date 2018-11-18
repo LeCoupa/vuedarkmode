@@ -26,7 +26,9 @@ export default {
       type: String,
       default: "white",
       validator(x) {
-        return ["blue", "green", "orange", "red", "white"].indexOf(x) !== -1;
+        return (
+          ["black", "blue", "green", "orange", "red", "white"].indexOf(x) !== -1
+        );
       }
     },
     size: {
@@ -57,7 +59,7 @@ export default {
 <style lang="scss">
 // VARIABLES
 $c: ".dm-base-spinner";
-$colors: blue, green, red, orange, white;
+$colors: black, blue, green, red, orange, white;
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
@@ -97,8 +99,8 @@ $sizes: mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      width: (20px + 10px * $i);
-      height: (20px + 10px * $i);
+      width: (16px + 10px * $i);
+      height: (16px + 10px * $i);
     }
   }
 }
