@@ -1,5 +1,5 @@
 /*!
- * vuedarkmode v0.2.5
+ * vuedarkmode v0.2.6
  * (c) 2018-present Team <team@vuedarkmode.com>
  * Released under the MIT License.
  */
@@ -1029,68 +1029,34 @@ __vue_render__$3._withStripped = true;
   )
 
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var script$4 = {
-  components: {
-    BaseIcon: BaseIcon
-  },
   props: {
-    capitalize: {
-      type: Boolean,
-      default: true
-    },
-    circular: {
-      type: Boolean,
-      default: false
-    },
     color: {
       type: String,
-      default: "blue",
+      default: "white",
       validator: function validator(x) {
         return ["black", "blue", "green", "orange", "red", "white"].indexOf(x) !== -1;
       }
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
-    fullWidth: {
-      type: Boolean,
-      default: false
-    },
-    id: {
-      type: String,
-      default: null
-    },
-    leftIcon: {
-      type: String,
-      default: null
-    },
-    leftIconColor: {
-      type: String,
-      default: null
-    },
-    list: {
-      type: Array,
-      default: null,
-      validator: function validator(x) {
-        return x.length > 0;
-      }
-    },
-    reverse: {
-      type: Boolean,
-      default: false
-    },
-    rightIcon: {
-      type: String,
-      default: null
-    },
-    rightIconColor: {
-      type: String,
-      default: null
-    },
-    rounded: {
-      type: Boolean,
-      default: false
     },
     size: {
       type: String,
@@ -1098,83 +1064,12 @@ var script$4 = {
       validator: function validator(x) {
         return ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1;
       }
-    },
-    type: {
-      type: String,
-      default: "button",
-      validator: function validator(x) {
-        return ["button", "reset", "submit"].indexOf(x) !== -1;
-      }
-    }
-  },
-  data: function data() {
-    return {
-      // --> STATE <--
-      listOpened: false
-    };
-  },
-  computed: {
-    computedIconSize: function computedIconSize() {
-      switch (this.size) {
-        case "mini":
-          return "12px";
-
-        case "small":
-          return "14px";
-
-        case "default":
-          return "16px";
-
-        case "medium":
-          return "18px";
-
-        case "large":
-          return "20px";
-      }
-    },
-    computedRightIcon: function computedRightIcon() {
-      if (this.list && !this.circular) {
-        return this.listOpened ? "arrow_drop_up" : "arrow_drop_down";
-      }
-
-      return this.rightIcon;
     }
   },
   methods: {
     // --> EVENT LISTENERS <--
     onClick: function onClick(event) {
-      if (this.list) {
-        this.listOpened = !this.listOpened;
-      }
-
-      this.$emit("click", this.id, event);
-    },
-    onDoubleClick: function onDoubleClick(event) {
-      this.$emit("dblclick", this.id, event);
-    },
-    onItemClick: function onItemClick(itemId, event) {
-      this.$emit("itemclick", this.id, itemId, event);
-    },
-    onMouseDown: function onMouseDown(event) {
-      this.$emit("mousedown", this.id, event);
-    },
-    onMouseEnter: function onMouseEnter(event) {
-      this.$emit("mouseenter", this.id, event);
-    },
-    onMouseLeave: function onMouseLeave(event) {
-      this.$emit("mouseleave", this.id, event);
-    },
-    onMouseMove: function onMouseMove(event) {
-      this.$emit("mousemove", this.id, event);
-    },
-    onMouseOut: function onMouseOut(event) {
-      this.$emit("mouseout", this.id, event);
-    },
-    onMouseOver: function onMouseOver(event) {
-      this.$emit("mouseover", this.id, event);
-    },
-    onMouseUp: function onMouseUp(event) {
-      this.$emit("mouseup", this.id, event);
+      this.$emit("click", event);
     }
   }
 };
@@ -1188,106 +1083,23 @@ var __vue_render__$4 = function() {
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
   return _c(
-    "button",
+    "div",
     {
       class: [
-        "dm-base-button",
-        "dm-base-button--" + _vm.color,
-        "dm-base-button--" + _vm.size,
-        {
-          "dm-base-button--capitalize": _vm.capitalize,
-          "dm-base-button--circular": _vm.circular,
-          "dm-base-button--disabled": _vm.disabled,
-          "dm-base-button--full-width": _vm.fullWidth,
-          "dm-base-button--reverse": _vm.reverse,
-          "dm-base-button--rounded": _vm.rounded
-        }
+        "dm-base-spinner",
+        "dm-base-spinner--" + _vm.color,
+        "dm-base-spinner--" + _vm.size
       ],
-      attrs: { disabled: _vm.disabled, id: _vm.id, type: _vm.type },
-      on: {
-        click: _vm.onClick,
-        dblclick: _vm.onDoubleClick,
-        mousedown: _vm.onMouseDown,
-        mouseenter: _vm.onMouseEnter,
-        mouseleave: _vm.onMouseLeave,
-        mousemove: _vm.onMouseMove,
-        mouseout: _vm.onMouseOut,
-        mouseover: _vm.onMouseOver,
-        mouseup: _vm.onMouseUp
-      }
+      on: { click: _vm.onClick }
     },
     [
-      _c(
-        "span",
-        { staticClass: "dm-base-button__inner" },
-        [
-          _vm.leftIcon
-            ? _c("base-icon", {
-                staticClass: "dm-base-button__left-icon",
-                attrs: {
-                  color: _vm.leftIconColor,
-                  name: _vm.leftIcon,
-                  size: _vm.computedIconSize
-                }
-              })
-            : _vm._e(),
-          _vm.$slots.default &&
-          _vm.$slots.default[0].text.trim() &&
-          !_vm.circular
-            ? _c(
-                "span",
-                { staticClass: "dm-base-button__label" },
-                [_vm._t("default")],
-                2
-              )
-            : _vm._e(),
-          _vm.computedRightIcon
-            ? _c("base-icon", {
-                staticClass: "dm-base-button__right-icon",
-                attrs: {
-                  color: _vm.rightIconColor,
-                  name: _vm.computedRightIcon,
-                  size: _vm.computedIconSize
-                }
-              })
-            : _vm._e()
-        ],
-        1
-      ),
-      _c(
-        "transition",
-        {
-          attrs: {
-            "enter-active-class": "animated fadeIn",
-            "leave-active-class": "animated fadeOut"
-          }
-        },
-        [
-          _vm.list && _vm.listOpened
-            ? _c(
-                "span",
-                { staticClass: "dm-base-button__list" },
-                _vm._l(_vm.list, function(item) {
-                  return _c(
-                    "span",
-                    {
-                      key: item.id,
-                      staticClass: "dm-base-button__item",
-                      on: {
-                        click: function($event) {
-                          _vm.onItemClick(item.id, $event);
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(item.label))]
-                  )
-                })
-              )
-            : _vm._e()
-        ]
-      )
-    ],
-    1
+      _c("div", {
+        staticClass: "dm-base-spinner__wave dm-base-spinner__wave--first"
+      }),
+      _c("div", {
+        staticClass: "dm-base-spinner__wave dm-base-spinner__wave--second"
+      })
+    ]
   )
 };
 var __vue_staticRenderFns__$4 = [];
@@ -1296,7 +1108,7 @@ __vue_render__$4._withStripped = true;
   /* style */
   const __vue_inject_styles__$4 = function (inject) {
     if (!inject) return
-    inject("data-v-6bd24fe2_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-button {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  background-position: center;\n  color: #ffffff;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer;\n}\n.dm-base-button .dm-base-button__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dm-base-button .dm-base-button__list {\n    position: absolute;\n    bottom: 0;\n    left: 50%;\n    z-index: 100;\n    display: block;\n    padding-top: 10px;\n    min-width: 100%;\n    transform: translate(-50%, 100%);\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item {\n      display: block;\n      padding: 10px 14px;\n      border: 1px solid rgba(0, 0, 0, 0.1);\n      border-top: none;\n      background: #ffffff;\n      color: #323e4f;\n      white-space: nowrap;\n      transition: all 250ms ease-in-out;\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item:first-of-type {\n        border-top: 1px solid rgba(0, 0, 0, 0.1);\n        border-top-left-radius: 4px;\n        border-top-right-radius: 4px;\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item:last-of-type {\n        border-bottom-left-radius: 4px;\n        border-bottom-right-radius: 4px;\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item:hover {\n        background-color: #f2f2f2;\n}\n.dm-base-button--black:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #46576e;\n}\n.dm-base-button--black:not(.dm-base-button--reverse) {\n    background: #323e4f radial-gradient(circle, transparent 1%, #323e4f 1%) center/15000%;\n    border: 1px solid #323e4f;\n    background: #232d3d radial-gradient(circle, transparent 1%, #232d3d 1%) center/15000%;\n}\n.dm-base-button--black:not(.dm-base-button--reverse):hover {\n      background-color: #323e4f;\n}\n.dm-base-button--black:not(.dm-base-button--reverse):active {\n      background-color: #323e4f;\n}\n.dm-base-button--blue:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #25abfe;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse) {\n    background: #0194ef radial-gradient(circle, transparent 1%, #0194ef 1%) center/15000%;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse):hover {\n      background-color: #25abfe;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse):active {\n      background-color: #3eb5fe;\n}\n.dm-base-button--green:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #27e045;\n}\n.dm-base-button--green:not(.dm-base-button--reverse) {\n    background: #1bb934 radial-gradient(circle, transparent 1%, #1bb934 1%) center/15000%;\n}\n.dm-base-button--green:not(.dm-base-button--reverse):hover {\n      background-color: #1ecf3a;\n}\n.dm-base-button--green:not(.dm-base-button--reverse):active {\n      background-color: #1ecf3a;\n}\n.dm-base-button--red:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #f0354d;\n}\n.dm-base-button--red:not(.dm-base-button--reverse) {\n    background: #e1112c radial-gradient(circle, transparent 1%, #e1112c 1%) center/15000%;\n}\n.dm-base-button--red:not(.dm-base-button--reverse):hover {\n      background-color: #f0354d;\n}\n.dm-base-button--red:not(.dm-base-button--reverse):active {\n      background-color: #f24d62;\n}\n.dm-base-button--orange:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc643;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse) {\n    background: #ffb610 radial-gradient(circle, transparent 1%, #ffb610 1%) center/15000%;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse):hover {\n      background-color: #ffc643;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse):active {\n      background-color: #ffcd5d;\n}\n.dm-base-button--white:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px white;\n}\n.dm-base-button--white:not(.dm-base-button--reverse) {\n    background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;\n    color: #323e4f;\n}\n.dm-base-button--white:not(.dm-base-button--reverse):hover {\n      background-color: #e6e6e6;\n}\n.dm-base-button--white:not(.dm-base-button--reverse):active {\n      background-color: #d9d9d9;\n}\n.dm-base-button--mini {\n    padding: 10px 12px;\n    border-radius: 4px;\n    font-size: 12px;\n    line-height: 12px;\n}\n.dm-base-button--mini .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 3px;\n}\n.dm-base-button--mini .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 3px;\n}\n.dm-base-button--mini .dm-base-button__list {\n      border-radius: 4px;\n}\n.dm-base-button--small {\n    padding: 12px 14px;\n    border-radius: 5px;\n    font-size: 13px;\n    line-height: 14px;\n}\n.dm-base-button--small .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 4px;\n}\n.dm-base-button--small .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 4px;\n}\n.dm-base-button--small .dm-base-button__list {\n      border-radius: 5px;\n}\n.dm-base-button--default {\n    padding: 14px 16px;\n    border-radius: 6px;\n    font-size: 14px;\n    line-height: 16px;\n}\n.dm-base-button--default .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 5px;\n}\n.dm-base-button--default .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 5px;\n}\n.dm-base-button--default .dm-base-button__list {\n      border-radius: 6px;\n}\n.dm-base-button--medium {\n    padding: 16px 18px;\n    border-radius: 7px;\n    font-size: 15px;\n    line-height: 18px;\n}\n.dm-base-button--medium .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 6px;\n}\n.dm-base-button--medium .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 6px;\n}\n.dm-base-button--medium .dm-base-button__list {\n      border-radius: 7px;\n}\n.dm-base-button--large {\n    padding: 18px 20px;\n    border-radius: 8px;\n    font-size: 16px;\n    line-height: 20px;\n}\n.dm-base-button--large .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 7px;\n}\n.dm-base-button--large .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 7px;\n}\n.dm-base-button--large .dm-base-button__list {\n      border-radius: 8px;\n}\n.dm-base-button--capitalize {\n    text-transform: capitalize;\n}\n.dm-base-button--circular {\n    border-radius: 100%;\n}\n.dm-base-button--circular .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 0;\n}\n.dm-base-button--circular .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 0;\n}\n.dm-base-button--circular.dm-base-button--mini {\n      padding: 8px;\n}\n.dm-base-button--circular.dm-base-button--small {\n      padding: 9px;\n}\n.dm-base-button--circular.dm-base-button--default {\n      padding: 10px;\n}\n.dm-base-button--circular.dm-base-button--medium {\n      padding: 11px;\n}\n.dm-base-button--circular.dm-base-button--large {\n      padding: 12px;\n}\n.dm-base-button--disabled {\n    opacity: 0.7;\n    cursor: not-allowed;\n}\n.dm-base-button--disabled .dm-base-button__inner {\n      pointer-events: none;\n}\n.dm-base-button--full-width {\n    width: 100%;\n}\n.dm-base-button--reverse {\n    background-color: transparent;\n    color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--black {\n      border-color: #323e4f;\n}\n.dm-base-button--reverse.dm-base-button--black:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--black:active {\n        color: #323e4f;\n}\n.dm-base-button--reverse.dm-base-button--blue {\n      border-color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--blue:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--blue:active {\n        color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--green {\n      border-color: #1bb934;\n}\n.dm-base-button--reverse.dm-base-button--green:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--green:active {\n        color: #1bb934;\n}\n.dm-base-button--reverse.dm-base-button--red {\n      border-color: #e1112c;\n}\n.dm-base-button--reverse.dm-base-button--red:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--red:active {\n        color: #e1112c;\n}\n.dm-base-button--reverse.dm-base-button--orange {\n      border-color: #ffb610;\n}\n.dm-base-button--reverse.dm-base-button--orange:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--orange:active {\n        color: #ffb610;\n}\n.dm-base-button--reverse.dm-base-button--white {\n      border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--white:hover {\n        border-color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--white:active {\n        color: #323e4f;\n}\n.dm-base-button--reverse:hover {\n      transform: initial;\n}\n.dm-base-button--reverse:active {\n      background: #ffffff;\n      transform: initial;\n}\n.dm-base-button--rounded {\n    border-radius: 60px;\n    color: #ffffff;\n}\n.dm-base-button:active {\n    background-size: 100%;\n    transition: background 0s;\n}\n.fadeIn {\n  animation-name: fadeIn;\n  animation-duration: 200ms;\n  animation-fill-mode: both;\n}\n.fadeOut {\n  animation-name: fadeOut;\n  animation-duration: 200ms;\n  animation-fill-mode: both;\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes fadeOut {\nfrom {\n    opacity: 1;\n}\nto {\n    opacity: 0;\n}\n}\n\n/*# sourceMappingURL=BaseButton.vue.map */", map: {"version":3,"sources":["BaseButton.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseButton.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC8PhF;EACA,mBAAA;EACA,sBAAA;EACA,WAAA;EACA,qCAAA;EACA,4BAAA;EACA,eAAA;EACA,iBAAA;EACA,sFACA;EACA,kCAAA;EACA,kBAAA;EACA,gBAAA;CAuNA;AAnOA;IAeA,cAAA;IACA,oBAAA;IACA,wBAAA;CACA;AAlBA;IAqBA,mBAAA;IACA,UAAA;IACA,UAAA;IACA,aAAA;IACA,eAAA;IACA,kBAAA;IACA,gBAAA;IACA,iCAAA;CA2BA;AAvDA;MA+BA,eAAA;MACA,mBAAA;MACA,qCAAA;MACA,iBAAA;MACA,oBAAA;MACA,eAAA;MACA,oBAAA;MACA,kCAAA;CAgBA;AAtDA;QAyCA,yCAAA;QACA,4BAAA;QACA,6BAAA;CACA;AA5CA;QA+CA,+BAAA;QACA,gCAAA;CACA;AAjDA;QAoDA,0BAAA;CACA;AAOA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;IAGA,0BAAA;IACA,sFAEA;CA4BA;AAhDA;MA2BA,0BAAA;CAQA;AAnCA;MAuCA,0BAAA;CAQA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MA+BA,0BAAA;CAIA;AAnCA;MA2CA,0BAAA;CAIA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,+CACA;CACA;AAJA;IAQA,sFAMA;IAQA,eAAA;CA0BA;AAhDA;MA6BA,0BAAA;CAMA;AAnCA;MAyCA,0BAAA;CAMA;AAUA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAMA;IACA,2BAAA;CACA;AAEA;IACA,oBAAA;CAmBA;AApBA;MAKA,gBAAA;CACA;AANA;MASA,eAAA;CACA;AAVA;MAiBA,aAAA;CACA;AAlBA;MAiBA,aAAA;CACA;AAlBA;MAiBA,cAAA;CACA;AAlBA;MAiBA,cAAA;CACA;AAlBA;MAiBA,cAAA;CACA;AAIA;IACA,aAAA;IACA,oBAAA;CAKA;AAPA;MAKA,qBAAA;CACA;AAGA;IACA,YAAA;CACA;AAEA;IACA,8BAAA;IACA,eAAA;CAgCA;AAlCA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAUA,sBAAA;CAIA;AAdA;QAkBA,eAAA;CAIA;AAtBA;MA2BA,mBAAA;CACA;AA5BA;MA+BA,oBAAA;MACA,mBAAA;CACA;AAGA;IACA,oBAAA;IACA,eAAA;CACA;AA3NA;IAgOA,sBAAA;IACA,0BAAA;CACA;AAKA;EACA,uBAAA;EACA,0BAAA;EACA,0BAAA;CACA;AAEA;EACA,wBAAA;EACA,0BAAA;EACA,0BAAA;CACA;AAEA;AACA;IACA,WAAA;CAAA;AAGA;IACA,WAAA;CAAA;CAAA;AAIA;AACA;IACA,WAAA;CAAA;AAGA;IACA,WAAA;CAAA;CAAA;;ADzQA,0CAA0C","file":"BaseButton.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-button {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  background-position: center;\n  color: #ffffff;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer; }\n  .dm-base-button .dm-base-button__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .dm-base-button .dm-base-button__list {\n    position: absolute;\n    bottom: 0;\n    left: 50%;\n    z-index: 100;\n    display: block;\n    padding-top: 10px;\n    min-width: 100%;\n    transform: translate(-50%, 100%); }\n    .dm-base-button .dm-base-button__list .dm-base-button__item {\n      display: block;\n      padding: 10px 14px;\n      border: 1px solid rgba(0, 0, 0, 0.1);\n      border-top: none;\n      background: #ffffff;\n      color: #323e4f;\n      white-space: nowrap;\n      transition: all 250ms ease-in-out; }\n      .dm-base-button .dm-base-button__list .dm-base-button__item:first-of-type {\n        border-top: 1px solid rgba(0, 0, 0, 0.1);\n        border-top-left-radius: 4px;\n        border-top-right-radius: 4px; }\n      .dm-base-button .dm-base-button__list .dm-base-button__item:last-of-type {\n        border-bottom-left-radius: 4px;\n        border-bottom-right-radius: 4px; }\n      .dm-base-button .dm-base-button__list .dm-base-button__item:hover {\n        background-color: #f2f2f2; }\n  .dm-base-button--black:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #46576e; }\n  .dm-base-button--black:not(.dm-base-button--reverse) {\n    background: #323e4f radial-gradient(circle, transparent 1%, #323e4f 1%) center/15000%;\n    border: 1px solid #323e4f;\n    background: #232d3d radial-gradient(circle, transparent 1%, #232d3d 1%) center/15000%; }\n    .dm-base-button--black:not(.dm-base-button--reverse):hover {\n      background-color: #323e4f; }\n    .dm-base-button--black:not(.dm-base-button--reverse):active {\n      background-color: #323e4f; }\n  .dm-base-button--blue:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #25abfe; }\n  .dm-base-button--blue:not(.dm-base-button--reverse) {\n    background: #0194ef radial-gradient(circle, transparent 1%, #0194ef 1%) center/15000%; }\n    .dm-base-button--blue:not(.dm-base-button--reverse):hover {\n      background-color: #25abfe; }\n    .dm-base-button--blue:not(.dm-base-button--reverse):active {\n      background-color: #3eb5fe; }\n  .dm-base-button--green:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #27e045; }\n  .dm-base-button--green:not(.dm-base-button--reverse) {\n    background: #1bb934 radial-gradient(circle, transparent 1%, #1bb934 1%) center/15000%; }\n    .dm-base-button--green:not(.dm-base-button--reverse):hover {\n      background-color: #1ecf3a; }\n    .dm-base-button--green:not(.dm-base-button--reverse):active {\n      background-color: #1ecf3a; }\n  .dm-base-button--red:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #f0354d; }\n  .dm-base-button--red:not(.dm-base-button--reverse) {\n    background: #e1112c radial-gradient(circle, transparent 1%, #e1112c 1%) center/15000%; }\n    .dm-base-button--red:not(.dm-base-button--reverse):hover {\n      background-color: #f0354d; }\n    .dm-base-button--red:not(.dm-base-button--reverse):active {\n      background-color: #f24d62; }\n  .dm-base-button--orange:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc643; }\n  .dm-base-button--orange:not(.dm-base-button--reverse) {\n    background: #ffb610 radial-gradient(circle, transparent 1%, #ffb610 1%) center/15000%; }\n    .dm-base-button--orange:not(.dm-base-button--reverse):hover {\n      background-color: #ffc643; }\n    .dm-base-button--orange:not(.dm-base-button--reverse):active {\n      background-color: #ffcd5d; }\n  .dm-base-button--white:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px white; }\n  .dm-base-button--white:not(.dm-base-button--reverse) {\n    background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;\n    color: #323e4f; }\n    .dm-base-button--white:not(.dm-base-button--reverse):hover {\n      background-color: #e6e6e6; }\n    .dm-base-button--white:not(.dm-base-button--reverse):active {\n      background-color: #d9d9d9; }\n  .dm-base-button--mini {\n    padding: 10px 12px;\n    border-radius: 4px;\n    font-size: 12px;\n    line-height: 12px; }\n    .dm-base-button--mini .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 3px; }\n    .dm-base-button--mini .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 3px; }\n    .dm-base-button--mini .dm-base-button__list {\n      border-radius: 4px; }\n  .dm-base-button--small {\n    padding: 12px 14px;\n    border-radius: 5px;\n    font-size: 13px;\n    line-height: 14px; }\n    .dm-base-button--small .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 4px; }\n    .dm-base-button--small .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 4px; }\n    .dm-base-button--small .dm-base-button__list {\n      border-radius: 5px; }\n  .dm-base-button--default {\n    padding: 14px 16px;\n    border-radius: 6px;\n    font-size: 14px;\n    line-height: 16px; }\n    .dm-base-button--default .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 5px; }\n    .dm-base-button--default .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 5px; }\n    .dm-base-button--default .dm-base-button__list {\n      border-radius: 6px; }\n  .dm-base-button--medium {\n    padding: 16px 18px;\n    border-radius: 7px;\n    font-size: 15px;\n    line-height: 18px; }\n    .dm-base-button--medium .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 6px; }\n    .dm-base-button--medium .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 6px; }\n    .dm-base-button--medium .dm-base-button__list {\n      border-radius: 7px; }\n  .dm-base-button--large {\n    padding: 18px 20px;\n    border-radius: 8px;\n    font-size: 16px;\n    line-height: 20px; }\n    .dm-base-button--large .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 7px; }\n    .dm-base-button--large .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 7px; }\n    .dm-base-button--large .dm-base-button__list {\n      border-radius: 8px; }\n  .dm-base-button--capitalize {\n    text-transform: capitalize; }\n  .dm-base-button--circular {\n    border-radius: 100%; }\n    .dm-base-button--circular .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 0; }\n    .dm-base-button--circular .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 0; }\n    .dm-base-button--circular.dm-base-button--mini {\n      padding: 8px; }\n    .dm-base-button--circular.dm-base-button--small {\n      padding: 9px; }\n    .dm-base-button--circular.dm-base-button--default {\n      padding: 10px; }\n    .dm-base-button--circular.dm-base-button--medium {\n      padding: 11px; }\n    .dm-base-button--circular.dm-base-button--large {\n      padding: 12px; }\n  .dm-base-button--disabled {\n    opacity: 0.7;\n    cursor: not-allowed; }\n    .dm-base-button--disabled .dm-base-button__inner {\n      pointer-events: none; }\n  .dm-base-button--full-width {\n    width: 100%; }\n  .dm-base-button--reverse {\n    background-color: transparent;\n    color: #ffffff; }\n    .dm-base-button--reverse.dm-base-button--black {\n      border-color: #323e4f; }\n      .dm-base-button--reverse.dm-base-button--black:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--black:active {\n        color: #323e4f; }\n    .dm-base-button--reverse.dm-base-button--blue {\n      border-color: #0194ef; }\n      .dm-base-button--reverse.dm-base-button--blue:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--blue:active {\n        color: #0194ef; }\n    .dm-base-button--reverse.dm-base-button--green {\n      border-color: #1bb934; }\n      .dm-base-button--reverse.dm-base-button--green:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--green:active {\n        color: #1bb934; }\n    .dm-base-button--reverse.dm-base-button--red {\n      border-color: #e1112c; }\n      .dm-base-button--reverse.dm-base-button--red:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--red:active {\n        color: #e1112c; }\n    .dm-base-button--reverse.dm-base-button--orange {\n      border-color: #ffb610; }\n      .dm-base-button--reverse.dm-base-button--orange:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--orange:active {\n        color: #ffb610; }\n    .dm-base-button--reverse.dm-base-button--white {\n      border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--white:hover {\n        border-color: #0194ef; }\n      .dm-base-button--reverse.dm-base-button--white:active {\n        color: #323e4f; }\n    .dm-base-button--reverse:hover {\n      transform: initial; }\n    .dm-base-button--reverse:active {\n      background: #ffffff;\n      transform: initial; }\n  .dm-base-button--rounded {\n    border-radius: 60px;\n    color: #ffffff; }\n  .dm-base-button:active {\n    background-size: 100%;\n    transition: background 0s; }\n\n.fadeIn {\n  animation-name: fadeIn;\n  animation-duration: 200ms;\n  animation-fill-mode: both; }\n\n.fadeOut {\n  animation-name: fadeOut;\n  animation-duration: 200ms;\n  animation-fill-mode: both; }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadeOut {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n/*# sourceMappingURL=BaseButton.vue.map */",null]}, media: undefined });
+    inject("data-v-606b547e_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-spinner {\n  position: relative;\n  display: inline-block;\n  width: 40px;\n  height: 40px;\n}\n.dm-base-spinner .dm-base-spinner__wave {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    border-radius: 50%;\n    opacity: 0.6;\n    animation: bounce 2s infinite ease-in-out;\n}\n.dm-base-spinner .dm-base-spinner__wave--second {\n      animation-delay: -1s;\n}\n.dm-base-spinner--black .dm-base-spinner__wave {\n    background-color: #323e4f;\n}\n.dm-base-spinner--blue .dm-base-spinner__wave {\n    background-color: #0194ef;\n}\n.dm-base-spinner--green .dm-base-spinner__wave {\n    background-color: #1bb934;\n}\n.dm-base-spinner--red .dm-base-spinner__wave {\n    background-color: #e1112c;\n}\n.dm-base-spinner--orange .dm-base-spinner__wave {\n    background-color: #ffb610;\n}\n.dm-base-spinner--white .dm-base-spinner__wave {\n    background-color: #ffffff;\n}\n.dm-base-spinner--mini {\n    width: 16px;\n    height: 16px;\n}\n.dm-base-spinner--small {\n    width: 26px;\n    height: 26px;\n}\n.dm-base-spinner--default {\n    width: 36px;\n    height: 36px;\n}\n.dm-base-spinner--medium {\n    width: 46px;\n    height: 46px;\n}\n.dm-base-spinner--large {\n    width: 56px;\n    height: 56px;\n}\n@keyframes bounce {\n0%,\n  100% {\n    -webkit-transform: scale(0);\n    transform: scale(0);\n}\n50% {\n    -webkit-transform: scale(1);\n    transform: scale(1);\n}\n}\n\n/*# sourceMappingURL=BaseSpinner.vue.map */", map: {"version":3,"sources":["BaseSpinner.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseSpinner.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACgEhF;EACA,mBAAA;EACA,sBAAA;EACA,YAAA;EACA,aAAA;CAqCA;AAzCA;IAOA,mBAAA;IACA,OAAA;IACA,QAAA;IACA,YAAA;IACA,aAAA;IACA,mBAAA;IACA,aAAA;IACA,0CAAA;CAKA;AAnBA;MAiBA,qBAAA;CACA;AAMA;IAEA,0BAAA;CACA;AAHA;IAEA,0BAAA;CACA;AAHA;IAEA,0BAAA;CACA;AAHA;IAEA,0BAAA;CACA;AAHA;IAEA,0BAAA;CACA;AAHA;IAEA,0BAAA;CACA;AASA;IACA,YAAA;IACA,aAAA;CACA;AAHA;IACA,YAAA;IACA,aAAA;CACA;AAHA;IACA,YAAA;IACA,aAAA;CACA;AAHA;IACA,YAAA;IACA,aAAA;CACA;AAHA;IACA,YAAA;IACA,aAAA;CACA;AAMA;AACA;;IAEA,4BAAA;IACA,oBAAA;CAAA;AAEA;IACA,4BAAA;IACA,oBAAA;CAAA;CAAA;;AD/DA,2CAA2C","file":"BaseSpinner.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-spinner {\n  position: relative;\n  display: inline-block;\n  width: 40px;\n  height: 40px; }\n  .dm-base-spinner .dm-base-spinner__wave {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    border-radius: 50%;\n    opacity: 0.6;\n    animation: bounce 2s infinite ease-in-out; }\n    .dm-base-spinner .dm-base-spinner__wave--second {\n      animation-delay: -1s; }\n  .dm-base-spinner--black .dm-base-spinner__wave {\n    background-color: #323e4f; }\n  .dm-base-spinner--blue .dm-base-spinner__wave {\n    background-color: #0194ef; }\n  .dm-base-spinner--green .dm-base-spinner__wave {\n    background-color: #1bb934; }\n  .dm-base-spinner--red .dm-base-spinner__wave {\n    background-color: #e1112c; }\n  .dm-base-spinner--orange .dm-base-spinner__wave {\n    background-color: #ffb610; }\n  .dm-base-spinner--white .dm-base-spinner__wave {\n    background-color: #ffffff; }\n  .dm-base-spinner--mini {\n    width: 16px;\n    height: 16px; }\n  .dm-base-spinner--small {\n    width: 26px;\n    height: 26px; }\n  .dm-base-spinner--default {\n    width: 36px;\n    height: 36px; }\n  .dm-base-spinner--medium {\n    width: 46px;\n    height: 46px; }\n  .dm-base-spinner--large {\n    width: 56px;\n    height: 56px; }\n\n@keyframes bounce {\n  0%,\n  100% {\n    -webkit-transform: scale(0);\n    transform: scale(0); }\n  50% {\n    -webkit-transform: scale(1);\n    transform: scale(1); } }\n\n/*# sourceMappingURL=BaseSpinner.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -1314,7 +1126,7 @@ __vue_render__$4._withStripped = true;
     const component = (typeof script === 'function' ? script.options : script) || {};
 
     // For security concerns, we use only base name in production mode.
-    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseButton.vue";
+    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseSpinner.vue";
 
     if (!component.render) {
       component.render = template.render;
@@ -1413,7 +1225,7 @@ __vue_render__$4._withStripped = true;
   
 
   
-  var BaseButton = __vue_normalize__$4(
+  var BaseSpinner = __vue_normalize__$4(
     { render: __vue_render__$4, staticRenderFns: __vue_staticRenderFns__$4 },
     __vue_inject_styles__$4,
     __vue_script__$4,
@@ -1425,38 +1237,160 @@ __vue_render__$4._withStripped = true;
   )
 
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var script$5 = {
+  components: {
+    BaseIcon: BaseIcon,
+    BaseSpinner: BaseSpinner
+  },
   props: {
+    capitalize: {
+      type: Boolean,
+      default: true
+    },
+    circular: {
+      type: Boolean,
+      default: false
+    },
     color: {
       type: String,
       default: "blue",
       validator: function validator(x) {
-        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].indexOf(x) !== -1;
+        return ["black", "blue", "green", "orange", "red", "white"].indexOf(x) !== -1;
       }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    fullWidth: {
+      type: Boolean,
+      default: false
+    },
+    id: {
+      type: String,
+      default: null
+    },
+    leftIcon: {
+      type: String,
+      default: null
+    },
+    leftIconColor: {
+      type: String,
+      default: null
+    },
+    list: {
+      type: Array,
+      default: null,
+      validator: function validator(x) {
+        return x.length > 0;
+      }
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
+    reverse: {
+      type: Boolean,
+      default: false
+    },
+    rightIcon: {
+      type: String,
+      default: null
+    },
+    rightIconColor: {
+      type: String,
+      default: null
+    },
+    rounded: {
+      type: Boolean,
+      default: false
     },
     size: {
       type: String,
-      default: "small",
+      default: "default",
       validator: function validator(x) {
-        return ["small", "large"].indexOf(x) !== -1;
+        return ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1;
       }
+    },
+    type: {
+      type: String,
+      default: "button",
+      validator: function validator(x) {
+        return ["button", "reset", "submit"].indexOf(x) !== -1;
+      }
+    }
+  },
+  data: function data() {
+    return {
+      // --> STATE <--
+      listOpened: false
+    };
+  },
+  computed: {
+    computedIconSize: function computedIconSize() {
+      switch (this.size) {
+        case "mini":
+          return "12px";
+
+        case "small":
+          return "14px";
+
+        case "default":
+          return "16px";
+
+        case "medium":
+          return "18px";
+
+        case "large":
+          return "20px";
+      }
+    },
+    computedRightIcon: function computedRightIcon() {
+      if (this.list && !this.circular) {
+        return this.listOpened ? "arrow_drop_up" : "arrow_drop_down";
+      }
+
+      return this.rightIcon;
+    },
+    computedSpinnerColor: function computedSpinnerColor() {
+      return this.color === "white" ? "black" : "white";
+    }
+  },
+  methods: {
+    // --> EVENT LISTENERS <--
+    onClick: function onClick(event) {
+      if (this.list) {
+        this.listOpened = !this.listOpened;
+      }
+
+      this.$emit("click", this.id, event);
+    },
+    onDoubleClick: function onDoubleClick(event) {
+      this.$emit("dblclick", this.id, event);
+    },
+    onItemClick: function onItemClick(itemId, event) {
+      this.$emit("itemclick", this.id, itemId, event);
+    },
+    onMouseDown: function onMouseDown(event) {
+      this.$emit("mousedown", this.id, event);
+    },
+    onMouseEnter: function onMouseEnter(event) {
+      this.$emit("mouseenter", this.id, event);
+    },
+    onMouseLeave: function onMouseLeave(event) {
+      this.$emit("mouseleave", this.id, event);
+    },
+    onMouseMove: function onMouseMove(event) {
+      this.$emit("mousemove", this.id, event);
+    },
+    onMouseOut: function onMouseOut(event) {
+      this.$emit("mouseout", this.id, event);
+    },
+    onMouseOver: function onMouseOver(event) {
+      this.$emit("mouseover", this.id, event);
+    },
+    onMouseUp: function onMouseUp(event) {
+      this.$emit("mouseup", this.id, event);
     }
   }
 };
@@ -1469,13 +1403,119 @@ var __vue_render__$5 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
-  return _c("hr", {
-    class: [
-      "dm-base-divider",
-      "dm-base-divider--" + _vm.size,
-      "dm-base-divider--" + _vm.color
-    ]
-  })
+  return _c(
+    "button",
+    {
+      class: [
+        "dm-base-button",
+        "dm-base-button--" + _vm.color,
+        "dm-base-button--" + _vm.size,
+        {
+          "dm-base-button--capitalize": _vm.capitalize,
+          "dm-base-button--circular": _vm.circular || _vm.loading,
+          "dm-base-button--disabled": _vm.disabled || _vm.loading,
+          "dm-base-button--full-width": _vm.fullWidth,
+          "dm-base-button--loading": _vm.loading,
+          "dm-base-button--reverse": _vm.reverse,
+          "dm-base-button--rounded": _vm.rounded
+        }
+      ],
+      attrs: {
+        disabled: _vm.disabled || _vm.loading,
+        id: _vm.id,
+        type: _vm.type
+      },
+      on: {
+        click: _vm.onClick,
+        dblclick: _vm.onDoubleClick,
+        mousedown: _vm.onMouseDown,
+        mouseenter: _vm.onMouseEnter,
+        mouseleave: _vm.onMouseLeave,
+        mousemove: _vm.onMouseMove,
+        mouseout: _vm.onMouseOut,
+        mouseover: _vm.onMouseOver,
+        mouseup: _vm.onMouseUp
+      }
+    },
+    [
+      _c(
+        "span",
+        { staticClass: "dm-base-button__inner" },
+        [
+          _vm.leftIcon && !_vm.loading
+            ? _c("base-icon", {
+                staticClass: "dm-base-button__left-icon",
+                attrs: {
+                  color: _vm.leftIconColor,
+                  name: _vm.leftIcon,
+                  size: _vm.computedIconSize
+                }
+              })
+            : _vm._e(),
+          _vm.$slots.default &&
+          _vm.$slots.default[0].text.trim() &&
+          !_vm.circular &&
+          !_vm.loading
+            ? _c(
+                "span",
+                { staticClass: "dm-base-button__label" },
+                [_vm._t("default")],
+                2
+              )
+            : _vm._e(),
+          _vm.computedRightIcon && !_vm.loading
+            ? _c("base-icon", {
+                staticClass: "dm-base-button__right-icon",
+                attrs: {
+                  color: _vm.rightIconColor,
+                  name: _vm.computedRightIcon,
+                  size: _vm.computedIconSize
+                }
+              })
+            : _vm._e(),
+          _vm.loading
+            ? _c("base-spinner", {
+                attrs: { color: _vm.computedSpinnerColor, size: "mini" }
+              })
+            : _vm._e()
+        ],
+        1
+      ),
+      _vm.list && _vm.listOpened && !_vm.loading
+        ? _c(
+            "transition",
+            {
+              attrs: {
+                "enter-active-class": "animated fadeIn",
+                "leave-active-class": "animated fadeOut"
+              }
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "dm-base-button__list" },
+                _vm._l(_vm.list, function(item) {
+                  return _c(
+                    "span",
+                    {
+                      key: item.id,
+                      staticClass: "dm-base-button__item",
+                      on: {
+                        click: function($event) {
+                          _vm.onItemClick(item.id, $event);
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(item.label))]
+                  )
+                })
+              )
+            ]
+          )
+        : _vm._e()
+    ],
+    1
+  )
 };
 var __vue_staticRenderFns__$5 = [];
 __vue_render__$5._withStripped = true;
@@ -1483,7 +1523,7 @@ __vue_render__$5._withStripped = true;
   /* style */
   const __vue_inject_styles__$5 = function (inject) {
     if (!inject) return
-    inject("data-v-f61bdad4_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-divider {\n  display: block;\n  border: 0;\n  border-top-style: solid;\n}\n.dm-base-divider--black {\n    border-top-color: #323e4f;\n}\n.dm-base-divider--blue {\n    border-top-color: #0194ef;\n}\n.dm-base-divider--green {\n    border-top-color: #1bb934;\n}\n.dm-base-divider--orange {\n    border-top-color: #ffb610;\n}\n.dm-base-divider--purple {\n    border-top-color: #ab7ef6;\n}\n.dm-base-divider--red {\n    border-top-color: #e1112c;\n}\n.dm-base-divider--turquoise {\n    border-top-color: #26c2c9;\n}\n.dm-base-divider--white {\n    border-top-color: #ffffff;\n}\n.dm-base-divider--small {\n    margin: 15px auto;\n    max-width: 60px;\n    height: 4px;\n    border-top-width: 4px;\n}\n.dm-base-divider--large {\n    margin: 50px auto;\n    max-width: 800px;\n    height: 1px;\n    border-top-width: 1px;\n}\n\n/*# sourceMappingURL=BaseDivider.vue.map */", map: {"version":3,"sources":["BaseDivider.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseDivider.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC2DhF;EACA,eAAA;EACA,UAAA;EACA,wBAAA;CAyBA;AApBA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAKA;IACA,kBAAA;IACA,gBAAA;IACA,YAAA;IACA,sBAAA;CACA;AAEA;IACA,kBAAA;IACA,iBAAA;IACA,YAAA;IACA,sBAAA;CACA;;ADtDA,2CAA2C","file":"BaseDivider.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-divider {\n  display: block;\n  border: 0;\n  border-top-style: solid; }\n  .dm-base-divider--black {\n    border-top-color: #323e4f; }\n  .dm-base-divider--blue {\n    border-top-color: #0194ef; }\n  .dm-base-divider--green {\n    border-top-color: #1bb934; }\n  .dm-base-divider--orange {\n    border-top-color: #ffb610; }\n  .dm-base-divider--purple {\n    border-top-color: #ab7ef6; }\n  .dm-base-divider--red {\n    border-top-color: #e1112c; }\n  .dm-base-divider--turquoise {\n    border-top-color: #26c2c9; }\n  .dm-base-divider--white {\n    border-top-color: #ffffff; }\n  .dm-base-divider--small {\n    margin: 15px auto;\n    max-width: 60px;\n    height: 4px;\n    border-top-width: 4px; }\n  .dm-base-divider--large {\n    margin: 50px auto;\n    max-width: 800px;\n    height: 1px;\n    border-top-width: 1px; }\n\n/*# sourceMappingURL=BaseDivider.vue.map */",null]}, media: undefined });
+    inject("data-v-e3a240b0_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-button {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  background-position: center;\n  color: #ffffff;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer;\n}\n.dm-base-button .dm-base-button__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dm-base-button .dm-base-button__list {\n    position: absolute;\n    bottom: 0;\n    left: 50%;\n    z-index: 100;\n    display: block;\n    padding-top: 10px;\n    min-width: 100%;\n    transform: translate(-50%, 100%);\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item {\n      display: block;\n      padding: 10px 14px;\n      border: 1px solid rgba(0, 0, 0, 0.1);\n      border-top: none;\n      background: #ffffff;\n      color: #323e4f;\n      white-space: nowrap;\n      transition: all 250ms ease-in-out;\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item:first-of-type {\n        border-top: 1px solid rgba(0, 0, 0, 0.1);\n        border-top-left-radius: 4px;\n        border-top-right-radius: 4px;\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item:last-of-type {\n        border-bottom-right-radius: 4px;\n        border-bottom-left-radius: 4px;\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item:hover {\n        background-color: #f2f2f2;\n}\n.dm-base-button--black:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #46576e;\n}\n.dm-base-button--black:not(.dm-base-button--reverse) {\n    background: #323e4f radial-gradient(circle, transparent 1%, #323e4f 1%) center/15000%;\n    border: 1px solid #323e4f;\n    background: #232d3d radial-gradient(circle, transparent 1%, #232d3d 1%) center/15000%;\n}\n.dm-base-button--black:not(.dm-base-button--reverse):hover {\n      background-color: #323e4f;\n}\n.dm-base-button--black:not(.dm-base-button--reverse):active {\n      background-color: #323e4f;\n}\n.dm-base-button--blue:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #25abfe;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse) {\n    background: #0194ef radial-gradient(circle, transparent 1%, #0194ef 1%) center/15000%;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse):hover {\n      background-color: #25abfe;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse):active {\n      background-color: #3eb5fe;\n}\n.dm-base-button--green:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #27e045;\n}\n.dm-base-button--green:not(.dm-base-button--reverse) {\n    background: #1bb934 radial-gradient(circle, transparent 1%, #1bb934 1%) center/15000%;\n}\n.dm-base-button--green:not(.dm-base-button--reverse):hover {\n      background-color: #1ecf3a;\n}\n.dm-base-button--green:not(.dm-base-button--reverse):active {\n      background-color: #1ecf3a;\n}\n.dm-base-button--red:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #f0354d;\n}\n.dm-base-button--red:not(.dm-base-button--reverse) {\n    background: #e1112c radial-gradient(circle, transparent 1%, #e1112c 1%) center/15000%;\n}\n.dm-base-button--red:not(.dm-base-button--reverse):hover {\n      background-color: #f0354d;\n}\n.dm-base-button--red:not(.dm-base-button--reverse):active {\n      background-color: #f24d62;\n}\n.dm-base-button--orange:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc643;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse) {\n    background: #ffb610 radial-gradient(circle, transparent 1%, #ffb610 1%) center/15000%;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse):hover {\n      background-color: #ffc643;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse):active {\n      background-color: #ffcd5d;\n}\n.dm-base-button--white:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px white;\n}\n.dm-base-button--white:not(.dm-base-button--reverse) {\n    background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;\n    color: #323e4f;\n}\n.dm-base-button--white:not(.dm-base-button--reverse):hover {\n      background-color: #e6e6e6;\n}\n.dm-base-button--white:not(.dm-base-button--reverse):active {\n      background-color: #d9d9d9;\n}\n.dm-base-button--mini {\n    padding: 10px 12px;\n    border-radius: 4px;\n    font-size: 12px;\n    line-height: 12px;\n}\n.dm-base-button--mini .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 3px;\n}\n.dm-base-button--mini .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 3px;\n}\n.dm-base-button--mini .dm-base-button__list {\n      border-radius: 4px;\n}\n.dm-base-button--small {\n    padding: 12px 14px;\n    border-radius: 5px;\n    font-size: 13px;\n    line-height: 14px;\n}\n.dm-base-button--small .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 4px;\n}\n.dm-base-button--small .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 4px;\n}\n.dm-base-button--small .dm-base-button__list {\n      border-radius: 5px;\n}\n.dm-base-button--default {\n    padding: 14px 16px;\n    border-radius: 6px;\n    font-size: 14px;\n    line-height: 16px;\n}\n.dm-base-button--default .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 5px;\n}\n.dm-base-button--default .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 5px;\n}\n.dm-base-button--default .dm-base-button__list {\n      border-radius: 6px;\n}\n.dm-base-button--medium {\n    padding: 16px 18px;\n    border-radius: 7px;\n    font-size: 15px;\n    line-height: 18px;\n}\n.dm-base-button--medium .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 6px;\n}\n.dm-base-button--medium .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 6px;\n}\n.dm-base-button--medium .dm-base-button__list {\n      border-radius: 7px;\n}\n.dm-base-button--large {\n    padding: 18px 20px;\n    border-radius: 8px;\n    font-size: 16px;\n    line-height: 20px;\n}\n.dm-base-button--large .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 7px;\n}\n.dm-base-button--large .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 7px;\n}\n.dm-base-button--large .dm-base-button__list {\n      border-radius: 8px;\n}\n.dm-base-button--capitalize {\n    text-transform: capitalize;\n}\n.dm-base-button--circular {\n    border-radius: 100%;\n}\n.dm-base-button--circular .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 0;\n}\n.dm-base-button--circular .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 0;\n}\n.dm-base-button--circular.dm-base-button--mini {\n      padding: 8px;\n}\n.dm-base-button--circular.dm-base-button--small {\n      padding: 9px;\n}\n.dm-base-button--circular.dm-base-button--default {\n      padding: 10px;\n}\n.dm-base-button--circular.dm-base-button--medium {\n      padding: 11px;\n}\n.dm-base-button--circular.dm-base-button--large {\n      padding: 12px;\n}\n.dm-base-button--disabled {\n    opacity: 0.7;\n    cursor: not-allowed;\n}\n.dm-base-button--disabled .dm-base-button__inner {\n      pointer-events: none;\n}\n.dm-base-button--full-width {\n    width: 100%;\n}\n.dm-base-button--loading {\n    opacity: 1;\n    cursor: wait;\n}\n.dm-base-button--reverse {\n    background-color: transparent;\n    color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--black {\n      border-color: #323e4f;\n}\n.dm-base-button--reverse.dm-base-button--black:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--black:active {\n        color: #323e4f;\n}\n.dm-base-button--reverse.dm-base-button--blue {\n      border-color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--blue:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--blue:active {\n        color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--green {\n      border-color: #1bb934;\n}\n.dm-base-button--reverse.dm-base-button--green:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--green:active {\n        color: #1bb934;\n}\n.dm-base-button--reverse.dm-base-button--red {\n      border-color: #e1112c;\n}\n.dm-base-button--reverse.dm-base-button--red:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--red:active {\n        color: #e1112c;\n}\n.dm-base-button--reverse.dm-base-button--orange {\n      border-color: #ffb610;\n}\n.dm-base-button--reverse.dm-base-button--orange:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--orange:active {\n        color: #ffb610;\n}\n.dm-base-button--reverse.dm-base-button--white {\n      border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--white:hover {\n        border-color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--white:active {\n        color: #323e4f;\n}\n.dm-base-button--reverse:hover {\n      transform: initial;\n}\n.dm-base-button--reverse:active {\n      background: #ffffff;\n      transform: initial;\n}\n.dm-base-button--rounded {\n    border-radius: 60px;\n    color: #ffffff;\n}\n.dm-base-button:active {\n    background-size: 100%;\n    transition: background 0s;\n}\n.fadeIn {\n  animation-name: fadeIn;\n  animation-duration: 200ms;\n  animation-fill-mode: both;\n}\n.fadeOut {\n  animation-name: fadeOut;\n  animation-duration: 200ms;\n  animation-fill-mode: both;\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes fadeOut {\nfrom {\n    opacity: 1;\n}\nto {\n    opacity: 0;\n}\n}\n\n/*# sourceMappingURL=BaseButton.vue.map */", map: {"version":3,"sources":["BaseButton.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseButton.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC4QhF;EACA,mBAAA;EACA,sBAAA;EACA,WAAA;EACA,qCAAA;EACA,4BAAA;EACA,eAAA;EACA,iBAAA;EACA,sFACA;EACA,kCAAA;EACA,kBAAA;EACA,gBAAA;CA4NA;AAxOA;IAeA,cAAA;IACA,oBAAA;IACA,wBAAA;CACA;AAlBA;IAqBA,mBAAA;IACA,UAAA;IACA,UAAA;IACA,aAAA;IACA,eAAA;IACA,kBAAA;IACA,gBAAA;IACA,iCAAA;CA2BA;AAvDA;MA+BA,eAAA;MACA,mBAAA;MACA,qCAAA;MACA,iBAAA;MACA,oBAAA;MACA,eAAA;MACA,oBAAA;MACA,kCAAA;CAgBA;AAtDA;QAyCA,yCAAA;QACA,4BAAA;QACA,6BAAA;CACA;AA5CA;QA+CA,gCAAA;QACA,+BAAA;CACA;AAjDA;QAoDA,0BAAA;CACA;AAOA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;IAGA,0BAAA;IACA,sFAEA;CA4BA;AAhDA;MA2BA,0BAAA;CAQA;AAnCA;MAuCA,0BAAA;CAQA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MA+BA,0BAAA;CAIA;AAnCA;MA2CA,0BAAA;CAIA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,+CACA;CACA;AAJA;IAQA,sFAMA;IAQA,eAAA;CA0BA;AAhDA;MA6BA,0BAAA;CAMA;AAnCA;MAyCA,0BAAA;CAMA;AAUA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAMA;IACA,2BAAA;CACA;AAEA;IACA,oBAAA;CAmBA;AApBA;MAKA,gBAAA;CACA;AANA;MASA,eAAA;CACA;AAVA;MAiBA,aAAA;CACA;AAlBA;MAiBA,aAAA;CACA;AAlBA;MAiBA,cAAA;CACA;AAlBA;MAiBA,cAAA;CACA;AAlBA;MAiBA,cAAA;CACA;AAIA;IACA,aAAA;IACA,oBAAA;CAKA;AAPA;MAKA,qBAAA;CACA;AAGA;IACA,YAAA;CACA;AAEA;IACA,WAAA;IACA,aAAA;CACA;AAEA;IACA,8BAAA;IACA,eAAA;CAgCA;AAlCA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAUA,sBAAA;CAIA;AAdA;QAkBA,eAAA;CAIA;AAtBA;MA2BA,mBAAA;CACA;AA5BA;MA+BA,oBAAA;MACA,mBAAA;CACA;AAGA;IACA,oBAAA;IACA,eAAA;CACA;AAhOA;IAqOA,sBAAA;IACA,0BAAA;CACA;AAKA;EACA,uBAAA;EACA,0BAAA;EACA,0BAAA;CACA;AAEA;EACA,wBAAA;EACA,0BAAA;EACA,0BAAA;CACA;AAEA;AACA;IACA,WAAA;CAAA;AAGA;IACA,WAAA;CAAA;CAAA;AAIA;AACA;IACA,WAAA;CAAA;AAGA;IACA,WAAA;CAAA;CAAA;;ADzRA,0CAA0C","file":"BaseButton.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-button {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  background-position: center;\n  color: #ffffff;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer; }\n  .dm-base-button .dm-base-button__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .dm-base-button .dm-base-button__list {\n    position: absolute;\n    bottom: 0;\n    left: 50%;\n    z-index: 100;\n    display: block;\n    padding-top: 10px;\n    min-width: 100%;\n    transform: translate(-50%, 100%); }\n    .dm-base-button .dm-base-button__list .dm-base-button__item {\n      display: block;\n      padding: 10px 14px;\n      border: 1px solid rgba(0, 0, 0, 0.1);\n      border-top: none;\n      background: #ffffff;\n      color: #323e4f;\n      white-space: nowrap;\n      transition: all 250ms ease-in-out; }\n      .dm-base-button .dm-base-button__list .dm-base-button__item:first-of-type {\n        border-top: 1px solid rgba(0, 0, 0, 0.1);\n        border-top-left-radius: 4px;\n        border-top-right-radius: 4px; }\n      .dm-base-button .dm-base-button__list .dm-base-button__item:last-of-type {\n        border-bottom-right-radius: 4px;\n        border-bottom-left-radius: 4px; }\n      .dm-base-button .dm-base-button__list .dm-base-button__item:hover {\n        background-color: #f2f2f2; }\n  .dm-base-button--black:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #46576e; }\n  .dm-base-button--black:not(.dm-base-button--reverse) {\n    background: #323e4f radial-gradient(circle, transparent 1%, #323e4f 1%) center/15000%;\n    border: 1px solid #323e4f;\n    background: #232d3d radial-gradient(circle, transparent 1%, #232d3d 1%) center/15000%; }\n    .dm-base-button--black:not(.dm-base-button--reverse):hover {\n      background-color: #323e4f; }\n    .dm-base-button--black:not(.dm-base-button--reverse):active {\n      background-color: #323e4f; }\n  .dm-base-button--blue:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #25abfe; }\n  .dm-base-button--blue:not(.dm-base-button--reverse) {\n    background: #0194ef radial-gradient(circle, transparent 1%, #0194ef 1%) center/15000%; }\n    .dm-base-button--blue:not(.dm-base-button--reverse):hover {\n      background-color: #25abfe; }\n    .dm-base-button--blue:not(.dm-base-button--reverse):active {\n      background-color: #3eb5fe; }\n  .dm-base-button--green:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #27e045; }\n  .dm-base-button--green:not(.dm-base-button--reverse) {\n    background: #1bb934 radial-gradient(circle, transparent 1%, #1bb934 1%) center/15000%; }\n    .dm-base-button--green:not(.dm-base-button--reverse):hover {\n      background-color: #1ecf3a; }\n    .dm-base-button--green:not(.dm-base-button--reverse):active {\n      background-color: #1ecf3a; }\n  .dm-base-button--red:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #f0354d; }\n  .dm-base-button--red:not(.dm-base-button--reverse) {\n    background: #e1112c radial-gradient(circle, transparent 1%, #e1112c 1%) center/15000%; }\n    .dm-base-button--red:not(.dm-base-button--reverse):hover {\n      background-color: #f0354d; }\n    .dm-base-button--red:not(.dm-base-button--reverse):active {\n      background-color: #f24d62; }\n  .dm-base-button--orange:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc643; }\n  .dm-base-button--orange:not(.dm-base-button--reverse) {\n    background: #ffb610 radial-gradient(circle, transparent 1%, #ffb610 1%) center/15000%; }\n    .dm-base-button--orange:not(.dm-base-button--reverse):hover {\n      background-color: #ffc643; }\n    .dm-base-button--orange:not(.dm-base-button--reverse):active {\n      background-color: #ffcd5d; }\n  .dm-base-button--white:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px white; }\n  .dm-base-button--white:not(.dm-base-button--reverse) {\n    background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;\n    color: #323e4f; }\n    .dm-base-button--white:not(.dm-base-button--reverse):hover {\n      background-color: #e6e6e6; }\n    .dm-base-button--white:not(.dm-base-button--reverse):active {\n      background-color: #d9d9d9; }\n  .dm-base-button--mini {\n    padding: 10px 12px;\n    border-radius: 4px;\n    font-size: 12px;\n    line-height: 12px; }\n    .dm-base-button--mini .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 3px; }\n    .dm-base-button--mini .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 3px; }\n    .dm-base-button--mini .dm-base-button__list {\n      border-radius: 4px; }\n  .dm-base-button--small {\n    padding: 12px 14px;\n    border-radius: 5px;\n    font-size: 13px;\n    line-height: 14px; }\n    .dm-base-button--small .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 4px; }\n    .dm-base-button--small .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 4px; }\n    .dm-base-button--small .dm-base-button__list {\n      border-radius: 5px; }\n  .dm-base-button--default {\n    padding: 14px 16px;\n    border-radius: 6px;\n    font-size: 14px;\n    line-height: 16px; }\n    .dm-base-button--default .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 5px; }\n    .dm-base-button--default .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 5px; }\n    .dm-base-button--default .dm-base-button__list {\n      border-radius: 6px; }\n  .dm-base-button--medium {\n    padding: 16px 18px;\n    border-radius: 7px;\n    font-size: 15px;\n    line-height: 18px; }\n    .dm-base-button--medium .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 6px; }\n    .dm-base-button--medium .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 6px; }\n    .dm-base-button--medium .dm-base-button__list {\n      border-radius: 7px; }\n  .dm-base-button--large {\n    padding: 18px 20px;\n    border-radius: 8px;\n    font-size: 16px;\n    line-height: 20px; }\n    .dm-base-button--large .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 7px; }\n    .dm-base-button--large .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 7px; }\n    .dm-base-button--large .dm-base-button__list {\n      border-radius: 8px; }\n  .dm-base-button--capitalize {\n    text-transform: capitalize; }\n  .dm-base-button--circular {\n    border-radius: 100%; }\n    .dm-base-button--circular .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 0; }\n    .dm-base-button--circular .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 0; }\n    .dm-base-button--circular.dm-base-button--mini {\n      padding: 8px; }\n    .dm-base-button--circular.dm-base-button--small {\n      padding: 9px; }\n    .dm-base-button--circular.dm-base-button--default {\n      padding: 10px; }\n    .dm-base-button--circular.dm-base-button--medium {\n      padding: 11px; }\n    .dm-base-button--circular.dm-base-button--large {\n      padding: 12px; }\n  .dm-base-button--disabled {\n    opacity: 0.7;\n    cursor: not-allowed; }\n    .dm-base-button--disabled .dm-base-button__inner {\n      pointer-events: none; }\n  .dm-base-button--full-width {\n    width: 100%; }\n  .dm-base-button--loading {\n    opacity: 1;\n    cursor: wait; }\n  .dm-base-button--reverse {\n    background-color: transparent;\n    color: #ffffff; }\n    .dm-base-button--reverse.dm-base-button--black {\n      border-color: #323e4f; }\n      .dm-base-button--reverse.dm-base-button--black:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--black:active {\n        color: #323e4f; }\n    .dm-base-button--reverse.dm-base-button--blue {\n      border-color: #0194ef; }\n      .dm-base-button--reverse.dm-base-button--blue:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--blue:active {\n        color: #0194ef; }\n    .dm-base-button--reverse.dm-base-button--green {\n      border-color: #1bb934; }\n      .dm-base-button--reverse.dm-base-button--green:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--green:active {\n        color: #1bb934; }\n    .dm-base-button--reverse.dm-base-button--red {\n      border-color: #e1112c; }\n      .dm-base-button--reverse.dm-base-button--red:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--red:active {\n        color: #e1112c; }\n    .dm-base-button--reverse.dm-base-button--orange {\n      border-color: #ffb610; }\n      .dm-base-button--reverse.dm-base-button--orange:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--orange:active {\n        color: #ffb610; }\n    .dm-base-button--reverse.dm-base-button--white {\n      border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--white:hover {\n        border-color: #0194ef; }\n      .dm-base-button--reverse.dm-base-button--white:active {\n        color: #323e4f; }\n    .dm-base-button--reverse:hover {\n      transform: initial; }\n    .dm-base-button--reverse:active {\n      background: #ffffff;\n      transform: initial; }\n  .dm-base-button--rounded {\n    border-radius: 60px;\n    color: #ffffff; }\n  .dm-base-button:active {\n    background-size: 100%;\n    transition: background 0s; }\n\n.fadeIn {\n  animation-name: fadeIn;\n  animation-duration: 200ms;\n  animation-fill-mode: both; }\n\n.fadeOut {\n  animation-name: fadeOut;\n  animation-duration: 200ms;\n  animation-fill-mode: both; }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadeOut {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n/*# sourceMappingURL=BaseButton.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -1501,7 +1541,7 @@ __vue_render__$5._withStripped = true;
     const component = (typeof script === 'function' ? script.options : script) || {};
 
     // For security concerns, we use only base name in production mode.
-    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseDivider.vue";
+    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseButton.vue";
 
     if (!component.render) {
       component.render = template.render;
@@ -1600,7 +1640,7 @@ __vue_render__$5._withStripped = true;
   
 
   
-  var BaseDivider = __vue_normalize__$5(
+  var BaseButton = __vue_normalize__$5(
     { render: __vue_render__$5, staticRenderFns: __vue_staticRenderFns__$5 },
     __vue_inject_styles__$5,
     __vue_script__$5,
@@ -1629,60 +1669,20 @@ __vue_render__$5._withStripped = true;
 //
 //
 //
-//
 var script$6 = {
   props: {
     color: {
       type: String,
-      default: null,
+      default: "blue",
       validator: function validator(x) {
-        return ["grey", "white", "white2"].indexOf(x) !== -1;
+        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].indexOf(x) !== -1;
       }
     },
-    fontWeight: {
+    size: {
       type: String,
-      default: null,
+      default: "small",
       validator: function validator(x) {
-        return ["thin", "light", "regular", "medium", "bold", "extrabold", "black"].indexOf(x) !== -1;
-      }
-    },
-    type: {
-      type: String,
-      required: true,
-      validator: function validator(x) {
-        return ["h1", "h2", "h3", "p", "small"].indexOf(x) !== -1;
-      }
-    }
-  },
-  computed: {
-    computedColor: function computedColor() {
-      // Directly return prop when defined
-      if (this.color) return this.color;
-
-      switch (this.type) {
-        case "h2":
-          return "white2";
-
-        case "h3":
-          return "grey";
-
-        default:
-          return "white";
-      }
-    },
-    computedFontWeight: function computedFontWeight() {
-      // Directly return prop when defined
-      if (this.fontWeight) return this.fontWeight;
-
-      switch (this.type) {
-        case "h1":
-          return "bold";
-
-        case "h2":
-          return "medium";
-
-        default:
-          return "regular";
+        return ["small", "large"].indexOf(x) !== -1;
       }
     }
   }
@@ -1696,19 +1696,13 @@ var __vue_render__$6 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
-  return _c(
-    "div",
-    {
-      class: [
-        "dm-base-heading",
-        "dm-base-heading--" + _vm.computedColor,
-        "dm-base-heading--" + _vm.computedFontWeight,
-        "dm-base-heading--" + _vm.type
-      ]
-    },
-    [_vm._t("default")],
-    2
-  )
+  return _c("hr", {
+    class: [
+      "dm-base-divider",
+      "dm-base-divider--" + _vm.size,
+      "dm-base-divider--" + _vm.color
+    ]
+  })
 };
 var __vue_staticRenderFns__$6 = [];
 __vue_render__$6._withStripped = true;
@@ -1716,7 +1710,7 @@ __vue_render__$6._withStripped = true;
   /* style */
   const __vue_inject_styles__$6 = function (inject) {
     if (!inject) return
-    inject("data-v-5405c71e_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-base-heading--grey {\n    color: #a9c7df;\n}\n.dm-base-heading--white {\n    color: #ffffff;\n}\n.dm-base-heading--white2 {\n    color: #fafbfc;\n}\n.dm-base-heading--thin {\n    font-weight: 100;\n}\n.dm-base-heading--light {\n    font-weight: 300;\n}\n.dm-base-heading--regular {\n    font-weight: 400;\n}\n.dm-base-heading--medium {\n    font-weight: 500;\n}\n.dm-base-heading--bold {\n    font-weight: 700;\n}\n.dm-base-heading--extrabold {\n    font-weight: 800;\n}\n.dm-base-heading--black {\n    font-weight: 900;\n}\n.dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px;\n}\n.dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px;\n}\n.dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px;\n}\n.dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px;\n}\n.dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px;\n}\n\n/*# sourceMappingURL=BaseHeading.vue.map */", map: {"version":3,"sources":["BaseHeading.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseHeading.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC+FhF;EACA,sFACA;CA6EA;AAzEA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAIA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAIA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;;ADjIA,2CAA2C","file":"BaseHeading.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-base-heading--grey {\n    color: #a9c7df; }\n  .dm-base-heading--white {\n    color: #ffffff; }\n  .dm-base-heading--white2 {\n    color: #fafbfc; }\n  .dm-base-heading--thin {\n    font-weight: 100; }\n  .dm-base-heading--light {\n    font-weight: 300; }\n  .dm-base-heading--regular {\n    font-weight: 400; }\n  .dm-base-heading--medium {\n    font-weight: 500; }\n  .dm-base-heading--bold {\n    font-weight: 700; }\n  .dm-base-heading--extrabold {\n    font-weight: 800; }\n  .dm-base-heading--black {\n    font-weight: 900; }\n  .dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px; }\n  .dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px; }\n  .dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px; }\n  .dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px; }\n  .dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px; }\n\n/*# sourceMappingURL=BaseHeading.vue.map */",null]}, media: undefined });
+    inject("data-v-f61bdad4_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-divider {\n  display: block;\n  border: 0;\n  border-top-style: solid;\n}\n.dm-base-divider--black {\n    border-top-color: #323e4f;\n}\n.dm-base-divider--blue {\n    border-top-color: #0194ef;\n}\n.dm-base-divider--green {\n    border-top-color: #1bb934;\n}\n.dm-base-divider--orange {\n    border-top-color: #ffb610;\n}\n.dm-base-divider--purple {\n    border-top-color: #ab7ef6;\n}\n.dm-base-divider--red {\n    border-top-color: #e1112c;\n}\n.dm-base-divider--turquoise {\n    border-top-color: #26c2c9;\n}\n.dm-base-divider--white {\n    border-top-color: #ffffff;\n}\n.dm-base-divider--small {\n    margin: 15px auto;\n    max-width: 60px;\n    height: 4px;\n    border-top-width: 4px;\n}\n.dm-base-divider--large {\n    margin: 50px auto;\n    max-width: 800px;\n    height: 1px;\n    border-top-width: 1px;\n}\n\n/*# sourceMappingURL=BaseDivider.vue.map */", map: {"version":3,"sources":["BaseDivider.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseDivider.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC2DhF;EACA,eAAA;EACA,UAAA;EACA,wBAAA;CAyBA;AApBA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAFA;IACA,0BAAA;CACA;AAKA;IACA,kBAAA;IACA,gBAAA;IACA,YAAA;IACA,sBAAA;CACA;AAEA;IACA,kBAAA;IACA,iBAAA;IACA,YAAA;IACA,sBAAA;CACA;;ADtDA,2CAA2C","file":"BaseDivider.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-divider {\n  display: block;\n  border: 0;\n  border-top-style: solid; }\n  .dm-base-divider--black {\n    border-top-color: #323e4f; }\n  .dm-base-divider--blue {\n    border-top-color: #0194ef; }\n  .dm-base-divider--green {\n    border-top-color: #1bb934; }\n  .dm-base-divider--orange {\n    border-top-color: #ffb610; }\n  .dm-base-divider--purple {\n    border-top-color: #ab7ef6; }\n  .dm-base-divider--red {\n    border-top-color: #e1112c; }\n  .dm-base-divider--turquoise {\n    border-top-color: #26c2c9; }\n  .dm-base-divider--white {\n    border-top-color: #ffffff; }\n  .dm-base-divider--small {\n    margin: 15px auto;\n    max-width: 60px;\n    height: 4px;\n    border-top-width: 4px; }\n  .dm-base-divider--large {\n    margin: 50px auto;\n    max-width: 800px;\n    height: 1px;\n    border-top-width: 1px; }\n\n/*# sourceMappingURL=BaseDivider.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -1734,7 +1728,7 @@ __vue_render__$6._withStripped = true;
     const component = (typeof script === 'function' ? script.options : script) || {};
 
     // For security concerns, we use only base name in production mode.
-    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseHeading.vue";
+    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseDivider.vue";
 
     if (!component.render) {
       component.render = template.render;
@@ -1833,7 +1827,7 @@ __vue_render__$6._withStripped = true;
   
 
   
-  var BaseHeading = __vue_normalize__$6(
+  var BaseDivider = __vue_normalize__$6(
     { render: __vue_render__$6, staticRenderFns: __vue_staticRenderFns__$6 },
     __vue_inject_styles__$6,
     __vue_script__$6,
@@ -1863,57 +1857,60 @@ __vue_render__$6._withStripped = true;
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var script$7 = {
   props: {
     color: {
       type: String,
-      default: "blue",
+      default: null,
       validator: function validator(x) {
-        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].indexOf(x) !== -1;
+        return ["grey", "white", "white2"].indexOf(x) !== -1;
       }
     },
-    details: {
+    fontWeight: {
       type: String,
-      default: null
+      default: null,
+      validator: function validator(x) {
+        return ["thin", "light", "regular", "medium", "bold", "extrabold", "black"].indexOf(x) !== -1;
+      }
     },
-    detailsHover: {
+    type: {
       type: String,
-      default: null
+      required: true,
+      validator: function validator(x) {
+        return ["h1", "h2", "h3", "p", "small"].indexOf(x) !== -1;
+      }
+    }
+  },
+  computed: {
+    computedColor: function computedColor() {
+      // Directly return prop when defined
+      if (this.color) return this.color;
+
+      switch (this.type) {
+        case "h2":
+          return "white2";
+
+        case "h3":
+          return "grey";
+
+        default:
+          return "white";
+      }
     },
-    title: {
-      type: String,
-      default: null
-    },
-    progress: {
-      type: Number,
-      default: 0
+    computedFontWeight: function computedFontWeight() {
+      // Directly return prop when defined
+      if (this.fontWeight) return this.fontWeight;
+
+      switch (this.type) {
+        case "h1":
+          return "bold";
+
+        case "h2":
+          return "medium";
+
+        default:
+          return "regular";
+      }
     }
   }
 };
@@ -1930,44 +1927,14 @@ var __vue_render__$7 = function() {
     "div",
     {
       class: [
-        "dm-base-progress-bar",
-        "dm-base-progress-bar--" + _vm.color,
-        {
-          "dm-base-progress-bar--with-details-hover": _vm.detailsHover
-        }
+        "dm-base-heading",
+        "dm-base-heading--" + _vm.computedColor,
+        "dm-base-heading--" + _vm.computedFontWeight,
+        "dm-base-heading--" + _vm.type
       ]
     },
-    [
-      _vm.title || _vm.details
-        ? _c("span", { staticClass: "dm-base-progress-bar__content" }, [
-            _vm.title
-              ? _c("span", { staticClass: "dm-base-progress-bar__title" }, [
-                  _vm._v(_vm._s(_vm.title))
-                ])
-              : _vm._e(),
-            _vm.details
-              ? _c("span", { staticClass: "dm-base-progress-bar__details" }, [
-                  _vm._v(_vm._s(_vm.details))
-                ])
-              : _vm._e(),
-            _vm.detailsHover
-              ? _c(
-                  "span",
-                  { staticClass: "dm-base-progress-bar__details-hover" },
-                  [_vm._v(_vm._s(_vm.detailsHover))]
-                )
-              : _vm._e()
-          ])
-        : _vm._e(),
-      _c("div", { staticClass: "dm-base-progress-bar__bar" }, [
-        _c("div", {
-          staticClass: "dm-base-progress-bar__progress",
-          style: {
-            width: _vm.progress + "%"
-          }
-        })
-      ])
-    ]
+    [_vm._t("default")],
+    2
   )
 };
 var __vue_staticRenderFns__$7 = [];
@@ -1976,7 +1943,7 @@ __vue_render__$7._withStripped = true;
   /* style */
   const __vue_inject_styles__$7 = function (inject) {
     if (!inject) return
-    inject("data-v-0691f030_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-progress-bar {\n  text-align: left;\n  font-size: 14px;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  user-select: none;\n}\n.dm-base-progress-bar .dm-base-progress-bar__content {\n    display: flex;\n    margin-bottom: 10px;\n    color: #ffffff;\n}\n.dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__title,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n      flex: 1;\n      line-height: 22px;\n}\n.dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__title {\n      text-transform: uppercase;\n      font-weight: bold;\n}\n.dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n      text-align: right;\n}\n.dm-base-progress-bar .dm-base-progress-bar__bar {\n    overflow: hidden;\n    height: 6px;\n    border-radius: 10px;\n}\n.dm-base-progress-bar .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n      width: 0;\n      height: 100%;\n      border-radius: 10px;\n      transition: width 0.5s ease-in-out;\n      animation: fillUp 0.5s ease-in-out 0s 1;\n}\n.dm-base-progress-bar--black .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #323e4f;\n}\n.dm-base-progress-bar--blue .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #0194ef;\n}\n.dm-base-progress-bar--green .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #1bb934;\n}\n.dm-base-progress-bar--orange .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ffb610;\n}\n.dm-base-progress-bar--purple .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ab7ef6;\n}\n.dm-base-progress-bar--red .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #e1112c;\n}\n.dm-base-progress-bar--turquoise .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #26c2c9;\n}\n.dm-base-progress-bar--white .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ffffff;\n}\n.dm-base-progress-bar--with-details-hover .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n    display: none;\n}\n.dm-base-progress-bar--with-details-hover:hover .dm-base-progress-bar__content .dm-base-progress-bar__details {\n    display: none;\n}\n.dm-base-progress-bar--with-details-hover:hover .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n    display: block;\n}\n@keyframes fillUp {\n0% {\n    transform: translateX(-100%);\n}\n100% {\n    transform: translateX(0);\n}\n}\n\n/*# sourceMappingURL=BaseProgressBar.vue.map */", map: {"version":3,"sources":["BaseProgressBar.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseProgressBar.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACgGhF;EACA,iBAAA;EACA,gBAAA;EACA,sFACA;EACA,kBAAA;CAwEA;AA7EA;IAQA,cAAA;IACA,oBAAA;IACA,eAAA;CAkBA;AA5BA;;;MAeA,QAAA;MACA,kBAAA;CACA;AAjBA;MAoBA,0BAAA;MACA,kBAAA;CACA;AAtBA;;MA0BA,kBAAA;CACA;AA3BA;IA+BA,iBAAA;IACA,YAAA;IACA,oBAAA;CASA;AA1CA;MAoCA,SAAA;MACA,aAAA;MACA,oBAAA;MACA,mCAAA;MACA,wCAAA;CACA;AAMA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAOA;IAGA,cAAA;CACA;AAJA;IAUA,cAAA;CACA;AAXA;IAcA,eAAA;CACA;AAMA;AACA;IACA,6BAAA;CAAA;AAGA;IACA,yBAAA;CAAA;CAAA;;ADzHA,+CAA+C","file":"BaseProgressBar.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-progress-bar {\n  text-align: left;\n  font-size: 14px;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  user-select: none; }\n  .dm-base-progress-bar .dm-base-progress-bar__content {\n    display: flex;\n    margin-bottom: 10px;\n    color: #ffffff; }\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__title,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n      flex: 1;\n      line-height: 22px; }\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__title {\n      text-transform: uppercase;\n      font-weight: bold; }\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n      text-align: right; }\n  .dm-base-progress-bar .dm-base-progress-bar__bar {\n    overflow: hidden;\n    height: 6px;\n    border-radius: 10px; }\n    .dm-base-progress-bar .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n      width: 0;\n      height: 100%;\n      border-radius: 10px;\n      transition: width 0.5s ease-in-out;\n      animation: fillUp 0.5s ease-in-out 0s 1; }\n  .dm-base-progress-bar--black .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #323e4f; }\n  .dm-base-progress-bar--blue .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #0194ef; }\n  .dm-base-progress-bar--green .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #1bb934; }\n  .dm-base-progress-bar--orange .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ffb610; }\n  .dm-base-progress-bar--purple .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ab7ef6; }\n  .dm-base-progress-bar--red .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #e1112c; }\n  .dm-base-progress-bar--turquoise .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #26c2c9; }\n  .dm-base-progress-bar--white .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ffffff; }\n  .dm-base-progress-bar--with-details-hover .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n    display: none; }\n  .dm-base-progress-bar--with-details-hover:hover .dm-base-progress-bar__content .dm-base-progress-bar__details {\n    display: none; }\n  .dm-base-progress-bar--with-details-hover:hover .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n    display: block; }\n\n@keyframes fillUp {\n  0% {\n    transform: translateX(-100%); }\n  100% {\n    transform: translateX(0); } }\n\n/*# sourceMappingURL=BaseProgressBar.vue.map */",null]}, media: undefined });
+    inject("data-v-5405c71e_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-base-heading--grey {\n    color: #a9c7df;\n}\n.dm-base-heading--white {\n    color: #ffffff;\n}\n.dm-base-heading--white2 {\n    color: #fafbfc;\n}\n.dm-base-heading--thin {\n    font-weight: 100;\n}\n.dm-base-heading--light {\n    font-weight: 300;\n}\n.dm-base-heading--regular {\n    font-weight: 400;\n}\n.dm-base-heading--medium {\n    font-weight: 500;\n}\n.dm-base-heading--bold {\n    font-weight: 700;\n}\n.dm-base-heading--extrabold {\n    font-weight: 800;\n}\n.dm-base-heading--black {\n    font-weight: 900;\n}\n.dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px;\n}\n.dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px;\n}\n.dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px;\n}\n.dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px;\n}\n.dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px;\n}\n\n/*# sourceMappingURL=BaseHeading.vue.map */", map: {"version":3,"sources":["BaseHeading.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseHeading.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC+FhF;EACA,sFACA;CA6EA;AAzEA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAIA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAIA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;;ADjIA,2CAA2C","file":"BaseHeading.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-base-heading--grey {\n    color: #a9c7df; }\n  .dm-base-heading--white {\n    color: #ffffff; }\n  .dm-base-heading--white2 {\n    color: #fafbfc; }\n  .dm-base-heading--thin {\n    font-weight: 100; }\n  .dm-base-heading--light {\n    font-weight: 300; }\n  .dm-base-heading--regular {\n    font-weight: 400; }\n  .dm-base-heading--medium {\n    font-weight: 500; }\n  .dm-base-heading--bold {\n    font-weight: 700; }\n  .dm-base-heading--extrabold {\n    font-weight: 800; }\n  .dm-base-heading--black {\n    font-weight: 900; }\n  .dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px; }\n  .dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px; }\n  .dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px; }\n  .dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px; }\n  .dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px; }\n\n/*# sourceMappingURL=BaseHeading.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -1994,7 +1961,7 @@ __vue_render__$7._withStripped = true;
     const component = (typeof script === 'function' ? script.options : script) || {};
 
     // For security concerns, we use only base name in production mode.
-    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseProgressBar.vue";
+    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseHeading.vue";
 
     if (!component.render) {
       component.render = template.render;
@@ -2093,7 +2060,7 @@ __vue_render__$7._withStripped = true;
   
 
   
-  var BaseProgressBar = __vue_normalize__$7(
+  var BaseHeading = __vue_normalize__$7(
     { render: __vue_render__$7, staticRenderFns: __vue_staticRenderFns__$7 },
     __vue_inject_styles__$7,
     __vue_script__$7,
@@ -2133,31 +2100,47 @@ __vue_render__$7._withStripped = true;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var script$8 = {
   props: {
-    fullWidth: {
-      type: Boolean,
-      default: false
-    },
-    network: {
+    color: {
       type: String,
-      required: true,
+      default: "blue",
       validator: function validator(x) {
-        return ["facebook", "google", "messenger", "twitter"].indexOf(x) !== -1;
+        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].indexOf(x) !== -1;
       }
     },
-    size: {
+    details: {
       type: String,
-      default: "large",
-      validator: function validator(x) {
-        return ["small", "large"].indexOf(x) !== -1;
-      }
-    }
-  },
-  methods: {
-    // --> EVENT LISTENERS <--
-    onClick: function onClick(event) {
-      this.$emit("click", this.network, event);
+      default: null
+    },
+    detailsHover: {
+      type: String,
+      default: null
+    },
+    title: {
+      type: String,
+      default: null
+    },
+    progress: {
+      type: Number,
+      default: 0
     }
   }
 };
@@ -2171,29 +2154,45 @@ var __vue_render__$8 = function() {
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
   return _c(
-    "button",
+    "div",
     {
       class: [
-        "dm-base-social-login",
-        "dm-base-social-login--" + _vm.network,
-        "dm-base-social-login--" + _vm.size,
+        "dm-base-progress-bar",
+        "dm-base-progress-bar--" + _vm.color,
         {
-          "dm-base-social-login--full-width": _vm.fullWidth
+          "dm-base-progress-bar--with-details-hover": _vm.detailsHover
         }
-      ],
-      on: { click: _vm.onClick }
+      ]
     },
     [
-      _c("span", { staticClass: "dm-base-social-login__inner" }, [
-        _c("span", { staticClass: "dm-base-social-login__icon" }),
-        _vm.size === "large"
-          ? _c(
-              "span",
-              { staticClass: "dm-base-social-login__label" },
-              [_vm._t("default")],
-              2
-            )
-          : _vm._e()
+      _vm.title || _vm.details
+        ? _c("span", { staticClass: "dm-base-progress-bar__content" }, [
+            _vm.title
+              ? _c("span", { staticClass: "dm-base-progress-bar__title" }, [
+                  _vm._v(_vm._s(_vm.title))
+                ])
+              : _vm._e(),
+            _vm.details
+              ? _c("span", { staticClass: "dm-base-progress-bar__details" }, [
+                  _vm._v(_vm._s(_vm.details))
+                ])
+              : _vm._e(),
+            _vm.detailsHover
+              ? _c(
+                  "span",
+                  { staticClass: "dm-base-progress-bar__details-hover" },
+                  [_vm._v(_vm._s(_vm.detailsHover))]
+                )
+              : _vm._e()
+          ])
+        : _vm._e(),
+      _c("div", { staticClass: "dm-base-progress-bar__bar" }, [
+        _c("div", {
+          staticClass: "dm-base-progress-bar__progress",
+          style: {
+            width: _vm.progress + "%"
+          }
+        })
       ])
     ]
   )
@@ -2204,7 +2203,7 @@ __vue_render__$8._withStripped = true;
   /* style */
   const __vue_inject_styles__$8 = function (inject) {
     if (!inject) return
-    inject("data-v-a0940732_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-social-login {\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  background-position: center;\n  box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);\n  color: #ffffff;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer;\n}\n.dm-base-social-login .dm-base-social-login__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dm-base-social-login .dm-base-social-login__inner .dm-base-social-login__icon {\n      display: inline-block;\n      width: 20px;\n      height: 20px;\n      background-repeat: no-repeat;\n}\n.dm-base-social-login .dm-base-social-login__inner .dm-base-social-login__label {\n      margin-left: 8px;\n      font-weight: 500;\n      font-size: 15px;\n      line-height: 20px;\n}\n.dm-base-social-login--facebook {\n    background: #3b5998 radial-gradient(circle, transparent 1%, #3b5998 1%) center/15000%;\n}\n.dm-base-social-login--facebook:hover {\n      background-color: #4c70ba;\n}\n.dm-base-social-login--facebook:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #4c70ba;\n}\n.dm-base-social-login--facebook:active {\n      background-color: #4c70ba;\n}\n.dm-base-social-login--facebook .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5mYWNlYm9vazwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJXZWJzaXRlIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRGFyay1Nb2RlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDQxLjAwMDAwMCwgLTMwMDkuMDAwMDAwKSIgZmlsbD0iI0ZGRkZGRiI+CiAgICAgICAgICAgIDxnIGlkPSJDb250ZW50LVs0MHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NS4wMDAwMDAsIDYwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlNvY2lhbC1Db25uZWN0cy1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNTUuMDAwMDAwLCAyODM2LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJDb250ZW50LVsyMHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAxMDMuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJGYWNlYm9vay1bMjBoLW1dIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjEuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTE4Ljg5NjE5MSwwIEwxLjEwMzgwOSwwIEMwLjQ5NDEyODc1NSwwIDAsMC40OTQxMjY5MDQgMCwxLjEwMzgwNDg3IEwwLDE4Ljg5NjEyMDIgQzAsMTkuNTA1NzIzMiAwLjQ5NDEyODc1NSwyMCAxLjEwMzgwOSwyMCBMMTAuNjgyNjY4LDIwIEwxMC42ODI2NjgsMTIuMjU0OTMxNyBMOC4wNzYyNDAwMSwxMi4yNTQ5MzE3IEw4LjA3NjI0MDAxLDkuMjM2NTE2MjMgTDEwLjY4MjY2OCw5LjIzNjUxNjIzIEwxMC42ODI2NjgsNy4wMTA1NDcyMiBDMTAuNjgyNjY4LDQuNDI3MzU5MDcgMTIuMjYwMzczLDMuMDIwNzM4NDkgMTQuNTY0ODA4NSwzLjAyMDczODQ5IEMxNS42Njg2OTI0LDMuMDIwNzM4NDkgMTYuNjE3MzgzNywzLjEwMjg2ODE3IDE2Ljg5MzgyMywzLjEzOTU4NjczIEwxNi44OTM4MjMsNS44MzkyMjUxNiBMMTUuMjk1NTg1NSw1LjgzOTk3NDUyIEMxNC4wNDIzNTM5LDUuODM5OTc0NTIgMTMuNzk5NjM1OCw2LjQzNTQ4OTYxIDEzLjc5OTYzNTgsNy4zMDkzOTEzMyBMMTMuNzk5NjM1OCw5LjIzNjUxNjIzIEwxNi43ODg2MTI3LDkuMjM2NTE2MjMgTDE2LjM5OTQ2OTUsMTIuMjU0OTMxNyBMMTMuNzk5NjM1OCwxMi4yNTQ5MzE3IEwxMy43OTk2MzU4LDIwIEwxOC44OTYxOTEsMjAgQzE5LjUwNTc5NjMsMjAgMjAsMTkuNTA1NzIzMiAyMCwxOC44OTYxMjAyIEwyMCwxLjEwMzgwNDg3IEMyMCwwLjQ5NDEyNjkwNCAxOS41MDU3OTYzLDAgMTguODk2MTkxLDAiIGlkPSJmYWNlYm9vayI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+);\n}\n.dm-base-social-login--google {\n    background: #db4437 radial-gradient(circle, transparent 1%, #db4437 1%) center/15000%;\n}\n.dm-base-social-login--google:hover {\n      background-color: #e36c62;\n}\n.dm-base-social-login--google:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e36c62;\n}\n.dm-base-social-login--google:active {\n      background-color: #e36c62;\n}\n.dm-base-social-login--google .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5nb29nbGU8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iV2Vic2l0ZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRhcmstTW9kZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4wMDAwMDAsIC0zMTg5LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJTb2NpYWwtQ29ubmVjdHMtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU1LjAwMDAwMCwgMjgzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bMjB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iR29vZ2xlLVsyMGgtbV0iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAxODAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iTGFyZ2UtW2MtbV0iPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcwLjAwMDAwMCwgMTAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xOS44MjE1MzY2LDguMDAzODY0OTkgTDEwLjIxMTI5ODMsOC4wMDM4NjQ5OSBDMTAuMjExMjk4Myw5LjAwMzMwMjM3IDEwLjIxMTI5ODMsMTEuMDAyMTc3MSAxMC4yMDUxNzE5LDEyLjAwMTYxNDUgTDE1Ljc3NDA0NTcsMTIuMDAxNjE0NSBDMTUuNTYwNjQzNiwxMy4wMDEwNTE5IDE0LjgwNDAzNjUsMTQuNDAwMjY0MyAxMy43MzQ5ODQzLDE1LjEwNDg2NzYgQzEzLjczMzk2MzIsMTUuMTAzODY4MiAxMy43MzI5NDIxLDE1LjExMDg2NDIgMTMuNzMwOSwxNS4xMDk4NjQ4IEMxMi4zMDk1ODEzLDE2LjA0ODMzNjUgMTAuNDMzODg5OSwxNi4yNjEyMTY3IDkuMDQxMTYwOTMsMTUuOTgxMzc0MiBDNi44NTgxMjk3NSwxNS41NDc2MTg0IDUuMTMwNDkyMzYsMTMuOTY0NTA5NiA0LjQyOTAyMjU3LDExLjk1MzY0MTUgQzQuNDMzMTA2ODIsMTEuOTUwNjQzMiA0LjQzNjE3LDExLjkyMjY1OSA0LjQzOTIzMzE5LDExLjkyMDY2MDEgQzQuMDAwMTc2NCwxMC42NzMzNjIyIDQuMDAwMTc2NCw5LjAwMzMwMjM3IDQuNDM5MjMzMTksOC4wMDM4NjQ5OSBMNC40MzgyMTIxMyw4LjAwMzg2NDk5IEM1LjAwMzg4MDY0LDYuMTY2ODk5MDggNi43ODM1OTIyMSw0LjQ5MDg0MjU4IDguOTY5Njg2NTcsNC4wMzIxMDA4MiBDMTAuNzI3OTU1OCwzLjY1OTMxMDY4IDEyLjcxMTg3OTksNC4wNjMwODMzOCAxNC4xNzA5Nzc5LDUuNDI4MzE0ODUgQzE0LjM2NDk3OTcsNS4yMzg0MjE3NCAxNi44NTYzNzE3LDIuODA1NzkxMTUgMTcuMDQzMjI2MSwyLjYwNzkwMjU1IEMxMi4wNTg0LC0xLjkwNjU1NjEyIDQuMDc2NzU2MDgsLTAuMzE4NDUwMTE2IDEuMDkwMTQ4ODgsNS41MTEyNjgxNSBMMS4wODkxMjc4Miw1LjUxMTI2ODE1IEMxLjA4OTEyNzgyLDUuNTExMjY4MTUgMS4wOTAxNDg4OCw1LjUxMTI2ODE1IDEuMDg0MDIyNTEsNS41MjIyNjE5NiBMMS4wODQwMjI1MSw1LjUyMjI2MTk2IEMtMC4zOTM0NTQ2MjcsOC4zODU2NTAwNyAtMC4zMzIxOTA4ODksMTEuNzU5NzUwNyAxLjA5NDIzMzEzLDE0LjQ4NjIxNTkgQzEuMDkwMTQ4ODgsMTQuNDg5MjE0MiAxLjA4NzA4NTY5LDE0LjQ5MTIxMzEgMS4wODQwMjI1MSwxNC40OTQyMTE0IEMyLjM3NjY4NzM2LDE3LjAwMjc5OTIgNC43MjkyMTQ4OCwxOC45MjY3MTYyIDcuNTYzNjgzOCwxOS42NTkzMDM4IEMxMC41NzQ3OTY1LDIwLjQ0ODg1OTMgMTQuNDA2ODQzMywxOS45MDkxNjMxIDE2Ljk3Mzc5MzksMTcuNTg3NDcwMSBDMTYuOTc0ODE0OSwxNy41ODg0Njk1IDE2Ljk3NTgzNiwxNy41ODk0Njg5IDE2Ljk3Njg1NywxNy41OTA0Njg0IEMxOS4xNTE3MTk3LDE1LjYzMTU3MTEgMjAuNTA1NjQ4MywxMi4yOTQ0NDk3IDE5LjgyMTUzNjYsOC4wMDM4NjQ5OSIgaWQ9Imdvb2dsZSI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+);\n}\n.dm-base-social-login--messenger {\n    background: #0084ff radial-gradient(circle, transparent 1%, #0084ff 1%) center/15000%;\n}\n.dm-base-social-login--messenger:hover {\n      background-color: #339dff;\n}\n.dm-base-social-login--messenger:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #339dff;\n}\n.dm-base-social-login--messenger:active {\n      background-color: #339dff;\n}\n.dm-base-social-login--messenger .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5tZXNzZW5nZXI8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iV2Vic2l0ZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRhcmstTW9kZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQyNi4wMDAwMDAsIC0zMDY5LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJTb2NpYWwtQ29ubmVjdHMtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU1LjAwMDAwMCwgMjgzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bMjB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iTWVzc2VuZ2VyLVsyMGgtbV0iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDYuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTEwLjk1NzQxNDQsMTIuNDEzIEw4LjM1NTUyMzk0LDkuNzUzIEwzLjM0MzgzNTc2LDEyLjQ4IEw4LjgzODI5NjU3LDYuNzQzIEwxMS40NDAxODcsOS40MDMgTDE2LjQ1MTg3NTIsNi42NzYgTDEwLjk1NzQxNDQsMTIuNDEzIFogTTkuODk3MzQ3MjksMCBDNC4zNDA4ODgzLDAgMCw0LjE0NCAwLDkuMjU3IEMwLDEyLjE2NSAwLjg1MjcyODkzNiwxNC43NiAzLjkwMTgxOTI5LDE2LjQ1NyBMMy45MDE4MTkyOSwyMCBMNy4xNzE0NjA1MSwxOC4xMjYgQzguMDg3MjAzOTgsMTguMzc4IDguOTc1NTA1NjQsMTguNTEzIDkuOTc5NjcyNzMsMTguNTEzIEMxNS41MzYxMzE3LDE4LjUxMyAyMCwxNC4zNjkgMjAsOS4yNTcgQzIwLDQuMTQ0IDE1LjQ1NDgyMjYsMCA5Ljg5NzM0NzI5LDAgTDkuODk3MzQ3MjksMCBaIiBpZD0ibWVzc2VuZ2VyIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=);\n}\n.dm-base-social-login--twitter {\n    background: #1da1f2 radial-gradient(circle, transparent 1%, #1da1f2 1%) center/15000%;\n}\n.dm-base-social-login--twitter:hover {\n      background-color: #4db5f5;\n}\n.dm-base-social-login--twitter:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #4db5f5;\n}\n.dm-base-social-login--twitter:active {\n      background-color: #4db5f5;\n}\n.dm-base-social-login--twitter .dm-base-social-login__inner .dm-base-social-login__icon {\n      height: 16px;\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMjAgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT50d2l0dGVyPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IldlYnNpdGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJEYXJrLU1vZGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMDAwMDAwLCAtMzEzMS4wMDAwMDApIiBmaWxsPSIjRkZGRkZGIj4KICAgICAgICAgICAgPGcgaWQ9IkNvbnRlbnQtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LjAwMDAwMCwgNjAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iU29jaWFsLUNvbm5lY3RzLVs0MHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1NS4wMDAwMDAsIDI4MzYuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkNvbnRlbnQtWzIwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDEwMy4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IlR3aXR0ZXItWzIwaC1tXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDEyMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzAuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTYuMjksMTggQzEzLjgzNywxOCAxNy45NjUsMTEuODQzNjUzMSAxNy45NjUsNi41MDU0NjEzNiBDMTcuOTY1LDYuMzMwMjEyNzIgMTcuOTY1LDYuMTU1OTQ4NjIgMTcuOTUzLDUuOTgyNjY5MDYgQzE4Ljc1Niw1LjQxMTYzNDE3IDE5LjQ0OSw0LjcwMjc2MzI2IDIwLDMuODkxNDk5ODkgQzE5LjI1Miw0LjIxODM2ODE0IDE4LjQ1Nyw0LjQzMjk5ODUgMTcuNjQ0LDQuNTI3NTE0NjIgQzE4LjUsNC4wMjI0NDQxIDE5LjE0MSwzLjIyODkwMjUgMTkuNDQ4LDIuMjkyNjAyMTggQzE4LjY0MiwyLjc2MzIxMzcgMTcuNzYxLDMuMDk1MDA0NjcgMTYuODQyLDMuMjczMjA2OTQgQzE1LjI4OCwxLjY0Njc0MjAyIDEyLjY4OSwxLjU2Nzk3ODU5IDExLjAzNiwzLjA5Nzk1ODI5IEM5Ljk3MSw0LjA4NDQ3MDMxIDkuNTE4LDUuNTU1Mzc3NDMgOS44NDksNi45NTgzNTExIEM2LjU1LDYuNzk0OTE2OTggMy40NzYsNS4yNjA5OTkxIDEuMzkyLDIuNzM3NjE1NTggQzAuMzAzLDQuNTgzNjMzNTcgMC44Niw2Ljk0NDU2NzUgMi42NjMsOC4xMjk5NTcxOCBDMi4wMSw4LjExMTI1MDg3IDEuMzcxLDcuOTM3OTcxMzEgMC44LDcuNjI0ODg2NjYgTDAuOCw3LjY3NjA4Mjg5IEMwLjgwMSw5LjU5ODg5NTIzIDIuMTc4LDExLjI1NDg5NjQgNC4wOTIsMTEuNjM1OTE0NSBDMy40ODgsMTEuNzk4MzY0MSAyLjg1NCwxMS44MjE5OTMxIDIuMjQsMTEuNzA0ODMyNSBDMi43NzcsMTMuMzUwOTg4MyA0LjMxOCwxNC40NzgyOSA2LjA3MywxNC41MTA3Nzk5IEM0LjYyLDE1LjYzNTEyNzkgMi44MjUsMTYuMjQ1NTQ0NSAwLjk3NywxNi4yNDM1NzU0IEMwLjY1MSwxNi4yNDI1OTA5IDAuMzI1LDE2LjIyMzg4NDYgMCwxNi4xODU0ODc0IEMxLjg3NywxNy4zNzA4NzcxIDQuMDYsMTggNi4yOSwxNy45OTcwNDY0IiBpZD0idHdpdHRlciI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==);\n}\n.dm-base-social-login--small {\n    padding: 10px 10px;\n}\n.dm-base-social-login--large {\n    padding: 10px 30px;\n}\n.dm-base-social-login--full-width {\n    width: 100%;\n}\n.dm-base-social-login:active {\n    background-size: 100%;\n    transition: background 0s;\n}\n\n/*# sourceMappingURL=BaseSocialLogin.vue.map */", map: {"version":3,"sources":["BaseSocialLogin.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseSocialLogin.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACyEhF;EACA,sBAAA;EACA,WAAA;EACA,qCAAA;EACA,mBAAA;EACA,4BAAA;EACA,sDAAA;EACA,eAAA;EACA,sFACA;EACA,kCAAA;EACA,kBAAA;EACA,gBAAA;CAsFA;AAlGA;IAeA,cAAA;IACA,oBAAA;IACA,wBAAA;CAeA;AAhCA;MAoBA,sBAAA;MACA,YAAA;MACA,aAAA;MACA,6BAAA;CACA;AAxBA;MA2BA,iBAAA;MACA,iBAAA;MACA,gBAAA;MACA,kBAAA;CACA;AAMA;IACA,sFAMA;CA6BA;AApCA;MAUA,0BAAA;CACA;AAXA;MAcA,iDACA;CACA;AAhBA;MAmBA,0BAAA;CACA;AApBA;MAyBA,8lFAAA;CASA;AAlCA;IACA,sFAMA;CA6BA;AApCA;MAUA,0BAAA;CACA;AAXA;MAcA,iDACA;CACA;AAhBA;MAmBA,0BAAA;CACA;AApBA;MA2BA,k9GAAA;CAOA;AAlCA;IACA,sFAMA;CA6BA;AApCA;MAUA,0BAAA;CACA;AAXA;MAcA,iDACA;CACA;AAhBA;MAmBA,0BAAA;CACA;AApBA;MA6BA,0vEAAA;CAKA;AAlCA;IACA,sFAMA;CA6BA;AApCA;MAUA,0BAAA;CACA;AAXA;MAcA,iDACA;CACA;AAhBA;MAmBA,0BAAA;CACA;AApBA;MA+BA,aAAA;MACA,k4FAAA;CAEA;AAUA;IACA,mBAAA;CACA;AAFA;IACA,mBAAA;CACA;AAKA;IACA,YAAA;CACA;AA1FA;IA+FA,sBAAA;IACA,0BAAA;CACA;;AD5FA,+CAA+C","file":"BaseSocialLogin.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-social-login {\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  background-position: center;\n  box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);\n  color: #ffffff;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer; }\n  .dm-base-social-login .dm-base-social-login__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .dm-base-social-login .dm-base-social-login__inner .dm-base-social-login__icon {\n      display: inline-block;\n      width: 20px;\n      height: 20px;\n      background-repeat: no-repeat; }\n    .dm-base-social-login .dm-base-social-login__inner .dm-base-social-login__label {\n      margin-left: 8px;\n      font-weight: 500;\n      font-size: 15px;\n      line-height: 20px; }\n  .dm-base-social-login--facebook {\n    background: #3b5998 radial-gradient(circle, transparent 1%, #3b5998 1%) center/15000%; }\n    .dm-base-social-login--facebook:hover {\n      background-color: #4c70ba; }\n    .dm-base-social-login--facebook:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #4c70ba; }\n    .dm-base-social-login--facebook:active {\n      background-color: #4c70ba; }\n    .dm-base-social-login--facebook .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5mYWNlYm9vazwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJXZWJzaXRlIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRGFyay1Nb2RlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDQxLjAwMDAwMCwgLTMwMDkuMDAwMDAwKSIgZmlsbD0iI0ZGRkZGRiI+CiAgICAgICAgICAgIDxnIGlkPSJDb250ZW50LVs0MHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NS4wMDAwMDAsIDYwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlNvY2lhbC1Db25uZWN0cy1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNTUuMDAwMDAwLCAyODM2LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJDb250ZW50LVsyMHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAxMDMuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJGYWNlYm9vay1bMjBoLW1dIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjEuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTE4Ljg5NjE5MSwwIEwxLjEwMzgwOSwwIEMwLjQ5NDEyODc1NSwwIDAsMC40OTQxMjY5MDQgMCwxLjEwMzgwNDg3IEwwLDE4Ljg5NjEyMDIgQzAsMTkuNTA1NzIzMiAwLjQ5NDEyODc1NSwyMCAxLjEwMzgwOSwyMCBMMTAuNjgyNjY4LDIwIEwxMC42ODI2NjgsMTIuMjU0OTMxNyBMOC4wNzYyNDAwMSwxMi4yNTQ5MzE3IEw4LjA3NjI0MDAxLDkuMjM2NTE2MjMgTDEwLjY4MjY2OCw5LjIzNjUxNjIzIEwxMC42ODI2NjgsNy4wMTA1NDcyMiBDMTAuNjgyNjY4LDQuNDI3MzU5MDcgMTIuMjYwMzczLDMuMDIwNzM4NDkgMTQuNTY0ODA4NSwzLjAyMDczODQ5IEMxNS42Njg2OTI0LDMuMDIwNzM4NDkgMTYuNjE3MzgzNywzLjEwMjg2ODE3IDE2Ljg5MzgyMywzLjEzOTU4NjczIEwxNi44OTM4MjMsNS44MzkyMjUxNiBMMTUuMjk1NTg1NSw1LjgzOTk3NDUyIEMxNC4wNDIzNTM5LDUuODM5OTc0NTIgMTMuNzk5NjM1OCw2LjQzNTQ4OTYxIDEzLjc5OTYzNTgsNy4zMDkzOTEzMyBMMTMuNzk5NjM1OCw5LjIzNjUxNjIzIEwxNi43ODg2MTI3LDkuMjM2NTE2MjMgTDE2LjM5OTQ2OTUsMTIuMjU0OTMxNyBMMTMuNzk5NjM1OCwxMi4yNTQ5MzE3IEwxMy43OTk2MzU4LDIwIEwxOC44OTYxOTEsMjAgQzE5LjUwNTc5NjMsMjAgMjAsMTkuNTA1NzIzMiAyMCwxOC44OTYxMjAyIEwyMCwxLjEwMzgwNDg3IEMyMCwwLjQ5NDEyNjkwNCAxOS41MDU3OTYzLDAgMTguODk2MTkxLDAiIGlkPSJmYWNlYm9vayI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+); }\n  .dm-base-social-login--google {\n    background: #db4437 radial-gradient(circle, transparent 1%, #db4437 1%) center/15000%; }\n    .dm-base-social-login--google:hover {\n      background-color: #e36c62; }\n    .dm-base-social-login--google:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e36c62; }\n    .dm-base-social-login--google:active {\n      background-color: #e36c62; }\n    .dm-base-social-login--google .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5nb29nbGU8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iV2Vic2l0ZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRhcmstTW9kZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4wMDAwMDAsIC0zMTg5LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJTb2NpYWwtQ29ubmVjdHMtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU1LjAwMDAwMCwgMjgzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bMjB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iR29vZ2xlLVsyMGgtbV0iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAxODAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iTGFyZ2UtW2MtbV0iPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcwLjAwMDAwMCwgMTAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xOS44MjE1MzY2LDguMDAzODY0OTkgTDEwLjIxMTI5ODMsOC4wMDM4NjQ5OSBDMTAuMjExMjk4Myw5LjAwMzMwMjM3IDEwLjIxMTI5ODMsMTEuMDAyMTc3MSAxMC4yMDUxNzE5LDEyLjAwMTYxNDUgTDE1Ljc3NDA0NTcsMTIuMDAxNjE0NSBDMTUuNTYwNjQzNiwxMy4wMDEwNTE5IDE0LjgwNDAzNjUsMTQuNDAwMjY0MyAxMy43MzQ5ODQzLDE1LjEwNDg2NzYgQzEzLjczMzk2MzIsMTUuMTAzODY4MiAxMy43MzI5NDIxLDE1LjExMDg2NDIgMTMuNzMwOSwxNS4xMDk4NjQ4IEMxMi4zMDk1ODEzLDE2LjA0ODMzNjUgMTAuNDMzODg5OSwxNi4yNjEyMTY3IDkuMDQxMTYwOTMsMTUuOTgxMzc0MiBDNi44NTgxMjk3NSwxNS41NDc2MTg0IDUuMTMwNDkyMzYsMTMuOTY0NTA5NiA0LjQyOTAyMjU3LDExLjk1MzY0MTUgQzQuNDMzMTA2ODIsMTEuOTUwNjQzMiA0LjQzNjE3LDExLjkyMjY1OSA0LjQzOTIzMzE5LDExLjkyMDY2MDEgQzQuMDAwMTc2NCwxMC42NzMzNjIyIDQuMDAwMTc2NCw5LjAwMzMwMjM3IDQuNDM5MjMzMTksOC4wMDM4NjQ5OSBMNC40MzgyMTIxMyw4LjAwMzg2NDk5IEM1LjAwMzg4MDY0LDYuMTY2ODk5MDggNi43ODM1OTIyMSw0LjQ5MDg0MjU4IDguOTY5Njg2NTcsNC4wMzIxMDA4MiBDMTAuNzI3OTU1OCwzLjY1OTMxMDY4IDEyLjcxMTg3OTksNC4wNjMwODMzOCAxNC4xNzA5Nzc5LDUuNDI4MzE0ODUgQzE0LjM2NDk3OTcsNS4yMzg0MjE3NCAxNi44NTYzNzE3LDIuODA1NzkxMTUgMTcuMDQzMjI2MSwyLjYwNzkwMjU1IEMxMi4wNTg0LC0xLjkwNjU1NjEyIDQuMDc2NzU2MDgsLTAuMzE4NDUwMTE2IDEuMDkwMTQ4ODgsNS41MTEyNjgxNSBMMS4wODkxMjc4Miw1LjUxMTI2ODE1IEMxLjA4OTEyNzgyLDUuNTExMjY4MTUgMS4wOTAxNDg4OCw1LjUxMTI2ODE1IDEuMDg0MDIyNTEsNS41MjIyNjE5NiBMMS4wODQwMjI1MSw1LjUyMjI2MTk2IEMtMC4zOTM0NTQ2MjcsOC4zODU2NTAwNyAtMC4zMzIxOTA4ODksMTEuNzU5NzUwNyAxLjA5NDIzMzEzLDE0LjQ4NjIxNTkgQzEuMDkwMTQ4ODgsMTQuNDg5MjE0MiAxLjA4NzA4NTY5LDE0LjQ5MTIxMzEgMS4wODQwMjI1MSwxNC40OTQyMTE0IEMyLjM3NjY4NzM2LDE3LjAwMjc5OTIgNC43MjkyMTQ4OCwxOC45MjY3MTYyIDcuNTYzNjgzOCwxOS42NTkzMDM4IEMxMC41NzQ3OTY1LDIwLjQ0ODg1OTMgMTQuNDA2ODQzMywxOS45MDkxNjMxIDE2Ljk3Mzc5MzksMTcuNTg3NDcwMSBDMTYuOTc0ODE0OSwxNy41ODg0Njk1IDE2Ljk3NTgzNiwxNy41ODk0Njg5IDE2Ljk3Njg1NywxNy41OTA0Njg0IEMxOS4xNTE3MTk3LDE1LjYzMTU3MTEgMjAuNTA1NjQ4MywxMi4yOTQ0NDk3IDE5LjgyMTUzNjYsOC4wMDM4NjQ5OSIgaWQ9Imdvb2dsZSI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+); }\n  .dm-base-social-login--messenger {\n    background: #0084ff radial-gradient(circle, transparent 1%, #0084ff 1%) center/15000%; }\n    .dm-base-social-login--messenger:hover {\n      background-color: #339dff; }\n    .dm-base-social-login--messenger:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #339dff; }\n    .dm-base-social-login--messenger:active {\n      background-color: #339dff; }\n    .dm-base-social-login--messenger .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5tZXNzZW5nZXI8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iV2Vic2l0ZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRhcmstTW9kZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQyNi4wMDAwMDAsIC0zMDY5LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJTb2NpYWwtQ29ubmVjdHMtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU1LjAwMDAwMCwgMjgzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bMjB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iTWVzc2VuZ2VyLVsyMGgtbV0iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDYuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTEwLjk1NzQxNDQsMTIuNDEzIEw4LjM1NTUyMzk0LDkuNzUzIEwzLjM0MzgzNTc2LDEyLjQ4IEw4LjgzODI5NjU3LDYuNzQzIEwxMS40NDAxODcsOS40MDMgTDE2LjQ1MTg3NTIsNi42NzYgTDEwLjk1NzQxNDQsMTIuNDEzIFogTTkuODk3MzQ3MjksMCBDNC4zNDA4ODgzLDAgMCw0LjE0NCAwLDkuMjU3IEMwLDEyLjE2NSAwLjg1MjcyODkzNiwxNC43NiAzLjkwMTgxOTI5LDE2LjQ1NyBMMy45MDE4MTkyOSwyMCBMNy4xNzE0NjA1MSwxOC4xMjYgQzguMDg3MjAzOTgsMTguMzc4IDguOTc1NTA1NjQsMTguNTEzIDkuOTc5NjcyNzMsMTguNTEzIEMxNS41MzYxMzE3LDE4LjUxMyAyMCwxNC4zNjkgMjAsOS4yNTcgQzIwLDQuMTQ0IDE1LjQ1NDgyMjYsMCA5Ljg5NzM0NzI5LDAgTDkuODk3MzQ3MjksMCBaIiBpZD0ibWVzc2VuZ2VyIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=); }\n  .dm-base-social-login--twitter {\n    background: #1da1f2 radial-gradient(circle, transparent 1%, #1da1f2 1%) center/15000%; }\n    .dm-base-social-login--twitter:hover {\n      background-color: #4db5f5; }\n    .dm-base-social-login--twitter:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #4db5f5; }\n    .dm-base-social-login--twitter:active {\n      background-color: #4db5f5; }\n    .dm-base-social-login--twitter .dm-base-social-login__inner .dm-base-social-login__icon {\n      height: 16px;\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMjAgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT50d2l0dGVyPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IldlYnNpdGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJEYXJrLU1vZGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMDAwMDAwLCAtMzEzMS4wMDAwMDApIiBmaWxsPSIjRkZGRkZGIj4KICAgICAgICAgICAgPGcgaWQ9IkNvbnRlbnQtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LjAwMDAwMCwgNjAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iU29jaWFsLUNvbm5lY3RzLVs0MHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1NS4wMDAwMDAsIDI4MzYuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkNvbnRlbnQtWzIwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDEwMy4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IlR3aXR0ZXItWzIwaC1tXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDEyMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzAuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTYuMjksMTggQzEzLjgzNywxOCAxNy45NjUsMTEuODQzNjUzMSAxNy45NjUsNi41MDU0NjEzNiBDMTcuOTY1LDYuMzMwMjEyNzIgMTcuOTY1LDYuMTU1OTQ4NjIgMTcuOTUzLDUuOTgyNjY5MDYgQzE4Ljc1Niw1LjQxMTYzNDE3IDE5LjQ0OSw0LjcwMjc2MzI2IDIwLDMuODkxNDk5ODkgQzE5LjI1Miw0LjIxODM2ODE0IDE4LjQ1Nyw0LjQzMjk5ODUgMTcuNjQ0LDQuNTI3NTE0NjIgQzE4LjUsNC4wMjI0NDQxIDE5LjE0MSwzLjIyODkwMjUgMTkuNDQ4LDIuMjkyNjAyMTggQzE4LjY0MiwyLjc2MzIxMzcgMTcuNzYxLDMuMDk1MDA0NjcgMTYuODQyLDMuMjczMjA2OTQgQzE1LjI4OCwxLjY0Njc0MjAyIDEyLjY4OSwxLjU2Nzk3ODU5IDExLjAzNiwzLjA5Nzk1ODI5IEM5Ljk3MSw0LjA4NDQ3MDMxIDkuNTE4LDUuNTU1Mzc3NDMgOS44NDksNi45NTgzNTExIEM2LjU1LDYuNzk0OTE2OTggMy40NzYsNS4yNjA5OTkxIDEuMzkyLDIuNzM3NjE1NTggQzAuMzAzLDQuNTgzNjMzNTcgMC44Niw2Ljk0NDU2NzUgMi42NjMsOC4xMjk5NTcxOCBDMi4wMSw4LjExMTI1MDg3IDEuMzcxLDcuOTM3OTcxMzEgMC44LDcuNjI0ODg2NjYgTDAuOCw3LjY3NjA4Mjg5IEMwLjgwMSw5LjU5ODg5NTIzIDIuMTc4LDExLjI1NDg5NjQgNC4wOTIsMTEuNjM1OTE0NSBDMy40ODgsMTEuNzk4MzY0MSAyLjg1NCwxMS44MjE5OTMxIDIuMjQsMTEuNzA0ODMyNSBDMi43NzcsMTMuMzUwOTg4MyA0LjMxOCwxNC40NzgyOSA2LjA3MywxNC41MTA3Nzk5IEM0LjYyLDE1LjYzNTEyNzkgMi44MjUsMTYuMjQ1NTQ0NSAwLjk3NywxNi4yNDM1NzU0IEMwLjY1MSwxNi4yNDI1OTA5IDAuMzI1LDE2LjIyMzg4NDYgMCwxNi4xODU0ODc0IEMxLjg3NywxNy4zNzA4NzcxIDQuMDYsMTggNi4yOSwxNy45OTcwNDY0IiBpZD0idHdpdHRlciI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==); }\n  .dm-base-social-login--small {\n    padding: 10px 10px; }\n  .dm-base-social-login--large {\n    padding: 10px 30px; }\n  .dm-base-social-login--full-width {\n    width: 100%; }\n  .dm-base-social-login:active {\n    background-size: 100%;\n    transition: background 0s; }\n\n/*# sourceMappingURL=BaseSocialLogin.vue.map */",null]}, media: undefined });
+    inject("data-v-0691f030_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-progress-bar {\n  text-align: left;\n  font-size: 14px;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  user-select: none;\n}\n.dm-base-progress-bar .dm-base-progress-bar__content {\n    display: flex;\n    margin-bottom: 10px;\n    color: #ffffff;\n}\n.dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__title,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n      flex: 1;\n      line-height: 22px;\n}\n.dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__title {\n      text-transform: uppercase;\n      font-weight: bold;\n}\n.dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n      text-align: right;\n}\n.dm-base-progress-bar .dm-base-progress-bar__bar {\n    overflow: hidden;\n    height: 6px;\n    border-radius: 10px;\n}\n.dm-base-progress-bar .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n      width: 0;\n      height: 100%;\n      border-radius: 10px;\n      transition: width 0.5s ease-in-out;\n      animation: fillUp 0.5s ease-in-out 0s 1;\n}\n.dm-base-progress-bar--black .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #323e4f;\n}\n.dm-base-progress-bar--blue .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #0194ef;\n}\n.dm-base-progress-bar--green .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #1bb934;\n}\n.dm-base-progress-bar--orange .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ffb610;\n}\n.dm-base-progress-bar--purple .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ab7ef6;\n}\n.dm-base-progress-bar--red .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #e1112c;\n}\n.dm-base-progress-bar--turquoise .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #26c2c9;\n}\n.dm-base-progress-bar--white .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ffffff;\n}\n.dm-base-progress-bar--with-details-hover .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n    display: none;\n}\n.dm-base-progress-bar--with-details-hover:hover .dm-base-progress-bar__content .dm-base-progress-bar__details {\n    display: none;\n}\n.dm-base-progress-bar--with-details-hover:hover .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n    display: block;\n}\n@keyframes fillUp {\n0% {\n    transform: translateX(-100%);\n}\n100% {\n    transform: translateX(0);\n}\n}\n\n/*# sourceMappingURL=BaseProgressBar.vue.map */", map: {"version":3,"sources":["BaseProgressBar.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseProgressBar.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACgGhF;EACA,iBAAA;EACA,gBAAA;EACA,sFACA;EACA,kBAAA;CAwEA;AA7EA;IAQA,cAAA;IACA,oBAAA;IACA,eAAA;CAkBA;AA5BA;;;MAeA,QAAA;MACA,kBAAA;CACA;AAjBA;MAoBA,0BAAA;MACA,kBAAA;CACA;AAtBA;;MA0BA,kBAAA;CACA;AA3BA;IA+BA,iBAAA;IACA,YAAA;IACA,oBAAA;CASA;AA1CA;MAoCA,SAAA;MACA,aAAA;MACA,oBAAA;MACA,mCAAA;MACA,wCAAA;CACA;AAMA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAJA;IAGA,0BAAA;CACA;AAOA;IAGA,cAAA;CACA;AAJA;IAUA,cAAA;CACA;AAXA;IAcA,eAAA;CACA;AAMA;AACA;IACA,6BAAA;CAAA;AAGA;IACA,yBAAA;CAAA;CAAA;;ADzHA,+CAA+C","file":"BaseProgressBar.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-progress-bar {\n  text-align: left;\n  font-size: 14px;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  user-select: none; }\n  .dm-base-progress-bar .dm-base-progress-bar__content {\n    display: flex;\n    margin-bottom: 10px;\n    color: #ffffff; }\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__title,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n      flex: 1;\n      line-height: 22px; }\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__title {\n      text-transform: uppercase;\n      font-weight: bold; }\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details,\n    .dm-base-progress-bar .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n      text-align: right; }\n  .dm-base-progress-bar .dm-base-progress-bar__bar {\n    overflow: hidden;\n    height: 6px;\n    border-radius: 10px; }\n    .dm-base-progress-bar .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n      width: 0;\n      height: 100%;\n      border-radius: 10px;\n      transition: width 0.5s ease-in-out;\n      animation: fillUp 0.5s ease-in-out 0s 1; }\n  .dm-base-progress-bar--black .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #323e4f; }\n  .dm-base-progress-bar--blue .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #0194ef; }\n  .dm-base-progress-bar--green .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #1bb934; }\n  .dm-base-progress-bar--orange .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ffb610; }\n  .dm-base-progress-bar--purple .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ab7ef6; }\n  .dm-base-progress-bar--red .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #e1112c; }\n  .dm-base-progress-bar--turquoise .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #26c2c9; }\n  .dm-base-progress-bar--white .dm-base-progress-bar__bar .dm-base-progress-bar__progress {\n    background-color: #ffffff; }\n  .dm-base-progress-bar--with-details-hover .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n    display: none; }\n  .dm-base-progress-bar--with-details-hover:hover .dm-base-progress-bar__content .dm-base-progress-bar__details {\n    display: none; }\n  .dm-base-progress-bar--with-details-hover:hover .dm-base-progress-bar__content .dm-base-progress-bar__details-hover {\n    display: block; }\n\n@keyframes fillUp {\n  0% {\n    transform: translateX(-100%); }\n  100% {\n    transform: translateX(0); } }\n\n/*# sourceMappingURL=BaseProgressBar.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -2222,7 +2221,7 @@ __vue_render__$8._withStripped = true;
     const component = (typeof script === 'function' ? script.options : script) || {};
 
     // For security concerns, we use only base name in production mode.
-    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseSocialLogin.vue";
+    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseProgressBar.vue";
 
     if (!component.render) {
       component.render = template.render;
@@ -2321,7 +2320,7 @@ __vue_render__$8._withStripped = true;
   
 
   
-  var BaseSocialLogin = __vue_normalize__$8(
+  var BaseProgressBar = __vue_normalize__$8(
     { render: __vue_render__$8, staticRenderFns: __vue_staticRenderFns__$8 },
     __vue_inject_styles__$8,
     __vue_script__$8,
@@ -2353,27 +2352,39 @@ __vue_render__$8._withStripped = true;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 var script$9 = {
   props: {
-    color: {
+    fullWidth: {
+      type: Boolean,
+      default: false
+    },
+    network: {
       type: String,
-      default: "white",
+      required: true,
       validator: function validator(x) {
-        return ["blue", "green", "orange", "red", "white"].indexOf(x) !== -1;
+        return ["facebook", "google", "messenger", "twitter"].indexOf(x) !== -1;
       }
     },
     size: {
       type: String,
-      default: "default",
+      default: "large",
       validator: function validator(x) {
-        return ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1;
+        return ["small", "large"].indexOf(x) !== -1;
       }
     }
   },
   methods: {
     // --> EVENT LISTENERS <--
     onClick: function onClick(event) {
-      this.$emit("click", event);
+      this.$emit("click", this.network, event);
     }
   }
 };
@@ -2387,22 +2398,30 @@ var __vue_render__$9 = function() {
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
   return _c(
-    "div",
+    "button",
     {
       class: [
-        "dm-base-spinner",
-        "dm-base-spinner--" + _vm.color,
-        "dm-base-spinner--" + _vm.size
+        "dm-base-social-login",
+        "dm-base-social-login--" + _vm.network,
+        "dm-base-social-login--" + _vm.size,
+        {
+          "dm-base-social-login--full-width": _vm.fullWidth
+        }
       ],
       on: { click: _vm.onClick }
     },
     [
-      _c("div", {
-        staticClass: "dm-base-spinner__wave dm-base-spinner__wave--first"
-      }),
-      _c("div", {
-        staticClass: "dm-base-spinner__wave dm-base-spinner__wave--second"
-      })
+      _c("span", { staticClass: "dm-base-social-login__inner" }, [
+        _c("span", { staticClass: "dm-base-social-login__icon" }),
+        _vm.size === "large"
+          ? _c(
+              "span",
+              { staticClass: "dm-base-social-login__label" },
+              [_vm._t("default")],
+              2
+            )
+          : _vm._e()
+      ])
     ]
   )
 };
@@ -2410,7 +2429,11 @@ var __vue_staticRenderFns__$9 = [];
 __vue_render__$9._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$9 = undefined;
+  const __vue_inject_styles__$9 = function (inject) {
+    if (!inject) return
+    inject("data-v-a0940732_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-social-login {\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  background-position: center;\n  box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);\n  color: #ffffff;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer;\n}\n.dm-base-social-login .dm-base-social-login__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dm-base-social-login .dm-base-social-login__inner .dm-base-social-login__icon {\n      display: inline-block;\n      width: 20px;\n      height: 20px;\n      background-repeat: no-repeat;\n}\n.dm-base-social-login .dm-base-social-login__inner .dm-base-social-login__label {\n      margin-left: 8px;\n      font-weight: 500;\n      font-size: 15px;\n      line-height: 20px;\n}\n.dm-base-social-login--facebook {\n    background: #3b5998 radial-gradient(circle, transparent 1%, #3b5998 1%) center/15000%;\n}\n.dm-base-social-login--facebook:hover {\n      background-color: #4c70ba;\n}\n.dm-base-social-login--facebook:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #4c70ba;\n}\n.dm-base-social-login--facebook:active {\n      background-color: #4c70ba;\n}\n.dm-base-social-login--facebook .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5mYWNlYm9vazwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJXZWJzaXRlIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRGFyay1Nb2RlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDQxLjAwMDAwMCwgLTMwMDkuMDAwMDAwKSIgZmlsbD0iI0ZGRkZGRiI+CiAgICAgICAgICAgIDxnIGlkPSJDb250ZW50LVs0MHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NS4wMDAwMDAsIDYwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlNvY2lhbC1Db25uZWN0cy1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNTUuMDAwMDAwLCAyODM2LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJDb250ZW50LVsyMHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAxMDMuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJGYWNlYm9vay1bMjBoLW1dIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjEuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTE4Ljg5NjE5MSwwIEwxLjEwMzgwOSwwIEMwLjQ5NDEyODc1NSwwIDAsMC40OTQxMjY5MDQgMCwxLjEwMzgwNDg3IEwwLDE4Ljg5NjEyMDIgQzAsMTkuNTA1NzIzMiAwLjQ5NDEyODc1NSwyMCAxLjEwMzgwOSwyMCBMMTAuNjgyNjY4LDIwIEwxMC42ODI2NjgsMTIuMjU0OTMxNyBMOC4wNzYyNDAwMSwxMi4yNTQ5MzE3IEw4LjA3NjI0MDAxLDkuMjM2NTE2MjMgTDEwLjY4MjY2OCw5LjIzNjUxNjIzIEwxMC42ODI2NjgsNy4wMTA1NDcyMiBDMTAuNjgyNjY4LDQuNDI3MzU5MDcgMTIuMjYwMzczLDMuMDIwNzM4NDkgMTQuNTY0ODA4NSwzLjAyMDczODQ5IEMxNS42Njg2OTI0LDMuMDIwNzM4NDkgMTYuNjE3MzgzNywzLjEwMjg2ODE3IDE2Ljg5MzgyMywzLjEzOTU4NjczIEwxNi44OTM4MjMsNS44MzkyMjUxNiBMMTUuMjk1NTg1NSw1LjgzOTk3NDUyIEMxNC4wNDIzNTM5LDUuODM5OTc0NTIgMTMuNzk5NjM1OCw2LjQzNTQ4OTYxIDEzLjc5OTYzNTgsNy4zMDkzOTEzMyBMMTMuNzk5NjM1OCw5LjIzNjUxNjIzIEwxNi43ODg2MTI3LDkuMjM2NTE2MjMgTDE2LjM5OTQ2OTUsMTIuMjU0OTMxNyBMMTMuNzk5NjM1OCwxMi4yNTQ5MzE3IEwxMy43OTk2MzU4LDIwIEwxOC44OTYxOTEsMjAgQzE5LjUwNTc5NjMsMjAgMjAsMTkuNTA1NzIzMiAyMCwxOC44OTYxMjAyIEwyMCwxLjEwMzgwNDg3IEMyMCwwLjQ5NDEyNjkwNCAxOS41MDU3OTYzLDAgMTguODk2MTkxLDAiIGlkPSJmYWNlYm9vayI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+);\n}\n.dm-base-social-login--google {\n    background: #db4437 radial-gradient(circle, transparent 1%, #db4437 1%) center/15000%;\n}\n.dm-base-social-login--google:hover {\n      background-color: #e36c62;\n}\n.dm-base-social-login--google:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e36c62;\n}\n.dm-base-social-login--google:active {\n      background-color: #e36c62;\n}\n.dm-base-social-login--google .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5nb29nbGU8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iV2Vic2l0ZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRhcmstTW9kZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4wMDAwMDAsIC0zMTg5LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJTb2NpYWwtQ29ubmVjdHMtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU1LjAwMDAwMCwgMjgzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bMjB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iR29vZ2xlLVsyMGgtbV0iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAxODAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iTGFyZ2UtW2MtbV0iPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcwLjAwMDAwMCwgMTAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xOS44MjE1MzY2LDguMDAzODY0OTkgTDEwLjIxMTI5ODMsOC4wMDM4NjQ5OSBDMTAuMjExMjk4Myw5LjAwMzMwMjM3IDEwLjIxMTI5ODMsMTEuMDAyMTc3MSAxMC4yMDUxNzE5LDEyLjAwMTYxNDUgTDE1Ljc3NDA0NTcsMTIuMDAxNjE0NSBDMTUuNTYwNjQzNiwxMy4wMDEwNTE5IDE0LjgwNDAzNjUsMTQuNDAwMjY0MyAxMy43MzQ5ODQzLDE1LjEwNDg2NzYgQzEzLjczMzk2MzIsMTUuMTAzODY4MiAxMy43MzI5NDIxLDE1LjExMDg2NDIgMTMuNzMwOSwxNS4xMDk4NjQ4IEMxMi4zMDk1ODEzLDE2LjA0ODMzNjUgMTAuNDMzODg5OSwxNi4yNjEyMTY3IDkuMDQxMTYwOTMsMTUuOTgxMzc0MiBDNi44NTgxMjk3NSwxNS41NDc2MTg0IDUuMTMwNDkyMzYsMTMuOTY0NTA5NiA0LjQyOTAyMjU3LDExLjk1MzY0MTUgQzQuNDMzMTA2ODIsMTEuOTUwNjQzMiA0LjQzNjE3LDExLjkyMjY1OSA0LjQzOTIzMzE5LDExLjkyMDY2MDEgQzQuMDAwMTc2NCwxMC42NzMzNjIyIDQuMDAwMTc2NCw5LjAwMzMwMjM3IDQuNDM5MjMzMTksOC4wMDM4NjQ5OSBMNC40MzgyMTIxMyw4LjAwMzg2NDk5IEM1LjAwMzg4MDY0LDYuMTY2ODk5MDggNi43ODM1OTIyMSw0LjQ5MDg0MjU4IDguOTY5Njg2NTcsNC4wMzIxMDA4MiBDMTAuNzI3OTU1OCwzLjY1OTMxMDY4IDEyLjcxMTg3OTksNC4wNjMwODMzOCAxNC4xNzA5Nzc5LDUuNDI4MzE0ODUgQzE0LjM2NDk3OTcsNS4yMzg0MjE3NCAxNi44NTYzNzE3LDIuODA1NzkxMTUgMTcuMDQzMjI2MSwyLjYwNzkwMjU1IEMxMi4wNTg0LC0xLjkwNjU1NjEyIDQuMDc2NzU2MDgsLTAuMzE4NDUwMTE2IDEuMDkwMTQ4ODgsNS41MTEyNjgxNSBMMS4wODkxMjc4Miw1LjUxMTI2ODE1IEMxLjA4OTEyNzgyLDUuNTExMjY4MTUgMS4wOTAxNDg4OCw1LjUxMTI2ODE1IDEuMDg0MDIyNTEsNS41MjIyNjE5NiBMMS4wODQwMjI1MSw1LjUyMjI2MTk2IEMtMC4zOTM0NTQ2MjcsOC4zODU2NTAwNyAtMC4zMzIxOTA4ODksMTEuNzU5NzUwNyAxLjA5NDIzMzEzLDE0LjQ4NjIxNTkgQzEuMDkwMTQ4ODgsMTQuNDg5MjE0MiAxLjA4NzA4NTY5LDE0LjQ5MTIxMzEgMS4wODQwMjI1MSwxNC40OTQyMTE0IEMyLjM3NjY4NzM2LDE3LjAwMjc5OTIgNC43MjkyMTQ4OCwxOC45MjY3MTYyIDcuNTYzNjgzOCwxOS42NTkzMDM4IEMxMC41NzQ3OTY1LDIwLjQ0ODg1OTMgMTQuNDA2ODQzMywxOS45MDkxNjMxIDE2Ljk3Mzc5MzksMTcuNTg3NDcwMSBDMTYuOTc0ODE0OSwxNy41ODg0Njk1IDE2Ljk3NTgzNiwxNy41ODk0Njg5IDE2Ljk3Njg1NywxNy41OTA0Njg0IEMxOS4xNTE3MTk3LDE1LjYzMTU3MTEgMjAuNTA1NjQ4MywxMi4yOTQ0NDk3IDE5LjgyMTUzNjYsOC4wMDM4NjQ5OSIgaWQ9Imdvb2dsZSI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+);\n}\n.dm-base-social-login--messenger {\n    background: #0084ff radial-gradient(circle, transparent 1%, #0084ff 1%) center/15000%;\n}\n.dm-base-social-login--messenger:hover {\n      background-color: #339dff;\n}\n.dm-base-social-login--messenger:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #339dff;\n}\n.dm-base-social-login--messenger:active {\n      background-color: #339dff;\n}\n.dm-base-social-login--messenger .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5tZXNzZW5nZXI8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iV2Vic2l0ZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRhcmstTW9kZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQyNi4wMDAwMDAsIC0zMDY5LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJTb2NpYWwtQ29ubmVjdHMtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU1LjAwMDAwMCwgMjgzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bMjB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iTWVzc2VuZ2VyLVsyMGgtbV0iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDYuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTEwLjk1NzQxNDQsMTIuNDEzIEw4LjM1NTUyMzk0LDkuNzUzIEwzLjM0MzgzNTc2LDEyLjQ4IEw4LjgzODI5NjU3LDYuNzQzIEwxMS40NDAxODcsOS40MDMgTDE2LjQ1MTg3NTIsNi42NzYgTDEwLjk1NzQxNDQsMTIuNDEzIFogTTkuODk3MzQ3MjksMCBDNC4zNDA4ODgzLDAgMCw0LjE0NCAwLDkuMjU3IEMwLDEyLjE2NSAwLjg1MjcyODkzNiwxNC43NiAzLjkwMTgxOTI5LDE2LjQ1NyBMMy45MDE4MTkyOSwyMCBMNy4xNzE0NjA1MSwxOC4xMjYgQzguMDg3MjAzOTgsMTguMzc4IDguOTc1NTA1NjQsMTguNTEzIDkuOTc5NjcyNzMsMTguNTEzIEMxNS41MzYxMzE3LDE4LjUxMyAyMCwxNC4zNjkgMjAsOS4yNTcgQzIwLDQuMTQ0IDE1LjQ1NDgyMjYsMCA5Ljg5NzM0NzI5LDAgTDkuODk3MzQ3MjksMCBaIiBpZD0ibWVzc2VuZ2VyIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=);\n}\n.dm-base-social-login--twitter {\n    background: #1da1f2 radial-gradient(circle, transparent 1%, #1da1f2 1%) center/15000%;\n}\n.dm-base-social-login--twitter:hover {\n      background-color: #4db5f5;\n}\n.dm-base-social-login--twitter:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #4db5f5;\n}\n.dm-base-social-login--twitter:active {\n      background-color: #4db5f5;\n}\n.dm-base-social-login--twitter .dm-base-social-login__inner .dm-base-social-login__icon {\n      height: 16px;\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMjAgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT50d2l0dGVyPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IldlYnNpdGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJEYXJrLU1vZGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMDAwMDAwLCAtMzEzMS4wMDAwMDApIiBmaWxsPSIjRkZGRkZGIj4KICAgICAgICAgICAgPGcgaWQ9IkNvbnRlbnQtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LjAwMDAwMCwgNjAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iU29jaWFsLUNvbm5lY3RzLVs0MHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1NS4wMDAwMDAsIDI4MzYuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkNvbnRlbnQtWzIwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDEwMy4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IlR3aXR0ZXItWzIwaC1tXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDEyMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzAuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTYuMjksMTggQzEzLjgzNywxOCAxNy45NjUsMTEuODQzNjUzMSAxNy45NjUsNi41MDU0NjEzNiBDMTcuOTY1LDYuMzMwMjEyNzIgMTcuOTY1LDYuMTU1OTQ4NjIgMTcuOTUzLDUuOTgyNjY5MDYgQzE4Ljc1Niw1LjQxMTYzNDE3IDE5LjQ0OSw0LjcwMjc2MzI2IDIwLDMuODkxNDk5ODkgQzE5LjI1Miw0LjIxODM2ODE0IDE4LjQ1Nyw0LjQzMjk5ODUgMTcuNjQ0LDQuNTI3NTE0NjIgQzE4LjUsNC4wMjI0NDQxIDE5LjE0MSwzLjIyODkwMjUgMTkuNDQ4LDIuMjkyNjAyMTggQzE4LjY0MiwyLjc2MzIxMzcgMTcuNzYxLDMuMDk1MDA0NjcgMTYuODQyLDMuMjczMjA2OTQgQzE1LjI4OCwxLjY0Njc0MjAyIDEyLjY4OSwxLjU2Nzk3ODU5IDExLjAzNiwzLjA5Nzk1ODI5IEM5Ljk3MSw0LjA4NDQ3MDMxIDkuNTE4LDUuNTU1Mzc3NDMgOS44NDksNi45NTgzNTExIEM2LjU1LDYuNzk0OTE2OTggMy40NzYsNS4yNjA5OTkxIDEuMzkyLDIuNzM3NjE1NTggQzAuMzAzLDQuNTgzNjMzNTcgMC44Niw2Ljk0NDU2NzUgMi42NjMsOC4xMjk5NTcxOCBDMi4wMSw4LjExMTI1MDg3IDEuMzcxLDcuOTM3OTcxMzEgMC44LDcuNjI0ODg2NjYgTDAuOCw3LjY3NjA4Mjg5IEMwLjgwMSw5LjU5ODg5NTIzIDIuMTc4LDExLjI1NDg5NjQgNC4wOTIsMTEuNjM1OTE0NSBDMy40ODgsMTEuNzk4MzY0MSAyLjg1NCwxMS44MjE5OTMxIDIuMjQsMTEuNzA0ODMyNSBDMi43NzcsMTMuMzUwOTg4MyA0LjMxOCwxNC40NzgyOSA2LjA3MywxNC41MTA3Nzk5IEM0LjYyLDE1LjYzNTEyNzkgMi44MjUsMTYuMjQ1NTQ0NSAwLjk3NywxNi4yNDM1NzU0IEMwLjY1MSwxNi4yNDI1OTA5IDAuMzI1LDE2LjIyMzg4NDYgMCwxNi4xODU0ODc0IEMxLjg3NywxNy4zNzA4NzcxIDQuMDYsMTggNi4yOSwxNy45OTcwNDY0IiBpZD0idHdpdHRlciI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==);\n}\n.dm-base-social-login--small {\n    padding: 10px 10px;\n}\n.dm-base-social-login--large {\n    padding: 10px 30px;\n}\n.dm-base-social-login--full-width {\n    width: 100%;\n}\n.dm-base-social-login:active {\n    background-size: 100%;\n    transition: background 0s;\n}\n\n/*# sourceMappingURL=BaseSocialLogin.vue.map */", map: {"version":3,"sources":["BaseSocialLogin.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseSocialLogin.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACyEhF;EACA,sBAAA;EACA,WAAA;EACA,qCAAA;EACA,mBAAA;EACA,4BAAA;EACA,sDAAA;EACA,eAAA;EACA,sFACA;EACA,kCAAA;EACA,kBAAA;EACA,gBAAA;CAsFA;AAlGA;IAeA,cAAA;IACA,oBAAA;IACA,wBAAA;CAeA;AAhCA;MAoBA,sBAAA;MACA,YAAA;MACA,aAAA;MACA,6BAAA;CACA;AAxBA;MA2BA,iBAAA;MACA,iBAAA;MACA,gBAAA;MACA,kBAAA;CACA;AAMA;IACA,sFAMA;CA6BA;AApCA;MAUA,0BAAA;CACA;AAXA;MAcA,iDACA;CACA;AAhBA;MAmBA,0BAAA;CACA;AApBA;MAyBA,8lFAAA;CASA;AAlCA;IACA,sFAMA;CA6BA;AApCA;MAUA,0BAAA;CACA;AAXA;MAcA,iDACA;CACA;AAhBA;MAmBA,0BAAA;CACA;AApBA;MA2BA,k9GAAA;CAOA;AAlCA;IACA,sFAMA;CA6BA;AApCA;MAUA,0BAAA;CACA;AAXA;MAcA,iDACA;CACA;AAhBA;MAmBA,0BAAA;CACA;AApBA;MA6BA,0vEAAA;CAKA;AAlCA;IACA,sFAMA;CA6BA;AApCA;MAUA,0BAAA;CACA;AAXA;MAcA,iDACA;CACA;AAhBA;MAmBA,0BAAA;CACA;AApBA;MA+BA,aAAA;MACA,k4FAAA;CAEA;AAUA;IACA,mBAAA;CACA;AAFA;IACA,mBAAA;CACA;AAKA;IACA,YAAA;CACA;AA1FA;IA+FA,sBAAA;IACA,0BAAA;CACA;;AD5FA,+CAA+C","file":"BaseSocialLogin.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-social-login {\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  border-radius: 4px;\n  background-position: center;\n  box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);\n  color: #ffffff;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer; }\n  .dm-base-social-login .dm-base-social-login__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .dm-base-social-login .dm-base-social-login__inner .dm-base-social-login__icon {\n      display: inline-block;\n      width: 20px;\n      height: 20px;\n      background-repeat: no-repeat; }\n    .dm-base-social-login .dm-base-social-login__inner .dm-base-social-login__label {\n      margin-left: 8px;\n      font-weight: 500;\n      font-size: 15px;\n      line-height: 20px; }\n  .dm-base-social-login--facebook {\n    background: #3b5998 radial-gradient(circle, transparent 1%, #3b5998 1%) center/15000%; }\n    .dm-base-social-login--facebook:hover {\n      background-color: #4c70ba; }\n    .dm-base-social-login--facebook:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #4c70ba; }\n    .dm-base-social-login--facebook:active {\n      background-color: #4c70ba; }\n    .dm-base-social-login--facebook .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5mYWNlYm9vazwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJXZWJzaXRlIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iRGFyay1Nb2RlIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDQxLjAwMDAwMCwgLTMwMDkuMDAwMDAwKSIgZmlsbD0iI0ZGRkZGRiI+CiAgICAgICAgICAgIDxnIGlkPSJDb250ZW50LVs0MHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03NS4wMDAwMDAsIDYwLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPGcgaWQ9IlNvY2lhbC1Db25uZWN0cy1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzNTUuMDAwMDAwLCAyODM2LjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgIDxnIGlkPSJDb250ZW50LVsyMHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAxMDMuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJGYWNlYm9vay1bMjBoLW1dIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNjEuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTE4Ljg5NjE5MSwwIEwxLjEwMzgwOSwwIEMwLjQ5NDEyODc1NSwwIDAsMC40OTQxMjY5MDQgMCwxLjEwMzgwNDg3IEwwLDE4Ljg5NjEyMDIgQzAsMTkuNTA1NzIzMiAwLjQ5NDEyODc1NSwyMCAxLjEwMzgwOSwyMCBMMTAuNjgyNjY4LDIwIEwxMC42ODI2NjgsMTIuMjU0OTMxNyBMOC4wNzYyNDAwMSwxMi4yNTQ5MzE3IEw4LjA3NjI0MDAxLDkuMjM2NTE2MjMgTDEwLjY4MjY2OCw5LjIzNjUxNjIzIEwxMC42ODI2NjgsNy4wMTA1NDcyMiBDMTAuNjgyNjY4LDQuNDI3MzU5MDcgMTIuMjYwMzczLDMuMDIwNzM4NDkgMTQuNTY0ODA4NSwzLjAyMDczODQ5IEMxNS42Njg2OTI0LDMuMDIwNzM4NDkgMTYuNjE3MzgzNywzLjEwMjg2ODE3IDE2Ljg5MzgyMywzLjEzOTU4NjczIEwxNi44OTM4MjMsNS44MzkyMjUxNiBMMTUuMjk1NTg1NSw1LjgzOTk3NDUyIEMxNC4wNDIzNTM5LDUuODM5OTc0NTIgMTMuNzk5NjM1OCw2LjQzNTQ4OTYxIDEzLjc5OTYzNTgsNy4zMDkzOTEzMyBMMTMuNzk5NjM1OCw5LjIzNjUxNjIzIEwxNi43ODg2MTI3LDkuMjM2NTE2MjMgTDE2LjM5OTQ2OTUsMTIuMjU0OTMxNyBMMTMuNzk5NjM1OCwxMi4yNTQ5MzE3IEwxMy43OTk2MzU4LDIwIEwxOC44OTYxOTEsMjAgQzE5LjUwNTc5NjMsMjAgMjAsMTkuNTA1NzIzMiAyMCwxOC44OTYxMjAyIEwyMCwxLjEwMzgwNDg3IEMyMCwwLjQ5NDEyNjkwNCAxOS41MDU3OTYzLDAgMTguODk2MTkxLDAiIGlkPSJmYWNlYm9vayI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+); }\n  .dm-base-social-login--google {\n    background: #db4437 radial-gradient(circle, transparent 1%, #db4437 1%) center/15000%; }\n    .dm-base-social-login--google:hover {\n      background-color: #e36c62; }\n    .dm-base-social-login--google:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e36c62; }\n    .dm-base-social-login--google:active {\n      background-color: #e36c62; }\n    .dm-base-social-login--google .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5nb29nbGU8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iV2Vic2l0ZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRhcmstTW9kZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ1MC4wMDAwMDAsIC0zMTg5LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJTb2NpYWwtQ29ubmVjdHMtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU1LjAwMDAwMCwgMjgzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bMjB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iR29vZ2xlLVsyMGgtbV0iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCAxODAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iTGFyZ2UtW2MtbV0iPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYWJlbCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcwLjAwMDAwMCwgMTAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGQ9Ik0xOS44MjE1MzY2LDguMDAzODY0OTkgTDEwLjIxMTI5ODMsOC4wMDM4NjQ5OSBDMTAuMjExMjk4Myw5LjAwMzMwMjM3IDEwLjIxMTI5ODMsMTEuMDAyMTc3MSAxMC4yMDUxNzE5LDEyLjAwMTYxNDUgTDE1Ljc3NDA0NTcsMTIuMDAxNjE0NSBDMTUuNTYwNjQzNiwxMy4wMDEwNTE5IDE0LjgwNDAzNjUsMTQuNDAwMjY0MyAxMy43MzQ5ODQzLDE1LjEwNDg2NzYgQzEzLjczMzk2MzIsMTUuMTAzODY4MiAxMy43MzI5NDIxLDE1LjExMDg2NDIgMTMuNzMwOSwxNS4xMDk4NjQ4IEMxMi4zMDk1ODEzLDE2LjA0ODMzNjUgMTAuNDMzODg5OSwxNi4yNjEyMTY3IDkuMDQxMTYwOTMsMTUuOTgxMzc0MiBDNi44NTgxMjk3NSwxNS41NDc2MTg0IDUuMTMwNDkyMzYsMTMuOTY0NTA5NiA0LjQyOTAyMjU3LDExLjk1MzY0MTUgQzQuNDMzMTA2ODIsMTEuOTUwNjQzMiA0LjQzNjE3LDExLjkyMjY1OSA0LjQzOTIzMzE5LDExLjkyMDY2MDEgQzQuMDAwMTc2NCwxMC42NzMzNjIyIDQuMDAwMTc2NCw5LjAwMzMwMjM3IDQuNDM5MjMzMTksOC4wMDM4NjQ5OSBMNC40MzgyMTIxMyw4LjAwMzg2NDk5IEM1LjAwMzg4MDY0LDYuMTY2ODk5MDggNi43ODM1OTIyMSw0LjQ5MDg0MjU4IDguOTY5Njg2NTcsNC4wMzIxMDA4MiBDMTAuNzI3OTU1OCwzLjY1OTMxMDY4IDEyLjcxMTg3OTksNC4wNjMwODMzOCAxNC4xNzA5Nzc5LDUuNDI4MzE0ODUgQzE0LjM2NDk3OTcsNS4yMzg0MjE3NCAxNi44NTYzNzE3LDIuODA1NzkxMTUgMTcuMDQzMjI2MSwyLjYwNzkwMjU1IEMxMi4wNTg0LC0xLjkwNjU1NjEyIDQuMDc2NzU2MDgsLTAuMzE4NDUwMTE2IDEuMDkwMTQ4ODgsNS41MTEyNjgxNSBMMS4wODkxMjc4Miw1LjUxMTI2ODE1IEMxLjA4OTEyNzgyLDUuNTExMjY4MTUgMS4wOTAxNDg4OCw1LjUxMTI2ODE1IDEuMDg0MDIyNTEsNS41MjIyNjE5NiBMMS4wODQwMjI1MSw1LjUyMjI2MTk2IEMtMC4zOTM0NTQ2MjcsOC4zODU2NTAwNyAtMC4zMzIxOTA4ODksMTEuNzU5NzUwNyAxLjA5NDIzMzEzLDE0LjQ4NjIxNTkgQzEuMDkwMTQ4ODgsMTQuNDg5MjE0MiAxLjA4NzA4NTY5LDE0LjQ5MTIxMzEgMS4wODQwMjI1MSwxNC40OTQyMTE0IEMyLjM3NjY4NzM2LDE3LjAwMjc5OTIgNC43MjkyMTQ4OCwxOC45MjY3MTYyIDcuNTYzNjgzOCwxOS42NTkzMDM4IEMxMC41NzQ3OTY1LDIwLjQ0ODg1OTMgMTQuNDA2ODQzMywxOS45MDkxNjMxIDE2Ljk3Mzc5MzksMTcuNTg3NDcwMSBDMTYuOTc0ODE0OSwxNy41ODg0Njk1IDE2Ljk3NTgzNiwxNy41ODk0Njg5IDE2Ljk3Njg1NywxNy41OTA0Njg0IEMxOS4xNTE3MTk3LDE1LjYzMTU3MTEgMjAuNTA1NjQ4MywxMi4yOTQ0NDk3IDE5LjgyMTUzNjYsOC4wMDM4NjQ5OSIgaWQ9Imdvb2dsZSI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+); }\n  .dm-base-social-login--messenger {\n    background: #0084ff radial-gradient(circle, transparent 1%, #0084ff 1%) center/15000%; }\n    .dm-base-social-login--messenger:hover {\n      background-color: #339dff; }\n    .dm-base-social-login--messenger:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #339dff; }\n    .dm-base-social-login--messenger:active {\n      background-color: #339dff; }\n    .dm-base-social-login--messenger .dm-base-social-login__inner .dm-base-social-login__icon {\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIyMHB4IiB2aWV3Qm94PSIwIDAgMjAgMjAiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT5tZXNzZW5nZXI8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0iV2Vic2l0ZSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRhcmstTW9kZSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQyNi4wMDAwMDAsIC0zMDY5LjAwMDAwMCkiIGZpbGw9IiNGRkZGRkYiPgogICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bNDB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNzUuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgIDxnIGlkPSJTb2NpYWwtQ29ubmVjdHMtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU1LjAwMDAwMCwgMjgzNi4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iQ29udGVudC1bMjB2LWNdIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjAwMDAwMCwgMTAzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgICAgICAgICA8ZyBpZD0iTWVzc2VuZ2VyLVsyMGgtbV0iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAuMDAwMDAwLCA2MC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNDYuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTEwLjk1NzQxNDQsMTIuNDEzIEw4LjM1NTUyMzk0LDkuNzUzIEwzLjM0MzgzNTc2LDEyLjQ4IEw4LjgzODI5NjU3LDYuNzQzIEwxMS40NDAxODcsOS40MDMgTDE2LjQ1MTg3NTIsNi42NzYgTDEwLjk1NzQxNDQsMTIuNDEzIFogTTkuODk3MzQ3MjksMCBDNC4zNDA4ODgzLDAgMCw0LjE0NCAwLDkuMjU3IEMwLDEyLjE2NSAwLjg1MjcyODkzNiwxNC43NiAzLjkwMTgxOTI5LDE2LjQ1NyBMMy45MDE4MTkyOSwyMCBMNy4xNzE0NjA1MSwxOC4xMjYgQzguMDg3MjAzOTgsMTguMzc4IDguOTc1NTA1NjQsMTguNTEzIDkuOTc5NjcyNzMsMTguNTEzIEMxNS41MzYxMzE3LDE4LjUxMyAyMCwxNC4zNjkgMjAsOS4yNTcgQzIwLDQuMTQ0IDE1LjQ1NDgyMjYsMCA5Ljg5NzM0NzI5LDAgTDkuODk3MzQ3MjksMCBaIiBpZD0ibWVzc2VuZ2VyIj48L3BhdGg+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=); }\n  .dm-base-social-login--twitter {\n    background: #1da1f2 radial-gradient(circle, transparent 1%, #1da1f2 1%) center/15000%; }\n    .dm-base-social-login--twitter:hover {\n      background-color: #4db5f5; }\n    .dm-base-social-login--twitter:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #4db5f5; }\n    .dm-base-social-login--twitter:active {\n      background-color: #4db5f5; }\n    .dm-base-social-login--twitter .dm-base-social-login__inner .dm-base-social-login__icon {\n      height: 16px;\n      background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMjBweCIgaGVpZ2h0PSIxNnB4IiB2aWV3Qm94PSIwIDAgMjAgMTYiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDUxLjIgKDU3NTE5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDx0aXRsZT50d2l0dGVyPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IldlYnNpdGUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJEYXJrLU1vZGUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00NTAuMDAwMDAwLCAtMzEzMS4wMDAwMDApIiBmaWxsPSIjRkZGRkZGIj4KICAgICAgICAgICAgPGcgaWQ9IkNvbnRlbnQtWzQwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc1LjAwMDAwMCwgNjAuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICA8ZyBpZD0iU29jaWFsLUNvbm5lY3RzLVs0MHYtY10iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM1NS4wMDAwMDAsIDI4MzYuMDAwMDAwKSI+CiAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkNvbnRlbnQtWzIwdi1jXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDEwMy4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IlR3aXR0ZXItWzIwaC1tXSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsIDEyMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxnIGlkPSJMYXJnZS1bYy1tXSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPGcgaWQ9IkxhYmVsIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNzAuMDAwMDAwLCAxMC4wMDAwMDApIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZD0iTTYuMjksMTggQzEzLjgzNywxOCAxNy45NjUsMTEuODQzNjUzMSAxNy45NjUsNi41MDU0NjEzNiBDMTcuOTY1LDYuMzMwMjEyNzIgMTcuOTY1LDYuMTU1OTQ4NjIgMTcuOTUzLDUuOTgyNjY5MDYgQzE4Ljc1Niw1LjQxMTYzNDE3IDE5LjQ0OSw0LjcwMjc2MzI2IDIwLDMuODkxNDk5ODkgQzE5LjI1Miw0LjIxODM2ODE0IDE4LjQ1Nyw0LjQzMjk5ODUgMTcuNjQ0LDQuNTI3NTE0NjIgQzE4LjUsNC4wMjI0NDQxIDE5LjE0MSwzLjIyODkwMjUgMTkuNDQ4LDIuMjkyNjAyMTggQzE4LjY0MiwyLjc2MzIxMzcgMTcuNzYxLDMuMDk1MDA0NjcgMTYuODQyLDMuMjczMjA2OTQgQzE1LjI4OCwxLjY0Njc0MjAyIDEyLjY4OSwxLjU2Nzk3ODU5IDExLjAzNiwzLjA5Nzk1ODI5IEM5Ljk3MSw0LjA4NDQ3MDMxIDkuNTE4LDUuNTU1Mzc3NDMgOS44NDksNi45NTgzNTExIEM2LjU1LDYuNzk0OTE2OTggMy40NzYsNS4yNjA5OTkxIDEuMzkyLDIuNzM3NjE1NTggQzAuMzAzLDQuNTgzNjMzNTcgMC44Niw2Ljk0NDU2NzUgMi42NjMsOC4xMjk5NTcxOCBDMi4wMSw4LjExMTI1MDg3IDEuMzcxLDcuOTM3OTcxMzEgMC44LDcuNjI0ODg2NjYgTDAuOCw3LjY3NjA4Mjg5IEMwLjgwMSw5LjU5ODg5NTIzIDIuMTc4LDExLjI1NDg5NjQgNC4wOTIsMTEuNjM1OTE0NSBDMy40ODgsMTEuNzk4MzY0MSAyLjg1NCwxMS44MjE5OTMxIDIuMjQsMTEuNzA0ODMyNSBDMi43NzcsMTMuMzUwOTg4MyA0LjMxOCwxNC40NzgyOSA2LjA3MywxNC41MTA3Nzk5IEM0LjYyLDE1LjYzNTEyNzkgMi44MjUsMTYuMjQ1NTQ0NSAwLjk3NywxNi4yNDM1NzU0IEMwLjY1MSwxNi4yNDI1OTA5IDAuMzI1LDE2LjIyMzg4NDYgMCwxNi4xODU0ODc0IEMxLjg3NywxNy4zNzA4NzcxIDQuMDYsMTggNi4yOSwxNy45OTcwNDY0IiBpZD0idHdpdHRlciI+PC9wYXRoPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgICAgIDwvZz4KICAgICAgICAgICAgPC9nPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+Cg==); }\n  .dm-base-social-login--small {\n    padding: 10px 10px; }\n  .dm-base-social-login--large {\n    padding: 10px 30px; }\n  .dm-base-social-login--full-width {\n    width: 100%; }\n  .dm-base-social-login:active {\n    background-size: 100%;\n    transition: background 0s; }\n\n/*# sourceMappingURL=BaseSocialLogin.vue.map */",null]}, media: undefined });
+
+  };
   /* scoped */
   const __vue_scope_id__$9 = undefined;
   /* module identifier */
@@ -2426,7 +2449,7 @@ __vue_render__$9._withStripped = true;
     const component = (typeof script === 'function' ? script.options : script) || {};
 
     // For security concerns, we use only base name in production mode.
-    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseSpinner.vue";
+    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseSocialLogin.vue";
 
     if (!component.render) {
       component.render = template.render;
@@ -2438,22 +2461,101 @@ __vue_render__$9._withStripped = true;
 
     component._scopeId = scope;
 
+    {
+      let hook;
+      if (style) {
+        hook = function(context) {
+          style.call(this, createInjector(context));
+        };
+      }
+
+      if (hook !== undefined) {
+        if (component.functional) {
+          // register for functional component in vue file
+          const originalRender = component.render;
+          component.render = function renderWithStyleInjection(h, context) {
+            hook.call(context);
+            return originalRender(h, context)
+          };
+        } else {
+          // inject component registration as beforeCreate hook
+          const existing = component.beforeCreate;
+          component.beforeCreate = existing ? [].concat(existing, hook) : [hook];
+        }
+      }
+    }
+
     return component
   }
   /* style inject */
-  
+  function __vue_create_injector__$9() {
+    const head = document.head || document.getElementsByTagName('head')[0];
+    const styles = __vue_create_injector__$9.styles || (__vue_create_injector__$9.styles = {});
+    const isOldIE =
+      typeof navigator !== 'undefined' &&
+      /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
+
+    return function addStyle(id, css) {
+      if (document.querySelector('style[data-vue-ssr-id~="' + id + '"]')) return // SSR styles are present.
+
+      const group = isOldIE ? css.media || 'default' : id;
+      const style = styles[group] || (styles[group] = { ids: [], parts: [], element: undefined });
+
+      if (!style.ids.includes(id)) {
+        let code = css.source;
+        let index = style.ids.length;
+
+        style.ids.push(id);
+
+        if (isOldIE) {
+          style.element = style.element || document.querySelector('style[data-group=' + group + ']');
+        }
+
+        if (!style.element) {
+          const el = style.element = document.createElement('style');
+          el.type = 'text/css';
+
+          if (css.media) el.setAttribute('media', css.media);
+          if (isOldIE) {
+            el.setAttribute('data-group', group);
+            el.setAttribute('data-next-index', '0');
+          }
+
+          head.appendChild(el);
+        }
+
+        if (isOldIE) {
+          index = parseInt(style.element.getAttribute('data-next-index'));
+          style.element.setAttribute('data-next-index', index + 1);
+        }
+
+        if (style.element.styleSheet) {
+          style.parts.push(code);
+          style.element.styleSheet.cssText = style.parts
+            .filter(Boolean)
+            .join('\n');
+        } else {
+          const textNode = document.createTextNode(code);
+          const nodes = style.element.childNodes;
+          if (nodes[index]) style.element.removeChild(nodes[index]);
+          if (nodes.length) style.element.insertBefore(textNode, nodes[index]);
+          else style.element.appendChild(textNode);
+        }
+      }
+    }
+  }
   /* style inject SSR */
   
 
   
-  var BaseSpinner = __vue_normalize__$9(
+  var BaseSocialLogin = __vue_normalize__$9(
     { render: __vue_render__$9, staticRenderFns: __vue_staticRenderFns__$9 },
     __vue_inject_styles__$9,
     __vue_script__$9,
     __vue_scope_id__$9,
     __vue_is_functional_template__$9,
     __vue_module_identifier__$9,
-    undefined,
+    __vue_create_injector__$9,
     undefined
   )
 
@@ -2581,9 +2683,9 @@ __vue_render__$10._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$9() {
+  function __vue_create_injector__$10() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$9.styles || (__vue_create_injector__$9.styles = {});
+    const styles = __vue_create_injector__$10.styles || (__vue_create_injector__$10.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -2648,7 +2750,7 @@ __vue_render__$10._withStripped = true;
     __vue_scope_id__$10,
     __vue_is_functional_template__$10,
     __vue_module_identifier__$10,
-    __vue_create_injector__$9,
+    __vue_create_injector__$10,
     undefined
   )
 
@@ -2785,9 +2887,9 @@ __vue_render__$11._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$10() {
+  function __vue_create_injector__$11() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$10.styles || (__vue_create_injector__$10.styles = {});
+    const styles = __vue_create_injector__$11.styles || (__vue_create_injector__$11.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -2852,7 +2954,7 @@ __vue_render__$11._withStripped = true;
     __vue_scope_id__$11,
     __vue_is_functional_template__$11,
     __vue_module_identifier__$11,
-    __vue_create_injector__$10,
+    __vue_create_injector__$11,
     undefined
   )
 
@@ -3050,9 +3152,9 @@ __vue_render__$12._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$11() {
+  function __vue_create_injector__$12() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$11.styles || (__vue_create_injector__$11.styles = {});
+    const styles = __vue_create_injector__$12.styles || (__vue_create_injector__$12.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -3117,7 +3219,7 @@ __vue_render__$12._withStripped = true;
     __vue_scope_id__$12,
     __vue_is_functional_template__$12,
     __vue_module_identifier__$12,
-    __vue_create_injector__$11,
+    __vue_create_injector__$12,
     undefined
   )
 
@@ -3332,9 +3434,9 @@ __vue_render__$13._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$12() {
+  function __vue_create_injector__$13() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$12.styles || (__vue_create_injector__$12.styles = {});
+    const styles = __vue_create_injector__$13.styles || (__vue_create_injector__$13.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -3399,7 +3501,7 @@ __vue_render__$13._withStripped = true;
     __vue_scope_id__$13,
     __vue_is_functional_template__$13,
     __vue_module_identifier__$13,
-    __vue_create_injector__$12,
+    __vue_create_injector__$13,
     undefined
   )
 
@@ -3709,9 +3811,9 @@ __vue_render__$14._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$13() {
+  function __vue_create_injector__$14() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$13.styles || (__vue_create_injector__$13.styles = {});
+    const styles = __vue_create_injector__$14.styles || (__vue_create_injector__$14.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -3776,7 +3878,7 @@ __vue_render__$14._withStripped = true;
     __vue_scope_id__$14,
     __vue_is_functional_template__$14,
     __vue_module_identifier__$14,
-    __vue_create_injector__$13,
+    __vue_create_injector__$14,
     undefined
   )
 
@@ -3974,9 +4076,9 @@ __vue_render__$15._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$14() {
+  function __vue_create_injector__$15() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$14.styles || (__vue_create_injector__$14.styles = {});
+    const styles = __vue_create_injector__$15.styles || (__vue_create_injector__$15.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -4041,7 +4143,7 @@ __vue_render__$15._withStripped = true;
     __vue_scope_id__$15,
     __vue_is_functional_template__$15,
     __vue_module_identifier__$15,
-    __vue_create_injector__$14,
+    __vue_create_injector__$15,
     undefined
   )
 
@@ -4300,9 +4402,9 @@ __vue_render__$16._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$15() {
+  function __vue_create_injector__$16() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$15.styles || (__vue_create_injector__$15.styles = {});
+    const styles = __vue_create_injector__$16.styles || (__vue_create_injector__$16.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -4367,7 +4469,7 @@ __vue_render__$16._withStripped = true;
     __vue_scope_id__$16,
     __vue_is_functional_template__$16,
     __vue_module_identifier__$16,
-    __vue_create_injector__$15,
+    __vue_create_injector__$16,
     undefined
   )
 
@@ -4608,9 +4710,9 @@ __vue_render__$17._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$16() {
+  function __vue_create_injector__$17() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$16.styles || (__vue_create_injector__$16.styles = {});
+    const styles = __vue_create_injector__$17.styles || (__vue_create_injector__$17.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -4675,7 +4777,7 @@ __vue_render__$17._withStripped = true;
     __vue_scope_id__$17,
     __vue_is_functional_template__$17,
     __vue_module_identifier__$17,
-    __vue_create_injector__$16,
+    __vue_create_injector__$17,
     undefined
   )
 
@@ -4944,9 +5046,9 @@ __vue_render__$18._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$17() {
+  function __vue_create_injector__$18() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$17.styles || (__vue_create_injector__$17.styles = {});
+    const styles = __vue_create_injector__$18.styles || (__vue_create_injector__$18.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -5011,7 +5113,7 @@ __vue_render__$18._withStripped = true;
     __vue_scope_id__$18,
     __vue_is_functional_template__$18,
     __vue_module_identifier__$18,
-    __vue_create_injector__$17,
+    __vue_create_injector__$18,
     undefined
   )
 
@@ -5209,9 +5311,9 @@ __vue_render__$19._withStripped = true;
     return component
   }
   /* style inject */
-  function __vue_create_injector__$18() {
+  function __vue_create_injector__$19() {
     const head = document.head || document.getElementsByTagName('head')[0];
-    const styles = __vue_create_injector__$18.styles || (__vue_create_injector__$18.styles = {});
+    const styles = __vue_create_injector__$19.styles || (__vue_create_injector__$19.styles = {});
     const isOldIE =
       typeof navigator !== 'undefined' &&
       /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
@@ -5276,7 +5378,7 @@ __vue_render__$19._withStripped = true;
     __vue_scope_id__$19,
     __vue_is_functional_template__$19,
     __vue_module_identifier__$19,
-    __vue_create_injector__$18,
+    __vue_create_injector__$19,
     undefined
   )
 
