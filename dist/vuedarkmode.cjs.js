@@ -1,5 +1,5 @@
 /*!
- * vuedarkmode v0.2.3
+ * vuedarkmode v0.2.5
  * (c) 2018-present Team <team@vuedarkmode.com>
  * Released under the MIT License.
  */
@@ -67,12 +67,19 @@ var script = {
   methods: {
     // --> EVENT LISTENERS <--
     onClick: function onClick(event) {
-      this.$emit("click", this.id, event);
+      if (this.clickable) {
+        this.$emit("click", this.id, event);
+      }
     },
     onDoubleClick: function onDoubleClick(event) {
       this.$emit("dblclick", this.id, event);
     },
     onKeypress: function onKeypress(event) {
+      if (this.clickable && event.which === 32) {
+        event.preventDefault();
+        event.target.click();
+      }
+
       this.$emit("keypress", this.id, event);
     },
     onMouseDown: function onMouseDown(event) {
@@ -147,7 +154,7 @@ __vue_render__._withStripped = true;
   /* style */
   const __vue_inject_styles__ = function (inject) {
     if (!inject) return
-    inject("data-v-4babcae7_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-icon {\n  display: inline-block;\n  outline: 0;\n  border-radius: 2px;\n  color: inherit;\n  text-transform: none;\n  text-rendering: optimizeLegibility;\n  white-space: nowrap;\n  word-wrap: normal;\n  letter-spacing: normal;\n  font-weight: normal;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  font-feature-settings: \"liga\";\n  line-height: 1;\n  direction: ltr;\n  user-select: none;\n  -webkit-font-smoothing: antialiased;\n}\n.dm-base-icon--clickable {\n    cursor: pointer;\n}\n.dm-base-icon--clickable:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s;\n}\n@font-face {\n  font-weight: 400;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  src: url(\"https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2\") format(\"woff2\");\n}\n\n/*# sourceMappingURL=BaseIcon.vue.map */", map: {"version":3,"sources":["BaseIcon.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseIcon.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACkHhF;EACA,sBAAA;EACA,WAAA;EACA,mBAAA;EACA,eAAA;EACA,qBAAA;EACA,mCAAA;EACA,oBAAA;EACA,kBAAA;EACA,uBAAA;EACA,oBAAA;EACA,mBAAA;EACA,8BAAA;EACA,8BAAA;EACA,eAAA;EACA,eAAA;EACA,kBAAA;EAEA,oCAAA;CAYA;AARA;IACA,gBAAA;CAMA;AAPA;MAIA,iDAAA;MACA,sCAAA;CACA;AAIA;EACA,iBAAA;EACA,mBAAA;EACA,8BAAA;EACA,mHACA;CAAA;;ADxHA,wCAAwC","file":"BaseIcon.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-icon {\n  display: inline-block;\n  outline: 0;\n  border-radius: 2px;\n  color: inherit;\n  text-transform: none;\n  text-rendering: optimizeLegibility;\n  white-space: nowrap;\n  word-wrap: normal;\n  letter-spacing: normal;\n  font-weight: normal;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  font-feature-settings: \"liga\";\n  line-height: 1;\n  direction: ltr;\n  user-select: none;\n  -webkit-font-smoothing: antialiased; }\n  .dm-base-icon--clickable {\n    cursor: pointer; }\n    .dm-base-icon--clickable:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s; }\n\n@font-face {\n  font-weight: 400;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  src: url(\"https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2\") format(\"woff2\"); }\n\n/*# sourceMappingURL=BaseIcon.vue.map */",null]}, media: undefined });
+    inject("data-v-4966a286_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-icon {\n  display: inline-block;\n  outline: 0;\n  border-radius: 2px;\n  color: inherit;\n  text-transform: none;\n  text-rendering: optimizeLegibility;\n  white-space: nowrap;\n  word-wrap: normal;\n  letter-spacing: normal;\n  font-weight: normal;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  font-feature-settings: \"liga\";\n  line-height: 1;\n  direction: ltr;\n  user-select: none;\n  -webkit-font-smoothing: antialiased;\n}\n.dm-base-icon--clickable {\n    cursor: pointer;\n}\n.dm-base-icon--clickable:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s;\n}\n@font-face {\n  font-weight: 400;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  src: url(\"https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2\") format(\"woff2\");\n}\n\n/*# sourceMappingURL=BaseIcon.vue.map */", map: {"version":3,"sources":["BaseIcon.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseIcon.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACyHhF;EACA,sBAAA;EACA,WAAA;EACA,mBAAA;EACA,eAAA;EACA,qBAAA;EACA,mCAAA;EACA,oBAAA;EACA,kBAAA;EACA,uBAAA;EACA,oBAAA;EACA,mBAAA;EACA,8BAAA;EACA,8BAAA;EACA,eAAA;EACA,eAAA;EACA,kBAAA;EAEA,oCAAA;CAYA;AARA;IACA,gBAAA;CAMA;AAPA;MAIA,iDAAA;MACA,sCAAA;CACA;AAIA;EACA,iBAAA;EACA,mBAAA;EACA,8BAAA;EACA,mHACA;CAAA;;AD/HA,wCAAwC","file":"BaseIcon.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-icon {\n  display: inline-block;\n  outline: 0;\n  border-radius: 2px;\n  color: inherit;\n  text-transform: none;\n  text-rendering: optimizeLegibility;\n  white-space: nowrap;\n  word-wrap: normal;\n  letter-spacing: normal;\n  font-weight: normal;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  font-feature-settings: \"liga\";\n  line-height: 1;\n  direction: ltr;\n  user-select: none;\n  -webkit-font-smoothing: antialiased; }\n  .dm-base-icon--clickable {\n    cursor: pointer; }\n    .dm-base-icon--clickable:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s; }\n\n@font-face {\n  font-weight: 400;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  src: url(\"https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2\") format(\"woff2\"); }\n\n/*# sourceMappingURL=BaseIcon.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -344,7 +351,7 @@ var __vue_render__$1 = function() {
         ? _c("base-icon", {
             staticClass: "dm-base-alert__icon dm-base-alert__icon--right",
             attrs: {
-              cursor: "pointer",
+              clickable: true,
               name: "close",
               size: "20px",
               tabindex: "0"
@@ -362,7 +369,7 @@ __vue_render__$1._withStripped = true;
   /* style */
   const __vue_inject_styles__$1 = function (inject) {
     if (!inject) return
-    inject("data-v-38fb4659_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-alert {\n  display: flex;\n  align-items: center;\n  padding: 14px 20px;\n  color: #ffffff;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 200ms ease-in-out;\n}\n.dm-base-alert .dm-base-alert__icon {\n    flex: 0 0 auto;\n}\n.dm-base-alert .dm-base-alert__icon--left {\n      margin-right: 20px;\n}\n.dm-base-alert .dm-base-alert__icon--right {\n      margin-left: 20px;\n}\n.dm-base-alert .dm-base-alert__slot {\n    flex: 1;\n    font-size: 16px;\n    line-height: 22px;\n}\n.dm-base-alert--black {\n    background-color: #323e4f;\n}\n.dm-base-alert--black .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--black .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--black .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #323e4f, 0 0 0 3px #ffffff;\n}\n.dm-base-alert--black .dm-base-alert__icon--right:active {\n        transform: rotate(360deg);\n}\n.dm-base-alert--blue {\n    background-color: #0194ef;\n}\n.dm-base-alert--blue .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--blue .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--blue .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #0194ef, 0 0 0 3px #ffffff;\n}\n.dm-base-alert--blue .dm-base-alert__icon--right:active {\n        transform: rotate(360deg);\n}\n.dm-base-alert--green {\n    background-color: #1bb934;\n}\n.dm-base-alert--green .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--green .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--green .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #1bb934, 0 0 0 3px #ffffff;\n}\n.dm-base-alert--green .dm-base-alert__icon--right:active {\n        transform: rotate(360deg);\n}\n.dm-base-alert--red {\n    background-color: #e1112c;\n}\n.dm-base-alert--red .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--red .dm-base-alert__icon--right:hover {\n        color: #323e4f !important;\n}\n.dm-base-alert--red .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #e1112c, 0 0 0 3px #ffffff;\n}\n.dm-base-alert--red .dm-base-alert__icon--right:active {\n        transform: rotate(360deg);\n}\n.dm-base-alert--orange {\n    background-color: #ffb610;\n}\n.dm-base-alert--orange .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--orange .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--orange .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #ffb610, 0 0 0 3px #ffffff;\n}\n.dm-base-alert--orange .dm-base-alert__icon--right:active {\n        transform: rotate(360deg);\n}\n.dm-base-alert--white {\n    background-color: #ffffff;\n    color: #323e4f;\n}\n.dm-base-alert--white .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--white .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--white .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #323e4f;\n}\n.dm-base-alert--white .dm-base-alert__icon--right:active {\n        transform: rotate(360deg);\n}\n\n/*# sourceMappingURL=BaseAlert.vue.map */", map: {"version":3,"sources":["BaseAlert.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseAlert.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC4FhF;EACA,cAAA;EACA,oBAAA;EACA,mBAAA;EACA,eAAA;EACA,iBAAA;EACA,sFACA;EACA,kCAAA;CA4DA;AApEA;IAWA,eAAA;CASA;AApBA;MAcA,mBAAA;CACA;AAfA;MAkBA,kBAAA;CACA;AAnBA;IAuBA,QAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAKA;IACA,0BAAA;CAkCA;AAnCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CAwBA;AAlCA;QAgBA,0BAAA;CAEA;AAlBA;QAqBA,sCAAA;QAMA,iDAAA;CAEA;AA7BA;QAgCA,0BAAA;CACA;AAjCA;IACA,0BAAA;CAkCA;AAnCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CAwBA;AAlCA;QAgBA,0BAAA;CAEA;AAlBA;QAqBA,sCAAA;QAMA,iDAAA;CAEA;AA7BA;QAgCA,0BAAA;CACA;AAjCA;IACA,0BAAA;CAkCA;AAnCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CAwBA;AAlCA;QAgBA,0BAAA;CAEA;AAlBA;QAqBA,sCAAA;QAMA,iDAAA;CAEA;AA7BA;QAgCA,0BAAA;CACA;AAjCA;IACA,0BAAA;CAkCA;AAnCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CAwBA;AAlCA;QAcA,0BAAA;CAIA;AAlBA;QAqBA,sCAAA;QAMA,iDAAA;CAEA;AA7BA;QAgCA,0BAAA;CACA;AAjCA;IACA,0BAAA;CAkCA;AAnCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CAwBA;AAlCA;QAgBA,0BAAA;CAEA;AAlBA;QAqBA,sCAAA;QAMA,iDAAA;CAEA;AA7BA;QAgCA,0BAAA;CACA;AAjCA;IACA,0BAAA;IAGA,eAAA;CA+BA;AAnCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CAwBA;AAlCA;QAgBA,0BAAA;CAEA;AAlBA;QAqBA,sCAAA;QAGA,iDACA;CAIA;AA7BA;QAgCA,0BAAA;CACA;;ADzDA,yCAAyC","file":"BaseAlert.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-alert {\n  display: flex;\n  align-items: center;\n  padding: 14px 20px;\n  color: #ffffff;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 200ms ease-in-out; }\n  .dm-base-alert .dm-base-alert__icon {\n    flex: 0 0 auto; }\n    .dm-base-alert .dm-base-alert__icon--left {\n      margin-right: 20px; }\n    .dm-base-alert .dm-base-alert__icon--right {\n      margin-left: 20px; }\n  .dm-base-alert .dm-base-alert__slot {\n    flex: 1;\n    font-size: 16px;\n    line-height: 22px; }\n  .dm-base-alert--black {\n    background-color: #323e4f; }\n    .dm-base-alert--black .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--black .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--black .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #323e4f, 0 0 0 3px #ffffff; }\n      .dm-base-alert--black .dm-base-alert__icon--right:active {\n        transform: rotate(360deg); }\n  .dm-base-alert--blue {\n    background-color: #0194ef; }\n    .dm-base-alert--blue .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--blue .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--blue .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #0194ef, 0 0 0 3px #ffffff; }\n      .dm-base-alert--blue .dm-base-alert__icon--right:active {\n        transform: rotate(360deg); }\n  .dm-base-alert--green {\n    background-color: #1bb934; }\n    .dm-base-alert--green .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--green .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--green .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #1bb934, 0 0 0 3px #ffffff; }\n      .dm-base-alert--green .dm-base-alert__icon--right:active {\n        transform: rotate(360deg); }\n  .dm-base-alert--red {\n    background-color: #e1112c; }\n    .dm-base-alert--red .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--red .dm-base-alert__icon--right:hover {\n        color: #323e4f !important; }\n      .dm-base-alert--red .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #e1112c, 0 0 0 3px #ffffff; }\n      .dm-base-alert--red .dm-base-alert__icon--right:active {\n        transform: rotate(360deg); }\n  .dm-base-alert--orange {\n    background-color: #ffb610; }\n    .dm-base-alert--orange .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--orange .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--orange .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #ffb610, 0 0 0 3px #ffffff; }\n      .dm-base-alert--orange .dm-base-alert__icon--right:active {\n        transform: rotate(360deg); }\n  .dm-base-alert--white {\n    background-color: #ffffff;\n    color: #323e4f; }\n    .dm-base-alert--white .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--white .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--white .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n        box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #323e4f; }\n      .dm-base-alert--white .dm-base-alert__icon--right:active {\n        transform: rotate(360deg); }\n\n/*# sourceMappingURL=BaseAlert.vue.map */",null]}, media: undefined });
+    inject("data-v-ae3c734e_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-alert {\n  display: flex;\n  align-items: center;\n  padding: 14px 20px;\n  color: #ffffff;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 200ms ease-in-out;\n}\n.dm-base-alert .dm-base-alert__icon {\n    flex: 0 0 auto;\n}\n.dm-base-alert .dm-base-alert__icon--left {\n      margin-right: 20px;\n}\n.dm-base-alert .dm-base-alert__icon--right {\n      margin-left: 20px;\n}\n.dm-base-alert .dm-base-alert__slot {\n    flex: 1;\n    font-size: 16px;\n    line-height: 22px;\n}\n.dm-base-alert--black {\n    background-color: #323e4f;\n}\n.dm-base-alert--black .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--black .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n}\n.dm-base-alert--black .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--black .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #323e4f, 0 0 0 3px #e1112c;\n}\n.dm-base-alert--blue {\n    background-color: #0194ef;\n}\n.dm-base-alert--blue .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--blue .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n}\n.dm-base-alert--blue .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--blue .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #0194ef, 0 0 0 3px #e1112c;\n}\n.dm-base-alert--green {\n    background-color: #1bb934;\n}\n.dm-base-alert--green .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--green .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n}\n.dm-base-alert--green .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--green .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #1bb934, 0 0 0 3px #e1112c;\n}\n.dm-base-alert--red {\n    background-color: #e1112c;\n}\n.dm-base-alert--red .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--red .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n}\n.dm-base-alert--red .dm-base-alert__icon--right:hover {\n        color: #323e4f !important;\n}\n.dm-base-alert--red .dm-base-alert__icon--right:focus {\n        color: #323e4f !important;\n        box-shadow: 0 0 0 2px #e1112c, 0 0 0 3px #323e4f;\n}\n.dm-base-alert--orange {\n    background-color: #ffb610;\n}\n.dm-base-alert--orange .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--orange .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n}\n.dm-base-alert--orange .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--orange .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #ffb610, 0 0 0 3px #e1112c;\n}\n.dm-base-alert--white {\n    background-color: #ffffff;\n    color: #323e4f;\n}\n.dm-base-alert--white .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out;\n}\n.dm-base-alert--white .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s;\n}\n.dm-base-alert--white .dm-base-alert__icon--right:hover {\n        color: #e1112c !important;\n}\n.dm-base-alert--white .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #e1112c;\n}\n\n/*# sourceMappingURL=BaseAlert.vue.map */", map: {"version":3,"sources":["BaseAlert.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseAlert.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC4FhF;EACA,cAAA;EACA,oBAAA;EACA,mBAAA;EACA,eAAA;EACA,iBAAA;EACA,sFACA;EACA,kCAAA;CA+DA;AAvEA;IAWA,eAAA;CASA;AApBA;MAcA,mBAAA;CACA;AAfA;MAkBA,kBAAA;CACA;AAnBA;IAuBA,QAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAKA;IACA,0BAAA;CAqCA;AAtCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CA2BA;AArCA;QAaA,sCAAA;CACA;AAdA;QA4BA,0BAAA;CACA;AA7BA;QAgCA,0BAAA;QACA,iDACA;CACA;AAnCA;IACA,0BAAA;CAqCA;AAtCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CA2BA;AArCA;QAaA,sCAAA;CACA;AAdA;QA4BA,0BAAA;CACA;AA7BA;QAgCA,0BAAA;QACA,iDACA;CACA;AAnCA;IACA,0BAAA;CAqCA;AAtCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CA2BA;AArCA;QAaA,sCAAA;CACA;AAdA;QA4BA,0BAAA;CACA;AA7BA;QAgCA,0BAAA;QACA,iDACA;CACA;AAnCA;IACA,0BAAA;CAqCA;AAtCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CA2BA;AArCA;QAaA,sCAAA;CACA;AAdA;QAkBA,0BAAA;CACA;AAnBA;QAsBA,0BAAA;QACA,iDACA;CACA;AAzBA;IACA,0BAAA;CAqCA;AAtCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CA2BA;AArCA;QAaA,sCAAA;CACA;AAdA;QA4BA,0BAAA;CACA;AA7BA;QAgCA,0BAAA;QACA,iDACA;CACA;AAnCA;IACA,0BAAA;IAGA,eAAA;CAkCA;AAtCA;MAQA,WAAA;MACA,oBAAA;MACA,kCAAA;CA2BA;AArCA;QAaA,sCAAA;CACA;AAdA;QA4BA,0BAAA;CACA;AA7BA;QAgCA,0BAAA;QACA,iDACA;CACA;;AD3DA,yCAAyC","file":"BaseAlert.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-alert {\n  display: flex;\n  align-items: center;\n  padding: 14px 20px;\n  color: #ffffff;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 200ms ease-in-out; }\n  .dm-base-alert .dm-base-alert__icon {\n    flex: 0 0 auto; }\n    .dm-base-alert .dm-base-alert__icon--left {\n      margin-right: 20px; }\n    .dm-base-alert .dm-base-alert__icon--right {\n      margin-left: 20px; }\n  .dm-base-alert .dm-base-alert__slot {\n    flex: 1;\n    font-size: 16px;\n    line-height: 22px; }\n  .dm-base-alert--black {\n    background-color: #323e4f; }\n    .dm-base-alert--black .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--black .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s; }\n      .dm-base-alert--black .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--black .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #323e4f, 0 0 0 3px #e1112c; }\n  .dm-base-alert--blue {\n    background-color: #0194ef; }\n    .dm-base-alert--blue .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--blue .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s; }\n      .dm-base-alert--blue .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--blue .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #0194ef, 0 0 0 3px #e1112c; }\n  .dm-base-alert--green {\n    background-color: #1bb934; }\n    .dm-base-alert--green .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--green .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s; }\n      .dm-base-alert--green .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--green .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #1bb934, 0 0 0 3px #e1112c; }\n  .dm-base-alert--red {\n    background-color: #e1112c; }\n    .dm-base-alert--red .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--red .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s; }\n      .dm-base-alert--red .dm-base-alert__icon--right:hover {\n        color: #323e4f !important; }\n      .dm-base-alert--red .dm-base-alert__icon--right:focus {\n        color: #323e4f !important;\n        box-shadow: 0 0 0 2px #e1112c, 0 0 0 3px #323e4f; }\n  .dm-base-alert--orange {\n    background-color: #ffb610; }\n    .dm-base-alert--orange .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--orange .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s; }\n      .dm-base-alert--orange .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--orange .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #ffb610, 0 0 0 3px #e1112c; }\n  .dm-base-alert--white {\n    background-color: #ffffff;\n    color: #323e4f; }\n    .dm-base-alert--white .dm-base-alert__icon--right {\n      outline: 0;\n      border-radius: 100%;\n      transition: all 200ms ease-in-out; }\n      .dm-base-alert--white .dm-base-alert__icon--right:focus {\n        transition: box-shadow ease-in-out 0s; }\n      .dm-base-alert--white .dm-base-alert__icon--right:hover {\n        color: #e1112c !important; }\n      .dm-base-alert--white .dm-base-alert__icon--right:focus {\n        color: #e1112c !important;\n        box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #e1112c; }\n\n/*# sourceMappingURL=BaseAlert.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -1064,6 +1071,13 @@ var script$4 = {
       type: String,
       default: null
     },
+    list: {
+      type: Array,
+      default: null,
+      validator: function validator(x) {
+        return x.length > 0;
+      }
+    },
     reverse: {
       type: Boolean,
       default: false
@@ -1095,8 +1109,14 @@ var script$4 = {
       }
     }
   },
+  data: function data() {
+    return {
+      // --> STATE <--
+      listOpened: false
+    };
+  },
   computed: {
-    iconSize: function iconSize() {
+    computedIconSize: function computedIconSize() {
       switch (this.size) {
         case "mini":
           return "12px";
@@ -1113,15 +1133,29 @@ var script$4 = {
         case "large":
           return "20px";
       }
+    },
+    computedRightIcon: function computedRightIcon() {
+      if (this.list && !this.circular) {
+        return this.listOpened ? "arrow_drop_up" : "arrow_drop_down";
+      }
+
+      return this.rightIcon;
     }
   },
   methods: {
     // --> EVENT LISTENERS <--
     onClick: function onClick(event) {
+      if (this.list) {
+        this.listOpened = !this.listOpened;
+      }
+
       this.$emit("click", this.id, event);
     },
     onDoubleClick: function onDoubleClick(event) {
       this.$emit("dblclick", this.id, event);
+    },
+    onItemClick: function onItemClick(itemId, event) {
+      this.$emit("itemclick", this.id, itemId, event);
     },
     onMouseDown: function onMouseDown(event) {
       this.$emit("mousedown", this.id, event);
@@ -1195,11 +1229,13 @@ var __vue_render__$4 = function() {
                 attrs: {
                   color: _vm.leftIconColor,
                   name: _vm.leftIcon,
-                  size: _vm.iconSize
+                  size: _vm.computedIconSize
                 }
               })
             : _vm._e(),
-          _vm.$slots.default && _vm.$slots.default[0].text.trim()
+          _vm.$slots.default &&
+          _vm.$slots.default[0].text.trim() &&
+          !_vm.circular
             ? _c(
                 "span",
                 { staticClass: "dm-base-button__label" },
@@ -1207,20 +1243,53 @@ var __vue_render__$4 = function() {
                 2
               )
             : _vm._e(),
-          _vm.rightIcon
+          _vm.computedRightIcon
             ? _c("base-icon", {
                 staticClass: "dm-base-button__right-icon",
                 attrs: {
                   color: _vm.rightIconColor,
-                  name: _vm.rightIcon,
-                  size: _vm.iconSize
+                  name: _vm.computedRightIcon,
+                  size: _vm.computedIconSize
                 }
               })
             : _vm._e()
         ],
         1
+      ),
+      _c(
+        "transition",
+        {
+          attrs: {
+            "enter-active-class": "animated fadeIn",
+            "leave-active-class": "animated fadeOut"
+          }
+        },
+        [
+          _vm.list && _vm.listOpened
+            ? _c(
+                "span",
+                { staticClass: "dm-base-button__list" },
+                _vm._l(_vm.list, function(item) {
+                  return _c(
+                    "span",
+                    {
+                      key: item.id,
+                      staticClass: "dm-base-button__item",
+                      on: {
+                        click: function($event) {
+                          _vm.onItemClick(item.id, $event);
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(item.label))]
+                  )
+                })
+              )
+            : _vm._e()
+        ]
       )
-    ]
+    ],
+    1
   )
 };
 var __vue_staticRenderFns__$4 = [];
@@ -1229,7 +1298,7 @@ __vue_render__$4._withStripped = true;
   /* style */
   const __vue_inject_styles__$4 = function (inject) {
     if (!inject) return
-    inject("data-v-c780b566_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-button {\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  background-position: center;\n  color: #ffffff;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer;\n}\n.dm-base-button .dm-base-button__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dm-base-button--black:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #46576e;\n}\n.dm-base-button--black:not(.dm-base-button--reverse) {\n    background: #323e4f radial-gradient(circle, transparent 1%, #323e4f 1%) center/15000%;\n    border: 1px solid #323e4f;\n    background: #232d3d radial-gradient(circle, transparent 1%, #232d3d 1%) center/15000%;\n}\n.dm-base-button--black:not(.dm-base-button--reverse):hover {\n      background-color: #323e4f;\n}\n.dm-base-button--black:not(.dm-base-button--reverse):active {\n      background-color: #323e4f;\n}\n.dm-base-button--blue:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #25abfe;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse) {\n    background: #0194ef radial-gradient(circle, transparent 1%, #0194ef 1%) center/15000%;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse):hover {\n      background-color: #25abfe;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse):active {\n      background-color: #3eb5fe;\n}\n.dm-base-button--green:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #27e045;\n}\n.dm-base-button--green:not(.dm-base-button--reverse) {\n    background: #1bb934 radial-gradient(circle, transparent 1%, #1bb934 1%) center/15000%;\n}\n.dm-base-button--green:not(.dm-base-button--reverse):hover {\n      background-color: #1ecf3a;\n}\n.dm-base-button--green:not(.dm-base-button--reverse):active {\n      background-color: #1ecf3a;\n}\n.dm-base-button--red:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #f0354d;\n}\n.dm-base-button--red:not(.dm-base-button--reverse) {\n    background: #e1112c radial-gradient(circle, transparent 1%, #e1112c 1%) center/15000%;\n}\n.dm-base-button--red:not(.dm-base-button--reverse):hover {\n      background-color: #f0354d;\n}\n.dm-base-button--red:not(.dm-base-button--reverse):active {\n      background-color: #f24d62;\n}\n.dm-base-button--orange:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc643;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse) {\n    background: #ffb610 radial-gradient(circle, transparent 1%, #ffb610 1%) center/15000%;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse):hover {\n      background-color: #ffc643;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse):active {\n      background-color: #ffcd5d;\n}\n.dm-base-button--white:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px white;\n}\n.dm-base-button--white:not(.dm-base-button--reverse) {\n    background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;\n    color: #323e4f;\n}\n.dm-base-button--white:not(.dm-base-button--reverse):hover {\n      background-color: #e6e6e6;\n}\n.dm-base-button--white:not(.dm-base-button--reverse):active {\n      background-color: #d9d9d9;\n}\n.dm-base-button--mini {\n    padding: 10px 12px;\n    border-radius: 4px;\n    font-size: 12px;\n    line-height: 12px;\n}\n.dm-base-button--mini .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 3px;\n}\n.dm-base-button--mini .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 3px;\n}\n.dm-base-button--small {\n    padding: 12px 14px;\n    border-radius: 5px;\n    font-size: 13px;\n    line-height: 14px;\n}\n.dm-base-button--small .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 4px;\n}\n.dm-base-button--small .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 4px;\n}\n.dm-base-button--default {\n    padding: 14px 16px;\n    border-radius: 6px;\n    font-size: 14px;\n    line-height: 16px;\n}\n.dm-base-button--default .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 5px;\n}\n.dm-base-button--default .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 5px;\n}\n.dm-base-button--medium {\n    padding: 16px 18px;\n    border-radius: 7px;\n    font-size: 15px;\n    line-height: 18px;\n}\n.dm-base-button--medium .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 6px;\n}\n.dm-base-button--medium .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 6px;\n}\n.dm-base-button--large {\n    padding: 18px 20px;\n    border-radius: 8px;\n    font-size: 16px;\n    line-height: 20px;\n}\n.dm-base-button--large .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 7px;\n}\n.dm-base-button--large .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 7px;\n}\n.dm-base-button--capitalize {\n    text-transform: capitalize;\n}\n.dm-base-button--circular {\n    border-radius: 100%;\n}\n.dm-base-button--circular .dm-base-button__inner .dm-base-button__label {\n      display: none;\n}\n.dm-base-button--circular .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 0;\n}\n.dm-base-button--circular .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 0;\n}\n.dm-base-button--circular.dm-base-button--mini {\n      padding: 8px;\n}\n.dm-base-button--circular.dm-base-button--small {\n      padding: 9px;\n}\n.dm-base-button--circular.dm-base-button--default {\n      padding: 10px;\n}\n.dm-base-button--circular.dm-base-button--medium {\n      padding: 11px;\n}\n.dm-base-button--circular.dm-base-button--large {\n      padding: 12px;\n}\n.dm-base-button--disabled {\n    opacity: 0.7;\n    cursor: not-allowed;\n}\n.dm-base-button--disabled .dm-base-button__inner {\n      pointer-events: none;\n}\n.dm-base-button--full-width {\n    width: 100%;\n}\n.dm-base-button--reverse {\n    background-color: transparent;\n    color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--black {\n      border-color: #323e4f;\n}\n.dm-base-button--reverse.dm-base-button--black:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--black:active {\n        color: #323e4f;\n}\n.dm-base-button--reverse.dm-base-button--blue {\n      border-color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--blue:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--blue:active {\n        color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--green {\n      border-color: #1bb934;\n}\n.dm-base-button--reverse.dm-base-button--green:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--green:active {\n        color: #1bb934;\n}\n.dm-base-button--reverse.dm-base-button--red {\n      border-color: #e1112c;\n}\n.dm-base-button--reverse.dm-base-button--red:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--red:active {\n        color: #e1112c;\n}\n.dm-base-button--reverse.dm-base-button--orange {\n      border-color: #ffb610;\n}\n.dm-base-button--reverse.dm-base-button--orange:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--orange:active {\n        color: #ffb610;\n}\n.dm-base-button--reverse.dm-base-button--white {\n      border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--white:hover {\n        border-color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--white:active {\n        color: #323e4f;\n}\n.dm-base-button--reverse:hover {\n      transform: initial;\n}\n.dm-base-button--reverse:active {\n      background: #ffffff;\n      transform: initial;\n}\n.dm-base-button--rounded {\n    border-radius: 60px;\n    color: #ffffff;\n}\n.dm-base-button:active {\n    background-size: 100%;\n    transition: background 0s;\n}\n\n/*# sourceMappingURL=BaseButton.vue.map */", map: {"version":3,"sources":["BaseButton.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseButton.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACgNhF;EACA,sBAAA;EACA,WAAA;EACA,qCAAA;EACA,4BAAA;EACA,eAAA;EACA,iBAAA;EACA,sFACA;EACA,kCAAA;EACA,kBAAA;EACA,gBAAA;CAkLA;AA7LA;IAcA,cAAA;IACA,oBAAA;IACA,wBAAA;CACA;AAKA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;IAGA,0BAAA;IACA,sFAEA;CA4BA;AAhDA;MA2BA,0BAAA;CAQA;AAnCA;MAuCA,0BAAA;CAQA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MA+BA,0BAAA;CAIA;AAnCA;MA2CA,0BAAA;CAIA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,+CACA;CACA;AAJA;IAQA,sFAMA;IAQA,eAAA;CA0BA;AAhDA;MA6BA,0BAAA;CAMA;AAnCA;MAyCA,0BAAA;CAMA;AAUA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAWA;AAfA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAWA;AAfA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAWA;AAfA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAWA;AAfA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAWA;AAfA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAOA;IACA,2BAAA;CACA;AAEA;IACA,oBAAA;CAuBA;AAxBA;MAKA,cAAA;CACA;AANA;MASA,gBAAA;CACA;AAVA;MAaA,eAAA;CACA;AAdA;MAqBA,aAAA;CACA;AAtBA;MAqBA,aAAA;CACA;AAtBA;MAqBA,cAAA;CACA;AAtBA;MAqBA,cAAA;CACA;AAtBA;MAqBA,cAAA;CACA;AAIA;IACA,aAAA;IACA,oBAAA;CAKA;AAPA;MAKA,qBAAA;CACA;AAGA;IACA,YAAA;CACA;AAEA;IACA,8BAAA;IACA,eAAA;CAgCA;AAlCA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAUA,sBAAA;CAIA;AAdA;QAkBA,eAAA;CAIA;AAtBA;MA2BA,mBAAA;CACA;AA5BA;MA+BA,oBAAA;MACA,mBAAA;CACA;AAGA;IACA,oBAAA;IACA,eAAA;CACA;AArLA;IA0LA,sBAAA;IACA,0BAAA;CACA;;AD9MA,0CAA0C","file":"BaseButton.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-button {\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  background-position: center;\n  color: #ffffff;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer; }\n  .dm-base-button .dm-base-button__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .dm-base-button--black:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #46576e; }\n  .dm-base-button--black:not(.dm-base-button--reverse) {\n    background: #323e4f radial-gradient(circle, transparent 1%, #323e4f 1%) center/15000%;\n    border: 1px solid #323e4f;\n    background: #232d3d radial-gradient(circle, transparent 1%, #232d3d 1%) center/15000%; }\n    .dm-base-button--black:not(.dm-base-button--reverse):hover {\n      background-color: #323e4f; }\n    .dm-base-button--black:not(.dm-base-button--reverse):active {\n      background-color: #323e4f; }\n  .dm-base-button--blue:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #25abfe; }\n  .dm-base-button--blue:not(.dm-base-button--reverse) {\n    background: #0194ef radial-gradient(circle, transparent 1%, #0194ef 1%) center/15000%; }\n    .dm-base-button--blue:not(.dm-base-button--reverse):hover {\n      background-color: #25abfe; }\n    .dm-base-button--blue:not(.dm-base-button--reverse):active {\n      background-color: #3eb5fe; }\n  .dm-base-button--green:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #27e045; }\n  .dm-base-button--green:not(.dm-base-button--reverse) {\n    background: #1bb934 radial-gradient(circle, transparent 1%, #1bb934 1%) center/15000%; }\n    .dm-base-button--green:not(.dm-base-button--reverse):hover {\n      background-color: #1ecf3a; }\n    .dm-base-button--green:not(.dm-base-button--reverse):active {\n      background-color: #1ecf3a; }\n  .dm-base-button--red:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #f0354d; }\n  .dm-base-button--red:not(.dm-base-button--reverse) {\n    background: #e1112c radial-gradient(circle, transparent 1%, #e1112c 1%) center/15000%; }\n    .dm-base-button--red:not(.dm-base-button--reverse):hover {\n      background-color: #f0354d; }\n    .dm-base-button--red:not(.dm-base-button--reverse):active {\n      background-color: #f24d62; }\n  .dm-base-button--orange:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc643; }\n  .dm-base-button--orange:not(.dm-base-button--reverse) {\n    background: #ffb610 radial-gradient(circle, transparent 1%, #ffb610 1%) center/15000%; }\n    .dm-base-button--orange:not(.dm-base-button--reverse):hover {\n      background-color: #ffc643; }\n    .dm-base-button--orange:not(.dm-base-button--reverse):active {\n      background-color: #ffcd5d; }\n  .dm-base-button--white:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px white; }\n  .dm-base-button--white:not(.dm-base-button--reverse) {\n    background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;\n    color: #323e4f; }\n    .dm-base-button--white:not(.dm-base-button--reverse):hover {\n      background-color: #e6e6e6; }\n    .dm-base-button--white:not(.dm-base-button--reverse):active {\n      background-color: #d9d9d9; }\n  .dm-base-button--mini {\n    padding: 10px 12px;\n    border-radius: 4px;\n    font-size: 12px;\n    line-height: 12px; }\n    .dm-base-button--mini .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 3px; }\n    .dm-base-button--mini .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 3px; }\n  .dm-base-button--small {\n    padding: 12px 14px;\n    border-radius: 5px;\n    font-size: 13px;\n    line-height: 14px; }\n    .dm-base-button--small .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 4px; }\n    .dm-base-button--small .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 4px; }\n  .dm-base-button--default {\n    padding: 14px 16px;\n    border-radius: 6px;\n    font-size: 14px;\n    line-height: 16px; }\n    .dm-base-button--default .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 5px; }\n    .dm-base-button--default .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 5px; }\n  .dm-base-button--medium {\n    padding: 16px 18px;\n    border-radius: 7px;\n    font-size: 15px;\n    line-height: 18px; }\n    .dm-base-button--medium .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 6px; }\n    .dm-base-button--medium .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 6px; }\n  .dm-base-button--large {\n    padding: 18px 20px;\n    border-radius: 8px;\n    font-size: 16px;\n    line-height: 20px; }\n    .dm-base-button--large .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 7px; }\n    .dm-base-button--large .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 7px; }\n  .dm-base-button--capitalize {\n    text-transform: capitalize; }\n  .dm-base-button--circular {\n    border-radius: 100%; }\n    .dm-base-button--circular .dm-base-button__inner .dm-base-button__label {\n      display: none; }\n    .dm-base-button--circular .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 0; }\n    .dm-base-button--circular .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 0; }\n    .dm-base-button--circular.dm-base-button--mini {\n      padding: 8px; }\n    .dm-base-button--circular.dm-base-button--small {\n      padding: 9px; }\n    .dm-base-button--circular.dm-base-button--default {\n      padding: 10px; }\n    .dm-base-button--circular.dm-base-button--medium {\n      padding: 11px; }\n    .dm-base-button--circular.dm-base-button--large {\n      padding: 12px; }\n  .dm-base-button--disabled {\n    opacity: 0.7;\n    cursor: not-allowed; }\n    .dm-base-button--disabled .dm-base-button__inner {\n      pointer-events: none; }\n  .dm-base-button--full-width {\n    width: 100%; }\n  .dm-base-button--reverse {\n    background-color: transparent;\n    color: #ffffff; }\n    .dm-base-button--reverse.dm-base-button--black {\n      border-color: #323e4f; }\n      .dm-base-button--reverse.dm-base-button--black:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--black:active {\n        color: #323e4f; }\n    .dm-base-button--reverse.dm-base-button--blue {\n      border-color: #0194ef; }\n      .dm-base-button--reverse.dm-base-button--blue:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--blue:active {\n        color: #0194ef; }\n    .dm-base-button--reverse.dm-base-button--green {\n      border-color: #1bb934; }\n      .dm-base-button--reverse.dm-base-button--green:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--green:active {\n        color: #1bb934; }\n    .dm-base-button--reverse.dm-base-button--red {\n      border-color: #e1112c; }\n      .dm-base-button--reverse.dm-base-button--red:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--red:active {\n        color: #e1112c; }\n    .dm-base-button--reverse.dm-base-button--orange {\n      border-color: #ffb610; }\n      .dm-base-button--reverse.dm-base-button--orange:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--orange:active {\n        color: #ffb610; }\n    .dm-base-button--reverse.dm-base-button--white {\n      border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--white:hover {\n        border-color: #0194ef; }\n      .dm-base-button--reverse.dm-base-button--white:active {\n        color: #323e4f; }\n    .dm-base-button--reverse:hover {\n      transform: initial; }\n    .dm-base-button--reverse:active {\n      background: #ffffff;\n      transform: initial; }\n  .dm-base-button--rounded {\n    border-radius: 60px;\n    color: #ffffff; }\n  .dm-base-button:active {\n    background-size: 100%;\n    transition: background 0s; }\n\n/*# sourceMappingURL=BaseButton.vue.map */",null]}, media: undefined });
+    inject("data-v-6bd24fe2_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-button {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  background-position: center;\n  color: #ffffff;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer;\n}\n.dm-base-button .dm-base-button__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.dm-base-button .dm-base-button__list {\n    position: absolute;\n    bottom: 0;\n    left: 50%;\n    z-index: 100;\n    display: block;\n    padding-top: 10px;\n    min-width: 100%;\n    transform: translate(-50%, 100%);\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item {\n      display: block;\n      padding: 10px 14px;\n      border: 1px solid rgba(0, 0, 0, 0.1);\n      border-top: none;\n      background: #ffffff;\n      color: #323e4f;\n      white-space: nowrap;\n      transition: all 250ms ease-in-out;\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item:first-of-type {\n        border-top: 1px solid rgba(0, 0, 0, 0.1);\n        border-top-left-radius: 4px;\n        border-top-right-radius: 4px;\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item:last-of-type {\n        border-bottom-left-radius: 4px;\n        border-bottom-right-radius: 4px;\n}\n.dm-base-button .dm-base-button__list .dm-base-button__item:hover {\n        background-color: #f2f2f2;\n}\n.dm-base-button--black:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #46576e;\n}\n.dm-base-button--black:not(.dm-base-button--reverse) {\n    background: #323e4f radial-gradient(circle, transparent 1%, #323e4f 1%) center/15000%;\n    border: 1px solid #323e4f;\n    background: #232d3d radial-gradient(circle, transparent 1%, #232d3d 1%) center/15000%;\n}\n.dm-base-button--black:not(.dm-base-button--reverse):hover {\n      background-color: #323e4f;\n}\n.dm-base-button--black:not(.dm-base-button--reverse):active {\n      background-color: #323e4f;\n}\n.dm-base-button--blue:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #25abfe;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse) {\n    background: #0194ef radial-gradient(circle, transparent 1%, #0194ef 1%) center/15000%;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse):hover {\n      background-color: #25abfe;\n}\n.dm-base-button--blue:not(.dm-base-button--reverse):active {\n      background-color: #3eb5fe;\n}\n.dm-base-button--green:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #27e045;\n}\n.dm-base-button--green:not(.dm-base-button--reverse) {\n    background: #1bb934 radial-gradient(circle, transparent 1%, #1bb934 1%) center/15000%;\n}\n.dm-base-button--green:not(.dm-base-button--reverse):hover {\n      background-color: #1ecf3a;\n}\n.dm-base-button--green:not(.dm-base-button--reverse):active {\n      background-color: #1ecf3a;\n}\n.dm-base-button--red:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #f0354d;\n}\n.dm-base-button--red:not(.dm-base-button--reverse) {\n    background: #e1112c radial-gradient(circle, transparent 1%, #e1112c 1%) center/15000%;\n}\n.dm-base-button--red:not(.dm-base-button--reverse):hover {\n      background-color: #f0354d;\n}\n.dm-base-button--red:not(.dm-base-button--reverse):active {\n      background-color: #f24d62;\n}\n.dm-base-button--orange:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc643;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse) {\n    background: #ffb610 radial-gradient(circle, transparent 1%, #ffb610 1%) center/15000%;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse):hover {\n      background-color: #ffc643;\n}\n.dm-base-button--orange:not(.dm-base-button--reverse):active {\n      background-color: #ffcd5d;\n}\n.dm-base-button--white:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px white;\n}\n.dm-base-button--white:not(.dm-base-button--reverse) {\n    background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;\n    color: #323e4f;\n}\n.dm-base-button--white:not(.dm-base-button--reverse):hover {\n      background-color: #e6e6e6;\n}\n.dm-base-button--white:not(.dm-base-button--reverse):active {\n      background-color: #d9d9d9;\n}\n.dm-base-button--mini {\n    padding: 10px 12px;\n    border-radius: 4px;\n    font-size: 12px;\n    line-height: 12px;\n}\n.dm-base-button--mini .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 3px;\n}\n.dm-base-button--mini .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 3px;\n}\n.dm-base-button--mini .dm-base-button__list {\n      border-radius: 4px;\n}\n.dm-base-button--small {\n    padding: 12px 14px;\n    border-radius: 5px;\n    font-size: 13px;\n    line-height: 14px;\n}\n.dm-base-button--small .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 4px;\n}\n.dm-base-button--small .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 4px;\n}\n.dm-base-button--small .dm-base-button__list {\n      border-radius: 5px;\n}\n.dm-base-button--default {\n    padding: 14px 16px;\n    border-radius: 6px;\n    font-size: 14px;\n    line-height: 16px;\n}\n.dm-base-button--default .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 5px;\n}\n.dm-base-button--default .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 5px;\n}\n.dm-base-button--default .dm-base-button__list {\n      border-radius: 6px;\n}\n.dm-base-button--medium {\n    padding: 16px 18px;\n    border-radius: 7px;\n    font-size: 15px;\n    line-height: 18px;\n}\n.dm-base-button--medium .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 6px;\n}\n.dm-base-button--medium .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 6px;\n}\n.dm-base-button--medium .dm-base-button__list {\n      border-radius: 7px;\n}\n.dm-base-button--large {\n    padding: 18px 20px;\n    border-radius: 8px;\n    font-size: 16px;\n    line-height: 20px;\n}\n.dm-base-button--large .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 7px;\n}\n.dm-base-button--large .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 7px;\n}\n.dm-base-button--large .dm-base-button__list {\n      border-radius: 8px;\n}\n.dm-base-button--capitalize {\n    text-transform: capitalize;\n}\n.dm-base-button--circular {\n    border-radius: 100%;\n}\n.dm-base-button--circular .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 0;\n}\n.dm-base-button--circular .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 0;\n}\n.dm-base-button--circular.dm-base-button--mini {\n      padding: 8px;\n}\n.dm-base-button--circular.dm-base-button--small {\n      padding: 9px;\n}\n.dm-base-button--circular.dm-base-button--default {\n      padding: 10px;\n}\n.dm-base-button--circular.dm-base-button--medium {\n      padding: 11px;\n}\n.dm-base-button--circular.dm-base-button--large {\n      padding: 12px;\n}\n.dm-base-button--disabled {\n    opacity: 0.7;\n    cursor: not-allowed;\n}\n.dm-base-button--disabled .dm-base-button__inner {\n      pointer-events: none;\n}\n.dm-base-button--full-width {\n    width: 100%;\n}\n.dm-base-button--reverse {\n    background-color: transparent;\n    color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--black {\n      border-color: #323e4f;\n}\n.dm-base-button--reverse.dm-base-button--black:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--black:active {\n        color: #323e4f;\n}\n.dm-base-button--reverse.dm-base-button--blue {\n      border-color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--blue:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--blue:active {\n        color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--green {\n      border-color: #1bb934;\n}\n.dm-base-button--reverse.dm-base-button--green:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--green:active {\n        color: #1bb934;\n}\n.dm-base-button--reverse.dm-base-button--red {\n      border-color: #e1112c;\n}\n.dm-base-button--reverse.dm-base-button--red:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--red:active {\n        color: #e1112c;\n}\n.dm-base-button--reverse.dm-base-button--orange {\n      border-color: #ffb610;\n}\n.dm-base-button--reverse.dm-base-button--orange:hover {\n        border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--orange:active {\n        color: #ffb610;\n}\n.dm-base-button--reverse.dm-base-button--white {\n      border-color: #ffffff;\n}\n.dm-base-button--reverse.dm-base-button--white:hover {\n        border-color: #0194ef;\n}\n.dm-base-button--reverse.dm-base-button--white:active {\n        color: #323e4f;\n}\n.dm-base-button--reverse:hover {\n      transform: initial;\n}\n.dm-base-button--reverse:active {\n      background: #ffffff;\n      transform: initial;\n}\n.dm-base-button--rounded {\n    border-radius: 60px;\n    color: #ffffff;\n}\n.dm-base-button:active {\n    background-size: 100%;\n    transition: background 0s;\n}\n.fadeIn {\n  animation-name: fadeIn;\n  animation-duration: 200ms;\n  animation-fill-mode: both;\n}\n.fadeOut {\n  animation-name: fadeOut;\n  animation-duration: 200ms;\n  animation-fill-mode: both;\n}\n@keyframes fadeIn {\nfrom {\n    opacity: 0;\n}\nto {\n    opacity: 1;\n}\n}\n@keyframes fadeOut {\nfrom {\n    opacity: 1;\n}\nto {\n    opacity: 0;\n}\n}\n\n/*# sourceMappingURL=BaseButton.vue.map */", map: {"version":3,"sources":["BaseButton.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseButton.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC8PhF;EACA,mBAAA;EACA,sBAAA;EACA,WAAA;EACA,qCAAA;EACA,4BAAA;EACA,eAAA;EACA,iBAAA;EACA,sFACA;EACA,kCAAA;EACA,kBAAA;EACA,gBAAA;CAuNA;AAnOA;IAeA,cAAA;IACA,oBAAA;IACA,wBAAA;CACA;AAlBA;IAqBA,mBAAA;IACA,UAAA;IACA,UAAA;IACA,aAAA;IACA,eAAA;IACA,kBAAA;IACA,gBAAA;IACA,iCAAA;CA2BA;AAvDA;MA+BA,eAAA;MACA,mBAAA;MACA,qCAAA;MACA,iBAAA;MACA,oBAAA;MACA,eAAA;MACA,oBAAA;MACA,kCAAA;CAgBA;AAtDA;QAyCA,yCAAA;QACA,4BAAA;QACA,6BAAA;CACA;AA5CA;QA+CA,+BAAA;QACA,gCAAA;CACA;AAjDA;QAoDA,0BAAA;CACA;AAOA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;IAGA,0BAAA;IACA,sFAEA;CA4BA;AAhDA;MA2BA,0BAAA;CAQA;AAnCA;MAuCA,0BAAA;CAQA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MA+BA,0BAAA;CAIA;AAnCA;MA2CA,0BAAA;CAIA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,iDACA;CACA;AAJA;IAQA,sFAMA;CAkCA;AAhDA;MAiCA,0BAAA;CAEA;AAnCA;MA6CA,0BAAA;CAEA;AA/CA;IAEA,+CACA;CACA;AAJA;IAQA,sFAMA;IAQA,eAAA;CA0BA;AAhDA;MA6BA,0BAAA;CAMA;AAnCA;MAyCA,0BAAA;CAMA;AAUA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAlBA;IACA,mBAAA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CAeA;AAnBA;MAQA,kBAAA;CACA;AATA;MAYA,iBAAA;CACA;AAbA;MAiBA,mBAAA;CACA;AAMA;IACA,2BAAA;CACA;AAEA;IACA,oBAAA;CAmBA;AApBA;MAKA,gBAAA;CACA;AANA;MASA,eAAA;CACA;AAVA;MAiBA,aAAA;CACA;AAlBA;MAiBA,aAAA;CACA;AAlBA;MAiBA,cAAA;CACA;AAlBA;MAiBA,cAAA;CACA;AAlBA;MAiBA,cAAA;CACA;AAIA;IACA,aAAA;IACA,oBAAA;CAKA;AAPA;MAKA,qBAAA;CACA;AAGA;IACA,YAAA;CACA;AAEA;IACA,8BAAA;IACA,eAAA;CAgCA;AAlCA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAYA,sBAAA;CAEA;AAdA;QAoBA,eAAA;CAEA;AAtBA;MAMA,sBAAA;CAiBA;AAvBA;QAUA,sBAAA;CAIA;AAdA;QAkBA,eAAA;CAIA;AAtBA;MA2BA,mBAAA;CACA;AA5BA;MA+BA,oBAAA;MACA,mBAAA;CACA;AAGA;IACA,oBAAA;IACA,eAAA;CACA;AA3NA;IAgOA,sBAAA;IACA,0BAAA;CACA;AAKA;EACA,uBAAA;EACA,0BAAA;EACA,0BAAA;CACA;AAEA;EACA,wBAAA;EACA,0BAAA;EACA,0BAAA;CACA;AAEA;AACA;IACA,WAAA;CAAA;AAGA;IACA,WAAA;CAAA;CAAA;AAIA;AACA;IACA,WAAA;CAAA;AAGA;IACA,WAAA;CAAA;CAAA;;ADzQA,0CAA0C","file":"BaseButton.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-button {\n  position: relative;\n  display: inline-block;\n  outline: 0;\n  border: 1px solid rgba(0, 0, 0, 0.1);\n  background-position: center;\n  color: #ffffff;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  transition: all 250ms ease-in-out;\n  user-select: none;\n  cursor: pointer; }\n  .dm-base-button .dm-base-button__inner {\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .dm-base-button .dm-base-button__list {\n    position: absolute;\n    bottom: 0;\n    left: 50%;\n    z-index: 100;\n    display: block;\n    padding-top: 10px;\n    min-width: 100%;\n    transform: translate(-50%, 100%); }\n    .dm-base-button .dm-base-button__list .dm-base-button__item {\n      display: block;\n      padding: 10px 14px;\n      border: 1px solid rgba(0, 0, 0, 0.1);\n      border-top: none;\n      background: #ffffff;\n      color: #323e4f;\n      white-space: nowrap;\n      transition: all 250ms ease-in-out; }\n      .dm-base-button .dm-base-button__list .dm-base-button__item:first-of-type {\n        border-top: 1px solid rgba(0, 0, 0, 0.1);\n        border-top-left-radius: 4px;\n        border-top-right-radius: 4px; }\n      .dm-base-button .dm-base-button__list .dm-base-button__item:last-of-type {\n        border-bottom-left-radius: 4px;\n        border-bottom-right-radius: 4px; }\n      .dm-base-button .dm-base-button__list .dm-base-button__item:hover {\n        background-color: #f2f2f2; }\n  .dm-base-button--black:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #46576e; }\n  .dm-base-button--black:not(.dm-base-button--reverse) {\n    background: #323e4f radial-gradient(circle, transparent 1%, #323e4f 1%) center/15000%;\n    border: 1px solid #323e4f;\n    background: #232d3d radial-gradient(circle, transparent 1%, #232d3d 1%) center/15000%; }\n    .dm-base-button--black:not(.dm-base-button--reverse):hover {\n      background-color: #323e4f; }\n    .dm-base-button--black:not(.dm-base-button--reverse):active {\n      background-color: #323e4f; }\n  .dm-base-button--blue:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #25abfe; }\n  .dm-base-button--blue:not(.dm-base-button--reverse) {\n    background: #0194ef radial-gradient(circle, transparent 1%, #0194ef 1%) center/15000%; }\n    .dm-base-button--blue:not(.dm-base-button--reverse):hover {\n      background-color: #25abfe; }\n    .dm-base-button--blue:not(.dm-base-button--reverse):active {\n      background-color: #3eb5fe; }\n  .dm-base-button--green:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #27e045; }\n  .dm-base-button--green:not(.dm-base-button--reverse) {\n    background: #1bb934 radial-gradient(circle, transparent 1%, #1bb934 1%) center/15000%; }\n    .dm-base-button--green:not(.dm-base-button--reverse):hover {\n      background-color: #1ecf3a; }\n    .dm-base-button--green:not(.dm-base-button--reverse):active {\n      background-color: #1ecf3a; }\n  .dm-base-button--red:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #f0354d; }\n  .dm-base-button--red:not(.dm-base-button--reverse) {\n    background: #e1112c radial-gradient(circle, transparent 1%, #e1112c 1%) center/15000%; }\n    .dm-base-button--red:not(.dm-base-button--reverse):hover {\n      background-color: #f0354d; }\n    .dm-base-button--red:not(.dm-base-button--reverse):active {\n      background-color: #f24d62; }\n  .dm-base-button--orange:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc643; }\n  .dm-base-button--orange:not(.dm-base-button--reverse) {\n    background: #ffb610 radial-gradient(circle, transparent 1%, #ffb610 1%) center/15000%; }\n    .dm-base-button--orange:not(.dm-base-button--reverse):hover {\n      background-color: #ffc643; }\n    .dm-base-button--orange:not(.dm-base-button--reverse):active {\n      background-color: #ffcd5d; }\n  .dm-base-button--white:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px white; }\n  .dm-base-button--white:not(.dm-base-button--reverse) {\n    background: #ffffff radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;\n    color: #323e4f; }\n    .dm-base-button--white:not(.dm-base-button--reverse):hover {\n      background-color: #e6e6e6; }\n    .dm-base-button--white:not(.dm-base-button--reverse):active {\n      background-color: #d9d9d9; }\n  .dm-base-button--mini {\n    padding: 10px 12px;\n    border-radius: 4px;\n    font-size: 12px;\n    line-height: 12px; }\n    .dm-base-button--mini .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 3px; }\n    .dm-base-button--mini .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 3px; }\n    .dm-base-button--mini .dm-base-button__list {\n      border-radius: 4px; }\n  .dm-base-button--small {\n    padding: 12px 14px;\n    border-radius: 5px;\n    font-size: 13px;\n    line-height: 14px; }\n    .dm-base-button--small .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 4px; }\n    .dm-base-button--small .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 4px; }\n    .dm-base-button--small .dm-base-button__list {\n      border-radius: 5px; }\n  .dm-base-button--default {\n    padding: 14px 16px;\n    border-radius: 6px;\n    font-size: 14px;\n    line-height: 16px; }\n    .dm-base-button--default .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 5px; }\n    .dm-base-button--default .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 5px; }\n    .dm-base-button--default .dm-base-button__list {\n      border-radius: 6px; }\n  .dm-base-button--medium {\n    padding: 16px 18px;\n    border-radius: 7px;\n    font-size: 15px;\n    line-height: 18px; }\n    .dm-base-button--medium .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 6px; }\n    .dm-base-button--medium .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 6px; }\n    .dm-base-button--medium .dm-base-button__list {\n      border-radius: 7px; }\n  .dm-base-button--large {\n    padding: 18px 20px;\n    border-radius: 8px;\n    font-size: 16px;\n    line-height: 20px; }\n    .dm-base-button--large .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 7px; }\n    .dm-base-button--large .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 7px; }\n    .dm-base-button--large .dm-base-button__list {\n      border-radius: 8px; }\n  .dm-base-button--capitalize {\n    text-transform: capitalize; }\n  .dm-base-button--circular {\n    border-radius: 100%; }\n    .dm-base-button--circular .dm-base-button__inner .dm-base-button__left-icon {\n      margin-right: 0; }\n    .dm-base-button--circular .dm-base-button__inner .dm-base-button__right-icon {\n      margin-left: 0; }\n    .dm-base-button--circular.dm-base-button--mini {\n      padding: 8px; }\n    .dm-base-button--circular.dm-base-button--small {\n      padding: 9px; }\n    .dm-base-button--circular.dm-base-button--default {\n      padding: 10px; }\n    .dm-base-button--circular.dm-base-button--medium {\n      padding: 11px; }\n    .dm-base-button--circular.dm-base-button--large {\n      padding: 12px; }\n  .dm-base-button--disabled {\n    opacity: 0.7;\n    cursor: not-allowed; }\n    .dm-base-button--disabled .dm-base-button__inner {\n      pointer-events: none; }\n  .dm-base-button--full-width {\n    width: 100%; }\n  .dm-base-button--reverse {\n    background-color: transparent;\n    color: #ffffff; }\n    .dm-base-button--reverse.dm-base-button--black {\n      border-color: #323e4f; }\n      .dm-base-button--reverse.dm-base-button--black:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--black:active {\n        color: #323e4f; }\n    .dm-base-button--reverse.dm-base-button--blue {\n      border-color: #0194ef; }\n      .dm-base-button--reverse.dm-base-button--blue:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--blue:active {\n        color: #0194ef; }\n    .dm-base-button--reverse.dm-base-button--green {\n      border-color: #1bb934; }\n      .dm-base-button--reverse.dm-base-button--green:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--green:active {\n        color: #1bb934; }\n    .dm-base-button--reverse.dm-base-button--red {\n      border-color: #e1112c; }\n      .dm-base-button--reverse.dm-base-button--red:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--red:active {\n        color: #e1112c; }\n    .dm-base-button--reverse.dm-base-button--orange {\n      border-color: #ffb610; }\n      .dm-base-button--reverse.dm-base-button--orange:hover {\n        border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--orange:active {\n        color: #ffb610; }\n    .dm-base-button--reverse.dm-base-button--white {\n      border-color: #ffffff; }\n      .dm-base-button--reverse.dm-base-button--white:hover {\n        border-color: #0194ef; }\n      .dm-base-button--reverse.dm-base-button--white:active {\n        color: #323e4f; }\n    .dm-base-button--reverse:hover {\n      transform: initial; }\n    .dm-base-button--reverse:active {\n      background: #ffffff;\n      transform: initial; }\n  .dm-base-button--rounded {\n    border-radius: 60px;\n    color: #ffffff; }\n  .dm-base-button:active {\n    background-size: 100%;\n    transition: background 0s; }\n\n.fadeIn {\n  animation-name: fadeIn;\n  animation-duration: 200ms;\n  animation-fill-mode: both; }\n\n.fadeOut {\n  animation-name: fadeOut;\n  animation-duration: 200ms;\n  animation-fill-mode: both; }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadeOut {\n  from {\n    opacity: 1; }\n  to {\n    opacity: 0; } }\n\n/*# sourceMappingURL=BaseButton.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -2265,6 +2334,131 @@ __vue_render__$8._withStripped = true;
     undefined
   )
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var script$9 = {
+  props: {
+    color: {
+      type: String,
+      default: "white",
+      validator: function validator(x) {
+        return ["blue", "green", "orange", "red", "white"].indexOf(x) !== -1;
+      }
+    },
+    size: {
+      type: String,
+      default: "default",
+      validator: function validator(x) {
+        return ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1;
+      }
+    }
+  },
+  methods: {
+    // --> EVENT LISTENERS <--
+    onClick: function onClick(event) {
+      this.$emit("click", event);
+    }
+  }
+};
+
+/* script */
+            const __vue_script__$9 = script$9;
+            
+/* template */
+var __vue_render__$9 = function() {
+  var _vm = this;
+  var _h = _vm.$createElement;
+  var _c = _vm._self._c || _h;
+  return _c(
+    "div",
+    {
+      class: [
+        "dm-base-spinner",
+        "dm-base-spinner--" + _vm.color,
+        "dm-base-spinner--" + _vm.size
+      ],
+      on: { click: _vm.onClick }
+    },
+    [
+      _c("div", {
+        staticClass: "dm-base-spinner__wave dm-base-spinner__wave--first"
+      }),
+      _c("div", {
+        staticClass: "dm-base-spinner__wave dm-base-spinner__wave--second"
+      })
+    ]
+  )
+};
+var __vue_staticRenderFns__$9 = [];
+__vue_render__$9._withStripped = true;
+
+  /* style */
+  const __vue_inject_styles__$9 = undefined;
+  /* scoped */
+  const __vue_scope_id__$9 = undefined;
+  /* module identifier */
+  const __vue_module_identifier__$9 = undefined;
+  /* functional template */
+  const __vue_is_functional_template__$9 = false;
+  /* component normalizer */
+  function __vue_normalize__$9(
+    template, style, script,
+    scope, functional, moduleIdentifier,
+    createInjector, createInjectorSSR
+  ) {
+    const component = (typeof script === 'function' ? script.options : script) || {};
+
+    // For security concerns, we use only base name in production mode.
+    component.__file = "/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseSpinner.vue";
+
+    if (!component.render) {
+      component.render = template.render;
+      component.staticRenderFns = template.staticRenderFns;
+      component._compiled = true;
+
+      if (functional) component.functional = true;
+    }
+
+    component._scopeId = scope;
+
+    return component
+  }
+  /* style inject */
+  
+  /* style inject SSR */
+  
+
+  
+  var BaseSpinner = __vue_normalize__$9(
+    { render: __vue_render__$9, staticRenderFns: __vue_staticRenderFns__$9 },
+    __vue_inject_styles__$9,
+    __vue_script__$9,
+    __vue_scope_id__$9,
+    __vue_is_functional_template__$9,
+    __vue_module_identifier__$9,
+    undefined,
+    undefined
+  )
+
 /**************************************************************************
  * EXPORTS
  ***************************************************************************/
@@ -2297,7 +2491,7 @@ var generateUUID = function generateUUID() {
 //
 //
 //
-var script$9 = {
+var script$10 = {
   props: {
     description: {
       type: String,
@@ -2314,10 +2508,10 @@ var script$9 = {
 };
 
 /* script */
-            const __vue_script__$9 = script$9;
+            const __vue_script__$10 = script$10;
             
 /* template */
-var __vue_render__$9 = function() {
+var __vue_render__$10 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -2326,23 +2520,23 @@ var __vue_render__$9 = function() {
     domProps: { innerHTML: _vm._s(_vm.description) }
   })
 };
-var __vue_staticRenderFns__$9 = [];
-__vue_render__$9._withStripped = true;
+var __vue_staticRenderFns__$10 = [];
+__vue_render__$10._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$9 = function (inject) {
+  const __vue_inject_styles__$10 = function (inject) {
     if (!inject) return
     inject("data-v-88da5a60_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-description {\n  margin: 10px 0 0;\n  color: #8eacc5;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-field-description--mini {\n    font-size: 12px;\n    line-height: 16px;\n}\n.dm-field-description--small {\n    font-size: 13px;\n    line-height: 18px;\n}\n.dm-field-description--default {\n    font-size: 14px;\n    line-height: 20px;\n}\n.dm-field-description--medium {\n    font-size: 15px;\n    line-height: 22px;\n}\n.dm-field-description--large {\n    font-size: 16px;\n    line-height: 24px;\n}\n\n/*# sourceMappingURL=FieldDescription.vue.map */", map: {"version":3,"sources":["FieldDescription.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldDescription.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC+ChF;EACA,iBAAA;EACA,eAAA;EACA,sFACA;CAUA;AALA;IACA,gBAAA;IACA,kBAAA;CACA;AAHA;IACA,gBAAA;IACA,kBAAA;CACA;AAHA;IACA,gBAAA;IACA,kBAAA;CACA;AAHA;IACA,gBAAA;IACA,kBAAA;CACA;AAHA;IACA,gBAAA;IACA,kBAAA;CACA;;ADtCA,gDAAgD","file":"FieldDescription.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-description {\n  margin: 10px 0 0;\n  color: #8eacc5;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-field-description--mini {\n    font-size: 12px;\n    line-height: 16px; }\n  .dm-field-description--small {\n    font-size: 13px;\n    line-height: 18px; }\n  .dm-field-description--default {\n    font-size: 14px;\n    line-height: 20px; }\n  .dm-field-description--medium {\n    font-size: 15px;\n    line-height: 22px; }\n  .dm-field-description--large {\n    font-size: 16px;\n    line-height: 24px; }\n\n/*# sourceMappingURL=FieldDescription.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$9 = undefined;
+  const __vue_scope_id__$10 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$9 = undefined;
+  const __vue_module_identifier__$10 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$9 = false;
+  const __vue_is_functional_template__$10 = false;
   /* component normalizer */
-  function __vue_normalize__$9(
+  function __vue_normalize__$10(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -2449,13 +2643,13 @@ __vue_render__$9._withStripped = true;
   
 
   
-  var FieldDescription = __vue_normalize__$9(
-    { render: __vue_render__$9, staticRenderFns: __vue_staticRenderFns__$9 },
-    __vue_inject_styles__$9,
-    __vue_script__$9,
-    __vue_scope_id__$9,
-    __vue_is_functional_template__$9,
-    __vue_module_identifier__$9,
+  var FieldDescription = __vue_normalize__$10(
+    { render: __vue_render__$10, staticRenderFns: __vue_staticRenderFns__$10 },
+    __vue_inject_styles__$10,
+    __vue_script__$10,
+    __vue_scope_id__$10,
+    __vue_is_functional_template__$10,
+    __vue_module_identifier__$10,
     __vue_create_injector__$9,
     undefined
   )
@@ -2485,7 +2679,7 @@ __vue_render__$9._withStripped = true;
 //
 //
 //
-var script$10 = {
+var script$11 = {
   props: {
     forField: {
       type: String,
@@ -2506,10 +2700,10 @@ var script$10 = {
 };
 
 /* script */
-            const __vue_script__$10 = script$10;
+            const __vue_script__$11 = script$11;
             
 /* template */
-var __vue_render__$10 = function() {
+var __vue_render__$11 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -2530,23 +2724,23 @@ var __vue_render__$10 = function() {
     2
   )
 };
-var __vue_staticRenderFns__$10 = [];
-__vue_render__$10._withStripped = true;
+var __vue_staticRenderFns__$11 = [];
+__vue_render__$11._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$10 = function (inject) {
+  const __vue_inject_styles__$11 = function (inject) {
     if (!inject) return
     inject("data-v-33ad3d16_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-label {\n  display: block;\n  margin-bottom: 10px;\n  color: #a9c7df;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  user-select: none;\n}\n.dm-field-label--mini {\n    font-size: 12px;\n    line-height: 14px;\n}\n.dm-field-label--small {\n    font-size: 13px;\n    line-height: 16px;\n}\n.dm-field-label--default {\n    font-size: 14px;\n    line-height: 18px;\n}\n.dm-field-label--medium {\n    font-size: 15px;\n    line-height: 20px;\n}\n.dm-field-label--large {\n    font-size: 16px;\n    line-height: 22px;\n}\n.dm-field-label--for-field {\n    cursor: pointer;\n}\n.dm-field-label--uppercase {\n    text-transform: uppercase;\n}\n\n/*# sourceMappingURL=FieldLabel.vue.map */", map: {"version":3,"sources":["FieldLabel.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldLabel.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC4DhF;EACA,eAAA;EACA,oBAAA;EACA,eAAA;EACA,iBAAA;EACA,sFACA;EACA,kBAAA;CAsBA;AAfA;IACA,gBAAA;IACA,kBAAA;CACA;AAHA;IACA,gBAAA;IACA,kBAAA;CACA;AAHA;IACA,gBAAA;IACA,kBAAA;CACA;AAHA;IACA,gBAAA;IACA,kBAAA;CACA;AAHA;IACA,gBAAA;IACA,kBAAA;CACA;AAKA;IACA,gBAAA;CACA;AAEA;IACA,0BAAA;CACA;;AD5DA,0CAA0C","file":"FieldLabel.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-label {\n  display: block;\n  margin-bottom: 10px;\n  color: #a9c7df;\n  font-weight: 500;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  user-select: none; }\n  .dm-field-label--mini {\n    font-size: 12px;\n    line-height: 14px; }\n  .dm-field-label--small {\n    font-size: 13px;\n    line-height: 16px; }\n  .dm-field-label--default {\n    font-size: 14px;\n    line-height: 18px; }\n  .dm-field-label--medium {\n    font-size: 15px;\n    line-height: 20px; }\n  .dm-field-label--large {\n    font-size: 16px;\n    line-height: 22px; }\n  .dm-field-label--for-field {\n    cursor: pointer; }\n  .dm-field-label--uppercase {\n    text-transform: uppercase; }\n\n/*# sourceMappingURL=FieldLabel.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$10 = undefined;
+  const __vue_scope_id__$11 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$10 = undefined;
+  const __vue_module_identifier__$11 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$10 = false;
+  const __vue_is_functional_template__$11 = false;
   /* component normalizer */
-  function __vue_normalize__$10(
+  function __vue_normalize__$11(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -2653,19 +2847,19 @@ __vue_render__$10._withStripped = true;
   
 
   
-  var FieldLabel = __vue_normalize__$10(
-    { render: __vue_render__$10, staticRenderFns: __vue_staticRenderFns__$10 },
-    __vue_inject_styles__$10,
-    __vue_script__$10,
-    __vue_scope_id__$10,
-    __vue_is_functional_template__$10,
-    __vue_module_identifier__$10,
+  var FieldLabel = __vue_normalize__$11(
+    { render: __vue_render__$11, staticRenderFns: __vue_staticRenderFns__$11 },
+    __vue_inject_styles__$11,
+    __vue_script__$11,
+    __vue_scope_id__$11,
+    __vue_is_functional_template__$11,
+    __vue_module_identifier__$11,
     __vue_create_injector__$10,
     undefined
   )
 
 //
-var script$11 = {
+var script$12 = {
   components: {
     FieldDescription: FieldDescription,
     FieldLabel: FieldLabel
@@ -2732,10 +2926,10 @@ var script$11 = {
 };
 
 /* script */
-            const __vue_script__$11 = script$11;
+            const __vue_script__$12 = script$12;
             
 /* template */
-var __vue_render__$11 = function() {
+var __vue_render__$12 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -2795,23 +2989,23 @@ var __vue_render__$11 = function() {
     1
   )
 };
-var __vue_staticRenderFns__$11 = [];
-__vue_render__$11._withStripped = true;
+var __vue_staticRenderFns__$12 = [];
+__vue_render__$12._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$11 = function (inject) {
+  const __vue_inject_styles__$12 = function (inject) {
     if (!inject) return
     inject("data-v-1d0280c6_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-checkbox {\n  display: inline-block;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-field-checkbox .dm-field-checkbox__container {\n    display: flex;\n}\n.dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field {\n      position: relative;\n      margin-right: 8px;\n      margin-bottom: 0;\n      outline: 0;\n      border: none;\n      border-radius: 2px;\n      transition: all ease-in-out 200ms;\n      -webkit-appearance: none;\n      cursor: pointer;\n}\n.dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:before, .dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:after {\n        position: absolute;\n        display: inline-block;\n        box-sizing: border-box;\n        transition: all ease-in-out 200ms;\n}\n.dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:before {\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 1px solid #a9c7df;\n        border-radius: 3px;\n        background-color: #ffffff;\n        content: \"\";\n}\n.dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:after {\n        border: 2px solid #ffffff;\n        border-top: 0;\n        border-left: 0;\n        transform: rotate(45deg);\n        content: \"\";\n}\n.dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:hover:after {\n        border-color: #323e4f;\n        border-right-width: 2px;\n        border-bottom-width: 2px;\n}\n.dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:checked:after {\n        border-color: #ffffff;\n}\n.dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__label {\n      flex: 1;\n      margin-bottom: 0;\n      color: #ffffff;\n      font-weight: 400;\n}\n.dm-field-checkbox--mini .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 12px;\n    height: 12px;\n}\n.dm-field-checkbox--mini .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 1px;\n      left: 4px;\n      width: 4px;\n      height: 8px;\n}\n.dm-field-checkbox--mini .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 12px;\n}\n.dm-field-checkbox--small .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 14px;\n    height: 14px;\n}\n.dm-field-checkbox--small .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 2px;\n      left: 5px;\n      width: 4px;\n      height: 8px;\n}\n.dm-field-checkbox--small .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 14px;\n}\n.dm-field-checkbox--default .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 16px;\n    height: 16px;\n}\n.dm-field-checkbox--default .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 2px;\n      left: 6px;\n      width: 5px;\n      height: 10px;\n}\n.dm-field-checkbox--default .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 16px;\n}\n.dm-field-checkbox--medium .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 18px;\n    height: 18px;\n}\n.dm-field-checkbox--medium .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 3px;\n      left: 7px;\n      width: 5px;\n      height: 10px;\n}\n.dm-field-checkbox--medium .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 18px;\n}\n.dm-field-checkbox--large .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 20px;\n    height: 20px;\n}\n.dm-field-checkbox--large .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 3px;\n      left: 8px;\n      width: 6px;\n      height: 12px;\n}\n.dm-field-checkbox--large .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 20px;\n}\n.dm-field-checkbox--error .dm-field-checkbox__container .dm-field-checkbox__field:hover:before {\n    border-color: #e1112c;\n}\n.dm-field-checkbox--error .dm-field-checkbox__container .dm-field-checkbox__field:checked:before {\n    border-color: #e1112c;\n    background: #e1112c;\n}\n.dm-field-checkbox--error .dm-field-checkbox__container .dm-field-checkbox__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-checkbox--normal .dm-field-checkbox__container .dm-field-checkbox__field:hover:before {\n    border-color: #0194ef;\n}\n.dm-field-checkbox--normal .dm-field-checkbox__container .dm-field-checkbox__field:checked:before {\n    border-color: #0194ef;\n    background: #0194ef;\n}\n.dm-field-checkbox--normal .dm-field-checkbox__container .dm-field-checkbox__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-checkbox--success .dm-field-checkbox__container .dm-field-checkbox__field:hover:before {\n    border-color: #1bb934;\n}\n.dm-field-checkbox--success .dm-field-checkbox__container .dm-field-checkbox__field:checked:before {\n    border-color: #1bb934;\n    background: #1bb934;\n}\n.dm-field-checkbox--success .dm-field-checkbox__container .dm-field-checkbox__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-checkbox--warning .dm-field-checkbox__container .dm-field-checkbox__field:hover:before {\n    border-color: #ffc02a;\n}\n.dm-field-checkbox--warning .dm-field-checkbox__container .dm-field-checkbox__field:checked:before {\n    border-color: #ffc02a;\n    background: #ffc02a;\n}\n.dm-field-checkbox--warning .dm-field-checkbox__container .dm-field-checkbox__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-checkbox--disabled {\n    opacity: 0.7;\n}\n.dm-field-checkbox--disabled .dm-field-checkbox__container .dm-field-checkbox__field,\n    .dm-field-checkbox--disabled .dm-field-checkbox__container .dm-field-checkbox__label {\n      cursor: not-allowed;\n}\n.dm-field-checkbox--full-width {\n    width: 100%;\n}\n\n/*# sourceMappingURL=FieldCheckbox.vue.map */", map: {"version":3,"sources":["FieldCheckbox.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldCheckbox.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC8IhF;EACA,sBAAA;EACA,iBAAA;EACA,sFACA;CA+JA;AAnKA;IAOA,cAAA;CA6DA;AApEA;MAUA,mBAAA;MACA,kBAAA;MACA,iBAAA;MACA,WAAA;MACA,aAAA;MACA,mBAAA;MACA,kCAAA;MACA,yBAAA;MACA,gBAAA;CA0CA;AA5DA;QAsBA,mBAAA;QACA,sBAAA;QACA,uBAAA;QACA,kCAAA;CACA;AA1BA;QA6BA,OAAA;QACA,QAAA;QACA,YAAA;QACA,aAAA;QACA,0BAAA;QACA,mBAAA;QACA,0BAAA;QACA,YAAA;CACA;AArCA;QAwCA,0BAAA;QACA,cAAA;QACA,eAAA;QACA,yBAAA;QACA,YAAA;CACA;AA7CA;QAiDA,sBAAA;QACA,wBAAA;QACA,yBAAA;CACA;AApDA;QAyDA,sBAAA;CACA;AA1DA;MA+DA,QAAA;MACA,iBAAA;MACA,eAAA;MACA,iBAAA;CACA;AAQA;IAGA,YAAA;IACA,aAAA;CA8BA;AAlCA;MAQA,SAAA;MACA,UAAA;MACA,WAAA;MACA,YAAA;CAsBA;AAjCA;IAqCA,kBAAA;CACA;AAtCA;IAGA,YAAA;IACA,aAAA;CA8BA;AAlCA;MAaA,SAAA;MACA,UAAA;MACA,WAAA;MACA,YAAA;CAiBA;AAjCA;IAqCA,kBAAA;CACA;AAtCA;IAGA,YAAA;IACA,aAAA;CA8BA;AAlCA;MAkBA,SAAA;MACA,UAAA;MACA,WAAA;MACA,aAAA;CAYA;AAjCA;IAqCA,kBAAA;CACA;AAtCA;IAGA,YAAA;IACA,aAAA;CA8BA;AAlCA;MAuBA,SAAA;MACA,UAAA;MACA,WAAA;MACA,aAAA;CAOA;AAjCA;IAqCA,kBAAA;CACA;AAtCA;IAGA,YAAA;IACA,aAAA;CA8BA;AAlCA;MA4BA,SAAA;MACA,UAAA;MACA,WAAA;MACA,aAAA;CAEA;AAjCA;IAqCA,kBAAA;CACA;AAQA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,oBAAA;CACA;AAbA;IAiBA,iDACA;IACA,sCAAA;CACA;AApBA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,oBAAA;CACA;AAbA;IAiBA,iDACA;IACA,sCAAA;CACA;AApBA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,oBAAA;CACA;AAbA;IAiBA,iDACA;IACA,sCAAA;CACA;AApBA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,oBAAA;CACA;AAbA;IAiBA,iDACA;IACA,sCAAA;CACA;AAQA;IACA,aAAA;CAQA;AATA;;MAMA,oBAAA;CACA;AAIA;IACA,YAAA;CACA;;ADtKA,6CAA6C","file":"FieldCheckbox.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-checkbox {\n  display: inline-block;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-field-checkbox .dm-field-checkbox__container {\n    display: flex; }\n    .dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field {\n      position: relative;\n      margin-right: 8px;\n      margin-bottom: 0;\n      outline: 0;\n      border: none;\n      border-radius: 2px;\n      transition: all ease-in-out 200ms;\n      -webkit-appearance: none;\n      cursor: pointer; }\n      .dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:before, .dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:after {\n        position: absolute;\n        display: inline-block;\n        box-sizing: border-box;\n        transition: all ease-in-out 200ms; }\n      .dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:before {\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 1px solid #a9c7df;\n        border-radius: 3px;\n        background-color: #ffffff;\n        content: \"\"; }\n      .dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:after {\n        border: 2px solid #ffffff;\n        border-top: 0;\n        border-left: 0;\n        transform: rotate(45deg);\n        content: \"\"; }\n      .dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:hover:after {\n        border-color: #323e4f;\n        border-right-width: 2px;\n        border-bottom-width: 2px; }\n      .dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__field:checked:after {\n        border-color: #ffffff; }\n    .dm-field-checkbox .dm-field-checkbox__container .dm-field-checkbox__label {\n      flex: 1;\n      margin-bottom: 0;\n      color: #ffffff;\n      font-weight: 400; }\n  .dm-field-checkbox--mini .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 12px;\n    height: 12px; }\n    .dm-field-checkbox--mini .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 1px;\n      left: 4px;\n      width: 4px;\n      height: 8px; }\n  .dm-field-checkbox--mini .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 12px; }\n  .dm-field-checkbox--small .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 14px;\n    height: 14px; }\n    .dm-field-checkbox--small .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 2px;\n      left: 5px;\n      width: 4px;\n      height: 8px; }\n  .dm-field-checkbox--small .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 14px; }\n  .dm-field-checkbox--default .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 16px;\n    height: 16px; }\n    .dm-field-checkbox--default .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 2px;\n      left: 6px;\n      width: 5px;\n      height: 10px; }\n  .dm-field-checkbox--default .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 16px; }\n  .dm-field-checkbox--medium .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 18px;\n    height: 18px; }\n    .dm-field-checkbox--medium .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 3px;\n      left: 7px;\n      width: 5px;\n      height: 10px; }\n  .dm-field-checkbox--medium .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 18px; }\n  .dm-field-checkbox--large .dm-field-checkbox__container .dm-field-checkbox__field {\n    width: 20px;\n    height: 20px; }\n    .dm-field-checkbox--large .dm-field-checkbox__container .dm-field-checkbox__field:after {\n      top: 3px;\n      left: 8px;\n      width: 6px;\n      height: 12px; }\n  .dm-field-checkbox--large .dm-field-checkbox__container .dm-field-checkbox__label {\n    line-height: 20px; }\n  .dm-field-checkbox--error .dm-field-checkbox__container .dm-field-checkbox__field:hover:before {\n    border-color: #e1112c; }\n  .dm-field-checkbox--error .dm-field-checkbox__container .dm-field-checkbox__field:checked:before {\n    border-color: #e1112c;\n    background: #e1112c; }\n  .dm-field-checkbox--error .dm-field-checkbox__container .dm-field-checkbox__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-checkbox--normal .dm-field-checkbox__container .dm-field-checkbox__field:hover:before {\n    border-color: #0194ef; }\n  .dm-field-checkbox--normal .dm-field-checkbox__container .dm-field-checkbox__field:checked:before {\n    border-color: #0194ef;\n    background: #0194ef; }\n  .dm-field-checkbox--normal .dm-field-checkbox__container .dm-field-checkbox__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-checkbox--success .dm-field-checkbox__container .dm-field-checkbox__field:hover:before {\n    border-color: #1bb934; }\n  .dm-field-checkbox--success .dm-field-checkbox__container .dm-field-checkbox__field:checked:before {\n    border-color: #1bb934;\n    background: #1bb934; }\n  .dm-field-checkbox--success .dm-field-checkbox__container .dm-field-checkbox__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-checkbox--warning .dm-field-checkbox__container .dm-field-checkbox__field:hover:before {\n    border-color: #ffc02a; }\n  .dm-field-checkbox--warning .dm-field-checkbox__container .dm-field-checkbox__field:checked:before {\n    border-color: #ffc02a;\n    background: #ffc02a; }\n  .dm-field-checkbox--warning .dm-field-checkbox__container .dm-field-checkbox__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-checkbox--disabled {\n    opacity: 0.7; }\n    .dm-field-checkbox--disabled .dm-field-checkbox__container .dm-field-checkbox__field,\n    .dm-field-checkbox--disabled .dm-field-checkbox__container .dm-field-checkbox__label {\n      cursor: not-allowed; }\n  .dm-field-checkbox--full-width {\n    width: 100%; }\n\n/*# sourceMappingURL=FieldCheckbox.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$11 = undefined;
+  const __vue_scope_id__$12 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$11 = undefined;
+  const __vue_module_identifier__$12 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$11 = false;
+  const __vue_is_functional_template__$12 = false;
   /* component normalizer */
-  function __vue_normalize__$11(
+  function __vue_normalize__$12(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -2918,19 +3112,19 @@ __vue_render__$11._withStripped = true;
   
 
   
-  var FieldCheckbox = __vue_normalize__$11(
-    { render: __vue_render__$11, staticRenderFns: __vue_staticRenderFns__$11 },
-    __vue_inject_styles__$11,
-    __vue_script__$11,
-    __vue_scope_id__$11,
-    __vue_is_functional_template__$11,
-    __vue_module_identifier__$11,
+  var FieldCheckbox = __vue_normalize__$12(
+    { render: __vue_render__$12, staticRenderFns: __vue_staticRenderFns__$12 },
+    __vue_inject_styles__$12,
+    __vue_script__$12,
+    __vue_scope_id__$12,
+    __vue_is_functional_template__$12,
+    __vue_module_identifier__$12,
     __vue_create_injector__$11,
     undefined
   )
 
 //
-var script$12 = {
+var script$13 = {
   components: {
     BaseIcon: BaseIcon,
     FieldLabel: FieldLabel
@@ -2998,10 +3192,10 @@ var script$12 = {
 };
 
 /* script */
-            const __vue_script__$12 = script$12;
+            const __vue_script__$13 = script$13;
             
 /* template */
-var __vue_render__$12 = function() {
+var __vue_render__$13 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -3077,23 +3271,23 @@ var __vue_render__$12 = function() {
     ]
   )
 };
-var __vue_staticRenderFns__$12 = [];
-__vue_render__$12._withStripped = true;
+var __vue_staticRenderFns__$13 = [];
+__vue_render__$13._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$12 = function (inject) {
+  const __vue_inject_styles__$13 = function (inject) {
     if (!inject) return
-    inject("data-v-62bfbeb5_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-file {\n  display: inline-block;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-field-file .dm-field-file__container {\n    display: flex;\n    align-items: center;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__information {\n      display: flex;\n      flex-direction: column;\n      margin-right: 20px;\n      text-align: left;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__information .dm-field-file__label {\n        margin-bottom: 6px;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__information .dm-field-file__description {\n        color: #8eacc5;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__upload {\n      position: relative;\n      box-sizing: border-box;\n      outline: 0;\n      border-width: 2px;\n      border-style: solid;\n      border-radius: 100%;\n      background-color: rgba(35, 45, 61, 0.9);\n      box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n      transition: all ease-in-out 200ms;\n      cursor: pointer;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__upload .dm-field-file__icon {\n        position: absolute;\n        top: 50%;\n        left: 50%;\n        margin-top: -1px;\n        transform: translate(-50%, -50%);\n}\n.dm-field-file .dm-field-file__container .dm-field-file__upload:hover {\n        border-color: #0194ef;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__field {\n      display: none;\n}\n.dm-field-file--mini .dm-field-file__information .dm-field-file__description {\n    font-size: 10px;\n}\n.dm-field-file--mini .dm-field-file__upload {\n    width: 40px;\n    height: 40px;\n}\n.dm-field-file--mini .dm-field-file__upload .dm-field-file__icon {\n      font-size: 18px !important;\n}\n.dm-field-file--small .dm-field-file__information .dm-field-file__description {\n    font-size: 11px;\n}\n.dm-field-file--small .dm-field-file__upload {\n    width: 45px;\n    height: 45px;\n}\n.dm-field-file--small .dm-field-file__upload .dm-field-file__icon {\n      font-size: 20px !important;\n}\n.dm-field-file--default .dm-field-file__information .dm-field-file__description {\n    font-size: 12px;\n}\n.dm-field-file--default .dm-field-file__upload {\n    width: 50px;\n    height: 50px;\n}\n.dm-field-file--default .dm-field-file__upload .dm-field-file__icon {\n      font-size: 22px !important;\n}\n.dm-field-file--medium .dm-field-file__information .dm-field-file__description {\n    font-size: 13px;\n}\n.dm-field-file--medium .dm-field-file__upload {\n    width: 55px;\n    height: 55px;\n}\n.dm-field-file--medium .dm-field-file__upload .dm-field-file__icon {\n      font-size: 24px !important;\n}\n.dm-field-file--large .dm-field-file__information .dm-field-file__description {\n    font-size: 14px;\n}\n.dm-field-file--large .dm-field-file__upload {\n    width: 60px;\n    height: 60px;\n}\n.dm-field-file--large .dm-field-file__upload .dm-field-file__icon {\n      font-size: 26px !important;\n}\n.dm-field-file--error .dm-field-file__upload {\n    border-color: #e1112c;\n}\n.dm-field-file--error .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 4px #e1112c;\n      transition: box-shadow ease-in-out 0s;\n}\n.dm-field-file--normal .dm-field-file__upload {\n    border-color: #ffffff;\n}\n.dm-field-file--normal .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 4px #0194ef;\n      transition: box-shadow ease-in-out 0s;\n}\n.dm-field-file--success .dm-field-file__upload {\n    border-color: #1bb934;\n}\n.dm-field-file--success .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 4px #1bb934;\n      transition: box-shadow ease-in-out 0s;\n}\n.dm-field-file--warning .dm-field-file__upload {\n    border-color: #ffc02a;\n}\n.dm-field-file--warning .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 4px #ffc02a;\n      transition: box-shadow ease-in-out 0s;\n}\n.dm-field-file--disabled {\n    opacity: 0.7;\n}\n.dm-field-file--disabled .dm-field-file__container .dm-field-file__upload {\n      cursor: not-allowed;\n}\n.dm-field-file--disabled .dm-field-file__container .dm-field-file__upload:hover {\n        border-color: #e1112c;\n}\n.dm-field-file--full-width {\n    width: 100%;\n}\n\n/*# sourceMappingURL=FieldFile.vue.map */", map: {"version":3,"sources":["FieldFile.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldFile.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACsJhF;EACA,sBAAA;EACA,sFACA;CAkHA;AArHA;IAMA,cAAA;IACA,oBAAA;CA6CA;AApDA;MAUA,cAAA;MACA,uBAAA;MACA,mBAAA;MACA,iBAAA;CASA;AAtBA;QAgBA,mBAAA;CACA;AAjBA;QAoBA,eAAA;CACA;AArBA;MAyBA,mBAAA;MACA,uBAAA;MACA,WAAA;MACA,kBAAA;MACA,oBAAA;MACA,oBAAA;MACA,wCAAA;MACA,8CAAA;MACA,kCAAA;MACA,gBAAA;CAaA;AA/CA;QAqCA,mBAAA;QACA,SAAA;QACA,UAAA;QACA,iBAAA;QACA,iCAAA;CACA;AA1CA;QA6CA,sBAAA;CACA;AA9CA;MAkDA,cAAA;CACA;AAQA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAdA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAdA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAdA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAdA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAQA;IAGA,sBAAA;CAUA;AAbA;MASA,iDACA;MACA,sCAAA;CACA;AAZA;IAKA,sBAAA;CAQA;AAbA;MASA,iDACA;MACA,sCAAA;CACA;AAZA;IAGA,sBAAA;CAUA;AAbA;MASA,iDACA;MACA,sCAAA;CACA;AAZA;IAGA,sBAAA;CAUA;AAbA;MASA,iDACA;MACA,sCAAA;CACA;AAOA;IACA,aAAA;CAWA;AAZA;MAKA,oBAAA;CAKA;AAVA;QAQA,sBAAA;CACA;AAKA;IACA,YAAA;CACA;;ADrKA,yCAAyC","file":"FieldFile.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-file {\n  display: inline-block;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-field-file .dm-field-file__container {\n    display: flex;\n    align-items: center; }\n    .dm-field-file .dm-field-file__container .dm-field-file__information {\n      display: flex;\n      flex-direction: column;\n      margin-right: 20px;\n      text-align: left; }\n      .dm-field-file .dm-field-file__container .dm-field-file__information .dm-field-file__label {\n        margin-bottom: 6px; }\n      .dm-field-file .dm-field-file__container .dm-field-file__information .dm-field-file__description {\n        color: #8eacc5; }\n    .dm-field-file .dm-field-file__container .dm-field-file__upload {\n      position: relative;\n      box-sizing: border-box;\n      outline: 0;\n      border-width: 2px;\n      border-style: solid;\n      border-radius: 100%;\n      background-color: rgba(35, 45, 61, 0.9);\n      box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n      transition: all ease-in-out 200ms;\n      cursor: pointer; }\n      .dm-field-file .dm-field-file__container .dm-field-file__upload .dm-field-file__icon {\n        position: absolute;\n        top: 50%;\n        left: 50%;\n        margin-top: -1px;\n        transform: translate(-50%, -50%); }\n      .dm-field-file .dm-field-file__container .dm-field-file__upload:hover {\n        border-color: #0194ef; }\n    .dm-field-file .dm-field-file__container .dm-field-file__field {\n      display: none; }\n  .dm-field-file--mini .dm-field-file__information .dm-field-file__description {\n    font-size: 10px; }\n  .dm-field-file--mini .dm-field-file__upload {\n    width: 40px;\n    height: 40px; }\n    .dm-field-file--mini .dm-field-file__upload .dm-field-file__icon {\n      font-size: 18px !important; }\n  .dm-field-file--small .dm-field-file__information .dm-field-file__description {\n    font-size: 11px; }\n  .dm-field-file--small .dm-field-file__upload {\n    width: 45px;\n    height: 45px; }\n    .dm-field-file--small .dm-field-file__upload .dm-field-file__icon {\n      font-size: 20px !important; }\n  .dm-field-file--default .dm-field-file__information .dm-field-file__description {\n    font-size: 12px; }\n  .dm-field-file--default .dm-field-file__upload {\n    width: 50px;\n    height: 50px; }\n    .dm-field-file--default .dm-field-file__upload .dm-field-file__icon {\n      font-size: 22px !important; }\n  .dm-field-file--medium .dm-field-file__information .dm-field-file__description {\n    font-size: 13px; }\n  .dm-field-file--medium .dm-field-file__upload {\n    width: 55px;\n    height: 55px; }\n    .dm-field-file--medium .dm-field-file__upload .dm-field-file__icon {\n      font-size: 24px !important; }\n  .dm-field-file--large .dm-field-file__information .dm-field-file__description {\n    font-size: 14px; }\n  .dm-field-file--large .dm-field-file__upload {\n    width: 60px;\n    height: 60px; }\n    .dm-field-file--large .dm-field-file__upload .dm-field-file__icon {\n      font-size: 26px !important; }\n  .dm-field-file--error .dm-field-file__upload {\n    border-color: #e1112c; }\n    .dm-field-file--error .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 4px #e1112c;\n      transition: box-shadow ease-in-out 0s; }\n  .dm-field-file--normal .dm-field-file__upload {\n    border-color: #ffffff; }\n    .dm-field-file--normal .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 4px #0194ef;\n      transition: box-shadow ease-in-out 0s; }\n  .dm-field-file--success .dm-field-file__upload {\n    border-color: #1bb934; }\n    .dm-field-file--success .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 4px #1bb934;\n      transition: box-shadow ease-in-out 0s; }\n  .dm-field-file--warning .dm-field-file__upload {\n    border-color: #ffc02a; }\n    .dm-field-file--warning .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 4px #ffc02a;\n      transition: box-shadow ease-in-out 0s; }\n  .dm-field-file--disabled {\n    opacity: 0.7; }\n    .dm-field-file--disabled .dm-field-file__container .dm-field-file__upload {\n      cursor: not-allowed; }\n      .dm-field-file--disabled .dm-field-file__container .dm-field-file__upload:hover {\n        border-color: #e1112c; }\n  .dm-field-file--full-width {\n    width: 100%; }\n\n/*# sourceMappingURL=FieldFile.vue.map */",null]}, media: undefined });
+    inject("data-v-72aa99f4_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-file {\n  display: inline-block;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-field-file .dm-field-file__container {\n    display: flex;\n    align-items: center;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__information {\n      display: flex;\n      flex-direction: column;\n      margin-right: 20px;\n      text-align: left;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__information .dm-field-file__label {\n        margin-bottom: 6px;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__information .dm-field-file__description {\n        color: #8eacc5;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__upload {\n      position: relative;\n      box-sizing: border-box;\n      outline: 0;\n      border-width: 2px;\n      border-style: solid;\n      border-radius: 100%;\n      background-color: rgba(35, 45, 61, 0.9);\n      box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n      transition: all ease-in-out 200ms;\n      cursor: pointer;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__upload .dm-field-file__icon {\n        position: absolute;\n        top: 50%;\n        left: 50%;\n        margin-top: -1px;\n        transform: translate(-50%, -50%);\n}\n.dm-field-file .dm-field-file__container .dm-field-file__upload:hover {\n        border-color: #0194ef;\n}\n.dm-field-file .dm-field-file__container .dm-field-file__field {\n      display: none;\n}\n.dm-field-file--mini .dm-field-file__information .dm-field-file__description {\n    font-size: 10px;\n}\n.dm-field-file--mini .dm-field-file__upload {\n    width: 40px;\n    height: 40px;\n}\n.dm-field-file--mini .dm-field-file__upload .dm-field-file__icon {\n      font-size: 18px !important;\n}\n.dm-field-file--small .dm-field-file__information .dm-field-file__description {\n    font-size: 11px;\n}\n.dm-field-file--small .dm-field-file__upload {\n    width: 45px;\n    height: 45px;\n}\n.dm-field-file--small .dm-field-file__upload .dm-field-file__icon {\n      font-size: 20px !important;\n}\n.dm-field-file--default .dm-field-file__information .dm-field-file__description {\n    font-size: 12px;\n}\n.dm-field-file--default .dm-field-file__upload {\n    width: 50px;\n    height: 50px;\n}\n.dm-field-file--default .dm-field-file__upload .dm-field-file__icon {\n      font-size: 22px !important;\n}\n.dm-field-file--medium .dm-field-file__information .dm-field-file__description {\n    font-size: 13px;\n}\n.dm-field-file--medium .dm-field-file__upload {\n    width: 55px;\n    height: 55px;\n}\n.dm-field-file--medium .dm-field-file__upload .dm-field-file__icon {\n      font-size: 24px !important;\n}\n.dm-field-file--large .dm-field-file__information .dm-field-file__description {\n    font-size: 14px;\n}\n.dm-field-file--large .dm-field-file__upload {\n    width: 60px;\n    height: 60px;\n}\n.dm-field-file--large .dm-field-file__upload .dm-field-file__icon {\n      font-size: 26px !important;\n}\n.dm-field-file--error .dm-field-file__upload {\n    border-color: #e1112c;\n}\n.dm-field-file--error .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n      transition: box-shadow ease-in-out 0s;\n}\n.dm-field-file--normal .dm-field-file__upload {\n    border-color: #ffffff;\n}\n.dm-field-file--normal .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s;\n}\n.dm-field-file--success .dm-field-file__upload {\n    border-color: #1bb934;\n}\n.dm-field-file--success .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n      transition: box-shadow ease-in-out 0s;\n}\n.dm-field-file--warning .dm-field-file__upload {\n    border-color: #ffc02a;\n}\n.dm-field-file--warning .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n      transition: box-shadow ease-in-out 0s;\n}\n.dm-field-file--disabled {\n    opacity: 0.7;\n}\n.dm-field-file--disabled .dm-field-file__container .dm-field-file__upload {\n      cursor: not-allowed;\n}\n.dm-field-file--disabled .dm-field-file__container .dm-field-file__upload:hover {\n        border-color: #e1112c;\n}\n.dm-field-file--full-width {\n    width: 100%;\n}\n\n/*# sourceMappingURL=FieldFile.vue.map */", map: {"version":3,"sources":["FieldFile.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldFile.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACsJhF;EACA,sBAAA;EACA,sFACA;CAkHA;AArHA;IAMA,cAAA;IACA,oBAAA;CA6CA;AApDA;MAUA,cAAA;MACA,uBAAA;MACA,mBAAA;MACA,iBAAA;CASA;AAtBA;QAgBA,mBAAA;CACA;AAjBA;QAoBA,eAAA;CACA;AArBA;MAyBA,mBAAA;MACA,uBAAA;MACA,WAAA;MACA,kBAAA;MACA,oBAAA;MACA,oBAAA;MACA,wCAAA;MACA,8CAAA;MACA,kCAAA;MACA,gBAAA;CAaA;AA/CA;QAqCA,mBAAA;QACA,SAAA;QACA,UAAA;QACA,iBAAA;QACA,iCAAA;CACA;AA1CA;QA6CA,sBAAA;CACA;AA9CA;MAkDA,cAAA;CACA;AAQA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAdA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAdA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAdA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAdA;IAGA,gBAAA;CACA;AAJA;IAQA,YAAA;IACA,aAAA;CAMA;AAfA;MAaA,2BAAA;CACA;AAQA;IAGA,sBAAA;CAUA;AAbA;MASA,iDACA;MACA,sCAAA;CACA;AAZA;IAKA,sBAAA;CAQA;AAbA;MASA,iDACA;MACA,sCAAA;CACA;AAZA;IAGA,sBAAA;CAUA;AAbA;MASA,iDACA;MACA,sCAAA;CACA;AAZA;IAGA,sBAAA;CAUA;AAbA;MASA,iDACA;MACA,sCAAA;CACA;AAOA;IACA,aAAA;CAWA;AAZA;MAKA,oBAAA;CAKA;AAVA;QAQA,sBAAA;CACA;AAKA;IACA,YAAA;CACA;;ADrKA,yCAAyC","file":"FieldFile.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-file {\n  display: inline-block;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-field-file .dm-field-file__container {\n    display: flex;\n    align-items: center; }\n    .dm-field-file .dm-field-file__container .dm-field-file__information {\n      display: flex;\n      flex-direction: column;\n      margin-right: 20px;\n      text-align: left; }\n      .dm-field-file .dm-field-file__container .dm-field-file__information .dm-field-file__label {\n        margin-bottom: 6px; }\n      .dm-field-file .dm-field-file__container .dm-field-file__information .dm-field-file__description {\n        color: #8eacc5; }\n    .dm-field-file .dm-field-file__container .dm-field-file__upload {\n      position: relative;\n      box-sizing: border-box;\n      outline: 0;\n      border-width: 2px;\n      border-style: solid;\n      border-radius: 100%;\n      background-color: rgba(35, 45, 61, 0.9);\n      box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n      transition: all ease-in-out 200ms;\n      cursor: pointer; }\n      .dm-field-file .dm-field-file__container .dm-field-file__upload .dm-field-file__icon {\n        position: absolute;\n        top: 50%;\n        left: 50%;\n        margin-top: -1px;\n        transform: translate(-50%, -50%); }\n      .dm-field-file .dm-field-file__container .dm-field-file__upload:hover {\n        border-color: #0194ef; }\n    .dm-field-file .dm-field-file__container .dm-field-file__field {\n      display: none; }\n  .dm-field-file--mini .dm-field-file__information .dm-field-file__description {\n    font-size: 10px; }\n  .dm-field-file--mini .dm-field-file__upload {\n    width: 40px;\n    height: 40px; }\n    .dm-field-file--mini .dm-field-file__upload .dm-field-file__icon {\n      font-size: 18px !important; }\n  .dm-field-file--small .dm-field-file__information .dm-field-file__description {\n    font-size: 11px; }\n  .dm-field-file--small .dm-field-file__upload {\n    width: 45px;\n    height: 45px; }\n    .dm-field-file--small .dm-field-file__upload .dm-field-file__icon {\n      font-size: 20px !important; }\n  .dm-field-file--default .dm-field-file__information .dm-field-file__description {\n    font-size: 12px; }\n  .dm-field-file--default .dm-field-file__upload {\n    width: 50px;\n    height: 50px; }\n    .dm-field-file--default .dm-field-file__upload .dm-field-file__icon {\n      font-size: 22px !important; }\n  .dm-field-file--medium .dm-field-file__information .dm-field-file__description {\n    font-size: 13px; }\n  .dm-field-file--medium .dm-field-file__upload {\n    width: 55px;\n    height: 55px; }\n    .dm-field-file--medium .dm-field-file__upload .dm-field-file__icon {\n      font-size: 24px !important; }\n  .dm-field-file--large .dm-field-file__information .dm-field-file__description {\n    font-size: 14px; }\n  .dm-field-file--large .dm-field-file__upload {\n    width: 60px;\n    height: 60px; }\n    .dm-field-file--large .dm-field-file__upload .dm-field-file__icon {\n      font-size: 26px !important; }\n  .dm-field-file--error .dm-field-file__upload {\n    border-color: #e1112c; }\n    .dm-field-file--error .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n      transition: box-shadow ease-in-out 0s; }\n  .dm-field-file--normal .dm-field-file__upload {\n    border-color: #ffffff; }\n    .dm-field-file--normal .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s; }\n  .dm-field-file--success .dm-field-file__upload {\n    border-color: #1bb934; }\n    .dm-field-file--success .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n      transition: box-shadow ease-in-out 0s; }\n  .dm-field-file--warning .dm-field-file__upload {\n    border-color: #ffc02a; }\n    .dm-field-file--warning .dm-field-file__upload:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n      transition: box-shadow ease-in-out 0s; }\n  .dm-field-file--disabled {\n    opacity: 0.7; }\n    .dm-field-file--disabled .dm-field-file__container .dm-field-file__upload {\n      cursor: not-allowed; }\n      .dm-field-file--disabled .dm-field-file__container .dm-field-file__upload:hover {\n        border-color: #e1112c; }\n  .dm-field-file--full-width {\n    width: 100%; }\n\n/*# sourceMappingURL=FieldFile.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$12 = undefined;
+  const __vue_scope_id__$13 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$12 = undefined;
+  const __vue_module_identifier__$13 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$12 = false;
+  const __vue_is_functional_template__$13 = false;
   /* component normalizer */
-  function __vue_normalize__$12(
+  function __vue_normalize__$13(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -3200,19 +3394,19 @@ __vue_render__$12._withStripped = true;
   
 
   
-  var FieldFile = __vue_normalize__$12(
-    { render: __vue_render__$12, staticRenderFns: __vue_staticRenderFns__$12 },
-    __vue_inject_styles__$12,
-    __vue_script__$12,
-    __vue_scope_id__$12,
-    __vue_is_functional_template__$12,
-    __vue_module_identifier__$12,
+  var FieldFile = __vue_normalize__$13(
+    { render: __vue_render__$13, staticRenderFns: __vue_staticRenderFns__$13 },
+    __vue_inject_styles__$13,
+    __vue_script__$13,
+    __vue_scope_id__$13,
+    __vue_is_functional_template__$13,
+    __vue_module_identifier__$13,
     __vue_create_injector__$12,
     undefined
   )
 
 //
-var script$13 = {
+var script$14 = {
   components: {
     BaseIcon: BaseIcon,
     FieldDescription: FieldDescription,
@@ -3366,10 +3560,10 @@ var script$13 = {
 };
 
 /* script */
-            const __vue_script__$13 = script$13;
+            const __vue_script__$14 = script$14;
             
 /* template */
-var __vue_render__$13 = function() {
+var __vue_render__$14 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -3454,23 +3648,23 @@ var __vue_render__$13 = function() {
     1
   )
 };
-var __vue_staticRenderFns__$13 = [];
-__vue_render__$13._withStripped = true;
+var __vue_staticRenderFns__$14 = [];
+__vue_render__$14._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$13 = function (inject) {
+  const __vue_inject_styles__$14 = function (inject) {
     if (!inject) return
     inject("data-v-3fcbb353_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-input {\n  display: flex;\n  flex-direction: column;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-field-input .dm-field-input__container {\n    display: flex;\n    align-items: center;\n    transition: all ease-in-out 200ms;\n}\n.dm-field-input .dm-field-input__container:hover {\n      cursor: text;\n}\n.dm-field-input .dm-field-input__container .dm-field-input__icon {\n      flex: 0 0 auto;\n      pointer-events: none;\n}\n.dm-field-input .dm-field-input__container .dm-field-input__icon--left {\n        margin-right: 5px;\n        margin-left: 9px;\n}\n.dm-field-input .dm-field-input__container .dm-field-input__icon--right {\n        margin-right: 9px;\n        margin-left: 5px;\n}\n.dm-field-input .dm-field-input__container .dm-field-input__field {\n      flex: 1;\n      padding: 0 15px;\n      height: 100%;\n      border: none;\n      background-color: transparent;\n      color: #ffffff;\n      outline: 0;\n}\n.dm-field-input .dm-field-input__container .dm-field-input__field::placeholder {\n        color: #8eacc5;\n}\n.dm-field-input .dm-field-input__container .dm-field-input__field:disabled {\n        cursor: not-allowed;\n}\n.dm-field-input--mini .dm-field-input__container {\n    height: 34px;\n    border-radius: 4px;\n}\n.dm-field-input--mini .dm-field-input__container .dm-field-input__icon {\n      font-size: 16px !important;\n}\n.dm-field-input--mini .dm-field-input__container .dm-field-input__field {\n      font-size: 12px;\n}\n.dm-field-input--small .dm-field-input__container {\n    height: 38px;\n    border-radius: 5px;\n}\n.dm-field-input--small .dm-field-input__container .dm-field-input__icon {\n      font-size: 17px !important;\n}\n.dm-field-input--small .dm-field-input__container .dm-field-input__field {\n      font-size: 13px;\n}\n.dm-field-input--default .dm-field-input__container {\n    height: 42px;\n    border-radius: 6px;\n}\n.dm-field-input--default .dm-field-input__container .dm-field-input__icon {\n      font-size: 18px !important;\n}\n.dm-field-input--default .dm-field-input__container .dm-field-input__field {\n      font-size: 14px;\n}\n.dm-field-input--medium .dm-field-input__container {\n    height: 46px;\n    border-radius: 7px;\n}\n.dm-field-input--medium .dm-field-input__container .dm-field-input__icon {\n      font-size: 19px !important;\n}\n.dm-field-input--medium .dm-field-input__container .dm-field-input__field {\n      font-size: 15px;\n}\n.dm-field-input--large .dm-field-input__container {\n    height: 50px;\n    border-radius: 8px;\n}\n.dm-field-input--large .dm-field-input__container .dm-field-input__icon {\n      font-size: 20px !important;\n}\n.dm-field-input--large .dm-field-input__container .dm-field-input__field {\n      font-size: 16px;\n}\n.dm-field-input--error .dm-field-input__container {\n    border-color: #e1112c;\n    color: #e1112c;\n}\n.dm-field-input--normal .dm-field-input__container {\n    border-color: #323e4f;\n    color: #ffffff;\n}\n.dm-field-input--success .dm-field-input__container {\n    border-color: #1bb934;\n    color: #1bb934;\n}\n.dm-field-input--warning .dm-field-input__container {\n    border-color: #ffc02a;\n    color: #ffc02a;\n}\n.dm-field-input--borders .dm-field-input__container {\n    box-sizing: border-box;\n    border-width: 1px;\n    border-style: solid;\n    border-radius: 6px;\n    background-color: #283243;\n}\n.dm-field-input--disabled {\n    opacity: 0.7;\n}\n.dm-field-input--disabled .dm-field-input__label,\n    .dm-field-input--disabled .dm-field-input__container {\n      cursor: not-allowed;\n}\n.dm-field-input--focused .dm-field-input__container {\n    border-color: #0194ef;\n    color: #0194ef;\n}\n.dm-field-input--full-width {\n    width: 100%;\n}\n.dm-field-input--rounded .dm-field-input__container {\n    border-radius: 40px;\n}\n.dm-field-input--with-icon .dm-field-input__container .dm-field-input__field {\n    padding: 0;\n}\n\n/*# sourceMappingURL=FieldInput.vue.map */", map: {"version":3,"sources":["FieldInput.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldInput.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACsRhF;EACA,cAAA;EACA,uBAAA;EACA,iBAAA;EACA,sFACA;CAgIA;AArIA;IAQA,cAAA;IACA,oBAAA;IACA,kCAAA;CAsCA;AAhDA;MAaA,aAAA;CACA;AAdA;MAiBA,eAAA;MACA,qBAAA;CAWA;AA7BA;QAqBA,kBAAA;QACA,iBAAA;CACA;AAvBA;QA0BA,kBAAA;QACA,iBAAA;CACA;AA5BA;MAgCA,QAAA;MACA,gBAAA;MACA,aAAA;MACA,aAAA;MACA,8BAAA;MACA,eAAA;MACA,WAAA;CASA;AA/CA;QAyCA,eAAA;CACA;AA1CA;QA6CA,oBAAA;CACA;AASA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAZA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAZA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAZA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAZA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAQA;IAGA,sBAAA;IACA,eAAA;CAKA;AATA;IAMA,sBAAA;IACA,eAAA;CAEA;AATA;IAGA,sBAAA;IACA,eAAA;CAKA;AATA;IAGA,sBAAA;IACA,eAAA;CAKA;AAMA;IAEA,uBAAA;IACA,kBAAA;IACA,oBAAA;IACA,mBAAA;IACA,0BAAA;CACA;AAGA;IACA,aAAA;CAMA;AAPA;;MAKA,oBAAA;CACA;AAGA;IAEA,sBAAA;IACA,eAAA;CACA;AAGA;IACA,YAAA;CACA;AAEA;IAEA,oBAAA;CACA;AAGA;IAGA,WAAA;CACA;;ADnTA,0CAA0C","file":"FieldInput.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-input {\n  display: flex;\n  flex-direction: column;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-field-input .dm-field-input__container {\n    display: flex;\n    align-items: center;\n    transition: all ease-in-out 200ms; }\n    .dm-field-input .dm-field-input__container:hover {\n      cursor: text; }\n    .dm-field-input .dm-field-input__container .dm-field-input__icon {\n      flex: 0 0 auto;\n      pointer-events: none; }\n      .dm-field-input .dm-field-input__container .dm-field-input__icon--left {\n        margin-right: 5px;\n        margin-left: 9px; }\n      .dm-field-input .dm-field-input__container .dm-field-input__icon--right {\n        margin-right: 9px;\n        margin-left: 5px; }\n    .dm-field-input .dm-field-input__container .dm-field-input__field {\n      flex: 1;\n      padding: 0 15px;\n      height: 100%;\n      border: none;\n      background-color: transparent;\n      color: #ffffff;\n      outline: 0; }\n      .dm-field-input .dm-field-input__container .dm-field-input__field::placeholder {\n        color: #8eacc5; }\n      .dm-field-input .dm-field-input__container .dm-field-input__field:disabled {\n        cursor: not-allowed; }\n  .dm-field-input--mini .dm-field-input__container {\n    height: 34px;\n    border-radius: 4px; }\n    .dm-field-input--mini .dm-field-input__container .dm-field-input__icon {\n      font-size: 16px !important; }\n    .dm-field-input--mini .dm-field-input__container .dm-field-input__field {\n      font-size: 12px; }\n  .dm-field-input--small .dm-field-input__container {\n    height: 38px;\n    border-radius: 5px; }\n    .dm-field-input--small .dm-field-input__container .dm-field-input__icon {\n      font-size: 17px !important; }\n    .dm-field-input--small .dm-field-input__container .dm-field-input__field {\n      font-size: 13px; }\n  .dm-field-input--default .dm-field-input__container {\n    height: 42px;\n    border-radius: 6px; }\n    .dm-field-input--default .dm-field-input__container .dm-field-input__icon {\n      font-size: 18px !important; }\n    .dm-field-input--default .dm-field-input__container .dm-field-input__field {\n      font-size: 14px; }\n  .dm-field-input--medium .dm-field-input__container {\n    height: 46px;\n    border-radius: 7px; }\n    .dm-field-input--medium .dm-field-input__container .dm-field-input__icon {\n      font-size: 19px !important; }\n    .dm-field-input--medium .dm-field-input__container .dm-field-input__field {\n      font-size: 15px; }\n  .dm-field-input--large .dm-field-input__container {\n    height: 50px;\n    border-radius: 8px; }\n    .dm-field-input--large .dm-field-input__container .dm-field-input__icon {\n      font-size: 20px !important; }\n    .dm-field-input--large .dm-field-input__container .dm-field-input__field {\n      font-size: 16px; }\n  .dm-field-input--error .dm-field-input__container {\n    border-color: #e1112c;\n    color: #e1112c; }\n  .dm-field-input--normal .dm-field-input__container {\n    border-color: #323e4f;\n    color: #ffffff; }\n  .dm-field-input--success .dm-field-input__container {\n    border-color: #1bb934;\n    color: #1bb934; }\n  .dm-field-input--warning .dm-field-input__container {\n    border-color: #ffc02a;\n    color: #ffc02a; }\n  .dm-field-input--borders .dm-field-input__container {\n    box-sizing: border-box;\n    border-width: 1px;\n    border-style: solid;\n    border-radius: 6px;\n    background-color: #283243; }\n  .dm-field-input--disabled {\n    opacity: 0.7; }\n    .dm-field-input--disabled .dm-field-input__label,\n    .dm-field-input--disabled .dm-field-input__container {\n      cursor: not-allowed; }\n  .dm-field-input--focused .dm-field-input__container {\n    border-color: #0194ef;\n    color: #0194ef; }\n  .dm-field-input--full-width {\n    width: 100%; }\n  .dm-field-input--rounded .dm-field-input__container {\n    border-radius: 40px; }\n  .dm-field-input--with-icon .dm-field-input__container .dm-field-input__field {\n    padding: 0; }\n\n/*# sourceMappingURL=FieldInput.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$13 = undefined;
+  const __vue_scope_id__$14 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$13 = undefined;
+  const __vue_module_identifier__$14 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$13 = false;
+  const __vue_is_functional_template__$14 = false;
   /* component normalizer */
-  function __vue_normalize__$13(
+  function __vue_normalize__$14(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -3577,19 +3771,19 @@ __vue_render__$13._withStripped = true;
   
 
   
-  var FieldInput = __vue_normalize__$13(
-    { render: __vue_render__$13, staticRenderFns: __vue_staticRenderFns__$13 },
-    __vue_inject_styles__$13,
-    __vue_script__$13,
-    __vue_scope_id__$13,
-    __vue_is_functional_template__$13,
-    __vue_module_identifier__$13,
+  var FieldInput = __vue_normalize__$14(
+    { render: __vue_render__$14, staticRenderFns: __vue_staticRenderFns__$14 },
+    __vue_inject_styles__$14,
+    __vue_script__$14,
+    __vue_scope_id__$14,
+    __vue_is_functional_template__$14,
+    __vue_module_identifier__$14,
     __vue_create_injector__$13,
     undefined
   )
 
 //
-var script$14 = {
+var script$15 = {
   components: {
     FieldDescription: FieldDescription,
     FieldLabel: FieldLabel
@@ -3656,10 +3850,10 @@ var script$14 = {
 };
 
 /* script */
-            const __vue_script__$14 = script$14;
+            const __vue_script__$15 = script$15;
             
 /* template */
-var __vue_render__$14 = function() {
+var __vue_render__$15 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -3719,23 +3913,23 @@ var __vue_render__$14 = function() {
     1
   )
 };
-var __vue_staticRenderFns__$14 = [];
-__vue_render__$14._withStripped = true;
+var __vue_staticRenderFns__$15 = [];
+__vue_render__$15._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$14 = function (inject) {
+  const __vue_inject_styles__$15 = function (inject) {
     if (!inject) return
     inject("data-v-348ccdc4_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-radio {\n  display: inline-block;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-field-radio .dm-field-radio__container {\n    display: flex;\n}\n.dm-field-radio .dm-field-radio__container .dm-field-radio__field {\n      position: relative;\n      margin-right: 8px;\n      margin-bottom: 0;\n      outline: 0;\n      border: none;\n      border-radius: 100%;\n      transition: all ease-in-out 200ms;\n      -webkit-appearance: none;\n      cursor: pointer;\n}\n.dm-field-radio .dm-field-radio__container .dm-field-radio__field:before, .dm-field-radio .dm-field-radio__container .dm-field-radio__field:after {\n        position: absolute;\n        display: inline-block;\n        box-sizing: border-box;\n        transition: all ease-in-out 200ms;\n}\n.dm-field-radio .dm-field-radio__container .dm-field-radio__field:before {\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 1px solid #a9c7df;\n        border-radius: 100%;\n        background-color: #ffffff;\n        content: \"\";\n}\n.dm-field-radio .dm-field-radio__container .dm-field-radio__field:after {\n        top: 50%;\n        left: 50%;\n        width: 6px;\n        height: 6px;\n        border-radius: 100%;\n        background-color: #ffffff;\n        transform: translate(-50%, -50%);\n        content: \"\";\n}\n.dm-field-radio .dm-field-radio__container .dm-field-radio__field:hover:after {\n        background-color: #323e4f;\n}\n.dm-field-radio .dm-field-radio__container .dm-field-radio__field:checked:after {\n        background-color: #ffffff;\n}\n.dm-field-radio .dm-field-radio__container .dm-field-radio__label {\n      flex: 1;\n      margin-bottom: 0;\n      color: #ffffff;\n      font-weight: 400;\n}\n.dm-field-radio--mini .dm-field-radio__container .dm-field-radio__field {\n    width: 12px;\n    height: 12px;\n}\n.dm-field-radio--mini .dm-field-radio__container .dm-field-radio__label {\n    line-height: 12px;\n}\n.dm-field-radio--small .dm-field-radio__container .dm-field-radio__field {\n    width: 14px;\n    height: 14px;\n}\n.dm-field-radio--small .dm-field-radio__container .dm-field-radio__label {\n    line-height: 14px;\n}\n.dm-field-radio--default .dm-field-radio__container .dm-field-radio__field {\n    width: 16px;\n    height: 16px;\n}\n.dm-field-radio--default .dm-field-radio__container .dm-field-radio__label {\n    line-height: 16px;\n}\n.dm-field-radio--medium .dm-field-radio__container .dm-field-radio__field {\n    width: 18px;\n    height: 18px;\n}\n.dm-field-radio--medium .dm-field-radio__container .dm-field-radio__label {\n    line-height: 18px;\n}\n.dm-field-radio--large .dm-field-radio__container .dm-field-radio__field {\n    width: 20px;\n    height: 20px;\n}\n.dm-field-radio--large .dm-field-radio__container .dm-field-radio__label {\n    line-height: 20px;\n}\n.dm-field-radio--error .dm-field-radio__container .dm-field-radio__field:hover:before {\n    border-color: #e1112c;\n}\n.dm-field-radio--error .dm-field-radio__container .dm-field-radio__field:checked:before {\n    border-color: #e1112c;\n    background: #e1112c;\n}\n.dm-field-radio--error .dm-field-radio__container .dm-field-radio__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-radio--normal .dm-field-radio__container .dm-field-radio__field:hover:before {\n    border-color: #0194ef;\n}\n.dm-field-radio--normal .dm-field-radio__container .dm-field-radio__field:checked:before {\n    border-color: #0194ef;\n    background: #0194ef;\n}\n.dm-field-radio--normal .dm-field-radio__container .dm-field-radio__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-radio--success .dm-field-radio__container .dm-field-radio__field:hover:before {\n    border-color: #1bb934;\n}\n.dm-field-radio--success .dm-field-radio__container .dm-field-radio__field:checked:before {\n    border-color: #1bb934;\n    background: #1bb934;\n}\n.dm-field-radio--success .dm-field-radio__container .dm-field-radio__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-radio--warning .dm-field-radio__container .dm-field-radio__field:hover:before {\n    border-color: #ffc02a;\n}\n.dm-field-radio--warning .dm-field-radio__container .dm-field-radio__field:checked:before {\n    border-color: #ffc02a;\n    background: #ffc02a;\n}\n.dm-field-radio--warning .dm-field-radio__container .dm-field-radio__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-radio--disabled {\n    opacity: 0.7;\n}\n.dm-field-radio--disabled .dm-field-radio__container .dm-field-radio__field,\n    .dm-field-radio--disabled .dm-field-radio__container .dm-field-radio__label {\n      cursor: not-allowed;\n}\n.dm-field-radio--full-width {\n    width: 100%;\n}\n\n/*# sourceMappingURL=FieldRadio.vue.map */", map: {"version":3,"sources":["FieldRadio.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldRadio.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC8IhF;EACA,sBAAA;EACA,iBAAA;EACA,sFACA;CAmIA;AAvIA;IAOA,cAAA;CA8DA;AArEA;MAUA,mBAAA;MACA,kBAAA;MACA,iBAAA;MACA,WAAA;MACA,aAAA;MACA,oBAAA;MACA,kCAAA;MACA,yBAAA;MACA,gBAAA;CA2CA;AA7DA;QAsBA,mBAAA;QACA,sBAAA;QACA,uBAAA;QACA,kCAAA;CACA;AA1BA;QA6BA,OAAA;QACA,QAAA;QACA,YAAA;QACA,aAAA;QACA,0BAAA;QACA,oBAAA;QACA,0BAAA;QACA,YAAA;CACA;AArCA;QAwCA,SAAA;QACA,UAAA;QACA,WAAA;QACA,YAAA;QACA,oBAAA;QACA,0BAAA;QACA,iCAAA;QACA,YAAA;CACA;AAhDA;QAoDA,0BAAA;CACA;AArDA;QA0DA,0BAAA;CACA;AA3DA;MAgEA,QAAA;MACA,iBAAA;MACA,eAAA;MACA,iBAAA;CACA;AAQA;IAGA,YAAA;IACA,aAAA;CACA;AALA;IAQA,kBAAA;CACA;AATA;IAGA,YAAA;IACA,aAAA;CACA;AALA;IAQA,kBAAA;CACA;AATA;IAGA,YAAA;IACA,aAAA;CACA;AALA;IAQA,kBAAA;CACA;AATA;IAGA,YAAA;IACA,aAAA;CACA;AALA;IAQA,kBAAA;CACA;AATA;IAGA,YAAA;IACA,aAAA;CACA;AALA;IAQA,kBAAA;CACA;AAQA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,oBAAA;CACA;AAbA;IAiBA,iDACA;IACA,sCAAA;CACA;AApBA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,oBAAA;CACA;AAbA;IAiBA,iDACA;IACA,sCAAA;CACA;AApBA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,oBAAA;CACA;AAbA;IAiBA,iDACA;IACA,sCAAA;CACA;AApBA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,oBAAA;CACA;AAbA;IAiBA,iDACA;IACA,sCAAA;CACA;AAQA;IACA,aAAA;CAQA;AATA;;MAMA,oBAAA;CACA;AAIA;IACA,YAAA;CACA;;ADlKA,0CAA0C","file":"FieldRadio.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-radio {\n  display: inline-block;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-field-radio .dm-field-radio__container {\n    display: flex; }\n    .dm-field-radio .dm-field-radio__container .dm-field-radio__field {\n      position: relative;\n      margin-right: 8px;\n      margin-bottom: 0;\n      outline: 0;\n      border: none;\n      border-radius: 100%;\n      transition: all ease-in-out 200ms;\n      -webkit-appearance: none;\n      cursor: pointer; }\n      .dm-field-radio .dm-field-radio__container .dm-field-radio__field:before, .dm-field-radio .dm-field-radio__container .dm-field-radio__field:after {\n        position: absolute;\n        display: inline-block;\n        box-sizing: border-box;\n        transition: all ease-in-out 200ms; }\n      .dm-field-radio .dm-field-radio__container .dm-field-radio__field:before {\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 1px solid #a9c7df;\n        border-radius: 100%;\n        background-color: #ffffff;\n        content: \"\"; }\n      .dm-field-radio .dm-field-radio__container .dm-field-radio__field:after {\n        top: 50%;\n        left: 50%;\n        width: 6px;\n        height: 6px;\n        border-radius: 100%;\n        background-color: #ffffff;\n        transform: translate(-50%, -50%);\n        content: \"\"; }\n      .dm-field-radio .dm-field-radio__container .dm-field-radio__field:hover:after {\n        background-color: #323e4f; }\n      .dm-field-radio .dm-field-radio__container .dm-field-radio__field:checked:after {\n        background-color: #ffffff; }\n    .dm-field-radio .dm-field-radio__container .dm-field-radio__label {\n      flex: 1;\n      margin-bottom: 0;\n      color: #ffffff;\n      font-weight: 400; }\n  .dm-field-radio--mini .dm-field-radio__container .dm-field-radio__field {\n    width: 12px;\n    height: 12px; }\n  .dm-field-radio--mini .dm-field-radio__container .dm-field-radio__label {\n    line-height: 12px; }\n  .dm-field-radio--small .dm-field-radio__container .dm-field-radio__field {\n    width: 14px;\n    height: 14px; }\n  .dm-field-radio--small .dm-field-radio__container .dm-field-radio__label {\n    line-height: 14px; }\n  .dm-field-radio--default .dm-field-radio__container .dm-field-radio__field {\n    width: 16px;\n    height: 16px; }\n  .dm-field-radio--default .dm-field-radio__container .dm-field-radio__label {\n    line-height: 16px; }\n  .dm-field-radio--medium .dm-field-radio__container .dm-field-radio__field {\n    width: 18px;\n    height: 18px; }\n  .dm-field-radio--medium .dm-field-radio__container .dm-field-radio__label {\n    line-height: 18px; }\n  .dm-field-radio--large .dm-field-radio__container .dm-field-radio__field {\n    width: 20px;\n    height: 20px; }\n  .dm-field-radio--large .dm-field-radio__container .dm-field-radio__label {\n    line-height: 20px; }\n  .dm-field-radio--error .dm-field-radio__container .dm-field-radio__field:hover:before {\n    border-color: #e1112c; }\n  .dm-field-radio--error .dm-field-radio__container .dm-field-radio__field:checked:before {\n    border-color: #e1112c;\n    background: #e1112c; }\n  .dm-field-radio--error .dm-field-radio__container .dm-field-radio__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-radio--normal .dm-field-radio__container .dm-field-radio__field:hover:before {\n    border-color: #0194ef; }\n  .dm-field-radio--normal .dm-field-radio__container .dm-field-radio__field:checked:before {\n    border-color: #0194ef;\n    background: #0194ef; }\n  .dm-field-radio--normal .dm-field-radio__container .dm-field-radio__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-radio--success .dm-field-radio__container .dm-field-radio__field:hover:before {\n    border-color: #1bb934; }\n  .dm-field-radio--success .dm-field-radio__container .dm-field-radio__field:checked:before {\n    border-color: #1bb934;\n    background: #1bb934; }\n  .dm-field-radio--success .dm-field-radio__container .dm-field-radio__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-radio--warning .dm-field-radio__container .dm-field-radio__field:hover:before {\n    border-color: #ffc02a; }\n  .dm-field-radio--warning .dm-field-radio__container .dm-field-radio__field:checked:before {\n    border-color: #ffc02a;\n    background: #ffc02a; }\n  .dm-field-radio--warning .dm-field-radio__container .dm-field-radio__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-radio--disabled {\n    opacity: 0.7; }\n    .dm-field-radio--disabled .dm-field-radio__container .dm-field-radio__field,\n    .dm-field-radio--disabled .dm-field-radio__container .dm-field-radio__label {\n      cursor: not-allowed; }\n  .dm-field-radio--full-width {\n    width: 100%; }\n\n/*# sourceMappingURL=FieldRadio.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$14 = undefined;
+  const __vue_scope_id__$15 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$14 = undefined;
+  const __vue_module_identifier__$15 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$14 = false;
+  const __vue_is_functional_template__$15 = false;
   /* component normalizer */
-  function __vue_normalize__$14(
+  function __vue_normalize__$15(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -3842,19 +4036,19 @@ __vue_render__$14._withStripped = true;
   
 
   
-  var FieldRadio = __vue_normalize__$14(
-    { render: __vue_render__$14, staticRenderFns: __vue_staticRenderFns__$14 },
-    __vue_inject_styles__$14,
-    __vue_script__$14,
-    __vue_scope_id__$14,
-    __vue_is_functional_template__$14,
-    __vue_module_identifier__$14,
+  var FieldRadio = __vue_normalize__$15(
+    { render: __vue_render__$15, staticRenderFns: __vue_staticRenderFns__$15 },
+    __vue_inject_styles__$15,
+    __vue_script__$15,
+    __vue_scope_id__$15,
+    __vue_is_functional_template__$15,
+    __vue_module_identifier__$15,
     __vue_create_injector__$14,
     undefined
   )
 
 //
-var script$15 = {
+var script$16 = {
   components: {
     BaseIcon: BaseIcon,
     FieldDescription: FieldDescription,
@@ -3961,10 +4155,10 @@ var script$15 = {
 };
 
 /* script */
-            const __vue_script__$15 = script$15;
+            const __vue_script__$16 = script$16;
             
 /* template */
-var __vue_render__$15 = function() {
+var __vue_render__$16 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -4045,23 +4239,23 @@ var __vue_render__$15 = function() {
     1
   )
 };
-var __vue_staticRenderFns__$15 = [];
-__vue_render__$15._withStripped = true;
+var __vue_staticRenderFns__$16 = [];
+__vue_render__$16._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$15 = function (inject) {
+  const __vue_inject_styles__$16 = function (inject) {
     if (!inject) return
     inject("data-v-76f99ded_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-select {\n  display: flex;\n  flex-direction: column;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-field-select .dm-field-select__container {\n    position: relative;\n    display: flex;\n    overflow: hidden;\n    align-items: center;\n    transition: all ease-in-out 200ms;\n}\n.dm-field-select .dm-field-select__container .dm-field-select__option {\n      color: #000000;\n}\n.dm-field-select .dm-field-select__container .dm-field-select__icon {\n      position: absolute;\n      pointer-events: none;\n}\n.dm-field-select .dm-field-select__container .dm-field-select__icon--left {\n        left: 9px;\n}\n.dm-field-select .dm-field-select__container .dm-field-select__icon--right {\n        right: 9px;\n}\n.dm-field-select .dm-field-select__container .dm-field-select__field {\n      flex: 1;\n      padding: 0 35px 0 15px;\n      height: 100%;\n      outline: 0;\n      border: none;\n      background-color: transparent;\n      background-image: none;\n      box-shadow: none;\n      color: #ffffff;\n      -webkit-appearance: none;\n      cursor: pointer;\n}\n.dm-field-select .dm-field-select__container .dm-field-select__field:disabled {\n        cursor: not-allowed;\n}\n.dm-field-select--mini .dm-field-select__container {\n    height: 34px;\n    border-radius: 4px;\n}\n.dm-field-select--mini .dm-field-select__container .dm-field-select__icon {\n      font-size: 16px !important;\n}\n.dm-field-select--mini .dm-field-select__container .dm-field-select__field {\n      font-size: 12px;\n}\n.dm-field-select--small .dm-field-select__container {\n    height: 38px;\n    border-radius: 5px;\n}\n.dm-field-select--small .dm-field-select__container .dm-field-select__icon {\n      font-size: 17px !important;\n}\n.dm-field-select--small .dm-field-select__container .dm-field-select__field {\n      font-size: 13px;\n}\n.dm-field-select--default .dm-field-select__container {\n    height: 42px;\n    border-radius: 6px;\n}\n.dm-field-select--default .dm-field-select__container .dm-field-select__icon {\n      font-size: 18px !important;\n}\n.dm-field-select--default .dm-field-select__container .dm-field-select__field {\n      font-size: 14px;\n}\n.dm-field-select--medium .dm-field-select__container {\n    height: 46px;\n    border-radius: 7px;\n}\n.dm-field-select--medium .dm-field-select__container .dm-field-select__icon {\n      font-size: 19px !important;\n}\n.dm-field-select--medium .dm-field-select__container .dm-field-select__field {\n      font-size: 15px;\n}\n.dm-field-select--large .dm-field-select__container {\n    height: 50px;\n    border-radius: 8px;\n}\n.dm-field-select--large .dm-field-select__container .dm-field-select__icon {\n      font-size: 20px !important;\n}\n.dm-field-select--large .dm-field-select__container .dm-field-select__field {\n      font-size: 16px;\n}\n.dm-field-select--error .dm-field-select__container {\n    border-color: #e1112c;\n    color: #e1112c;\n}\n.dm-field-select--normal .dm-field-select__container {\n    border-color: #323e4f;\n    color: #ffffff;\n}\n.dm-field-select--success .dm-field-select__container {\n    border-color: #1bb934;\n    color: #1bb934;\n}\n.dm-field-select--warning .dm-field-select__container {\n    border-color: #ffc02a;\n    color: #ffc02a;\n}\n.dm-field-select--borders .dm-field-select__container {\n    box-sizing: border-box;\n    border-width: 1px;\n    border-style: solid;\n    border-radius: 6px;\n    background-color: #283243;\n}\n.dm-field-select--disabled {\n    opacity: 0.7;\n}\n.dm-field-select--disabled .dm-field-select__label,\n    .dm-field-select--disabled .dm-field-select__container {\n      cursor: not-allowed;\n}\n.dm-field-select--focused .dm-field-select__container {\n    border-color: #0194ef;\n    color: #0194ef;\n}\n.dm-field-select--full-width {\n    width: 100%;\n}\n.dm-field-select--with-left-icon .dm-field-select__container .dm-field-select__field {\n    padding-left: 35px;\n}\n\n/*# sourceMappingURL=FieldSelect.vue.map */", map: {"version":3,"sources":["FieldSelect.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldSelect.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC8MhF;EACA,cAAA;EACA,uBAAA;EACA,iBAAA;EACA,sFACA;CA0HA;AA/HA;IAQA,mBAAA;IACA,cAAA;IACA,iBAAA;IACA,oBAAA;IACA,kCAAA;CAoCA;AAhDA;MAeA,eAAA;CACA;AAhBA;MAmBA,mBAAA;MACA,qBAAA;CASA;AA7BA;QAuBA,UAAA;CACA;AAxBA;QA2BA,WAAA;CACA;AA5BA;MAgCA,QAAA;MACA,uBAAA;MACA,aAAA;MACA,WAAA;MACA,aAAA;MACA,8BAAA;MACA,uBAAA;MACA,iBAAA;MACA,eAAA;MACA,yBAAA;MACA,gBAAA;CAKA;AA/CA;QA6CA,oBAAA;CACA;AASA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAZA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAZA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAZA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAZA;IAEA,aAAA;IACA,mBAAA;CAUA;AAbA;MAOA,2BAAA;CACA;AARA;MAWA,gBAAA;CACA;AAQA;IAGA,sBAAA;IACA,eAAA;CAKA;AATA;IAMA,sBAAA;IACA,eAAA;CAEA;AATA;IAGA,sBAAA;IACA,eAAA;CAKA;AATA;IAGA,sBAAA;IACA,eAAA;CAKA;AAMA;IAEA,uBAAA;IACA,kBAAA;IACA,oBAAA;IACA,mBAAA;IACA,0BAAA;CACA;AAGA;IACA,aAAA;CAMA;AAPA;;MAKA,oBAAA;CACA;AAGA;IAEA,sBAAA;IACA,eAAA;CACA;AAGA;IACA,YAAA;CACA;AAEA;IAGA,mBAAA;CACA;;ADrOA,2CAA2C","file":"FieldSelect.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-select {\n  display: flex;\n  flex-direction: column;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-field-select .dm-field-select__container {\n    position: relative;\n    display: flex;\n    overflow: hidden;\n    align-items: center;\n    transition: all ease-in-out 200ms; }\n    .dm-field-select .dm-field-select__container .dm-field-select__option {\n      color: #000000; }\n    .dm-field-select .dm-field-select__container .dm-field-select__icon {\n      position: absolute;\n      pointer-events: none; }\n      .dm-field-select .dm-field-select__container .dm-field-select__icon--left {\n        left: 9px; }\n      .dm-field-select .dm-field-select__container .dm-field-select__icon--right {\n        right: 9px; }\n    .dm-field-select .dm-field-select__container .dm-field-select__field {\n      flex: 1;\n      padding: 0 35px 0 15px;\n      height: 100%;\n      outline: 0;\n      border: none;\n      background-color: transparent;\n      background-image: none;\n      box-shadow: none;\n      color: #ffffff;\n      -webkit-appearance: none;\n      cursor: pointer; }\n      .dm-field-select .dm-field-select__container .dm-field-select__field:disabled {\n        cursor: not-allowed; }\n  .dm-field-select--mini .dm-field-select__container {\n    height: 34px;\n    border-radius: 4px; }\n    .dm-field-select--mini .dm-field-select__container .dm-field-select__icon {\n      font-size: 16px !important; }\n    .dm-field-select--mini .dm-field-select__container .dm-field-select__field {\n      font-size: 12px; }\n  .dm-field-select--small .dm-field-select__container {\n    height: 38px;\n    border-radius: 5px; }\n    .dm-field-select--small .dm-field-select__container .dm-field-select__icon {\n      font-size: 17px !important; }\n    .dm-field-select--small .dm-field-select__container .dm-field-select__field {\n      font-size: 13px; }\n  .dm-field-select--default .dm-field-select__container {\n    height: 42px;\n    border-radius: 6px; }\n    .dm-field-select--default .dm-field-select__container .dm-field-select__icon {\n      font-size: 18px !important; }\n    .dm-field-select--default .dm-field-select__container .dm-field-select__field {\n      font-size: 14px; }\n  .dm-field-select--medium .dm-field-select__container {\n    height: 46px;\n    border-radius: 7px; }\n    .dm-field-select--medium .dm-field-select__container .dm-field-select__icon {\n      font-size: 19px !important; }\n    .dm-field-select--medium .dm-field-select__container .dm-field-select__field {\n      font-size: 15px; }\n  .dm-field-select--large .dm-field-select__container {\n    height: 50px;\n    border-radius: 8px; }\n    .dm-field-select--large .dm-field-select__container .dm-field-select__icon {\n      font-size: 20px !important; }\n    .dm-field-select--large .dm-field-select__container .dm-field-select__field {\n      font-size: 16px; }\n  .dm-field-select--error .dm-field-select__container {\n    border-color: #e1112c;\n    color: #e1112c; }\n  .dm-field-select--normal .dm-field-select__container {\n    border-color: #323e4f;\n    color: #ffffff; }\n  .dm-field-select--success .dm-field-select__container {\n    border-color: #1bb934;\n    color: #1bb934; }\n  .dm-field-select--warning .dm-field-select__container {\n    border-color: #ffc02a;\n    color: #ffc02a; }\n  .dm-field-select--borders .dm-field-select__container {\n    box-sizing: border-box;\n    border-width: 1px;\n    border-style: solid;\n    border-radius: 6px;\n    background-color: #283243; }\n  .dm-field-select--disabled {\n    opacity: 0.7; }\n    .dm-field-select--disabled .dm-field-select__label,\n    .dm-field-select--disabled .dm-field-select__container {\n      cursor: not-allowed; }\n  .dm-field-select--focused .dm-field-select__container {\n    border-color: #0194ef;\n    color: #0194ef; }\n  .dm-field-select--full-width {\n    width: 100%; }\n  .dm-field-select--with-left-icon .dm-field-select__container .dm-field-select__field {\n    padding-left: 35px; }\n\n/*# sourceMappingURL=FieldSelect.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$15 = undefined;
+  const __vue_scope_id__$16 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$15 = undefined;
+  const __vue_module_identifier__$16 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$15 = false;
+  const __vue_is_functional_template__$16 = false;
   /* component normalizer */
-  function __vue_normalize__$15(
+  function __vue_normalize__$16(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -4168,19 +4362,19 @@ __vue_render__$15._withStripped = true;
   
 
   
-  var FieldSelect = __vue_normalize__$15(
-    { render: __vue_render__$15, staticRenderFns: __vue_staticRenderFns__$15 },
-    __vue_inject_styles__$15,
-    __vue_script__$15,
-    __vue_scope_id__$15,
-    __vue_is_functional_template__$15,
-    __vue_module_identifier__$15,
+  var FieldSelect = __vue_normalize__$16(
+    { render: __vue_render__$16, staticRenderFns: __vue_staticRenderFns__$16 },
+    __vue_inject_styles__$16,
+    __vue_script__$16,
+    __vue_scope_id__$16,
+    __vue_is_functional_template__$16,
+    __vue_module_identifier__$16,
     __vue_create_injector__$15,
     undefined
   )
 
 //
-var script$16 = {
+var script$17 = {
   components: {
     FieldDescription: FieldDescription,
     FieldLabel: FieldLabel
@@ -4280,10 +4474,10 @@ var script$16 = {
 };
 
 /* script */
-            const __vue_script__$16 = script$16;
+            const __vue_script__$17 = script$17;
             
 /* template */
-var __vue_render__$16 = function() {
+var __vue_render__$17 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -4353,23 +4547,23 @@ var __vue_render__$16 = function() {
     1
   )
 };
-var __vue_staticRenderFns__$16 = [];
-__vue_render__$16._withStripped = true;
+var __vue_staticRenderFns__$17 = [];
+__vue_render__$17._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$16 = function (inject) {
+  const __vue_inject_styles__$17 = function (inject) {
     if (!inject) return
     inject("data-v-e097dbe2_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-tabs .dm-field-tabs__container {\n  display: inline-block;\n  box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  cursor: pointer;\n}\n.dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab {\n    display: inline-block;\n    outline: 0;\n    border-width: 1px;\n    border-style: solid;\n    border-color: transparent;\n    border-top-color: #323e4f;\n    border-bottom-color: #323e4f;\n    background: #232d3d;\n    color: #8eacc5;\n    transition-timing-function: ease-in-out;\n    transition-duration: 200ms;\n    transition-property: color, background-color;\n    user-select: none;\n}\n.dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab:first-of-type {\n      border-left-color: #323e4f;\n      border-top-left-radius: 4px;\n      border-bottom-left-radius: 4px;\n}\n.dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab:last-of-type {\n      border-right-color: #323e4f;\n      border-top-right-radius: 4px;\n      border-bottom-right-radius: 4px;\n}\n.dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab:hover {\n      color: #ffffff;\n}\n.dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab--active {\n      color: #ffffff;\n}\n.dm-field-tabs--mini .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 6px 12px;\n  font-size: 12px;\n}\n.dm-field-tabs--small .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 7px 14px;\n  font-size: 13px;\n}\n.dm-field-tabs--default .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 8px 16px;\n  font-size: 14px;\n}\n.dm-field-tabs--medium .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 9px 18px;\n  font-size: 15px;\n}\n.dm-field-tabs--large .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 10px 20px;\n  font-size: 16px;\n}\n.dm-field-tabs--error .dm-field-tabs__container .dm-field-tabs__tab:focus {\n  position: relative;\n  z-index: 2;\n  box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n  transition: box-shadow ease-in-out 0s;\n}\n.dm-field-tabs--error .dm-field-tabs__container .dm-field-tabs__tab--active {\n  border-color: #e1112c !important;\n  background-color: rgba(225, 17, 44, 0.4);\n}\n.dm-field-tabs--error .dm-field-tabs__container .dm-field-tabs__tab--active-previous {\n  border-left-color: rgba(225, 17, 44, 0.25) !important;\n}\n.dm-field-tabs--error .dm-field-tabs__container .dm-field-tabs__tab--active-next {\n  border-right-color: rgba(225, 17, 44, 0.25) !important;\n}\n.dm-field-tabs--normal .dm-field-tabs__container .dm-field-tabs__tab:focus {\n  position: relative;\n  z-index: 2;\n  box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n  transition: box-shadow ease-in-out 0s;\n}\n.dm-field-tabs--normal .dm-field-tabs__container .dm-field-tabs__tab--active {\n  border-color: #0194ef !important;\n  background-color: rgba(1, 148, 239, 0.4);\n}\n.dm-field-tabs--normal .dm-field-tabs__container .dm-field-tabs__tab--active-previous {\n  border-left-color: rgba(1, 148, 239, 0.25) !important;\n}\n.dm-field-tabs--normal .dm-field-tabs__container .dm-field-tabs__tab--active-next {\n  border-right-color: rgba(1, 148, 239, 0.25) !important;\n}\n.dm-field-tabs--success .dm-field-tabs__container .dm-field-tabs__tab:focus {\n  position: relative;\n  z-index: 2;\n  box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n  transition: box-shadow ease-in-out 0s;\n}\n.dm-field-tabs--success .dm-field-tabs__container .dm-field-tabs__tab--active {\n  border-color: #1bb934 !important;\n  background-color: rgba(27, 185, 52, 0.4);\n}\n.dm-field-tabs--success .dm-field-tabs__container .dm-field-tabs__tab--active-previous {\n  border-left-color: rgba(27, 185, 52, 0.25) !important;\n}\n.dm-field-tabs--success .dm-field-tabs__container .dm-field-tabs__tab--active-next {\n  border-right-color: rgba(27, 185, 52, 0.25) !important;\n}\n.dm-field-tabs--warning .dm-field-tabs__container .dm-field-tabs__tab:focus {\n  position: relative;\n  z-index: 2;\n  box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n  transition: box-shadow ease-in-out 0s;\n}\n.dm-field-tabs--warning .dm-field-tabs__container .dm-field-tabs__tab--active {\n  border-color: #ffc02a !important;\n  background-color: rgba(255, 192, 42, 0.4);\n}\n.dm-field-tabs--warning .dm-field-tabs__container .dm-field-tabs__tab--active-previous {\n  border-left-color: rgba(255, 192, 42, 0.25) !important;\n}\n.dm-field-tabs--warning .dm-field-tabs__container .dm-field-tabs__tab--active-next {\n  border-right-color: rgba(255, 192, 42, 0.25) !important;\n}\n.dm-field-tabs--disabled {\n  opacity: 0.7;\n}\n.dm-field-tabs--disabled .dm-field-tabs__label,\n  .dm-field-tabs--disabled .dm-field-tabs__container {\n    cursor: not-allowed;\n}\n.dm-field-tabs--disabled .dm-field-tabs__label .dm-field-tabs__tab,\n    .dm-field-tabs--disabled .dm-field-tabs__container .dm-field-tabs__tab {\n      pointer-events: none;\n}\n\n/*# sourceMappingURL=FieldTabs.vue.map */", map: {"version":3,"sources":["FieldTabs.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldTabs.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC2LhF;EAEA,sBAAA;EACA,8CAAA;EACA,sFACA;EACA,gBAAA;CAqCA;AA3CA;IASA,sBAAA;IACA,WAAA;IACA,kBAAA;IACA,oBAAA;IACA,0BAAA;IACA,0BAAA;IACA,6BAAA;IACA,oBAAA;IACA,eAAA;IACA,wCAAA;IACA,2BAAA;IACA,6CAAA;IACA,kBAAA;CAqBA;AA1CA;MAwBA,2BAAA;MACA,4BAAA;MACA,+BAAA;CACA;AA3BA;MA8BA,4BAAA;MACA,6BAAA;MACA,gCAAA;CACA;AAjCA;MAoCA,eAAA;CACA;AArCA;MAwCA,eAAA;CACA;AASA;EAGA,kBAAA;EACA,gBAAA;CACA;AALA;EAGA,kBAAA;EACA,gBAAA;CACA;AALA;EAGA,kBAAA;EACA,gBAAA;CACA;AALA;EAGA,kBAAA;EACA,gBAAA;CACA;AALA;EAGA,mBAAA;EACA,gBAAA;CACA;AAQA;EAIA,mBAAA;EACA,WAAA;EACA,iDACA;EACA,sCAAA;CACA;AATA;EAaA,iCAAA;EACA,yCAAA;CACA;AAfA;EAmBA,sDAGA;CACA;AAvBA;EA2BA,uDAGA;CACA;AA/BA;EAIA,mBAAA;EACA,WAAA;EACA,iDACA;EACA,sCAAA;CACA;AATA;EAaA,iCAAA;EACA,yCAAA;CACA;AAfA;EAmBA,sDAGA;CACA;AAvBA;EA2BA,uDAGA;CACA;AA/BA;EAIA,mBAAA;EACA,WAAA;EACA,iDACA;EACA,sCAAA;CACA;AATA;EAaA,iCAAA;EACA,yCAAA;CACA;AAfA;EAmBA,sDAGA;CACA;AAvBA;EA2BA,uDAGA;CACA;AA/BA;EAIA,mBAAA;EACA,WAAA;EACA,iDACA;EACA,sCAAA;CACA;AATA;EAaA,iCAAA;EACA,0CAAA;CACA;AAfA;EAmBA,uDAGA;CACA;AAvBA;EA2BA,wDAGA;CACA;AAQA;EACA,aAAA;CAUA;AAXA;;IAKA,oBAAA;CAKA;AAVA;;MAQA,qBAAA;CACA;;AD5KA,yCAAyC","file":"FieldTabs.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-tabs .dm-field-tabs__container {\n  display: inline-block;\n  box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n  cursor: pointer; }\n  .dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab {\n    display: inline-block;\n    outline: 0;\n    border-width: 1px;\n    border-style: solid;\n    border-color: transparent;\n    border-top-color: #323e4f;\n    border-bottom-color: #323e4f;\n    background: #232d3d;\n    color: #8eacc5;\n    transition-timing-function: ease-in-out;\n    transition-duration: 200ms;\n    transition-property: color, background-color;\n    user-select: none; }\n    .dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab:first-of-type {\n      border-left-color: #323e4f;\n      border-top-left-radius: 4px;\n      border-bottom-left-radius: 4px; }\n    .dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab:last-of-type {\n      border-right-color: #323e4f;\n      border-top-right-radius: 4px;\n      border-bottom-right-radius: 4px; }\n    .dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab:hover {\n      color: #ffffff; }\n    .dm-field-tabs .dm-field-tabs__container .dm-field-tabs__tab--active {\n      color: #ffffff; }\n\n.dm-field-tabs--mini .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 6px 12px;\n  font-size: 12px; }\n\n.dm-field-tabs--small .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 7px 14px;\n  font-size: 13px; }\n\n.dm-field-tabs--default .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 8px 16px;\n  font-size: 14px; }\n\n.dm-field-tabs--medium .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 9px 18px;\n  font-size: 15px; }\n\n.dm-field-tabs--large .dm-field-tabs__container .dm-field-tabs__tab {\n  padding: 10px 20px;\n  font-size: 16px; }\n\n.dm-field-tabs--error .dm-field-tabs__container .dm-field-tabs__tab:focus {\n  position: relative;\n  z-index: 2;\n  box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n  transition: box-shadow ease-in-out 0s; }\n\n.dm-field-tabs--error .dm-field-tabs__container .dm-field-tabs__tab--active {\n  border-color: #e1112c !important;\n  background-color: rgba(225, 17, 44, 0.4); }\n\n.dm-field-tabs--error .dm-field-tabs__container .dm-field-tabs__tab--active-previous {\n  border-left-color: rgba(225, 17, 44, 0.25) !important; }\n\n.dm-field-tabs--error .dm-field-tabs__container .dm-field-tabs__tab--active-next {\n  border-right-color: rgba(225, 17, 44, 0.25) !important; }\n\n.dm-field-tabs--normal .dm-field-tabs__container .dm-field-tabs__tab:focus {\n  position: relative;\n  z-index: 2;\n  box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n  transition: box-shadow ease-in-out 0s; }\n\n.dm-field-tabs--normal .dm-field-tabs__container .dm-field-tabs__tab--active {\n  border-color: #0194ef !important;\n  background-color: rgba(1, 148, 239, 0.4); }\n\n.dm-field-tabs--normal .dm-field-tabs__container .dm-field-tabs__tab--active-previous {\n  border-left-color: rgba(1, 148, 239, 0.25) !important; }\n\n.dm-field-tabs--normal .dm-field-tabs__container .dm-field-tabs__tab--active-next {\n  border-right-color: rgba(1, 148, 239, 0.25) !important; }\n\n.dm-field-tabs--success .dm-field-tabs__container .dm-field-tabs__tab:focus {\n  position: relative;\n  z-index: 2;\n  box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n  transition: box-shadow ease-in-out 0s; }\n\n.dm-field-tabs--success .dm-field-tabs__container .dm-field-tabs__tab--active {\n  border-color: #1bb934 !important;\n  background-color: rgba(27, 185, 52, 0.4); }\n\n.dm-field-tabs--success .dm-field-tabs__container .dm-field-tabs__tab--active-previous {\n  border-left-color: rgba(27, 185, 52, 0.25) !important; }\n\n.dm-field-tabs--success .dm-field-tabs__container .dm-field-tabs__tab--active-next {\n  border-right-color: rgba(27, 185, 52, 0.25) !important; }\n\n.dm-field-tabs--warning .dm-field-tabs__container .dm-field-tabs__tab:focus {\n  position: relative;\n  z-index: 2;\n  box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n  transition: box-shadow ease-in-out 0s; }\n\n.dm-field-tabs--warning .dm-field-tabs__container .dm-field-tabs__tab--active {\n  border-color: #ffc02a !important;\n  background-color: rgba(255, 192, 42, 0.4); }\n\n.dm-field-tabs--warning .dm-field-tabs__container .dm-field-tabs__tab--active-previous {\n  border-left-color: rgba(255, 192, 42, 0.25) !important; }\n\n.dm-field-tabs--warning .dm-field-tabs__container .dm-field-tabs__tab--active-next {\n  border-right-color: rgba(255, 192, 42, 0.25) !important; }\n\n.dm-field-tabs--disabled {\n  opacity: 0.7; }\n  .dm-field-tabs--disabled .dm-field-tabs__label,\n  .dm-field-tabs--disabled .dm-field-tabs__container {\n    cursor: not-allowed; }\n    .dm-field-tabs--disabled .dm-field-tabs__label .dm-field-tabs__tab,\n    .dm-field-tabs--disabled .dm-field-tabs__container .dm-field-tabs__tab {\n      pointer-events: none; }\n\n/*# sourceMappingURL=FieldTabs.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$16 = undefined;
+  const __vue_scope_id__$17 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$16 = undefined;
+  const __vue_module_identifier__$17 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$16 = false;
+  const __vue_is_functional_template__$17 = false;
   /* component normalizer */
-  function __vue_normalize__$16(
+  function __vue_normalize__$17(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -4476,19 +4670,19 @@ __vue_render__$16._withStripped = true;
   
 
   
-  var FieldTabs = __vue_normalize__$16(
-    { render: __vue_render__$16, staticRenderFns: __vue_staticRenderFns__$16 },
-    __vue_inject_styles__$16,
-    __vue_script__$16,
-    __vue_scope_id__$16,
-    __vue_is_functional_template__$16,
-    __vue_module_identifier__$16,
+  var FieldTabs = __vue_normalize__$17(
+    { render: __vue_render__$17, staticRenderFns: __vue_staticRenderFns__$17 },
+    __vue_inject_styles__$17,
+    __vue_script__$17,
+    __vue_scope_id__$17,
+    __vue_is_functional_template__$17,
+    __vue_module_identifier__$17,
     __vue_create_injector__$16,
     undefined
   )
 
 //
-var script$17 = {
+var script$18 = {
   components: {
     BaseIcon: BaseIcon,
     FieldDescription: FieldDescription,
@@ -4608,10 +4802,10 @@ var script$17 = {
 };
 
 /* script */
-            const __vue_script__$17 = script$17;
+            const __vue_script__$18 = script$18;
             
 /* template */
-var __vue_render__$17 = function() {
+var __vue_render__$18 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -4689,23 +4883,23 @@ var __vue_render__$17 = function() {
     1
   )
 };
-var __vue_staticRenderFns__$17 = [];
-__vue_render__$17._withStripped = true;
+var __vue_staticRenderFns__$18 = [];
+__vue_render__$18._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$17 = function (inject) {
+  const __vue_inject_styles__$18 = function (inject) {
     if (!inject) return
     inject("data-v-cefeabca_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-textarea {\n  display: flex;\n  flex-direction: column;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-field-textarea .dm-field-textarea__container {\n    position: relative;\n    display: flex;\n    transition: all ease-in-out 200ms;\n}\n.dm-field-textarea .dm-field-textarea__container .dm-field-textarea__icon {\n      position: absolute;\n      right: 7px;\n      bottom: 7px;\n      pointer-events: none;\n}\n.dm-field-textarea .dm-field-textarea__container .dm-field-textarea__field {\n      padding: 10px 15px;\n      width: 100%;\n      height: 100%;\n      outline: 0;\n      border: none;\n      background-color: transparent;\n      color: #ffffff;\n      resize: none;\n}\n.dm-field-textarea .dm-field-textarea__container .dm-field-textarea__field::placeholder {\n        color: #8eacc5;\n}\n.dm-field-textarea .dm-field-textarea__container .dm-field-textarea__field:disabled {\n        cursor: not-allowed;\n}\n.dm-field-textarea--mini .dm-field-textarea__field {\n    min-height: 60px;\n    border-radius: 4px;\n    font-size: 12px;\n}\n.dm-field-textarea--small .dm-field-textarea__field {\n    min-height: 80px;\n    border-radius: 5px;\n    font-size: 13px;\n}\n.dm-field-textarea--default .dm-field-textarea__field {\n    min-height: 100px;\n    border-radius: 6px;\n    font-size: 14px;\n}\n.dm-field-textarea--medium .dm-field-textarea__field {\n    min-height: 120px;\n    border-radius: 7px;\n    font-size: 15px;\n}\n.dm-field-textarea--large .dm-field-textarea__field {\n    min-height: 140px;\n    border-radius: 8px;\n    font-size: 16px;\n}\n.dm-field-textarea--error .dm-field-textarea__container {\n    border-color: #e1112c;\n    color: #e1112c;\n}\n.dm-field-textarea--normal .dm-field-textarea__container {\n    border-color: #323e4f;\n    color: #ffffff;\n}\n.dm-field-textarea--success .dm-field-textarea__container {\n    border-color: #1bb934;\n    color: #1bb934;\n}\n.dm-field-textarea--warning .dm-field-textarea__container {\n    border-color: #ffc02a;\n    color: #ffc02a;\n}\n.dm-field-textarea--disabled {\n    opacity: 0.7;\n}\n.dm-field-textarea--disabled .dm-field-textarea__label,\n    .dm-field-textarea--disabled .dm-field-textarea__container {\n      cursor: not-allowed;\n}\n.dm-field-textarea--borders .dm-field-textarea__container {\n    box-sizing: border-box;\n    border-width: 1px;\n    border-style: solid;\n    border-radius: 6px;\n    background-color: #283243;\n}\n.dm-field-textarea--focused .dm-field-textarea__container {\n    border-color: #0194ef;\n    color: #0194ef;\n}\n.dm-field-textarea--full-width {\n    width: 100%;\n}\n\n/*# sourceMappingURL=FieldTextarea.vue.map */", map: {"version":3,"sources":["FieldTextarea.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldTextarea.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACyNhF;EACA,cAAA;EACA,uBAAA;EACA,iBAAA;EACA,sFACA;CA+FA;AApGA;IAQA,mBAAA;IACA,cAAA;IACA,kCAAA;CA2BA;AArCA;MAaA,mBAAA;MACA,WAAA;MACA,YAAA;MACA,qBAAA;CACA;AAjBA;MAoBA,mBAAA;MACA,YAAA;MACA,aAAA;MACA,WAAA;MACA,aAAA;MACA,8BAAA;MACA,eAAA;MACA,aAAA;CASA;AApCA;QA8BA,eAAA;CACA;AA/BA;QAkCA,oBAAA;CACA;AASA;IAEA,iBAAA;IACA,mBAAA;IACA,gBAAA;CACA;AALA;IAEA,iBAAA;IACA,mBAAA;IACA,gBAAA;CACA;AALA;IAEA,kBAAA;IACA,mBAAA;IACA,gBAAA;CACA;AALA;IAEA,kBAAA;IACA,mBAAA;IACA,gBAAA;CACA;AALA;IAEA,kBAAA;IACA,mBAAA;IACA,gBAAA;CACA;AAOA;IAGA,sBAAA;IACA,eAAA;CAKA;AATA;IAMA,sBAAA;IACA,eAAA;CAEA;AATA;IAGA,sBAAA;IACA,eAAA;CAKA;AATA;IAGA,sBAAA;IACA,eAAA;CAKA;AAMA;IACA,aAAA;CAMA;AAPA;;MAKA,oBAAA;CACA;AAGA;IAEA,uBAAA;IACA,kBAAA;IACA,oBAAA;IACA,mBAAA;IACA,0BAAA;CACA;AAGA;IAEA,sBAAA;IACA,eAAA;CACA;AAGA;IACA,YAAA;CACA;;AD/OA,6CAA6C","file":"FieldTextarea.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-textarea {\n  display: flex;\n  flex-direction: column;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-field-textarea .dm-field-textarea__container {\n    position: relative;\n    display: flex;\n    transition: all ease-in-out 200ms; }\n    .dm-field-textarea .dm-field-textarea__container .dm-field-textarea__icon {\n      position: absolute;\n      right: 7px;\n      bottom: 7px;\n      pointer-events: none; }\n    .dm-field-textarea .dm-field-textarea__container .dm-field-textarea__field {\n      padding: 10px 15px;\n      width: 100%;\n      height: 100%;\n      outline: 0;\n      border: none;\n      background-color: transparent;\n      color: #ffffff;\n      resize: none; }\n      .dm-field-textarea .dm-field-textarea__container .dm-field-textarea__field::placeholder {\n        color: #8eacc5; }\n      .dm-field-textarea .dm-field-textarea__container .dm-field-textarea__field:disabled {\n        cursor: not-allowed; }\n  .dm-field-textarea--mini .dm-field-textarea__field {\n    min-height: 60px;\n    border-radius: 4px;\n    font-size: 12px; }\n  .dm-field-textarea--small .dm-field-textarea__field {\n    min-height: 80px;\n    border-radius: 5px;\n    font-size: 13px; }\n  .dm-field-textarea--default .dm-field-textarea__field {\n    min-height: 100px;\n    border-radius: 6px;\n    font-size: 14px; }\n  .dm-field-textarea--medium .dm-field-textarea__field {\n    min-height: 120px;\n    border-radius: 7px;\n    font-size: 15px; }\n  .dm-field-textarea--large .dm-field-textarea__field {\n    min-height: 140px;\n    border-radius: 8px;\n    font-size: 16px; }\n  .dm-field-textarea--error .dm-field-textarea__container {\n    border-color: #e1112c;\n    color: #e1112c; }\n  .dm-field-textarea--normal .dm-field-textarea__container {\n    border-color: #323e4f;\n    color: #ffffff; }\n  .dm-field-textarea--success .dm-field-textarea__container {\n    border-color: #1bb934;\n    color: #1bb934; }\n  .dm-field-textarea--warning .dm-field-textarea__container {\n    border-color: #ffc02a;\n    color: #ffc02a; }\n  .dm-field-textarea--disabled {\n    opacity: 0.7; }\n    .dm-field-textarea--disabled .dm-field-textarea__label,\n    .dm-field-textarea--disabled .dm-field-textarea__container {\n      cursor: not-allowed; }\n  .dm-field-textarea--borders .dm-field-textarea__container {\n    box-sizing: border-box;\n    border-width: 1px;\n    border-style: solid;\n    border-radius: 6px;\n    background-color: #283243; }\n  .dm-field-textarea--focused .dm-field-textarea__container {\n    border-color: #0194ef;\n    color: #0194ef; }\n  .dm-field-textarea--full-width {\n    width: 100%; }\n\n/*# sourceMappingURL=FieldTextarea.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$17 = undefined;
+  const __vue_scope_id__$18 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$17 = undefined;
+  const __vue_module_identifier__$18 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$17 = false;
+  const __vue_is_functional_template__$18 = false;
   /* component normalizer */
-  function __vue_normalize__$17(
+  function __vue_normalize__$18(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -4812,19 +5006,19 @@ __vue_render__$17._withStripped = true;
   
 
   
-  var FieldTextarea = __vue_normalize__$17(
-    { render: __vue_render__$17, staticRenderFns: __vue_staticRenderFns__$17 },
-    __vue_inject_styles__$17,
-    __vue_script__$17,
-    __vue_scope_id__$17,
-    __vue_is_functional_template__$17,
-    __vue_module_identifier__$17,
+  var FieldTextarea = __vue_normalize__$18(
+    { render: __vue_render__$18, staticRenderFns: __vue_staticRenderFns__$18 },
+    __vue_inject_styles__$18,
+    __vue_script__$18,
+    __vue_scope_id__$18,
+    __vue_is_functional_template__$18,
+    __vue_module_identifier__$18,
     __vue_create_injector__$17,
     undefined
   )
 
 //
-var script$18 = {
+var script$19 = {
   components: {
     FieldDescription: FieldDescription,
     FieldLabel: FieldLabel
@@ -4891,10 +5085,10 @@ var script$18 = {
 };
 
 /* script */
-            const __vue_script__$18 = script$18;
+            const __vue_script__$19 = script$19;
             
 /* template */
-var __vue_render__$18 = function() {
+var __vue_render__$19 = function() {
   var _vm = this;
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
@@ -4954,23 +5148,23 @@ var __vue_render__$18 = function() {
     1
   )
 };
-var __vue_staticRenderFns__$18 = [];
-__vue_render__$18._withStripped = true;
+var __vue_staticRenderFns__$19 = [];
+__vue_render__$19._withStripped = true;
 
   /* style */
-  const __vue_inject_styles__$18 = function (inject) {
+  const __vue_inject_styles__$19 = function (inject) {
     if (!inject) return
     inject("data-v-0264da03_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-toggle {\n  display: inline-block;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-field-toggle .dm-field-toggle__container {\n    display: flex;\n}\n.dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field {\n      position: relative;\n      margin-right: 8px;\n      margin-bottom: 0;\n      outline: 0;\n      border: none;\n      border-radius: 100px;\n      -webkit-appearance: none;\n      cursor: pointer;\n}\n.dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:before, .dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:after {\n        position: absolute;\n        display: inline-block;\n        box-sizing: border-box;\n        transition: all ease-in-out 300ms;\n}\n.dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:before {\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 1px solid #323e4f;\n        border-radius: 20px;\n        background-color: rgba(40, 50, 67, 0.4);\n        content: \"\";\n}\n.dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:after {\n        top: 4px;\n        right: initial;\n        border-radius: 100%;\n        background: #ffffff;\n        transform: translateX(4px);\n        content: \"\";\n}\n.dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n        border-color: #46576e;\n}\n.dm-field-toggle .dm-field-toggle__container .dm-field-toggle__label {\n      flex: 1;\n      margin-bottom: 0;\n      color: #ffffff;\n      font-weight: 400;\n}\n.dm-field-toggle--mini .dm-field-toggle__container .dm-field-toggle__field {\n    width: 36px;\n    height: 18px;\n}\n.dm-field-toggle--mini .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 10px;\n      height: 10px;\n}\n.dm-field-toggle--mini .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(22px);\n}\n.dm-field-toggle--mini .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 18px;\n}\n.dm-field-toggle--small .dm-field-toggle__container .dm-field-toggle__field {\n    width: 40px;\n    height: 20px;\n}\n.dm-field-toggle--small .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 12px;\n      height: 12px;\n}\n.dm-field-toggle--small .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(24px);\n}\n.dm-field-toggle--small .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 20px;\n}\n.dm-field-toggle--default .dm-field-toggle__container .dm-field-toggle__field {\n    width: 44px;\n    height: 22px;\n}\n.dm-field-toggle--default .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 14px;\n      height: 14px;\n}\n.dm-field-toggle--default .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(26px);\n}\n.dm-field-toggle--default .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 22px;\n}\n.dm-field-toggle--medium .dm-field-toggle__container .dm-field-toggle__field {\n    width: 48px;\n    height: 24px;\n}\n.dm-field-toggle--medium .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 16px;\n      height: 16px;\n}\n.dm-field-toggle--medium .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(28px);\n}\n.dm-field-toggle--medium .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 24px;\n}\n.dm-field-toggle--large .dm-field-toggle__container .dm-field-toggle__field {\n    width: 52px;\n    height: 26px;\n}\n.dm-field-toggle--large .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 18px;\n      height: 18px;\n}\n.dm-field-toggle--large .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(30px);\n}\n.dm-field-toggle--large .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 26px;\n}\n.dm-field-toggle--error .dm-field-toggle__container .dm-field-toggle__field:before {\n    border-color: #e1112c;\n}\n.dm-field-toggle--error .dm-field-toggle__container .dm-field-toggle__field:checked:before {\n    border-color: #e1112c;\n    background-color: rgba(225, 17, 44, 0.4);\n}\n.dm-field-toggle--error .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n    border-color: #f0354d;\n}\n.dm-field-toggle--error .dm-field-toggle__container .dm-field-toggle__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-toggle--normal .dm-field-toggle__container .dm-field-toggle__field:checked:before {\n    border-color: #0194ef;\n    background-color: rgba(1, 148, 239, 0.4);\n}\n.dm-field-toggle--normal .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n    border-color: #25abfe;\n}\n.dm-field-toggle--normal .dm-field-toggle__container .dm-field-toggle__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-toggle--success .dm-field-toggle__container .dm-field-toggle__field:before {\n    border-color: #1bb934;\n}\n.dm-field-toggle--success .dm-field-toggle__container .dm-field-toggle__field:checked:before {\n    border-color: #1bb934;\n    background-color: rgba(27, 185, 52, 0.4);\n}\n.dm-field-toggle--success .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n    border-color: #27e045;\n}\n.dm-field-toggle--success .dm-field-toggle__container .dm-field-toggle__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-toggle--warning .dm-field-toggle__container .dm-field-toggle__field:before {\n    border-color: #ffc02a;\n}\n.dm-field-toggle--warning .dm-field-toggle__container .dm-field-toggle__field:checked:before {\n    border-color: #ffc02a;\n    background-color: rgba(255, 192, 42, 0.4);\n}\n.dm-field-toggle--warning .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n    border-color: #ffcf5d;\n}\n.dm-field-toggle--warning .dm-field-toggle__container .dm-field-toggle__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n    transition: box-shadow ease-in-out 0s;\n}\n.dm-field-toggle--disabled {\n    opacity: 0.7;\n}\n.dm-field-toggle--disabled .dm-field-toggle__container .dm-field-toggle__field,\n    .dm-field-toggle--disabled .dm-field-toggle__container .dm-field-toggle__label {\n      cursor: not-allowed;\n}\n.dm-field-toggle--full-width {\n    width: 100%;\n}\n\n/*# sourceMappingURL=FieldToggle.vue.map */", map: {"version":3,"sources":["FieldToggle.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/form/FieldToggle.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC8IhF;EACA,sBAAA;EACA,iBAAA;EACA,sFACA;CA6IA;AAjJA;IAOA,cAAA;CAqDA;AA5DA;MAUA,mBAAA;MACA,kBAAA;MACA,iBAAA;MACA,WAAA;MACA,aAAA;MACA,qBAAA;MACA,yBAAA;MACA,gBAAA;CAmCA;AApDA;QAqBA,mBAAA;QACA,sBAAA;QACA,uBAAA;QACA,kCAAA;CACA;AAzBA;QA4BA,OAAA;QACA,QAAA;QACA,YAAA;QACA,aAAA;QACA,0BAAA;QACA,oBAAA;QACA,wCAAA;QACA,YAAA;CACA;AApCA;QAuCA,SAAA;QACA,eAAA;QACA,oBAAA;QACA,oBAAA;QACA,2BAAA;QACA,YAAA;CACA;AA7CA;QAiDA,sBAAA;CACA;AAlDA;MAuDA,QAAA;MACA,iBAAA;MACA,eAAA;MACA,iBAAA;CACA;AAQA;IAGA,YAAA;IACA,aAAA;CAcA;AAlBA;MAOA,YAAA;MACA,aAAA;CACA;AATA;MAaA,4BAEA;CACA;AAhBA;IAqBA,kBAAA;CACA;AAtBA;IAGA,YAAA;IACA,aAAA;CAcA;AAlBA;MAOA,YAAA;MACA,aAAA;CACA;AATA;MAaA,4BAEA;CACA;AAhBA;IAqBA,kBAAA;CACA;AAtBA;IAGA,YAAA;IACA,aAAA;CAcA;AAlBA;MAOA,YAAA;MACA,aAAA;CACA;AATA;MAaA,4BAEA;CACA;AAhBA;IAqBA,kBAAA;CACA;AAtBA;IAGA,YAAA;IACA,aAAA;CAcA;AAlBA;MAOA,YAAA;MACA,aAAA;CACA;AATA;MAaA,4BAEA;CACA;AAhBA;IAqBA,kBAAA;CACA;AAtBA;IAGA,YAAA;IACA,aAAA;CAcA;AAlBA;MAOA,YAAA;MACA,aAAA;CACA;AATA;MAaA,4BAEA;CACA;AAhBA;IAqBA,kBAAA;CACA;AAQA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,yCAAA;CACA;AAbA;IAkBA,sBAAA;CACA;AAnBA;IAuBA,iDACA;IACA,sCAAA;CACA;AA1BA;IAWA,sBAAA;IACA,yCAAA;CACA;AAbA;IAkBA,sBAAA;CACA;AAnBA;IAuBA,iDACA;IACA,sCAAA;CACA;AA1BA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,yCAAA;CACA;AAbA;IAkBA,sBAAA;CACA;AAnBA;IAuBA,iDACA;IACA,sCAAA;CACA;AA1BA;IAKA,sBAAA;CACA;AANA;IAWA,sBAAA;IACA,0CAAA;CACA;AAbA;IAkBA,sBAAA;CACA;AAnBA;IAuBA,iDACA;IACA,sCAAA;CACA;AAQA;IACA,aAAA;CAQA;AATA;;MAMA,oBAAA;CACA;AAIA;IACA,YAAA;CACA;;ADlJA,2CAA2C","file":"FieldToggle.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-field-toggle {\n  display: inline-block;\n  text-align: left;\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-field-toggle .dm-field-toggle__container {\n    display: flex; }\n    .dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field {\n      position: relative;\n      margin-right: 8px;\n      margin-bottom: 0;\n      outline: 0;\n      border: none;\n      border-radius: 100px;\n      -webkit-appearance: none;\n      cursor: pointer; }\n      .dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:before, .dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:after {\n        position: absolute;\n        display: inline-block;\n        box-sizing: border-box;\n        transition: all ease-in-out 300ms; }\n      .dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:before {\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        border: 1px solid #323e4f;\n        border-radius: 20px;\n        background-color: rgba(40, 50, 67, 0.4);\n        content: \"\"; }\n      .dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:after {\n        top: 4px;\n        right: initial;\n        border-radius: 100%;\n        background: #ffffff;\n        transform: translateX(4px);\n        content: \"\"; }\n      .dm-field-toggle .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n        border-color: #46576e; }\n    .dm-field-toggle .dm-field-toggle__container .dm-field-toggle__label {\n      flex: 1;\n      margin-bottom: 0;\n      color: #ffffff;\n      font-weight: 400; }\n  .dm-field-toggle--mini .dm-field-toggle__container .dm-field-toggle__field {\n    width: 36px;\n    height: 18px; }\n    .dm-field-toggle--mini .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 10px;\n      height: 10px; }\n    .dm-field-toggle--mini .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(22px); }\n  .dm-field-toggle--mini .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 18px; }\n  .dm-field-toggle--small .dm-field-toggle__container .dm-field-toggle__field {\n    width: 40px;\n    height: 20px; }\n    .dm-field-toggle--small .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 12px;\n      height: 12px; }\n    .dm-field-toggle--small .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(24px); }\n  .dm-field-toggle--small .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 20px; }\n  .dm-field-toggle--default .dm-field-toggle__container .dm-field-toggle__field {\n    width: 44px;\n    height: 22px; }\n    .dm-field-toggle--default .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 14px;\n      height: 14px; }\n    .dm-field-toggle--default .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(26px); }\n  .dm-field-toggle--default .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 22px; }\n  .dm-field-toggle--medium .dm-field-toggle__container .dm-field-toggle__field {\n    width: 48px;\n    height: 24px; }\n    .dm-field-toggle--medium .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 16px;\n      height: 16px; }\n    .dm-field-toggle--medium .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(28px); }\n  .dm-field-toggle--medium .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 24px; }\n  .dm-field-toggle--large .dm-field-toggle__container .dm-field-toggle__field {\n    width: 52px;\n    height: 26px; }\n    .dm-field-toggle--large .dm-field-toggle__container .dm-field-toggle__field:after {\n      width: 18px;\n      height: 18px; }\n    .dm-field-toggle--large .dm-field-toggle__container .dm-field-toggle__field:checked:after {\n      transform: translateX(30px); }\n  .dm-field-toggle--large .dm-field-toggle__container .dm-field-toggle__label {\n    line-height: 26px; }\n  .dm-field-toggle--error .dm-field-toggle__container .dm-field-toggle__field:before {\n    border-color: #e1112c; }\n  .dm-field-toggle--error .dm-field-toggle__container .dm-field-toggle__field:checked:before {\n    border-color: #e1112c;\n    background-color: rgba(225, 17, 44, 0.4); }\n  .dm-field-toggle--error .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n    border-color: #f0354d; }\n  .dm-field-toggle--error .dm-field-toggle__container .dm-field-toggle__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #e1112c;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-toggle--normal .dm-field-toggle__container .dm-field-toggle__field:checked:before {\n    border-color: #0194ef;\n    background-color: rgba(1, 148, 239, 0.4); }\n  .dm-field-toggle--normal .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n    border-color: #25abfe; }\n  .dm-field-toggle--normal .dm-field-toggle__container .dm-field-toggle__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-toggle--success .dm-field-toggle__container .dm-field-toggle__field:before {\n    border-color: #1bb934; }\n  .dm-field-toggle--success .dm-field-toggle__container .dm-field-toggle__field:checked:before {\n    border-color: #1bb934;\n    background-color: rgba(27, 185, 52, 0.4); }\n  .dm-field-toggle--success .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n    border-color: #27e045; }\n  .dm-field-toggle--success .dm-field-toggle__container .dm-field-toggle__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #1bb934;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-toggle--warning .dm-field-toggle__container .dm-field-toggle__field:before {\n    border-color: #ffc02a; }\n  .dm-field-toggle--warning .dm-field-toggle__container .dm-field-toggle__field:checked:before {\n    border-color: #ffc02a;\n    background-color: rgba(255, 192, 42, 0.4); }\n  .dm-field-toggle--warning .dm-field-toggle__container .dm-field-toggle__field:hover:before {\n    border-color: #ffcf5d; }\n  .dm-field-toggle--warning .dm-field-toggle__container .dm-field-toggle__field:focus {\n    box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #ffc02a;\n    transition: box-shadow ease-in-out 0s; }\n  .dm-field-toggle--disabled {\n    opacity: 0.7; }\n    .dm-field-toggle--disabled .dm-field-toggle__container .dm-field-toggle__field,\n    .dm-field-toggle--disabled .dm-field-toggle__container .dm-field-toggle__label {\n      cursor: not-allowed; }\n  .dm-field-toggle--full-width {\n    width: 100%; }\n\n/*# sourceMappingURL=FieldToggle.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$18 = undefined;
+  const __vue_scope_id__$19 = undefined;
   /* module identifier */
-  const __vue_module_identifier__$18 = undefined;
+  const __vue_module_identifier__$19 = undefined;
   /* functional template */
-  const __vue_is_functional_template__$18 = false;
+  const __vue_is_functional_template__$19 = false;
   /* component normalizer */
-  function __vue_normalize__$18(
+  function __vue_normalize__$19(
     template, style, script,
     scope, functional, moduleIdentifier,
     createInjector, createInjectorSSR
@@ -5077,13 +5271,13 @@ __vue_render__$18._withStripped = true;
   
 
   
-  var FieldToggle = __vue_normalize__$18(
-    { render: __vue_render__$18, staticRenderFns: __vue_staticRenderFns__$18 },
-    __vue_inject_styles__$18,
-    __vue_script__$18,
-    __vue_scope_id__$18,
-    __vue_is_functional_template__$18,
-    __vue_module_identifier__$18,
+  var FieldToggle = __vue_normalize__$19(
+    { render: __vue_render__$19, staticRenderFns: __vue_staticRenderFns__$19 },
+    __vue_inject_styles__$19,
+    __vue_script__$19,
+    __vue_scope_id__$19,
+    __vue_is_functional_template__$19,
+    __vue_module_identifier__$19,
     __vue_create_injector__$18,
     undefined
   )
@@ -5109,6 +5303,7 @@ function install(Vue, options) {
     icon: BaseIcon,
     "progress-bar": BaseProgressBar,
     "social-login": BaseSocialLogin,
+    spinner: BaseSpinner,
     checkbox: FieldCheckbox,
     file: FieldFile,
     input: FieldInput,
