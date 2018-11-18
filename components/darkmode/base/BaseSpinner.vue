@@ -57,6 +57,9 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
+// IMPORTS
+@import "assets/settings/_settings.colors.scss";
+
 // VARIABLES
 $c: ".dm-base-spinner";
 $colors: black, blue, green, red, orange, white;
