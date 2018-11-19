@@ -8,6 +8,8 @@ header.c-the-header
 
   base-divider(
     class="c-the-header__divider"
+    color="blue"
+    size="small"
   )
 
   base-heading(

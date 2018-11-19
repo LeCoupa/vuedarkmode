@@ -53,8 +53,9 @@
       )
 
     base-divider(
-      color="white"
       class="u-mb40"
+      color="white"
+      size="small"
     )
     no-ssr
       common-table(

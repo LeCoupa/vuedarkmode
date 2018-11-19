@@ -12,10 +12,8 @@
     :key="section.id"
     class="c-index__section"
   )
-    base-divider(
-      color="black"
-      size="large"
-    )
+    base-divider
+
     common-headlines(
       @toggleDocumentation="onToggleDocumentation"
       :description="section.headlines.description"
@@ -104,10 +102,8 @@
       v-if="section.id === 'fieldToggle'"
       :documentation="docs.fieldToggle"
     )
-  base-divider(
-    color="black"
-    size="large"
-  )
+  base-divider
+
   the-footer
 </template>
 

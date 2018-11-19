@@ -27,6 +27,8 @@
 
   base-divider(
     class="c-common-headlines__divider"
+    color="blue"
+    size="small"
   )
 </template>
 

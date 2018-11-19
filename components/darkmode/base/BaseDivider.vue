@@ -21,7 +21,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: "blue",
+      default: "black",
       validator(x) {
         return (
           [
@@ -39,7 +39,7 @@ export default {
     },
     size: {
       type: String,
-      default: "small",
+      default: "large",
       validator(x) {
         return ["small", "large"].indexOf(x) !== -1;
       }
