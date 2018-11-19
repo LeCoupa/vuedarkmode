@@ -101,7 +101,7 @@ export default {
             name: "color",
             type: {
               type: "String",
-              additional: 'Default: "blue"'
+              additional: 'Default: "black"'
             },
             details: {
               description: "Specify the color of the divider.",
@@ -113,7 +113,7 @@ export default {
             name: "size",
             type: {
               type: "String",
-              additional: 'Default: "small"'
+              additional: 'Default: "large"'
             },
             details: {
               description: "Specify the size of the divider.",
