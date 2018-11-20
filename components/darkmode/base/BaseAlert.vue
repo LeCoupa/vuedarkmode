@@ -112,6 +112,13 @@ $colors: black, blue, green, red, orange, white;
 
     &--right {
       margin-left: 20px;
+      outline: 0;
+      border-radius: 100%;
+      transition: all 200ms ease-in-out;
+
+      &:focus {
+        transition: box-shadow ease-in-out 0s;
+      }
     }
   }
 
@@ -132,23 +139,15 @@ $colors: black, blue, green, red, orange, white;
       }
 
       #{$c}__icon--right {
-        outline: 0;
-        border-radius: 100%;
-        transition: all 200ms ease-in-out;
-
-        &:focus {
-          transition: box-shadow ease-in-out 0s;
-        }
-
         @if ($color == red) {
           &:hover {
             color: $oxford-blue !important;
           }
 
           &:focus {
-            color: $oxford-blue !important;
             box-shadow: 0 0 0 2px map-get($mainColors, $color),
               0 0 0 3px $oxford-blue;
+            color: $oxford-blue !important;
           }
         } @else {
           &:hover {
@@ -156,9 +155,9 @@ $colors: black, blue, green, red, orange, white;
           }
 
           &:focus {
-            color: $crimson !important;
             box-shadow: 0 0 0 2px map-get($mainColors, $color),
               0 0 0 3px $crimson;
+            color: $crimson !important;
           }
         }
       }
