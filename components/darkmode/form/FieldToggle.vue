@@ -195,6 +195,13 @@ $statuses: error, normal, success, warning;
           border-color: lighten($oxford-blue, 10%);
         }
       }
+
+      &:not(:checked) {
+        + #{$c}__label {
+          color: $regent-st-blue;
+          transition: color 250ms ease-in-out;
+        }
+      }
     }
 
     #{$c}__label {
