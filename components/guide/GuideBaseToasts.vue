@@ -6,7 +6,7 @@
 .c-guide-base-toasts
   div(
     v-if="!documentation"
-    class="c-guide-base-toasts__showroom o-elements o-elements--800max"
+    class="c-guide-base-toasts__showroom o-elements o-elements--horizontal"
   )
     div(
       v-for="(color, i) in toasts.colors"
@@ -44,7 +44,7 @@
       common-table(
         :data="events.data"
         :fields="events.fields"
-      )      
+      )
 </template>
 
 <!-- *************************************************************************
@@ -142,7 +142,7 @@ export default {
             name: "close",
             parameters: "event",
             details: {
-              description: "Fires when the user click on the cross icon."
+              description: "Fires when the user clicks on the cross icon."
             }
           }
         ]
@@ -163,8 +163,7 @@ $c: ".c-guide-base-toasts";
 #{$c} {
   #{$c}__showroom {
     grid-gap: 20px;
-    grid-template-columns: repeat(3, 25%);
-    margin-bottom: 0;
+    grid-template-columns: repeat(auto-fill, 250px);
   }
 }
 </style>

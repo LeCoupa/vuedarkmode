@@ -24,8 +24,6 @@ div(
     size="20px"
     tabindex="0"
   )
-  </style>
-  
 </template>
 
 <!-- *************************************************************************
@@ -89,6 +87,7 @@ $colors: black, blue, green, red, orange, white;
   display: flex;
   align-items: center;
   padding: 14px 20px;
+  width: 200px;
   border-radius: 3px;
   color: $white;
   text-align: left;
@@ -99,6 +98,13 @@ $colors: black, blue, green, red, orange, white;
   #{$c}__icon {
     flex: 0 0 auto;
     margin-left: 20px;
+    outline: 0;
+    border-radius: 100%;
+    transition: all 200ms ease-in-out;
+
+    &:focus {
+      transition: box-shadow ease-in-out 0s;
+    }
   }
 
   #{$c}__slot {
@@ -118,14 +124,6 @@ $colors: black, blue, green, red, orange, white;
       }
 
       #{$c}__icon {
-        outline: 0;
-        border-radius: 100%;
-        transition: all 200ms ease-in-out;
-
-        &:focus {
-          transition: box-shadow ease-in-out 0s;
-        }
-
         @if ($color == red) {
           &:hover {
             color: $oxford-blue !important;
