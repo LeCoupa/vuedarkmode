@@ -89,6 +89,7 @@ $colors: black, blue, green, red, orange, white;
   display: flex;
   align-items: center;
   padding: 14px 20px;
+  border-radius: 3px;
   color: $white;
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
