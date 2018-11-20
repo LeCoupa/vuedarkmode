@@ -72,6 +72,10 @@
       v-if="section.id === 'baseSpinner'"
       :documentation="docs.baseSpinner"
     )
+    guide-base-toasts(
+      v-if="section.id === 'baseToast'"
+      :documentation="docs.baseToast"
+    )
     guide-field-checkboxes(
       v-if="section.id === 'fieldCheckbox'"
       :documentation="docs.fieldCheckbox"
@@ -129,6 +133,7 @@ import GuideBaseIcons from "@/components/guide/GuideBaseIcons";
 import GuideBaseProgressBars from "@/components/guide/GuideBaseProgressBars";
 import GuideBaseSocialLogins from "@/components/guide/GuideBaseSocialLogins";
 import GuideBaseSpinners from "@/components/guide/GuideBaseSpinners";
+import GuideBaseToasts from "@/components/guide/GuideBaseToasts";
 import GuideColors from "@/components/guide/GuideColors";
 import GuideFieldCheckboxes from "@/components/guide/GuideFieldCheckboxes";
 import GuideFieldFiles from "@/components/guide/GuideFieldFiles";
@@ -160,6 +165,7 @@ export default {
     GuideBaseProgressBars,
     GuideBaseSocialLogins,
     GuideBaseSpinners,
+    GuideBaseToasts,
     GuideColors,
     GuideFieldCheckboxes,
     GuideFieldFiles,
@@ -193,6 +199,7 @@ export default {
         baseProgressBar: false,
         baseSocialLogin: false,
         baseSpinner: false,
+        baseToast: false,
         fieldCheckbox: false,
         fieldFile: false,
         fieldInput: false,
@@ -298,6 +305,13 @@ export default {
           id: "baseSpinner",
           headlines: {
             title: "SPINNERS",
+            hasDocumentation: true
+          }
+        },
+        {
+          id: "baseToast",
+          headlines: {
+            title: "TOASTS",
             hasDocumentation: true
           }
         },

@@ -85,6 +85,8 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 - **BaseSpinner**: [documentation](https://www.vuedarkmode.com/#baseSpinner) | [source code](/components/darkmode/base/BaseSpinner.vue).
 
+- **BaseToast**: [documentation](https://www.vuedarkmode.com/#baseToast) | [source code](/components/darkmode/base/BaseToast.vue).
+
 ### Form Components
 
 - **FieldCheckbox**: [documentation](https://www.vuedarkmode.com/#fieldCheckbox) | [source code](/components/darkmode/form/FieldCheckbox.vue).

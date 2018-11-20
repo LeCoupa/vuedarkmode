@@ -96,6 +96,10 @@ export default {
               {
                 label: "Spinners",
                 id: "baseSpinner"
+              },
+              {
+                label: "Toasts",
+                id: "baseToast"
               }
             ]
           },
