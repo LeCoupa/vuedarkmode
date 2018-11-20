@@ -86,6 +86,10 @@ export default {
                 id: "baseIcon"
               },
               {
+                label: "List Items",
+                id: "baseListItem"
+              },
+              {
                 label: "Progress Bars",
                 id: "baseProgressBar"
               },
