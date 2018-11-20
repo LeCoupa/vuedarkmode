@@ -5,19 +5,13 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-base-alert",
-    "dm-base-alert--" + color
+    "dm-base-toast",
+    "dm-base-toast--" + color
   ]`
 )
-  base-icon(
-    v-if="icon"
-    :name="icon"
-    class="dm-base-alert__icon dm-base-alert__icon--left"
-    size="20px"
-  )
   span(
     v-if="$slots.default && $slots.default[0].text.trim()"
-    class="dm-base-alert__slot"
+    class="dm-base-toast__slot"
   ): slot
 
   base-icon(
@@ -25,7 +19,7 @@ div(
     @click="onClose"
     @keypress="onTabKeypress"
     :clickable="true"
-    class="dm-base-alert__icon dm-base-alert__icon--right"
+    class="dm-base-toast__icon"
     name="close"
     size="20px"
     tabindex="0"
@@ -56,10 +50,6 @@ export default {
       validator(x) {
         return ["black", "blue", "green", "orange", "red", "white"].includes(x);
       }
-    },
-    icon: {
-      type: String,
-      default: null
     }
   },
 
@@ -90,13 +80,15 @@ export default {
 @import "assets/settings/_settings.colors.scss";
 
 // VARIABLES
-$c: ".dm-base-alert";
+$c: ".dm-base-toast";
 $colors: black, blue, green, red, orange, white;
 
 #{$c} {
   display: flex;
   align-items: center;
   padding: 14px 20px;
+  width: 200px;
+  border-radius: 3px;
   color: $white;
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
@@ -105,20 +97,13 @@ $colors: black, blue, green, red, orange, white;
 
   #{$c}__icon {
     flex: 0 0 auto;
+    margin-left: 20px;
+    outline: 0;
+    border-radius: 100%;
+    transition: all 200ms ease-in-out;
 
-    &--left {
-      margin-right: 20px;
-    }
-
-    &--right {
-      margin-left: 20px;
-      outline: 0;
-      border-radius: 100%;
-      transition: all 200ms ease-in-out;
-
-      &:focus {
-        transition: box-shadow ease-in-out 0s;
-      }
+    &:focus {
+      transition: box-shadow ease-in-out 0s;
     }
   }
 
@@ -138,7 +123,7 @@ $colors: black, blue, green, red, orange, white;
         color: $oxford-blue;
       }
 
-      #{$c}__icon--right {
+      #{$c}__icon {
         @if ($color == red) {
           &:hover {
             color: $oxford-blue !important;
@@ -156,7 +141,7 @@ $colors: black, blue, green, red, orange, white;
 
           &:focus {
             box-shadow: 0 0 0 2px map-get($mainColors, $color),
-              0 0 0 3px $crimson;
+              0 0 0 3px crimson;
             color: $crimson !important;
           }
         }
