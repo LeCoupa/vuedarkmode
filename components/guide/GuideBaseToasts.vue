@@ -17,7 +17,7 @@
         :color="color"
         class="c-guide-base-toasts__toast"
         icon="error_outline"
-      ) This is {{ color !== "orange" ? "a" : "an" }} {{ color }} toast you can customize as you wish.
+      ) {{ color !== "orange" ? "A" : "An" }} {{ color }} toast.
 
   div(
     v-else
@@ -163,7 +163,7 @@ $c: ".c-guide-base-toasts";
 #{$c} {
   #{$c}__showroom {
     grid-gap: 20px;
-    grid-template-columns: repeat(auto-fill, 100%);
+    grid-template-columns: repeat(3, 25%);
     margin-bottom: 0;
   }
 }
