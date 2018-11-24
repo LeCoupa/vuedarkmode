@@ -154,19 +154,16 @@ $c: ".dm-base-heading";
   // --> TAGS <--
 
   &--h1 {
-    margin-bottom: 4px;
     font-size: 26px;
     line-height: 36px;
   }
 
   &--h2 {
-    margin-bottom: 4px;
     font-size: 24px;
     line-height: 34px;
   }
 
   &--h3 {
-    margin-bottom: 4px;
     font-size: 22px;
     line-height: 32px;
   }
