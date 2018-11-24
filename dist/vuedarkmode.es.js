@@ -1,5 +1,5 @@
 /*!
- * vuedarkmode v0.2.9
+ * vuedarkmode v0.2.10
  * (c) 2018-present Team <team@vuedarkmode.com>
  * Released under the MIT License.
  */
@@ -1869,13 +1869,6 @@ var script$7 = {
         return ["grey", "white", "white2"].indexOf(x) !== -1;
       }
     },
-    fontWeight: {
-      type: String,
-      default: null,
-      validator: function validator(x) {
-        return ["thin", "light", "regular", "medium", "bold", "extrabold", "black"].indexOf(x) !== -1;
-      }
-    },
     tag: {
       type: String,
       required: true,
@@ -1886,6 +1879,13 @@ var script$7 = {
     uppercase: {
       type: Boolean,
       default: false
+    },
+    weight: {
+      type: String,
+      default: null,
+      validator: function validator(x) {
+        return ["thin", "light", "regular", "medium", "bold", "extrabold", "black"].indexOf(x) !== -1;
+      }
     }
   },
   computed: {
@@ -1904,9 +1904,9 @@ var script$7 = {
           return "white";
       }
     },
-    computedFontWeight: function computedFontWeight() {
+    computedWeight: function computedWeight() {
       // Directly return prop when defined
-      if (this.fontWeight) return this.fontWeight;
+      if (this.weight) return this.weight;
 
       switch (this.tag) {
         case "h1":
@@ -1936,7 +1936,7 @@ var __vue_render__$7 = function() {
       class: [
         "dm-base-heading",
         "dm-base-heading--" + _vm.computedColor,
-        "dm-base-heading--" + _vm.computedFontWeight,
+        "dm-base-heading--" + _vm.computedWeight,
         "dm-base-heading--" + _vm.tag,
         {
           "dm-base-heading--uppercase": _vm.uppercase
@@ -1953,7 +1953,7 @@ __vue_render__$7._withStripped = true;
   /* style */
   const __vue_inject_styles__$7 = function (inject) {
     if (!inject) return
-    inject("data-v-2695fa48_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-base-heading--grey {\n    color: #a9c7df;\n}\n.dm-base-heading--white {\n    color: #ffffff;\n}\n.dm-base-heading--white2 {\n    color: #fafbfc;\n}\n.dm-base-heading--thin {\n    font-weight: 100;\n}\n.dm-base-heading--light {\n    font-weight: 300;\n}\n.dm-base-heading--regular {\n    font-weight: 400;\n}\n.dm-base-heading--medium {\n    font-weight: 500;\n}\n.dm-base-heading--bold {\n    font-weight: 700;\n}\n.dm-base-heading--extrabold {\n    font-weight: 800;\n}\n.dm-base-heading--black {\n    font-weight: 900;\n}\n.dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px;\n}\n.dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px;\n}\n.dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px;\n}\n.dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px;\n}\n.dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px;\n}\n.dm-base-heading--uppercase {\n    text-transform: uppercase;\n}\n\n/*# sourceMappingURL=BaseHeading.vue.map */", map: {"version":3,"sources":["BaseHeading.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseHeading.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACsGhF;EACA,sFACA;CAmFA;AA/EA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAIA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAIA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAIA;IACA,0BAAA;CACA;;AD5IA,2CAA2C","file":"BaseHeading.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-base-heading--grey {\n    color: #a9c7df; }\n  .dm-base-heading--white {\n    color: #ffffff; }\n  .dm-base-heading--white2 {\n    color: #fafbfc; }\n  .dm-base-heading--thin {\n    font-weight: 100; }\n  .dm-base-heading--light {\n    font-weight: 300; }\n  .dm-base-heading--regular {\n    font-weight: 400; }\n  .dm-base-heading--medium {\n    font-weight: 500; }\n  .dm-base-heading--bold {\n    font-weight: 700; }\n  .dm-base-heading--extrabold {\n    font-weight: 800; }\n  .dm-base-heading--black {\n    font-weight: 900; }\n  .dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px; }\n  .dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px; }\n  .dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px; }\n  .dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px; }\n  .dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px; }\n  .dm-base-heading--uppercase {\n    text-transform: uppercase; }\n\n/*# sourceMappingURL=BaseHeading.vue.map */",null]}, media: undefined });
+    inject("data-v-76724589_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-base-heading--grey {\n    color: #a9c7df;\n}\n.dm-base-heading--white {\n    color: #ffffff;\n}\n.dm-base-heading--white2 {\n    color: #fafbfc;\n}\n.dm-base-heading--h1 {\n    font-size: 26px;\n    line-height: 36px;\n}\n.dm-base-heading--h2 {\n    font-size: 24px;\n    line-height: 34px;\n}\n.dm-base-heading--h3 {\n    font-size: 22px;\n    line-height: 32px;\n}\n.dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px;\n}\n.dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px;\n}\n.dm-base-heading--thin {\n    font-weight: 100;\n}\n.dm-base-heading--light {\n    font-weight: 300;\n}\n.dm-base-heading--regular {\n    font-weight: 400;\n}\n.dm-base-heading--medium {\n    font-weight: 500;\n}\n.dm-base-heading--bold {\n    font-weight: 700;\n}\n.dm-base-heading--extrabold {\n    font-weight: 800;\n}\n.dm-base-heading--black {\n    font-weight: 900;\n}\n.dm-base-heading--uppercase {\n    text-transform: uppercase;\n}\n\n/*# sourceMappingURL=BaseHeading.vue.map */", map: {"version":3,"sources":["BaseHeading.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseHeading.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACsGhF;EACA,sFACA;CAgFA;AA5EA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAIA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAIA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAIA;IACA,0BAAA;CACA;;AD5IA,2CAA2C","file":"BaseHeading.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-base-heading--grey {\n    color: #a9c7df; }\n  .dm-base-heading--white {\n    color: #ffffff; }\n  .dm-base-heading--white2 {\n    color: #fafbfc; }\n  .dm-base-heading--h1 {\n    font-size: 26px;\n    line-height: 36px; }\n  .dm-base-heading--h2 {\n    font-size: 24px;\n    line-height: 34px; }\n  .dm-base-heading--h3 {\n    font-size: 22px;\n    line-height: 32px; }\n  .dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px; }\n  .dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px; }\n  .dm-base-heading--thin {\n    font-weight: 100; }\n  .dm-base-heading--light {\n    font-weight: 300; }\n  .dm-base-heading--regular {\n    font-weight: 400; }\n  .dm-base-heading--medium {\n    font-weight: 500; }\n  .dm-base-heading--bold {\n    font-weight: 700; }\n  .dm-base-heading--extrabold {\n    font-weight: 800; }\n  .dm-base-heading--black {\n    font-weight: 900; }\n  .dm-base-heading--uppercase {\n    text-transform: uppercase; }\n\n/*# sourceMappingURL=BaseHeading.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
