@@ -11,7 +11,7 @@
     .c-guide-headings__row.c-guide-headings__row--header
       span.c-guide-headings__type Type
 
-      span.c-guide-headings__font-weight Font / Weight
+      span.c-guide-headings__font-weight Font Weight
 
       span.c-guide-headings__font-size Font Size
 
@@ -171,18 +171,6 @@ export default {
             }
           },
           {
-            name: "font-weight",
-            type: {
-              type: "String",
-              additional: "Default: null"
-            },
-            details: {
-              description: "Override default font-weight for the element.",
-              values:
-                '"thin" | "light" | "regular" | "medium" | "bold" | "extrabold" | "black"'
-            }
-          },
-          {
             name: "tag",
             type: {
               type: "String",
@@ -202,6 +190,18 @@ export default {
             details: {
               description:
                 "When set to true, the element content will be all uppercase."
+            }
+          },
+          {
+            name: "weight",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Override default font-weight for the element.",
+              values:
+                '"thin" | "light" | "regular" | "medium" | "bold" | "extrabold" | "black"'
             }
           }
         ]

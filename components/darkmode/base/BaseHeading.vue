@@ -7,7 +7,7 @@ div(
   :class=`[
     "dm-base-heading",
     "dm-base-heading--" + computedColor,
-    "dm-base-heading--" + computedFontWeight,
+    "dm-base-heading--" + computedWeight,
     "dm-base-heading--" + tag,
     {
       "dm-base-heading--uppercase": uppercase
@@ -30,7 +30,18 @@ export default {
         return ["grey", "white", "white2"].indexOf(x) !== -1;
       }
     },
-    fontWeight: {
+    tag: {
+      type: String,
+      required: true,
+      validator(x) {
+        return ["h1", "h2", "h3", "p", "small"].indexOf(x) !== -1;
+      }
+    },
+    uppercase: {
+      type: Boolean,
+      default: false
+    },
+    weight: {
       type: String,
       default: null,
       validator(x) {
@@ -46,17 +57,6 @@ export default {
           ].indexOf(x) !== -1
         );
       }
-    },
-    tag: {
-      type: String,
-      required: true,
-      validator(x) {
-        return ["h1", "h2", "h3", "p", "small"].indexOf(x) !== -1;
-      }
-    },
-    uppercase: {
-      type: Boolean,
-      default: false
     }
   },
 
@@ -75,9 +75,9 @@ export default {
       }
     },
 
-    computedFontWeight() {
+    computedWeight() {
       // Directly return prop when defined
-      if (this.fontWeight) return this.fontWeight;
+      if (this.weight) return this.weight;
 
       switch (this.tag) {
         case "h1":
@@ -121,36 +121,6 @@ $c: ".dm-base-heading";
     color: $athens-gray;
   }
 
-  // --> FONT-WEIGHT <--
-
-  &--thin {
-    font-weight: 100;
-  }
-
-  &--light {
-    font-weight: 300;
-  }
-
-  &--regular {
-    font-weight: 400;
-  }
-
-  &--medium {
-    font-weight: 500;
-  }
-
-  &--bold {
-    font-weight: 700;
-  }
-
-  &--extrabold {
-    font-weight: 800;
-  }
-
-  &--black {
-    font-weight: 900;
-  }
-
   // --> TAGS <--
 
   &--h1 {
@@ -178,6 +148,36 @@ $c: ".dm-base-heading";
     margin-bottom: 20px;
     font-size: 14px;
     line-height: 24px;
+  }
+
+  // --> WEIGHTS <--
+
+  &--thin {
+    font-weight: 100;
+  }
+
+  &--light {
+    font-weight: 300;
+  }
+
+  &--regular {
+    font-weight: 400;
+  }
+
+  &--medium {
+    font-weight: 500;
+  }
+
+  &--bold {
+    font-weight: 700;
+  }
+
+  &--extrabold {
+    font-weight: 800;
+  }
+
+  &--black {
+    font-weight: 900;
   }
 
   // --> BOOLEANS <--
