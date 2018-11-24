@@ -1,5 +1,5 @@
 /*!
- * vuedarkmode v0.2.8
+ * vuedarkmode v0.2.9
  * (c) 2018-present Team <team@vuedarkmode.com>
  * Released under the MIT License.
  */
@@ -1857,6 +1857,9 @@ __vue_render__$6._withStripped = true;
 //
 //
 //
+//
+//
+//
 var script$7 = {
   props: {
     color: {
@@ -1873,12 +1876,16 @@ var script$7 = {
         return ["thin", "light", "regular", "medium", "bold", "extrabold", "black"].indexOf(x) !== -1;
       }
     },
-    type: {
+    tag: {
       type: String,
       required: true,
       validator: function validator(x) {
         return ["h1", "h2", "h3", "p", "small"].indexOf(x) !== -1;
       }
+    },
+    uppercase: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -1886,7 +1893,7 @@ var script$7 = {
       // Directly return prop when defined
       if (this.color) return this.color;
 
-      switch (this.type) {
+      switch (this.tag) {
         case "h2":
           return "white2";
 
@@ -1901,7 +1908,7 @@ var script$7 = {
       // Directly return prop when defined
       if (this.fontWeight) return this.fontWeight;
 
-      switch (this.type) {
+      switch (this.tag) {
         case "h1":
           return "bold";
 
@@ -1930,7 +1937,10 @@ var __vue_render__$7 = function() {
         "dm-base-heading",
         "dm-base-heading--" + _vm.computedColor,
         "dm-base-heading--" + _vm.computedFontWeight,
-        "dm-base-heading--" + _vm.type
+        "dm-base-heading--" + _vm.tag,
+        {
+          "dm-base-heading--uppercase": _vm.uppercase
+        }
       ]
     },
     [_vm._t("default")],
@@ -1943,7 +1953,7 @@ __vue_render__$7._withStripped = true;
   /* style */
   const __vue_inject_styles__$7 = function (inject) {
     if (!inject) return
-    inject("data-v-5405c71e_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-base-heading--grey {\n    color: #a9c7df;\n}\n.dm-base-heading--white {\n    color: #ffffff;\n}\n.dm-base-heading--white2 {\n    color: #fafbfc;\n}\n.dm-base-heading--thin {\n    font-weight: 100;\n}\n.dm-base-heading--light {\n    font-weight: 300;\n}\n.dm-base-heading--regular {\n    font-weight: 400;\n}\n.dm-base-heading--medium {\n    font-weight: 500;\n}\n.dm-base-heading--bold {\n    font-weight: 700;\n}\n.dm-base-heading--extrabold {\n    font-weight: 800;\n}\n.dm-base-heading--black {\n    font-weight: 900;\n}\n.dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px;\n}\n.dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px;\n}\n.dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px;\n}\n.dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px;\n}\n.dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px;\n}\n\n/*# sourceMappingURL=BaseHeading.vue.map */", map: {"version":3,"sources":["BaseHeading.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseHeading.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;AC+FhF;EACA,sFACA;CA6EA;AAzEA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAIA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAIA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;;ADjIA,2CAA2C","file":"BaseHeading.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-base-heading--grey {\n    color: #a9c7df; }\n  .dm-base-heading--white {\n    color: #ffffff; }\n  .dm-base-heading--white2 {\n    color: #fafbfc; }\n  .dm-base-heading--thin {\n    font-weight: 100; }\n  .dm-base-heading--light {\n    font-weight: 300; }\n  .dm-base-heading--regular {\n    font-weight: 400; }\n  .dm-base-heading--medium {\n    font-weight: 500; }\n  .dm-base-heading--bold {\n    font-weight: 700; }\n  .dm-base-heading--extrabold {\n    font-weight: 800; }\n  .dm-base-heading--black {\n    font-weight: 900; }\n  .dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px; }\n  .dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px; }\n  .dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px; }\n  .dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px; }\n  .dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px; }\n\n/*# sourceMappingURL=BaseHeading.vue.map */",null]}, media: undefined });
+    inject("data-v-2695fa48_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif;\n}\n.dm-base-heading--grey {\n    color: #a9c7df;\n}\n.dm-base-heading--white {\n    color: #ffffff;\n}\n.dm-base-heading--white2 {\n    color: #fafbfc;\n}\n.dm-base-heading--thin {\n    font-weight: 100;\n}\n.dm-base-heading--light {\n    font-weight: 300;\n}\n.dm-base-heading--regular {\n    font-weight: 400;\n}\n.dm-base-heading--medium {\n    font-weight: 500;\n}\n.dm-base-heading--bold {\n    font-weight: 700;\n}\n.dm-base-heading--extrabold {\n    font-weight: 800;\n}\n.dm-base-heading--black {\n    font-weight: 900;\n}\n.dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px;\n}\n.dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px;\n}\n.dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px;\n}\n.dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px;\n}\n.dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px;\n}\n.dm-base-heading--uppercase {\n    text-transform: uppercase;\n}\n\n/*# sourceMappingURL=BaseHeading.vue.map */", map: {"version":3,"sources":["BaseHeading.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseHeading.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACsGhF;EACA,sFACA;CAmFA;AA/EA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAEA;IACA,eAAA;CACA;AAIA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAEA;IACA,iBAAA;CACA;AAIA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,mBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAEA;IACA,oBAAA;IACA,gBAAA;IACA,kBAAA;CACA;AAIA;IACA,0BAAA;CACA;;AD5IA,2CAA2C","file":"BaseHeading.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-heading {\n  font-family: \"Heebo\", \"Helvetica Neue\", Source Sans Pro, Helvetica, Arial, sans-serif; }\n  .dm-base-heading--grey {\n    color: #a9c7df; }\n  .dm-base-heading--white {\n    color: #ffffff; }\n  .dm-base-heading--white2 {\n    color: #fafbfc; }\n  .dm-base-heading--thin {\n    font-weight: 100; }\n  .dm-base-heading--light {\n    font-weight: 300; }\n  .dm-base-heading--regular {\n    font-weight: 400; }\n  .dm-base-heading--medium {\n    font-weight: 500; }\n  .dm-base-heading--bold {\n    font-weight: 700; }\n  .dm-base-heading--extrabold {\n    font-weight: 800; }\n  .dm-base-heading--black {\n    font-weight: 900; }\n  .dm-base-heading--h1 {\n    margin-bottom: 4px;\n    font-size: 26px;\n    line-height: 36px; }\n  .dm-base-heading--h2 {\n    margin-bottom: 4px;\n    font-size: 24px;\n    line-height: 34px; }\n  .dm-base-heading--h3 {\n    margin-bottom: 4px;\n    font-size: 22px;\n    line-height: 32px; }\n  .dm-base-heading--p {\n    margin-bottom: 20px;\n    font-size: 16px;\n    line-height: 28px; }\n  .dm-base-heading--small {\n    margin-bottom: 20px;\n    font-size: 14px;\n    line-height: 24px; }\n  .dm-base-heading--uppercase {\n    text-transform: uppercase; }\n\n/*# sourceMappingURL=BaseHeading.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -2143,7 +2153,7 @@ var __vue_render__$8 = function() {
       _vm.$slots.default && _vm.$slots.default[0].text.trim()
         ? _c(
             "base-heading",
-            { staticClass: "dm-base-list-item__content", attrs: { type: "p" } },
+            { staticClass: "dm-base-list-item__content", attrs: { tag: "p" } },
             [_vm._t("default")],
             2
           )
@@ -2158,7 +2168,7 @@ __vue_render__$8._withStripped = true;
   /* style */
   const __vue_inject_styles__$8 = function (inject) {
     if (!inject) return
-    inject("data-v-3c4790d2_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-list-item {\n  display: flex;\n  align-items: center;\n}\n.dm-base-list-item .dm-base-list-item__circle {\n    display: flex;\n    align-items: center;\n    flex: 0 0 auto;\n    justify-content: center;\n    box-sizing: border-box;\n    margin-right: 20px;\n    width: 40px;\n    height: 40px;\n    border-width: 3px;\n    border-style: solid;\n    border-radius: 100%;\n    box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n    font-size: 16px;\n    user-select: none;\n}\n.dm-base-list-item .dm-base-list-item__circle .dm-base-list-item__number {\n      font-weight: 800;\n}\n.dm-base-list-item .dm-base-list-item__content {\n    flex: 1;\n    margin-bottom: 0;\n    text-align: left;\n}\n.dm-base-list-item--black .dm-base-list-item__circle {\n    border-color: #323e4f;\n}\n.dm-base-list-item--blue .dm-base-list-item__circle {\n    border-color: #0194ef;\n}\n.dm-base-list-item--green .dm-base-list-item__circle {\n    border-color: #1bb934;\n}\n.dm-base-list-item--red .dm-base-list-item__circle {\n    border-color: #e1112c;\n}\n.dm-base-list-item--orange .dm-base-list-item__circle {\n    border-color: #ffb610;\n}\n.dm-base-list-item--white .dm-base-list-item__circle {\n    border-color: #ffffff;\n}\n\n/*# sourceMappingURL=BaseListItem.vue.map */", map: {"version":3,"sources":["BaseListItem.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseListItem.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACqFhF;EACA,cAAA;EACA,oBAAA;CAsCA;AAxCA;IAKA,cAAA;IACA,oBAAA;IACA,eAAA;IACA,wBAAA;IACA,uBAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,kBAAA;IACA,oBAAA;IACA,oBAAA;IACA,8CAAA;IACA,gBAAA;IACA,kBAAA;CAKA;AAvBA;MAqBA,iBAAA;CACA;AAtBA;IA0BA,QAAA;IACA,iBAAA;IACA,iBAAA;CACA;AAKA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;;ADpFA,4CAA4C","file":"BaseListItem.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-list-item {\n  display: flex;\n  align-items: center; }\n  .dm-base-list-item .dm-base-list-item__circle {\n    display: flex;\n    align-items: center;\n    flex: 0 0 auto;\n    justify-content: center;\n    box-sizing: border-box;\n    margin-right: 20px;\n    width: 40px;\n    height: 40px;\n    border-width: 3px;\n    border-style: solid;\n    border-radius: 100%;\n    box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n    font-size: 16px;\n    user-select: none; }\n    .dm-base-list-item .dm-base-list-item__circle .dm-base-list-item__number {\n      font-weight: 800; }\n  .dm-base-list-item .dm-base-list-item__content {\n    flex: 1;\n    margin-bottom: 0;\n    text-align: left; }\n  .dm-base-list-item--black .dm-base-list-item__circle {\n    border-color: #323e4f; }\n  .dm-base-list-item--blue .dm-base-list-item__circle {\n    border-color: #0194ef; }\n  .dm-base-list-item--green .dm-base-list-item__circle {\n    border-color: #1bb934; }\n  .dm-base-list-item--red .dm-base-list-item__circle {\n    border-color: #e1112c; }\n  .dm-base-list-item--orange .dm-base-list-item__circle {\n    border-color: #ffb610; }\n  .dm-base-list-item--white .dm-base-list-item__circle {\n    border-color: #ffffff; }\n\n/*# sourceMappingURL=BaseListItem.vue.map */",null]}, media: undefined });
+    inject("data-v-04242449_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-list-item {\n  display: flex;\n  align-items: center;\n}\n.dm-base-list-item .dm-base-list-item__circle {\n    display: flex;\n    align-items: center;\n    flex: 0 0 auto;\n    justify-content: center;\n    box-sizing: border-box;\n    margin-right: 20px;\n    width: 40px;\n    height: 40px;\n    border-width: 3px;\n    border-style: solid;\n    border-radius: 100%;\n    box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n    font-size: 16px;\n    user-select: none;\n}\n.dm-base-list-item .dm-base-list-item__circle .dm-base-list-item__number {\n      font-weight: 800;\n}\n.dm-base-list-item .dm-base-list-item__content {\n    flex: 1;\n    margin-bottom: 0;\n    text-align: left;\n}\n.dm-base-list-item--black .dm-base-list-item__circle {\n    border-color: #323e4f;\n}\n.dm-base-list-item--blue .dm-base-list-item__circle {\n    border-color: #0194ef;\n}\n.dm-base-list-item--green .dm-base-list-item__circle {\n    border-color: #1bb934;\n}\n.dm-base-list-item--red .dm-base-list-item__circle {\n    border-color: #e1112c;\n}\n.dm-base-list-item--orange .dm-base-list-item__circle {\n    border-color: #ffb610;\n}\n.dm-base-list-item--white .dm-base-list-item__circle {\n    border-color: #ffffff;\n}\n\n/*# sourceMappingURL=BaseListItem.vue.map */", map: {"version":3,"sources":["BaseListItem.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseListItem.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACqFhF;EACA,cAAA;EACA,oBAAA;CAsCA;AAxCA;IAKA,cAAA;IACA,oBAAA;IACA,eAAA;IACA,wBAAA;IACA,uBAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,kBAAA;IACA,oBAAA;IACA,oBAAA;IACA,8CAAA;IACA,gBAAA;IACA,kBAAA;CAKA;AAvBA;MAqBA,iBAAA;CACA;AAtBA;IA0BA,QAAA;IACA,iBAAA;IACA,iBAAA;CACA;AAKA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;;ADpFA,4CAA4C","file":"BaseListItem.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-list-item {\n  display: flex;\n  align-items: center; }\n  .dm-base-list-item .dm-base-list-item__circle {\n    display: flex;\n    align-items: center;\n    flex: 0 0 auto;\n    justify-content: center;\n    box-sizing: border-box;\n    margin-right: 20px;\n    width: 40px;\n    height: 40px;\n    border-width: 3px;\n    border-style: solid;\n    border-radius: 100%;\n    box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n    font-size: 16px;\n    user-select: none; }\n    .dm-base-list-item .dm-base-list-item__circle .dm-base-list-item__number {\n      font-weight: 800; }\n  .dm-base-list-item .dm-base-list-item__content {\n    flex: 1;\n    margin-bottom: 0;\n    text-align: left; }\n  .dm-base-list-item--black .dm-base-list-item__circle {\n    border-color: #323e4f; }\n  .dm-base-list-item--blue .dm-base-list-item__circle {\n    border-color: #0194ef; }\n  .dm-base-list-item--green .dm-base-list-item__circle {\n    border-color: #1bb934; }\n  .dm-base-list-item--red .dm-base-list-item__circle {\n    border-color: #e1112c; }\n  .dm-base-list-item--orange .dm-base-list-item__circle {\n    border-color: #ffb610; }\n  .dm-base-list-item--white .dm-base-list-item__circle {\n    border-color: #ffffff; }\n\n/*# sourceMappingURL=BaseListItem.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
