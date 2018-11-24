@@ -19,8 +19,8 @@ header.c-the-header
 
   base-heading(
     color="grey"
-    fontWeight="regular"
     tag="h2"
+    weight="regular"
   ) Based components designed for the insomniacs who enjoy dark interfaces as much as we do.
 
   the-github-buttons(
