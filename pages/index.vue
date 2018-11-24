@@ -12,7 +12,9 @@
     :key="section.id"
     class="c-index__section"
   )
-    base-divider
+    base-divider(
+      class="c-index__divider"
+    )
 
     common-headlines(
       @toggleDocumentation="onToggleDocumentation"
@@ -110,7 +112,10 @@
       v-if="section.id === 'fieldToggle'"
       :documentation="docs.fieldToggle"
     )
-  base-divider
+
+  base-divider(
+    class="c-index__divider"
+  )
 
   the-footer
 </template>
@@ -404,11 +409,9 @@ export default {
 $c: ".c-index";
 
 #{$c} {
-  #{$c}__form {
-    input::placeholder,
-    textarea::placeholder {
-      text-transform: capitalize;
-    }
+  #{$c}__divider {
+    margin: 50px auto;
+    max-width: 800px;
   }
 }
 </style>
