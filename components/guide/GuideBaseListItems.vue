@@ -104,7 +104,7 @@ export default {
               additional: 'Default: "blue"'
             },
             details: {
-              description: "Set the alert color.",
+              description: "Set the circle color.",
               values: '"black" | "blue" | "green" | "orange" | "red" | "white"'
             }
           },
