@@ -11,7 +11,6 @@ header.c-the-header
     color="blue"
     size="small"
   )
-
   base-heading(
     :uppercase="true"
     tag="h1"

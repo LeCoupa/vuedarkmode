@@ -9,7 +9,12 @@ div(
     "dm-base-list-item--" + color
   ]`
 )
-  span.dm-base-list-item__circle
+  span(
+    :style=`{
+      backgroundImage: "url(" + image + ")"
+    }`
+    class="dm-base-list-item__circle"
+  )
     base-icon(
       v-if="icon"
       :color="iconColor"
@@ -66,6 +71,10 @@ export default {
       type: String,
       default: "22px"
     },
+    image: {
+      type: String,
+      default: null
+    },
     number: {
       type: Number,
       default: null
@@ -102,6 +111,7 @@ $colors: black, blue, green, red, orange, white;
     border-width: 3px;
     border-style: solid;
     border-radius: 100%;
+    background-size: cover;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
     font-size: 16px;
     user-select: none;

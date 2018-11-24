@@ -15,8 +15,9 @@
     )
       base-list-item(
         :color="color"
-        :icon="i >= 3 ? listItems.icons[i - 3] : null"
+        :icon="i >= 3 & i < 6 ? listItems.icons[i - 3] : null"
         :icon-size="i >= 3 ? listItems.iconsSizes[i - 3] : null"
+        :image="i >= 6 ? listItems.images[i - 6] : null"
         :number="i < 3 ? i + 1 : null"
         class="c-guide-base-list-items__list-item"
       ) {{ listItems.content[i] }}
@@ -66,17 +67,35 @@ export default {
   data() {
     return {
       listItems: {
-        colors: ["blue", "green", "red", "orange", "black", "white"],
+        colors: [
+          "blue",
+          "green",
+          "red",
+          "orange",
+          "black",
+          "white",
+          "white",
+          "white",
+          "white"
+        ],
         content: [
           "Don’t diversify yourself in too many channels; it’s like a death sentence. You should be focusing on the single and most efficient one.",
           "What a lot of people miss is that the entire onboarding and activation experience is to get somebody from the point where they might hear about the product for the first time (marketing is your best friend) to the point on which they are trained and actually have the product to become a habit.",
           "Advertising is fundamentally a business model competition. It is you, competing with the other companies, to figure out who can afford to pay the most for the attention of this specific user.",
           "If you are not tracking your data and not trying to figure out what makes people sign up, use your product, come back, and leave…it is going to be hard to grow.",
           "Don’t take advice from people who do not ask a lot of questions. Good advice comes only when a person puts forth the effort to understand what your business is and the problems it may have.",
-          "There is a big difference between traction and growth. You must know what phase you are in. There is a time for traction and there is a time for growth."
+          "There is a big difference between traction and growth. You must know what phase you are in. There is a time for traction and there is a time for growth.",
+          "To create a company that’s building for the long term, you have to dedicate five, ten, maybe even 20 years, who knows? A business is a collection of people working toward something. That’s your culture.",
+          "During Y combinator, there are only two things that really matter: writing code (building the product) and talking to your users.",
+          "Do not make the mistake of having a broad audience at the beginning. You have to start small and be very specific to develop your early user base."
         ],
         icons: ["star_border", "done", "thumb_up"],
-        iconsSizes: ["22px", "22px", "18px"]
+        iconsSizes: ["22px", "22px", "18px"],
+        images: [
+          "/images/docs/nyt.jpg",
+          "/images/docs/cnn.jpg",
+          "/images/docs/wp.jpg"
+        ]
       },
       props: {
         fields: [
@@ -136,6 +155,16 @@ export default {
             },
             details: {
               description: "Set the icon size."
+            }
+          },
+          {
+            name: "image",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Add an image inside the circle."
             }
           },
           {
