@@ -10,6 +10,7 @@ import BaseButton from "./components/darkmode/base/BaseButton.vue";
 import BaseDivider from "./components/darkmode/base/BaseDivider.vue";
 import BaseHeading from "./components/darkmode/base/BaseHeading.vue";
 import BaseIcon from "./components/darkmode/base/BaseIcon.vue";
+import BaseListItem from "./components/darkmode/base/BaseListItem.vue";
 import BaseProgressBar from "./components/darkmode/base/BaseProgressBar.vue";
 import BaseSocialLogin from "./components/darkmode/base/BaseSocialLogin.vue";
 import BaseSpinner from "./components/darkmode/base/BaseSpinner.vue";
@@ -42,6 +43,7 @@ function install(Vue, options) {
     divider: BaseDivider,
     heading: BaseHeading,
     icon: BaseIcon,
+    "list-item": BaseListItem,
     "progress-bar": BaseProgressBar,
     "social-login": BaseSocialLogin,
     spinner: BaseSpinner,
