@@ -6,6 +6,7 @@
 .c-common-headlines
   base-heading(
     class="c-common-headlines__title"
+    :uppercase="true"
     tag="h2"
   ) {{ title }}
 

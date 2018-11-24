@@ -192,6 +192,17 @@ export default {
               description: "The element tag used for the heading.",
               values: '"h1" | "h2" | "h3" | "p" | "small"'
             }
+          },
+          {
+            name: "uppercase",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description:
+                "When set to true, the element content will be all uppercase."
+            }
           }
         ]
       }

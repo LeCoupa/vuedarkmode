@@ -8,7 +8,10 @@ div(
     "dm-base-heading",
     "dm-base-heading--" + computedColor,
     "dm-base-heading--" + computedFontWeight,
-    "dm-base-heading--" + tag
+    "dm-base-heading--" + tag,
+    {
+      "dm-base-heading--uppercase": uppercase
+    }
   ]`
 ): slot
 </template>
@@ -50,6 +53,10 @@ export default {
       validator(x) {
         return ["h1", "h2", "h3", "p", "small"].indexOf(x) !== -1;
       }
+    },
+    uppercase: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -174,6 +181,12 @@ $c: ".dm-base-heading";
     margin-bottom: 20px;
     font-size: 14px;
     line-height: 24px;
+  }
+
+  // --> BOOLEANS <--
+
+  &--uppercase {
+    text-transform: uppercase;
   }
 }
 </style>

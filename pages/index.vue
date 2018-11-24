@@ -218,7 +218,7 @@ export default {
         {
           id: "installation",
           headlines: {
-            title: "INSTALLATION",
+            title: "Installation",
             description: "The dark side is calling you... Come and join us! 👻",
             hasDocumentation: false
           }
@@ -226,7 +226,7 @@ export default {
         {
           id: "packageOptions",
           headlines: {
-            title: "PACKAGE OPTIONS",
+            title: "Package Options",
             description:
               "Here are some options you can set to customize the plugin. 🍸",
             hasDocumentation: false
@@ -235,7 +235,7 @@ export default {
         {
           id: "colors",
           headlines: {
-            title: "COLORS",
+            title: "Colors",
             description:
               "All our components are baked using only these colors. No added sugar. 🤞",
             hasDocumentation: false
@@ -244,140 +244,140 @@ export default {
         {
           id: "baseAlert",
           headlines: {
-            title: "ALERTS",
+            title: "Alerts",
             hasDocumentation: true
           }
         },
         {
           id: "baseAvatar",
           headlines: {
-            title: "AVATARS",
+            title: "Avatars",
             hasDocumentation: true
           }
         },
         {
           id: "baseBadge",
           headlines: {
-            title: "BADGES",
+            title: "Badges",
             hasDocumentation: true
           }
         },
         {
           id: "baseButton",
           headlines: {
-            title: "BUTTONS",
+            title: "Buttons",
             hasDocumentation: true
           }
         },
         {
           id: "baseDivider",
           headlines: {
-            title: "DIVIDERS",
+            title: "Dividers",
             hasDocumentation: true
           }
         },
         {
           id: "baseHeading",
           headlines: {
-            title: "HEADINGS",
+            title: "Headings",
             hasDocumentation: true
           }
         },
         {
           id: "baseIcon",
           headlines: {
-            title: "ICONS FROM MATERIAL DESIGN",
+            title: "Icons from Material Design",
             hasDocumentation: true
           }
         },
         {
           id: "baseListItem",
           headlines: {
-            title: "LIST ITEMS",
+            title: "List Items",
             hasDocumentation: true
           }
         },
         {
           id: "baseProgressBar",
           headlines: {
-            title: "PROGRESS BARS",
+            title: "Progress Bars",
             hasDocumentation: true
           }
         },
         {
           id: "baseSocialLogin",
           headlines: {
-            title: "SOCIAL LOGINS",
+            title: "Social Logins",
             hasDocumentation: true
           }
         },
         {
           id: "baseSpinner",
           headlines: {
-            title: "SPINNERS",
+            title: "Spinners",
             hasDocumentation: true
           }
         },
         {
           id: "baseToast",
           headlines: {
-            title: "TOASTS",
+            title: "Toasts",
             hasDocumentation: true
           }
         },
         {
           id: "fieldCheckbox",
           headlines: {
-            title: "CHECKBOXES",
+            title: "Checkboxes",
             hasDocumentation: true
           }
         },
         {
           id: "fieldFile",
           headlines: {
-            title: "FILE UPLOAD",
+            title: "File Upload",
             hasDocumentation: true
           }
         },
         {
           id: "fieldInput",
           headlines: {
-            title: "INPUTS",
+            title: "Inputs",
             hasDocumentation: true
           }
         },
         {
           id: "fieldRadio",
           headlines: {
-            title: "RADIOS",
+            title: "Radios",
             hasDocumentation: true
           }
         },
         {
           id: "fieldSelect",
           headlines: {
-            title: "SELECTS",
+            title: "Selects",
             hasDocumentation: true
           }
         },
         {
           id: "fieldTabs",
           headlines: {
-            title: "TABS",
+            title: "Tabs",
             hasDocumentation: true
           }
         },
         {
           id: "fieldTextarea",
           headlines: {
-            title: "TEXTAREAS",
+            title: "Textareas",
             hasDocumentation: true
           }
         },
         {
           id: "fieldToggle",
           headlines: {
-            title: "TOGGLES",
+            title: "Toggles",
             hasDocumentation: true
           }
         }
