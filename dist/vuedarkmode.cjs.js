@@ -1,5 +1,5 @@
 /*!
- * vuedarkmode v0.2.11
+ * vuedarkmode v0.2.12
  * (c) 2018-present Team <team@vuedarkmode.com>
  * Released under the MIT License.
  */
@@ -49,7 +49,7 @@ var script = {
     },
     color: {
       type: String,
-      default: "inherit"
+      default: null
     },
     id: {
       type: String,
@@ -154,7 +154,7 @@ __vue_render__._withStripped = true;
   /* style */
   const __vue_inject_styles__ = function (inject) {
     if (!inject) return
-    inject("data-v-4966a286_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-icon {\n  display: inline-block;\n  outline: 0;\n  border-radius: 2px;\n  color: inherit;\n  text-transform: none;\n  text-rendering: optimizeLegibility;\n  white-space: nowrap;\n  word-wrap: normal;\n  letter-spacing: normal;\n  font-weight: normal;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  font-feature-settings: \"liga\";\n  line-height: 1;\n  direction: ltr;\n  user-select: none;\n  -webkit-font-smoothing: antialiased;\n}\n.dm-base-icon--clickable {\n    cursor: pointer;\n}\n.dm-base-icon--clickable:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s;\n}\n@font-face {\n  font-weight: 400;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  src: url(\"https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2\") format(\"woff2\");\n}\n\n/*# sourceMappingURL=BaseIcon.vue.map */", map: {"version":3,"sources":["BaseIcon.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseIcon.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACyHhF;EACA,sBAAA;EACA,WAAA;EACA,mBAAA;EACA,eAAA;EACA,qBAAA;EACA,mCAAA;EACA,oBAAA;EACA,kBAAA;EACA,uBAAA;EACA,oBAAA;EACA,mBAAA;EACA,8BAAA;EACA,8BAAA;EACA,eAAA;EACA,eAAA;EACA,kBAAA;EAEA,oCAAA;CAYA;AARA;IACA,gBAAA;CAMA;AAPA;MAIA,iDAAA;MACA,sCAAA;CACA;AAIA;EACA,iBAAA;EACA,mBAAA;EACA,8BAAA;EACA,mHACA;CAAA;;AD/HA,wCAAwC","file":"BaseIcon.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-icon {\n  display: inline-block;\n  outline: 0;\n  border-radius: 2px;\n  color: inherit;\n  text-transform: none;\n  text-rendering: optimizeLegibility;\n  white-space: nowrap;\n  word-wrap: normal;\n  letter-spacing: normal;\n  font-weight: normal;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  font-feature-settings: \"liga\";\n  line-height: 1;\n  direction: ltr;\n  user-select: none;\n  -webkit-font-smoothing: antialiased; }\n  .dm-base-icon--clickable {\n    cursor: pointer; }\n    .dm-base-icon--clickable:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s; }\n\n@font-face {\n  font-weight: 400;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  src: url(\"https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2\") format(\"woff2\"); }\n\n/*# sourceMappingURL=BaseIcon.vue.map */",null]}, media: undefined });
+    inject("data-v-ee23e334_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-icon {\n  display: inline-block;\n  outline: 0;\n  border-radius: 2px;\n  color: inherit;\n  text-transform: none;\n  text-rendering: optimizeLegibility;\n  white-space: nowrap;\n  word-wrap: normal;\n  letter-spacing: normal;\n  font-weight: normal;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  font-feature-settings: \"liga\";\n  line-height: 1;\n  direction: ltr;\n  user-select: none;\n  -webkit-font-smoothing: antialiased;\n}\n.dm-base-icon--clickable {\n    cursor: pointer;\n}\n.dm-base-icon--clickable:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s;\n}\n@font-face {\n  font-weight: 400;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  src: url(\"https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2\") format(\"woff2\");\n}\n\n/*# sourceMappingURL=BaseIcon.vue.map */", map: {"version":3,"sources":["BaseIcon.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseIcon.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACyHhF;EACA,sBAAA;EACA,WAAA;EACA,mBAAA;EACA,eAAA;EACA,qBAAA;EACA,mCAAA;EACA,oBAAA;EACA,kBAAA;EACA,uBAAA;EACA,oBAAA;EACA,mBAAA;EACA,8BAAA;EACA,8BAAA;EACA,eAAA;EACA,eAAA;EACA,kBAAA;EAEA,oCAAA;CAYA;AARA;IACA,gBAAA;CAMA;AAPA;MAIA,iDAAA;MACA,sCAAA;CACA;AAIA;EACA,iBAAA;EACA,mBAAA;EACA,8BAAA;EACA,mHACA;CAAA;;AD/HA,wCAAwC","file":"BaseIcon.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-icon {\n  display: inline-block;\n  outline: 0;\n  border-radius: 2px;\n  color: inherit;\n  text-transform: none;\n  text-rendering: optimizeLegibility;\n  white-space: nowrap;\n  word-wrap: normal;\n  letter-spacing: normal;\n  font-weight: normal;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  font-feature-settings: \"liga\";\n  line-height: 1;\n  direction: ltr;\n  user-select: none;\n  -webkit-font-smoothing: antialiased; }\n  .dm-base-icon--clickable {\n    cursor: pointer; }\n    .dm-base-icon--clickable:focus {\n      box-shadow: 0 0 0 2px #1c2532, 0 0 0 3px #0194ef;\n      transition: box-shadow ease-in-out 0s; }\n\n@font-face {\n  font-weight: 400;\n  font-style: normal;\n  font-family: \"Material Icons\";\n  src: url(\"https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2\") format(\"woff2\"); }\n\n/*# sourceMappingURL=BaseIcon.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
@@ -2109,8 +2109,16 @@ var script$8 = {
       type: String,
       default: "22px"
     },
+    image: {
+      type: String,
+      default: null
+    },
     number: {
       type: Number,
+      default: null
+    },
+    source: {
+      type: Object,
       default: null
     }
   }
@@ -2131,37 +2139,72 @@ var __vue_render__$8 = function() {
     },
     [
       _c(
-        "span",
-        { staticClass: "dm-base-list-item__circle" },
+        "div",
+        { staticClass: "dm-base-list-item__container" },
         [
-          _vm.icon
-            ? _c("base-icon", {
-                staticClass: "dm-base-list-item__icon",
-                attrs: {
-                  color: _vm.iconColor,
-                  name: _vm.icon,
-                  size: _vm.iconSize
-                }
-              })
-            : _vm._e(),
-          _vm.number
-            ? _c("span", { staticClass: "dm-base-list-item__number" }, [
-                _vm._v(_vm._s(_vm.number))
-              ])
+          _c(
+            "span",
+            {
+              staticClass: "dm-base-list-item__circle",
+              style: {
+                backgroundImage: "url(" + _vm.image + ")"
+              }
+            },
+            [
+              _vm.icon
+                ? _c("base-icon", {
+                    staticClass: "dm-base-list-item__icon",
+                    attrs: {
+                      color: _vm.iconColor,
+                      name: _vm.icon,
+                      size: _vm.iconSize
+                    }
+                  })
+                : _vm._e(),
+              _vm.number
+                ? _c("span", { staticClass: "dm-base-list-item__number" }, [
+                    _vm._v(_vm._s(_vm.number))
+                  ])
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm.$slots.default && _vm.$slots.default[0].text.trim()
+            ? _c(
+                "base-heading",
+                {
+                  staticClass: "dm-base-list-item__content",
+                  attrs: { tag: "p" }
+                },
+                [_vm._t("default")],
+                2
+              )
             : _vm._e()
         ],
         1
       ),
-      _vm.$slots.default && _vm.$slots.default[0].text.trim()
+      _vm.source
         ? _c(
-            "base-heading",
-            { staticClass: "dm-base-list-item__content", attrs: { tag: "p" } },
-            [_vm._t("default")],
-            2
+            "div",
+            { staticClass: "dm-base-list-item__source" },
+            [
+              _c("base-icon", {
+                staticClass: "dm-base-list-item__icon",
+                attrs: { name: "link", size: "20px" }
+              }),
+              _c(
+                "a",
+                {
+                  staticClass: "dm-base-list-item__label",
+                  attrs: { href: _vm.source.link, target: "_blank" }
+                },
+                [_vm._v(_vm._s(_vm.source.label))]
+              )
+            ],
+            1
           )
         : _vm._e()
-    ],
-    1
+    ]
   )
 };
 var __vue_staticRenderFns__$8 = [];
@@ -2170,7 +2213,7 @@ __vue_render__$8._withStripped = true;
   /* style */
   const __vue_inject_styles__$8 = function (inject) {
     if (!inject) return
-    inject("data-v-04242449_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-list-item {\n  display: flex;\n  align-items: center;\n}\n.dm-base-list-item .dm-base-list-item__circle {\n    display: flex;\n    align-items: center;\n    flex: 0 0 auto;\n    justify-content: center;\n    box-sizing: border-box;\n    margin-right: 20px;\n    width: 40px;\n    height: 40px;\n    border-width: 3px;\n    border-style: solid;\n    border-radius: 100%;\n    box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n    font-size: 16px;\n    user-select: none;\n}\n.dm-base-list-item .dm-base-list-item__circle .dm-base-list-item__number {\n      font-weight: 800;\n}\n.dm-base-list-item .dm-base-list-item__content {\n    flex: 1;\n    margin-bottom: 0;\n    text-align: left;\n}\n.dm-base-list-item--black .dm-base-list-item__circle {\n    border-color: #323e4f;\n}\n.dm-base-list-item--blue .dm-base-list-item__circle {\n    border-color: #0194ef;\n}\n.dm-base-list-item--green .dm-base-list-item__circle {\n    border-color: #1bb934;\n}\n.dm-base-list-item--red .dm-base-list-item__circle {\n    border-color: #e1112c;\n}\n.dm-base-list-item--orange .dm-base-list-item__circle {\n    border-color: #ffb610;\n}\n.dm-base-list-item--white .dm-base-list-item__circle {\n    border-color: #ffffff;\n}\n\n/*# sourceMappingURL=BaseListItem.vue.map */", map: {"version":3,"sources":["BaseListItem.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseListItem.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACqFhF;EACA,cAAA;EACA,oBAAA;CAsCA;AAxCA;IAKA,cAAA;IACA,oBAAA;IACA,eAAA;IACA,wBAAA;IACA,uBAAA;IACA,mBAAA;IACA,YAAA;IACA,aAAA;IACA,kBAAA;IACA,oBAAA;IACA,oBAAA;IACA,8CAAA;IACA,gBAAA;IACA,kBAAA;CAKA;AAvBA;MAqBA,iBAAA;CACA;AAtBA;IA0BA,QAAA;IACA,iBAAA;IACA,iBAAA;CACA;AAKA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;AAHA;IAEA,sBAAA;CACA;;ADpFA,4CAA4C","file":"BaseListItem.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-list-item {\n  display: flex;\n  align-items: center; }\n  .dm-base-list-item .dm-base-list-item__circle {\n    display: flex;\n    align-items: center;\n    flex: 0 0 auto;\n    justify-content: center;\n    box-sizing: border-box;\n    margin-right: 20px;\n    width: 40px;\n    height: 40px;\n    border-width: 3px;\n    border-style: solid;\n    border-radius: 100%;\n    box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n    font-size: 16px;\n    user-select: none; }\n    .dm-base-list-item .dm-base-list-item__circle .dm-base-list-item__number {\n      font-weight: 800; }\n  .dm-base-list-item .dm-base-list-item__content {\n    flex: 1;\n    margin-bottom: 0;\n    text-align: left; }\n  .dm-base-list-item--black .dm-base-list-item__circle {\n    border-color: #323e4f; }\n  .dm-base-list-item--blue .dm-base-list-item__circle {\n    border-color: #0194ef; }\n  .dm-base-list-item--green .dm-base-list-item__circle {\n    border-color: #1bb934; }\n  .dm-base-list-item--red .dm-base-list-item__circle {\n    border-color: #e1112c; }\n  .dm-base-list-item--orange .dm-base-list-item__circle {\n    border-color: #ffb610; }\n  .dm-base-list-item--white .dm-base-list-item__circle {\n    border-color: #ffffff; }\n\n/*# sourceMappingURL=BaseListItem.vue.map */",null]}, media: undefined });
+    inject("data-v-17a3ba8a_0", { source: "/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-list-item {\n  text-align: left;\n}\n.dm-base-list-item .dm-base-list-item__container {\n    display: flex;\n    align-items: center;\n}\n.dm-base-list-item .dm-base-list-item__container .dm-base-list-item__circle {\n      display: flex;\n      align-items: center;\n      flex: 0 0 auto;\n      justify-content: center;\n      box-sizing: border-box;\n      margin-right: 20px;\n      width: 40px;\n      height: 40px;\n      border-width: 3px;\n      border-style: solid;\n      border-radius: 100%;\n      background-size: cover;\n      box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n      font-size: 16px;\n      user-select: none;\n}\n.dm-base-list-item .dm-base-list-item__container .dm-base-list-item__circle .dm-base-list-item__number {\n        font-weight: 800;\n}\n.dm-base-list-item .dm-base-list-item__container .dm-base-list-item__content {\n      flex: 1;\n      margin-bottom: 0;\n      color: #ffffff;\n}\n.dm-base-list-item .dm-base-list-item__source {\n    display: flex;\n    align-items: center;\n    margin-top: 8px;\n    padding-left: 60px;\n}\n.dm-base-list-item .dm-base-list-item__source .dm-base-list-item__icon {\n      flex: 0 0 auto;\n      margin-right: 6px;\n}\n.dm-base-list-item .dm-base-list-item__source .dm-base-list-item__label {\n      flex: 1;\n      color: #a9c7df;\n      text-decoration: underline;\n      font-weight: 400;\n      transition: all 250ms ease-in-out;\n}\n.dm-base-list-item .dm-base-list-item__source .dm-base-list-item__label:focus {\n        box-shadow: none;\n        color: #ffffff;\n}\n.dm-base-list-item--black .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #323e4f;\n}\n.dm-base-list-item--blue .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #0194ef;\n}\n.dm-base-list-item--green .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #1bb934;\n}\n.dm-base-list-item--red .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #e1112c;\n}\n.dm-base-list-item--orange .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #ffb610;\n}\n.dm-base-list-item--white .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #ffffff;\n}\n\n/*# sourceMappingURL=BaseListItem.vue.map */", map: {"version":3,"sources":["BaseListItem.vue","/Users/julien/Documents/GrowthBunker/growthbunker-darkmode/components/darkmode/base/BaseListItem.vue"],"names":[],"mappings":"AAAA;;;gFAGgF;ACkHhF;EACA,iBAAA;CAuEA;AAxEA;IAIA,cAAA;IACA,oBAAA;CA6BA;AAlCA;MAQA,cAAA;MACA,oBAAA;MACA,eAAA;MACA,wBAAA;MACA,uBAAA;MACA,mBAAA;MACA,YAAA;MACA,aAAA;MACA,kBAAA;MACA,oBAAA;MACA,oBAAA;MACA,uBAAA;MACA,8CAAA;MACA,gBAAA;MACA,kBAAA;CAKA;AA3BA;QAyBA,iBAAA;CACA;AA1BA;MA8BA,QAAA;MACA,iBAAA;MACA,eAAA;CACA;AAjCA;IAqCA,cAAA;IACA,oBAAA;IACA,gBAAA;IACA,mBAAA;CAmBA;AA3DA;MA2CA,eAAA;MACA,kBAAA;CACA;AA7CA;MAgDA,QAAA;MACA,eAAA;MACA,2BAAA;MACA,iBAAA;MACA,kCAAA;CAMA;AA1DA;QAuDA,iBAAA;QACA,eAAA;CACA;AAOA;IAGA,sBAAA;CACA;AAJA;IAGA,sBAAA;CACA;AAJA;IAGA,sBAAA;CACA;AAJA;IAGA,sBAAA;CACA;AAJA;IAGA,sBAAA;CACA;AAJA;IAGA,sBAAA;CACA;;AD5HA,4CAA4C","file":"BaseListItem.vue","sourcesContent":["/* **************************************************************************\n   SETTINGS > COLORS\n   To get the color name: http://veli.ee/colorpedia/?c=354052\n   ************************************************************************** */\n.dm-base-list-item {\n  text-align: left; }\n  .dm-base-list-item .dm-base-list-item__container {\n    display: flex;\n    align-items: center; }\n    .dm-base-list-item .dm-base-list-item__container .dm-base-list-item__circle {\n      display: flex;\n      align-items: center;\n      flex: 0 0 auto;\n      justify-content: center;\n      box-sizing: border-box;\n      margin-right: 20px;\n      width: 40px;\n      height: 40px;\n      border-width: 3px;\n      border-style: solid;\n      border-radius: 100%;\n      background-size: cover;\n      box-shadow: 0 1px 5px 0 rgba(24, 25, 26, 0.6);\n      font-size: 16px;\n      user-select: none; }\n      .dm-base-list-item .dm-base-list-item__container .dm-base-list-item__circle .dm-base-list-item__number {\n        font-weight: 800; }\n    .dm-base-list-item .dm-base-list-item__container .dm-base-list-item__content {\n      flex: 1;\n      margin-bottom: 0;\n      color: #ffffff; }\n  .dm-base-list-item .dm-base-list-item__source {\n    display: flex;\n    align-items: center;\n    margin-top: 8px;\n    padding-left: 60px; }\n    .dm-base-list-item .dm-base-list-item__source .dm-base-list-item__icon {\n      flex: 0 0 auto;\n      margin-right: 6px; }\n    .dm-base-list-item .dm-base-list-item__source .dm-base-list-item__label {\n      flex: 1;\n      color: #a9c7df;\n      text-decoration: underline;\n      font-weight: 400;\n      transition: all 250ms ease-in-out; }\n      .dm-base-list-item .dm-base-list-item__source .dm-base-list-item__label:focus {\n        box-shadow: none;\n        color: #ffffff; }\n  .dm-base-list-item--black .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #323e4f; }\n  .dm-base-list-item--blue .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #0194ef; }\n  .dm-base-list-item--green .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #1bb934; }\n  .dm-base-list-item--red .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #e1112c; }\n  .dm-base-list-item--orange .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #ffb610; }\n  .dm-base-list-item--white .dm-base-list-item__container .dm-base-list-item__circle {\n    border-color: #ffffff; }\n\n/*# sourceMappingURL=BaseListItem.vue.map */",null]}, media: undefined });
 
   };
   /* scoped */
