@@ -17,7 +17,7 @@
 
       span.c-guide-headings__line-height Line-Height
 
-      span.c-guide-headings__normal-hover Normal
+      span.c-guide-headings__color Color
 
     .c-guide-headings__row.c-guide-headings__row--body
       span.c-guide-headings__type
@@ -29,9 +29,9 @@
 
       span.c-guide-headings__line-height 32px
 
-      span.c-guide-headings__normal-hover
+      span.c-guide-headings__color
         span(
-          class="c-guide-headings__color"
+          class="c-guide-headings__box"
           style="background-color: #ffffff;"
         )
 
@@ -45,9 +45,9 @@
 
       span.c-guide-headings__line-height 30px
 
-      span.c-guide-headings__normal-hover
+      span.c-guide-headings__color
         span(
-          class="c-guide-headings__color"
+          class="c-guide-headings__box"
           style="background-color: #fafbfc;"
         )
 
@@ -61,9 +61,9 @@
 
       span.c-guide-headings__line-height 28px
 
-      span.c-guide-headings__normal-hover
+      span.c-guide-headings__color
         span(
-          class="c-guide-headings__color"
+          class="c-guide-headings__box"
           style="background-color: #a8c6df;"
         )
 
@@ -77,9 +77,9 @@
 
       span.c-guide-headings__line-height 28px
 
-      span.c-guide-headings__normal-hover
+      span.c-guide-headings__color
         span(
-          class="c-guide-headings__color"
+          class="c-guide-headings__box"
           style="background-color: #ffffff;"
         )
 
@@ -93,9 +93,9 @@
 
       span.c-guide-headings__line-height 24px
 
-      span.c-guide-headings__normal-hover
+      span.c-guide-headings__color
         span(
-          class="c-guide-headings__color"
+          class="c-guide-headings__box"
           style="background-color: #ffffff;"
         )
 
@@ -264,7 +264,7 @@ $c: ".c-guide-headings";
       flex: 1;
     }
 
-    #{$c}__normal-hover {
+    #{$c}__color {
       display: flex;
       flex: 1;
 
@@ -272,7 +272,7 @@ $c: ".c-guide-headings";
         display: none;
       }
 
-      #{$c}__color {
+      #{$c}__box {
         display: inline-block;
         margin-right: 10px;
         width: 40px;
