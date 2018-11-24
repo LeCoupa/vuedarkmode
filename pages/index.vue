@@ -58,10 +58,10 @@
       v-if="section.id === 'baseIcon'"
       :documentation="docs.baseIcon"
     )
-    //- guide-base-list-items(
-    //-   v-if="section.id === 'baseListItem'"
-    //-   :documentation="docs.baseListItem"
-    //- )
+    guide-base-list-items(
+      v-if="section.id === 'baseListItem'"
+      :documentation="docs.baseListItem"
+    )
     guide-base-progress-bars(
       v-if="section.id === 'baseProgressBar'"
       :documentation="docs.baseProgressBar"
