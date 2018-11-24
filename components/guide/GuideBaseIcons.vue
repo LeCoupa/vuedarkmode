@@ -125,7 +125,7 @@ export default {
             name: "color",
             type: {
               type: "String",
-              additional: 'Default:  "inherit"'
+              additional: "Default:  null"
             },
             details: {
               description: "Specify the color of the icon."

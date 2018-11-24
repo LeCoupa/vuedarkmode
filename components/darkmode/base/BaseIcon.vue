@@ -43,7 +43,7 @@ export default {
     },
     color: {
       type: String,
-      default: "inherit"
+      default: null
     },
     id: {
       type: String,
