@@ -16,11 +16,11 @@
 
   base-heading(
     class="c-guide-install__title"
-    type="h3"
+    tag="h3"
   ) Vue.js
 
   base-heading(
-    type="p"
+    tag="p"
   ) In your main.js file:
 
   pre(
@@ -35,11 +35,11 @@
 
   base-heading(
     class="c-guide-install__title"
-    type="h3"
+    tag="h3"
   ) Nuxt.js
 
   base-heading(
-    type="p"
+    tag="p"
   )
     | Create a new plugin in plugins/vuedarkmode.js:
 
@@ -54,7 +54,7 @@
       | Vue.use(VueDarkMode);
 
   base-heading(
-    type="p"
+    tag="p"
   )
     | Add this new plugin to nuxt.config.js.
     br
@@ -74,11 +74,11 @@
 
   base-heading(
     class="c-guide-install__title"
-    type="h3"
+    tag="h3"
   ) CDN
 
   base-heading(
-    type="p"
+    tag="p"
   )
     | Get the latest version from jsdelivr, and import the JavaScript file in your page.
 
@@ -91,7 +91,7 @@
       | &lt;script src="https://cdn.jsdelivr.net/npm/vuedarkmode@latest/dist/vuedarkmode.min.js"&gt;&lt;/script&gt;
 
   base-heading(
-    type="p"
+    tag="p"
   )
     | We recommend our users to lock Vue Dark Mode's version when using CDN.
     | Requesting the latest version (as opposed to "latest major" or "latest minor") is dangerous

@@ -21,7 +21,7 @@
 
     .c-guide-headings__row.c-guide-headings__row--body
       span.c-guide-headings__type
-        base-heading(type="h1") Heading 1
+        base-heading(tag="h1") Heading 1
 
       span.c-guide-headings__font-weight.c-guide-headings__font-weight--bold Heebo Bold
 
@@ -37,7 +37,7 @@
 
     .c-guide-headings__row.c-guide-headings__row--body
       span.c-guide-headings__type
-        base-heading(type="h2") Heading 2
+        base-heading(tag="h2") Heading 2
 
       span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
 
@@ -53,7 +53,7 @@
 
     .c-guide-headings__row.c-guide-headings__row--body
       span.c-guide-headings__type
-        base-heading(type="h3") Heading 3
+        base-heading(tag="h3") Heading 3
 
       span.c-guide-headings__font-weight Heebo Regular
 
@@ -69,7 +69,7 @@
 
     .c-guide-headings__row.c-guide-headings__row--body
       span.c-guide-headings__type
-        base-heading(type="p") Paragraph Style
+        base-heading(tag="p") Paragraph Style
 
       span.c-guide-headings__font-weight Heebo Regular
 
@@ -85,7 +85,7 @@
 
     .c-guide-headings__row.c-guide-headings__row--body
       span.c-guide-headings__type
-        base-heading(type="small") Small Style
+        base-heading(tag="small") Small Style
 
       span.c-guide-headings__font-weight Heebo Regular
 
@@ -183,13 +183,13 @@ export default {
             }
           },
           {
-            name: "type",
+            name: "tag",
             type: {
               type: "String",
               additional: "Required: true"
             },
             details: {
-              description: "The element name used for the heading.",
+              description: "The element tag used for the heading.",
               values: '"h1" | "h2" | "h3" | "p" | "small"'
             }
           }

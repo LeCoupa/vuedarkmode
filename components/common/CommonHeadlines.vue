@@ -6,13 +6,13 @@
 .c-common-headlines
   base-heading(
     class="c-common-headlines__title"
-    type="h2"
+    tag="h2"
   ) {{ title }}
 
   base-heading(
     v-if="description"
     class="c-common-headlines__description"
-    type="h3"
+    tag="h3"
   ) {{ description }}
 
   base-button(

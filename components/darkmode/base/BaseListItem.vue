@@ -25,7 +25,7 @@ div(
   base-heading(
     v-if="$slots.default && $slots.default[0].text.trim()"
     class="dm-base-list-item__content"
-    type="p"
+    tag="p"
   ): slot
 </template>
 

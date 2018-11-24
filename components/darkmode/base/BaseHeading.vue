@@ -8,7 +8,7 @@ div(
     "dm-base-heading",
     "dm-base-heading--" + computedColor,
     "dm-base-heading--" + computedFontWeight,
-    "dm-base-heading--" + type
+    "dm-base-heading--" + tag
   ]`
 ): slot
 </template>
@@ -44,7 +44,7 @@ export default {
         );
       }
     },
-    type: {
+    tag: {
       type: String,
       required: true,
       validator(x) {
@@ -58,7 +58,7 @@ export default {
       // Directly return prop when defined
       if (this.color) return this.color;
 
-      switch (this.type) {
+      switch (this.tag) {
         case "h2":
           return "white2";
         case "h3":
@@ -72,7 +72,7 @@ export default {
       // Directly return prop when defined
       if (this.fontWeight) return this.fontWeight;
 
-      switch (this.type) {
+      switch (this.tag) {
         case "h1":
           return "bold";
         case "h2":
@@ -144,7 +144,7 @@ $c: ".dm-base-heading";
     font-weight: 900;
   }
 
-  // --> TYPES <--
+  // --> TAGS <--
 
   &--h1 {
     margin-bottom: 4px;

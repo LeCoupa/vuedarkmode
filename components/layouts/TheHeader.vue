@@ -13,13 +13,13 @@ header.c-the-header
   )
 
   base-heading(
-    type="h1"
+    tag="h1"
   ) A MINIMALIST DARK DESIGN SYSTEM FOR VUE.JS 🎨
 
   base-heading(
     color="grey"
     fontWeight="regular"
-    type="h2"
+    tag="h2"
   ) Based components designed for the insomniacs who enjoy dark interfaces as much as we do.
 
   the-github-buttons(
