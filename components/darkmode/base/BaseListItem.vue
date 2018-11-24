@@ -169,6 +169,7 @@ $colors: black, blue, green, red, orange, white;
       font-weight: 400;
       transition: all 250ms ease-in-out;
 
+      &:hover,
       &:focus {
         box-shadow: none;
         color: $white;
