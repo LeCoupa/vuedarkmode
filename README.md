@@ -79,6 +79,8 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 - **BaseIcon**: [documentation](https://www.vuedarkmode.com/#baseIcon) | [source code](/components/darkmode/base/BaseIcon.vue).
 
+- **BaseListItem**: [documentation](https://www.vuedarkmode.com/#baseListItem) | [source code](/components/darkmode/base/BaseListItem.vue).
+
 - **BaseProgressBar**: [documentation](https://www.vuedarkmode.com/#baseProgressBar) | [source code](/components/darkmode/base/BaseProgressBar.vue).
 
 - **BaseSocialLogin**: [documentation](https://www.vuedarkmode.com/#baseSocialLogin) | [source code](/components/darkmode/base/BaseSocialLogin.vue).
