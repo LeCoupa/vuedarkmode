@@ -119,7 +119,7 @@ export default {
             }
           },
           {
-            name: "iconColor",
+            name: "icon-color",
             type: {
               type: "String",
               additional: 'Default: "white"'
@@ -129,7 +129,7 @@ export default {
             }
           },
           {
-            name: "iconSize",
+            name: "icon-size",
             type: {
               type: "String",
               additional: 'Default: "22px"'
