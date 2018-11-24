@@ -48,6 +48,8 @@ $c: ".c-common-color";
   text-align: center;
 
   #{$c}__block {
+    box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
+
     #{$c}__highlight {
       box-sizing: border-box;
       height: 100px;
