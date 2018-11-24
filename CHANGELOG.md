@@ -12,6 +12,8 @@
 
 - BaseIcon: new prop to set the image as clickable or not.
 
+- BaseListItem: new component.
+
 - BaseSpinner: new component.
 
 ### Changed
