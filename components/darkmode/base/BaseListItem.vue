@@ -9,29 +9,45 @@ div(
     "dm-base-list-item--" + color
   ]`
 )
-  span(
-    :style=`{
-      backgroundImage: "url(" + image + ")"
-    }`
-    class="dm-base-list-item__circle"
+  .dm-base-list-item__container
+    span(
+      :style=`{
+        backgroundImage: "url(" + image + ")"
+      }`
+      class="dm-base-list-item__circle"
+    )
+      base-icon(
+        v-if="icon"
+        :color="iconColor"
+        :name="icon"
+        :size="iconSize"
+        class="dm-base-list-item__icon"
+      )
+      span(
+        v-if="number"
+        class="dm-base-list-item__number"
+      ) {{ number }}
+
+    base-heading(
+      v-if="$slots.default && $slots.default[0].text.trim()"
+      class="dm-base-list-item__content"
+      tag="p"
+    ): slot
+
+  div(
+    v-if="source"
+    class="dm-base-list-item__source"
   )
     base-icon(
-      v-if="icon"
-      :color="iconColor"
-      :name="icon"
-      :size="iconSize"
       class="dm-base-list-item__icon"
+      name="link"
+      size="20px"
     )
-    span(
-      v-if="number"
-      class="dm-base-list-item__number"
-    ) {{ number }}
-
-  base-heading(
-    v-if="$slots.default && $slots.default[0].text.trim()"
-    class="dm-base-list-item__content"
-    tag="p"
-  ): slot
+    a(
+      :href="source.link"
+      class="dm-base-list-item__label"
+      target="_blank"
+    ) {{ source.label }}
 </template>
 
 <!-- *************************************************************************
@@ -78,6 +94,10 @@ export default {
     number: {
       type: Number,
       default: null
+    },
+    source: {
+      type: Object,
+      default: null
     }
   }
 };
@@ -96,43 +116,74 @@ $c: ".dm-base-list-item";
 $colors: black, blue, green, red, orange, white;
 
 #{$c} {
-  display: flex;
-  align-items: center;
+  text-align: left;
 
-  #{$c}__circle {
+  #{$c}__container {
     display: flex;
     align-items: center;
-    flex: 0 0 auto;
-    justify-content: center;
-    box-sizing: border-box;
-    margin-right: 20px;
-    width: 40px;
-    height: 40px;
-    border-width: 3px;
-    border-style: solid;
-    border-radius: 100%;
-    background-size: cover;
-    box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
-    font-size: 16px;
-    user-select: none;
 
-    #{$c}__number {
-      font-weight: 800;
+    #{$c}__circle {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+      justify-content: center;
+      box-sizing: border-box;
+      margin-right: 20px;
+      width: 40px;
+      height: 40px;
+      border-width: 3px;
+      border-style: solid;
+      border-radius: 100%;
+      background-size: cover;
+      box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
+      font-size: 16px;
+      user-select: none;
+
+      #{$c}__number {
+        font-weight: 800;
+      }
+    }
+
+    #{$c}__content {
+      flex: 1;
+      margin-bottom: 0;
+      color: $white;
     }
   }
 
-  #{$c}__content {
-    flex: 1;
-    margin-bottom: 0;
-    text-align: left;
+  #{$c}__source {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    padding-left: 60px;
+
+    #{$c}__icon {
+      flex: 0 0 auto;
+      margin-right: 6px;
+    }
+
+    #{$c}__label {
+      flex: 1;
+      color: $regent-st-blue;
+      text-decoration: underline;
+      font-weight: 400;
+      transition: all 250ms ease-in-out;
+
+      &:focus {
+        box-shadow: none;
+        color: $white;
+      }
+    }
   }
 
   // --> COLORS <--
 
   @each $color in $colors {
     &--#{$color} {
-      #{$c}__circle {
-        border-color: map-get($mainColors, $color);
+      #{$c}__container {
+        #{$c}__circle {
+          border-color: map-get($mainColors, $color);
+        }
       }
     }
   }

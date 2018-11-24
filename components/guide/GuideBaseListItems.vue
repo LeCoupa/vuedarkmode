@@ -19,6 +19,7 @@
         :icon-size="i >= 3 ? listItems.iconsSizes[i - 3] : null"
         :image="i >= 6 ? listItems.images[i - 6] : null"
         :number="i < 3 ? i + 1 : null"
+        :source="i >= 6 ? listItems.sources[i - 6] : null"
         class="c-guide-base-list-items__list-item"
       ) {{ listItems.content[i] }}
 
@@ -95,6 +96,20 @@ export default {
           "/images/docs/nyt.jpg",
           "/images/docs/cnn.jpg",
           "/images/docs/wp.jpg"
+        ],
+        sources: [
+          {
+            label: "Winning does not necessarily mean having the best product.",
+            link: "https://www.vuedarkmode.com/"
+          },
+          {
+            label: "We live in an attention economy.",
+            link: "https://www.vuedarkmode.com/"
+          },
+          {
+            label: "Every company has its own path for growth.",
+            link: "https://www.vuedarkmode.com/"
+          }
         ]
       },
       props: {
@@ -175,6 +190,18 @@ export default {
             },
             details: {
               description: "Add a number inside the circle."
+            }
+          },
+          {
+            name: "source",
+            type: {
+              type: "Object",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Add a clickable source below the list item.",
+              values:
+                '{ link: "https://www.growthbunker.com/", label: "The Incredible Growth Bunker" }'
             }
           }
         ]
