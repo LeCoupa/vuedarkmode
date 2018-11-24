@@ -13,6 +13,7 @@ import BaseIcon from "./components/darkmode/base/BaseIcon.vue";
 import BaseProgressBar from "./components/darkmode/base/BaseProgressBar.vue";
 import BaseSocialLogin from "./components/darkmode/base/BaseSocialLogin.vue";
 import BaseSpinner from "./components/darkmode/base/BaseSpinner.vue";
+import BaseToast from "./components/darkmode/base/BaseToast.vue";
 
 // FORM COMPONENTS
 import FieldCheckbox from "./components/darkmode/form/FieldCheckbox.vue";
@@ -44,6 +45,7 @@ function install(Vue, options) {
     "progress-bar": BaseProgressBar,
     "social-login": BaseSocialLogin,
     spinner: BaseSpinner,
+    toast: BaseToast,
     checkbox: FieldCheckbox,
     file: FieldFile,
     input: FieldInput,
