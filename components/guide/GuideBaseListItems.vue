@@ -201,7 +201,7 @@ export default {
             details: {
               description: "Add a clickable source below the list item.",
               values:
-                '{ link: "https://www.growthbunker.com/", label: "The Incredible Growth Bunker" }'
+                '{ label: "The Incredible Growth Bunker", link: "https://www.growthbunker.com/" }'
             }
           }
         ]

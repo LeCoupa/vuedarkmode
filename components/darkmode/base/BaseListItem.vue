@@ -154,7 +154,7 @@ $colors: black, blue, green, red, orange, white;
   #{$c}__source {
     display: flex;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 6px;
     padding-left: 60px;
 
     #{$c}__icon {
@@ -167,10 +167,12 @@ $colors: black, blue, green, red, orange, white;
       color: $regent-st-blue;
       text-decoration: underline;
       font-weight: 400;
+      line-height: 24px;
       transition: all 250ms ease-in-out;
 
       &:hover,
       &:focus {
+        outline: 0;
         box-shadow: none;
         color: $white;
       }
