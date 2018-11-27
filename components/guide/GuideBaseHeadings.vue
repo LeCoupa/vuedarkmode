@@ -167,7 +167,8 @@ export default {
             },
             details: {
               description: "Override default color for the element.",
-              values: '"grey" | "white" | "white2"'
+              values:
+                '"black" | "blue" | "green" | "grey" | "red" | "orange" | "white"'
             }
           },
           {

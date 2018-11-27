@@ -27,7 +27,11 @@ export default {
       type: String,
       default: null,
       validator(x) {
-        return ["grey", "white", "white2"].indexOf(x) !== -1;
+        return (
+          ["black", "blue", "green", "grey", "red", "orange", "white"].indexOf(
+            x
+          ) !== -1
+        );
       }
     },
     tag: {
@@ -62,17 +66,15 @@ export default {
 
   computed: {
     computedColor() {
-      // Directly return prop when defined
-      if (this.color) return this.color;
+      let color = "white";
 
-      switch (this.tag) {
-        case "h2":
-          return "white2";
-        case "h3":
-          return "grey";
-        default:
-          return "white";
+      if (this.color) {
+        color = this.color;
+      } else if (this.tag === "h3") {
+        color = "grey";
       }
+
+      return color;
     },
 
     computedWeight() {
@@ -102,6 +104,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-heading";
+$colors: black, blue, green, grey, red, orange, white;
 
 #{$c} {
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
@@ -109,16 +112,10 @@ $c: ".dm-base-heading";
 
   // --> COLORS <--
 
-  &--grey {
-    color: $regent-st-blue;
-  }
-
-  &--white {
-    color: $white;
-  }
-
-  &--white2 {
-    color: $athens-gray;
+  @each $color in $colors {
+    &--#{$color} {
+      color: map-get($mainColors, $color);
+    }
   }
 
   // --> TAGS <--
