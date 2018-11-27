@@ -154,7 +154,7 @@ $colors: black, blue, green, red, orange, white;
   #{$c}__source {
     display: flex;
     align-items: center;
-    margin-top: 6px;
+    margin-top: 2px;
     padding-left: 60px;
 
     #{$c}__icon {
