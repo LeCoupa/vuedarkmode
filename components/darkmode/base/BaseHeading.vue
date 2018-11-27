@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
+component(
   :class=`[
     "dm-base-heading",
     "dm-base-heading--" + computedColor,
@@ -13,6 +13,7 @@ div(
       "dm-base-heading--uppercase": uppercase
     }
   ]`
+  :is="tag"
 ): slot
 </template>
 
@@ -107,6 +108,7 @@ $c: ".dm-base-heading";
 $colors: black, blue, green, grey, red, orange, white;
 
 #{$c} {
+  margin: 0;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
 
