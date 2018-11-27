@@ -20,7 +20,7 @@
 
 - BaseButton: rework style on hover / focus and add ability to display a list.
 
-- BaseHeading: type prop now accepts "small" when you need to display smaller content. Font-weight prop has been renamed in weight. Type prop has been renamed in tag. The uppercase prop has been added.
+- BaseHeading: type prop now accepts "small" when you need to display smaller content. Font-weight prop has been renamed in weight. Type prop has been renamed in tag. The uppercase prop has been added. It also accepts new colors.
 
 - BaseProgressBar: ability to display an additional description when the user hovers.
 
