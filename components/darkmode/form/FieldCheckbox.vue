@@ -154,7 +154,6 @@ $statuses: error, normal, success, warning;
 
     #{$c}__field {
       position: relative;
-      margin-right: 8px;
       margin-bottom: 0;
       outline: 0;
       border: none;
@@ -223,6 +222,7 @@ $statuses: error, normal, success, warning;
         #{$c}__field {
           width: 12px + (2px * $i);
           height: 12px + (2px * $i);
+          margin-right: 6px + (1px * $i);
 
           &:after {
             @if ($size == mini) {

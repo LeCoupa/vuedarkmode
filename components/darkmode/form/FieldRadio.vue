@@ -154,7 +154,6 @@ $statuses: error, normal, success, warning;
 
     #{$c}__field {
       position: relative;
-      margin-right: 8px;
       margin-bottom: 0;
       outline: 0;
       border: none;
@@ -222,6 +221,7 @@ $statuses: error, normal, success, warning;
     &--#{$size} {
       #{$c}__container {
         #{$c}__field {
+          margin-right: 6px + (1px * $i);
           width: 12px + (2px * $i);
           height: 12px + (2px * $i);
         }

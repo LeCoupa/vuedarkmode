@@ -312,12 +312,11 @@ $statuses: error, normal, success, warning;
 
     #{$c}__field {
       flex: 1;
-      padding: 0 15px;
       height: 100%;
+      outline: 0;
       border: none;
       background-color: transparent;
       color: $white;
-      outline: 0;
 
       &::placeholder {
         color: $nepal;
@@ -345,6 +344,7 @@ $statuses: error, normal, success, warning;
         }
 
         #{$c}__field {
+          padding: 0 (10px + (1px * $i));
           font-size: 12px + (1px * $i);
         }
       }

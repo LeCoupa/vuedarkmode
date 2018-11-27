@@ -240,7 +240,6 @@ $statuses: error, normal, success, warning;
 
     #{$c}__field {
       flex: 1;
-      padding: 0 35px 0 15px;
       height: 100%;
       outline: 0;
       border: none;
@@ -273,6 +272,7 @@ $statuses: error, normal, success, warning;
         }
 
         #{$c}__field {
+          padding: 0 35px 0 (10px + (1px * $i));
           font-size: 12px + (1px * $i);
         }
       }

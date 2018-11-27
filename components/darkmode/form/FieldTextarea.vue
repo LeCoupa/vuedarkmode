@@ -238,7 +238,6 @@ $statuses: error, normal, success, warning;
     }
 
     #{$c}__field {
-      padding: 10px 15px;
       width: 100%;
       height: 100%;
       outline: 0;
@@ -264,6 +263,7 @@ $statuses: error, normal, success, warning;
 
     &--#{$size} {
       #{$c}__field {
+        padding: (10px + (1px * $i));
         min-height: 60px + (20px * $i);
         border-radius: 4px + (1px * $i);
         font-size: 12px + (1px * $i);
