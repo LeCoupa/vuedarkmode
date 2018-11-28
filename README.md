@@ -125,6 +125,12 @@ You are more than welcome to contribute to Vue Dark Mode. Just submit changes vi
 
 5. Submit a pull request 👍
 
+## Cross-Browsing
+
+Vue Dark Mode is using [BrowserStack](https://www.browserstack.com/) to make sure our components render properly on modern browsers.
+
+![BrowserStack Logo](/static/images/docs/browserstack.png)
+
 ## License
 
 Vue Dark Mode is [MIT licensed](LICENSE).
