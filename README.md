@@ -129,7 +129,7 @@ You are more than welcome to contribute to Vue Dark Mode. Just submit changes vi
 
 Vue Dark Mode is using [BrowserStack](https://www.browserstack.com/) to make sure our components render properly on modern browsers.
 
-<img alt="BrowserStack Logo" width="100px" src="/static/images/docs/browserstack.png">
+<img alt="BrowserStack Logo" width="200px" src="/static/images/docs/browserstack.png">
 
 ## License
 
