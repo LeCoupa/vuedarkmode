@@ -25,8 +25,10 @@ div(
 
   .dm-field-select__container
     div(
-      @click="onContainerMouseClick"
+      @click="onContainerClick"
+      @keypress.prevent="onContainerKeypress"
       class="dm-field-select__field"
+      tabindex="0"
     )
       base-icon(
         v-if="computedLeftIcon"
@@ -47,12 +49,14 @@ div(
       div(
         v-for="option in options"
         @click="onOptionClick(option.value, $event)"
+        @keypress.prevent="onOptionKeypress"
         :class=`[
           "dm-field-select__option",
           {
             "dm-field-select__option--selected": option.value === currentValue
           }
         ]`
+        tabindex="0"
       ) {{ option.label }}
 
   field-description(
@@ -179,7 +183,13 @@ export default {
 
     // --> EVENT LISTENERS <--
 
-    onContainerMouseClick(event) {
+    onContainerKeypress(event) {
+      if (event.which === 32) {
+        event.target.click();
+      }
+    },
+
+    onContainerClick(event) {
       if (!this.disabled) {
         this.deployed = !this.deployed;
 
@@ -193,6 +203,12 @@ export default {
       if (this.currentValue !== value) {
         this.currentValue = value;
         this.$emit("change", value, this.name, event);
+      }
+    },
+
+    onOptionKeypress(event) {
+      if (event.which === 32) {
+        event.target.click();
       }
     }
   }
@@ -238,6 +254,15 @@ $statuses: error, normal, success, warning;
       position: relative;
       align-items: center;
 
+      &:focus {
+        outline: 0;
+        border-color: $azure-radiance;
+
+        #{$c}__icon {
+          color: $azure-radiance;
+        }
+      }
+
       #{$c}__icon {
         position: absolute;
         pointer-events: none;
@@ -278,7 +303,9 @@ $statuses: error, normal, success, warning;
           border-bottom: none;
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
+          outline: 0;
           background-color: $ebony-clay;
         }
       }
@@ -325,16 +352,13 @@ $statuses: error, normal, success, warning;
   @each $status in $statuses {
     &--#{$status} {
       #{$c}__container {
-        #{$c}__field,
-        #{$c}__options {
+        #{$c}__field {
           @if ($status != normal) {
-            border-color: map-get($statusColors, $status) !important;
+            border-color: map-get($statusColors, $status);
           } @else {
             border-color: $oxford-blue;
           }
-        }
 
-        #{$c}__field {
           #{$c}__icon {
             @if ($status != normal) {
               color: map-get($statusColors, $status);
@@ -364,8 +388,12 @@ $statuses: error, normal, success, warning;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
 
-        #{$c}__icon--right {
-          transform: rotate(180deg);
+        #{$c}__icon {
+          color: $azure-radiance;
+
+          &--right {
+            transform: rotate(180deg);
+          }
         }
       }
 
