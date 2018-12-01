@@ -280,6 +280,7 @@ $statuses: error, normal, success, warning;
 
       #{$c}__option {
         flex: 1;
+        color: $white;
       }
     }
 
@@ -297,7 +298,12 @@ $statuses: error, normal, success, warning;
         display: flex;
         align-items: center;
         border-bottom: 1px solid $oxford-blue;
-        transition: background-color ease-in-out 250ms;
+        color: $regent-st-blue;
+        transition: all ease-in-out 250ms;
+
+        &--selected {
+          color: $white;
+        }
 
         &:last-of-type {
           border-bottom: none;
@@ -307,6 +313,7 @@ $statuses: error, normal, success, warning;
         &:focus {
           outline: 0;
           background-color: $ebony-clay;
+          color: $white;
         }
       }
     }
@@ -378,10 +385,6 @@ $statuses: error, normal, success, warning;
       #{$c}__field,
       #{$c}__options {
         border-color: $azure-radiance;
-
-        #{$c}__option {
-          color: $white;
-        }
       }
 
       #{$c}__field {
