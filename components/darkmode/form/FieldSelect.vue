@@ -9,9 +9,8 @@ div(
     "dm-field-select--" + size,
     "dm-field-select--" + status,
     {
-      "dm-field-select--borders": borders,
       "dm-field-select--disabled": disabled,
-      "dm-field-select--focused": focused,
+      "dm-field-select--deployed": deployed,
       "dm-field-select--full-width": fullWidth,
       "dm-field-select--with-left-icon": computedLeftIcon
     }
@@ -25,31 +24,36 @@ div(
   ) {{ label }}
 
   .dm-field-select__container
-    base-icon(
-      v-if="computedLeftIcon"
-      :name="computedLeftIcon"
-      class="dm-field-select__icon dm-field-select__icon--left"
-    )
-    select(
-      @blur="onFieldBlur"
-      @change="onFieldChange"
-      @click="onFieldClick"
-      @focus="onFieldFocus"
-      :disabled="disabled"
-      :id="uuid"
-      :name="name"
+    div(
+      @click="onContainerMouseClick"
       class="dm-field-select__field"
     )
-      option(
-        v-for="option in options"
-        :value="option.value"
-        class="dm-field-select__option"
-      ) {{ option.label }}
+      base-icon(
+        v-if="computedLeftIcon"
+        :name="computedLeftIcon"
+        class="dm-field-select__icon dm-field-select__icon--left"
+      )
+      .dm-field-select__option.dm-field-select__option--current {{ currentValue }}
 
-    base-icon(
-      :name="rightIcon"
-      class="dm-field-select__icon dm-field-select__icon--right"
+      base-icon(
+        class="dm-field-select__icon dm-field-select__icon--right"
+        name="arrow_drop_down"
+      )
+
+    div(
+      v-show="deployed"
+      class="dm-field-select__options"
     )
+      div(
+        v-for="option in options"
+        @click="onOptionClick(option.value, $event)"
+        :class=`[
+          "dm-field-select__option",
+          {
+            "dm-field-select__option--selected": option.value === currentValue
+          }
+        ]`
+      ) {{ option.label }}
 
   field-description(
     v-if="description"
@@ -77,10 +81,6 @@ export default {
   },
 
   props: {
-    borders: {
-      type: Boolean,
-      default: true
-    },
     description: {
       type: String,
       default: null
@@ -107,7 +107,10 @@ export default {
     },
     options: {
       type: Array,
-      required: true
+      required: true,
+      validator(x) {
+        return x.length !== 0;
+      }
     },
     size: {
       type: String,
@@ -131,8 +134,8 @@ export default {
     return {
       // --> STATE <--
 
-      focused: false,
-      rightIcon: "arrow_drop_down",
+      currentValue: null,
+      deployed: false,
       uuid: ""
     };
   },
@@ -152,6 +155,17 @@ export default {
     }
   },
 
+  created() {
+    // Set the current value for the element
+    const selectedOption = this.options.find(el => el.selected);
+
+    if (selectedOption) {
+      this.currentValue = selectedOption.value;
+    } else {
+      this.currentValue = this.options[0].value;
+    }
+  },
+
   mounted() {
     this.uuid = generateUUID();
   },
@@ -165,30 +179,21 @@ export default {
 
     // --> EVENT LISTENERS <--
 
-    onFieldBlur(event) {
-      this.focused = false;
-      this.rightIcon = "arrow_drop_down";
+    onContainerMouseClick(event) {
+      if (!this.disabled) {
+        this.deployed = !this.deployed;
 
-      this.$emit("blur", this.getSelectedValue(), this.name, event);
+        this.$emit("click", this.currentValue, this.name, event);
+      }
     },
 
-    onFieldChange(event) {
-      this.rightIcon = "arrow_drop_down";
+    onOptionClick(value, event) {
+      this.deployed = false;
 
-      this.$emit("change", this.getSelectedValue(), this.name, event);
-    },
-
-    onFieldClick(event) {
-      this.rightIcon = "arrow_drop_up";
-
-      this.$emit("click", this.getSelectedValue(), this.name, event);
-    },
-
-    onFieldFocus(event) {
-      this.focused = true;
-      this.rightIcon = "arrow_drop_up";
-
-      this.$emit("focus", this.getSelectedValue(), this.name, event);
+      if (this.currentValue !== value) {
+        this.currentValue = value;
+        this.$emit("change", value, this.name, event);
+      }
     }
   }
 };
@@ -216,42 +221,66 @@ $statuses: error, normal, success, warning;
 
   #{$c}__container {
     position: relative;
-    display: flex;
-    overflow: hidden;
-    align-items: center;
-    transition: all ease-in-out 200ms;
 
-    #{$c}__option {
-      color: $black;
-    }
-
-    #{$c}__icon {
-      position: absolute;
-      pointer-events: none;
-
-      &--left {
-        left: 9px;
-      }
-
-      &--right {
-        right: 9px;
-      }
+    #{$c}__field,
+    #{$c}__options {
+      display: flex;
+      overflow: hidden;
+      box-sizing: border-box;
+      border-width: 1px;
+      border-style: solid;
+      background-color: $ebony-clay-2;
+      user-select: none;
+      cursor: pointer;
     }
 
     #{$c}__field {
-      flex: 1;
-      height: 100%;
-      outline: 0;
-      border: none;
-      background-color: transparent;
-      background-image: none;
-      box-shadow: none;
-      color: $white;
-      -webkit-appearance: none;
-      cursor: pointer;
+      position: relative;
+      align-items: center;
 
-      &:disabled {
-        cursor: not-allowed;
+      #{$c}__icon {
+        position: absolute;
+        pointer-events: none;
+
+        &--left {
+          left: 9px;
+        }
+
+        &--right {
+          right: 9px;
+          transition: transform 250ms ease-in-out;
+          transform: rotate(0deg);
+        }
+      }
+
+      #{$c}__option {
+        flex: 1;
+      }
+    }
+
+    #{$c}__options {
+      position: absolute;
+      right: 0;
+      left: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      border-top: none;
+      user-select: none;
+
+      #{$c}__option {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $oxford-blue;
+        transition: background-color ease-in-out 250ms;
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+
+        &:hover {
+          background-color: $ebony-clay;
+        }
       }
     }
   }
@@ -263,17 +292,29 @@ $statuses: error, normal, success, warning;
 
     &--#{$size} {
       #{$c}__container {
-        height: 34px + (4px * $i);
-        border-radius: 4px + (1px * $i);
+        #{$c}__field,
+        #{$c}__options {
+          border-radius: 4px + (1px * $i);
 
-        #{$c}__icon {
-          // Will override the font-size set in style attribute
-          font-size: 16px + (1px * $i) !important;
+          #{$c}__option {
+            padding: 0 35px 0 (10px + (1px * $i));
+            font-size: 12px + (1px * $i);
+          }
         }
 
         #{$c}__field {
-          padding: 0 35px 0 (10px + (1px * $i));
-          font-size: 12px + (1px * $i);
+          height: 34px + (4px * $i);
+
+          #{$c}__icon {
+            // Will override the font-size set in style attribute
+            font-size: 16px + (1px * $i) !important;
+          }
+        }
+
+        #{$c}__options {
+          #{$c}__option {
+            height: 34px + (4px * $i);
+          }
         }
       }
     }
@@ -284,12 +325,23 @@ $statuses: error, normal, success, warning;
   @each $status in $statuses {
     &--#{$status} {
       #{$c}__container {
-        @if ($status != normal) {
-          border-color: map-get($statusColors, $status);
-          color: map-get($statusColors, $status);
-        } @else {
-          border-color: $oxford-blue;
-          color: $white;
+        #{$c}__field,
+        #{$c}__options {
+          @if ($status != normal) {
+            border-color: map-get($statusColors, $status) !important;
+          } @else {
+            border-color: $oxford-blue;
+          }
+        }
+
+        #{$c}__field {
+          #{$c}__icon {
+            @if ($status != normal) {
+              color: map-get($statusColors, $status);
+            } @else {
+              color: $white;
+            }
+          }
         }
       }
     }
@@ -297,13 +349,30 @@ $statuses: error, normal, success, warning;
 
   // --> BOOLEANS <--
 
-  &--borders {
+  &--deployed {
     #{$c}__container {
-      box-sizing: border-box;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 6px;
-      background-color: $ebony-clay-2;
+      #{$c}__field,
+      #{$c}__options {
+        border-color: $azure-radiance;
+
+        #{$c}__option {
+          color: $white;
+        }
+      }
+
+      #{$c}__field {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+
+        #{$c}__icon--right {
+          transform: rotate(180deg);
+        }
+      }
+
+      #{$c}__options {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
     }
   }
 
@@ -311,15 +380,8 @@ $statuses: error, normal, success, warning;
     opacity: 0.7;
 
     #{$c}__label,
-    #{$c}__container {
+    #{$c}__field {
       cursor: not-allowed;
-    }
-  }
-
-  &--focused {
-    #{$c}__container {
-      border-color: $azure-radiance;
-      color: $azure-radiance;
     }
   }
 
@@ -329,8 +391,11 @@ $statuses: error, normal, success, warning;
 
   &--with-left-icon {
     #{$c}__container {
-      #{$c}__field {
-        padding-left: 35px;
+      #{$c}__field,
+      #{$c}__options {
+        #{$c}__option {
+          padding-left: 35px;
+        }
       }
     }
   }

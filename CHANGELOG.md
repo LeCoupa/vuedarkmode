@@ -32,6 +32,8 @@
 
 - FieldRadio: rework style on focus.
 
+- FieldSelect: the component has been rewritten and its style improved.
+
 - FieldTabs: rework style on focus.
 
 - FieldToggle: rework style on focus.

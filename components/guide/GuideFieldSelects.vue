@@ -115,16 +115,6 @@ export default {
         ],
         data: [
           {
-            name: "borders",
-            type: {
-              type: "Boolean",
-              additional: "Default: true"
-            },
-            details: {
-              description: "Display the border on the select element."
-            }
-          },
-          {
             name: "description",
             type: {
               type: "String",
@@ -195,7 +185,8 @@ export default {
             details: {
               description:
                 "Define the options to display in the select element.",
-              values: '[{ label: "My Label", value: "My Value" }]'
+              values:
+                '[{ label: "My Label", value: "My Value", selected: false }]'
             }
           },
           {
@@ -242,13 +233,6 @@ export default {
         ],
         data: [
           {
-            name: "blur",
-            parameters: "value, name, event",
-            details: {
-              description: "Fires the moment that the element loses focus."
-            }
-          },
-          {
             name: "change",
             parameters: "value, name, event",
             details: {
@@ -261,13 +245,6 @@ export default {
             parameters: "value, name, event",
             details: {
               description: "Fires on a mouse click on the element."
-            }
-          },
-          {
-            name: "focus",
-            parameters: "value, name, event",
-            details: {
-              description: "Fires the moment when the element gets focus."
             }
           }
         ]
