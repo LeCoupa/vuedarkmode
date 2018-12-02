@@ -38,7 +38,12 @@
           v-for="item in category.items"
           @click="onItemClick(item.id, $event)"
           :key="item.id"
-          class="c-the-navigation__item"
+          :class=`[
+            "c-the-navigation__item",
+            {
+              "c-the-navigation__item--active": item.active
+            }
+          ]`
         ) {{ item.label }}
 
   a(
@@ -171,6 +176,10 @@ $gutter: 40px;
 
           &:last-of-type {
             padding-bottom: 0;
+          }
+
+          &--active {
+            color: $white;
           }
 
           // --> INTERACTIONS <--

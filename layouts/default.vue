@@ -59,51 +59,63 @@ export default {
             items: [
               {
                 label: "Alerts",
-                id: "baseAlert"
+                id: "baseAlert",
+                active: false
               },
               {
                 label: "Avatars",
-                id: "baseAvatar"
+                id: "baseAvatar",
+                active: false
               },
               {
                 label: "Badges",
-                id: "baseBadge"
+                id: "baseBadge",
+                active: false
               },
               {
                 label: "Buttons",
-                id: "baseButton"
+                id: "baseButton",
+                active: false
               },
               {
                 label: "Dividers",
-                id: "baseDivider"
+                id: "baseDivider",
+                active: false
               },
               {
                 label: "Headings",
-                id: "baseHeading"
+                id: "baseHeading",
+                active: false
               },
               {
                 label: "Icons",
-                id: "baseIcon"
+                id: "baseIcon",
+                active: false
               },
               {
                 label: "List Items",
-                id: "baseListItem"
+                id: "baseListItem",
+                active: false
               },
               {
                 label: "Progress Bars",
-                id: "baseProgressBar"
+                id: "baseProgressBar",
+                active: false
               },
               {
                 label: "Social Logins",
-                id: "baseSocialLogin"
+                id: "baseSocialLogin",
+                active: false
               },
               {
                 label: "Spinners",
-                id: "baseSpinner"
+                id: "baseSpinner",
+                active: false
               },
               {
                 label: "Toasts",
-                id: "baseToast"
+                id: "baseToast",
+                active: false
               }
             ]
           },
@@ -113,35 +125,43 @@ export default {
             items: [
               {
                 label: "Checkboxes",
-                id: "fieldCheckbox"
+                id: "fieldCheckbox",
+                active: false
               },
               {
                 label: "Files",
-                id: "fieldFile"
+                id: "fieldFile",
+                active: false
               },
               {
                 label: "Inputs",
-                id: "fieldInput"
+                id: "fieldInput",
+                active: false
               },
               {
                 label: "Radios",
-                id: "fieldRadio"
+                id: "fieldRadio",
+                active: false
               },
               {
                 label: "Selects",
-                id: "fieldSelect"
+                id: "fieldSelect",
+                active: false
               },
               {
                 label: "Tabs",
-                id: "fieldTabs"
+                id: "fieldTabs",
+                active: false
               },
               {
                 label: "Textareas",
-                id: "fieldTextarea"
+                id: "fieldTextarea",
+                active: false
               },
               {
                 label: "Toggles",
-                id: "fieldToggle"
+                id: "fieldToggle",
+                active: false
               }
             ]
           }
@@ -177,6 +197,12 @@ export default {
           inline: "nearest"
         });
 
+        // Update active navigation item and hash url
+        this.navigation.categories.map(el => {
+          if (el.items) {
+            el.items.map(el => (el.active = id === el.id));
+          }
+        });
         this.$router.replace(`/#${id}`);
       }
     }
