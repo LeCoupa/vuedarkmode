@@ -8,7 +8,10 @@
 
   section(
     v-for="section in sections"
-    v-observe-visibility="observeSectionVisibility"
+    v-observe-visibility=`{
+      callback: onSectionVisibilityChanged,
+      throttle: 250
+    }`
     :id="section.id"
     :key="section.id"
     class="c-index__section"
@@ -401,10 +404,12 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    observeSectionVisibility(isVisible, entry) {
+    onSectionVisibilityChanged(isVisible, entry) {
       if (isVisible) {
         const id = entry.target.id;
 
+        // Update category items and hash url
+        this.$store.commit("updateCategoryItems", { id });
         this.$router.replace(`/#${id}`);
       }
     },
