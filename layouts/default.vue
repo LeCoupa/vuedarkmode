@@ -176,6 +176,8 @@ export default {
           block: "start",
           inline: "nearest"
         });
+
+        this.$router.replace(`/#${id}`);
       }
     }
   }
