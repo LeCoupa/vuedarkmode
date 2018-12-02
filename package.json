@@ -47,6 +47,7 @@
     "nuxt": "^1.0.0",
     "qs": "^6.5.2",
     "vue-highlightjs": "^1.3.3",
+    "vue-observe-visibility": "^0.4.3",
     "vuetable-2": "^2.0.0-beta.3"
   },
   "devDependencies": {

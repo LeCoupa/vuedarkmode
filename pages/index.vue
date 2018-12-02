@@ -8,6 +8,7 @@
 
   section(
     v-for="section in sections"
+    v-observe-visibility="observeSectionVisibility"
     :id="section.id"
     :key="section.id"
     class="c-index__section"
@@ -125,6 +126,9 @@
      ************************************************************************* -->
 
 <script>
+// NPM
+import { ObserveVisibility } from "vue-observe-visibility";
+
 // PROJECT
 import BaseDivider from "@/components/darkmode/base/BaseDivider";
 import CommonHeadlines from "@/components/common/CommonHeadlines";
@@ -158,6 +162,10 @@ import TheLogo from "@/components/layouts/TheLogo";
 import TheSubscriptionBox from "@/components/layouts/TheSubscriptionBox";
 
 export default {
+  directives: {
+    observeVisibility: ObserveVisibility
+  },
+
   components: {
     BaseDivider,
     CommonHeadlines,
@@ -392,6 +400,14 @@ export default {
 
   methods: {
     // --> EVENT LISTENERS <--
+
+    observeSectionVisibility(isVisible, entry) {
+      if (isVisible) {
+        const id = entry.target.id;
+
+        this.$router.replace(`/#${id}`);
+      }
+    },
 
     onToggleDocumentation(section, visibility) {
       this.docs[section] = visibility;
