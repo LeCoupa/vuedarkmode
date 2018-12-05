@@ -125,6 +125,22 @@ You are more than welcome to contribute to Vue Dark Mode. Just submit changes vi
 
 5. Submit a pull request 👍
 
+## Contributors
+
+Thanks goes to these insomniacs ([emoji key][emojis]):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+
+<!-- prettier-ignore -->
+| [<img src="https://avatars2.githubusercontent.com/u/1658644?s=460&v=4" width="100px;"/><br /><sub><b>Julien Le Coupanec</b></sub>](https://github.com/LeCoupa)
+| [<img src="https://avatars0.githubusercontent.com/u/16168285?s=460&v=4" width="100px;"/><br /><sub><b>Nada Rifki</b></sub>](https://github.com/nrifki)
+| [<img src="https://avatars3.githubusercontent.com/u/22016005?s=460&v=4" width="100px;"/><br /><sub><b>Igor Guastalla</b></sub>](https://github.com/guastallaigor)
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors][all-contributors] specification.
+Contributions of any kind are welcome!
+
 ## License
 
 Vue Dark Mode is [MIT licensed](LICENSE).
