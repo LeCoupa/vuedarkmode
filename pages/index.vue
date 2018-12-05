@@ -19,7 +19,6 @@
     base-divider(
       class="c-index__divider"
     )
-
     common-headlines(
       @toggleDocumentation="onToggleDocumentation"
       :description="section.headlines.description"
