@@ -126,7 +126,7 @@ You are more than welcome to contribute to Vue Dark Mode. Just submit changes vi
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 
 <!-- prettier-ignore -->
-| [<img src="https://avatars2.githubusercontent.com/u/1658644?s=460&v=4" width="100px;"/><br /><sub><b>Julien<br />Le Coupanec</b></sub>](https://github.com/LeCoupa)<br /> | [<img src="https://avatars0.githubusercontent.com/u/16168285?s=460&v=4" width="100px;"/><br /><sub><b>Nada<br />Rifki</b></sub>](https://www.nadarifki.com/)<br /> | [<img src="https://avatars3.githubusercontent.com/u/22016005?s=460&v=4" width="100px;"/><br /><sub><b>Igor<br />Guastalla</b></sub>](https://github.com/guastallaigor)<br /> |
+| [<img src="https://avatars2.githubusercontent.com/u/1658644?s=460&v=4" width="120px;"/><br /><sub><b>Julien Le Coupanec</b></sub>](https://github.com/LeCoupa)<br /> | [<img src="https://avatars0.githubusercontent.com/u/16168285?s=460&v=4" width="120px;"/><br /><sub><b>Nada Rifki</b></sub>](https://www.nadarifki.com/)<br /> | [<img src="https://avatars3.githubusercontent.com/u/22016005?s=460&v=4" width="120px;"/><br /><sub><b>Igor Guastalla</b></sub>](https://github.com/guastallaigor)<br /> |
 | :---: | :---: | :---: |
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
