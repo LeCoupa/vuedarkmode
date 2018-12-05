@@ -107,10 +107,6 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 - **FieldToggle**: [documentation](https://www.vuedarkmode.com/#fieldToggle) | [source code](/components/darkmode/form/FieldToggle.vue).
 
-## Who is using Vue Dark Mode?
-
-Are you using Vue Dark Mode on one of your projects? [Tweet me](https://twitter.com/lecoupa) so we can add your logo here. 👻
-
 ## Contributing
 
 You are more than welcome to contribute to Vue Dark Mode. Just submit changes via pull request and I will review them before merging.
