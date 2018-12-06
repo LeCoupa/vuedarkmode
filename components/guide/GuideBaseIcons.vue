@@ -18,7 +18,7 @@
         :name="icon"
         class="c-guide-base-icons__icon hint--top hint--no-animate"
         color="white"
-        @click="copyIconNameToClipboard(icon)"
+        v-clipboard:copy="icon"
       )
 
     base-button(
@@ -264,16 +264,6 @@ export default {
         ]
       }
     };
-  },
-  methods: {
-    copyIconNameToClipboard(icon) {
-      const textArea = document.createElement("textarea");
-      textArea.value = icon;
-      document.body.appendChild(textArea);
-      textArea.select();
-      document.execCommand("Copy");
-      textArea.remove();
-    }
   }
 };
 </script>

@@ -169,7 +169,10 @@ module.exports = {
     ]
   ],
 
-  plugins: [{ src: "~/plugins/vue-highlight" }],
+  plugins: [
+    { src: "~/plugins/vue-highlight" },
+    { src: "~/plugins/vue-clipboard2" },
+  ],
 
   build: {
     extend(config, { isDev, isClient }) {
