@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-the-navigation
+nav.c-the-navigation
   .c-the-navigation__categories
     div(
       v-for="category in categories"

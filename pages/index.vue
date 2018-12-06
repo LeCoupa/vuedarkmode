@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-index
+main.c-index
   the-header
 
   section(
