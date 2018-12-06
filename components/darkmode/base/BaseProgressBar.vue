@@ -33,6 +33,7 @@ div(
 
   .dm-base-progress-bar__bar
     div(
+      :class="{'dm-base-progress-bar__progress--indeterminate': indeterminate}"
       :style=`{
         width: progress + "%"
       }`
@@ -80,6 +81,10 @@ export default {
     progress: {
       type: Number,
       default: 0
+    },
+    indeterminate: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -131,6 +136,7 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
     overflow: hidden;
     height: 6px;
     border-radius: 10px;
+    position: relative;
 
     #{$c}__progress {
       width: 0;
@@ -138,6 +144,11 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
       border-radius: 10px;
       transition: width 0.5s ease-in-out;
       animation: fillUp 0.5s ease-in-out 0s 1;
+
+      &--indeterminate {
+        position: absolute;
+        animation: indeterminate 1.200s ease infinite;
+      }
     }
   }
 
@@ -183,6 +194,21 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
 
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes indeterminate {
+  0% {
+    width: 30%;
+    left: -.5%;
+  }
+  60% {
+    left: 40%;
+    width: 60%;
+  }
+  100% {
+    left: 100%;
+    width: 0%;
   }
 }
 </style>

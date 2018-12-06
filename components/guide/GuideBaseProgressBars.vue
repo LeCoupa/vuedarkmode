@@ -20,6 +20,14 @@
         :progress="(i + 1) * 10"
         :title="progressBar.title"
       )
+    div(
+      class="o-elements__category"
+    )
+      base-progress-bar(
+        indeterminate
+        title="Indeterminate"
+        details-hover="👻 Hovering"
+      )
 
   div(
     v-else
