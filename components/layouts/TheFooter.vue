@@ -9,7 +9,7 @@ footer.c-the-footer
     | &#32;
     a(
       class="c-the-footer__link"
-      href="https://twitter.com/RifkiNada"
+      href="https://www.nadarifki.com/"
       target="_blank"
     ) Nada Rifki
     | &#32;&amp;&#32;
