@@ -252,7 +252,6 @@ $statuses: error, normal, success, warning;
       box-sizing: border-box;
       border-width: 1px;
       border-style: solid;
-      background-color: $ebony-clay-2;
       user-select: none;
       cursor: pointer;
     }
@@ -260,6 +259,7 @@ $statuses: error, normal, success, warning;
     #{$c}__field {
       position: relative;
       align-items: center;
+      background-color: $ebony-clay-2;
 
       &:focus {
         outline: 0;
@@ -298,6 +298,7 @@ $statuses: error, normal, success, warning;
       z-index: 2;
       display: flex;
       flex-direction: column;
+      background-color: $ebony-clay;
       border-top: none;
       user-select: none;
 
@@ -319,7 +320,7 @@ $statuses: error, normal, success, warning;
         &:hover,
         &:focus {
           outline: 0;
-          background-color: $ebony-clay;
+          background-color: $ebony-clay-2;
           color: $white;
         }
       }
