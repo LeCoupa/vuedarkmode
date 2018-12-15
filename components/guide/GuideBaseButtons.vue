@@ -206,6 +206,16 @@ export default {
             }
           },
           {
+            name: "link",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Display the button as a simple link."
+            }
+          },
+          {
             name: "list",
             type: {
               type: "Array",

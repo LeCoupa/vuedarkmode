@@ -22,6 +22,7 @@ button(
       "dm-base-button--circular": circular || loading,
       "dm-base-button--disabled": disabled || loading,
       "dm-base-button--full-width": fullWidth,
+      "dm-base-button--link": link,
       "dm-base-button--loading": loading,
       "dm-base-button--reverse": reverse,
       "dm-base-button--rounded": rounded
@@ -123,6 +124,10 @@ export default {
     leftIconColor: {
       type: String,
       default: null
+    },
+    link: {
+      type: Boolean,
+      default: false
     },
     list: {
       type: Array,
@@ -447,6 +452,40 @@ $sizes: mini, small, default, medium, large;
 
   &--full-width {
     width: 100%;
+  }
+
+  &--link {
+    // Override previous values
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+
+    @each $color in $colors {
+      &#{$c}--#{$color} {
+        color: map-get($mainColors, $color);
+
+        &:hover {
+          @if ($color == white) {
+            color: $azure-radiance;
+          } @else {
+            color: $white;
+          }
+        }
+
+        &:focus {
+          box-shadow: 0 2px 0 map-get($mainColors, $color);
+          transition: box-shadow ease-in-out 0s;
+        }
+      }
+    }
+
+    @each $size in $sizes {
+      $i: index($sizes, $size) - 1;
+
+      &#{$c}--#{$size} {
+        padding: (6px + (1px * $i)) 0 !important;
+      }
+    }
   }
 
   &--loading {

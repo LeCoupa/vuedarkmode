@@ -8,7 +8,7 @@
 
 - BaseBadge: new prop to set the image as clickable or not.
 
-- BaseButton: new prop to set the button as loading.
+- BaseButton: new props to set the button as loading or display it as link.
 
 - BaseIcon: new prop to set the image as clickable or not.
 
