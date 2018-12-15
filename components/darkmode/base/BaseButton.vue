@@ -392,7 +392,7 @@ $sizes: mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      padding: (10px + 2px * $i) (12px + 2px * $i);
+      padding: (8px + 2px * $i) (12px + 2px * $i);
       border-radius: 4px + (1px * $i);
       font-size: 12px + (1px * $i);
       line-height: 12px + (2px * $i);
@@ -456,8 +456,7 @@ $sizes: mini, small, default, medium, large;
 
   &--link {
     // Override previous values
-    border: none !important;
-    border-radius: 0 !important;
+    border-color: transparent !important;
     background: transparent !important;
 
     @each $color in $colors {
@@ -471,19 +470,6 @@ $sizes: mini, small, default, medium, large;
             color: $white;
           }
         }
-
-        &:focus {
-          box-shadow: 0 2px 0 map-get($mainColors, $color);
-          transition: box-shadow ease-in-out 0s;
-        }
-      }
-    }
-
-    @each $size in $sizes {
-      $i: index($sizes, $size) - 1;
-
-      &#{$c}--#{$size} {
-        padding: (6px + (1px * $i)) 0 !important;
       }
     }
   }
