@@ -23,7 +23,6 @@
     :rightIcon="documentationVisibility ? 'extension' : 'explore'"
     class="c-common-headlines__button"
     color="blue"
-    size="small"
   ) {{ documentationVisibility ? "Show components" : "Show documentation" }}
 
   base-divider(
