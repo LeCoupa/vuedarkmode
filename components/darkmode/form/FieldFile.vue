@@ -173,6 +173,7 @@ $statuses: error, normal, success, warning;
 
       #{$c}__description {
         color: $nepal;
+        user-select: none;
       }
     }
 
