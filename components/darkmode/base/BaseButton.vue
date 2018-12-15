@@ -464,11 +464,7 @@ $sizes: mini, small, default, medium, large;
         color: map-get($mainColors, $color);
 
         &:hover {
-          @if ($color == white) {
-            color: $azure-radiance;
-          } @else {
-            color: $white;
-          }
+          color: $white;
         }
       }
     }
