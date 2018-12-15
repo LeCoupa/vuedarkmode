@@ -35,7 +35,7 @@ div(
         :name="computedLeftIcon"
         class="dm-field-select__icon dm-field-select__icon--left"
       )
-      .dm-field-select__option.dm-field-select__option--current {{ currentValue }}
+      .dm-field-select__option.dm-field-select__option--current {{ currentLabel }}
 
       base-icon(
         class="dm-field-select__icon dm-field-select__icon--right"
@@ -138,6 +138,7 @@ export default {
     return {
       // --> STATE <--
 
+      currentLabel: null,
       currentValue: null,
       deployed: false,
       uuid: ""
@@ -164,8 +165,10 @@ export default {
     const selectedOption = this.options.find(el => el.selected);
 
     if (selectedOption) {
+      this.currentLabel = selectedOption.label;
       this.currentValue = selectedOption.value;
     } else {
+      this.currentLabel = this.options[0].label;
       this.currentValue = this.options[0].value;
     }
   },
@@ -198,12 +201,16 @@ export default {
     },
 
     onOptionClick(value, event) {
-      this.deployed = false;
+      const selectedOption = this.options.find(el => el.value === value);
 
       if (this.currentValue !== value) {
+        this.currentLabel = selectedOption.label;
         this.currentValue = value;
+
         this.$emit("change", value, this.name, event);
       }
+
+      this.deployed = false;
     },
 
     onOptionKeypress(event) {

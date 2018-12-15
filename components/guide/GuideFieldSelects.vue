@@ -23,10 +23,10 @@
           :label="size + ' select (' + statuses[j] + ')'"
           :name="'select_' + size + '_'  + statuses[j] + i + j"
           :options=`[
-            { label: 'Vue Dark Mode 1', value: 'Vue Dark Mode 1' },
-            { label: 'Vue Dark Mode 2', value: 'Vue Dark Mode 2' },
-            { label: 'Vue Dark Mode 3', value: 'Vue Dark Mode 3' },
-            { label: 'Vue Dark Mode 4', value: 'Vue Dark Mode 4' }
+            { label: 'Vue Dark Mode 1', value: 'vue dark mode 1' },
+            { label: 'Vue Dark Mode 2', value: 'vue dark mode 2' },
+            { label: 'Vue Dark Mode 3', value: 'vue dark mode 3' },
+            { label: 'Vue Dark Mode 4', value: 'vue dark mode 4' }
           ]`
           :size="size"
           :status="statuses[j]"
