@@ -105,7 +105,7 @@ $c: ".c-common-headlines";
   margin-bottom: 40px;
 
   #{$c}__title {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
 
   #{$c}__description,

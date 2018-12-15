@@ -27,7 +27,7 @@
 
       span.c-guide-headings__font-size 26px
 
-      span.c-guide-headings__line-height 32px
+      span.c-guide-headings__line-height 36px
 
       span.c-guide-headings__color
         span(
@@ -43,7 +43,7 @@
 
       span.c-guide-headings__font-size 24px
 
-      span.c-guide-headings__line-height 30px
+      span.c-guide-headings__line-height 34px
 
       span.c-guide-headings__color
         span(
@@ -55,9 +55,57 @@
       span.c-guide-headings__type
         base-heading(tag="h3") Heading 3
 
-      span.c-guide-headings__font-weight Heebo Regular
+      span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
 
       span.c-guide-headings__font-size 22px
+
+      span.c-guide-headings__line-height 32px
+
+      span.c-guide-headings__color
+        span(
+          class="c-guide-headings__box"
+          style="background-color: #a8c6df;"
+        )
+
+    .c-guide-headings__row.c-guide-headings__row--body
+      span.c-guide-headings__type
+        base-heading(tag="h4") Heading 4
+
+      span.c-guide-headings__font-weight.c-guide-headings__font-weight--medium Heebo Medium
+
+      span.c-guide-headings__font-size 20px
+
+      span.c-guide-headings__line-height 30px
+
+      span.c-guide-headings__color
+        span(
+          class="c-guide-headings__box"
+          style="background-color: #a8c6df;"
+        )
+
+    .c-guide-headings__row.c-guide-headings__row--body
+      span.c-guide-headings__type
+        base-heading(tag="h5") Heading 5
+
+      span.c-guide-headings__font-weight Heebo Regular
+
+      span.c-guide-headings__font-size 18px
+
+      span.c-guide-headings__line-height 28px
+
+      span.c-guide-headings__color
+        span(
+          class="c-guide-headings__box"
+          style="background-color: #a8c6df;"
+        )
+
+    .c-guide-headings__row.c-guide-headings__row--body
+      span.c-guide-headings__type
+        base-heading(tag="h6") Heading 6
+
+      span.c-guide-headings__font-weight Heebo Regular
+
+      span.c-guide-headings__font-size 16px
 
       span.c-guide-headings__line-height 28px
 
@@ -179,7 +227,7 @@ export default {
             },
             details: {
               description: "The element tag used for the heading.",
-              values: '"h1" | "h2" | "h3" | "p" | "small"'
+              values: '"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "small"'
             }
           },
           {
