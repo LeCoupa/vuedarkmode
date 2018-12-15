@@ -392,7 +392,7 @@ $sizes: mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      padding: (8px + 2px * $i) (12px + 2px * $i);
+      padding: (8px + 2px * $i) (10px + 2px * $i);
       border-radius: 4px + (1px * $i);
       font-size: 12px + (1px * $i);
       line-height: 12px + (2px * $i);
