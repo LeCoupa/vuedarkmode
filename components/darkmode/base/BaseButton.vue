@@ -399,11 +399,11 @@ $sizes: mini, small, default, medium, large;
 
       #{$c}__inner {
         #{$c}__left-icon {
-          margin-right: 3px + (1px * $i);
+          margin-right: 4px + (1px * $i);
         }
 
         #{$c}__right-icon {
-          margin-left: 3px + (1px * $i);
+          margin-left: 4px + (1px * $i);
         }
       }
 
