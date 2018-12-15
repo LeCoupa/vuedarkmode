@@ -162,6 +162,7 @@ $statuses: error, normal, success, warning;
 
     #{$c}__information {
       display: flex;
+      flex: 1;
       flex-direction: column;
       margin-right: 20px;
       text-align: left;
@@ -177,6 +178,7 @@ $statuses: error, normal, success, warning;
 
     #{$c}__upload {
       position: relative;
+      flex: 0 0 auto;
       box-sizing: border-box;
       outline: 0;
       border-width: 2px;
