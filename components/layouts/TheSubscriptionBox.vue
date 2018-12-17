@@ -18,6 +18,7 @@
       size="medium"
     )
     base-button(
+      :loading="loading"
       class="c-the-subscription-box__button"
       rightIcon="thumb_up"
       type="submit"
@@ -58,6 +59,7 @@ export default {
       // --> STATE <--
 
       email: "",
+      loading: false,
       message: {
         status: "normal",
         content: "We'll never send you more than one email per month."
@@ -67,6 +69,8 @@ export default {
 
   methods: {
     async onEmailSubmit() {
+      this.loading = true;
+
       try {
         const result = await axios.post(
           "https://www.vuedarkmode.com/.netlify/functions/mailchimp",
@@ -79,6 +83,8 @@ export default {
         this.message.status = "error";
         this.message.content = error.response.data;
       }
+
+      this.loading = false;
     }
   }
 };
