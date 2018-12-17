@@ -131,6 +131,10 @@ export default {
       validator(x) {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
+    },
+    value: {
+      type: [String, Number],
+      default: null
     }
   },
 
@@ -160,14 +164,21 @@ export default {
     }
   },
 
-  created() {
-    // Set the current value for the element
-    const selectedOption = this.options.find(el => el.selected);
+  watch: {
+    value: function(value) {
+      this.currentValue = value;
+    }
+  },
 
-    if (selectedOption) {
+  created() {
+    if (this.value) {
+      // When a value prop is defined set the option as active
+      const selectedOption = this.options.find(el => el.value === this.value);
+
       this.currentLabel = selectedOption.label;
       this.currentValue = selectedOption.value;
     } else {
+      // Or set the first option as active
       this.currentLabel = this.options[0].label;
       this.currentValue = this.options[0].value;
     }
@@ -178,12 +189,6 @@ export default {
   },
 
   methods: {
-    // --> HELPERS <--
-
-    getSelectedValue() {
-      return this.$el.querySelector("select").value || "";
-    },
-
     // --> EVENT LISTENERS <--
 
     onContainerKeypress(event) {
@@ -208,6 +213,9 @@ export default {
         this.currentValue = value;
 
         this.$emit("change", value, this.name, event);
+
+        // Synchronisation for v-model
+        this.$emit("input", value);
       }
 
       this.deployed = false;

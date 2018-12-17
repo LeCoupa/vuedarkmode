@@ -185,8 +185,7 @@ export default {
             details: {
               description:
                 "Define the options to display in the select element.",
-              values:
-                '[{ label: "My Label", value: "My Value", selected: false }]'
+              values: '[{ label: "My Label", value: "My Value" }]'
             }
           },
           {
@@ -209,6 +208,16 @@ export default {
             details: {
               description: "Specify the status for the select element.",
               values: '"error" | "normal" | "success" | "warning"'
+            }
+          },
+          {
+            name: "value",
+            type: {
+              type: "[String, Number]",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Specify the current active option."
             }
           }
         ]
