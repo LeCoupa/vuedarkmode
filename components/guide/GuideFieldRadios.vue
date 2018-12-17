@@ -37,7 +37,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-radio&gt;&lt;/dm-radio&gt;
+        | &lt;dm-radio v-model="synchronizedValue"&gt;&lt;/dm-radio&gt;
 
     no-ssr
       common-table(

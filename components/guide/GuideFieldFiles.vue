@@ -36,7 +36,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-file&gt;&lt;/dm-file&gt;
+        | &lt;dm-file v-model="synchronizedValue"&gt;&lt;/dm-file&gt;
 
     no-ssr
       common-table(

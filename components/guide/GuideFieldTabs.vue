@@ -41,7 +41,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-tabs&gt;&lt;/dm-tabs&gt;
+        | &lt;dm-tabs v-model="synchronizedValue"&gt;&lt;/dm-tabs&gt;
 
     no-ssr
       common-table(

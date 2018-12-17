@@ -37,7 +37,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-toggle&gt;&lt;/dm-toggle&gt;
+        | &lt;dm-toggle v-model="synchronizedValue"&gt;&lt;/dm-toggle&gt;
 
     no-ssr
       common-table(

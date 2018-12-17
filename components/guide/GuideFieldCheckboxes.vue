@@ -37,7 +37,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-checkbox&gt;&lt;/dm-checkbox&gt;
+        | &lt;dm-checkbox v-model="synchronizedValue"&gt;&lt;/dm-checkbox&gt;
 
     no-ssr
       common-table(
