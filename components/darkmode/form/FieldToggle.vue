@@ -18,7 +18,7 @@ div(
   .dm-field-toggle__container
     input(
       @change="onFieldChange"
-      :checked="checked"
+      :checked="value"
       :disabled="disabled"
       :id="uuid"
       :name="name"
@@ -60,10 +60,6 @@ export default {
   },
 
   props: {
-    checked: {
-      type: Boolean,
-      default: false
-    },
     description: {
       type: String,
       default: null
@@ -103,6 +99,10 @@ export default {
       validator(x) {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
+    },
+    value: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -123,6 +123,9 @@ export default {
 
     onFieldChange(event) {
       this.$emit("change", event.target.checked, this.name, event);
+
+      // Synchronisation for v-model
+      this.$emit("input", event.target.checked);
     }
   }
 };

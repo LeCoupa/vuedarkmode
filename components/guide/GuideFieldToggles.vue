@@ -20,12 +20,12 @@
         class="o-elements__item"
       )
         field-toggle(
-          :checked="i === 1"
           :fullWidth="false"
           :label="size.charAt(0).toUpperCase() + size.slice(1) + ' toggle (' + statuses[j] + ')'"
           :name="'toggle_' + size + '_'  + statuses[j] + i + j"
           :size="size"
           :status="statuses[j]"
+          :value="i === 1"
           description="This is a customizable description for toggles."
         )
 
@@ -111,16 +111,6 @@ export default {
         ],
         data: [
           {
-            name: "checked",
-            type: {
-              type: "Boolean",
-              additional: "Default: false"
-            },
-            details: {
-              description: "Sets the checked state of the toggle element."
-            }
-          },
-          {
             name: "description",
             type: {
               type: "String",
@@ -203,6 +193,16 @@ export default {
             details: {
               description: "Specify the status for the toggle element.",
               values: '"error" | "normal" | "success" | "warning"'
+            }
+          },
+          {
+            name: "value",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Sets the checked state of the toggle element."
             }
           }
         ]
