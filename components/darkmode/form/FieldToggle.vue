@@ -124,7 +124,7 @@ export default {
     onFieldChange(event) {
       this.$emit("change", event.target.checked, this.name, event);
 
-      // Synchronisation for v-model
+      // Synchronization for v-model
       this.$emit("input", event.target.checked);
     }
   }

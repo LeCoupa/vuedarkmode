@@ -111,16 +111,6 @@ export default {
         ],
         data: [
           {
-            name: "checked",
-            type: {
-              type: "Boolean",
-              additional: "Default: false"
-            },
-            details: {
-              description: "Sets the checked state of the checkbox element."
-            }
-          },
-          {
             name: "description",
             type: {
               type: "String",
@@ -203,6 +193,16 @@ export default {
             details: {
               description: "Specify the status for the checkbox element.",
               values: '"error" | "normal" | "success" | "warning"'
+            }
+          },
+          {
+            name: "value",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Sets the checked state of the checkbox element."
             }
           }
         ]

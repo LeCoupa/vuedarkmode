@@ -214,7 +214,7 @@ export default {
 
         this.$emit("change", value, this.name, event);
 
-        // Synchronisation for v-model
+        // Synchronization for v-model
         this.$emit("input", value);
       }
 
