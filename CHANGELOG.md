@@ -26,17 +26,17 @@
 
 - BaseSocialLogin: rework style on hover / focus.
 
-- FieldCheckbox: rework style on focus. Add ability to use v-model.
+- FieldCheckbox: rework style on focus. Add v-model support.
 
 - FieldFile: rework style on focus.
 
 - FieldRadio: rework style on focus.
 
-- FieldSelect: the component has been rewritten and its style improved. Add ability to use v-model.
+- FieldSelect: the component has been rewritten and its style improved. Add v-model support.
 
-- FieldTabs: rework style on focus.
+- FieldTabs: rework style on focus. Add v-model support.
 
-- FieldToggle: rework style on focus. Add ability to use v-model.
+- FieldToggle: rework style on focus. Add v-model support.
 
 ## 0.1.0 - 2018-11-05
 

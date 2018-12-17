@@ -213,7 +213,7 @@ export default {
           {
             name: "value",
             type: {
-              type: "[String, Number]",
+              type: "[Number, String]",
               additional: "Default: null"
             },
             details: {

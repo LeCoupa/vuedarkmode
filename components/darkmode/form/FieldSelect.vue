@@ -133,7 +133,7 @@ export default {
       }
     },
     value: {
-      type: [String, Number],
+      type: [Number, String],
       default: null
     }
   },

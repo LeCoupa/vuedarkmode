@@ -98,6 +98,10 @@ export default {
     tabs: {
       type: Array,
       required: true
+    },
+    value: {
+      type: [Array, Number, String],
+      default: null
     }
   },
 
@@ -109,13 +113,14 @@ export default {
     };
   },
 
+  watch: {
+    value: function(value) {
+      this.setActiveTabs(value);
+    }
+  },
+
   created() {
-    // Set initial active tabs
-    this.tabs.map(tab => {
-      if (tab.active) {
-        this.activeTabs.push(tab.id);
-      }
-    });
+    this.setActiveTabs(this.value);
   },
 
   methods: {
@@ -127,6 +132,14 @@ export default {
       }
     },
 
+    setActiveTabs(value) {
+      if (Array.isArray(value)) {
+        this.activeTabs = value;
+      } else {
+        this.activeTabs = [value];
+      }
+    },
+
     // --> EVENT LISTENERS <--
 
     onTabClick(tabId, event) {
@@ -134,6 +147,9 @@ export default {
       if (!this.multiple && !this.activeTabs.includes(tabId)) {
         this.activeTabs = [tabId];
         this.$emit("change", tabId, "added", this.activeTabs, this.name, event);
+
+        // Synchronization for v-model
+        this.$emit("input", tabId);
       }
 
       // When multiple values are allowed
@@ -161,6 +177,9 @@ export default {
             event
           );
         }
+
+        // Synchronization for v-model
+        this.$emit("input", this.activeTabs);
       }
 
       this.$emit("click", tabId, this.activeTabs, this.name, event);

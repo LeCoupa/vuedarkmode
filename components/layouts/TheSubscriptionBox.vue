@@ -8,10 +8,6 @@
     @submit.prevent="onEmailSubmit"
     class="c-the-subscription-box__container"
   )
-    field-checkbox(
-      v-model="checkbox"
-      name="checkbox"
-    )
     field-input(
       v-model="email"
       :fullWidth="false"
@@ -50,13 +46,11 @@ import qs from "qs";
 
 // PROJECT
 import BaseButton from "@/components/darkmode/base/BaseButton";
-import FieldCheckbox from "@/components/darkmode/form/FieldCheckbox";
 import FieldInput from "@/components/darkmode/form/FieldInput";
 
 export default {
   components: {
     BaseButton,
-    FieldCheckbox,
     FieldInput
   },
 
@@ -70,7 +64,7 @@ export default {
         status: "normal",
         content: "We'll never send you more than one email per month."
       },
-      checkbox: true
+      tabs: "k"
     };
   },
 

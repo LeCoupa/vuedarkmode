@@ -25,10 +25,10 @@
           :size="size"
           :status="statuses[j]"
           :tabs=`[
-            { id: "auto", name: 'Auto', active: true },
-            { id: "k", name: 'K', active: false },
-            { id: "M", name: 'M', active: false },
-            { id: "B", name: 'B', active: false }
+            { id: "auto", name: 'Auto' },
+            { id: "k", name: 'K' },
+            { id: "M", name: 'M' },
+            { id: "B", name: 'B' }
           ]`
           description="This is a customizable description for tabs."
         )
@@ -185,6 +185,16 @@ export default {
             details: {
               description: "Define the tabs to display.",
               values: '[{ id: "vuedarkmode", name: "Vue Dark Mode" }]'
+            }
+          },
+          {
+            name: "value",
+            type: {
+              type: "[Array, Number, String]",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Specify the current active tab(s)."
             }
           }
         ]
