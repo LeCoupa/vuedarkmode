@@ -24,7 +24,7 @@
 
 - BaseProgressBar: ability to display an additional description when the user hovers.
 
-- BaseSocialLogin: rework style on hover / focus.
+- BaseSocialLogin: rework style on hover / focus. Add loading prop.
 
 - FieldCheckbox: rework style on focus. Add support for v-model.
 

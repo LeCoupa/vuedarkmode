@@ -121,6 +121,17 @@ export default {
             }
           },
           {
+            name: "loading",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description:
+                "Set the button as loading and display a small spinner inside it."
+            }
+          },
+          {
             name: "network",
             type: {
               type: "String",
