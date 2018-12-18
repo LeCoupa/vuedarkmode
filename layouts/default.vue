@@ -11,7 +11,10 @@
       :categories="categories"
       class="l-default__navigation"
     )
-    .l-default__page-wrapper
+    perfect-scrollbar(
+      class="l-default__page-wrapper"
+      tag="div"
+    )
       the-github-corner(
         link="https://github.com/LeCoupa/vuedarkmode"
         class="l-default__github-corner"
@@ -143,7 +146,6 @@ html {
 
       #{$c}__page-wrapper {
         position: relative;
-        overflow-y: scroll;
         flex: 1;
         padding: 60px 40px;
 

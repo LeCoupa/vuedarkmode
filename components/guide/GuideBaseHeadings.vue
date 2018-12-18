@@ -3,7 +3,10 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-headings
+perfect-scrollbar(
+  class="c-guide-headings"
+  tag="div"
+)
   div(
     v-if="!documentation"
     class="c-guide-headings__showroom"
@@ -269,7 +272,6 @@ export default {
 $c: ".c-guide-headings";
 
 #{$c} {
-  overflow-x: scroll;
   text-align: left;
 
   #{$c}__row {
