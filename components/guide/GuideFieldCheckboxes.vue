@@ -20,12 +20,12 @@
         class="o-elements__item"
       )
         field-checkbox(
-          :checked="i === 1"
           :fullWidth="false"
           :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
           :name="'checkbox_' + size + '_'  + statuses[j] + i + j"
           :size="size"
           :status="statuses[j]"
+          :value="i === 1"
           description="This is a customizable description for checkboxes."
         )
 

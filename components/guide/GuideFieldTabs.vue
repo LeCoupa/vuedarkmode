@@ -31,6 +31,7 @@
             { id: "B", name: 'B' }
           ]`
           description="This is a customizable description for tabs."
+          value="auto"
         )
 
   div(
