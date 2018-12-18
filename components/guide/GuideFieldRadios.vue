@@ -9,23 +9,20 @@
     class="c-guide-field-radios__showroom o-elements o-elements--form"
   )
     div(
-      v-for="(statuses, i) in radios.statuses"
+      v-for="(status, i) in radios.statuses"
       :key="'radios ' + i"
       class="o-elements__category"
     )
-      div(
-        v-if="statuses[j]"
-        v-for="(size, j) in radios.sizes"
-        :key="'radios ' + i + ' ' + j"
-        class="o-elements__item"
-      )
-        field-radio(
-          :checked="j === 0"
-          :fullWidth="false"
-          :label="size.charAt(0).toUpperCase() + size.slice(1) + ' radio (' + statuses[j] + ')'"
-          :name="'radios_' + i"
-          :size="size"
-          :status="statuses[j]"
+      .o-elements__item
+        field-radios(
+          :radios=`[
+            { label: 'Vue Dark Mode 1', name: 'vuedarkmode1' + i, value: 'vuedarkmode1' + i },
+            { label: 'Vue Dark Mode 2', name: 'vuedarkmode2' + i, value: 'vuedarkmode2' + i },
+            { label: 'Vue Dark Mode 3', name: 'vuedarkmode3' + i, value: 'vuedarkmode3' + i },
+            { label: 'Vue Dark Mode 4', name: 'vuedarkmode4' + i, value: 'vuedarkmode4' + i }
+          ]`
+          :status="status"
+          :size="i === 0 ? 'default' : 'large'"
           description="This is a customizable description for radios."
         )
 
@@ -37,7 +34,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-radio v-model="synchronizedValue"&gt;&lt;/dm-radio&gt;
+        | &lt;dm-radios v-model="synchronizedValue"&gt;&lt;/dm-radios&gt;
 
     no-ssr
       common-table(
@@ -65,14 +62,14 @@
 <script>
 // PROJECT
 import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import FieldRadio from "@/components/darkmode/form/FieldRadio";
+import FieldRadios from "@/components/darkmode/form/FieldRadios";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
     BaseDivider,
     CommonTable,
-    FieldRadio
+    FieldRadios
   },
 
   props: {
@@ -85,11 +82,7 @@ export default {
   data() {
     return {
       radios: {
-        sizes: ["large", "medium", "default", "small", "mini"],
-        statuses: [
-          ["normal", "normal", "normal", "normal", "normal"],
-          ["normal", "success", "error", "warning"]
-        ]
+        statuses: ["normal", "success"]
       },
       props: {
         fields: [
@@ -110,16 +103,6 @@ export default {
           }
         ],
         data: [
-          {
-            name: "checked",
-            type: {
-              type: "Boolean",
-              additional: "Default: false"
-            },
-            details: {
-              description: "Sets the checked state of the radio element."
-            }
-          },
           {
             name: "description",
             type: {
@@ -153,23 +136,14 @@ export default {
             }
           },
           {
-            name: "label",
+            name: "radios",
             type: {
-              type: "String",
-              additional: "Default: null"
-            },
-            details: {
-              description: "Add a label above the radio element."
-            }
-          },
-          {
-            name: "name",
-            type: {
-              type: "String",
+              type: "Array",
               additional: "Required: true"
             },
             details: {
-              description: "Specify the name of the radio element."
+              description: "Define all radio elements to display.",
+              values: '[{ label: "My Label", name: "name", value: "My Value" }]'
             }
           },
           {
@@ -204,6 +178,16 @@ export default {
               description: "Specify the status for the radio element.",
               values: '"error" | "normal" | "success" | "warning"'
             }
+          },
+          {
+            name: "value",
+            type: {
+              type: "[Number, String]",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Specify the current active radio."
+            }
           }
         ]
       },
@@ -228,10 +212,10 @@ export default {
         data: [
           {
             name: "change",
-            parameters: "checked, name, event",
+            parameters: "value, name, event",
             details: {
               description:
-                "Fires the moment when the value of the element is changed"
+                "Fires the moment when the value of the radios is changed"
             }
           }
         ]

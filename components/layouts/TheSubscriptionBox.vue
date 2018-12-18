@@ -63,8 +63,7 @@ export default {
       message: {
         status: "normal",
         content: "We'll never send you more than one email per month."
-      },
-      tabs: "k"
+      }
     };
   },
 
