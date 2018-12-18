@@ -12,7 +12,7 @@
       class="l-default__navigation"
     )
     perfect-scrollbar(
-      class="l-default__page-wrapper"
+      class="l-default__page-wrapper js-default-page-wrapper"
       tag="div"
     )
       the-github-corner(
@@ -66,13 +66,10 @@ export default {
 
     scrollToSection(id) {
       const section = this.$el.querySelector(`#${id}`);
+      const pageWrapper = document.querySelector(".js-default-page-wrapper");
 
       if (section) {
-        section.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "nearest"
-        });
+        pageWrapper.scrollTop = section.offsetTop;
 
         // Update category items and hash url
         this.$store.commit("updateCategoryItems", { id });
