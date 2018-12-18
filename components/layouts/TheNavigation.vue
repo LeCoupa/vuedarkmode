@@ -117,7 +117,7 @@ $gutter: 40px;
 
 #{$c} {
   display: none;
-  overflow-y: scroll;
+  overflow-y: auto;
   flex-direction: column;
   box-sizing: border-box;
   width: 300px;
