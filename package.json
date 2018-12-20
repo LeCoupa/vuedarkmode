@@ -62,6 +62,7 @@
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-vue": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
     "minimist": "^1.2.0",
     "netlify-lambda": "^1.0.2",
     "node-sass": "^4.9.3",
@@ -72,7 +73,8 @@
     "rollup-plugin-buble": "^0.19.4",
     "rollup-plugin-uglify-es": "0.0.1",
     "rollup-plugin-vue": "^4.3.2",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "prettier": "^1.15.3"
   },
   "files": [
     "dist/*"
