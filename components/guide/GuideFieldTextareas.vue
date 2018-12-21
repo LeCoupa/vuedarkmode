@@ -64,8 +64,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import FieldTextarea from "@/components/darkmode/form/FieldTextarea";
+import BaseDivider from "@/lib//base/BaseDivider";
+import FieldTextarea from "@/lib//form/FieldTextarea";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

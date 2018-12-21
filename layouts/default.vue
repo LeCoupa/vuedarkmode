@@ -4,23 +4,23 @@
 
 <template lang="pug">
 .l-default
-  .l-default__container
-    the-navigation(
-      @titleClick="onNavigationClick"
-      @itemClick="onNavigationClick"
-      :categories="categories"
-      class="l-default__navigation"
-    )
-    perfect-scrollbar(
-      class="l-default__page-wrapper js-default-page-wrapper"
-      tag="div"
-    )
-      the-github-corner(
-        link="https://github.com/LeCoupa/vuedarkmode"
-        class="l-default__github-corner"
-      )
-      .l-default__page-inner
-        nuxt
+	.l-default__container
+		the-navigation(
+			@titleClick="onNavigationClick"
+			@itemClick="onNavigationClick"
+			:categories="categories"
+			class="l-default__navigation"
+		)
+		perfect-scrollbar(
+			class="l-default__page-wrapper js-default-page-wrapper"
+			tag="div"
+		)
+			the-github-corner(
+				link="https://github.com/LeCoupa/vuedarkmode"
+				class="l-default__github-corner"
+			)
+			.l-default__page-inner
+				nuxt
 </template>
 
 <!-- *************************************************************************
@@ -29,7 +29,9 @@
 
 <script>
 // NPM
-import { mapState } from "vuex";
+import {
+  mapState
+} from "vuex";
 
 // PROJECT
 import TheGithubCorner from "@/components/layouts/TheGithubCorner";
@@ -72,7 +74,9 @@ export default {
         pageWrapper.scrollTop = section.offsetTop;
 
         // Update category items and hash url
-        this.$store.commit("updateCategoryItems", { id });
+        this.$store.commit("updateCategoryItems", {
+          id
+        });
         this.$router.replace(`/#${id}`);
       }
     }
@@ -103,62 +107,61 @@ export default {
 $c: ".l-default";
 
 html {
-  background-color: $mirage;
-  color: $white;
-  text-align: center;
-  word-spacing: 1px;
-  font-size: 16px;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+    background-color: $mirage;
+    color: $white;
+    text-align: center;
+    word-spacing: 1px;
+    font-size: 16px;
+    font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 
-  a {
-    outline: 0;
-    text-decoration: none;
-    cursor: pointer;
+    a {
+        outline: 0;
+        text-decoration: none;
+        cursor: pointer;
 
-    &:focus {
-      box-shadow: 0 2px 0 $azure-radiance;
-      transition: box-shadow ease-in-out 0s;
-    }
-  }
-
-  #{$c} {
-    #{$c}__container {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: flex;
-      overflow: hidden;
-
-      #{$c}__navigation {
-        flex: 0 0 auto;
-      }
-
-      #{$c}__page-wrapper {
-        position: relative;
-        flex: 1;
-        padding: 60px 40px;
-
-        #{$c}__github-corner {
-          position: absolute;
-          top: 0;
-          right: 0;
-          border: 0;
+        &:focus {
+            box-shadow: 0 2px 0 $azure-radiance;
+            transition: box-shadow ease-in-out 0s;
         }
-
-        #{$c}__page-inner {
-          margin: 0 auto;
-          max-width: 900px;
-        }
-      }
     }
-  }
+
+    #{$c} {
+        #{$c}__container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            overflow: hidden;
+
+            #{$c}__navigation {
+                flex: 0 0 auto;
+            }
+
+            #{$c}__page-wrapper {
+                position: relative;
+                flex: 1;
+                padding: 60px 40px;
+
+                #{$c}__github-corner {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    border: 0;
+                }
+
+                #{$c}__page-inner {
+                    margin: 0 auto;
+                    max-width: 900px;
+                }
+            }
+        }
+    }
 }
 </style>

@@ -58,8 +58,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import BaseSocialLogin from "@/components/darkmode/base/BaseSocialLogin";
+import BaseDivider from "@/lib//base/BaseDivider";
+import BaseSocialLogin from "@/lib//base/BaseSocialLogin";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

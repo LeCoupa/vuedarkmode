@@ -1,7 +1,7 @@
 module.exports = {
   banner: true,
   format: ["cjs", "es", "umd-min"],
-  input: "vuedarkmode.js",
-  name: "vuedarkmode",
+  input: ["./lib/*.js"],
+  filename: "[name][suffix].js",
   plugins: ["vue"]
 };

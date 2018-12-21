@@ -38,10 +38,10 @@
 
 <script>
 // PROJECT
-import BaseButton from "@/components/darkmode/base/BaseButton";
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import BaseHeading from "@/components/darkmode/base/BaseHeading";
-import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import BaseButton from "@/lib//base/BaseButton";
+import BaseDivider from "@/lib//base/BaseDivider";
+import BaseHeading from "@/lib//base/BaseHeading";
+import BaseIcon from "@/lib//base/BaseIcon";
 
 export default {
   components: {

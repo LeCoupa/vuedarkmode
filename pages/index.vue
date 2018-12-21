@@ -132,7 +132,7 @@ main.c-index
 import { ObserveVisibility } from "vue-observe-visibility";
 
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
+import BaseDivider from "@/lib//base/BaseDivider";
 import CommonHeadlines from "@/components/common/CommonHeadlines";
 import GuideBaseAlerts from "@/components/guide/GuideBaseAlerts";
 import GuideBaseAvatars from "@/components/guide/GuideBaseAvatars";

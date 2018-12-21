@@ -44,7 +44,7 @@
 
 <script>
 // PROJECT
-import BaseProgressBar from "@/components/darkmode/base/BaseProgressBar";
+import BaseProgressBar from "@/lib//base/BaseProgressBar";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

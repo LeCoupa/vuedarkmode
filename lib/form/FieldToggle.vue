@@ -6,16 +6,16 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-field-checkbox",
-    "dm-field-checkbox--" + size,
-    "dm-field-checkbox--" + status,
+    "dm-field-toggle",
+    "dm-field-toggle--" + size,
+    "dm-field-toggle--" + status,
     {
-      "dm-field-checkbox--disabled": disabled,
-      "dm-field-checkbox--full-width": fullWidth
+      "dm-field-toggle--disabled": disabled,
+      "dm-field-toggle--full-width": fullWidth
     }
   ]`
 )
-  .dm-field-checkbox__container
+  .dm-field-toggle__container
     input(
       @change="onFieldChange"
       :checked="value"
@@ -23,7 +23,7 @@ div(
       :id="uuid"
       :name="name"
       :required="required"
-      class="dm-field-checkbox__field"
+      class="dm-field-toggle__field"
       type="checkbox"
     )
     field-label(
@@ -31,7 +31,7 @@ div(
       :forField="uuid"
       :size="size"
       :uppercase="false"
-      class="dm-field-checkbox__label"
+      class="dm-field-toggle__label"
     ) {{ label }}
 
   field-description(
@@ -49,7 +49,7 @@ div(
 
 <script>
 // PROJECT
-import { generateUUID } from "../../../helpers/helpers.js";
+import { generateUUID } from "../../helpers/helpers.js";
 import FieldDescription from "./FieldDescription.vue";
 import FieldLabel from "./FieldLabel.vue";
 
@@ -142,7 +142,7 @@ export default {
 @import "assets/settings/_settings.colors.scss";
 
 // VARIABLES
-$c: ".dm-field-checkbox";
+$c: ".dm-field-toggle";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
@@ -160,8 +160,7 @@ $statuses: error, normal, success, warning;
       margin-bottom: 0;
       outline: 0;
       border: none;
-      border-radius: 2px;
-      transition: all ease-in-out 200ms;
+      border-radius: 100px;
       -webkit-appearance: none;
       cursor: pointer;
 
@@ -170,7 +169,7 @@ $statuses: error, normal, success, warning;
         position: absolute;
         display: inline-block;
         box-sizing: border-box;
-        transition: all ease-in-out 200ms;
+        transition: all ease-in-out 300ms;
       }
 
       &:before {
@@ -178,31 +177,31 @@ $statuses: error, normal, success, warning;
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid $regent-st-blue;
-        border-radius: 3px;
-        background-color: $white;
+        border: 1px solid $oxford-blue;
+        border-radius: 20px;
+        background-color: rgba($ebony-clay-2, 0.4);
         content: "";
       }
 
       &:after {
-        border: 2px solid $white;
-        border-top: 0;
-        border-left: 0;
-        transform: rotate(45deg);
+        top: 4px;
+        right: initial;
+        border-radius: 100%;
+        background: $white;
+        transform: translateX(4px);
         content: "";
       }
 
       &:hover {
-        &:after {
-          border-color: $oxford-blue;
-          border-right-width: 2px;
-          border-bottom-width: 2px;
+        &:before {
+          border-color: lighten($oxford-blue, 10%);
         }
       }
 
-      &:checked {
-        &:after {
-          border-color: $white;
+      &:not(:checked) {
+        + #{$c}__label {
+          color: $regent-st-blue;
+          transition: color 250ms ease-in-out;
         }
       }
     }
@@ -223,42 +222,26 @@ $statuses: error, normal, success, warning;
     &--#{$size} {
       #{$c}__container {
         #{$c}__field {
-          width: 12px + (2px * $i);
-          height: 12px + (2px * $i);
           margin-right: 6px + (1px * $i);
+          width: (18px + (2px * $i)) * 2;
+          height: 18px + (2px * $i);
 
           &:after {
-            @if ($size == mini) {
-              top: 1px;
-              left: 4px;
-              width: 4px;
-              height: 8px;
-            } @else if ($size == small) {
-              top: 2px;
-              left: 5px;
-              width: 4px;
-              height: 8px;
-            } @else if ($size == default) {
-              top: 2px;
-              left: 6px;
-              width: 5px;
-              height: 10px;
-            } @else if ($size == medium) {
-              top: 3px;
-              left: 7px;
-              width: 5px;
-              height: 10px;
-            } @else if ($size == large) {
-              top: 3px;
-              left: 8px;
-              width: 6px;
-              height: 12px;
+            width: 10px + (2px * $i);
+            height: 10px + (2px * $i);
+          }
+
+          &:checked {
+            &:after {
+              transform: translateX(
+                ((18px + (2px * $i)) * 2) - (10px + (2px * $i) + 4px)
+              );
             }
           }
         }
 
         #{$c}__label {
-          line-height: 12px + (2px * $i);
+          line-height: 18px + (2px * $i);
         }
       }
     }
@@ -270,7 +253,7 @@ $statuses: error, normal, success, warning;
     &--#{$status} {
       #{$c}__container {
         #{$c}__field {
-          &:hover {
+          @if ($status != normal) {
             &:before {
               border-color: map-get($statusColors, $status);
             }
@@ -279,7 +262,13 @@ $statuses: error, normal, success, warning;
           &:checked {
             &:before {
               border-color: map-get($statusColors, $status);
-              background: map-get($statusColors, $status);
+              background-color: rgba(map-get($statusColors, $status), 0.4);
+            }
+          }
+
+          &:hover {
+            &:before {
+              border-color: lighten(map-get($statusColors, $status), 10%);
             }
           }
 

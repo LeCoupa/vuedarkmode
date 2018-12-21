@@ -54,8 +54,8 @@
 
 <script>
 // PROJECT
-import BaseAlert from "@/components/darkmode/base/BaseAlert";
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
+import BaseAlert from "@/lib//base/BaseAlert";
+import BaseDivider from "@/lib//base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

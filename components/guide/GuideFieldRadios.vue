@@ -61,8 +61,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import FieldRadios from "@/components/darkmode/form/FieldRadios";
+import BaseDivider from "@/lib//base/BaseDivider";
+import FieldRadios from "@/lib//form/FieldRadios";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

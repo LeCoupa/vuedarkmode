@@ -54,8 +54,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import BaseSpinner from "@/components/darkmode/base/BaseSpinner";
+import BaseDivider from "@/lib//base/BaseDivider";
+import BaseSpinner from "@/lib//base/BaseSpinner";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

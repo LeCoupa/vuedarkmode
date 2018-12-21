@@ -36,8 +36,8 @@ header.c-the-header
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import BaseHeading from "@/components/darkmode/base/BaseHeading";
+import BaseDivider from "@/lib//base/BaseDivider";
+import BaseHeading from "@/lib//base/BaseHeading";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
 import TheSubscriptionBox from "@/components/layouts/TheSubscriptionBox";
