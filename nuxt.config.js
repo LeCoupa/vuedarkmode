@@ -166,13 +166,15 @@ module.exports = {
         // Site-wide mixins and functions
         "@/assets/tools/_tools.mq.scss"
       ]
-    ],
-    "~/lib/nuxtVueDarkMode.js"
+    ]
   ],
 
   plugins: [
     {
       src: "@/plugins/vue-highlight"
+    },
+    {
+      src: "@/lib"
     }
   ],
 
