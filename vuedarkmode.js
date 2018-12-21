@@ -22,7 +22,7 @@ import FieldDescription from "./components/darkmode/form/FieldDescription.vue";
 import FieldFile from "./components/darkmode/form/FieldFile.vue";
 import FieldInput from "./components/darkmode/form/FieldInput.vue";
 import FieldLabel from "./components/darkmode/form/FieldLabel.vue";
-import FieldRadio from "./components/darkmode/form/FieldRadio.vue";
+import FieldRadios from "./components/darkmode/form/FieldRadios.vue";
 import FieldSelect from "./components/darkmode/form/FieldSelect.vue";
 import FieldTabs from "./components/darkmode/form/FieldTabs.vue";
 import FieldTextarea from "./components/darkmode/form/FieldTextarea.vue";
@@ -51,11 +51,11 @@ function install(Vue, options) {
     spinner: BaseSpinner,
     toast: BaseToast,
     checkbox: FieldCheckbox,
-    description: FileDescription,
+    description: FieldDescription,
     file: FieldFile,
     input: FieldInput,
-    label: FileLabel,
-    radio: FieldRadio,
+    label: FieldLabel,
+    radios: FieldRadios,
     select: FieldSelect,
     tabs: FieldTabs,
     textarea: FieldTextarea,
