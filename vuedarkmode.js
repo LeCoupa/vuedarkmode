@@ -18,8 +18,10 @@ import BaseToast from "./components/darkmode/base/BaseToast.vue";
 
 // FORM COMPONENTS
 import FieldCheckbox from "./components/darkmode/form/FieldCheckbox.vue";
+import FieldDescription from "./components/darkmode/form/FieldDescription.vue";
 import FieldFile from "./components/darkmode/form/FieldFile.vue";
 import FieldInput from "./components/darkmode/form/FieldInput.vue";
+import FieldLabel from "./components/darkmode/form/FieldLabel.vue";
 import FieldRadio from "./components/darkmode/form/FieldRadio.vue";
 import FieldSelect from "./components/darkmode/form/FieldSelect.vue";
 import FieldTabs from "./components/darkmode/form/FieldTabs.vue";
@@ -49,8 +51,10 @@ function install(Vue, options) {
     spinner: BaseSpinner,
     toast: BaseToast,
     checkbox: FieldCheckbox,
+    description: FileDescription,
     file: FieldFile,
     input: FieldInput,
+    label: FileLabel,
     radio: FieldRadio,
     select: FieldSelect,
     tabs: FieldTabs,
