@@ -12,6 +12,7 @@
       base-icon(
         v-for="(icon, i) in icons"
         v-if="i < maxIcons"
+        v-clipboard:copy="icon"
         :aria-label="icon"
         :clickable="true"
         :key="icon"

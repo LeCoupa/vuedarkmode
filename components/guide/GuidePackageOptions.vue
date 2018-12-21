@@ -15,11 +15,11 @@
       |   // Specify the components to declare globally in your project
       |   // When undefined, null or given an empty array, all components will be imported
       |   components: [
-      |    // Base components
-      |    "alert", "avatar", "badge", "button", "divider", "heading", "icon",  "progress-bar",  "social-login", "spinner",
+      |     // Base components
+      |     "alert", "avatar", "badge", "button", "divider", "heading", "icon",  "progress-bar",  "social-login", "spinner",
       |
-      |    // Form components
-      |    "checkbox", "description", "file", "input", "label", "radios", "select", "tabs", "textarea", "toggle"
+      |     // Form components
+      |     "checkbox", "description", "file", "input", "label", "radios", "select", "tabs", "textarea", "toggle"
       |   ]
       | });
 </template>
