@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "vuedarkmode",
-  "version": "0.2.17",
+  "version": "0.2.18",
   "author": "Team <team@vuedarkmode.com>",
   "license": "MIT",
   "description": "A minimalist dark design system for vue.js",
@@ -47,6 +47,7 @@
     "normalize.css": "^8.0.0",
     "nuxt": "^1.0.0",
     "qs": "^6.5.2",
+    "vue-clipboard2": "^0.2.1",
     "vue-highlightjs": "^1.3.3",
     "vue-observe-visibility": "^0.4.3",
     "vue2-perfect-scrollbar": "^1.2.0",

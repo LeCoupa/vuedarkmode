@@ -169,6 +169,7 @@ module.exports = {
     ]
   ],
 
+<<<<<<< HEAD
   plugins: [
     {
       src: "@/plugins/vue-highlight"
@@ -177,6 +178,9 @@ module.exports = {
       src: "@/lib"
     }
   ],
+=======
+  plugins: [{ src: "@/plugins/global" }, { src: "@/plugins/vue-highlight" }],
+>>>>>>> upstream/master
 
   build: {
     extend(config, { isDev, isClient }) {

@@ -14,7 +14,13 @@
       | Vue.use(VueDarkMode, {
       |   // Specify the components to declare globally in your project
       |   // When undefined, null or given an empty array, all components will be imported
-      |   components: ["alert", "avatar", "badge", "button", "divider", "heading", "icon",  "progress-bar",  "social-login", "spinner", "checkbox", "file", "input", "radio", "select", "tabs", "textarea", "toggle"]
+      |   components: [
+      |     // Base components
+      |     "alert", "avatar", "badge", "button", "divider", "heading", "icon",  "progress-bar",  "social-login", "spinner",
+      |
+      |     // Form components
+      |     "checkbox", "description", "file", "input", "label", "radios", "select", "tabs", "textarea", "toggle"
+      |   ]
       | });
 </template>
 
