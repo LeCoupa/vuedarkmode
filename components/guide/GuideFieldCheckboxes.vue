@@ -4,58 +4,58 @@
 
 <template lang="pug">
 .c-guide-field-checkboxes
-	div(
-		v-if="!documentation"
-		class="c-guide-field-checkboxes__showroom o-elements o-elements--form"
-	)
-		div(
-			v-for="(statuses, i) in checkboxes.statuses"
-			:key="'checkboxes ' + i"
-			class="o-elements__category"
-		)
-			div(
-				v-if="statuses[j]"
-				v-for="(size, j) in checkboxes.sizes"
-				:key="'checkboxes ' + i + ' ' + j"
-				class="o-elements__item"
-			)
-				field-checkbox(
-					:fullWidth="false"
-					:label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
-					:name="'checkbox_' + size + '_'  + statuses[j] + i + j"
-					:size="size"
-					:status="statuses[j]"
-					:value="i === 1"
-					description="This is a customizable description for checkboxes."
-				)
+  div(
+    v-if="!documentation"
+    class="c-guide-field-checkboxes__showroom o-elements o-elements--form"
+  )
+    div(
+      v-for="(statuses, i) in checkboxes.statuses"
+      :key="'checkboxes ' + i"
+      class="o-elements__category"
+    )
+      div(
+        v-if="statuses[j]"
+        v-for="(size, j) in checkboxes.sizes"
+        :key="'checkboxes ' + i + ' ' + j"
+        class="o-elements__item"
+      )
+        field-checkbox(
+          :fullWidth="false"
+          :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
+          :name="'checkbox_' + size + '_'  + statuses[j] + i + j"
+          :size="size"
+          :status="statuses[j]"
+          :value="i === 1"
+          description="This is a customizable description for checkboxes."
+        )
 
-	div(
-		v-else
-		class="c-guide-field-checkboxes__documentation"
-	)
-		pre(v-highlightjs)
-			code(class="html")
-				| &lt;!-- Insert this component in your code --&gt;
-				| &lt;!-- Customize it with props (see table below) --&gt;
-				| &lt;dm-checkbox v-model="synchronizedValue"&gt;&lt;/dm-checkbox&gt;
+  div(
+    v-else
+    class="c-guide-field-checkboxes__documentation"
+  )
+    pre(v-highlightjs)
+      code(class="html")
+        | &lt;!-- Insert this component in your code --&gt;
+        | &lt;!-- Customize it with props (see table below) --&gt;
+        | &lt;dm-checkbox v-model="synchronizedValue"&gt;&lt;/dm-checkbox&gt;
 
-		no-ssr
-			common-table(
-				:data="props.data"
-				:fields="props.fields"
-				class="u-mb40"
-			)
+    no-ssr
+      common-table(
+        :data="props.data"
+        :fields="props.fields"
+        class="u-mb40"
+      )
 
-		base-divider(
-			class="u-mb40"
-			color="white"
-			size="small"
-		)
-		no-ssr
-			common-table(
-				:data="events.data"
-				:fields="events.fields"
-			)
+    base-divider(
+      class="u-mb40"
+      color="white"
+      size="small"
+    )
+    no-ssr
+      common-table(
+        :data="events.data"
+        :fields="events.fields"
+      )
 </template>
 
 <!-- *************************************************************************
@@ -66,8 +66,7 @@
 // PROJECT
 import BaseDivider from "@/lib//base/BaseDivider";
 import FieldCheckbox from "@/lib//form/FieldCheckbox";
-const CommonTable = () =>
-  import("@/components/common/CommonTable");
+const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
@@ -93,7 +92,8 @@ export default {
         ]
       },
       props: {
-        fields: [{
+        fields: [
+          {
             name: "name",
             title: "Prop Name",
             dataClass: "u-bold",
@@ -109,14 +109,16 @@ export default {
             title: "Details"
           }
         ],
-        data: [{
+        data: [
+          {
             name: "description",
             type: {
               type: "String",
               additional: "Default: null"
             },
             details: {
-              description: "Display an helping description below the checkbox element."
+              description:
+                "Display an helping description below the checkbox element."
             }
           },
           {
@@ -136,7 +138,8 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "When set to true, the checkbox element will take all the width available."
+              description:
+                "When set to true, the checkbox element will take all the width available."
             }
           },
           {
@@ -166,7 +169,8 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "Sets whether the checkbox element must be checked before submitting the form."
+              description:
+                "Sets whether the checkbox element must be checked before submitting the form."
             }
           },
           {
@@ -204,7 +208,8 @@ export default {
         ]
       },
       events: {
-        fields: [{
+        fields: [
+          {
             name: "name",
             title: "Event Name",
             dataClass: "u-bold",
@@ -220,13 +225,16 @@ export default {
             title: "Details"
           }
         ],
-        data: [{
-          name: "change",
-          parameters: "checked, name, event",
-          details: {
-            description: "Fires the moment when the value of the element is changed."
+        data: [
+          {
+            name: "change",
+            parameters: "checked, name, event",
+            details: {
+              description:
+                "Fires the moment when the value of the element is changed."
+            }
           }
-        }]
+        ]
       }
     };
   }
@@ -237,5 +245,4 @@ export default {
      STYLE
      ************************************************************************* -->
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
