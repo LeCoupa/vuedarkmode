@@ -3,10 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-perfect-scrollbar(
-  class="c-the-navigation"
-  tag="nav"
-)
+nav.c-the-navigation
   .c-the-navigation__categories
     div(
       v-for="category in categories"
@@ -120,6 +117,7 @@ $gutter: 40px;
 
 #{$c} {
   display: none;
+  overflow-y: auto;
   flex-direction: column;
   box-sizing: border-box;
   width: 300px;
