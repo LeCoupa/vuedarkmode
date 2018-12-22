@@ -171,7 +171,7 @@ module.exports = {
 
   plugins: [
     {
-      src: "@/plugins/vue-highlight"
+      src: "@/plugins/global"
     },
     {
       src: "@/lib"
