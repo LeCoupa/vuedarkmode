@@ -51,7 +51,7 @@ $c: ".c-the-footer";
 #{$c} {
   #{$c}__line {
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     font-size: 14px;
     line-height: 22px;
   }
