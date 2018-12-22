@@ -77,7 +77,7 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
 
   &--small {
     margin: 20px auto;
-    max-width: 60px;
+    width: 60px;
     height: 4px;
     border-top-width: 4px;
   }
