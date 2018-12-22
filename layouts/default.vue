@@ -90,7 +90,7 @@ export default {
 @import "assets/libraries/libraries.highlightjs";
 
 // Unclassed HTML elements (e.g. a {}, blockquote {}, address {})
-@import "./assets/elements/elements.inline";
+@import "./assets/elements/elements.links";
 
 // Objects, abstractions, and design patterns (e.g. .o-flexbox-column {})
 @import "./assets/objects/objects.layouts";
@@ -115,17 +115,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-
-  a {
-    outline: 0;
-    text-decoration: none;
-    cursor: pointer;
-
-    &:focus {
-      box-shadow: 0 2px 0 $azure-radiance;
-      transition: box-shadow ease-in-out 0s;
-    }
-  }
 
   #{$c} {
     #{$c}__container {

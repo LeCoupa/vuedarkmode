@@ -54,11 +54,6 @@ $c: ".c-the-footer";
     margin-bottom: 12px;
     font-size: 14px;
     line-height: 22px;
-
-    #{$c}__link {
-      color: $white;
-      font-weight: bold;
-    }
   }
 }
 </style>
