@@ -3,10 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-perfect-scrollbar(
-  class="c-guide-headings"
-  tag="div"
-)
+.c-guide-headings
   div(
     v-if="!documentation"
     class="c-guide-headings__showroom"
@@ -173,7 +170,7 @@ perfect-scrollbar(
 
 <script>
 // PROJECT
-import BaseHeading from "@/components/darkmode/base/BaseHeading";
+import BaseHeading from "@/lib//base/BaseHeading";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
@@ -273,6 +270,7 @@ $c: ".c-guide-headings";
 
 #{$c} {
   text-align: left;
+  overflow-x: auto;
 
   #{$c}__row {
     display: flex;

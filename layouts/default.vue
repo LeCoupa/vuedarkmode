@@ -11,10 +11,7 @@
       :categories="categories"
       class="l-default__navigation"
     )
-    perfect-scrollbar(
-      class="l-default__page-wrapper js-default-page-wrapper"
-      tag="div"
-    )
+    div.l-default__page-wrapper.js-default-page-wrapper
       the-github-corner(
         link="https://github.com/LeCoupa/vuedarkmode"
         class="l-default__github-corner"
@@ -66,10 +63,13 @@ export default {
 
     scrollToSection(id) {
       const section = this.$el.querySelector(`#${id}`);
-      const pageWrapper = document.querySelector(".js-default-page-wrapper");
 
       if (section) {
-        pageWrapper.scrollTop = section.offsetTop;
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest"
+        });
 
         // Update category items and hash url
         this.$store.commit("updateCategoryItems", { id });
@@ -143,6 +143,7 @@ html {
 
       #{$c}__page-wrapper {
         position: relative;
+        overflow-y: auto;
         flex: 1;
         padding: 60px 40px;
 

@@ -105,7 +105,7 @@
 
 <script>
 // PROJECT
-import BaseHeading from "@/components/darkmode/base/BaseHeading";
+import BaseHeading from "@/lib//base/BaseHeading";
 
 export default {
   components: {

@@ -3,16 +3,14 @@
  ***************************************************************************/
 
 // NPM
-import PerfectScrollbar from "vue2-perfect-scrollbar";
 import Vue from "vue";
 import VueClipboard from "vue-clipboard2";
-
-// STYLESHEETS
-import "vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css";
+import VueHighlightJS from "vue-highlightjs";
 
 /**************************************************************************
- * PLUGINS
+ * USE PLUGIN
+ * https://vuejs.org/v2/guide/plugins.html
  ***************************************************************************/
 
-Vue.use(PerfectScrollbar);
 Vue.use(VueClipboard);
+Vue.use(VueHighlightJS);

@@ -64,8 +64,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import FieldCheckbox from "@/components/darkmode/form/FieldCheckbox";
+import BaseDivider from "@/lib//base/BaseDivider";
+import FieldCheckbox from "@/lib//form/FieldCheckbox";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
@@ -245,5 +245,4 @@ export default {
      STYLE
      ************************************************************************* -->
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

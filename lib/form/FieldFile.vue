@@ -57,7 +57,7 @@ div(
 
 <script>
 // PROJECT
-import { generateUUID } from "../../../helpers/helpers.js";
+import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldLabel from "./FieldLabel.vue";
 

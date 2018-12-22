@@ -53,8 +53,8 @@
 
 <script>
 // PROJECT
-import BaseToast from "@/components/darkmode/base/BaseToast";
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
+import BaseToast from "@/lib//base/BaseToast";
+import BaseDivider from "@/lib//base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

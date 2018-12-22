@@ -71,8 +71,8 @@
 
 <script>
 // PROJECT
-import BaseButton from "@/components/darkmode/base/BaseButton";
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
+import BaseButton from "@/lib//base/BaseButton";
+import BaseDivider from "@/lib//base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

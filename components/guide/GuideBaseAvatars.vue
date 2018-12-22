@@ -70,8 +70,8 @@
 
 <script>
 // PROJECT
-import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
+import BaseAvatar from "@/lib//base/BaseAvatar";
+import BaseDivider from "@/lib//base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

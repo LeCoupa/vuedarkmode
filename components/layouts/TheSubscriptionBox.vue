@@ -45,8 +45,8 @@ import axios from "axios";
 import qs from "qs";
 
 // PROJECT
-import BaseButton from "@/components/darkmode/base/BaseButton";
-import FieldInput from "@/components/darkmode/form/FieldInput";
+import BaseButton from "@/lib//base/BaseButton";
+import FieldInput from "@/lib//form/FieldInput";
 
 export default {
   components: {

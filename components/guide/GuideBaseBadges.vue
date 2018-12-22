@@ -58,8 +58,8 @@
 
 <script>
 // PROJECT
-import BaseBadge from "@/components/darkmode/base/BaseBadge";
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
+import BaseBadge from "@/lib//base/BaseBadge";
+import BaseDivider from "@/lib//base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
