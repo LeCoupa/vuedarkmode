@@ -37,7 +37,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-textarea&gt;&lt;/dm-textarea&gt;
+        | &lt;dm-textarea v-model="synchronizedValue"&gt;&lt;/dm-textarea&gt;
 
     no-ssr
       common-table(
@@ -64,8 +64,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import FieldTextarea from "@/components/darkmode/form/FieldTextarea";
+import BaseDivider from "@/lib//base/BaseDivider";
+import FieldTextarea from "@/lib//form/FieldTextarea";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
@@ -326,5 +326,4 @@ export default {
      STYLE
      ************************************************************************* -->
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

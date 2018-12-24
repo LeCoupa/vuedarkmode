@@ -1,46 +1,49 @@
-importScripts("/_nuxt/workbox.4c4f5ca6.js");
+importScripts('/_nuxt/workbox.4c4f5ca6.js')
 
-workbox.precaching.precacheAndRoute(
-  [
-    {
-      url: "/_nuxt/app.bb7e0454154fab232db0.js",
-      revision: "1c5bc6ec1fe86bdd782e3a69e87e2000"
-    },
-    {
-      url: "/_nuxt/layouts/default.7247a5a105799ddc5532.js",
-      revision: "b7a2790fe3651f2d271bbec72a175cf3"
-    },
-    {
-      url: "/_nuxt/manifest.9ef820ad783c938ef3b8.js",
-      revision: "ca3406afa727495ab506f8ddd3dedb54"
-    },
-    {
-      url: "/_nuxt/pages/index.0bac7d1611f880ffa461.js",
-      revision: "ac1c2e3dbfa1ee23e1e162ccd225236f"
-    },
-    {
-      url: "/_nuxt/vendor.bb3eac518b57e20b0b01.js",
-      revision: "531a764e042322d8d8e9d0c76f00bf75"
-    }
-  ],
+
+
+workbox.precaching.precacheAndRoute([
   {
-    cacheId: "vuedarkmode",
-    directoryIndex: "/",
-    cleanUrls: false
+    "url": "/_nuxt/4.4ffdcc49b3e3b27fe1ba.js",
+    "revision": "785183ddd9b66bf654ab3a99b9582c4f"
+  },
+  {
+    "url": "/_nuxt/app.3be728b3011953bba560.js",
+    "revision": "368cda0567a3d33659bdb2203f089742"
+  },
+  {
+    "url": "/_nuxt/layouts/default.dc5b0e9f372984ba1d90.js",
+    "revision": "4d3fac326102f7c72126186244260bc9"
+  },
+  {
+    "url": "/_nuxt/manifest.6798babf80291dd033c5.js",
+    "revision": "e5c6c8a04c8c07f6946e5d966716d242"
+  },
+  {
+    "url": "/_nuxt/pages/index.cd215a40d7da4b5c25f6.js",
+    "revision": "37536bd3aba80c96067bd89c869e2aa8"
+  },
+  {
+    "url": "/_nuxt/vendor.c6e827ea82ca06ba71b4.js",
+    "revision": "623160a68b7be3b464fe7d5b7543b3a3"
   }
-);
+], {
+  "cacheId": "vuedarkmode",
+  "directoryIndex": "/",
+  "cleanUrls": false
+})
 
-workbox.clientsClaim();
-workbox.skipWaiting();
 
-workbox.routing.registerRoute(
-  new RegExp("/_nuxt/.*"),
-  workbox.strategies.cacheFirst({}),
-  "GET"
-);
 
-workbox.routing.registerRoute(
-  new RegExp("/.*"),
-  workbox.strategies.networkFirst({}),
-  "GET"
-);
+workbox.clientsClaim()
+workbox.skipWaiting()
+
+
+workbox.routing.registerRoute(new RegExp('/_nuxt/.*'), workbox.strategies.cacheFirst({}), 'GET')
+
+workbox.routing.registerRoute(new RegExp('/.*'), workbox.strategies.networkFirst({}), 'GET')
+
+
+
+
+

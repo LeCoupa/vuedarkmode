@@ -76,14 +76,14 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
   // --> SIZES <--
 
   &--small {
-    margin: 15px auto;
-    max-width: 60px;
+    margin: 20px auto;
+    width: 60px;
     height: 4px;
     border-top-width: 4px;
   }
 
   &--large {
-    margin: 30px auto;
+    margin: 40px auto;
     width: 100%;
     height: 1px;
     border-top-width: 1px;

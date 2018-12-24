@@ -39,7 +39,9 @@ export default {
       type: String,
       required: true,
       validator(x) {
-        return ["h1", "h2", "h3", "p", "small"].indexOf(x) !== -1;
+        return (
+          ["h1", "h2", "h3", "h4", "h5", "h6", "p", "small"].indexOf(x) !== -1
+        );
       }
     },
     uppercase: {
@@ -71,7 +73,7 @@ export default {
 
       if (this.color) {
         color = this.color;
-      } else if (this.tag === "h3") {
+      } else if (["h3", "h4", "h5", "h6"].includes(this.tag)) {
         color = "grey";
       }
 
@@ -79,17 +81,17 @@ export default {
     },
 
     computedWeight() {
-      // Directly return prop when defined
-      if (this.weight) return this.weight;
+      let weight = "regular";
 
-      switch (this.tag) {
-        case "h1":
-          return "bold";
-        case "h2":
-          return "medium";
-        default:
-          return "regular";
+      if (this.weight) {
+        weight = this.weight;
+      } else if (this.tag === "h1") {
+        weight = "bold";
+      } else if (["h2", "h3", "h4"].includes(this.tag)) {
+        weight = "medium";
       }
+
+      return weight;
     }
   }
 };
@@ -135,6 +137,21 @@ $colors: black, blue, green, grey, red, orange, white;
   &--h3 {
     font-size: 22px;
     line-height: 32px;
+  }
+
+  &--h4 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  &--h5 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  &--h6 {
+    font-size: 16px;
+    line-height: 28px;
   }
 
   &--p {

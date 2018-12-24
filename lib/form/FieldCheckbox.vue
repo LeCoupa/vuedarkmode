@@ -2,7 +2,6 @@
      TEMPLATE
      ************************************************************************* -->
 
-
 <template lang="pug">
 div(
   :class=`[
@@ -18,7 +17,7 @@ div(
   .dm-field-checkbox__container
     input(
       @change="onFieldChange"
-      :checked="checked"
+      :checked="value"
       :disabled="disabled"
       :id="uuid"
       :name="name"
@@ -41,15 +40,13 @@ div(
   )
 </template>
 
-
 <!-- *************************************************************************
      SCRIPT
      ************************************************************************* -->
 
-
 <script>
 // PROJECT
-import { generateUUID } from "../../../helpers/helpers.js";
+import { generateUUID } from "../../helpers/helpers.js";
 import FieldDescription from "./FieldDescription.vue";
 import FieldLabel from "./FieldLabel.vue";
 
@@ -60,10 +57,6 @@ export default {
   },
 
   props: {
-    checked: {
-      type: Boolean,
-      default: false
-    },
     description: {
       type: String,
       default: null
@@ -103,6 +96,10 @@ export default {
       validator(x) {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
+    },
+    value: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -123,16 +120,17 @@ export default {
 
     onFieldChange(event) {
       this.$emit("change", event.target.checked, this.name, event);
+
+      // Synchronization for v-model
+      this.$emit("input", event.target.checked);
     }
   }
 };
 </script>
 
-
 <!-- *************************************************************************
      STYLE
      ************************************************************************* -->
-
 
 <style lang="scss">
 // IMPORTS

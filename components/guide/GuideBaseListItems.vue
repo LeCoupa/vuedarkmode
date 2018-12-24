@@ -47,8 +47,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import BaseListItem from "@/components/darkmode/base/BaseListItem";
+import BaseDivider from "@/lib//base/BaseDivider";
+import BaseListItem from "@/lib//base/BaseListItem";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

@@ -1,14 +1,22 @@
 /**************************************************************************
-ELEMENTS > HEADINGS
+ELEMENTS > LINKS
 ***************************************************************************/
 
 a {
-  color: $azure-radiance;
+  outline: 0;
+  color: $white;
   text-decoration: none;
+  font-weight: bold;
   transition: all ease-in-out 0.2s;
-  font-weight: 500;
+  cursor: pointer;
 
   &:hover {
-    color: $athens-gray;
+    color: $regent-st-blue;
+  }
+
+  &:focus {
+    box-shadow: 0 2px 0 $azure-radiance;
+    color: $white;
+    transition: box-shadow ease-in-out 0s;
   }
 }

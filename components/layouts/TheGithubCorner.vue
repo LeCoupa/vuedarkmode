@@ -47,7 +47,6 @@ $c: ".github-corner";
 
   &:focus {
     box-shadow: 0 0 0 2px $mirage, 0 0 0 4px $azure-radiance;
-    transition: box-shadow ease-in-out 0s;
   }
 }
 

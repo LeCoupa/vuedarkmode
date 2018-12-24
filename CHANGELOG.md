@@ -8,7 +8,7 @@
 
 - BaseBadge: new prop to set the image as clickable or not.
 
-- BaseButton: new prop to set the button as loading.
+- BaseButton: new props to set the button as loading or display it as link.
 
 - BaseIcon: new prop to set the image as clickable or not.
 
@@ -20,23 +20,23 @@
 
 - BaseButton: rework style on hover / focus and add ability to display a list.
 
-- BaseHeading: type prop now accepts "small" when you need to display smaller content. Font-weight prop has been renamed in weight. Type prop has been renamed in tag. The uppercase prop has been added. It also accepts new colors.
+- BaseHeading: type prop now accepts "small" when you need to display smaller content. Font-weight prop has been renamed in weight. Type prop has been renamed in tag. The uppercase prop has been added. It also accepts new colors. H4, H5, H6 tags are now available.
 
 - BaseProgressBar: ability to display an additional description when the user hovers.
 
-- BaseSocialLogin: rework style on hover / focus.
+- BaseSocialLogin: rework style on hover / focus. Add loading prop.
 
-- FieldCheckbox: rework style on focus.
+- FieldCheckbox: rework style on focus. Add support for v-model.
 
 - FieldFile: rework style on focus.
 
-- FieldRadio: rework style on focus.
+- FieldRadios: Complete rewrite. Rework style on focus. Add support for v-model.
 
-- FieldSelect: the component has been rewritten and its style improved.
+- FieldSelect: the component has been rewritten and its style improved. Add support for v-model.
 
-- FieldTabs: rework style on focus.
+- FieldTabs: rework style on focus. Add support for v-model.
 
-- FieldToggle: rework style on focus.
+- FieldToggle: rework style on focus. Add support for v-model.
 
 ## 0.1.0 - 2018-11-05
 

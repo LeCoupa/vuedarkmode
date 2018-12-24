@@ -73,7 +73,7 @@ export default {
 $c: ".c-common-table";
 
 #{$c} {
-  overflow-x: scroll;
+  overflow-x: auto;
   text-align: left;
 
   table {

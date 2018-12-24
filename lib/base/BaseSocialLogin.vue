@@ -10,15 +10,24 @@ button(
     "dm-base-social-login--" + network,
     "dm-base-social-login--" + size,
     {
-      "dm-base-social-login--full-width": fullWidth
+      "dm-base-social-login--full-width": fullWidth,
+      "dm-base-social-login--loading": loading
     }
   ]`
+  :disabled="loading"
+  type="button"
 )
   span.dm-base-social-login__inner
-    span.dm-base-social-login__icon
-
+    base-spinner(
+      v-if="loading"
+      size="mini"
+    )
     span(
-      v-if="size === 'large'"
+      v-if="!loading"
+      class="dm-base-social-login__icon"
+    )
+    span(
+      v-if="size === 'large' && !loading"
       class="dm-base-social-login__label"
     ): slot
 </template>
@@ -28,9 +37,20 @@ button(
      ************************************************************************* -->
 
 <script>
+// PROJECT
+import BaseSpinner from "./BaseSpinner.vue";
+
 export default {
+  components: {
+    BaseSpinner
+  },
+
   props: {
     fullWidth: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
       type: Boolean,
       default: false
     },

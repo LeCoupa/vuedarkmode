@@ -11,7 +11,7 @@
       :categories="categories"
       class="l-default__navigation"
     )
-    .l-default__page-wrapper
+    div.l-default__page-wrapper.js-default-page-wrapper
       the-github-corner(
         link="https://github.com/LeCoupa/vuedarkmode"
         class="l-default__github-corner"
@@ -90,7 +90,7 @@ export default {
 @import "assets/libraries/libraries.highlightjs";
 
 // Unclassed HTML elements (e.g. a {}, blockquote {}, address {})
-@import "./assets/elements/elements.inline";
+@import "./assets/elements/elements.links";
 
 // Objects, abstractions, and design patterns (e.g. .o-flexbox-column {})
 @import "./assets/objects/objects.layouts";
@@ -116,17 +116,6 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 
-  a {
-    outline: 0;
-    text-decoration: none;
-    cursor: pointer;
-
-    &:focus {
-      box-shadow: 0 2px 0 $azure-radiance;
-      transition: box-shadow ease-in-out 0s;
-    }
-  }
-
   #{$c} {
     #{$c}__container {
       position: absolute;
@@ -143,7 +132,7 @@ html {
 
       #{$c}__page-wrapper {
         position: relative;
-        overflow-y: scroll;
+        overflow-y: auto;
         flex: 1;
         padding: 60px 40px;
 

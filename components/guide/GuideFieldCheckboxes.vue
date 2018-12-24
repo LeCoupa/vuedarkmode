@@ -20,12 +20,12 @@
         class="o-elements__item"
       )
         field-checkbox(
-          :checked="i === 1"
           :fullWidth="false"
           :label="size.charAt(0).toUpperCase() + size.slice(1) + ' checkbox (' + statuses[j] + ')'"
           :name="'checkbox_' + size + '_'  + statuses[j] + i + j"
           :size="size"
           :status="statuses[j]"
+          :value="i === 1"
           description="This is a customizable description for checkboxes."
         )
 
@@ -37,7 +37,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-checkbox&gt;&lt;/dm-checkbox&gt;
+        | &lt;dm-checkbox v-model="synchronizedValue"&gt;&lt;/dm-checkbox&gt;
 
     no-ssr
       common-table(
@@ -64,8 +64,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import FieldCheckbox from "@/components/darkmode/form/FieldCheckbox";
+import BaseDivider from "@/lib//base/BaseDivider";
+import FieldCheckbox from "@/lib//form/FieldCheckbox";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
@@ -110,16 +110,6 @@ export default {
           }
         ],
         data: [
-          {
-            name: "checked",
-            type: {
-              type: "Boolean",
-              additional: "Default: false"
-            },
-            details: {
-              description: "Sets the checked state of the checkbox element."
-            }
-          },
           {
             name: "description",
             type: {
@@ -204,6 +194,16 @@ export default {
               description: "Specify the status for the checkbox element.",
               values: '"error" | "normal" | "success" | "warning"'
             }
+          },
+          {
+            name: "value",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Sets the checked state of the checkbox element."
+            }
           }
         ]
       },
@@ -245,5 +245,4 @@ export default {
      STYLE
      ************************************************************************* -->
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

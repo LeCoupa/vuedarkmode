@@ -23,10 +23,10 @@
           :label="size + ' select (' + statuses[j] + ')'"
           :name="'select_' + size + '_'  + statuses[j] + i + j"
           :options=`[
-            { label: 'Vue Dark Mode 1', value: 'Vue Dark Mode 1' },
-            { label: 'Vue Dark Mode 2', value: 'Vue Dark Mode 2' },
-            { label: 'Vue Dark Mode 3', value: 'Vue Dark Mode 3' },
-            { label: 'Vue Dark Mode 4', value: 'Vue Dark Mode 4' }
+            { label: 'Vue Dark Mode 1', value: 'vuedarkmode1' },
+            { label: 'Vue Dark Mode 2', value: 'vuedarkmode2' },
+            { label: 'Vue Dark Mode 3', value: 'vuedarkmode3' },
+            { label: 'Vue Dark Mode 4', value: 'vuedarkmode4' }
           ]`
           :size="size"
           :status="statuses[j]"
@@ -41,7 +41,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-select&gt;&lt;/dm-select&gt;
+        | &lt;dm-select v-model="synchronizedValue"&gt;&lt;/dm-select&gt;
 
     no-ssr
       common-table(
@@ -68,8 +68,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import FieldSelect from "@/components/darkmode/form/FieldSelect";
+import BaseDivider from "@/lib//base/BaseDivider";
+import FieldSelect from "@/lib//form/FieldSelect";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
@@ -185,8 +185,7 @@ export default {
             details: {
               description:
                 "Define the options to display in the select element.",
-              values:
-                '[{ label: "My Label", value: "My Value", selected: false }]'
+              values: '[{ label: "My Label", value: "My Value" }]'
             }
           },
           {
@@ -209,6 +208,16 @@ export default {
             details: {
               description: "Specify the status for the select element.",
               values: '"error" | "normal" | "success" | "warning"'
+            }
+          },
+          {
+            name: "value",
+            type: {
+              type: "[Number, String]",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Specify the current active option."
             }
           }
         ]
@@ -258,5 +267,4 @@ export default {
      STYLE
      ************************************************************************* -->
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

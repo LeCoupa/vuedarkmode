@@ -36,7 +36,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-file&gt;&lt;/dm-file&gt;
+        | &lt;dm-file v-model="synchronizedValue"&gt;&lt;/dm-file&gt;
 
     no-ssr
       common-table(
@@ -63,8 +63,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import FieldFile from "@/components/darkmode/form/FieldFile";
+import BaseDivider from "@/lib//base/BaseDivider";
+import FieldFile from "@/lib//form/FieldFile";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

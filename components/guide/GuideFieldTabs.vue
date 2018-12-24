@@ -25,12 +25,13 @@
           :size="size"
           :status="statuses[j]"
           :tabs=`[
-            { id: "auto", name: 'Auto', active: true },
-            { id: "k", name: 'K', active: false },
-            { id: "M", name: 'M', active: false },
-            { id: "B", name: 'B', active: false }
+            { id: "auto", name: 'Auto' },
+            { id: "k", name: 'K' },
+            { id: "M", name: 'M' },
+            { id: "B", name: 'B' }
           ]`
           description="This is a customizable description for tabs."
+          value="auto"
         )
 
   div(
@@ -41,7 +42,7 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-tabs&gt;&lt;/dm-tabs&gt;
+        | &lt;dm-tabs v-model="synchronizedValue"&gt;&lt;/dm-tabs&gt;
 
     no-ssr
       common-table(
@@ -68,8 +69,8 @@
 
 <script>
 // PROJECT
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import FieldTabs from "@/components/darkmode/form/FieldTabs";
+import BaseDivider from "@/lib//base/BaseDivider";
+import FieldTabs from "@/lib//form/FieldTabs";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
@@ -186,6 +187,16 @@ export default {
               description: "Define the tabs to display.",
               values: '[{ id: "vuedarkmode", name: "Vue Dark Mode" }]'
             }
+          },
+          {
+            name: "value",
+            type: {
+              type: "[Array, Number, String]",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Specify the current active tab(s)."
+            }
           }
         ]
       },
@@ -234,5 +245,4 @@ export default {
      STYLE
      ************************************************************************* -->
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

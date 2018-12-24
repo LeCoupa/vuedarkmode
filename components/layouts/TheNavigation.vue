@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-the-navigation
+nav.c-the-navigation
   .c-the-navigation__categories
     div(
       v-for="category in categories"
@@ -64,8 +64,8 @@
 
 <script>
 // PROJECT
-import BaseAvatar from "@/components/darkmode/base/BaseAvatar";
-import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import BaseAvatar from "@/lib//base/BaseAvatar";
+import BaseIcon from "@/lib//base/BaseIcon";
 
 export default {
   components: {
@@ -117,7 +117,7 @@ $gutter: 40px;
 
 #{$c} {
   display: none;
-  overflow-y: scroll;
+  overflow-y: auto;
   flex-direction: column;
   box-sizing: border-box;
   width: 300px;

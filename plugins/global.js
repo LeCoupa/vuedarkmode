@@ -4,11 +4,13 @@
 
 // NPM
 import Vue from "vue";
+import VueClipboard from "vue-clipboard2";
 import VueHighlightJS from "vue-highlightjs";
 
 /**************************************************************************
  * USE PLUGIN
- * https://github.com/metachris/vue-highlightjs
+ * https://vuejs.org/v2/guide/plugins.html
  ***************************************************************************/
 
+Vue.use(VueClipboard);
 Vue.use(VueHighlightJS);

@@ -2,68 +2,72 @@
      TEMPLATE
      ************************************************************************* -->
 
-
 <template lang="pug">
 div(
   :class=`[
-    "dm-field-radio",
-    "dm-field-radio--" + size,
-    "dm-field-radio--" + status,
+    "dm-field-file",
+    "dm-field-file--" + size,
+    "dm-field-file--" + status,
     {
-      "dm-field-radio--disabled": disabled,
-      "dm-field-radio--full-width": fullWidth
+      "dm-field-file--disabled": disabled,
+      "dm-field-file--full-width": fullWidth
     }
   ]`
 )
-  .dm-field-radio__container
+  .dm-field-file__container
+    div(
+      v-if="label"
+      class="dm-field-file__information"
+    )
+      field-label(
+        :size="size"
+        class="dm-field-file__label"
+      ) {{ label }}
+
+      span(
+        v-if="description"
+        class="dm-field-file__description"
+      ) {{ description }}
+
+    label(
+      @keypress.prevent="onLabelKeypress"
+      :for="uuid"
+      class="dm-field-file__upload"
+      tabindex="0"
+    )
+      base-icon(
+        name="cloud_upload"
+        class="dm-field-file__icon"
+      )
+
     input(
       @change="onFieldChange"
-      :checked="checked"
       :disabled="disabled"
       :id="uuid"
+      :multiple="multiple"
       :name="name"
-      :required="required"
-      class="dm-field-radio__field"
-      type="radio"
+      class="dm-field-file__field"
+      type="file"
     )
-    field-label(
-      v-if="label"
-      :forField="uuid"
-      :size="size"
-      :uppercase="false"
-      class="dm-field-radio__label"
-    ) {{ label }}
-
-  field-description(
-    v-if="description"
-    :description="description"
-    :size="size"
-  )
 </template>
-
 
 <!-- *************************************************************************
      SCRIPT
      ************************************************************************* -->
 
-
 <script>
 // PROJECT
-import { generateUUID } from "../../../helpers/helpers.js";
-import FieldDescription from "./FieldDescription.vue";
+import { generateUUID } from "../../helpers/helpers.js";
+import BaseIcon from "../base/BaseIcon.vue";
 import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {
-    FieldDescription,
+    BaseIcon,
     FieldLabel
   },
 
   props: {
-    checked: {
-      type: Boolean,
-      default: false
-    },
     description: {
       type: String,
       default: null
@@ -80,13 +84,13 @@ export default {
       type: String,
       default: null
     },
+    multiple: {
+      type: Boolean,
+      default: false
+    },
     name: {
       type: String,
       required: true
-    },
-    required: {
-      type: Boolean,
-      default: false
     },
     size: {
       type: String,
@@ -122,94 +126,85 @@ export default {
     // --> EVENT LISTENERS <--
 
     onFieldChange(event) {
-      this.$emit("change", event.target.checked, this.name, event);
+      this.$emit("change", this.name, event);
+    },
+
+    onLabelKeypress(event) {
+      if (event.which === 32) {
+        this.$el.querySelector("input[type='file']").click();
+      }
     }
   }
 };
 </script>
 
-
 <!-- *************************************************************************
      STYLE
      ************************************************************************* -->
-
 
 <style lang="scss">
 // IMPORTS
 @import "assets/settings/_settings.colors.scss";
 
 // VARIABLES
-$c: ".dm-field-radio";
+$c: ".dm-field-file";
 $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
 #{$c} {
   display: inline-block;
-  text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
 
   #{$c}__container {
     display: flex;
+    align-items: center;
 
-    #{$c}__field {
-      position: relative;
-      margin-bottom: 0;
-      outline: 0;
-      border: none;
-      border-radius: 100%;
-      transition: all ease-in-out 200ms;
-      -webkit-appearance: none;
-      cursor: pointer;
+    #{$c}__information {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      margin-right: 20px;
+      text-align: left;
 
-      &:before,
-      &:after {
-        position: absolute;
-        display: inline-block;
-        box-sizing: border-box;
-        transition: all ease-in-out 200ms;
+      #{$c}__label {
+        margin-bottom: 6px;
       }
 
-      &:before {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 1px solid $regent-st-blue;
-        border-radius: 100%;
-        background-color: $white;
-        content: "";
-      }
-
-      &:after {
-        top: 50%;
-        left: 50%;
-        width: 6px;
-        height: 6px;
-        border-radius: 100%;
-        background-color: $white;
-        transform: translate(-50%, -50%);
-        content: "";
-      }
-
-      &:hover {
-        &:after {
-          background-color: $oxford-blue;
-        }
-      }
-
-      &:checked {
-        &:after {
-          background-color: $white;
-        }
+      #{$c}__description {
+        color: $nepal;
+        user-select: none;
       }
     }
 
-    #{$c}__label {
-      flex: 1;
-      margin-bottom: 0;
-      color: $white;
-      font-weight: 400;
+    #{$c}__upload {
+      position: relative;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      outline: 0;
+      border-width: 2px;
+      border-style: solid;
+      border-radius: 100%;
+      background-color: rgba($ebony-clay, 0.9);
+      box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
+      transition: all ease-in-out 200ms;
+      cursor: pointer;
+
+      #{$c}__icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -1px;
+        transform: translate(-50%, -50%);
+      }
+
+      &:hover {
+        border-color: $azure-radiance;
+      }
+    }
+
+    #{$c}__field {
+      display: none;
     }
   }
 
@@ -219,15 +214,19 @@ $statuses: error, normal, success, warning;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      #{$c}__container {
-        #{$c}__field {
-          margin-right: 6px + (1px * $i);
-          width: 12px + (2px * $i);
-          height: 12px + (2px * $i);
+      #{$c}__information {
+        #{$c}__description {
+          font-size: 10px + (1px * $i);
         }
+      }
 
-        #{$c}__label {
-          line-height: 12px + (2px * $i);
+      #{$c}__upload {
+        width: 40px + (5px * $i);
+        height: 40px + (5px * $i);
+
+        #{$c}__icon {
+          // Will override the font-size set in style attribute
+          font-size: 18px + (2px * $i) !important;
         }
       }
     }
@@ -237,26 +236,17 @@ $statuses: error, normal, success, warning;
 
   @each $status in $statuses {
     &--#{$status} {
-      #{$c}__container {
-        #{$c}__field {
-          &:hover {
-            &:before {
-              border-color: map-get($statusColors, $status);
-            }
-          }
+      #{$c}__upload {
+        @if ($status != normal) {
+          border-color: map-get($statusColors, $status);
+        } @else {
+          border-color: $white;
+        }
 
-          &:checked {
-            &:before {
-              border-color: map-get($statusColors, $status);
-              background: map-get($statusColors, $status);
-            }
-          }
-
-          &:focus {
-            box-shadow: 0 0 0 2px $mirage,
-              0 0 0 3px map-get($statusColors, $status);
-            transition: box-shadow ease-in-out 0s;
-          }
+        &:focus {
+          box-shadow: 0 0 0 2px $mirage,
+            0 0 0 3px map-get($statusColors, $status);
+          transition: box-shadow ease-in-out 0s;
         }
       }
     }
@@ -268,9 +258,12 @@ $statuses: error, normal, success, warning;
     opacity: 0.7;
 
     #{$c}__container {
-      #{$c}__field,
-      #{$c}__label {
+      #{$c}__upload {
         cursor: not-allowed;
+
+        &:hover {
+          border-color: $crimson;
+        }
       }
     }
   }

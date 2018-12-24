@@ -35,7 +35,7 @@ div(
         :name="computedLeftIcon"
         class="dm-field-select__icon dm-field-select__icon--left"
       )
-      .dm-field-select__option.dm-field-select__option--current {{ currentValue }}
+      .dm-field-select__option.dm-field-select__option--current {{ currentLabel }}
 
       base-icon(
         class="dm-field-select__icon dm-field-select__icon--right"
@@ -72,7 +72,7 @@ div(
 
 <script>
 // PROJECT
-import { generateUUID } from "../../../helpers/helpers.js";
+import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldDescription from "./FieldDescription.vue";
 import FieldLabel from "./FieldLabel.vue";
@@ -131,6 +131,10 @@ export default {
       validator(x) {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
+    },
+    value: {
+      type: [Number, String],
+      default: null
     }
   },
 
@@ -138,6 +142,7 @@ export default {
     return {
       // --> STATE <--
 
+      currentLabel: null,
       currentValue: null,
       deployed: false,
       uuid: ""
@@ -159,13 +164,22 @@ export default {
     }
   },
 
-  created() {
-    // Set the current value for the element
-    const selectedOption = this.options.find(el => el.selected);
+  watch: {
+    value: function(value) {
+      this.currentValue = value;
+    }
+  },
 
-    if (selectedOption) {
+  created() {
+    if (this.value) {
+      // When a value prop is defined set the option as active
+      const selectedOption = this.options.find(el => el.value === this.value);
+
+      this.currentLabel = selectedOption.label;
       this.currentValue = selectedOption.value;
     } else {
+      // Or set the first option as active
+      this.currentLabel = this.options[0].label;
       this.currentValue = this.options[0].value;
     }
   },
@@ -175,12 +189,6 @@ export default {
   },
 
   methods: {
-    // --> HELPERS <--
-
-    getSelectedValue() {
-      return this.$el.querySelector("select").value || "";
-    },
-
     // --> EVENT LISTENERS <--
 
     onContainerKeypress(event) {
@@ -198,12 +206,19 @@ export default {
     },
 
     onOptionClick(value, event) {
-      this.deployed = false;
+      const selectedOption = this.options.find(el => el.value === value);
 
       if (this.currentValue !== value) {
+        this.currentLabel = selectedOption.label;
         this.currentValue = value;
+
         this.$emit("change", value, this.name, event);
+
+        // Synchronization for v-model
+        this.$emit("input", value);
       }
+
+      this.deployed = false;
     },
 
     onOptionKeypress(event) {
@@ -245,7 +260,6 @@ $statuses: error, normal, success, warning;
       box-sizing: border-box;
       border-width: 1px;
       border-style: solid;
-      background-color: $ebony-clay-2;
       user-select: none;
       cursor: pointer;
     }
@@ -253,6 +267,7 @@ $statuses: error, normal, success, warning;
     #{$c}__field {
       position: relative;
       align-items: center;
+      background-color: $ebony-clay-2;
 
       &:focus {
         outline: 0;
@@ -291,6 +306,7 @@ $statuses: error, normal, success, warning;
       z-index: 2;
       display: flex;
       flex-direction: column;
+      background-color: $ebony-clay;
       border-top: none;
       user-select: none;
 
@@ -312,7 +328,7 @@ $statuses: error, normal, success, warning;
         &:hover,
         &:focus {
           outline: 0;
-          background-color: $ebony-clay;
+          background-color: $ebony-clay-2;
           color: $white;
         }
       }

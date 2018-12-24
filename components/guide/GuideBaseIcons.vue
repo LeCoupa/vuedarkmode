@@ -12,6 +12,7 @@
       base-icon(
         v-for="(icon, i) in icons"
         v-if="i < maxIcons"
+        v-clipboard:copy="icon"
         :aria-label="icon"
         :clickable="true"
         :key="icon"
@@ -65,9 +66,9 @@
 
 <script>
 // PROJECT: COMPONENTS
-import BaseButton from "@/components/darkmode/base/BaseButton";
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import BaseButton from "@/lib//base/BaseButton";
+import BaseDivider from "@/lib//base/BaseDivider";
+import BaseIcon from "@/lib//base/BaseIcon";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 // PROJECT: DATA

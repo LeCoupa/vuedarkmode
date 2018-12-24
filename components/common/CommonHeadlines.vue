@@ -23,7 +23,6 @@
     :rightIcon="documentationVisibility ? 'extension' : 'explore'"
     class="c-common-headlines__button"
     color="blue"
-    size="small"
   ) {{ documentationVisibility ? "Show components" : "Show documentation" }}
 
   base-divider(
@@ -39,10 +38,10 @@
 
 <script>
 // PROJECT
-import BaseButton from "@/components/darkmode/base/BaseButton";
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
-import BaseHeading from "@/components/darkmode/base/BaseHeading";
-import BaseIcon from "@/components/darkmode/base/BaseIcon";
+import BaseButton from "@/lib//base/BaseButton";
+import BaseDivider from "@/lib//base/BaseDivider";
+import BaseHeading from "@/lib//base/BaseHeading";
+import BaseIcon from "@/lib//base/BaseIcon";
 
 export default {
   components: {
@@ -105,7 +104,7 @@ $c: ".c-common-headlines";
   margin-bottom: 40px;
 
   #{$c}__title {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
 
   #{$c}__description,

@@ -71,8 +71,8 @@
 
 <script>
 // PROJECT
-import BaseButton from "@/components/darkmode/base/BaseButton";
-import BaseDivider from "@/components/darkmode/base/BaseDivider";
+import BaseButton from "@/lib//base/BaseButton";
+import BaseDivider from "@/lib//base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
@@ -203,6 +203,16 @@ export default {
             },
             details: {
               description: "Specify the color for the left icon."
+            }
+          },
+          {
+            name: "link",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Display the button as a simple link."
             }
           },
           {

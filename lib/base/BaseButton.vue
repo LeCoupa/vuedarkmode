@@ -1,4 +1,4 @@
-  <!-- *************************************************************************
+<!-- *************************************************************************
      TEMPLATE
      ************************************************************************* -->
 
@@ -22,6 +22,7 @@ button(
       "dm-base-button--circular": circular || loading,
       "dm-base-button--disabled": disabled || loading,
       "dm-base-button--full-width": fullWidth,
+      "dm-base-button--link": link,
       "dm-base-button--loading": loading,
       "dm-base-button--reverse": reverse,
       "dm-base-button--rounded": rounded
@@ -124,6 +125,10 @@ export default {
       type: String,
       default: null
     },
+    link: {
+      type: Boolean,
+      default: false
+    },
     list: {
       type: Array,
       default: null,
@@ -181,15 +186,15 @@ export default {
     computedIconSize() {
       switch (this.size) {
         case "mini":
-          return "12px";
-        case "small":
           return "14px";
-        case "default":
+        case "small":
           return "16px";
-        case "medium":
+        case "default":
           return "18px";
-        case "large":
+        case "medium":
           return "20px";
+        case "large":
+          return "22px";
       }
     },
 
@@ -387,18 +392,18 @@ $sizes: mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      padding: (10px + 2px * $i) (12px + 2px * $i);
+      padding: (8px + 2px * $i) (10px + 2px * $i);
       border-radius: 4px + (1px * $i);
       font-size: 12px + (1px * $i);
       line-height: 12px + (2px * $i);
 
       #{$c}__inner {
         #{$c}__left-icon {
-          margin-right: 3px + (1px * $i);
+          margin-right: 4px + (1px * $i);
         }
 
         #{$c}__right-icon {
-          margin-left: 3px + (1px * $i);
+          margin-left: 4px + (1px * $i);
         }
       }
 
@@ -447,6 +452,22 @@ $sizes: mini, small, default, medium, large;
 
   &--full-width {
     width: 100%;
+  }
+
+  &--link {
+    // Override previous values
+    border-color: transparent !important;
+    background: transparent !important;
+
+    @each $color in $colors {
+      &#{$c}--#{$color} {
+        color: map-get($mainColors, $color);
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
   }
 
   &--loading {
