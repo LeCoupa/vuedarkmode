@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "vuedarkmode",
+  "name": "@ipseity/vuedarkmode",
   "version": "0.2.17",
   "author": "Team <team@vuedarkmode.com>",
   "license": "MIT",
@@ -15,14 +15,14 @@
   "homepage": "https://www.vuedarkmode.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lecoupa/vuedarkmode.git"
+    "url": "https://github.com/tahul/vuedarkmode.git"
   },
   "bugs": {
-    "url": "https://github.com/lecoupa/vuedarkmode/issues",
+    "url": "https://github.com/tahul/vuedarkmode/issues",
     "email": "team@vuedarkmode.com"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "jsdelivr": "dist/index.min.js",
-  "unpkg": "dist/index.min.js",
+  "main": "vuedarkmode.cjs.js",
+  "module": "vuedarkmode.es.js",
+  "jsdelivr": "vuedarkmode.min.js",
+  "unpkg": "vuedarkmode.min.js"
 }

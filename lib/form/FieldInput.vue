@@ -4,65 +4,64 @@
 
 <template lang="pug">
 div(
-  :class=`[
-    "dm-field-input",
-    "dm-field-input--" + size,
-    "dm-field-input--" + status,
-    {
-      "dm-field-input--borders": borders,
-      "dm-field-input--disabled": disabled,
-      "dm-field-input--focused": focused,
-      "dm-field-input--full-width": fullWidth,
-      "dm-field-input--rounded": rounded,
-      "dm-field-input--with-icon": leftIcon || rightIcon
-    }
-  ]`
+	:class=`[
+		"dm-field-input",
+		"dm-field-input--" + size,
+		"dm-field-input--" + status,
+		{
+			"dm-field-input--borders": borders,
+			"dm-field-input--disabled": disabled,
+			"dm-field-input--focused": focused,
+			"dm-field-input--full-width": fullWidth,
+			"dm-field-input--rounded": rounded,
+			"dm-field-input--with-icon": leftIcon || rightIcon
+		}
+	]`
 )
-  field-label(
-    v-if="label"
-    :forField="uuid"
-    :size="size"
-    class="dm-field-input__label"
-  ) {{ label }}
+	field-label(
+		v-if="label"
+		:forField="uuid"
+		:size="size"
+		class="dm-field-input__label"
+	) {{ label }}
 
-  div(
-    @click="onContainerClick"
-    class="dm-field-input__container"
-  )
-    base-icon(
-      v-if="leftIcon"
-      :name="leftIcon"
-      class="dm-field-input__icon dm-field-input__icon--left"
-    )
-    input(
-      @blur="onFieldBlur"
-      @change="onFieldChange"
-      @focus="onFieldFocus"
-      @input="onFieldInput"
-      :autocomplete="autocomplete ? 'on' : 'false'"
-      :disabled="disabled"
-      :id="uuid"
-      :max="max"
-      :maxlength="maxlength"
-      :min="min"
-      :name="name"
-      :placeholder="placeholder"
-      :readonly="readOnly"
-      :type="type"
-      :value="currentValue"
-      class="dm-field-input__field"
-    )
-    base-icon(
-      v-if="computedRightIcon"
-      :name="computedRightIcon"
-      class="dm-field-input__icon dm-field-input__icon--right"
-    )
+	div(
+		@click="onContainerClick"
+		class="dm-field-input__container"
+	)
+		base-icon(
+			v-if="leftIcon"
+			:name="leftIcon"
+			class="dm-field-input__icon dm-field-input__icon--left"
+		)
+		input(
+			@blur="onFieldBlur"
+			@change="onFieldChange"
+			@focus="onFieldFocus"
+			:autocomplete="autocomplete ? 'on' : 'false'"
+			:disabled="disabled"
+			:id="uuid"
+			:max="max"
+			:maxlength="maxlength"
+			:min="min"
+			:name="name"
+			:placeholder="placeholder"
+			:readonly="readOnly"
+			:type="type"
+			v-model="currentValue"
+			class="dm-field-input__field"
+		)
+		base-icon(
+			v-if="computedRightIcon"
+			:name="computedRightIcon"
+			class="dm-field-input__icon dm-field-input__icon--right"
+		)
 
-  field-description(
-    v-if="description"
-    :description="description"
-    :size="size"
-  )
+	field-description(
+		v-if="description"
+		:description="description"
+		:size="size"
+	)
 </template>
 
 <!-- *************************************************************************
@@ -71,7 +70,9 @@ div(
 
 <script>
 // PROJECT
-import { generateUUID } from "../../helpers/helpers.js";
+import {
+  generateUUID
+} from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldDescription from "./FieldDescription.vue";
 import FieldLabel from "./FieldLabel.vue";
@@ -193,8 +194,6 @@ export default {
     return {
       // --> STATE <--
 
-      currentValue:
-        this.value === undefined || this.value === null ? "" : this.value,
       focused: false,
       uuid: ""
     };
@@ -212,6 +211,14 @@ export default {
       }
 
       return this.rightIcon;
+    },
+    currentValue: {
+      get() {
+        return this.value
+      },
+      set(newVal) {
+        this.$emit("input", newVal, this.name);
+      }
     }
   },
 
@@ -254,13 +261,6 @@ export default {
       this.focused = true;
 
       this.$emit("focus", this.getInputValue(), this.name, event);
-    },
-
-    onFieldInput(event) {
-      const value = this.getInputValue();
-
-      this.currentValue = value;
-      this.$emit("input", value, this.name, event);
     }
   }
 };
@@ -280,137 +280,136 @@ $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
 #{$c} {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
-
-  #{$c}__container {
     display: flex;
-    align-items: center;
-    transition: all ease-in-out 200ms;
+    flex-direction: column;
+    text-align: left;
+    font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
-    &:hover {
-      cursor: text;
-    }
+    #{$c}__container {
+        display: flex;
+        align-items: center;
+        transition: all ease-in-out 200ms;
 
-    #{$c}__icon {
-      flex: 0 0 auto;
-      pointer-events: none;
-
-      &--left {
-        margin-right: 5px;
-        margin-left: 9px;
-      }
-
-      &--right {
-        margin-right: 9px;
-        margin-left: 5px;
-      }
-    }
-
-    #{$c}__field {
-      flex: 1;
-      height: 100%;
-      outline: 0;
-      border: none;
-      background-color: transparent;
-      color: $white;
-
-      &::placeholder {
-        color: $nepal;
-      }
-
-      &:disabled {
-        cursor: not-allowed;
-      }
-    }
-  }
-
-  // --> SIZES <--
-
-  @each $size in $sizes {
-    $i: index($sizes, $size) - 1;
-
-    &--#{$size} {
-      #{$c}__container {
-        height: 34px + (4px * $i);
-        border-radius: 4px + (1px * $i);
+        &:hover {
+            cursor: text;
+        }
 
         #{$c}__icon {
-          // Will override the font-size set in style attribute
-          font-size: 16px + (1px * $i) !important;
+            flex: 0 0 auto;
+            pointer-events: none;
+
+            &--left {
+                margin-right: 5px;
+                margin-left: 9px;
+            }
+
+            &--right {
+                margin-right: 9px;
+                margin-left: 5px;
+            }
         }
 
         #{$c}__field {
-          padding: 0 (10px + (1px * $i));
-          font-size: 12px + (1px * $i);
+            flex: 1;
+            height: 100%;
+            outline: 0;
+            border: none;
+            background-color: transparent;
+            color: $white;
+
+            &::placeholder {
+                color: $nepal;
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+            }
         }
-      }
     }
-  }
 
-  // --> STATUSES <--
+    // --> SIZES <--
 
-  @each $status in $statuses {
-    &--#{$status} {
-      #{$c}__container {
-        @if ($status != normal) {
-          border-color: map-get($statusColors, $status);
-          color: map-get($statusColors, $status);
-        } @else {
-          border-color: $oxford-blue;
-          color: $white;
+    @each $size in $sizes {
+        $i: index($sizes, $size) - 1;
+
+        &--#{$size} {
+            #{$c}__container {
+                height: 34px + (4px * $i);
+                border-radius: 4px + (1px * $i);
+
+                #{$c}__icon {
+                    // Will override the font-size set in style attribute
+                    font-size: 16px + (1px * $i) !important;
+                }
+
+                #{$c}__field {
+                    padding: 0 (10px + (1px * $i));
+                    font-size: 12px + (1px * $i);
+                }
+            }
         }
-      }
     }
-  }
 
-  // --> BOOLEANS <--
+    // --> STATUSES <--
 
-  &--borders {
-    #{$c}__container {
-      box-sizing: border-box;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 6px;
-      background-color: $ebony-clay-2;
+    @each $status in $statuses {
+        &--#{$status} {
+            #{$c}__container {
+                @if ($status != normal) {
+                    border-color: map-get($statusColors, $status);
+                    color: map-get($statusColors, $status);
+                } @else {
+                    border-color: $oxford-blue;
+                    color: $white;
+                }
+            }
+        }
     }
-  }
 
-  &--disabled {
-    opacity: 0.7;
+    // --> BOOLEANS <--
 
-    #{$c}__label,
-    #{$c}__container {
-      cursor: not-allowed;
+    &--borders {
+        #{$c}__container {
+            box-sizing: border-box;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 6px;
+            background-color: $ebony-clay-2;
+        }
     }
-  }
 
-  &--focused {
-    #{$c}__container {
-      border-color: $azure-radiance;
-      color: $azure-radiance;
+    &--disabled {
+        opacity: 0.7;
+
+        #{$c}__container,
+        #{$c}__label {
+            cursor: not-allowed;
+        }
     }
-  }
 
-  &--full-width {
-    width: 100%;
-  }
-
-  &--rounded {
-    #{$c}__container {
-      border-radius: 40px;
+    &--focused {
+        #{$c}__container {
+            border-color: $azure-radiance;
+            color: $azure-radiance;
+        }
     }
-  }
 
-  &--with-icon {
-    #{$c}__container {
-      #{$c}__field {
-        padding: 0;
-      }
+    &--full-width {
+        width: 100%;
     }
-  }
+
+    &--rounded {
+        #{$c}__container {
+            border-radius: 40px;
+        }
+    }
+
+    &--with-icon {
+        #{$c}__container {
+            #{$c}__field {
+                padding: 0;
+            }
+        }
+    }
 }
 </style>
