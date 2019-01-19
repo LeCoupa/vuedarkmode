@@ -15,10 +15,10 @@
   "homepage": "https://www.vuedarkmode.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/tahul/vuedarkmode.git"
+    "url": "https://github.com/lecoupa/vuedarkmode.git"
   },
   "bugs": {
-    "url": "https://github.com/tahul/vuedarkmode/issues",
+    "url": "https://github.com/lecoupa/vuedarkmode/issues",
     "email": "team@vuedarkmode.com"
   },
   "main": "vuedarkmode.cjs.js",
