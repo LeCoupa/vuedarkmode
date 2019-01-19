@@ -4,56 +4,56 @@
 
 <template lang="pug">
 div(
-  :class=`[
-    "dm-field-textarea",
-    "dm-field-textarea--" + size,
-    "dm-field-textarea--" + status,
-    {
-      "dm-field-textarea--borders": borders,
-      "dm-field-textarea--disabled": disabled,
-      "dm-field-textarea--focused": focused,
-      "dm-field-textarea--full-width": fullWidth
-    }
-  ]`
+	:class=`[
+		"dm-field-textarea",
+		"dm-field-textarea--" + size,
+		"dm-field-textarea--" + status,
+		{
+			"dm-field-textarea--borders": borders,
+			"dm-field-textarea--disabled": disabled,
+			"dm-field-textarea--focused": focused,
+			"dm-field-textarea--full-width": fullWidth
+		}
+	]`
 )
-  field-label(
-    v-if="label"
-    :forField="uuid"
-    :size="size"
-    class="dm-field-textarea__label"
-  ) {{ label }}
+	field-label(
+		v-if="label"
+		:forField="uuid"
+		:size="size"
+		class="dm-field-textarea__label"
+	) {{ label }}
 
-  div(
-    @click="onContainerClick"
-    class="dm-field-textarea__container"
-  )
-    textarea(
-      @blur="onFieldBlur"
-      @change="onFieldChange"
-      @focus="onFieldFocus"
-      @input="onFieldInput"
-      :cols="cols"
-      :disabled="disabled"
-      :id="uuid"
-      :maxlength="maxlength"
-      :name="name"
-      :placeholder="placeholder"
-      :readonly="readOnly"
-      :rows="rows"
-      class="dm-field-textarea__field"
-    ) {{ value }}
+	div(
+		@click="onContainerClick"
+		class="dm-field-textarea__container"
+	)
+		textarea(
+			@blur="onFieldBlur"
+			@change="onFieldChange"
+			@focus="onFieldFocus"
+			v-model="currentValue"
+			:cols="cols"
+			:disabled="disabled"
+			:id="uuid"
+			:maxlength="maxlength"
+			:name="name"
+			:placeholder="placeholder"
+			:readonly="readOnly"
+			:rows="rows"
+			class="dm-field-textarea__field"
+		) {{ value }}
 
-    base-icon(
-      v-if="statusIcon"
-      :name="statusIcon"
-      class="dm-field-textarea__icon"
-    )
+		base-icon(
+			v-if="statusIcon"
+			:name="statusIcon"
+			class="dm-field-textarea__icon"
+		)
 
-  field-description(
-    v-if="description"
-    :description="description"
-    :size="size"
-  )
+	field-description(
+		v-if="description"
+		:description="description"
+		:size="size"
+	)
 </template>
 
 <!-- *************************************************************************
@@ -62,7 +62,9 @@ div(
 
 <script>
 // PROJECT
-import { generateUUID } from "../../helpers/helpers.js";
+import {
+  generateUUID
+} from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldDescription from "./FieldDescription.vue";
 import FieldLabel from "./FieldLabel.vue";
@@ -160,6 +162,16 @@ export default {
       } else if (this.status === "warning") {
         return "warning";
       }
+
+      return false
+    },
+    currentValue: {
+      get() {
+        return this.value;
+      },
+      set(newVal) {
+        this.$emit("input", newVal, this.name)
+      }
     }
   },
 
@@ -196,10 +208,6 @@ export default {
       this.focused = true;
 
       this.$emit("focus", this.getTextareaValue(), this.name, event);
-    },
-
-    onFieldInput(event) {
-      this.$emit("input", this.getTextareaValue(), this.name, event);
     }
   }
 };
@@ -219,104 +227,103 @@ $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
 #{$c} {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
-
-  #{$c}__container {
-    position: relative;
     display: flex;
-    transition: all ease-in-out 200ms;
+    flex-direction: column;
+    text-align: left;
+    font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
-    #{$c}__icon {
-      position: absolute;
-      right: 7px;
-      bottom: 7px;
-      pointer-events: none;
-    }
+    #{$c}__container {
+        position: relative;
+        display: flex;
+        transition: all ease-in-out 200ms;
 
-    #{$c}__field {
-      width: 100%;
-      height: 100%;
-      outline: 0;
-      border: none;
-      background-color: transparent;
-      color: $white;
-      resize: none;
-
-      &::placeholder {
-        color: $nepal;
-      }
-
-      &:disabled {
-        cursor: not-allowed;
-      }
-    }
-  }
-
-  // --> SIZES <--
-
-  @each $size in $sizes {
-    $i: index($sizes, $size) - 1;
-
-    &--#{$size} {
-      #{$c}__field {
-        padding: (10px + (1px * $i));
-        min-height: 60px + (20px * $i);
-        border-radius: 4px + (1px * $i);
-        font-size: 12px + (1px * $i);
-      }
-    }
-  }
-
-  // --> STATUSES <--
-
-  @each $status in $statuses {
-    &--#{$status} {
-      #{$c}__container {
-        @if ($status != normal) {
-          border-color: map-get($statusColors, $status);
-          color: map-get($statusColors, $status);
-        } @else {
-          border-color: $oxford-blue;
-          color: $white;
+        #{$c}__icon {
+            position: absolute;
+            right: 7px;
+            bottom: 7px;
+            pointer-events: none;
         }
-      }
+
+        #{$c}__field {
+            width: 100%;
+            height: 100%;
+            outline: 0;
+            border: none;
+            background-color: transparent;
+            color: $white;
+            resize: none;
+
+            &::placeholder {
+                color: $nepal;
+            }
+
+            &:disabled {
+                cursor: not-allowed;
+            }
+        }
     }
-  }
 
-  // --> BOOLEANS <--
+    // --> SIZES <--
 
-  &--disabled {
-    opacity: 0.7;
+    @each $size in $sizes {
+        $i: index($sizes, $size) - 1;
 
-    #{$c}__label,
-    #{$c}__container {
-      cursor: not-allowed;
+        &--#{$size} {
+            #{$c}__field {
+                padding: (10px + (1px * $i));
+                min-height: 60px + (20px * $i);
+                border-radius: 4px + (1px * $i);
+                font-size: 12px + (1px * $i);
+            }
+        }
     }
-  }
 
-  &--borders {
-    #{$c}__container {
-      box-sizing: border-box;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 6px;
-      background-color: $ebony-clay-2;
+    // --> STATUSES <--
+
+    @each $status in $statuses {
+        &--#{$status} {
+            #{$c}__container {
+                @if ($status != normal) {
+                    border-color: map-get($statusColors, $status);
+                    color: map-get($statusColors, $status);
+                } @else {
+                    border-color: $oxford-blue;
+                    color: $white;
+                }
+            }
+        }
     }
-  }
 
-  &--focused {
-    #{$c}__container {
-      border-color: $azure-radiance;
-      color: $azure-radiance;
+    // --> BOOLEANS <--
+
+    &--disabled {
+        opacity: 0.7;
+
+        #{$c}__container,
+        #{$c}__label {
+            cursor: not-allowed;
+        }
     }
-  }
 
-  &--full-width {
-    width: 100%;
-  }
+    &--borders {
+        #{$c}__container {
+            box-sizing: border-box;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 6px;
+            background-color: $ebony-clay-2;
+        }
+    }
+
+    &--focused {
+        #{$c}__container {
+            border-color: $azure-radiance;
+            color: $azure-radiance;
+        }
+    }
+
+    &--full-width {
+        width: 100%;
+    }
 }
 </style>
