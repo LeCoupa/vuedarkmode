@@ -1,7 +1,7 @@
 {
   "private": false,
-  "name": "@ipseity/vuedarkmode",
-  "version": "0.2.20",
+  "name": "vuedarkmode",
+  "version": "0.2.18",
   "author": "Team <team@vuedarkmode.com>",
   "license": "MIT",
   "description": "A minimalist dark design system for vue.js",
