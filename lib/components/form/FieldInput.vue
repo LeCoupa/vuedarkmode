@@ -193,8 +193,7 @@ export default {
     return {
       // --> STATE <--
 
-      currentValue:
-        this.value === undefined || this.value === null ? "" : this.value,
+      currentValue: "",
       focused: false,
       uuid: ""
     };
@@ -212,6 +211,20 @@ export default {
       }
 
       return this.rightIcon;
+    }
+  },
+
+  watch: {
+    value: function(value) {
+      this.currentValue = value;
+    }
+  },
+
+  created() {
+    if (this.value === undefined || this.value === null) {
+      this.currentValue = "";
+    } else {
+      this.currentValue = this.value;
     }
   },
 
