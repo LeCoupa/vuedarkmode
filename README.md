@@ -140,4 +140,5 @@ Vue Dark Mode is [MIT licensed](LICENSE).
 ## Cross-Browsing
 
 Vue Dark Mode is using [BrowserStack](https://www.browserstack.com/) to make sure our components render properly on modern browsers.
-<img alt="BrowserStack Logo" width="200px" src="/static/images/docs/browserstack.png">
+
+<img alt="BrowserStack Logo" width="200px" src="/docs/static/images/docs/browserstack.png">
