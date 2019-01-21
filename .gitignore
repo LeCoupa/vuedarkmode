@@ -19,5 +19,9 @@ npm-debug.log
 # Website build
 build
 
+# Package build
+dist
+
 # Static build
 website
+
