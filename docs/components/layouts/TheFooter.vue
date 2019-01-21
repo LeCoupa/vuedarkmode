@@ -11,13 +11,19 @@ footer.c-the-footer
       class="c-the-footer__link"
       href="https://www.nadarifki.com/"
       target="_blank"
-    ) Nada Rifki
-    | &#32;&amp;&#32;
+    ) Nada Rifki,
+    | &#32;
     a(
       class="c-the-footer__link"
       href="https://twitter.com/LeCoupa"
       target="_blank"
     ) Julien Le Coupanec
+    | &#32;&amp;&#32;️
+    a(
+      class="c-the-footer__link"
+      href="https://twitter.com/yaeeelglx"
+      target="_blank"
+    ) Yaël Guilloux
     | &#32;⚡️
 
   the-logo(
