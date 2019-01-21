@@ -121,6 +121,8 @@ You are more than welcome to contribute to Vue Dark Mode. Just submit changes vi
 
 5. Submit a pull request 👍
 
+The documentation is available in the `docs` folder. The Vue Dark Mode components are available in the `lib` folder.
+
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
