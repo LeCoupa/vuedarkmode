@@ -65,10 +65,12 @@
      ************************************************************************* -->
 
 <script>
-// PROJECT: COMPONENTS
-import BaseButton from "@/lib//base/BaseButton";
-import BaseDivider from "@/lib//base/BaseDivider";
-import BaseIcon from "@/lib//base/BaseIcon";
+// VUE DARK MODE
+import BaseButton from "@/lib/components/base/BaseButton";
+import BaseDivider from "@/lib/components/base/BaseDivider";
+import BaseIcon from "@/lib/components/base/BaseIcon";
+
+// PROJECT
 const CommonTable = () => import("@/components/common/CommonTable");
 
 // PROJECT: DATA

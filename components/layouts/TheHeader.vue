@@ -35,9 +35,11 @@ header.c-the-header
      ************************************************************************* -->
 
 <script>
+// VUE DARK MODE
+import BaseDivider from "@/lib/components/base/BaseDivider";
+import BaseHeading from "@/lib/components/base/BaseHeading";
+
 // PROJECT
-import BaseDivider from "@/lib//base/BaseDivider";
-import BaseHeading from "@/lib//base/BaseHeading";
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
 import TheSubscriptionBox from "@/components/layouts/TheSubscriptionBox";

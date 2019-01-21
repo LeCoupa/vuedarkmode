@@ -131,8 +131,10 @@ main.c-index
 // NPM
 import { ObserveVisibility } from "vue-observe-visibility";
 
+// VUE DARK MODE
+import BaseDivider from "@/lib/components/base/BaseDivider";
+
 // PROJECT
-import BaseDivider from "@/lib//base/BaseDivider";
 import CommonHeadlines from "@/components/common/CommonHeadlines";
 import GuideBaseAlerts from "@/components/guide/GuideBaseAlerts";
 import GuideBaseAvatars from "@/components/guide/GuideBaseAvatars";

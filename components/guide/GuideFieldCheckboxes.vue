@@ -63,9 +63,11 @@
      ************************************************************************* -->
 
 <script>
+// VUE DARK MODE
+import BaseDivider from "@/lib/components/base/BaseDivider";
+import FieldCheckbox from "@/lib/components/form/FieldCheckbox";
+
 // PROJECT
-import BaseDivider from "@/lib//base/BaseDivider";
-import FieldCheckbox from "@/lib//form/FieldCheckbox";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

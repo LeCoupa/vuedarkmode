@@ -44,9 +44,9 @@
 import axios from "axios";
 import qs from "qs";
 
-// PROJECT
-import BaseButton from "@/lib//base/BaseButton";
-import FieldInput from "@/lib//form/FieldInput";
+// VUE DARK MODE
+import BaseButton from "@/lib/components/base/BaseButton";
+import FieldInput from "@/lib/components/form/FieldInput";
 
 export default {
   components: {

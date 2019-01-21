@@ -420,7 +420,7 @@ $sizes: mini, small, default, medium, large;
   }
 
   &--circular {
-    border-radius: 100%;
+    border-radius: 100px;
 
     #{$c}__inner {
       #{$c}__left-icon {

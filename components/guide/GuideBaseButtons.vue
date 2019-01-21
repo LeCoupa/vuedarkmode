@@ -70,9 +70,11 @@
      ************************************************************************* -->
 
 <script>
-// PROJECT
-import BaseButton from "@/lib//base/BaseButton";
-import BaseDivider from "@/lib//base/BaseDivider";
+// VUE DARK MODE
+import BaseButton from "@/lib/components/base/BaseButton";
+import BaseDivider from "@/lib/components/base/BaseDivider";
+
+// COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

@@ -53,9 +53,11 @@
      ************************************************************************* -->
 
 <script>
+// VUE DARK MODE
+import BaseDivider from "@/lib/components/base/BaseDivider";
+import BaseSpinner from "@/lib/components/base/BaseSpinner";
+
 // PROJECT
-import BaseDivider from "@/lib//base/BaseDivider";
-import BaseSpinner from "@/lib//base/BaseSpinner";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

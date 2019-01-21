@@ -53,9 +53,11 @@
      ************************************************************************* -->
 
 <script>
+// VUE DARK MODE
+import BaseAlert from "@/lib/components/base/BaseAlert";
+import BaseDivider from "@/lib/components/base/BaseDivider";
+
 // PROJECT
-import BaseAlert from "@/lib//base/BaseAlert";
-import BaseDivider from "@/lib//base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

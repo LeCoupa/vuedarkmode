@@ -69,9 +69,11 @@
      ************************************************************************* -->
 
 <script>
+// VUE DARK MODE
+import BaseAvatar from "@/lib/components/base/BaseAvatar";
+import BaseDivider from "@/lib/components/base/BaseDivider";
+
 // PROJECT
-import BaseAvatar from "@/lib//base/BaseAvatar";
-import BaseDivider from "@/lib//base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

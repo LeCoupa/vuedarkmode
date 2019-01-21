@@ -57,9 +57,11 @@
      ************************************************************************* -->
 
 <script>
+// VUE DARK MODE
+import BaseBadge from "@/lib/components/base/BaseBadge";
+import BaseDivider from "@/lib/components/base/BaseDivider";
+
 // PROJECT
-import BaseBadge from "@/lib//base/BaseBadge";
-import BaseDivider from "@/lib//base/BaseDivider";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

@@ -1,0 +1,47 @@
+{
+  "private": false,
+  "name": "vuedarkmode",
+  "version": "0.3.0",
+  "author": "Team <team@vuedarkmode.com>",
+  "license": "MIT",
+  "description": "A minimalist dark design system for vue.js",
+  "keywords": [
+    "vue",
+    "components",
+    "dark mode",
+    "design system",
+    "bootstrap"
+  ],
+  "homepage": "https://www.vuedarkmode.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lecoupa/vuedarkmode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lecoupa/vuedarkmode/issues",
+    "email": "team@vuedarkmode.com"
+  },
+  "main": "dist/vuedarkmode.cjs.js",
+  "module": "dist/vuedarkmode.es.js",
+  "jsdelivr": "dist/vuedarkmode.min.js",
+  "unpkg": "dist/vuedarkmode.min.js",
+  "scripts": {
+    "build": "bili --vue.css false"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.1.5",
+    "bili": "^3.1.2",
+    "node-sass": "^4.9.3",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "rollup": "^0.66.6",
+    "rollup-plugin-buble": "^0.19.4",
+    "rollup-plugin-uglify-es": "0.0.1",
+    "rollup-plugin-vue": "^4.4.0-alpha.0",
+    "sass-loader": "^7.1.0",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "files": [
+    "dist/*"
+  ]
+}

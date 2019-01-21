@@ -169,8 +169,10 @@
      ************************************************************************* -->
 
 <script>
+// VUE DARK MODE
+import BaseHeading from "@/lib/components/base/BaseHeading";
+
 // PROJECT
-import BaseHeading from "@/lib//base/BaseHeading";
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

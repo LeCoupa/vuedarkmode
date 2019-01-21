@@ -63,9 +63,9 @@ nav.c-the-navigation
      ************************************************************************* -->
 
 <script>
-// PROJECT
-import BaseAvatar from "@/lib//base/BaseAvatar";
-import BaseIcon from "@/lib//base/BaseIcon";
+// VUE DARK MODE
+import BaseAvatar from "@/lib/components/base/BaseAvatar";
+import BaseIcon from "@/lib/components/base/BaseIcon";
 
 export default {
   components: {

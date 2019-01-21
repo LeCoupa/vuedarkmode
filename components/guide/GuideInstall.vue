@@ -104,8 +104,8 @@
      ************************************************************************* -->
 
 <script>
-// PROJECT
-import BaseHeading from "@/lib//base/BaseHeading";
+// VUE DARK MODE
+import BaseHeading from "@/lib/components/base/BaseHeading";
 
 export default {
   components: {
