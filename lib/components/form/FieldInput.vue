@@ -338,6 +338,11 @@ $statuses: error, normal, success, warning;
       &:disabled {
         cursor: not-allowed;
       }
+
+      &:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px $ebony-clay-2 inset !important;
+        -webkit-text-fill-color: $white !important;
+      }
     }
   }
 
