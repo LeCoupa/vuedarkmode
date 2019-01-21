@@ -79,6 +79,9 @@ export default {
 
         this.message.status = "success";
         this.message.content = result.data;
+
+        // Clear input field
+        this.email = "";
       } catch (error) {
         this.message.status = "error";
         this.message.content = error.response.data;
