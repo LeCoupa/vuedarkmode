@@ -16,6 +16,7 @@ div(
 )
   .dm-field-checkbox__container
     input(
+      v-validate="validation"
       @change="onFieldChange"
       :checked="value"
       :disabled="disabled"
@@ -28,11 +29,17 @@ div(
     field-label(
       v-if="label"
       :forField="uuid"
+      :required="validation && validation.includes('required')"
       :size="size"
       :uppercase="false"
       class="dm-field-checkbox__label"
     ) {{ label }}
 
+  field-error(
+    v-if="errors.first(name)"
+    :message="errors.first(name)"
+    :size="size"
+  )
   field-description(
     v-if="description"
     :description="description"
@@ -48,11 +55,13 @@ div(
 // PROJECT
 import { generateUUID } from "../../helpers/helpers.js";
 import FieldDescription from "./FieldDescription.vue";
+import FieldError from "./FieldError.vue";
 import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {
     FieldDescription,
+    FieldError,
     FieldLabel
   },
 
@@ -96,6 +105,10 @@ export default {
       validator(x) {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
+    },
+    validation: {
+      type: String,
+      default: null
     },
     value: {
       type: Boolean,

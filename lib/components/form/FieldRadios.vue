@@ -20,6 +20,7 @@ div(
       class="dm-field-radios__fields"
     )
       input(
+        v-validate="validation"
         @change="onFieldChange(radio, $event)"
         :checked="radio.value === currentValue"
         :disabled="disabled"
@@ -33,11 +34,17 @@ div(
       field-label(
         v-if="radio.label"
         :forField="radio.name"
+        :required="validation && validation.includes('required')"
         :size="size"
         :uppercase="false"
         class="dm-field-radios__label"
       ) {{ radio.label }}
 
+  //- field-error(
+  //-   v-if="errors.first(name)"
+  //-   :message="errors.first(name)"
+  //-   :size="size"
+  //- )
   field-description(
     v-if="description"
     :description="description"
@@ -52,11 +59,13 @@ div(
 <script>
 // PROJECT
 import FieldDescription from "./FieldDescription.vue";
+import FieldError from "./FieldError.vue";
 import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {
     FieldDescription,
+    FieldError,
     FieldLabel
   },
 
@@ -99,6 +108,10 @@ export default {
     },
     value: {
       type: [Number, String],
+      default: null
+    },
+    validation: {
+      type: String,
       default: null
     }
   },

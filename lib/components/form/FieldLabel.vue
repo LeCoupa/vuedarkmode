@@ -76,7 +76,7 @@ $sizes: mini, small, default, medium, large;
   user-select: none;
 
   #{$c}__required {
-    margin-left: 5px;
+    margin-left: 4px;
     color: $crimson;
   }
 

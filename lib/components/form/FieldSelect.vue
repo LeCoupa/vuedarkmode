@@ -19,6 +19,7 @@ div(
   field-label(
     v-if="label"
     :forField="uuid"
+    :required="validation && validation.includes('required')"
     :size="size"
     class="dm-field-select__label"
   ) {{ label }}
@@ -59,6 +60,11 @@ div(
         tabindex="0"
       ) {{ option.label }}
 
+  field-error(
+    v-if="errors.first(name)"
+    :message="errors.first(name)"
+    :size="size"
+  )
   field-description(
     v-if="description"
     :description="description"
@@ -75,12 +81,14 @@ div(
 import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldDescription from "./FieldDescription.vue";
+import FieldError from "./FieldError.vue";
 import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {
     BaseIcon,
     FieldDescription,
+    FieldError,
     FieldLabel
   },
 
@@ -134,6 +142,10 @@ export default {
     },
     value: {
       type: [Number, String],
+      default: null
+    },
+    validation: {
+      type: String,
       default: null
     }
   },

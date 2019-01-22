@@ -1,4 +1,4 @@
-<!-- *************************************************************************
+s<!-- *************************************************************************
      TEMPLATE
      ************************************************************************* -->
 
@@ -20,6 +20,7 @@ div(
       class="dm-field-file__information"
     )
       field-label(
+        :required="validation && validation.includes('required')"
         :size="size"
         class="dm-field-file__label"
       ) {{ label }}
@@ -41,6 +42,7 @@ div(
       )
 
     input(
+      v-validate="validation"
       @change="onFieldChange"
       :disabled="disabled"
       :id="uuid"
@@ -49,6 +51,12 @@ div(
       class="dm-field-file__field"
       type="file"
     )
+
+  field-error(
+    v-if="errors.first(name)"
+    :message="errors.first(name)"
+    :size="size"
+  )
 </template>
 
 <!-- *************************************************************************
@@ -59,11 +67,13 @@ div(
 // PROJECT
 import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
+import FieldError from "./FieldError.vue";
 import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {
     BaseIcon,
+    FieldError,
     FieldLabel
   },
 
@@ -107,6 +117,10 @@ export default {
       validator(x) {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
+    },
+    validation: {
+      type: String,
+      default: null
     }
   },
 

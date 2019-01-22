@@ -19,6 +19,7 @@ div(
   field-label(
     v-if="label"
     :forField="uuid"
+    :required="validation && validation.includes('required')"
     :size="size"
     class="dm-field-textarea__label"
   ) {{ label }}
