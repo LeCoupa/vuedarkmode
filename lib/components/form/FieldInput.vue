@@ -7,7 +7,7 @@ div(
   :class=`[
     "dm-field-input",
     "dm-field-input--" + size,
-    "dm-field-input--" + status,
+    "dm-field-input--" + computedStatus,
     {
       "dm-field-input--borders": borders,
       "dm-field-input--disabled": disabled,
@@ -219,15 +219,23 @@ export default {
   computed: {
     computedRightIcon() {
       // Return the status when defined as prop
-      if (this.status === "error") {
+      if (this.computedStatus === "error") {
         return "close";
-      } else if (this.status === "success") {
+      } else if (this.computedStatus === "success") {
         return "check";
-      } else if (this.status === "warning") {
+      } else if (this.computedStatus === "warning") {
         return "warning";
       }
 
       return this.rightIcon;
+    },
+
+    computedStatus() {
+      if (this.errors.first(this.name)) {
+        return "error";
+      }
+
+      return this.status;
     }
   },
 
@@ -374,7 +382,7 @@ $statuses: error, normal, success, warning;
         border-radius: 4px + (1px * $i);
 
         #{$c}__icon {
-          // Will override the font-size set in style attribute
+          // Override the font-size set in style attribute
           font-size: 16px + (1px * $i) !important;
         }
 
@@ -392,8 +400,9 @@ $statuses: error, normal, success, warning;
     &--#{$status} {
       #{$c}__container {
         @if ($status != normal) {
-          border-color: map-get($statusColors, $status);
-          color: map-get($statusColors, $status);
+          // Override focused state
+          color: map-get($statusColors, $status) !important;
+          border-color: map-get($statusColors, $status) !important;
         } @else {
           border-color: $oxford-blue;
           color: $white;

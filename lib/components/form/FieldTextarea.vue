@@ -7,7 +7,7 @@ div(
   :class=`[
     "dm-field-textarea",
     "dm-field-textarea--" + size,
-    "dm-field-textarea--" + status,
+    "dm-field-textarea--" + computedStatus,
     {
       "dm-field-textarea--borders": borders,
       "dm-field-textarea--disabled": disabled,
@@ -46,8 +46,8 @@ div(
     ) {{ value }}
 
     base-icon(
-      v-if="statusIcon"
-      :name="statusIcon"
+      v-if="computedIcon"
+      :name="computedIcon"
       class="dm-field-textarea__icon"
     )
 
@@ -168,15 +168,23 @@ export default {
   },
 
   computed: {
-    statusIcon() {
+    computedIcon() {
       // Return the left icon when defined as prop
-      if (this.status === "error") {
+      if (this.computedStatus === "error") {
         return "close";
-      } else if (this.status === "success") {
+      } else if (this.computedStatus === "success") {
         return "check";
-      } else if (this.status === "warning") {
+      } else if (this.computedStatus === "warning") {
         return "warning";
       }
+    },
+
+    computedStatus() {
+      if (this.errors.first(this.name)) {
+        return "error";
+      }
+
+      return this.status;
     }
   },
 
@@ -294,8 +302,9 @@ $statuses: error, normal, success, warning;
     &--#{$status} {
       #{$c}__container {
         @if ($status != normal) {
-          border-color: map-get($statusColors, $status);
-          color: map-get($statusColors, $status);
+          // Override focused state
+          border-color: map-get($statusColors, $status) !important;
+          color: map-get($statusColors, $status) !important;
         } @else {
           border-color: $oxford-blue;
           color: $white;
