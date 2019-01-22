@@ -229,6 +229,19 @@ export default {
             }
           },
           {
+            name: "resize",
+            type: {
+              type: "String",
+              additional: 'Default: "none"'
+            },
+            details: {
+              description:
+                "Specify is the text area element is resizable by the user.",
+              values:
+                '"none" | "both" | "horizontal" | "vertical" | "initial" | "inherit"'
+            }
+          },
+          {
             name: "rows",
             type: {
               type: "Number",

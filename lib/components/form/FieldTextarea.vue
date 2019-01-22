@@ -43,6 +43,9 @@ div(
       :readonly="readOnly"
       :rows="rows"
       :spellcheck="spellcheck"
+      :style=`{
+        resize: resize
+      }`
       class="dm-field-textarea__field"
     ) {{ value }}
 
@@ -128,6 +131,22 @@ export default {
     readOnly: {
       type: Boolean,
       default: false
+    },
+    resize: {
+      type: String,
+      default: "none",
+      validator(x) {
+        return (
+          [
+            "none",
+            "both",
+            "horizontal",
+            "vertical",
+            "initial",
+            "inherit"
+          ].indexOf(x) !== -1
+        );
+      }
     },
     rows: {
       type: Number,
@@ -276,7 +295,6 @@ $statuses: error, normal, success, warning;
       border: none;
       background-color: transparent;
       color: $white;
-      resize: none;
 
       &::placeholder {
         color: $nepal;

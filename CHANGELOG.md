@@ -6,7 +6,7 @@
 
 - FieldLabel: Add required prop.
 
-- FieldTextarea: Add icon, spellcheck and validation prop.
+- FieldTextarea: Add icon, spellcheck, resize and validation prop.
 
 - Base Divider: Add margin prop.
 
