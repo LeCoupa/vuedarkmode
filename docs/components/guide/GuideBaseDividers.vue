@@ -112,6 +112,16 @@ export default {
             }
           },
           {
+            name: "margin",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Specify the margin of the divider."
+            }
+          },
+          {
             name: "size",
             type: {
               type: "String",
@@ -144,7 +154,7 @@ $c: ".c-guide-base-dividers";
     margin-bottom: 0;
 
     #{$c}__divider {
-      margin: 0 auto;
+      margin: 0 auto !important;
     }
   }
 }

@@ -6,6 +6,8 @@
 
 - FieldTextarea: Add icon, spellcheck and validation prop.
 
+- Base Divider: Add margin prop.
+
 ## 0.2.0 - 2019-01-21
 
 ### Added
