@@ -13,7 +13,13 @@ label(
     }
   ]`
   :for="forField"
-): slot
+)
+  slot
+
+  span(
+    v-if="required"
+    class="dm-field-label__required"
+  ) *
 </template>
 
 <!-- *************************************************************************
@@ -26,6 +32,10 @@ export default {
     forField: {
       type: String,
       default: null
+    },
+    required: {
+      type: Boolean,
+      default: false
     },
     size: {
       type: String,
@@ -64,6 +74,11 @@ $sizes: mini, small, default, medium, large;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
   user-select: none;
+
+  #{$c}__required {
+    margin-left: 5px;
+    color: $crimson;
+  }
 
   // --> SIZES <--
 

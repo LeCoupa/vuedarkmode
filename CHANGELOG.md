@@ -4,6 +4,8 @@
 
 - FieldInput: Add spellcheck and validation prop.
 
+- FieldLabel: Add required prop.
+
 - FieldTextarea: Add icon, spellcheck and validation prop.
 
 - Base Divider: Add margin prop.
