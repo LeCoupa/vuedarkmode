@@ -326,6 +326,7 @@ $statuses: error, normal, success, warning;
 
   #{$c}__container {
     display: flex;
+    overflow: hidden;
     align-items: center;
     transition: all ease-in-out 200ms;
 
@@ -366,6 +367,7 @@ $statuses: error, normal, success, warning;
 
       &:-webkit-autofill {
         -webkit-box-shadow: 0 0 0 30px $ebony-clay-2 inset !important;
+
         -webkit-text-fill-color: $white !important;
       }
     }
@@ -400,9 +402,9 @@ $statuses: error, normal, success, warning;
     &--#{$status} {
       #{$c}__container {
         @if ($status != normal) {
+          border-color: map-get($statusColors, $status) !important;
           // Override focused state
           color: map-get($statusColors, $status) !important;
-          border-color: map-get($statusColors, $status) !important;
         } @else {
           border-color: $oxford-blue;
           color: $white;
