@@ -28,6 +28,9 @@
   "scripts": {
     "build": "bili --vue.css false"
   },
+  "dependencies": {
+    "vee-validate": "^2.1.5"
+  },
   "devDependencies": {
     "autoprefixer": "^9.1.5",
     "bili": "^3.1.2",

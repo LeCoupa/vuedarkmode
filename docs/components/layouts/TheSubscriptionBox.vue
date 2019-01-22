@@ -16,6 +16,7 @@
       name="email"
       placeholder="e.g. you@awesome.com"
       size="medium"
+      validation="required|email"
     )
     base-button(
       :loading="loading"
@@ -25,6 +26,7 @@
     ) Subscribe
 
   p(
+    v-if="message.content"
     :class=`[
       "c-the-subscription-box__message",
       "c-the-subscription-box__message--" + message.status
@@ -37,9 +39,6 @@
      ************************************************************************* -->
 
 <script>
-// TODO: Validate email field on front-end
-// TODO: Show loader circle icon
-
 // NPM
 import axios from "axios";
 import qs from "qs";
@@ -62,7 +61,7 @@ export default {
       loading: false,
       message: {
         status: "normal",
-        content: "We'll never send you more than one email per month."
+        content: null
       }
     };
   },
@@ -119,7 +118,7 @@ $c: ".c-the-subscription-box";
     margin: 10px 0 0;
     color: $nepal;
     text-align: left;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 20px;
 
     &--error {
@@ -138,7 +137,7 @@ $c: ".c-the-subscription-box";
 
     #{$c}__container {
       display: flex;
-      align-items: flex-end;
+      align-items: flex-start;
 
       #{$c}__field {
         flex: 1;
@@ -148,6 +147,7 @@ $c: ".c-the-subscription-box";
       }
 
       #{$c}__button {
+        margin-top: 32px;
         flex: 0 0 auto;
         width: initial;
       }

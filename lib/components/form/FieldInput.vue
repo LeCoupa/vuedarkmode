@@ -35,6 +35,7 @@ div(
       class="dm-field-input__icon dm-field-input__icon--left"
     )
     input(
+      v-validate="validation"
       @blur="onFieldBlur"
       @change="onFieldChange"
       @focus="onFieldFocus"
@@ -59,6 +60,11 @@ div(
       class="dm-field-input__icon dm-field-input__icon--right"
     )
 
+  field-error(
+    v-if="errors.first(name)"
+    :message="errors.first(name)"
+    :size="size"
+  )
   field-description(
     v-if="description"
     :description="description"
@@ -75,12 +81,14 @@ div(
 import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldDescription from "./FieldDescription.vue";
+import FieldError from "./FieldError.vue";
 import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {
     BaseIcon,
     FieldDescription,
+    FieldError,
     FieldLabel
   },
 
@@ -187,6 +195,10 @@ export default {
           ].indexOf(x) !== -1
         );
       }
+    },
+    validation: {
+      type: String,
+      default: null
     },
     value: {
       type: [String, Number],
