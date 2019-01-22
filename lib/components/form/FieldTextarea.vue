@@ -104,6 +104,10 @@ export default {
       type: Boolean,
       default: true
     },
+    icon: {
+      type: String,
+      default: null
+    },
     label: {
       type: String,
       default: null
@@ -177,6 +181,8 @@ export default {
       } else if (this.computedStatus === "warning") {
         return "warning";
       }
+
+      return this.icon;
     },
 
     computedStatus() {

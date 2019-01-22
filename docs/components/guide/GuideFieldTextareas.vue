@@ -176,6 +176,17 @@ export default {
             }
           },
           {
+            name: "icon",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Add an icon at the bottom left corner of the text area element (see material icons)."
+            }
+          },
+          {
             name: "maxlength",
             type: {
               type: "Number",
