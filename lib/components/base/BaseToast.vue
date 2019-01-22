@@ -8,6 +8,9 @@ div(
     "dm-base-toast",
     "dm-base-toast--" + color
   ]`
+  :style=`{
+    width: width
+  }`
 )
   span(
     v-if="$slots.default && $slots.default[0].text.trim()"
@@ -50,6 +53,10 @@ export default {
       validator(x) {
         return ["black", "blue", "green", "orange", "red", "white"].includes(x);
       }
+    },
+    width: {
+      type: String,
+      default: "225px"
     }
   },
 
@@ -87,7 +94,6 @@ $colors: black, blue, green, red, orange, white;
   display: flex;
   align-items: center;
   padding: 14px 20px;
-  width: 200px;
   border-radius: 3px;
   color: $white;
   text-align: left;

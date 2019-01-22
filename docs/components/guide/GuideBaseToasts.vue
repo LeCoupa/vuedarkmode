@@ -119,6 +119,16 @@ export default {
               description: "Set the toast color.",
               values: '"black" | "blue" | "green" | "orange" | "red" | "white"'
             }
+          },
+          {
+            name: "width",
+            type: {
+              type: "String",
+              additional: 'Default: "225px"'
+            },
+            details: {
+              description: "Set the toast width."
+            }
           }
         ]
       },
