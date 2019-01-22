@@ -4,7 +4,7 @@
 
 - FieldInput: Add spellcheck and validation prop.
 
-- FieldTextarea: Add spellcheck prop.
+- FieldTextarea: Add spellcheck and validation prop.
 
 ## 0.2.0 - 2019-01-21
 

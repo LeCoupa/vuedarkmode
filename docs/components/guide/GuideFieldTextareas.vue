@@ -262,6 +262,17 @@ export default {
             }
           },
           {
+            name: "validation",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the text area validation rules (check VeeValidate documentation)."
+            }
+          },
+          {
             name: "value",
             type: {
               type: "String",

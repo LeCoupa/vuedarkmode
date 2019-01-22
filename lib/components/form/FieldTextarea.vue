@@ -28,6 +28,7 @@ div(
     class="dm-field-textarea__container"
   )
     textarea(
+      v-validate="validation"
       @blur="onFieldBlur"
       @change="onFieldChange"
       @focus="onFieldFocus"
@@ -50,8 +51,13 @@ div(
       class="dm-field-textarea__icon"
     )
 
+  field-error(
+    v-if="errors.first(name)"
+    :message="errors.first(name)"
+    :size="size"
+  )
   field-description(
-    v-if="description"
+    v-else-if="description"
     :description="description"
     :size="size"
   )
@@ -66,12 +72,14 @@ div(
 import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldDescription from "./FieldDescription.vue";
+import FieldError from "./FieldError.vue";
 import FieldLabel from "./FieldLabel.vue";
 
 export default {
   components: {
     BaseIcon,
     FieldDescription,
+    FieldError,
     FieldLabel
   },
 
@@ -141,6 +149,10 @@ export default {
       }
     },
     value: {
+      type: String,
+      default: null
+    },
+    validation: {
       type: String,
       default: null
     }
