@@ -1,4 +1,12 @@
-## 0.2.0 - Currently
+## 0.3.0 - 2019-01-21
+
+### Added
+
+- FieldInput: Add spellcheck prop.
+
+- FieldTextarea: Add spellcheck prop.
+
+## 0.2.0 - 2019-01-21
 
 ### Added
 

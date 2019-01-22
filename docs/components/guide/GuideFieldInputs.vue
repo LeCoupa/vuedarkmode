@@ -279,6 +279,17 @@ export default {
             }
           },
           {
+            name: "spellcheck",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description:
+                "Specifies whether the element is to have its spelling and grammar checked or not."
+            }
+          },
+          {
             name: "status",
             type: {
               type: "String",

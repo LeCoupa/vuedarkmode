@@ -47,6 +47,7 @@ div(
       :min="min"
       :name="name"
       :placeholder="placeholder"
+      :spellcheck="spellcheck"
       :readonly="readOnly"
       :type="type"
       :value="currentValue"
@@ -152,6 +153,10 @@ export default {
           ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
         );
       }
+    },
+    spellcheck: {
+      type: Boolean,
+      default: false
     },
     status: {
       type: String,

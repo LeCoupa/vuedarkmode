@@ -40,6 +40,7 @@ div(
       :placeholder="placeholder"
       :readonly="readOnly"
       :rows="rows"
+      :spellcheck="spellcheck"
       class="dm-field-textarea__field"
     ) {{ value }}
 
@@ -103,13 +104,13 @@ export default {
       type: Number,
       default: null
     },
-    placeholder: {
-      type: String,
-      default: null
-    },
     name: {
       type: String,
       required: true
+    },
+    placeholder: {
+      type: String,
+      default: null
     },
     readOnly: {
       type: Boolean,
@@ -127,6 +128,10 @@ export default {
           ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
         );
       }
+    },
+    spellcheck: {
+      type: Boolean,
+      default: false
     },
     status: {
       type: String,
