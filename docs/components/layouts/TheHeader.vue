@@ -14,7 +14,7 @@ header.c-the-header
   base-heading(
     :uppercase="true"
     tag="h1"
-  ) A Minimalist Design System for Vue.js 🎨
+  ) A Minimalist Dark Design System for Vue.js 🎨
 
   base-heading(
     color="grey"
