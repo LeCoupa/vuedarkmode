@@ -320,7 +320,7 @@ export default {
             },
             details: {
               description:
-                "Specify the input validation rules (check VeeValidate documentation)."
+                "Specify the validation rules for the input (check VeeValidate documentation)."
             }
           },
           {

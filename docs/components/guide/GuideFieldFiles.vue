@@ -195,6 +195,17 @@ export default {
               description: "Specify the status for the file element.",
               values: '"error" | "normal" | "success" | "warning"'
             }
+          },
+          {
+            name: "validation",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the validation rules for the file element (check VeeValidate documentation)."
+            }
           }
         ]
       },

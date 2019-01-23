@@ -24,8 +24,8 @@ div(
         @change="onFieldChange(radio, $event)"
         :checked="radio.value === currentValue"
         :disabled="disabled"
-        :id="radio.name"
-        :name="radio.name"
+        :id="radio.id"
+        :name="name"
         :required="required"
         :value="radio.value"
         class="dm-field-radios__field"
@@ -33,20 +33,20 @@ div(
       )
       field-label(
         v-if="radio.label"
-        :forField="radio.name"
+        :forField="radio.id"
         :required="validation && validation.includes('required')"
         :size="size"
         :uppercase="false"
         class="dm-field-radios__label"
       ) {{ radio.label }}
 
-  //- field-error(
-  //-   v-if="errors.first(name)"
-  //-   :message="errors.first(name)"
-  //-   :size="size"
-  //- )
+  field-error(
+    v-if="errors.first(name)"
+    :message="errors.first(name)"
+    :size="size"
+  )
   field-description(
-    v-if="description"
+    v-else-if="description"
     :description="description"
     :size="size"
   )
@@ -82,6 +82,10 @@ export default {
       type: Boolean,
       default: true
     },
+    name: {
+      type: String,
+      required: true
+    },
     radios: {
       type: Array,
       required: true
@@ -106,12 +110,12 @@ export default {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
     },
-    value: {
-      type: [Number, String],
-      default: null
-    },
     validation: {
       type: String,
+      default: null
+    },
+    value: {
+      type: [Number, String],
       default: null
     }
   },
@@ -146,7 +150,7 @@ export default {
     onFieldChange(radio, event) {
       this.currentValue = radio.value;
 
-      this.$emit("change", radio.value, radio.name, event);
+      this.$emit("change", radio.value, radio.id, this.name, event);
 
       // Synchronization for v-model
       this.$emit("input", radio.value);

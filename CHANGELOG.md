@@ -2,13 +2,23 @@
 
 ### Added
 
+- Base Divider: Add margin prop.
+
+- FieldCheckbox: Add validation prop.
+
+- FieldFile: Add validation prop.
+
 - FieldInput: Add spellcheck and validation prop.
 
 - FieldLabel: Add required prop.
 
+- FieldRadios: Add name and validation prop.
+
+- FieldSelect: Add validation prop.
+
 - FieldTextarea: Add icon, spellcheck, resize and validation prop.
 
-- Base Divider: Add margin prop.
+- FieldToggle: Add validation prop.
 
 ## 0.2.0 - 2019-01-21
 

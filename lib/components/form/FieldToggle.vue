@@ -41,7 +41,7 @@ div(
     :size="size"
   )
   field-description(
-    v-if="description"
+    v-else-if="description"
     :description="description"
     :size="size"
   )
@@ -106,13 +106,13 @@ export default {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
     },
-    value: {
-      type: Boolean,
-      default: false
-    },
     validation: {
       type: String,
       default: null
+    },
+    value: {
+      type: Boolean,
+      default: false
     }
   },
 

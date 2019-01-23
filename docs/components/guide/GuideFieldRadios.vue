@@ -15,11 +15,12 @@
     )
       .o-elements__item
         field-radios(
+          :name="'input_' + status"
           :radios=`[
-            { label: 'Vue Dark Mode 1', name: 'vuedarkmode1' + i, value: 'vuedarkmode1' + i },
-            { label: 'Vue Dark Mode 2', name: 'vuedarkmode2' + i, value: 'vuedarkmode2' + i },
-            { label: 'Vue Dark Mode 3', name: 'vuedarkmode3' + i, value: 'vuedarkmode3' + i },
-            { label: 'Vue Dark Mode 4', name: 'vuedarkmode4' + i, value: 'vuedarkmode4' + i }
+            { label: 'Vue Dark Mode 1', id: 'vuedarkmode1' + i, value: 'vuedarkmode1' + i },
+            { label: 'Vue Dark Mode 2', id: 'vuedarkmode2' + i, value: 'vuedarkmode2' + i },
+            { label: 'Vue Dark Mode 3', id: 'vuedarkmode3' + i, value: 'vuedarkmode3' + i },
+            { label: 'Vue Dark Mode 4', id: 'vuedarkmode4' + i, value: 'vuedarkmode4' + i }
           ]`
           :status="status"
           :size="i === 0 ? 'default' : 'large'"
@@ -138,6 +139,16 @@ export default {
             }
           },
           {
+            name: "name",
+            type: {
+              type: "String",
+              additional: "Required: true"
+            },
+            details: {
+              description: "Specify the name of the radio element."
+            }
+          },
+          {
             name: "radios",
             type: {
               type: "Array",
@@ -145,7 +156,8 @@ export default {
             },
             details: {
               description: "Define all radio elements to display.",
-              values: '[{ label: "My Label", name: "name", value: "My Value" }]'
+              values:
+                '[{ label: "My Label", id: "myUniqueId", value: "My Value" }]'
             }
           },
           {
@@ -182,6 +194,17 @@ export default {
             }
           },
           {
+            name: "validation",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the validation rules for the radio element (check VeeValidate documentation)."
+            }
+          },
+          {
             name: "value",
             type: {
               type: "[Number, String]",
@@ -214,7 +237,7 @@ export default {
         data: [
           {
             name: "change",
-            parameters: "value, name, event",
+            parameters: "value, id, name, event",
             details: {
               description:
                 "Fires the moment when the value of the radios is changed"

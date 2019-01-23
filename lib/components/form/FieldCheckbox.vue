@@ -41,7 +41,7 @@ div(
     :size="size"
   )
   field-description(
-    v-if="description"
+    v-else-if="description"
     :description="description"
     :size="size"
   )

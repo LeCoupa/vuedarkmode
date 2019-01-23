@@ -293,7 +293,7 @@ export default {
             },
             details: {
               description:
-                "Specify the text area validation rules (check VeeValidate documentation)."
+                "Specify the validation rules for the text area (check VeeValidate documentation)."
             }
           },
           {

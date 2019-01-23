@@ -198,6 +198,17 @@ export default {
             }
           },
           {
+            name: "validation",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the validation rules for the checkbox (check VeeValidate documentation)."
+            }
+          },
+          {
             name: "value",
             type: {
               type: "Boolean",

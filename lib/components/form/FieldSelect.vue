@@ -57,8 +57,21 @@ div(
             "dm-field-select__option--selected": option.value === currentValue
           }
         ]`
+        :key="option.value"
         tabindex="0"
       ) {{ option.label }}
+
+  select(
+    v-model="currentValue"
+    v-validate="validation"
+    :name="name"
+    class="dm-field-select__select js-select"
+  )
+    option(
+      v-for="option in options"
+      :key="option.value"
+      :value="options.value"
+    ) {{ option.label }}
 
   field-error(
     v-if="errors.first(name)"
@@ -66,7 +79,7 @@ div(
     :size="size"
   )
   field-description(
-    v-if="description"
+    v-else-if="description"
     :description="description"
     :size="size"
   )
@@ -140,12 +153,12 @@ export default {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
     },
-    value: {
-      type: [Number, String],
-      default: null
-    },
     validation: {
       type: String,
+      default: null
+    },
+    value: {
+      type: [Number, String],
       default: null
     }
   },
@@ -345,6 +358,10 @@ $statuses: error, normal, success, warning;
         }
       }
     }
+  }
+
+  #{$c}__select {
+    display: none;
   }
 
   // --> SIZES <--

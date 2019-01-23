@@ -172,11 +172,11 @@ export default {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
     },
-    value: {
+    validation: {
       type: String,
       default: null
     },
-    validation: {
+    value: {
       type: String,
       default: null
     }

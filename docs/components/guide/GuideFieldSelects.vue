@@ -213,6 +213,17 @@ export default {
             }
           },
           {
+            name: "validation",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the validation rules for the select element (check VeeValidate documentation)."
+            }
+          },
+          {
             name: "value",
             type: {
               type: "[Number, String]",
