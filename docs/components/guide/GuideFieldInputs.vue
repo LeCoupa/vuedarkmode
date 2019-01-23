@@ -320,7 +320,7 @@ export default {
             },
             details: {
               description:
-                "Specify the validation rules for the input (check VeeValidate documentation)."
+                "Specify the validation rules for the input (check <a href='https://baianat.github.io/vee-validate/guide/rules.html' target='_blank'>VeeValidate documentation</a>)."
             }
           },
           {

@@ -205,7 +205,7 @@ export default {
             },
             details: {
               description:
-                "Specify the validation rules for the toggle element (check VeeValidate documentation)."
+                "Specify the validation rules for the toggle element (check <a href='https://baianat.github.io/vee-validate/guide/rules.html' target='_blank'>VeeValidate documentation</a>)."
             }
           },
           {

@@ -29,8 +29,9 @@ vuetable(
   )
     span(
       v-if="props.rowData.details.description"
+      v-html="props.rowData.details.description"
       class="c-common-table__description"
-    ) {{ props.rowData.details.description }}
+    )
 
     span(
       v-if="props.rowData.details.values"
@@ -111,15 +112,15 @@ $c: ".c-common-table";
           font-size: 16px;
           line-height: 26px;
 
-          .c-common-table__type,
-          .c-common-table__additional,
-          .c-common-table__description,
-          .c-common-table__values {
+          #{$c}__type,
+          #{$c}__additional,
+          #{$c}__description,
+          #{$c}__values {
             display: block;
           }
 
-          .c-common-table__additional,
-          .c-common-table__values {
+          #{$c}__additional,
+          #{$c}__values {
             color: $nepal;
             font-size: 15px;
           }
