@@ -14,6 +14,7 @@
     v-if="description"
     class="c-common-headlines__description"
     tag="h3"
+    weight="regular"
   ) {{ description }}
 
   base-button(
