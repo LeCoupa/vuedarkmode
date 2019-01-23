@@ -23,6 +23,7 @@
           :label="size + ' textarea (' + statuses[j] + ')'"
           :name="'textarea_' + size + '_'  + statuses[j] + i + j"
           :placeholder="statuses[j] + ' ' + size + ' textarea'"
+          :readonly="true"
           :size="size"
           :status="statuses[j]"
           description="This is a customizable description for textareas."
@@ -219,7 +220,7 @@ export default {
             }
           },
           {
-            name: "read-only",
+            name: "readonly",
             type: {
               type: "Boolean",
               additional: "Default: false"

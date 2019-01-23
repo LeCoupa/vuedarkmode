@@ -23,6 +23,7 @@
           :label="size + ' input (' + statuses[j] + ')'"
           :name="'input_' + size + '_'  + statuses[j] + i + j"
           :placeholder="statuses[j] + ' ' + size + ' input'"
+          :readonly="true"
           :size="size"
           :status="statuses[j]"
           class="c-index__input"
@@ -238,7 +239,7 @@ export default {
             }
           },
           {
-            name: "read-only",
+            name: "readonly",
             type: {
               type: "Boolean",
               additional: "Default: false"

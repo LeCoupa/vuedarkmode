@@ -13,6 +13,7 @@ div(
       "dm-field-input--disabled": disabled,
       "dm-field-input--focused": focused,
       "dm-field-input--full-width": fullWidth,
+      "dm-field-input--readonly": readonly,
       "dm-field-input--rounded": rounded,
       "dm-field-input--with-icon": leftIcon || rightIcon
     }
@@ -50,7 +51,7 @@ div(
       :name="name"
       :placeholder="placeholder"
       :spellcheck="spellcheck"
-      :readonly="readOnly"
+      :readonly="readonly"
       :type="type"
       :value="currentValue"
       class="dm-field-input__field"
@@ -142,7 +143,7 @@ export default {
       type: String,
       default: null
     },
-    readOnly: {
+    readonly: {
       type: Boolean,
       default: false
     },
@@ -444,6 +445,14 @@ $statuses: error, normal, success, warning;
 
   &--full-width {
     width: 100%;
+  }
+
+  &--readonly {
+    #{$c}__container {
+      #{$c}__field {
+        cursor: default;
+      }
+    }
   }
 
   &--rounded {

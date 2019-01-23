@@ -12,7 +12,8 @@ div(
       "dm-field-textarea--borders": borders,
       "dm-field-textarea--disabled": disabled,
       "dm-field-textarea--focused": focused,
-      "dm-field-textarea--full-width": fullWidth
+      "dm-field-textarea--full-width": fullWidth,
+      "dm-field-textarea--readonly": readonly
     }
   ]`
 )
@@ -40,7 +41,7 @@ div(
       :maxlength="maxlength"
       :name="name"
       :placeholder="placeholder"
-      :readonly="readOnly"
+      :readonly="readonly"
       :rows="rows"
       :spellcheck="spellcheck"
       :style=`{
@@ -128,7 +129,7 @@ export default {
       type: String,
       default: null
     },
-    readOnly: {
+    readonly: {
       type: Boolean,
       default: false
     },
@@ -368,6 +369,14 @@ $statuses: error, normal, success, warning;
 
   &--full-width {
     width: 100%;
+  }
+
+  &--readonly {
+    #{$c}__container {
+      #{$c}__field {
+        cursor: default;
+      }
+    }
   }
 }
 </style>
