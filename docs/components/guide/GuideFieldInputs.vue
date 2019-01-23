@@ -23,7 +23,6 @@
           :label="size + ' input (' + statuses[j] + ')'"
           :name="'input_' + size + '_'  + statuses[j] + i + j"
           :placeholder="statuses[j] + ' ' + size + ' input'"
-          :readonly="true"
           :size="size"
           :status="statuses[j]"
           class="c-index__input"
