@@ -2,7 +2,9 @@
 
 ### Added
 
-- Base Divider: Add margin prop.
+- BaseDivider: Add margin prop.
+
+- BaseHeading: Add fontSize prop.
 
 - FieldCheckbox: Add validation prop.
 

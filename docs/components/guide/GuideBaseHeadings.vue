@@ -222,6 +222,16 @@ export default {
             }
           },
           {
+            name: "fontSize",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Override default font size for the element."
+            }
+          },
+          {
             name: "tag",
             type: {
               type: "String",
