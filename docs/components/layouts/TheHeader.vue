@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-header.c-the-header#welcomeToTheDarkMode
+header.c-the-header#welcome
   the-logo
 
   base-divider(
