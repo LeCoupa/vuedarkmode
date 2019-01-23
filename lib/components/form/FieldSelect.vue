@@ -65,7 +65,7 @@ div(
     v-model="currentValue"
     v-validate="validation"
     :name="name"
-    class="dm-field-select__select js-select"
+    class="dm-field-select__select"
   )
     option(
       v-for="option in options"
