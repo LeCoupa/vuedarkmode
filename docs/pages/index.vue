@@ -4,7 +4,12 @@
 
 <template lang="pug">
 main.c-index
-  the-header
+  the-header(
+    v-observe-visibility=`{
+      callback: onSectionVisibilityChanged,
+      throttle: 250
+    }`
+  )
 
   section(
     v-for="section in sections"
