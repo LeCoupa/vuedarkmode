@@ -141,7 +141,7 @@ export default {
             },
             details: {
               description:
-                "Display an cross on the right to clear the input content."
+                "Display a cross on the right side of the input to clear the content."
             }
           },
           {
