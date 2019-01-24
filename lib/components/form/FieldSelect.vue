@@ -18,6 +18,7 @@ div(
 )
   field-label(
     v-if="label"
+    @click="onLabelClick"
     :forField="uuid"
     :required="validation && validation.includes('required')"
     :size="size"
@@ -44,7 +45,7 @@ div(
       )
 
     div(
-      v-show="deployed"
+      v-show="deployed && !disabled"
       class="dm-field-select__options"
     )
       div(
@@ -215,17 +216,23 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
+    onContainerClick(event) {
+      if (!this.disabled) {
+        this.deployed = !this.deployed;
+
+        this.$emit("click", this.currentValue, this.name, event);
+      }
+    },
+
     onContainerKeypress(event) {
       if (event.which === 32) {
         event.target.click();
       }
     },
 
-    onContainerClick(event) {
+    onLabelClick() {
       if (!this.disabled) {
         this.deployed = !this.deployed;
-
-        this.$emit("click", this.currentValue, this.name, event);
       }
     },
 
@@ -330,8 +337,8 @@ $statuses: error, normal, success, warning;
       z-index: 2;
       display: flex;
       flex-direction: column;
-      background-color: $ebony-clay;
       border-top: none;
+      background-color: $ebony-clay;
       user-select: none;
 
       #{$c}__option {
@@ -343,6 +350,7 @@ $statuses: error, normal, success, warning;
 
         &--selected {
           color: $white;
+          text-decoration: underline;
         }
 
         &:last-of-type {

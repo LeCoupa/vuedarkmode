@@ -4,6 +4,7 @@
 
 <template lang="pug">
 label(
+  @click="onClick"
   :class=`[
     "dm-field-label",
     "dm-field-label--" + size,
@@ -49,6 +50,12 @@ export default {
     uppercase: {
       type: Boolean,
       default: true
+    }
+  },
+
+  methods: {
+    onClick(event) {
+      this.$emit("click", event);
     }
   }
 };
