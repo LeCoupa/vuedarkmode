@@ -48,7 +48,7 @@ div(
         resize: resize
       }`
       class="dm-field-textarea__field"
-    ) {{ value }}
+    ) {{ currentValue }}
 
     base-icon(
       v-if="computedIcon"
@@ -187,6 +187,7 @@ export default {
     return {
       // --> STATE <--
 
+      currentValue: "",
       focused: false,
       uuid: ""
     };
@@ -212,6 +213,19 @@ export default {
       }
 
       return this.status;
+    }
+  },
+
+  watch: {
+    value: {
+      immediate: true,
+      handler(value) {
+        if (value === undefined || value === null) {
+          this.currentValue = "";
+        } else {
+          this.currentValue = value;
+        }
+      }
     }
   },
 
@@ -251,7 +265,10 @@ export default {
     },
 
     onFieldInput(event) {
-      this.$emit("input", this.getTextareaValue(), this.name, event);
+      const value = this.getTextareaValue();
+
+      this.currentValue = value;
+      this.$emit("input", value, this.name, event);
     }
   }
 };

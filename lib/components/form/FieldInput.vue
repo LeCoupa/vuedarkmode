@@ -242,16 +242,15 @@ export default {
   },
 
   watch: {
-    value: function(value) {
-      this.currentValue = value;
-    }
-  },
-
-  created() {
-    if (this.value === undefined || this.value === null) {
-      this.currentValue = "";
-    } else {
-      this.currentValue = this.value;
+    value: {
+      immediate: true,
+      handler(value) {
+        if (value === undefined || value === null) {
+          this.currentValue = "";
+        } else {
+          this.currentValue = value;
+        }
+      }
     }
   },
 

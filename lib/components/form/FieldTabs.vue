@@ -114,13 +114,12 @@ export default {
   },
 
   watch: {
-    value: function(value) {
-      this.setActiveTabs(value);
+    value: {
+      immediate: true,
+      handler(value) {
+        this.setActiveTabs(value);
+      }
     }
-  },
-
-  created() {
-    this.setActiveTabs(this.value);
   },
 
   methods: {

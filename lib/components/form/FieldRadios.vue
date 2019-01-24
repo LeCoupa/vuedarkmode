@@ -88,7 +88,10 @@ export default {
     },
     radios: {
       type: Array,
-      required: true
+      required: true,
+      validator(x) {
+        return x.length > 0;
+      }
     },
     required: {
       type: Boolean,
@@ -129,18 +132,17 @@ export default {
   },
 
   watch: {
-    value: function(value) {
-      this.currentValue = value;
-    }
-  },
-
-  created() {
-    if (this.value) {
-      // When a value prop is defined set the radio as active
-      this.currentValue = this.value;
-    } else {
-      // Or set the first radio as active
-      this.currentValue = this.radios[0].value;
+    value: {
+      immediate: true,
+      handler(value) {
+        if (value) {
+          // When a value prop is defined set the radio as active
+          this.currentValue = value;
+        } else {
+          // Or set the first radio as active
+          this.currentValue = this.radios[0].value;
+        }
+      }
     }
   },
 

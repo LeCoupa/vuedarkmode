@@ -134,7 +134,7 @@ export default {
       type: Array,
       required: true,
       validator(x) {
-        return x.length !== 0;
+        return x.length > 0;
       }
     },
     size: {
@@ -190,22 +190,21 @@ export default {
   },
 
   watch: {
-    value: function(value) {
-      this.currentValue = value;
-    }
-  },
+    value: {
+      immediate: true,
+      handler(value) {
+        if (value) {
+          // When a value prop is defined set the option as active
+          const option = this.options.find(el => el.value === value);
 
-  created() {
-    if (this.value) {
-      // When a value prop is defined set the option as active
-      const selectedOption = this.options.find(el => el.value === this.value);
-
-      this.currentLabel = selectedOption.label;
-      this.currentValue = selectedOption.value;
-    } else {
-      // Or set the first option as active
-      this.currentLabel = this.options[0].label;
-      this.currentValue = this.options[0].value;
+          this.currentLabel = option.label;
+          this.currentValue = option.value;
+        } else {
+          // Or set the first option as active
+          this.currentLabel = this.options[0].label;
+          this.currentValue = this.options[0].value;
+        }
+      }
     }
   },
 

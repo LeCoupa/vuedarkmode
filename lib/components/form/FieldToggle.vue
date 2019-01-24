@@ -18,7 +18,7 @@ div(
     input(
       v-validate="validation"
       @change="onFieldChange"
-      :checked="value"
+      :checked="currentValue"
       :disabled="disabled"
       :id="uuid"
       :name="name"
@@ -120,8 +120,18 @@ export default {
     return {
       // --> STATE <--
 
+      currentValue: null,
       uuid: ""
     };
+  },
+
+  watch: {
+    value: {
+      immediate: true,
+      handler(value) {
+        this.currentValue = value;
+      }
+    }
   },
 
   mounted() {
@@ -132,6 +142,8 @@ export default {
     // --> EVENT LISTENERS <--
 
     onFieldChange(event) {
+      this.currentValue = event.target.checked;
+
       this.$emit("change", event.target.checked, this.name, event);
 
       // Synchronization for v-model
