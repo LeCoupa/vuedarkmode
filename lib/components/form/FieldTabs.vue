@@ -97,7 +97,10 @@ export default {
     },
     tabs: {
       type: Array,
-      required: true
+      required: true,
+      validator(x) {
+        return x.length > 0;
+      }
     },
     value: {
       type: [Array, Number, String],
