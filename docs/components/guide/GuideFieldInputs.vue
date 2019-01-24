@@ -134,6 +134,17 @@ export default {
             }
           },
           {
+            name: "clearable",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description:
+                "Display an cross on the right to clear the input content."
+            }
+          },
+          {
             name: "description",
             type: {
               type: "String",

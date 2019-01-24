@@ -10,6 +10,7 @@ div(
     "dm-field-input--" + computedStatus,
     {
       "dm-field-input--borders": borders,
+      "dm-field-input--clearable": clearable,
       "dm-field-input--disabled": disabled,
       "dm-field-input--focused": focused,
       "dm-field-input--full-width": fullWidth,
@@ -58,6 +59,8 @@ div(
     )
     base-icon(
       v-if="computedRightIcon"
+      @click="onRightIconClick"
+      :clickable="clearable"
       :name="computedRightIcon"
       class="dm-field-input__icon dm-field-input__icon--right"
     )
@@ -102,6 +105,10 @@ export default {
     borders: {
       type: Boolean,
       default: true
+    },
+    clearable: {
+      type: Boolean,
+      default: false
     },
     description: {
       type: String,
@@ -220,13 +227,20 @@ export default {
 
   computed: {
     computedRightIcon() {
-      // Return the status when defined as prop
-      if (this.computedStatus === "error") {
-        return "close";
-      } else if (this.computedStatus === "success") {
-        return "check";
-      } else if (this.computedStatus === "warning") {
-        return "warning";
+      // Add ability to clear the input
+      if (this.clearable) {
+        if (this.currentValue) {
+          return "cancel";
+        }
+      } else {
+        // Return the status when defined as prop
+        if (this.computedStatus === "error") {
+          return "close";
+        } else if (this.computedStatus === "success") {
+          return "check";
+        } else if (this.computedStatus === "warning") {
+          return "warning";
+        }
       }
 
       return this.rightIcon;
@@ -300,6 +314,15 @@ export default {
 
       this.currentValue = value;
       this.$emit("input", value, this.name, event);
+    },
+
+    onRightIconClick() {
+      if (this.clearable) {
+        this.currentValue = "";
+
+        // Synchronization for v-model
+        this.$emit("input", "");
+      }
     }
   }
 };
@@ -423,6 +446,21 @@ $statuses: error, normal, success, warning;
       border-style: solid;
       border-radius: 6px;
       background-color: $ebony-clay-2;
+    }
+  }
+
+  &--clearable {
+    #{$c}__container {
+      #{$c}__icon {
+        &--right {
+          color: rgba($white, 0.8);
+          pointer-events: auto;
+
+          &:hover {
+            color: $white;
+          }
+        }
+      }
     }
   }
 

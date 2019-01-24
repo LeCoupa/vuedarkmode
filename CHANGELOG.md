@@ -10,7 +10,7 @@
 
 - FieldFile: Add validation prop.
 
-- FieldInput: Add spellcheck and validation prop.
+- FieldInput: Add clearable, spellcheck and validation prop.
 
 - FieldLabel: Add required prop.
 
