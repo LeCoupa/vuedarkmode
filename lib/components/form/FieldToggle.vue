@@ -6,8 +6,8 @@
 div(
   :class=`[
     "dm-field-toggle",
+    "dm-field-toggle--" + computedStatus,
     "dm-field-toggle--" + size,
-    "dm-field-toggle--" + status,
     {
       "dm-field-toggle--disabled": disabled,
       "dm-field-toggle--full-width": fullWidth

@@ -6,8 +6,8 @@
 div(
   :class=`[
     "dm-field-select",
+    "dm-field-select--" + computedStatus,
     "dm-field-select--" + size,
-    "dm-field-select--" + status,
     {
       "dm-field-select--disabled": disabled,
       "dm-field-select--deployed": deployed,
@@ -173,11 +173,11 @@ export default {
   computed: {
     computedLeftIcon() {
       // Return the left icon when defined as prop
-      if (this.status === "error") {
+      if (this.computedStatus === "error") {
         return "close";
-      } else if (this.status === "success") {
+      } else if (this.computedStatus === "success") {
         return "check";
-      } else if (this.status === "warning") {
+      } else if (this.computedStatus === "warning") {
         return "warning";
       }
 

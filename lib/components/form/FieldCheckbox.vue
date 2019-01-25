@@ -6,8 +6,8 @@
 div(
   :class=`[
     "dm-field-checkbox",
+    "dm-field-checkbox--" + computedStatus,
     "dm-field-checkbox--" + size,
-    "dm-field-checkbox--" + status,
     {
       "dm-field-checkbox--disabled": disabled,
       "dm-field-checkbox--full-width": fullWidth

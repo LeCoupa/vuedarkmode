@@ -6,8 +6,8 @@
 div(
   :class=`[
     "dm-field-textarea",
-    "dm-field-textarea--" + size,
     "dm-field-textarea--" + computedStatus,
+    "dm-field-textarea--" + size,
     {
       "dm-field-textarea--borders": borders,
       "dm-field-textarea--disabled": disabled,
@@ -200,14 +200,6 @@ export default {
       }
 
       return this.icon;
-    },
-
-    computedStatus() {
-      if (this.errors.first(this.name)) {
-        return "error";
-      }
-
-      return this.status;
     }
   },
 

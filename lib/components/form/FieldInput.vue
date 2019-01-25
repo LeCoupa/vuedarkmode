@@ -6,8 +6,8 @@
 div(
   :class=`[
     "dm-field-input",
-    "dm-field-input--" + size,
     "dm-field-input--" + computedStatus,
+    "dm-field-input--" + size,
     {
       "dm-field-input--borders": borders,
       "dm-field-input--clearable": clearable,
@@ -235,14 +235,6 @@ export default {
       }
 
       return this.rightIcon;
-    },
-
-    computedStatus() {
-      if (this.errors.first(this.name)) {
-        return "error";
-      }
-
-      return this.status;
     }
   },
 

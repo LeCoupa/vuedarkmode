@@ -76,15 +76,15 @@ export default {
 
     computedIconSize() {
       if (this.size === "mini") {
-        return "14px";
-      } else if (this.size === "small") {
         return "15px";
-      } else if (this.size === "default") {
+      } else if (this.size === "small") {
         return "16px";
-      } else if (this.size === "medium") {
+      } else if (this.size === "default") {
         return "17px";
-      } else if (this.size === "large") {
+      } else if (this.size === "medium") {
         return "18px";
+      } else if (this.size === "large") {
+        return "19px";
       }
     }
   }

@@ -6,8 +6,8 @@
 div(
   :class=`[
     "dm-field-radios",
+    "dm-field-radios--" + computedStatus,
     "dm-field-radios--" + size,
-    "dm-field-radios--" + status,
     {
       "dm-field-radios--disabled": disabled,
       "dm-field-radios--full-width": fullWidth
