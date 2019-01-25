@@ -25,10 +25,13 @@ div(
         class="dm-field-file__label"
       ) {{ label }}
 
-      span(
-        v-if="description"
-        class="dm-field-file__description"
-      ) {{ description }}
+      field-message(
+        v-if="computedMessageLevel"
+        :level="computedMessageLevel"
+        :message="computedMessageContent"
+        :size="size"
+        class="dm-field-file__message"
+      )
 
     label(
       @keypress.prevent="onLabelKeypress"
@@ -51,13 +54,6 @@ div(
       class="dm-field-file__field"
       type="file"
     )
-
-  field-message(
-    v-if="computedMessageLevel"
-    :level="computedMessageLevel"
-    :message="computedMessageContent"
-    :size="size"
-  )
 </template>
 
 <!-- *************************************************************************
@@ -187,8 +183,8 @@ $statuses: error, normal, success, warning;
         margin-bottom: 6px;
       }
 
-      #{$c}__description {
-        color: $nepal;
+      #{$c}__message {
+        margin-top: 0;
         user-select: none;
       }
     }
@@ -231,7 +227,7 @@ $statuses: error, normal, success, warning;
 
     &--#{$size} {
       #{$c}__information {
-        #{$c}__description {
+        #{$c}__message {
           font-size: 10px + (1px * $i);
         }
       }
