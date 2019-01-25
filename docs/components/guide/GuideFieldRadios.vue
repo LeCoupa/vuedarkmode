@@ -128,6 +128,17 @@ export default {
             }
           },
           {
+            name: "error",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an error message to display below the radio element."
+            }
+          },
+          {
             name: "full-width",
             type: {
               type: "Boolean",
@@ -136,6 +147,17 @@ export default {
             details: {
               description:
                 "When set to true, the radio element will take all the width available."
+            }
+          },
+          {
+            name: "info",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an info message to display below the radio element."
             }
           },
           {
@@ -194,6 +216,17 @@ export default {
             }
           },
           {
+            name: "success",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a success message to display below the radio element."
+            }
+          },
+          {
             name: "validation",
             type: {
               type: "String",
@@ -212,6 +245,17 @@ export default {
             },
             details: {
               description: "Specify the current active radio."
+            }
+          },
+          {
+            name: "warning",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a warning message to display below the radio element."
             }
           }
         ]

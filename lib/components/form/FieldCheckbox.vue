@@ -35,14 +35,10 @@ div(
       class="dm-field-checkbox__label"
     ) {{ label }}
 
-  field-error(
-    v-if="errors.first(name)"
-    :message="errors.first(name)"
-    :size="size"
-  )
-  field-description(
-    v-else-if="description"
-    :description="description"
+  field-message(
+    v-if="computedMessageLevel"
+    :level="computedMessageLevel"
+    :message="computedMessageContent"
     :size="size"
   )
 </template>
@@ -54,16 +50,15 @@ div(
 <script>
 // PROJECT
 import { generateUUID } from "../../helpers/helpers.js";
-import FieldDescription from "./FieldDescription.vue";
-import FieldError from "./FieldError.vue";
 import FieldLabel from "./FieldLabel.vue";
+import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 
 export default {
   components: {
-    FieldDescription,
-    FieldError,
     FieldLabel
   },
+
+  mixins: [FieldMessageMixin],
 
   props: {
     description: {

@@ -36,10 +36,11 @@ div(
       tabindex="0"
     ) {{ tab.name }}
 
-  field-description(
+  field-message(
     v-if="description"
-    :description="description"
+    :message="description"
     :size="size"
+    level="description"
   )
 </template>
 
@@ -51,11 +52,13 @@ div(
 // PROJECT
 import FieldDescription from "./FieldDescription.vue";
 import FieldLabel from "./FieldLabel.vue";
+import FieldMessage from "./FieldMessage.vue";
 
 export default {
   components: {
     FieldDescription,
-    FieldLabel
+    FieldLabel,
+    FieldMessage
   },
 
   props: {

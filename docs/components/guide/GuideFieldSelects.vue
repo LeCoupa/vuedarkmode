@@ -138,6 +138,17 @@ export default {
             }
           },
           {
+            name: "error",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an error message to display below the select element."
+            }
+          },
+          {
             name: "full-width",
             type: {
               type: "Boolean",
@@ -146,6 +157,17 @@ export default {
             details: {
               description:
                 "When set to true, the select element will take all the width available."
+            }
+          },
+          {
+            name: "info",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an info message to display below the select element."
             }
           },
           {
@@ -213,6 +235,17 @@ export default {
             }
           },
           {
+            name: "success",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a success message to display below the select element."
+            }
+          },
+          {
             name: "validation",
             type: {
               type: "String",
@@ -231,6 +264,17 @@ export default {
             },
             details: {
               description: "Specify the current active option."
+            }
+          },
+          {
+            name: "warning",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a warning message to display below the select element."
             }
           }
         ]

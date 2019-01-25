@@ -10,7 +10,10 @@
   )
     field-input(
       v-model="email"
+      :clearable="true"
+      :error="error"
       :fullWidth="false"
+      :success="success"
       class="c-the-subscription-box__field"
       label="Get notified when we release new components"
       name="email"
@@ -24,14 +27,6 @@
       rightIcon="thumb_up"
       type="submit"
     ) Subscribe
-
-  p(
-    v-if="message.content"
-    :class=`[
-      "c-the-subscription-box__message",
-      "c-the-subscription-box__message--" + message.status
-    ]`
-  ) {{ message.content }}
 </template>
 
 <!-- *************************************************************************
@@ -57,12 +52,10 @@ export default {
     return {
       // --> STATE <--
 
-      email: "",
+      email: null,
+      error: "",
       loading: false,
-      message: {
-        status: "normal",
-        content: null
-      }
+      success: null
     };
   },
 
@@ -76,14 +69,14 @@ export default {
           qs.stringify({ email: this.email })
         );
 
-        this.message.status = "success";
-        this.message.content = result.data;
+        this.error = null;
+        this.success = result.data;
 
         // Clear input field
         this.email = "";
       } catch (error) {
-        this.message.status = "error";
-        this.message.content = error.response.data;
+        this.success = null;
+        this.error = error.response.data;
       }
 
       this.loading = false;
@@ -111,22 +104,6 @@ $c: ".c-the-subscription-box";
 
     #{$c}__button {
       width: 100%;
-    }
-  }
-
-  #{$c}__message {
-    margin: 10px 0 0;
-    color: $nepal;
-    text-align: left;
-    font-size: 15px;
-    line-height: 20px;
-
-    &--error {
-      color: $crimson;
-    }
-
-    &--success {
-      color: $malachite;
     }
   }
 }

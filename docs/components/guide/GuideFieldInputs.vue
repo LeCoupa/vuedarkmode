@@ -166,6 +166,17 @@ export default {
             }
           },
           {
+            name: "error",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an error message to display below the input element."
+            }
+          },
+          {
             name: "full-width",
             type: {
               type: "Boolean",
@@ -174,6 +185,17 @@ export default {
             details: {
               description:
                 "When set to true, the input element will take all the width available."
+            }
+          },
+          {
+            name: "info",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an info message to display below the input element."
             }
           },
           {
@@ -312,6 +334,17 @@ export default {
             }
           },
           {
+            name: "success",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a success message to display below the input element."
+            }
+          },
+          {
             name: "type",
             type: {
               type: "String",
@@ -342,6 +375,17 @@ export default {
             },
             details: {
               description: "Specify the value of the input element."
+            }
+          },
+          {
+            name: "warning",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a warning message to display below the input element."
             }
           }
         ]

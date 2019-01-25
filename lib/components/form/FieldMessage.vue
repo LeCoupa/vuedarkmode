@@ -5,16 +5,21 @@
 <template lang="pug">
 p(
   :class=`[
-    "dm-field-error",
-    "dm-field-error--" + size
+    "dm-field-message",
+    "dm-field-message--" + level,
+    "dm-field-message--" + size
   ]`
 )
   base-icon(
+    v-if="computedIconName"
+    :name="computedIconName"
     :size="computedIconSize"
-    class="dm-field-error__icon"
-    name="error"
+    class="dm-field-message__icon"
   )
-  span.dm-field-error__message {{ message }}
+  span(
+    v-html="message"
+    class="dm-field-message__message"
+  )
 </template>
 
 <!-- *************************************************************************
@@ -31,6 +36,16 @@ export default {
   },
 
   props: {
+    level: {
+      type: String,
+      default: "description",
+      validator(x) {
+        return (
+          ["description", "error", "info", "success", "warning"].indexOf(x) !==
+          -1
+        );
+      }
+    },
     message: {
       type: String,
       required: true
@@ -47,17 +62,29 @@ export default {
   },
 
   computed: {
+    computedIconName() {
+      if (this.level === "error") {
+        return "error";
+      } else if (this.level === "info") {
+        return "info";
+      } else if (this.level === "success") {
+        return "check_circle";
+      } else if (this.level === "warning") {
+        return "warning";
+      }
+    },
+
     computedIconSize() {
       if (this.size === "mini") {
         return "14px";
       } else if (this.size === "small") {
-        return "16px";
+        return "15px";
       } else if (this.size === "default") {
-        return "18px";
+        return "16px";
       } else if (this.size === "medium") {
-        return "20px";
+        return "17px";
       } else if (this.size === "large") {
-        return "22px";
+        return "18px";
       }
     }
   }
@@ -73,20 +100,30 @@ export default {
 @import "assets/settings/_settings.colors.scss";
 
 // VARIABLES
-$c: ".dm-field-error";
+$c: ".dm-field-message";
+$levels: description, error, info, success, warning;
 $sizes: mini, small, default, medium, large;
 
 #{$c} {
   display: flex;
   align-items: center;
   margin: 10px 0 0;
-  color: $crimson;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
 
   #{$c}__icon {
-    margin-right: 4px;
+    margin-right: 5px;
   }
+
+  // --> LEVELS <--
+
+  @each $level in $levels {
+    &--#{$level} {
+      color: map-get($levelColors, $level);
+    }
+  }
+
+  // --> SIZES <--
 
   @each $size in $sizes {
     $i: index($sizes, $size) - 1;

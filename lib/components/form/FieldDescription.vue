@@ -4,11 +4,11 @@
 
 <template lang="pug">
 p(
+  v-html="description"
   :class=`[
     "dm-field-description",
     "dm-field-description--" + size
   ]`
-  v-html="description"
 )
 </template>
 

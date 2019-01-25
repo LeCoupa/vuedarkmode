@@ -74,14 +74,10 @@ div(
       :value="options.value"
     ) {{ option.label }}
 
-  field-error(
-    v-if="errors.first(name)"
-    :message="errors.first(name)"
-    :size="size"
-  )
-  field-description(
-    v-else-if="description"
-    :description="description"
+  field-message(
+    v-if="computedMessageLevel"
+    :level="computedMessageLevel"
+    :message="computedMessageContent"
     :size="size"
   )
 </template>
@@ -94,17 +90,16 @@ div(
 // PROJECT
 import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
-import FieldDescription from "./FieldDescription.vue";
-import FieldError from "./FieldError.vue";
 import FieldLabel from "./FieldLabel.vue";
+import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 
 export default {
   components: {
     BaseIcon,
-    FieldDescription,
-    FieldError,
     FieldLabel
   },
+
+  mixins: [FieldMessageMixin],
 
   props: {
     description: {

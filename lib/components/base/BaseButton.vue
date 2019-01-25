@@ -184,17 +184,16 @@ export default {
 
   computed: {
     computedIconSize() {
-      switch (this.size) {
-        case "mini":
-          return "14px";
-        case "small":
-          return "16px";
-        case "default":
-          return "18px";
-        case "medium":
-          return "20px";
-        case "large":
-          return "22px";
+      if (this.size === "mini") {
+        return "14px";
+      } else if (this.size === "small") {
+        return "16px";
+      } else if (this.size === "default") {
+        return "18px";
+      } else if (this.size === "medium") {
+        return "20px";
+      } else if (this.size === "large") {
+        return "22px";
       }
     },
 
