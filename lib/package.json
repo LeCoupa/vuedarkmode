@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "vuedarkmode",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "author": "Team <team@vuedarkmode.com>",
   "license": "MIT",
   "description": "A minimalist dark design system for vue.js",
@@ -26,7 +26,7 @@
   "jsdelivr": "dist/vuedarkmode.min.js",
   "unpkg": "dist/vuedarkmode.min.js",
   "scripts": {
-    "build": "bili --vue.css false"
+    "build": "bili --vue.css false --vue.template.optimizeSSR true"
   },
   "dependencies": {
     "vee-validate": "^2.1.5"
