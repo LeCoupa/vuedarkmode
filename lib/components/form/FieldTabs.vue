@@ -50,13 +50,11 @@ div(
 
 <script>
 // PROJECT
-import FieldDescription from "./FieldDescription.vue";
 import FieldLabel from "./FieldLabel.vue";
 import FieldMessage from "./FieldMessage.vue";
 
 export default {
   components: {
-    FieldDescription,
     FieldLabel,
     FieldMessage
   },
