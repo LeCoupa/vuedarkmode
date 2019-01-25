@@ -60,6 +60,14 @@ $twitter: #1da1f2;
 
 // DATASETS
 
+$levelColors: (
+  description: $nepal,
+  error: $crimson,
+  info: $azure-radiance,
+  success: $malachite,
+  warning: $sun
+);
+
 $mainColors: (
   black: $oxford-blue,
   blue: $azure-radiance,
