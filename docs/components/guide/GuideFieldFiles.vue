@@ -133,6 +133,17 @@ export default {
             }
           },
           {
+            name: "error",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an error message to display below the file element."
+            }
+          },
+          {
             name: "full-width",
             type: {
               type: "Boolean",
@@ -141,6 +152,17 @@ export default {
             details: {
               description:
                 "When set to true, the file element will take all the width available."
+            }
+          },
+          {
+            name: "info",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an info message to display below the file element."
             }
           },
           {
@@ -197,6 +219,17 @@ export default {
             }
           },
           {
+            name: "success",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a success message to display below the file element."
+            }
+          },
+          {
             name: "validation",
             type: {
               type: "String",
@@ -205,6 +238,17 @@ export default {
             details: {
               description:
                 "Specify the validation rules for the file element (check <a href='https://baianat.github.io/vee-validate/guide/rules.html' target='_blank'>VeeValidate documentation</a>)."
+            }
+          },
+          {
+            name: "warning",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a warning message to display below the file element."
             }
           }
         ]

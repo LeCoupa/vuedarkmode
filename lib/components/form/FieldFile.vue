@@ -6,8 +6,8 @@ s<!-- *************************************************************************
 div(
   :class=`[
     "dm-field-file",
+    "dm-field-file--" + computedStatus,
     "dm-field-file--" + size,
-    "dm-field-file--" + status,
     {
       "dm-field-file--disabled": disabled,
       "dm-field-file--full-width": fullWidth
@@ -52,9 +52,10 @@ div(
       type="file"
     )
 
-  field-error(
-    v-if="errors.first(name)"
-    :message="errors.first(name)"
+  field-message(
+    v-if="computedMessageLevel"
+    :level="computedMessageLevel"
+    :message="computedMessageContent"
     :size="size"
   )
 </template>
@@ -67,15 +68,16 @@ div(
 // PROJECT
 import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
-import FieldError from "./FieldError.vue";
 import FieldLabel from "./FieldLabel.vue";
+import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 
 export default {
   components: {
     BaseIcon,
-    FieldError,
     FieldLabel
   },
+
+  mixins: [FieldMessageMixin],
 
   props: {
     description: {

@@ -8,7 +8,7 @@
 
 - FieldCheckbox: Add error, info, success, validation and warning prop.
 
-- FieldFile: Add validation prop.
+- FieldFile: Add error, info, success, validation and warning prop.
 
 - FieldInput: Add clearable, error, info, spellcheck, success, validation and warning prop.
 
