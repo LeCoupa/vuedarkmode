@@ -138,6 +138,28 @@ export default {
             }
           },
           {
+            name: "error",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an error message to display below the input element."
+            }
+          },
+          {
+            name: "info",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify an info message to display below the input element."
+            }
+          },
+          {
             name: "label",
             type: {
               type: "String",
@@ -180,6 +202,17 @@ export default {
             }
           },
           {
+            name: "success",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a success message to display below the input element."
+            }
+          },
+          {
             name: "tabs",
             type: {
               type: "Array",
@@ -198,6 +231,17 @@ export default {
             },
             details: {
               description: "Specify the current active tab(s)."
+            }
+          },
+          {
+            name: "warning",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a warning message to display below the input element."
             }
           }
         ]

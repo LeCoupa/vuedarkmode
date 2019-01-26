@@ -6,8 +6,8 @@
 div(
   :class=`[
     "dm-field-tabs",
+    "dm-field-tabs--" + computedStatus,
     "dm-field-tabs--" + size,
-    "dm-field-tabs--" + status,
     {
       "dm-field-tabs--disabled": disabled,
       "dm-field-tabs--multiple": multiple
@@ -37,10 +37,10 @@ div(
     ) {{ tab.name }}
 
   field-message(
-    v-if="description"
-    :message="description"
+    v-if="computedMessageLevel"
+    :level="computedMessageLevel"
+    :message="computedMessageContent"
     :size="size"
-    level="description"
   )
 </template>
 
@@ -52,12 +52,15 @@ div(
 // PROJECT
 import FieldLabel from "./FieldLabel.vue";
 import FieldMessage from "./FieldMessage.vue";
+import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 
 export default {
   components: {
     FieldLabel,
     FieldMessage
   },
+
+  mixins: [FieldMessageMixin],
 
   props: {
     description: {

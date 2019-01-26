@@ -20,6 +20,8 @@
 
 - FieldSelect: Add error, info, success, validation and warning prop.
 
+- FielTabs: Add error, info, success and warning prop.
+
 - FieldTextarea: Add error, icon, info, spellcheck, success, resize, validation and warning prop.
 
 - FieldToggle: Add error, info, success, validation and warning prop.
