@@ -27,8 +27,9 @@ main.c-index
     common-headlines(
       @toggleDocumentation="onToggleDocumentation"
       :description="section.headlines.description"
-      :hasDocumentation="section.headlines.hasDocumentation"
+      :has-documentation="section.headlines.hasDocumentation"
       :section="section.id"
+      :source-url="section.headlines.sourceUrl"
       :title="section.headlines.title"
     )
     guide-install(
@@ -267,140 +268,180 @@ export default {
           id: "baseAlert",
           headlines: {
             title: "Alerts",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseAlert.vue"
           }
         },
         {
           id: "baseAvatar",
           headlines: {
             title: "Avatars",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseAvatar.vue"
           }
         },
         {
           id: "baseBadge",
           headlines: {
             title: "Badges",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseBadge.vue"
           }
         },
         {
           id: "baseButton",
           headlines: {
             title: "Buttons",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseButton.vue"
           }
         },
         {
           id: "baseDivider",
           headlines: {
             title: "Dividers",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseDivider.vue"
           }
         },
         {
           id: "baseHeading",
           headlines: {
             title: "Headings",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseHeading.vue"
           }
         },
         {
           id: "baseIcon",
           headlines: {
             title: "Icons from Material Design",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseIcon.vue"
           }
         },
         {
           id: "baseListItem",
           headlines: {
             title: "List Items",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseListItem.vue"
           }
         },
         {
           id: "baseProgressBar",
           headlines: {
             title: "Progress Bars",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseProgressBar.vue"
           }
         },
         {
           id: "baseSocialLogin",
           headlines: {
             title: "Social Logins",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseSocialLogin.vue"
           }
         },
         {
           id: "baseSpinner",
           headlines: {
             title: "Spinners",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseSpinner.vue"
           }
         },
         {
           id: "baseToast",
           headlines: {
             title: "Toasts",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseToast.vue"
           }
         },
         {
           id: "fieldCheckbox",
           headlines: {
             title: "Checkboxes",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldCheckbox.vue"
           }
         },
         {
           id: "fieldFile",
           headlines: {
             title: "File Upload",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldFile.vue"
           }
         },
         {
           id: "fieldInput",
           headlines: {
             title: "Inputs",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldInput.vue"
           }
         },
         {
           id: "fieldRadio",
           headlines: {
             title: "Radios",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldRadio.vue"
           }
         },
         {
           id: "fieldSelect",
           headlines: {
             title: "Selects",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldSelect.vue"
           }
         },
         {
           id: "fieldTabs",
           headlines: {
             title: "Tabs",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldTabs.vue"
           }
         },
         {
           id: "fieldTextarea",
           headlines: {
             title: "Textareas",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldTextarea.vue"
           }
         },
         {
           id: "fieldToggle",
           headlines: {
             title: "Toggles",
-            hasDocumentation: true
+            hasDocumentation: true,
+            sourceUrl:
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldToggle.vue"
           }
         }
       ]

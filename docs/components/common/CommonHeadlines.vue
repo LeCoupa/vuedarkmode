@@ -17,14 +17,26 @@
     weight="regular"
   ) {{ description }}
 
-  base-button(
-    v-if="hasDocumentation"
-    @click="onToggleDocumentation"
-    :reverse="true"
-    :rightIcon="documentationVisibility ? 'extension' : 'explore'"
-    class="c-common-headlines__button"
-    color="blue"
-  ) {{ documentationVisibility ? "Show components" : "Show documentation" }}
+  .c-common-headlines__buttons
+    base-button(
+      v-if="hasDocumentation"
+      @click="onToggleDocumentation"
+      :reverse="true"
+      :left-icon="documentationVisibility ? 'extension' : 'explore'"
+      class="c-common-headlines__button"
+      color="blue"
+      size="small"
+    ) {{ documentationVisibility ? "Preview" : "Documentation" }}
+
+    base-button(
+      v-if="sourceUrl"
+      @click="onOpenSourceUrl"
+      :reverse="true"
+      class="c-common-headlines__button"
+      color="orange"
+      left-icon="code"
+      size="small"
+    ) Source Code
 
   base-divider(
     class="c-common-headlines__divider"
@@ -65,6 +77,10 @@ export default {
       type: String,
       default: null
     },
+    sourceUrl: {
+      type: String,
+      default: null
+    },
     title: {
       type: String,
       required: true
@@ -79,6 +95,10 @@ export default {
 
   methods: {
     // --> EVENT LISTENERS <--
+
+    onOpenSourceUrl() {
+      window.open(this.sourceUrl, "_blank");
+    },
 
     onToggleDocumentation() {
       this.documentationVisibility = !this.documentationVisibility;
@@ -108,9 +128,22 @@ $c: ".c-common-headlines";
     margin-bottom: 10px;
   }
 
-  #{$c}__description,
-  #{$c}__button {
+  #{$c}__description {
     margin: 0;
+  }
+
+  #{$c}__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #{$c}__button {
+      margin-right: 10px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
   }
 
   #{$c}__divider {
