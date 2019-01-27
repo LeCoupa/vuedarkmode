@@ -31,6 +31,7 @@
 
   pre(v-highlightjs)
     code(class="scss")
+      | // Just drop the lines below in your main stylesheet file.
       | [class^="dm-"]:not(.dm-base-icon) {
       |   font-family: Arial, Helvetica, sans-serif !important;
       | }
