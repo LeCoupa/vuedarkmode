@@ -19,9 +19,21 @@
       |     "alert", "avatar", "badge", "button", "divider", "heading", "icon",  "progress-bar",  "social-login", "spinner",
       |
       |     // Form components
-      |     "checkbox", "description", "file", "input", "label", "radios", "select", "tabs", "textarea", "toggle"
+      |     "checkbox", "file", "input", "label", "message", "radios", "select", "tabs", "textarea", "toggle"
       |   ]
       | });
+
+
+  base-heading(
+    tag="h4"
+    weight="regular"
+  ) How to update the font-family for all components?
+
+  pre(v-highlightjs)
+    code(class="scss")
+      | [class^="dm-"]:not(.dm-base-icon) {
+      |   font-family: Arial, Helvetica, sans-serif !important;
+      | }
 </template>
 
 <!-- *************************************************************************
@@ -29,7 +41,14 @@
      ************************************************************************* -->
 
 <script>
-export default {};
+// VUE DARK MODE
+import BaseHeading from "@/../lib/components/base/BaseHeading";
+
+export default {
+  components: {
+    BaseHeading
+  }
+};
 </script>
 
 <!-- *************************************************************************

@@ -169,11 +169,7 @@ module.exports = {
     ]
   ],
 
-  plugins: [
-    {
-      src: "@/plugins/global"
-    }
-  ],
+  plugins: [{ src: "@/plugins/global" }],
 
   build: {
     extend(config, { isDev, isClient }) {
