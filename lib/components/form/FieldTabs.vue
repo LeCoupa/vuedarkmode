@@ -231,6 +231,7 @@ $statuses: error, normal, success, warning;
       border-bottom-color: $oxford-blue;
       background: $ebony-clay;
       color: $nepal;
+      font-weight: 500;
       transition-timing-function: ease-in-out;
       transition-duration: 200ms;
       transition-property: color, background-color;
