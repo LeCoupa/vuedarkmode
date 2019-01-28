@@ -143,7 +143,7 @@ $gutter: 40px;
         align-items: center;
         margin-bottom: 20px;
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 15px;
         cursor: pointer;
 

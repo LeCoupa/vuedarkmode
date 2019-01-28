@@ -118,7 +118,7 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
 
     #{$c}__title {
       text-transform: uppercase;
-      font-weight: bold;
+      font-weight: 700;
     }
 
     #{$c}__details,
