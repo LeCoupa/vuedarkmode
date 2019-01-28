@@ -23,18 +23,23 @@
       |   ]
       | });
 
-
   base-heading(
     tag="h4"
     weight="regular"
-  ) How to update the font-family for all components?
+  ) How to install or update the font-family for all components?
 
   pre(v-highlightjs)
-    code(class="scss")
-      | // Just drop the lines below in your main stylesheet file.
+    code(class="html")
+      | &lt;!-- We are using the Heebo font --&gt;
+      | &lt;!-- Copy this code into the &lt;head> of your HTML document. --&gt;
+      | &lt;link href="https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900" rel="stylesheet"&gt;
+      |
+      | &lt;!--  To update with your own font --&gt;
+      | &lt;style&gt;
       | [class^="dm-"]:not(.dm-base-icon) {
       |   font-family: Arial, Helvetica, sans-serif !important;
       | }
+      | &lt;/style&gt;
 </template>
 
 <!-- *************************************************************************
