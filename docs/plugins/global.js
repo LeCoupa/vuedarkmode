@@ -13,6 +13,10 @@ import VueHighlightJS from "vue-highlightjs";
  * https://vuejs.org/v2/guide/plugins.html
  ***************************************************************************/
 
-Vue.use(VeeValidate);
 Vue.use(VueClipboard);
 Vue.use(VueHighlightJS);
+
+Vue.use(VeeValidate, {
+  errorBagName: "$errors",
+  fieldsBagName: "$fields"
+});
