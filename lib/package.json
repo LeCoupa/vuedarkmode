@@ -21,19 +21,19 @@
     "url": "https://github.com/lecoupa/vuedarkmode/issues",
     "email": "team@vuedarkmode.com"
   },
-  "main": "dist/vuedarkmode.cjs.js",
-  "module": "dist/vuedarkmode.es.js",
-  "jsdelivr": "dist/vuedarkmode.min.js",
-  "unpkg": "dist/vuedarkmode.min.js",
+  "main": "dist/index.cjs.min.js",
+  "module": "dist/index.esm.min.js",
+  "jsdelivr": "dist/index.umd.min.js",
+  "unpkg": "dist/index.umd.min.js",
   "scripts": {
-    "build": "bili --vue.css false"
+    "build": "bili"
   },
   "dependencies": {
     "vee-validate": "^2.1.5"
   },
   "devDependencies": {
     "autoprefixer": "^9.1.5",
-    "bili": "^3.1.2",
+    "bili": "^4.0.0",
     "node-sass": "^4.9.3",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
