@@ -253,8 +253,16 @@ $statuses: error, normal, success, warning;
         color: $white;
       }
 
+      &:focus {
+        color: $white;
+      }
+
       &--active {
         color: $white;
+
+        &:focus {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -280,14 +288,6 @@ $statuses: error, normal, success, warning;
     &--#{$status} {
       #{$c}__container {
         #{$c}__tab {
-          &:focus {
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 0 0 2px $mirage,
-              0 0 0 3px map-get($statusColors, $status);
-            transition: box-shadow ease-in-out 0s;
-          }
-
           &--active {
             // !important overrides first-of-type and last-of-type
             border-color: map-get($statusColors, $status) !important;
