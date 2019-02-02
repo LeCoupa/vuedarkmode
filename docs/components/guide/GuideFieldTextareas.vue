@@ -406,6 +406,20 @@ export default {
             details: {
               description: "Fires the moment when the element gets user input."
             }
+          },
+          {
+            name: "keydown",
+            parameters: "value, name, event",
+            details: {
+              description: "Fires the moment when the user is pressing a key."
+            }
+          },
+          {
+            name: "keyup",
+            parameters: "value, name, event",
+            details: {
+              description: "Fires the moment when the user releases a key."
+            }
           }
         ]
       }

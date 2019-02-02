@@ -35,6 +35,8 @@ div(
       @change="onFieldChange"
       @focus="onFieldFocus"
       @input="onFieldInput"
+      @keydown="onFieldKeyDown"
+      @keyup="onFieldKeyUp"
       :cols="cols"
       :disabled="disabled"
       :id="uuid"
@@ -256,6 +258,18 @@ export default {
 
       this.currentValue = value;
       this.$emit("input", value, this.name, event);
+    },
+
+    onFieldKeyDown(event) {
+      const value = this.getTextareaValue();
+
+      this.$emit("keydown", value, this.name, event);
+    },
+
+    onFieldKeyUp(event) {
+      const value = this.getTextareaValue();
+
+      this.$emit("keyup", value, this.name, event);
     }
   }
 };
