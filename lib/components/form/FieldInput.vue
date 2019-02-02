@@ -43,6 +43,8 @@ div(
       @change="onFieldChange"
       @focus="onFieldFocus"
       @input="onFieldInput"
+      @keydown="onFieldKeyDown"
+      @keyup="onFieldKeyUp"
       :autocomplete="autocomplete ? 'on' : 'off'"
       :disabled="disabled"
       :id="uuid"
@@ -297,6 +299,18 @@ export default {
 
       this.currentValue = value;
       this.$emit("input", value, this.name, event);
+    },
+
+    onFieldKeyDown(event) {
+      const value = this.getInputValue();
+
+      this.$emit("keydown", value, this.name, event);
+    },
+
+    onFieldKeyUp(event) {
+      const value = this.getInputValue();
+
+      this.$emit("keyup", value, this.name, event);
     },
 
     onRightIconClick() {
