@@ -148,8 +148,8 @@ export default {
     cursor: pointer;
 
     &:focus {
-      box-shadow: 0 0 0 2px $mirage, 0 0 0 3px $azure-radiance;
-      transition: box-shadow ease-in-out 0s;
+      color: $azure-radiance !important;
+      transition: color 250ms ease-in-out;
     }
   }
 }
