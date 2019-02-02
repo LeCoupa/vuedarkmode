@@ -43,7 +43,7 @@ div(
       @change="onFieldChange"
       @focus="onFieldFocus"
       @input="onFieldInput"
-      :autocomplete="autocomplete ? 'on' : 'false'"
+      :autocomplete="autocomplete ? 'on' : 'off'"
       :disabled="disabled"
       :id="uuid"
       :max="max"
