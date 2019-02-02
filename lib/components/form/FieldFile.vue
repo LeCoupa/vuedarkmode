@@ -199,7 +199,7 @@ $statuses: error, normal, success, warning;
       border-radius: 100%;
       background-color: rgba($ebony-clay, 0.9);
       box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
-      transition: all ease-in-out 200ms;
+      transition: all ease-in-out 250ms;
       cursor: pointer;
 
       #{$c}__icon {

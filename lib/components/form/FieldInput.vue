@@ -349,7 +349,7 @@ $statuses: error, normal, success, warning;
     display: flex;
     overflow: hidden;
     align-items: center;
-    transition: all ease-in-out 200ms;
+    transition: all ease-in-out 250ms;
 
     &:hover {
       cursor: text;

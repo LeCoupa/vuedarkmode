@@ -153,7 +153,7 @@ $gutter: 40px;
 
         #{$c}__arrow {
           flex: 0 0 auto;
-          transition: all 200ms ease-in-out;
+          transition: all 250ms ease-in-out;
           transform: rotate(0deg);
 
           &--opened {
@@ -171,7 +171,7 @@ $gutter: 40px;
         #{$c}__item {
           padding-bottom: 15px;
           color: $regent-st-blue;
-          transition: all 200ms ease-in-out;
+          transition: all 250ms ease-in-out;
           cursor: pointer;
 
           &:last-of-type {

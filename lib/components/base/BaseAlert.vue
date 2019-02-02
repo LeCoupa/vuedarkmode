@@ -101,7 +101,7 @@ $colors: black, blue, green, red, orange, white;
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all 200ms ease-in-out;
+  transition: all 250ms ease-in-out;
 
   #{$c}__icon {
     flex: 0 0 auto;
@@ -114,7 +114,7 @@ $colors: black, blue, green, red, orange, white;
       margin-left: 20px;
       outline: 0;
       border-radius: 100%;
-      transition: all 200ms ease-in-out;
+      transition: all 250ms ease-in-out;
 
       &:focus {
         transition: box-shadow ease-in-out 0s;

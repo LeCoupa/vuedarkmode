@@ -233,7 +233,7 @@ $statuses: error, normal, success, warning;
       color: $nepal;
       font-weight: 500;
       transition-timing-function: ease-in-out;
-      transition-duration: 200ms;
+      transition-duration: 250ms;
       transition-property: color, background-color;
       user-select: none;
 

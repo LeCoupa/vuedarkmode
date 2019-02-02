@@ -527,13 +527,13 @@ $sizes: mini, small, default, medium, large;
 
 .fadeIn {
   animation-name: fadeIn;
-  animation-duration: 200ms;
+  animation-duration: 250ms;
   animation-fill-mode: both;
 }
 
 .fadeOut {
   animation-name: fadeOut;
-  animation-duration: 200ms;
+  animation-duration: 250ms;
   animation-fill-mode: both;
 }
 
