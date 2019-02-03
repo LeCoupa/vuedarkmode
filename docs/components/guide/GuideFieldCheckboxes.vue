@@ -242,6 +242,17 @@ export default {
             }
           },
           {
+            name: "validation-vv-as",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the field name used as the field label in the error message."
+            }
+          },
+          {
             name: "value",
             type: {
               type: "Boolean",

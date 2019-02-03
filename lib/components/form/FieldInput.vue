@@ -46,6 +46,7 @@ div(
       @keydown="onFieldKeyDown"
       @keyup="onFieldKeyUp"
       :autocomplete="autocomplete ? 'on' : 'off'"
+      :data-vv-as="validationVvAs"
       :disabled="disabled"
       :id="uuid"
       :max="max"
@@ -85,6 +86,7 @@ import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldLabel from "./FieldLabel.vue";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
+import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";
 
 export default {
   components: {
@@ -92,7 +94,7 @@ export default {
     FieldLabel
   },
 
-  mixins: [FieldMessageMixin],
+  mixins: [FieldMessageMixin, FieldValidationMixin],
 
   props: {
     autocomplete: {
@@ -197,10 +199,6 @@ export default {
           ].indexOf(x) !== -1
         );
       }
-    },
-    validation: {
-      type: String,
-      default: null
     },
     value: {
       type: [String, Number],

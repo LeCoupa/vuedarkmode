@@ -47,6 +47,7 @@ div(
     input(
       v-validate="validation"
       @change="onFieldChange"
+      :data-vv-as="validationVvAs"
       :disabled="disabled"
       :id="uuid"
       :multiple="multiple"
@@ -66,6 +67,7 @@ import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldLabel from "./FieldLabel.vue";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
+import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";
 
 export default {
   components: {
@@ -73,7 +75,7 @@ export default {
     FieldLabel
   },
 
-  mixins: [FieldMessageMixin],
+  mixins: [FieldMessageMixin, FieldValidationMixin],
 
   props: {
     description: {
@@ -115,10 +117,6 @@ export default {
       validator(x) {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
-    },
-    validation: {
-      type: String,
-      default: null
     }
   },
 

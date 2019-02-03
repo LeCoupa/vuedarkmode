@@ -38,6 +38,7 @@ div(
       @keydown="onFieldKeyDown"
       @keyup="onFieldKeyUp"
       :cols="cols"
+      :data-vv-as="validationVvAs"
       :disabled="disabled"
       :id="uuid"
       :maxlength="maxlength"
@@ -76,6 +77,7 @@ import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldLabel from "./FieldLabel.vue";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
+import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";
 
 export default {
   components: {
@@ -83,7 +85,7 @@ export default {
     FieldLabel
   },
 
-  mixins: [FieldMessageMixin],
+  mixins: [FieldMessageMixin, FieldValidationMixin],
 
   props: {
     borders: {
@@ -169,10 +171,6 @@ export default {
       validator(x) {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
-    },
-    validation: {
-      type: String,
-      default: null
     },
     value: {
       type: String,

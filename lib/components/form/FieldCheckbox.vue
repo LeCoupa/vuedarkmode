@@ -19,6 +19,7 @@ div(
       v-validate="validation"
       @change="onFieldChange"
       :checked="currentValue"
+      :data-vv-as="validationVvAs"
       :disabled="disabled"
       :id="uuid"
       :name="name"
@@ -52,13 +53,14 @@ div(
 import { generateUUID } from "../../helpers/helpers.js";
 import FieldLabel from "./FieldLabel.vue";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
+import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";
 
 export default {
   components: {
     FieldLabel
   },
 
-  mixins: [FieldMessageMixin],
+  mixins: [FieldMessageMixin, FieldValidationMixin],
 
   props: {
     description: {
@@ -100,10 +102,6 @@ export default {
       validator(x) {
         return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
       }
-    },
-    validation: {
-      type: String,
-      default: null
     },
     value: {
       type: Boolean,
