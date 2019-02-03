@@ -110,13 +110,6 @@ export default {
           ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
         );
       }
-    },
-    status: {
-      type: String,
-      default: "normal",
-      validator(x) {
-        return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
-      }
     }
   },
 

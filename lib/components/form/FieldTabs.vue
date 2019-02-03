@@ -98,13 +98,6 @@ export default {
         );
       }
     },
-    status: {
-      type: String,
-      default: "normal",
-      validator(x) {
-        return ["error", "normal", "success", "warning"].indexOf(x) !== -1;
-      }
-    },
     tabs: {
       type: Array,
       required: true,
