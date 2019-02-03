@@ -28,6 +28,7 @@ div(
         :id="radio.id"
         :name="name"
         :required="required"
+        :ref="validationRef"
         :value="radio.value"
         class="dm-field-radios__field"
         type="radio"

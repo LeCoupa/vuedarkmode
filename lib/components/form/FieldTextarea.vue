@@ -45,6 +45,7 @@ div(
       :name="name"
       :placeholder="placeholder"
       :readonly="readonly"
+      :ref="validationRef"
       :rows="rows"
       :spellcheck="spellcheck"
       :style=`{

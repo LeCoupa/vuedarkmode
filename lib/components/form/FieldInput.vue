@@ -57,6 +57,7 @@ div(
       :spellcheck="spellcheck"
       :readonly="readonly"
       :type="type"
+      :ref="validationRef"
       :value="currentValue"
       class="dm-field-input__field"
     )

@@ -67,6 +67,7 @@ div(
     v-validate="validation"
     :data-vv-as="validationVvAs"
     :name="name"
+    :ref="validationRef"
     class="dm-field-select__select"
   )
     option(

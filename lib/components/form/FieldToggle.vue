@@ -23,6 +23,7 @@ div(
       :disabled="disabled"
       :id="uuid"
       :name="name"
+      :ref="validationRef"
       :required="required"
       class="dm-field-toggle__field"
       type="checkbox"

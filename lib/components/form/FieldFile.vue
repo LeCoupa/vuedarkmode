@@ -52,6 +52,7 @@ div(
       :id="uuid"
       :multiple="multiple"
       :name="name"
+      :ref="validationRef"
       class="dm-field-file__field"
       type="file"
     )

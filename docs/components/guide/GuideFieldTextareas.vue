@@ -330,6 +330,17 @@ export default {
             }
           },
           {
+            name: "validation-ref",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the ref attribute to set on the element (used for after, before, and confirmed rules)."
+            }
+          },
+          {
             name: "validation-vv-as",
             type: {
               type: "String",
