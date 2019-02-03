@@ -27,8 +27,7 @@
           :tabs=`[
             { id: "auto",  symbol: '🛍️', name: 'Auto' },
             { id: "k", symbol: '🏘️', name: 'K', },
-            { id: "M", symbol: '📰' , name: 'M'},
-            { id: "B", symbol: '📱' , name: 'B'}
+            { id: "M", symbol: '📰' , name: 'M'}
           ]`
           description="This is a customizable description for tabs."
           value="auto"
