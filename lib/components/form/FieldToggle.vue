@@ -24,7 +24,6 @@ div(
       :id="uuid"
       :name="name"
       :ref="validationRef"
-      :required="required"
       class="dm-field-toggle__field"
       type="checkbox"
     )
@@ -72,10 +71,6 @@ export default {
     label: {
       type: String,
       default: null
-    },
-    required: {
-      type: Boolean,
-      default: false
     },
     value: {
       type: Boolean,

@@ -27,7 +27,6 @@ div(
         :disabled="disabled"
         :id="radio.id"
         :name="name"
-        :required="required"
         :ref="validationRef"
         :value="radio.value"
         class="dm-field-radios__field"
@@ -79,10 +78,6 @@ export default {
       validator(x) {
         return x.length > 0;
       }
-    },
-    required: {
-      type: Boolean,
-      default: false
     },
     value: {
       type: [Number, String],

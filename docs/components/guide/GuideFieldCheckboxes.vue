@@ -187,17 +187,6 @@ export default {
             }
           },
           {
-            name: "required",
-            type: {
-              type: "Boolean",
-              additional: "Default: false"
-            },
-            details: {
-              description:
-                "Sets whether the checkbox element must be checked before submitting the form."
-            }
-          },
-          {
             name: "size",
             type: {
               type: "String",
