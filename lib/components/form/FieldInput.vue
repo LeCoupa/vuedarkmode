@@ -86,6 +86,7 @@ div(
 import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldLabel from "./FieldLabel.vue";
+import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";
 
@@ -95,7 +96,7 @@ export default {
     FieldLabel
   },
 
-  mixins: [FieldMessageMixin, FieldValidationMixin],
+  mixins: [FieldCommonMixin, FieldMessageMixin, FieldValidationMixin],
 
   props: {
     autocomplete: {
@@ -107,10 +108,6 @@ export default {
       default: true
     },
     clearable: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
       type: Boolean,
       default: false
     },
@@ -138,10 +135,6 @@ export default {
       type: Number,
       default: null
     },
-    name: {
-      type: String,
-      required: true
-    },
     placeholder: {
       type: String,
       default: null
@@ -157,15 +150,6 @@ export default {
     rounded: {
       type: Boolean,
       default: false
-    },
-    size: {
-      type: String,
-      default: "default",
-      validator(x) {
-        return (
-          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
-        );
-      }
     },
     spellcheck: {
       type: Boolean,

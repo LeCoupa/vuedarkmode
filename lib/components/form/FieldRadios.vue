@@ -57,6 +57,7 @@ div(
 <script>
 // PROJECT
 import FieldLabel from "./FieldLabel.vue";
+import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";
 
@@ -65,24 +66,12 @@ export default {
     FieldLabel
   },
 
-  mixins: [FieldMessageMixin, FieldValidationMixin],
+  mixins: [FieldCommonMixin, FieldMessageMixin, FieldValidationMixin],
 
   props: {
-    description: {
-      type: String,
-      default: null
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
     fullWidth: {
       type: Boolean,
       default: true
-    },
-    name: {
-      type: String,
-      required: true
     },
     radios: {
       type: Array,
@@ -94,15 +83,6 @@ export default {
     required: {
       type: Boolean,
       default: false
-    },
-    size: {
-      type: String,
-      default: "default",
-      validator(x) {
-        return (
-          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
-        );
-      }
     },
     value: {
       type: [Number, String],

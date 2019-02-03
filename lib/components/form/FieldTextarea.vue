@@ -77,6 +77,7 @@ div(
 import { generateUUID } from "../../helpers/helpers.js";
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldLabel from "./FieldLabel.vue";
+import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";
 
@@ -86,7 +87,7 @@ export default {
     FieldLabel
   },
 
-  mixins: [FieldMessageMixin, FieldValidationMixin],
+  mixins: [FieldCommonMixin, FieldMessageMixin, FieldValidationMixin],
 
   props: {
     borders: {
@@ -96,14 +97,6 @@ export default {
     cols: {
       type: Number,
       default: null
-    },
-    description: {
-      type: String,
-      default: null
-    },
-    disabled: {
-      type: Boolean,
-      default: false
     },
     fullWidth: {
       type: Boolean,
@@ -120,10 +113,6 @@ export default {
     maxlength: {
       type: Number,
       default: null
-    },
-    name: {
-      type: String,
-      required: true
     },
     placeholder: {
       type: String,
@@ -152,15 +141,6 @@ export default {
     rows: {
       type: Number,
       default: null
-    },
-    size: {
-      type: String,
-      default: "default",
-      validator(x) {
-        return (
-          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
-        );
-      }
     },
     spellcheck: {
       type: Boolean,

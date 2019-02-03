@@ -58,6 +58,7 @@ div(
 // PROJECT
 import FieldLabel from "./FieldLabel.vue";
 import FieldMessage from "./FieldMessage.vue";
+import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 
 export default {
@@ -66,17 +67,9 @@ export default {
     FieldMessage
   },
 
-  mixins: [FieldMessageMixin],
+  mixins: [FieldCommonMixin, FieldMessageMixin],
 
   props: {
-    description: {
-      type: String,
-      default: null
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    },
     label: {
       type: String,
       default: null
@@ -84,19 +77,6 @@ export default {
     multiple: {
       type: Boolean,
       default: false
-    },
-    name: {
-      type: String,
-      required: true
-    },
-    size: {
-      type: String,
-      default: "default",
-      validator(x) {
-        return (
-          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
-        );
-      }
     },
     tabs: {
       type: Array,
