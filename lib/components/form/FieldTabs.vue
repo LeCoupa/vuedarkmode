@@ -34,7 +34,13 @@ div(
         }
       ]`
       tabindex="0"
-    ) {{ tab.name }}
+    )
+      span(
+        v-if="tab.symbol"
+        class="dm-field-tabs__symbol"
+      ) {{ tab.symbol }}
+
+      span.dm-field-tabs__name {{ tab.name }}
 
   field-message(
     v-if="computedMessageLevel"
@@ -249,20 +255,30 @@ $statuses: error, normal, success, warning;
         border-bottom-right-radius: 4px;
       }
 
+      #{$c}__symbol {
+        margin-right: 3px;
+      }
+
+      // --> BOOLEANS <--
+
+      &--active {
+        color: $white;
+
+        &:focus {
+          #{$c}__name {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      // --> INTERACTIONS <--
+
       &:hover {
         color: $white;
       }
 
       &:focus {
         color: $white;
-      }
-
-      &--active {
-        color: $white;
-
-        &:focus {
-          text-decoration: underline;
-        }
       }
     }
   }

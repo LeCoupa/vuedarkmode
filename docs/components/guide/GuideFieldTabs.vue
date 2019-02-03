@@ -25,10 +25,10 @@
           :size="size"
           :status="statuses[j]"
           :tabs=`[
-            { id: "auto", name: 'Auto' },
-            { id: "k", name: 'K' },
-            { id: "M", name: 'M' },
-            { id: "B", name: 'B' }
+            { id: "auto",  symbol: '🛍️', name: 'Auto' },
+            { id: "k", symbol: '🏘️', name: 'K', },
+            { id: "M", symbol: '📰' , name: 'M'},
+            { id: "B", symbol: '📱' , name: 'B'}
           ]`
           description="This is a customizable description for tabs."
           value="auto"
@@ -220,7 +220,8 @@ export default {
             },
             details: {
               description: "Define the tabs to display.",
-              values: '[{ id: "vuedarkmode", name: "Vue Dark Mode" }]'
+              values:
+                '[{ id: "vuedarkmode", symbol: "🛍️", name: "Vue Dark Mode" }]'
             }
           },
           {
