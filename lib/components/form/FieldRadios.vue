@@ -115,9 +115,7 @@ export default {
       this.currentValue = radio.value;
 
       this.$emit("change", radio.value, radio.id, this.name, event);
-
-      // Synchronization for v-model
-      this.$emit("input", radio.value);
+      this.$emit("input", radio.value); // Synchronization for v-model
     }
   }
 };

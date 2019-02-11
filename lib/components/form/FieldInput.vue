@@ -293,8 +293,7 @@ export default {
       if (this.clearable) {
         this.currentValue = "";
 
-        // Synchronization for v-model
-        this.$emit("input", "");
+        this.$emit("input", ""); // Synchronization for v-model
       }
     }
   }

@@ -107,9 +107,7 @@ export default {
       this.currentValue = event.target.checked;
 
       this.$emit("change", event.target.checked, this.name, event);
-
-      // Synchronization for v-model
-      this.$emit("input", event.target.checked);
+      this.$emit("input", event.target.checked); // Synchronization for v-model
     }
   }
 };

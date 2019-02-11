@@ -131,10 +131,9 @@ export default {
       // When multiple values are not allowed and tab is not already active
       if (!this.multiple && !this.activeTabs.includes(tabId)) {
         this.activeTabs = [tabId];
-        this.$emit("change", tabId, "added", this.activeTabs, this.name, event);
 
-        // Synchronization for v-model
-        this.$emit("input", tabId);
+        this.$emit("change", tabId, "added", this.activeTabs, this.name, event);
+        this.$emit("input", tabId); // Synchronization for v-model
       }
 
       // When multiple values are allowed
@@ -163,8 +162,7 @@ export default {
           );
         }
 
-        // Synchronization for v-model
-        this.$emit("input", this.activeTabs);
+        this.$emit("input", this.activeTabs); // Synchronization for v-model
       }
 
       this.$emit("click", tabId, this.activeTabs, this.name, event);
