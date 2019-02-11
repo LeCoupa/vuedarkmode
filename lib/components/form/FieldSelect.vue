@@ -37,7 +37,8 @@ div(
         :name="computedLeftIcon"
         class="dm-field-select__icon dm-field-select__icon--left"
       )
-      .dm-field-select__option.dm-field-select__option--current {{ currentLabel }}
+
+      span.dm-field-select__option.dm-field-select__option--selected {{ selectedLabel }}
 
       base-icon(
         class="dm-field-select__icon dm-field-select__icon--right"
@@ -50,12 +51,12 @@ div(
     )
       div(
         v-for="option in options"
-        @click="onOptionClick(option.value, $event)"
-        @keypress.prevent="onOptionKeypress"
+        @click="onOptionClick(option, $event)"
+        @keypress.prevent="onOptionKeypress(option, $event)"
         :class=`[
           "dm-field-select__option",
           {
-            "dm-field-select__option--selected": option.value === currentValue
+            "dm-field-select__option--selected": option.value === selectedValue
           }
         ]`
         :key="option.value"
@@ -63,7 +64,7 @@ div(
       ) {{ option.label }}
 
   select(
-    v-model="currentValue"
+    v-model="selectedValue"
     v-validate="validation"
     :data-vv-as="validationVvAs"
     :name="name"
@@ -135,9 +136,9 @@ export default {
     return {
       // --> STATE <--
 
-      currentLabel: null,
-      currentValue: null,
       deployed: false,
+      selectedLabel: null,
+      selectedValue: null,
       uuid: ""
     };
   },
@@ -165,12 +166,10 @@ export default {
           // When a value prop is defined set the option as active
           const option = this.options.find(el => el.value === value);
 
-          this.currentLabel = option.label;
-          this.currentValue = option.value;
+          this.setSelectedOption(option);
         } else {
           // Or set the first option as active
-          this.currentLabel = this.options[0].label;
-          this.currentValue = this.options[0].value;
+          this.setSelectedOption(this.options[0]);
         }
       }
     }
@@ -181,13 +180,20 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
+    setSelectedOption(option) {
+      this.selectedLabel = option.label;
+      this.selectedValue = option.value;
+    },
+
     // --> EVENT LISTENERS <--
 
     onContainerClick(event) {
       if (!this.disabled) {
         this.deployed = !this.deployed;
 
-        this.$emit("click", this.currentValue, this.name, event);
+        this.$emit("click", this.selectedValue, this.name, event);
       }
     },
 
@@ -203,23 +209,16 @@ export default {
       }
     },
 
-    onOptionClick(value, event) {
-      const selectedOption = this.options.find(el => el.value === value);
-
-      if (this.currentValue !== value) {
-        this.currentLabel = selectedOption.label;
-        this.currentValue = value;
-
-        this.$emit("change", value, this.name, event);
-
-        // Synchronization for v-model
-        this.$emit("input", value);
-      }
+    onOptionClick(option, event) {
+      this.setSelectedOption(option);
 
       this.deployed = false;
+
+      this.$emit("change", option.value, this.name, event);
+      this.$emit("input", option.value); // Synchronization for v-model
     },
 
-    onOptionKeypress(event) {
+    onOptionKeypress(option, event) {
       if (event.code === "Space") {
         event.target.click();
       }
