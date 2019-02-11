@@ -73,7 +73,7 @@ export default {
     onTabKeypress(id, event) {
       event.preventDefault();
 
-      if (event.which === 32) {
+      if (event.code === "Space") {
         event.target.click();
       }
     }

@@ -73,7 +73,7 @@ export default {
     },
 
     onKeypress(event) {
-      if (event.which === 32) {
+      if (event.code === "Space") {
         event.target.click();
       }
     }

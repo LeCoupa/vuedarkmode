@@ -11,7 +11,7 @@
       :categories="categories"
       class="l-default__navigation"
     )
-    div.l-default__page-wrapper.js-default-page-wrapper
+    .l-default__page-wrapper.js-default-page-wrapper
       the-github-corner(
         link="https://github.com/LeCoupa/vuedarkmode"
         class="l-default__github-corner"

@@ -73,7 +73,7 @@ export default {
     },
 
     onKeypress(event) {
-      if (this.clickable && event.which === 32) {
+      if (this.clickable && event.code === "Space") {
         event.preventDefault();
         event.target.click();
       }

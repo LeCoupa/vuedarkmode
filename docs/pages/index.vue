@@ -10,7 +10,6 @@ main.c-index
       throttle: 250
     }`
   )
-
   section(
     v-for="section in sections"
     v-observe-visibility=`{

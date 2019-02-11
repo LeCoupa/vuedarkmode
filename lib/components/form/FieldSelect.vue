@@ -192,7 +192,7 @@ export default {
     },
 
     onContainerKeypress(event) {
-      if (event.which === 32) {
+      if (event.code === "Space") {
         event.target.click();
       }
     },
@@ -220,7 +220,7 @@ export default {
     },
 
     onOptionKeypress(event) {
-      if (event.which === 32) {
+      if (event.code === "Space") {
         event.target.click();
       }
     }

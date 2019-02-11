@@ -114,7 +114,7 @@ export default {
     },
 
     onLabelKeypress(event) {
-      if (event.which === 32) {
+      if (event.code === "Space") {
         this.$el.querySelector("input[type='file']").click();
       }
     }
