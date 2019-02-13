@@ -210,12 +210,14 @@ export default {
     },
 
     onOptionClick(option, event) {
-      this.setSelectedOption(option);
+      if (this.selectedValue !== option.value) {
+        this.setSelectedOption(option);
 
-      this.deployed = false;
+        this.deployed = false;
 
-      this.$emit("change", option.value, this.name, event);
-      this.$emit("input", option.value); // Synchronization for v-model
+        this.$emit("change", option.value, this.name, event);
+        this.$emit("input", option.value); // Synchronization for v-model
+      }
     },
 
     onOptionKeypress(option, event) {
@@ -302,7 +304,9 @@ $statuses: error, normal, success, warning;
       left: 0;
       z-index: 2;
       display: flex;
+      overflow-y: auto;
       flex-direction: column;
+      max-height: 200px;
       border-top: none;
       background-color: $ebony-clay;
       user-select: none;
@@ -310,6 +314,7 @@ $statuses: error, normal, success, warning;
       #{$c}__option {
         display: flex;
         align-items: center;
+        flex: 0 0 auto;
         border-bottom: 1px solid $oxford-blue;
         color: $regent-st-blue;
         transition: all ease-in-out 250ms;
