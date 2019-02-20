@@ -210,10 +210,10 @@ export default {
     },
 
     onOptionClick(option, event) {
+      this.deployed = false;
+
       if (this.selectedValue !== option.value) {
         this.setSelectedOption(option);
-
-        this.deployed = false;
 
         this.$emit("change", option.value, this.name, event);
         this.$emit("input", option.value); // Synchronization for v-model
