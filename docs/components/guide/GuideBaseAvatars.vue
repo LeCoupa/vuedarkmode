@@ -73,7 +73,7 @@
 import BaseAvatar from "@/../lib/components/base/BaseAvatar";
 import BaseDivider from "@/../lib/components/base/BaseDivider";
 
-// PROJECT
+// PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

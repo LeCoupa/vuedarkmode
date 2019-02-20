@@ -49,7 +49,7 @@
 // VUE DARK MODE
 import BaseDivider from "@/../lib/components/base/BaseDivider";
 
-// PROJECT
+// PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

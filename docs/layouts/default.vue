@@ -28,7 +28,7 @@
 // NPM
 import { mapState } from "vuex";
 
-// PROJECT
+// PROJECT: COMPONENTSS
 import TheGithubCorner from "@/components/layouts/TheGithubCorner";
 import TheNavigation from "@/components/layouts/TheNavigation";
 

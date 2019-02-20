@@ -34,7 +34,7 @@ div(
      ************************************************************************* -->
 
 <script>
-// PROJECT
+// PROJECT: COMPONENTS
 import BaseIcon from "./BaseIcon.vue";
 
 export default {

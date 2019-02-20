@@ -46,7 +46,7 @@
 // VUE DARK MODE
 import BaseProgressBar from "@/../lib/components/base/BaseProgressBar";
 
-// PROJECT
+// PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

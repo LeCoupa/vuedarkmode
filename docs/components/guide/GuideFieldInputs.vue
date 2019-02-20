@@ -68,7 +68,7 @@
 import BaseDivider from "@/../lib/components/base/BaseDivider";
 import FieldInput from "@/../lib/components/form/FieldInput";
 
-// PROJECT
+// PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

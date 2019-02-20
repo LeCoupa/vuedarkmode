@@ -57,7 +57,7 @@
 import BaseToast from "@/../lib/components/base/BaseToast";
 import BaseDivider from "@/../lib/components/base/BaseDivider";
 
-// PROJECT
+// PROJECT: COMPONENTSS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

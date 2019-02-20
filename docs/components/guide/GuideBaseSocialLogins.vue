@@ -61,7 +61,7 @@
 import BaseDivider from "@/../lib/components/base/BaseDivider";
 import BaseSocialLogin from "@/../lib/components/base/BaseSocialLogin";
 
-// PROJECT
+// PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

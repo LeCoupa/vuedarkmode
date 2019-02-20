@@ -90,10 +90,14 @@ div(
      ************************************************************************* -->
 
 <script>
-// PROJECT
-import { generateUUID } from "../../helpers/helpers.js";
+// PROJECT: COMPONENTS
 import BaseIcon from "../base/BaseIcon.vue";
 import FieldLabel from "./FieldLabel.vue";
+
+// PROJECT: HELPERS
+import { generateUUID } from "../../helpers/helpers.js";
+
+// PROJECT: MIXINS
 import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";

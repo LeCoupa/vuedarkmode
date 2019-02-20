@@ -50,7 +50,7 @@
 import BaseDivider from "@/../lib/components/base/BaseDivider";
 import BaseListItem from "@/../lib/components/base/BaseListItem";
 
-// PROJECT
+// PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

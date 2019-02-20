@@ -36,7 +36,7 @@ footer.c-the-footer
      ************************************************************************* -->
 
 <script>
-// PROJECT
+// PROJECT: COMPONENTS
 import TheLogo from "@/components/layouts/TheLogo";
 
 export default {

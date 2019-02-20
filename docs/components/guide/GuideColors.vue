@@ -17,8 +17,10 @@
      ************************************************************************* -->
 
 <script>
-// PROJECT
+// PROJECT: COMPONENTS
 import CommonColor from "@/components/common/CommonColor";
+
+// PROJECT: DATA
 import colors from "@/data/colors";
 
 export default {

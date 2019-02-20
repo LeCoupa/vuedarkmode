@@ -27,7 +27,7 @@ p(
      ************************************************************************* -->
 
 <script>
-// PROJECT
+// PROJECT: COMPONENTS
 import BaseIcon from "../base/BaseIcon.vue";
 
 export default {

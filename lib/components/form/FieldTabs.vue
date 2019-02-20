@@ -55,9 +55,11 @@ div(
      ************************************************************************* -->
 
 <script>
-// PROJECT
+// PROJECT: COMPONENTS
 import FieldLabel from "./FieldLabel.vue";
 import FieldMessage from "./FieldMessage.vue";
+
+// PROJECT: MIXINS
 import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 

@@ -172,7 +172,7 @@
 // VUE DARK MODE
 import BaseHeading from "@/../lib/components/base/BaseHeading";
 
-// PROJECT
+// PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

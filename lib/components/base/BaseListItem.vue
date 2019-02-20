@@ -55,7 +55,7 @@ div(
      ************************************************************************* -->
 
 <script>
-// PROJECT
+// PROJECT: COMPONENTS
 import BaseHeading from "./BaseHeading.vue";
 import BaseIcon from "./BaseIcon.vue";
 

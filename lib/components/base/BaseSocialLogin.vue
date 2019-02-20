@@ -37,7 +37,7 @@ button(
      ************************************************************************* -->
 
 <script>
-// PROJECT
+// PROJECT: COMPONENTS
 import BaseSpinner from "./BaseSpinner.vue";
 
 export default {

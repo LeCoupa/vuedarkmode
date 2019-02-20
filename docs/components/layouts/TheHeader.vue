@@ -39,7 +39,7 @@ header.c-the-header#welcome
 import BaseDivider from "@/../lib/components/base/BaseDivider";
 import BaseHeading from "@/../lib/components/base/BaseHeading";
 
-// PROJECT
+// PROJECT: COMPONENTS
 import TheGithubButtons from "@/components/layouts/TheGithubButtons";
 import TheLogo from "@/components/layouts/TheLogo";
 import TheSubscriptionBox from "@/components/layouts/TheSubscriptionBox";

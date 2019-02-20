@@ -77,7 +77,7 @@ button(
      ************************************************************************* -->
 
 <script>
-// PROJECT
+// PROJECT: COMPONENTS
 import BaseIcon from "./BaseIcon.vue";
 import BaseSpinner from "./BaseSpinner.vue";
 

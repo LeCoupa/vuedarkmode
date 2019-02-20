@@ -57,7 +57,7 @@
 import BaseAlert from "@/../lib/components/base/BaseAlert";
 import BaseDivider from "@/../lib/components/base/BaseDivider";
 
-// PROJECT
+// PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {

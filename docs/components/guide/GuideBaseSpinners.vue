@@ -57,7 +57,7 @@
 import BaseDivider from "@/../lib/components/base/BaseDivider";
 import BaseSpinner from "@/../lib/components/base/BaseSpinner";
 
-// PROJECT
+// PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
