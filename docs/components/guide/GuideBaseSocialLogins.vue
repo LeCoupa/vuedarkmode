@@ -19,6 +19,7 @@
         class="o-elements__item"
       )
         base-social-login(
+          :disabled="true"
           :network="network"
           :size="size"
         ) Connect with {{ network | capitalize }}
@@ -111,6 +112,16 @@ export default {
           }
         ],
         data: [
+          {
+            name: "disabled",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Add the disabled tag property to the button."
+            }
+          },
           {
             name: "full-width",
             type: {

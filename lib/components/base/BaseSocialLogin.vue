@@ -10,11 +10,12 @@ button(
     "dm-base-social-login--" + network,
     "dm-base-social-login--" + size,
     {
+      "dm-base-social-login--disabled": disabled || loading,
       "dm-base-social-login--full-width": fullWidth,
       "dm-base-social-login--loading": loading
     }
   ]`
-  :disabled="loading"
+  :disabled="disabled || loading"
   type="button"
 )
   span.dm-base-social-login__inner
@@ -46,6 +47,10 @@ export default {
   },
 
   props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     fullWidth: {
       type: Boolean,
       default: false
@@ -141,16 +146,20 @@ $sizes: small, large;
         center/15000%;
 
       &:hover {
-        background-color: lighten(map-get($socialColors, $network), 10%);
+        &:not(#{$c}--disabled) {
+          background-color: lighten(map-get($socialColors, $network), 10%);
+        }
+      }
+
+      &:active {
+        &:not(#{$c}--disabled) {
+          background-color: lighten(map-get($socialColors, $network), 10%);
+        }
       }
 
       &:focus {
         box-shadow: 0 0 0 2px $mirage,
           0 0 0 3px lighten(map-get($socialColors, $network), 10%);
-      }
-
-      &:active {
-        background-color: lighten(map-get($socialColors, $network), 10%);
       }
 
       #{$c}__inner {
@@ -181,6 +190,15 @@ $sizes: small, large;
   }
 
   // --> BOOLEANS <--
+
+  &--disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    #{$c}__inner {
+      pointer-events: none;
+    }
+  }
 
   &--full-width {
     width: 100%;
