@@ -359,26 +359,30 @@ $sizes: mini, small, default, medium, large;
         }
 
         &:hover {
-          @if ($color == black) {
-            background-color: map-get($mainColors, $color);
-          } @else if ($color == white) {
-            background-color: darken(map-get($mainColors, $color), 10%);
-          } @else if ($color == green) {
-            background-color: lighten(map-get($mainColors, $color), 5%);
-          } @else {
-            background-color: lighten(map-get($mainColors, $color), 10%);
+          &:not(#{$c}--disabled) {
+            @if ($color == black) {
+              background-color: map-get($mainColors, $color);
+            } @else if ($color == white) {
+              background-color: darken(map-get($mainColors, $color), 10%);
+            } @else if ($color == green) {
+              background-color: lighten(map-get($mainColors, $color), 5%);
+            } @else {
+              background-color: lighten(map-get($mainColors, $color), 10%);
+            }
           }
         }
 
         &:active {
-          @if ($color == black) {
-            background-color: map-get($mainColors, $color);
-          } @else if ($color == white) {
-            background-color: darken(map-get($mainColors, $color), 15%);
-          } @else if ($color == green) {
-            background-color: lighten(map-get($mainColors, $color), 5%);
-          } @else {
-            background-color: lighten(map-get($mainColors, $color), 15%);
+          &:not(#{$c}--disabled) {
+            @if ($color == black) {
+              background-color: map-get($mainColors, $color);
+            } @else if ($color == white) {
+              background-color: darken(map-get($mainColors, $color), 15%);
+            } @else if ($color == green) {
+              background-color: lighten(map-get($mainColors, $color), 5%);
+            } @else {
+              background-color: lighten(map-get($mainColors, $color), 15%);
+            }
           }
         }
       }
