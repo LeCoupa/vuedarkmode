@@ -19,7 +19,6 @@
         class="o-elements__item"
       )
         base-social-login(
-          :disabled="true"
           :network="network"
           :size="size"
         ) Connect with {{ network | capitalize }}
