@@ -193,6 +193,10 @@ $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
 #{$c} {
+  // Remove blue tap highlight color for Chrome mobiles
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+
   #{$c}__container {
     display: inline-block;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
