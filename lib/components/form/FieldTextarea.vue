@@ -273,7 +273,6 @@ $statuses: error, normal, success, warning;
 
   #{$c}__container {
     position: relative;
-    display: flex;
     transition: all ease-in-out 250ms;
 
     #{$c}__icon {
