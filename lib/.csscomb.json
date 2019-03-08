@@ -453,7 +453,8 @@
       "user-zoom",
       "orientation",
       "content",
-      "cursor"
+      "cursor",
+      "-webkit-font-smoothing"
     ]
   ]
 }
