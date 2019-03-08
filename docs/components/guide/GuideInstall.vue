@@ -36,45 +36,6 @@
   base-heading(
     class="c-guide-install__title"
     tag="h3"
-  ) Nuxt.js
-
-  base-heading(
-    tag="p"
-  )
-    | Create a new plugin in plugins/vuedarkmode.js:
-
-  pre(
-    v-highlightjs
-    class="c-guide-install__code"
-  )
-    code(class="javascript")
-      | import Vue from "vue";
-      | import VueDarkMode from "vuedarkmode";
-      |
-      | Vue.use(VueDarkMode);
-
-  base-heading(
-    tag="p"
-  )
-    | Add this new plugin to nuxt.config.js.
-    br
-    | Don't forget to set ssr to false as Vue Dark Mode only works in the browser for the time being.
-
-  pre(
-    v-highlightjs
-    class="c-guide-install__code"
-  )
-    code(class="javascript")
-      | {
-      |   // ...
-      |   plugins: [
-      |     { src: "@/plugins/vuedarkmode.js", ssr: false }
-      |   ]
-      | }
-
-  base-heading(
-    class="c-guide-install__title"
-    tag="h3"
   ) CDN
 
   base-heading(

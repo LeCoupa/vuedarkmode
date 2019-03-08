@@ -28,26 +28,6 @@ import VueDarkMode from "vuedarkmode";
 Vue.use(VueDarkMode);
 ```
 
-### Nuxt.js
-
-Create a new plugin in `plugins/vuedarkmode.js`:
-
-```js
-import Vue from "vue";
-import VueDarkMode from "vuedarkmode";
-
-Vue.use(VueDarkMode);
-```
-
-Add this new plugin to `nuxt.config.js`. Don't forget to set ssr to false as Vue Dark Mode only works in the browser for the time being.
-
-```js
-{
-  // ...
-  plugins: [{ src: "@/plugins/vuedarkmode.js", ssr: false }];
-}
-```
-
 ### CDN
 
 Get the latest version from [jsdelivr](https://www.jsdelivr.com/), and import the JavaScript file in your page.
