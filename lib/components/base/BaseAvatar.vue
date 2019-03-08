@@ -12,7 +12,7 @@ div(
       "dm-base-avatar--bordered": bordered,
       "dm-base-avatar--circular": circular,
       "dm-base-avatar--clickable": clickable,
-      "dm-base-avatar--complementaries": complementaries
+      "dm-base-avatar--secondaries": secondaries
     }
   ]`
   :id="id"
@@ -24,16 +24,16 @@ div(
     class="dm-base-avatar__image"
   )
     div(
-      v-if="complementaries"
-      class="dm-base-avatar__complementaries"
+      v-if="secondaries"
+      class="dm-base-avatar__secondaries"
     )
       span(
-        v-for="complementary in complementaries"
-        :key="complementary.src"
+        v-for="secondary in secondaries"
+        :key="secondary.src"
         :style=`{
-          backgroundImage: "url(" + complementary.src + ")",
+          backgroundImage: "url(" + secondary.src + ")",
         }`
-        class="dm-base-avatar__image dm-base-avatar__complementary"
+        class="dm-base-avatar__image dm-base-avatar__secondary"
       )
 
   span(
@@ -61,7 +61,7 @@ export default {
       type: Boolean,
       default: false
     },
-    complementaries: {
+    secondaries: {
       type: Array,
       default: null
     },
@@ -137,11 +137,11 @@ $sizes: mini, small, default, medium, large, huge;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
     user-select: none;
 
-    #{$c}__complementaries {
+    #{$c}__secondaries {
       display: flex;
       justify-content: flex-end;
 
-      #{$c}__complementary {
+      #{$c}__secondary {
         margin-right: 4px;
         width: 30px;
         height: 30px;
@@ -206,11 +206,11 @@ $sizes: mini, small, default, medium, large, huge;
     }
   }
 
-  &--complementaries {
+  &--secondaries {
     > #{$c}__image {
       position: relative;
 
-      #{$c}__complementaries {
+      #{$c}__secondaries {
         position: absolute;
         right: 5px;
         bottom: 5px;

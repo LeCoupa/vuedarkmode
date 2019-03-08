@@ -29,8 +29,8 @@
             :bordered="true"
             :circular="false"
             :clickable="true"
-            :complementaries="avatars.complementaries[size]"
             :description="size"
+            :secondaries="avatars.secondaries[size]"
             :size="size"
             src="/images/docs/tesla.jpg"
           )
@@ -94,7 +94,7 @@ export default {
     return {
       avatars: {
         sizes: ["huge", "large", "medium", "default", "small", "mini"],
-        complementaries: {
+        secondaries: {
           huge: [
             {
               src: "/images/docs/mastercard.jpg"
@@ -162,18 +162,6 @@ export default {
             }
           },
           {
-            name: "complementaries",
-            type: {
-              type: "Array",
-              additional: "Default: null"
-            },
-            details: {
-              description:
-                "Add additional images in the bottom right corner of the main image.",
-              values: '[{ src: "/path/of/the/resource" }]'
-            }
-          },
-          {
             name: "description",
             type: {
               type: "String",
@@ -193,6 +181,18 @@ export default {
             details: {
               description:
                 "Set the id property (will be emitted during events)."
+            }
+          },
+          {
+            name: "secondaries",
+            type: {
+              type: "Array",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Add additional images in the bottom right corner of the main image.",
+              values: '[{ src: "/path/of/the/resource" }]'
             }
           },
           {
