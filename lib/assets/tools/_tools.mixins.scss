@@ -1,0 +1,11 @@
+/**************************************************************************
+TOOLS > MIXINS
+***************************************************************************/
+
+/*
+ * Remove blue tap highlight color for Chrome mobiles
+ */
+@mixin no-tap-highlight-color {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}

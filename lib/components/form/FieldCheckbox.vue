@@ -124,6 +124,7 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "assets/settings/_settings.colors.scss";
+@import "assets/tools/_tools.mixins.scss";
 
 // VARIABLES
 $c: ".dm-field-checkbox";
@@ -135,6 +136,8 @@ $statuses: error, normal, success, warning;
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
+
+  @include no-tap-highlight-color;
 
   #{$c}__container {
     display: flex;
@@ -207,9 +210,9 @@ $statuses: error, normal, success, warning;
     &--#{$size} {
       #{$c}__container {
         #{$c}__field {
+          margin-right: 6px + (1px * $i);
           width: 12px + (2px * $i);
           height: 12px + (2px * $i);
-          margin-right: 6px + (1px * $i);
 
           &:after {
             @if ($size == mini) {

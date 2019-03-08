@@ -133,6 +133,7 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "assets/settings/_settings.colors.scss";
+@import "assets/tools/_tools.mixins.scss";
 
 // VARIABLES
 $c: ".dm-field-file";
@@ -143,6 +144,8 @@ $statuses: error, normal, success, warning;
   display: inline-block;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
+
+  @include no-tap-highlight-color;
 
   #{$c}__container {
     display: flex;

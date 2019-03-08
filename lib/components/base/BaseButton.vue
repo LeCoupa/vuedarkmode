@@ -267,6 +267,7 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "assets/settings/_settings.colors.scss";
+@import "assets/tools/_tools.mixins.scss";
 
 // VARIABLES
 $c: ".dm-base-button";
@@ -286,6 +287,8 @@ $sizes: mini, small, default, medium, large;
   transition: all 250ms ease-in-out;
   user-select: none;
   cursor: pointer;
+
+  @include no-tap-highlight-color;
 
   #{$c}__inner {
     display: flex;

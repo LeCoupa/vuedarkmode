@@ -119,6 +119,7 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "assets/settings/_settings.colors.scss";
+@import "assets/tools/_tools.mixins.scss";
 
 // Based on Material Icons
 // https://google.github.io/material-design-icons/#icon-font-for-the-web
@@ -139,8 +140,9 @@ export default {
   line-height: 1;
   direction: ltr;
   user-select: none;
-
   -webkit-font-smoothing: antialiased;
+
+  @include no-tap-highlight-color;
 
   // --> BOOLEANS <--
 

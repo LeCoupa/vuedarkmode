@@ -114,6 +114,7 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "assets/settings/_settings.colors.scss";
+@import "assets/tools/_tools.mixins.scss";
 
 // VARIABLES
 $c: ".dm-base-avatar";
@@ -125,6 +126,8 @@ $sizes: mini, small, default, medium, large, huge;
   flex-direction: column;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
+
+  @include no-tap-highlight-color;
 
   #{$c}__image {
     display: inline-block;

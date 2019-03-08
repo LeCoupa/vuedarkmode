@@ -68,6 +68,7 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "assets/settings/_settings.colors.scss";
+@import "assets/tools/_tools.mixins.scss";
 
 // VARIABLES
 $c: ".dm-field-label";
@@ -81,6 +82,8 @@ $sizes: mini, small, default, medium, large;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
   user-select: none;
+
+  @include no-tap-highlight-color;
 
   #{$c}__required {
     margin-left: 5px;

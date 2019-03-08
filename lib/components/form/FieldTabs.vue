@@ -186,6 +186,7 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "assets/settings/_settings.colors.scss";
+@import "assets/tools/_tools.mixins.scss";
 
 // VARIABLES
 $c: ".dm-field-tabs";
@@ -193,9 +194,7 @@ $sizes: mini, small, default, medium, large;
 $statuses: error, normal, success, warning;
 
 #{$c} {
-  // Remove blue tap highlight color for Chrome mobiles
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
+  @include no-tap-highlight-color;
 
   #{$c}__container {
     display: inline-block;

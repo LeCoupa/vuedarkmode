@@ -85,6 +85,7 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "assets/settings/_settings.colors.scss";
+@import "assets/tools/_tools.mixins.scss";
 
 // VARIABLES
 $c: ".dm-base-toast";
@@ -100,6 +101,8 @@ $colors: black, blue, green, red, orange, white;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
   transition: all 250ms ease-in-out;
+
+  @include no-tap-highlight-color;
 
   #{$c}__icon {
     flex: 0 0 auto;
