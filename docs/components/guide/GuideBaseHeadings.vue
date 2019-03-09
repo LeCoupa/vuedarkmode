@@ -161,6 +161,18 @@
       common-table(
         :data="props.data"
         :fields="props.fields"
+        class="u-mb40"
+      )
+
+    base-divider(
+      class="u-mb40"
+      color="white"
+      size="small"
+    )
+    no-ssr
+      common-table(
+        :data="events.data"
+        :fields="events.fields"
       )
 </template>
 
@@ -170,6 +182,7 @@
 
 <script>
 // VUE DARK MODE
+import BaseDivider from "@/../lib/components/base/BaseDivider";
 import BaseHeading from "@/../lib/components/base/BaseHeading";
 
 // PROJECT: COMPONENTS
@@ -177,6 +190,7 @@ const CommonTable = () => import("@/components/common/CommonTable");
 
 export default {
   components: {
+    BaseDivider,
     BaseHeading,
     CommonTable
   },
@@ -263,6 +277,34 @@ export default {
               description: "Override default font-weight for the element.",
               values:
                 '"thin" | "light" | "regular" | "medium" | "bold" | "extrabold" | "black"'
+            }
+          }
+        ]
+      },
+      events: {
+        fields: [
+          {
+            name: "name",
+            title: "Event Name",
+            dataClass: "u-bold",
+            width: "150px"
+          },
+          {
+            name: "parameters",
+            title: "Parameters",
+            width: "150px"
+          },
+          {
+            name: "details",
+            title: "Details"
+          }
+        ],
+        data: [
+          {
+            name: "click",
+            parameters: "id, event",
+            details: {
+              description: "Fires on a mouse click on the element."
             }
           }
         ]

@@ -4,6 +4,7 @@
 
 <template lang="pug">
 component(
+  @click="onClick"
   :class=`[
     "dm-base-heading",
     "dm-base-heading--" + computedColor,
@@ -121,6 +122,14 @@ export default {
       }
 
       return weight;
+    }
+  },
+
+  methods: {
+    // --> EVENT LISTENERS <--
+
+    onClick() {
+      this.$emit("click");
     }
   }
 };
