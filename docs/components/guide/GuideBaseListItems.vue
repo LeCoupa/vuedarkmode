@@ -141,7 +141,18 @@ export default {
             },
             details: {
               description: "Set the circle color.",
-              values: '"black" | "blue" | "green" | "orange" | "red" | "white"'
+              values:
+                '"black" | "blue" | "green" | "orange" | "purple" | "red" | "turquoise" | "white"'
+            }
+          },
+          {
+            name: "colorHex",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Set a custom hexadecimal color."
             }
           },
           {

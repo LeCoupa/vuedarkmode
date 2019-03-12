@@ -12,7 +12,8 @@ div(
   .dm-base-list-item__container
     span(
       :style=`{
-        backgroundImage: "url(" + image + ")"
+        backgroundImage: image ? "url(" + image + ")" : null,
+        borderColor: colorHex
       }`
       class="dm-base-list-item__circle"
     )
@@ -71,9 +72,22 @@ export default {
       default: "blue",
       validator(x) {
         return (
-          ["black", "blue", "green", "orange", "red", "white"].indexOf(x) !== -1
+          [
+            "black",
+            "blue",
+            "green",
+            "orange",
+            "purple",
+            "red",
+            "turquoise",
+            "white"
+          ].indexOf(x) !== -1
         );
       }
+    },
+    colorHex: {
+      type: String,
+      default: null
     },
     icon: {
       type: String,
@@ -113,7 +127,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-list-item";
-$colors: black, blue, green, red, orange, white;
+$colors: black, blue, green, orange, purple, red, turquoise, white;
 
 #{$c} {
   text-align: left;
