@@ -462,16 +462,14 @@ $sizes: mini, small, default, medium, large;
 
   &--link {
     // Override previous values
+    padding: 0;
     border-color: transparent !important;
     background: transparent !important;
+    text-decoration: underline;
 
     @each $color in $colors {
       &#{$c}--#{$color} {
         color: map-get($mainColors, $color);
-
-        &:hover {
-          color: $white;
-        }
       }
     }
   }
