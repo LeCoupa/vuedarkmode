@@ -452,11 +452,14 @@ $sizes: mini, small, default, medium, large;
   }
 
   &--link {
-    padding: 0;
+    // Override previous values
     border-color: transparent !important;
     background: transparent !important;
-    box-shadow: none !important;
     text-decoration: underline;
+
+    &:focus {
+      text-decoration: none;
+    }
 
     @each $color in $colors {
       &#{$c}--#{$color} {
