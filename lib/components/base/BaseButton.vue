@@ -18,7 +18,6 @@ button(
     "dm-base-button--" + color,
     "dm-base-button--" + size,
     {
-      "dm-base-button--capitalize": capitalize,
       "dm-base-button--circular": circular || loading,
       "dm-base-button--disabled": disabled || loading,
       "dm-base-button--full-width": fullWidth,
@@ -88,10 +87,6 @@ export default {
   },
 
   props: {
-    capitalize: {
-      type: Boolean,
-      default: true
-    },
     circular: {
       type: Boolean,
       default: false
@@ -420,10 +415,6 @@ $sizes: mini, small, default, medium, large;
   }
 
   // --> BOOLEANS <--
-
-  &--capitalize {
-    text-transform: capitalize;
-  }
 
   &--circular {
     border-radius: 100px;

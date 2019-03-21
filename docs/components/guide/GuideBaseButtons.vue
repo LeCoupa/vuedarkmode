@@ -125,16 +125,6 @@ export default {
         ],
         data: [
           {
-            name: "capitalize",
-            type: {
-              type: "Boolean",
-              additional: "Default: true"
-            },
-            details: {
-              description: "Capitalize the button content."
-            }
-          },
-          {
             name: "circular",
             type: {
               type: "Boolean",
