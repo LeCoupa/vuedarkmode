@@ -6,8 +6,6 @@ module.exports = {
   head: {
     title: "Vue Dark Mode | A Minimalist Dark Design System for Vue.js",
     meta: [
-      { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         name: "google-site-verification",
         content: "MrezWAGUBGsCpuBnxg3nJMZroXl_y0Wg0IqlgrvwN64"
@@ -21,6 +19,7 @@ module.exports = {
 
       // Open Graph Meta Tags
       // https://smallseotools.com/open-graph-generator/
+
       {
         property: "og:title",
         content: "A Minimalist Dark Design System for Vue.js 🎨"
@@ -40,6 +39,7 @@ module.exports = {
 
       // Favicons Generated with
       // http://www.favicomatic.com/
+
       {
         name: "application-name",
         content: "&nbsp;"
@@ -72,13 +72,16 @@ module.exports = {
     link: [
       // Google Fonts
       // https://fonts.google.com/specimen/Heebo?selection.family=Heebo:100,300,400,500,700,800,900
+
       {
         href:
           "https://fonts.googleapis.com/css?family=Heebo:100,300,400,500,700,800,900",
         rel: "stylesheet"
       },
+
       // Favicons Generated with
       // http://www.favicomatic.com/
+
       {
         rel: "apple-touch-icon-precomposed",
         sizes: "57x57",
