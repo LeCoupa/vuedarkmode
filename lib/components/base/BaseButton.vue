@@ -493,7 +493,15 @@ $sizes: mini, small, default, medium, large;
           @if ($color == white) {
             color: $oxford-blue;
           } @else {
-            color: map-get($mainColors, $color);
+            background-color: map-get($mainColors, $color);
+          }
+        }
+
+        &:focus {
+          @if ($color == white) {
+            border-color: $white;
+          } @else {
+            border-color: map-get($mainColors, $color);
           }
         }
       }
