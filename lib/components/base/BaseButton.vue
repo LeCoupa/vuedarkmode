@@ -492,6 +492,7 @@ $sizes: mini, small, default, medium, large;
         &:active {
           @if ($color == white) {
             color: $oxford-blue;
+            background-color: $white;
           } @else {
             background-color: map-get($mainColors, $color);
           }
@@ -507,12 +508,8 @@ $sizes: mini, small, default, medium, large;
       }
     }
 
-    &:hover {
-      transform: initial;
-    }
-
+    &:hover,
     &:active {
-      background: $white;
       transform: initial;
     }
   }
