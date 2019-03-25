@@ -404,7 +404,7 @@ export default {
             title: "Radios",
             hasDocumentation: true,
             sourceUrl:
-              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldRadio.vue"
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/form/FieldRadios.vue"
           }
         },
         {
