@@ -18,7 +18,8 @@ div(
   span(
     v-if="$slots.default && $slots.default[0].text.trim()"
     class="dm-base-alert__slot"
-  ): slot
+  )
+    slot
 
   base-icon(
     v-if="closable"

@@ -33,7 +33,8 @@ div(
       v-if="$slots.default && $slots.default[0].text.trim()"
       class="dm-base-list-item__content"
       tag="p"
-    ): slot
+    )
+      slot
 
   div(
     v-if="source"

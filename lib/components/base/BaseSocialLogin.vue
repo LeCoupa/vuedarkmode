@@ -30,7 +30,8 @@ button(
     span(
       v-if="size === 'large' && !loading"
       class="dm-base-social-login__label"
-    ): slot
+    )
+      slot
 </template>
 
 <!-- *************************************************************************

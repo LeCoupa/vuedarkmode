@@ -18,7 +18,8 @@ component(
   :style=`{
     fontSize: computedFontSize
   }`
-): slot
+)
+  slot
 </template>
 
 <!-- *************************************************************************

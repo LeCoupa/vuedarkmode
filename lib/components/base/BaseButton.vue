@@ -42,7 +42,8 @@ button(
     span(
       v-if="$slots.default && $slots.default[0].text.trim() && !circular && !loading"
       class="dm-base-button__label"
-    ): slot
+    )
+      slot
 
     base-icon(
       v-if="computedRightIcon && !loading"
