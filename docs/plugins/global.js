@@ -7,6 +7,7 @@ import Vue from "vue";
 import VeeValidate from "vee-validate";
 import VueClipboard from "vue-clipboard2";
 import VueHighlightJS from "vue-highlightjs";
+import VueHotkey from "v-hotkey";
 
 /**************************************************************************
  * USE PLUGIN
@@ -15,6 +16,7 @@ import VueHighlightJS from "vue-highlightjs";
 
 Vue.use(VueClipboard);
 Vue.use(VueHighlightJS);
+Vue.use(VueHotkey);
 
 Vue.use(VeeValidate, {
   errorBagName: "$errors",

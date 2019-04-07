@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "rollup-plugin-vue": "4.6.2",
+    "v-hotkey": "^0.3.0",
     "vee-validate": "2.1.5"
   },
   "devDependencies": {
