@@ -45,6 +45,7 @@
     "normalize.css": "^8.0.0",
     "nuxt": "^1.0.0",
     "qs": "^6.5.2",
+    "v-click-outside": "^2.1.1",
     "v-hotkey": "^0.3.0",
     "vee-validate": "^2.1.5",
     "vue-clipboard2": "^0.2.1",
