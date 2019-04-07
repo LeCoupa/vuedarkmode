@@ -166,15 +166,12 @@ export default {
     value: {
       immediate: true,
       handler(value) {
-        if (value) {
-          // When a value prop is defined set the option as active
-          const option = this.options.find(el => el.value === value);
+        const option = this.options.find(option => option.value === value);
 
+        // Select the right option for the select value
+        this.$nextTick(() => {
           this.setSelectedOption(option);
-        } else {
-          // Or set the first option as active
-          this.setSelectedOption(this.options[0]);
-        }
+        });
       }
     }
   },
@@ -187,8 +184,13 @@ export default {
     // --> HELPERS <--
 
     setSelectedOption(option) {
-      this.selectedLabel = option.label;
-      this.selectedValue = option.value;
+      if (option) {
+        this.selectedLabel = option.label;
+        this.selectedValue = option.value;
+      } else {
+        this.selectedLabel = null;
+        this.selectedValue = null;
+      }
     },
 
     // --> EVENT LISTENERS <--
