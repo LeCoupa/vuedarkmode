@@ -10,6 +10,7 @@
   )
     field-input(
       v-model="email"
+      :autofocus="true"
       :clearable="true"
       :error="error"
       :fullWidth="false"
