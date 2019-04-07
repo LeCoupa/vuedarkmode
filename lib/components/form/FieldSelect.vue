@@ -4,6 +4,7 @@
 
 <template lang="pug">
 div(
+  v-click-outside="onClose"
   v-hotkey=`{
     "esc": onClose,
   }`
