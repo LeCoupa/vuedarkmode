@@ -285,6 +285,7 @@ $statuses: error, normal, success, warning;
       }
 
       #{$c}__icon {
+        flex: 0 0 auto;
         position: absolute;
         pointer-events: none;
 
@@ -300,8 +301,11 @@ $statuses: error, normal, success, warning;
       }
 
       #{$c}__option {
+        overflow: hidden;
         flex: 1;
         color: $white;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
 
