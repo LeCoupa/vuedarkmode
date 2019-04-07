@@ -4,6 +4,9 @@
 
 <template lang="pug">
 div(
+  v-hotkey=`{
+    "esc": onClose,
+  }`
   :class=`[
     "dm-field-select",
     "dm-field-select--" + computedStatus,
@@ -194,6 +197,10 @@ export default {
     },
 
     // --> EVENT LISTENERS <--
+
+    onClose() {
+      this.deployed = false;
+    },
 
     onContainerClick(event) {
       if (!this.disabled) {

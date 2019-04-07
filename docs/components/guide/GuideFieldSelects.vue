@@ -31,6 +31,7 @@
           :size="size"
           :status="statuses[j]"
           description="This is a customizable description for selects."
+          value="vuedarkmode1"
         )
 
   div(
