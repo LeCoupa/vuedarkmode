@@ -29,7 +29,7 @@ div(
     div(
       @click="onContainerClick"
       @keypress.prevent="onContainerKeypress"
-      class="dm-field-select__field"
+      class="dm-field-select__field js-tag-for-autofocus"
       tabindex="0"
     )
       base-icon(

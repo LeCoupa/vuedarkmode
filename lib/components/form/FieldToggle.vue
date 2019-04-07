@@ -24,7 +24,7 @@ div(
       :id="uuid"
       :name="name"
       :ref="validationRef"
-      class="dm-field-toggle__field"
+      class="dm-field-toggle__field js-tag-for-autofocus"
       type="checkbox"
     )
     field-label(

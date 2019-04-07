@@ -124,6 +124,17 @@ export default {
             }
           },
           {
+            name: "autofocus",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description:
+                "Automatically focus the element when the component renders."
+            }
+          },
+          {
             name: "borders",
             type: {
               type: "Boolean",

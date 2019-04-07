@@ -51,7 +51,7 @@ div(
       :style=`{
         resize: resize
       }`
-      class="dm-field-textarea__field"
+      class="dm-field-textarea__field js-tag-for-autofocus"
     ) {{ currentValue }}
 
     base-icon(

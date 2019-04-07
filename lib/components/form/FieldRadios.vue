@@ -16,12 +16,18 @@ div(
 )
   .dm-field-radios__container
     div(
-      v-for="radio in radios"
+      v-for="(radio, index) in radios"
       class="dm-field-radios__fields"
     )
       input(
         v-validate="validation"
         @change="onFieldChange(radio, $event)"
+        :class=`[
+          "dm-field-radios__field",
+          {
+            "js-tag-for-autofocus": index === 0
+          }
+        ]`
         :checked="radio.value === currentValue"
         :data-vv-as="validationVvAs"
         :disabled="disabled"
@@ -29,7 +35,6 @@ div(
         :name="name"
         :ref="validationRef"
         :value="radio.value"
-        class="dm-field-radios__field"
         type="radio"
       )
       field-label(

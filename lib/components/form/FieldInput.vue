@@ -59,7 +59,7 @@ div(
       :type="type"
       :ref="validationRef"
       :value="currentValue"
-      class="dm-field-input__field"
+      class="dm-field-input__field js-tag-for-autofocus"
     )
     base-icon(
       v-if="computedRightIcon"

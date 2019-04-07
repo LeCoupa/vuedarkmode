@@ -22,17 +22,19 @@ div(
 
   .dm-field-tabs__container
     span(
-      v-for="(tab, i) in tabs"
+      v-for="(tab, index) in tabs"
       @click="onTabClick(tab.id, $event)"
       @keypress.prevent="onTabKeypress"
       :class=`[
         "dm-field-tabs__tab",
         {
           "dm-field-tabs__tab--active": activeTabs.includes(tab.id),
-          "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
-          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1)
+          "dm-field-tabs__tab--active-next": checkActiveBrother("asc", index + 1),
+          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", index - 1),
+          "js-tag-for-autofocus": index === 0
         }
       ]`
+      :key="tab.id"
       tabindex="0"
     )
       span(

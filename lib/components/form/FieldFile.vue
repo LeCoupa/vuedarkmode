@@ -36,7 +36,7 @@ div(
     label(
       @keypress.prevent="onLabelKeypress"
       :for="uuid"
-      class="dm-field-file__upload"
+      class="dm-field-file__upload js-tag-for-autofocus"
       tabindex="0"
     )
       base-icon(

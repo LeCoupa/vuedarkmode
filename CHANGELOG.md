@@ -6,25 +6,25 @@
 
 - BaseHeading: Add fontSize prop.
 
-- FieldCheckbox: Add error, info, success, validation and warning prop.
+- FieldCheckbox: Add autofocus, error, info, success, validation and warning prop.
 
-- FieldFile: Add error, info, success, validation and warning prop.
+- FieldFile: Add autofocus, error, info, success, validation and warning prop.
 
-- FieldInput: Add clearable, error, info, spellcheck, success, validation and warning prop.
+- FieldInput: Add autofocus, clearable, error, info, spellcheck, success, validation and warning prop.
 
 - FieldLabel: Add required prop.
 
 - FieldMessage: New component.
 
-- FieldRadios: Add error, info, name, success, validation and warning prop.
+- FieldRadios: Add autofocus, error, info, name, success, validation and warning prop.
 
-- FieldSelect: Add error, info, success, validation and warning prop.
+- FieldSelect: Add autofocus, error, info, success, validation and warning prop.
 
-- FielTabs: Add error, info, success and warning prop.
+- FielTabs: Add autofocus, error, info, success and warning prop.
 
-- FieldTextarea: Add error, icon, info, spellcheck, success, resize, validation and warning prop.
+- FieldTextarea: Add autofocus, error, icon, info, spellcheck, success, resize, validation and warning prop.
 
-- FieldToggle: Add error, info, success, validation and warning prop.
+- FieldToggle: Add autofocus, error, info, success, validation and warning prop.
 
 ### Removed
 
