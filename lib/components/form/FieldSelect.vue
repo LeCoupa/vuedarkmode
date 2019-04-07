@@ -332,7 +332,7 @@ $statuses: error, normal, success, warning;
 
         &--selected {
           color: $white;
-          font-weight: 700;
+          text-decoration: underline;
         }
 
         &:last-of-type {
