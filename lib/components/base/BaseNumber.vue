@@ -6,7 +6,8 @@
 span(
   :class=`[
     "dm-base-number",
-    "dm-base-number--" + color
+    "dm-base-number--" + color,
+    "dm-base-number--" + size
   ]`
   :style=`{
     backgroundImage: image ? "url(" + image + ")" : null,
@@ -79,6 +80,13 @@ export default {
     number: {
       type: Number,
       default: null
+    },
+    size: {
+      type: String,
+      default: "default",
+      validator(x) {
+        return ["small", "default"].includes(x);
+      }
     }
   }
 };
@@ -101,14 +109,11 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 40px;
-  height: 40px;
   border-width: 3px;
   border-style: solid;
   border-radius: 100%;
   background-size: cover;
   box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
-  font-size: 16px;
   user-select: none;
 
   #{$c}__number {
@@ -121,6 +126,20 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
     &--#{$color} {
       border-color: map-get($mainColors, $color);
     }
+  }
+
+  // --> SIZES <--
+
+  &--small {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  &--default {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
   }
 }
 </style>
