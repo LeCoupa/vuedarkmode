@@ -3,32 +3,18 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
-  :class=`[
-    "dm-base-list-item",
-    "dm-base-list-item--" + color
-  ]`
-)
+.dm-base-list-item
   .dm-base-list-item__container
-    span(
-      :style=`{
-        backgroundImage: image ? "url(" + image + ")" : null,
-        borderColor: colorHex
-      }`
-      class="dm-base-list-item__circle"
+    base-number(
+      :color="color"
+      :color-hex="colorHex"
+      :icon="icon"
+      :icon-color-="iconColor"
+      :icon-size-="iconSize"
+      :image="image"
+      :number="number"
+      class="dm-base-list-item__number"
     )
-      base-icon(
-        v-if="icon"
-        :color="iconColor"
-        :name="icon"
-        :size="iconSize"
-        class="dm-base-list-item__icon"
-      )
-      span(
-        v-if="number"
-        class="dm-base-list-item__number"
-      ) {{ number }}
-
     base-heading(
       v-if="$slots.default && $slots.default[0].text.trim()"
       class="dm-base-list-item__content"
@@ -60,11 +46,13 @@ div(
 // PROJECT: COMPONENTS
 import BaseHeading from "./BaseHeading.vue";
 import BaseIcon from "./BaseIcon.vue";
+import BaseNumber from "./BaseNumber.vue";
 
 export default {
   components: {
     BaseHeading,
-    BaseIcon
+    BaseIcon,
+    BaseNumber
   },
 
   props: {
@@ -128,7 +116,6 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-list-item";
-$colors: black, blue, green, orange, purple, red, turquoise, white;
 
 #{$c} {
   text-align: left;
@@ -137,26 +124,8 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
     display: flex;
     align-items: center;
 
-    #{$c}__circle {
-      display: flex;
-      align-items: center;
+    #{$c}__number {
       flex: 0 0 auto;
-      justify-content: center;
-      box-sizing: border-box;
-      margin-right: 20px;
-      width: 40px;
-      height: 40px;
-      border-width: 3px;
-      border-style: solid;
-      border-radius: 100%;
-      background-size: cover;
-      box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
-      font-size: 16px;
-      user-select: none;
-
-      #{$c}__number {
-        font-weight: 800;
-      }
     }
 
     #{$c}__content {
@@ -190,18 +159,6 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
         outline: 0;
         box-shadow: none;
         color: $white;
-      }
-    }
-  }
-
-  // --> COLORS <--
-
-  @each $color in $colors {
-    &--#{$color} {
-      #{$c}__container {
-        #{$c}__circle {
-          border-color: map-get($mainColors, $color);
-        }
       }
     }
   }
