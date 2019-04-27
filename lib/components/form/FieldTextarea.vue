@@ -130,16 +130,14 @@ export default {
       type: String,
       default: "none",
       validator(x) {
-        return (
-          [
-            "none",
-            "both",
-            "horizontal",
-            "vertical",
-            "initial",
-            "inherit"
-          ].indexOf(x) !== -1
-        );
+        return [
+          "none",
+          "both",
+          "horizontal",
+          "vertical",
+          "initial",
+          "inherit"
+        ].includes(x);
       }
     },
     rows: {

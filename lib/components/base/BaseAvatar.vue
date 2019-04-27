@@ -77,9 +77,8 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return (
-          ["mini", "small", "default", "medium", "large", "huge"].indexOf(x) !==
-          -1
+        return ["mini", "small", "default", "medium", "large", "huge"].includes(
+          x
         );
       }
     },

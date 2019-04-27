@@ -51,18 +51,16 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return (
-          [
-            "black",
-            "blue",
-            "green",
-            "orange",
-            "purple",
-            "red",
-            "turquoise",
-            "white"
-          ].indexOf(x) !== -1
-        );
+        return [
+          "black",
+          "blue",
+          "green",
+          "orange",
+          "purple",
+          "red",
+          "turquoise",
+          "white"
+        ].includes(x);
       }
     },
     details: {

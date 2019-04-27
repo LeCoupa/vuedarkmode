@@ -64,14 +64,14 @@ export default {
       type: String,
       required: true,
       validator(x) {
-        return ["facebook", "google", "messenger", "twitter"].indexOf(x) !== -1;
+        return ["facebook", "google", "messenger", "twitter"].includes(x);
       }
     },
     size: {
       type: String,
       default: "large",
       validator(x) {
-        return ["small", "large"].indexOf(x) !== -1;
+        return ["small", "large"].includes(x);
       }
     }
   },

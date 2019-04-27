@@ -26,18 +26,16 @@ export default {
       type: String,
       default: "black",
       validator(x) {
-        return (
-          [
-            "black",
-            "blue",
-            "green",
-            "orange",
-            "purple",
-            "red",
-            "turquoise",
-            "white"
-          ].indexOf(x) !== -1
-        );
+        return [
+          "black",
+          "blue",
+          "green",
+          "orange",
+          "purple",
+          "red",
+          "turquoise",
+          "white"
+        ].includes(x);
       }
     },
     margin: {
@@ -48,7 +46,7 @@ export default {
       type: String,
       default: "large",
       validator(x) {
-        return ["small", "large"].indexOf(x) !== -1;
+        return ["small", "large"].includes(x);
       }
     }
   },

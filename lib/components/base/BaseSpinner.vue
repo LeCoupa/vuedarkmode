@@ -26,18 +26,14 @@ export default {
       type: String,
       default: "white",
       validator(x) {
-        return (
-          ["black", "blue", "green", "orange", "red", "white"].indexOf(x) !== -1
-        );
+        return ["black", "blue", "green", "orange", "red", "white"].includes(x);
       }
     },
     size: {
       type: String,
       default: "default",
       validator(x) {
-        return (
-          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
-        );
+        return ["mini", "small", "default", "medium", "large"].includes(x);
       }
     }
   },

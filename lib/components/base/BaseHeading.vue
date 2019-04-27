@@ -33,11 +33,15 @@ export default {
       type: String,
       default: null,
       validator(x) {
-        return (
-          ["black", "blue", "green", "grey", "red", "orange", "white"].indexOf(
-            x
-          ) !== -1
-        );
+        return [
+          "black",
+          "blue",
+          "green",
+          "grey",
+          "red",
+          "orange",
+          "white"
+        ].includes(x);
       }
     },
     fontSize: {
@@ -48,9 +52,7 @@ export default {
       type: String,
       required: true,
       validator(x) {
-        return (
-          ["h1", "h2", "h3", "h4", "h5", "h6", "p", "small"].indexOf(x) !== -1
-        );
+        return ["h1", "h2", "h3", "h4", "h5", "h6", "p", "small"].includes(x);
       }
     },
     uppercase: {
@@ -61,17 +63,15 @@ export default {
       type: String,
       default: null,
       validator(x) {
-        return (
-          [
-            "thin",
-            "light",
-            "regular",
-            "medium",
-            "bold",
-            "extrabold",
-            "black"
-          ].indexOf(x) !== -1
-        );
+        return [
+          "thin",
+          "light",
+          "regular",
+          "medium",
+          "bold",
+          "extrabold",
+          "black"
+        ].includes(x);
       }
     }
   },

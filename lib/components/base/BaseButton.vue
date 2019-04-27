@@ -96,9 +96,7 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return (
-          ["black", "blue", "green", "orange", "red", "white"].indexOf(x) !== -1
-        );
+        return ["black", "blue", "green", "orange", "red", "white"].includes(x);
       }
     },
     disabled: {
@@ -156,16 +154,14 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return (
-          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
-        );
+        return ["mini", "small", "default", "medium", "large"].includes(x);
       }
     },
     type: {
       type: String,
       default: "button",
       validator(x) {
-        return ["button", "reset", "submit"].indexOf(x) !== -1;
+        return ["button", "reset", "submit"].includes(x);
       }
     }
   },

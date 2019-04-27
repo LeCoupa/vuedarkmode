@@ -35,18 +35,16 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return (
-          [
-            "black",
-            "blue",
-            "green",
-            "orange",
-            "purple",
-            "red",
-            "turquoise",
-            "white"
-          ].indexOf(x) !== -1
-        );
+        return [
+          "black",
+          "blue",
+          "green",
+          "orange",
+          "purple",
+          "red",
+          "turquoise",
+          "white"
+        ].includes(x);
       }
     },
     id: {
@@ -57,9 +55,7 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return (
-          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
-        );
+        return ["mini", "small", "default", "medium", "large"].includes(x);
       }
     }
   },

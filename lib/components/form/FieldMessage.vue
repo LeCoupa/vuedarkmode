@@ -40,9 +40,8 @@ export default {
       type: String,
       default: "description",
       validator(x) {
-        return (
-          ["description", "error", "info", "success", "warning"].indexOf(x) !==
-          -1
+        return ["description", "error", "info", "success", "warning"].includes(
+          x
         );
       }
     },
@@ -54,9 +53,7 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return (
-          ["mini", "small", "default", "medium", "large"].indexOf(x) !== -1
-        );
+        return ["mini", "small", "default", "medium", "large"].includes(x);
       }
     }
   },
