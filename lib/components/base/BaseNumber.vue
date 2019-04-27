@@ -101,7 +101,6 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  margin-right: 20px;
   width: 40px;
   height: 40px;
   border-width: 3px;

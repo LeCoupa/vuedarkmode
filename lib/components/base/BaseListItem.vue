@@ -124,6 +124,7 @@ $c: ".dm-base-list-item";
 
     #{$c}__number {
       flex: 0 0 auto;
+      margin-right: 20px;
     }
 
     #{$c}__content {
