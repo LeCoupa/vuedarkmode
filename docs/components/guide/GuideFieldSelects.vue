@@ -225,6 +225,17 @@ export default {
             }
           },
           {
+            name: "placeholder",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify a short hint that describes the expected value."
+            }
+          },
+          {
             name: "size",
             type: {
               type: "String",

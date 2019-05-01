@@ -46,6 +46,11 @@ div(
         class="dm-field-select__option dm-field-select__option--selected"
       ) {{ selectedOption.label }}
 
+      div(
+        v-else-if="placeholder"
+        class="dm-field-select__option dm-field-select__option--placeholder"
+      ) {{ placeholder }}
+
       base-icon(
         class="dm-field-select__icon dm-field-select__icon--right"
         name="arrow_drop_down"
@@ -135,6 +140,10 @@ export default {
       validator(x) {
         return x.length > 0;
       }
+    },
+    placeholder: {
+      type: String,
+      default: null
     },
     value: {
       type: [Number, String],
@@ -315,6 +324,10 @@ $statuses: error, normal, success, warning;
         color: $white;
         text-overflow: ellipsis;
         white-space: nowrap;
+
+        &--placeholder {
+          color: $nepal;
+        }
       }
     }
 
