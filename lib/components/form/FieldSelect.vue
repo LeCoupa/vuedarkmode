@@ -41,8 +41,10 @@ div(
         :name="computedLeftIcon"
         class="dm-field-select__icon dm-field-select__icon--left"
       )
-
-      span.dm-field-select__option.dm-field-select__option--selected {{ selectedLabel }}
+      span(
+        v-if="selectedOption && selectedOption.label"
+        class="dm-field-select__option dm-field-select__option--selected"
+      ) {{ selectedOption.label }}
 
       base-icon(
         class="dm-field-select__icon dm-field-select__icon--right"
@@ -60,7 +62,7 @@ div(
         :class=`[
           "dm-field-select__option",
           {
-            "dm-field-select__option--selected": option.value === selectedValue
+            "dm-field-select__option--selected": selectedOption && option.value === selectedOption.value
           }
         ]`
         :key="option.value"
@@ -68,7 +70,7 @@ div(
       ) {{ option.label }}
 
   select(
-    v-model="selectedValue"
+    v-model="(selectedOption || {}).value"
     v-validate="validation"
     :data-vv-as="validationVvAs"
     :name="name"
@@ -145,8 +147,7 @@ export default {
       // --> STATE <--
 
       deployed: false,
-      selectedLabel: null,
-      selectedValue: null,
+      selectedOption: null,
       uuid: ""
     };
   },
@@ -189,11 +190,9 @@ export default {
 
     setSelectedOption(option) {
       if (option) {
-        this.selectedLabel = option.label;
-        this.selectedValue = option.value;
+        this.selectedOption = option;
       } else {
-        this.selectedLabel = null;
-        this.selectedValue = null;
+        this.selectedOption = null;
       }
     },
 
@@ -207,7 +206,7 @@ export default {
       if (!this.disabled) {
         this.deployed = !this.deployed;
 
-        this.$emit("click", this.selectedValue, this.name, event);
+        this.$emit("click", this.selectedOption.value, this.name, event);
       }
     },
 
@@ -226,7 +225,7 @@ export default {
     onOptionClick(option, event) {
       this.deployed = false;
 
-      if (this.selectedValue !== option.value) {
+      if (this.selectedOption && this.selectedOption.value !== option.value) {
         this.setSelectedOption(option);
 
         this.$emit("change", option.value, this.name, event);
@@ -372,7 +371,7 @@ $statuses: error, normal, success, warning;
       #{$c}__container {
         #{$c}__field,
         #{$c}__options {
-          border-radius: 4px + (1px * $i);
+          border-radius: 3px + (1px * $i);
 
           #{$c}__option {
             padding: 0 35px 0 (10px + (1px * $i));
