@@ -110,6 +110,7 @@ export default {
 
 <style lang="scss">
 // IMPORTS
+@import "assets/tools/_tools.mq.scss";
 @import "assets/settings/_settings.colors.scss";
 
 // VARIABLES
@@ -119,16 +120,12 @@ $c: ".dm-base-list-item";
   text-align: left;
 
   #{$c}__container {
-    display: flex;
-    align-items: center;
-
     #{$c}__number {
-      flex: 0 0 auto;
-      margin-right: 20px;
+      float: left;
+      margin: 20px 20px 20px 0;
     }
 
     #{$c}__content {
-      flex: 1;
       margin-bottom: 0;
       color: $white;
     }
@@ -158,6 +155,26 @@ $c: ".dm-base-list-item";
         outline: 0;
         box-shadow: none;
         color: $white;
+      }
+    }
+  }
+}
+
+// --> BREAKPOINT: TABLET <--
+
+@include mq($from: tablet) {
+  #{$c} {
+    #{$c}__container {
+      display: flex;
+      align-items: center;
+
+      #{$c}__number {
+        flex: 0 0 auto;
+        margin: 0 20px 0 0;
+      }
+
+      #{$c}__content {
+        flex: 1;
       }
     }
   }
