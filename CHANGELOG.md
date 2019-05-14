@@ -4,8 +4,6 @@
 
 - BaseDivider: Add margin prop.
 
-- BaseHeading: Add fontSize and lineHeight prop.
-
 - FieldCheckbox: Add autofocus, error, info, success, validation and warning prop.
 
 - FieldFile: Add autofocus, error, info, success, validation and warning prop.

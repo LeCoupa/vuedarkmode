@@ -15,10 +15,6 @@ component(
     }
   ]`
   :is="tag"
-  :style=`{
-    fontSize: computedFontSize,
-    lineHeight: computedLineHeight
-  }`
 )
   slot
 </template>
@@ -44,14 +40,6 @@ export default {
           "white"
         ].includes(x);
       }
-    },
-    fontSize: {
-      type: String,
-      default: null
-    },
-    lineHeight: {
-      type: String,
-      default: null
     },
     tag: {
       type: String,
@@ -92,52 +80,6 @@ export default {
       }
 
       return color;
-    },
-
-    computedFontSize() {
-      if (this.fontSize) {
-        return this.fontSize;
-      } else if (this.tag === "h1") {
-        return "26px";
-      } else if (this.tag === "h2") {
-        return "24px";
-      } else if (this.tag === "h3") {
-        return "22px";
-      } else if (this.tag === "h4") {
-        return "20px";
-      } else if (this.tag === "h5") {
-        return "18px";
-      } else if (this.tag === "h6") {
-        return "16px";
-      } else if (this.tag === "p") {
-        return "16px";
-      } else if (this.tag === "small") {
-        return "14px";
-      }
-    },
-
-    computedLineHeight() {
-      if (this.lineHeight) {
-        return this.lineHeight;
-      } else if (this.tag === "h1") {
-        return "36px";
-      } else if (this.tag === "h2") {
-        return "34px";
-      } else if (this.tag === "h3") {
-        return "32px";
-      } else if (this.tag === "h4") {
-        return "30px";
-      } else if (this.tag === "h5") {
-        return "28px";
-      } else if (this.tag === "h6") {
-        return "28px";
-      } else if (this.tag === "p") {
-        return "28px";
-      } else if (this.tag === "small") {
-        return "24px";
-      }
-
-      return null;
     },
 
     computedWeight() {
@@ -192,12 +134,46 @@ $colors: black, blue, green, grey, red, orange, white;
 
   // --> TAGS <--
 
+  &--h1 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  &--h2 {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  &--h3 {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  &--h4 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  &--h5 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  &--h6 {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
   &--p {
     margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 28px;
   }
 
   &--small {
     margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   // --> WEIGHTS <--
