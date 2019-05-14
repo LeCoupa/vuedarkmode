@@ -242,7 +242,17 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Override default font size for the element."
+              description: "Override default font-size for the element."
+            }
+          },
+          {
+            name: "lineHeight",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Override default line-height for the element."
             }
           },
           {

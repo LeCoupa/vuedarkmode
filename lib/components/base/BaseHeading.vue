@@ -16,7 +16,8 @@ component(
   ]`
   :is="tag"
   :style=`{
-    fontSize: computedFontSize
+    fontSize: computedFontSize,
+    lineHeight: computedLineHeight
   }`
 )
   slot
@@ -45,6 +46,10 @@ export default {
       }
     },
     fontSize: {
+      type: String,
+      default: null
+    },
+    lineHeight: {
       type: String,
       default: null
     },
@@ -111,6 +116,30 @@ export default {
       }
     },
 
+    computedLineHeight() {
+      if (this.lineHeight) {
+        return this.lineHeight;
+      } else if (this.tag === "h1") {
+        return "36px";
+      } else if (this.tag === "h2") {
+        return "34px";
+      } else if (this.tag === "h3") {
+        return "32px";
+      } else if (this.tag === "h4") {
+        return "30px";
+      } else if (this.tag === "h5") {
+        return "28px";
+      } else if (this.tag === "h6") {
+        return "28px";
+      } else if (this.tag === "p") {
+        return "28px";
+      } else if (this.tag === "small") {
+        return "24px";
+      }
+
+      return null;
+    },
+
     computedWeight() {
       let weight = "regular";
 
@@ -163,38 +192,12 @@ $colors: black, blue, green, grey, red, orange, white;
 
   // --> TAGS <--
 
-  &--h1 {
-    line-height: 36px;
-  }
-
-  &--h2 {
-    line-height: 34px;
-  }
-
-  &--h3 {
-    line-height: 32px;
-  }
-
-  &--h4 {
-    line-height: 30px;
-  }
-
-  &--h5 {
-    line-height: 28px;
-  }
-
-  &--h6 {
-    line-height: 28px;
-  }
-
   &--p {
     margin-bottom: 20px;
-    line-height: 28px;
   }
 
   &--small {
     margin-bottom: 20px;
-    line-height: 24px;
   }
 
   // --> WEIGHTS <--
