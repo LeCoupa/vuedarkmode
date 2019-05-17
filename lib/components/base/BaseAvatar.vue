@@ -139,7 +139,6 @@ $sizes: micro, mini, small, default, medium, large, huge;
     box-sizing: border-box;
     outline: 0;
     background-size: cover;
-    box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
     user-select: none;
 
     #{$c}__secondaries {
@@ -172,12 +171,15 @@ $sizes: micro, mini, small, default, medium, large, huge;
         @if ($size == micro) {
           width: 24px;
           height: 24px;
+          box-shadow: 0 1px 3px 0 rgba($woodsmoke, 0.6);
         } @else if ($size == mini) {
           width: 30px;
           height: 30px;
+          box-shadow: 0 1px 4px 0 rgba($woodsmoke, 0.6);
         } @else {
           width: 20px + (20px * $i);
           height: 20px + (20px * $i);
+          box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
         }
       }
 
