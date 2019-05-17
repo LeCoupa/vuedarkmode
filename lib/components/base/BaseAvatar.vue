@@ -77,9 +77,15 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return ["mini", "small", "default", "medium", "large", "huge"].includes(
-          x
-        );
+        return [
+          "micro",
+          "mini",
+          "small",
+          "default",
+          "medium",
+          "large",
+          "huge"
+        ].includes(x);
       }
     },
     src: {
@@ -117,7 +123,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-avatar";
-$sizes: mini, small, default, medium, large, huge;
+$sizes: micro, mini, small, default, medium, large, huge;
 
 #{$c} {
   display: flex;
@@ -163,7 +169,10 @@ $sizes: mini, small, default, medium, large, huge;
       #{$c}__image {
         border-radius: 2px + (2px * $i);
 
-        @if ($size == mini) {
+        @if ($size == micro) {
+          width: 24px;
+          height: 24px;
+        } @else if ($size == mini) {
           width: 30px;
           height: 30px;
         } @else {

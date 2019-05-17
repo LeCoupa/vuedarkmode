@@ -93,7 +93,7 @@ export default {
   data() {
     return {
       avatars: {
-        sizes: ["huge", "large", "medium", "default", "small", "mini"],
+        sizes: ["huge", "large", "medium", "default", "small", "mini", "micro"],
         secondaries: {
           huge: [
             {
@@ -204,7 +204,7 @@ export default {
             details: {
               description: "Specify the size of the avatar.",
               values:
-                '"mini" | "small" | "default" | "medium" | "large" | "huge"'
+                '"micro" | "mini" | "small" | "default" | "medium" | "large" | "huge"'
             }
           },
           {
