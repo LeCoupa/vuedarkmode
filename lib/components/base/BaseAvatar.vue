@@ -177,8 +177,8 @@ $sizes: micro, mini, small, default, medium, large, huge;
           height: 30px;
           box-shadow: 0 1px 4px 0 rgba($woodsmoke, 0.6);
         } @else {
-          width: 20px + (20px * $i);
-          height: 20px + (20px * $i);
+          width: 20px * $i;
+          height: 20px * $i;
           box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
         }
       }
@@ -186,7 +186,7 @@ $sizes: micro, mini, small, default, medium, large, huge;
       #{$c}__description {
         padding-top: 4px + (1px * $i);
         text-transform: uppercase;
-        font-size: 8px + (2px * $i);
+        font-size: 6px + (2px * $i);
       }
     }
   }
