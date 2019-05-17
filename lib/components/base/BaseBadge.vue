@@ -55,7 +55,14 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return ["mini", "small", "default", "medium", "large"].includes(x);
+        return [
+          "micro",
+          "mini",
+          "small",
+          "default",
+          "medium",
+          "large"
+        ].includes(x);
       }
     }
   },
@@ -90,7 +97,7 @@ export default {
 // VARIABLES
 $c: ".dm-base-badge";
 $colors: black, blue, green, orange, purple, red, turquoise, white;
-$sizes: mini, small, default, medium, large;
+$sizes: micro, mini, small, default, medium, large;
 
 #{$c} {
   display: inline-block;
@@ -126,8 +133,8 @@ $sizes: mini, small, default, medium, large;
 
     &--#{$size} {
       padding: 0 (10px + 1px * $i);
-      font-size: 12 + (1px * $i);
-      line-height: 20px + (2px * $i);
+      font-size: 10 + (1px * $i);
+      line-height: 18px + (2px * $i);
     }
   }
 

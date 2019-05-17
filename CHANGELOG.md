@@ -4,6 +4,8 @@
 
 - BaseAvatar: Add micro size.
 
+- BaseBadge: Add micro size.
+
 - BaseDivider: Add margin prop.
 
 - FieldCheckbox: Add autofocus, error, info, success, validation and warning prop.
