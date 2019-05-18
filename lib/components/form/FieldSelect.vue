@@ -312,6 +312,7 @@ $statuses: error, normal, success, warning;
         flex: 1;
         flex: 0 0 auto;
         border-bottom: 1px solid $oxford-blue;
+        color: $regent-st-blue;
         text-overflow: ellipsis;
         white-space: nowrap;
         transition: all ease-in-out 250ms;
@@ -332,8 +333,6 @@ $statuses: error, normal, success, warning;
 
         #{$c}__option-label {
           flex: 1;
-          color: $regent-st-blue;
-          transition: color ease-in-out 250ms;
         }
 
         &:last-of-type {
@@ -344,10 +343,7 @@ $statuses: error, normal, success, warning;
         &:focus {
           outline: 0;
           background-color: $ebony-clay-2;
-
-          #{$c}__option-label {
-            color: $white;
-          }
+          color: $white;
         }
       }
     }
