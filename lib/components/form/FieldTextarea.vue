@@ -290,6 +290,7 @@ $statuses: error, normal, success, warning;
 
       &::placeholder {
         color: $nepal;
+        transition: color ease-in-out 250ms;
       }
 
       &:disabled {
@@ -366,6 +367,18 @@ $statuses: error, normal, success, warning;
     #{$c}__container {
       #{$c}__field {
         cursor: default;
+      }
+    }
+  }
+
+  // --> INTERACTIONS <--
+
+  &:hover {
+    #{$c}__container {
+      #{$c}__field {
+        &::placeholder {
+          color: $white;
+        }
       }
     }
   }

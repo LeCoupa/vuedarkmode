@@ -357,7 +357,7 @@ $statuses: error, normal, success, warning;
 
       &::placeholder {
         color: $nepal;
-        transition: all ease-in-out 250ms;
+        transition: color ease-in-out 250ms;
       }
 
       &:disabled {
