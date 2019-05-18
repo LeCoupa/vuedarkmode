@@ -221,7 +221,7 @@ export default {
             details: {
               description:
                 "Define the options to display in the select element.",
-              values: '[{ label: "My Label", value: "My Value" }]'
+              values: '[{ emoji: "🌟", label: "My Label", value: "My Value" }]'
             }
           },
           {

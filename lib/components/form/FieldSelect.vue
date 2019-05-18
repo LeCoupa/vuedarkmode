@@ -46,9 +46,11 @@ div(
         class="dm-field-select__option dm-field-select__option--selected"
       )
         span(
-          v-if="selectedOption.label"
-          class="c-field-select__option-label"
-        ) {{ selectedOption.label }}
+          v-if="selectedOption.emoji"
+          class="dm-field-select__option-emoji"
+        ) {{ selectedOption.emoji }}
+
+        span.dm-field-select__option-label {{ selectedOption.label }}
 
       div(
         v-else-if="placeholder"
@@ -77,6 +79,11 @@ div(
         :key="option.value"
         tabindex="0"
       )
+        span(
+          v-if="option.emoji"
+          class="dm-field-select__option-emoji"
+        ) {{ option.emoji }}
+
         span.dm-field-select__option-label {{ option.label }}
 
   select(
@@ -299,15 +306,14 @@ $statuses: error, normal, success, warning;
       cursor: pointer;
 
       #{$c}__option {
-        overflow: hidden;
-        flex: 1;
-        text-overflow: ellipsis;
-        white-space: nowrap;
         display: flex;
+        overflow: hidden;
         align-items: center;
+        flex: 1;
         flex: 0 0 auto;
         border-bottom: 1px solid $oxford-blue;
-        color: $regent-st-blue;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         transition: all ease-in-out 250ms;
 
         &--placeholder {
@@ -318,6 +324,18 @@ $statuses: error, normal, success, warning;
           color: $white;
         }
 
+        #{$c}__option-emoji {
+          flex: 0 0 auto;
+          margin-top: 2px;
+          margin-right: 4px;
+        }
+
+        #{$c}__option-label {
+          flex: 1;
+          color: $regent-st-blue;
+          transition: color ease-in-out 250ms;
+        }
+
         &:last-of-type {
           border-bottom: none;
         }
@@ -326,7 +344,10 @@ $statuses: error, normal, success, warning;
         &:focus {
           outline: 0;
           background-color: $ebony-clay-2;
-          color: $white;
+
+          #{$c}__option-label {
+            color: $white;
+          }
         }
       }
     }
@@ -346,8 +367,8 @@ $statuses: error, normal, success, warning;
       }
 
       #{$c}__icon {
-        flex: 0 0 auto;
         position: absolute;
+        flex: 0 0 auto;
         pointer-events: none;
 
         &--left {

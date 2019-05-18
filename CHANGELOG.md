@@ -20,7 +20,7 @@
 
 - FieldRadios: Add autofocus, error, info, name, success, validation and warning prop.
 
-- FieldSelect: Add autofocus, error, info, success, placeholder, validation and warning prop.
+- FieldSelect: Add autofocus, error, info, success, placeholder, validation and warning prop. Add emoji to option item.
 
 - FielTabs: Add autofocus, error, info, success and warning prop.
 
