@@ -42,9 +42,13 @@ div(
         class="dm-field-select__icon dm-field-select__icon--left"
       )
       span(
-        v-if="selectedOption && selectedOption.label"
+        v-if="selectedOption"
         class="dm-field-select__option dm-field-select__option--selected"
-      ) {{ selectedOption.label }}
+      )
+        span(
+          v-if="selectedOption.label"
+          class="c-field-select__option-label"
+        ) {{ selectedOption.label }}
 
       div(
         v-else-if="placeholder"
@@ -72,7 +76,8 @@ div(
         ]`
         :key="option.value"
         tabindex="0"
-      ) {{ option.label }}
+      )
+        span.dm-field-select__option-label {{ option.label }}
 
   select(
     v-model="(selectedOption || {}).value"
@@ -292,6 +297,38 @@ $statuses: error, normal, success, warning;
       border-style: solid;
       user-select: none;
       cursor: pointer;
+
+      #{$c}__option {
+        overflow: hidden;
+        flex: 1;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        border-bottom: 1px solid $oxford-blue;
+        color: $regent-st-blue;
+        transition: all ease-in-out 250ms;
+
+        &--placeholder {
+          color: $nepal;
+        }
+
+        &--selected {
+          color: $white;
+        }
+
+        &:last-of-type {
+          border-bottom: none;
+        }
+
+        &:hover,
+        &:focus {
+          outline: 0;
+          background-color: $ebony-clay-2;
+          color: $white;
+        }
+      }
     }
 
     #{$c}__field {
@@ -323,18 +360,6 @@ $statuses: error, normal, success, warning;
           transform: rotate(0deg);
         }
       }
-
-      #{$c}__option {
-        overflow: hidden;
-        flex: 1;
-        color: $white;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-
-        &--placeholder {
-          color: $nepal;
-        }
-      }
     }
 
     #{$c}__options {
@@ -351,27 +376,10 @@ $statuses: error, normal, success, warning;
       user-select: none;
 
       #{$c}__option {
-        display: flex;
-        align-items: center;
-        flex: 0 0 auto;
-        border-bottom: 1px solid $oxford-blue;
-        color: $regent-st-blue;
-        transition: all ease-in-out 250ms;
-
         &--selected {
-          color: $white;
-          text-decoration: underline;
-        }
-
-        &:last-of-type {
-          border-bottom: none;
-        }
-
-        &:hover,
-        &:focus {
-          outline: 0;
-          background-color: $ebony-clay-2;
-          color: $white;
+          #{$c}__option-label {
+            text-decoration: underline;
+          }
         }
       }
     }
