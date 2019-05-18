@@ -215,7 +215,12 @@ export default {
       if (!this.disabled) {
         this.deployed = !this.deployed;
 
-        this.$emit("click", this.selectedOption.value, this.name, event);
+        this.$emit(
+          "click",
+          (this.selectedOption || {}).value,
+          this.name,
+          event
+        );
       }
     },
 
@@ -234,7 +239,8 @@ export default {
     onOptionClick(option, event) {
       this.deployed = false;
 
-      if (this.selectedOption && this.selectedOption.value !== option.value) {
+      // Check that the option is not currently selected
+      if ((this.selectedOption || {}).value !== option.value) {
         this.setSelectedOption(option);
 
         this.$emit("change", option.value, this.name, event);
