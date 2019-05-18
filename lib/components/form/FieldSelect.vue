@@ -310,7 +310,6 @@ $statuses: error, normal, success, warning;
         overflow: hidden;
         align-items: center;
         flex: 1;
-        flex: 0 0 auto;
         border-bottom: 1px solid $oxford-blue;
         color: $regent-st-blue;
         text-overflow: ellipsis;
@@ -384,7 +383,6 @@ $statuses: error, normal, success, warning;
       right: 0;
       left: 0;
       z-index: 2;
-      display: flex;
       overflow-y: auto;
       flex-direction: column;
       max-height: 200px;
@@ -393,6 +391,8 @@ $statuses: error, normal, success, warning;
       user-select: none;
 
       #{$c}__option {
+        flex: 0 0 auto;
+
         &--selected {
           #{$c}__option-label {
             text-decoration: underline;
