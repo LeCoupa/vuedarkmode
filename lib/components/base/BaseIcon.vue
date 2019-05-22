@@ -152,7 +152,6 @@ export default {
 
     &:focus {
       color: $azure-radiance !important;
-      transition: color 250ms ease-in-out;
     }
   }
 }
