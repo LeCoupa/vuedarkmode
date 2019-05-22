@@ -138,7 +138,7 @@ export default {
   font-family: "Material Icons";
   font-feature-settings: "liga";
   line-height: 1;
-  transition: all 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
   direction: ltr;
   user-select: none;
   -webkit-font-smoothing: antialiased;
