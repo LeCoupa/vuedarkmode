@@ -342,6 +342,9 @@ $statuses: error, normal, success, warning;
         &:focus {
           outline: 0;
           background-color: $ebony-clay-2;
+        }
+
+        &:focus {
           color: $white;
         }
       }
