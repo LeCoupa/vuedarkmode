@@ -480,17 +480,5 @@ $statuses: error, normal, success, warning;
       }
     }
   }
-
-  // --> INTERACTIONS <--
-
-  &:hover {
-    #{$c}__container {
-      #{$c}__field {
-        &::placeholder {
-          color: $white;
-        }
-      }
-    }
-  }
 }
 </style>
