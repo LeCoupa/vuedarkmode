@@ -109,6 +109,7 @@ $sizes: mini, small, default, medium, large;
     sans-serif;
 
   #{$c}__icon {
+    margin-top: -2px;
     margin-right: 5px;
   }
 
