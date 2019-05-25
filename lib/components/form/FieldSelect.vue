@@ -45,12 +45,24 @@ div(
         v-if="selectedOption"
         class="dm-field-select__option dm-field-select__option--selected"
       )
+        span.dm-field-select__option-left
+          slot(
+            :option="selectedOption"
+            name="option-left"
+          )
+
         span(
           v-if="selectedOption.emoji"
           class="dm-field-select__option-emoji"
         ) {{ selectedOption.emoji }}
 
         span.dm-field-select__option-label {{ selectedOption.label }}
+
+        span.dm-field-select__option-right
+          slot(
+            :option="selectedOption"
+            name="option-right"
+          )
 
       div(
         v-else-if="placeholder"
@@ -79,12 +91,24 @@ div(
         :key="option.value"
         tabindex="0"
       )
+        span.dm-field-select__option-left
+          slot(
+            :option="option"
+            name="option-left"
+          )
+
         span(
           v-if="option.emoji"
           class="dm-field-select__option-emoji"
         ) {{ option.emoji }}
 
         span.dm-field-select__option-label {{ option.label }}
+
+        span.dm-field-select__option-right
+          slot(
+            :option="option"
+            name="option-right"
+          )
 
   select(
     v-model="(selectedOption || {}).value"
@@ -324,18 +348,31 @@ $statuses: error, normal, success, warning;
           color: $white;
         }
 
+        &:last-of-type {
+          border-bottom: none;
+        }
+
+        #{$c}__option-left,
+        #{$c}__option-right,
         #{$c}__option-emoji {
           flex: 0 0 auto;
-          margin-top: 2px;
+        }
+
+        #{$c}__option-left {
+          margin-right: 6px;
+        }
+
+        #{$c}__option-emoji {
           margin-right: 4px;
+          margin-top: 2px;
         }
 
         #{$c}__option-label {
           flex: 1;
         }
 
-        &:last-of-type {
-          border-bottom: none;
+        #{$c}__option-right {
+          margin-left: 6px;
         }
 
         &:hover,
