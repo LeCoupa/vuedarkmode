@@ -42,7 +42,9 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-select v-model="synchronizedValue"&gt;&lt;/dm-select&gt;
+        |   &lt;template #option-left="{ option }"&gt;&lt;/template&gt;
+        |   &lt;template #option-right="{ option }"&gt;&lt;/template&gt;
+        | &lt;/dm-select&gt;
 
     no-ssr
       common-table(
