@@ -51,11 +51,6 @@ div(
             name="option-left"
           )
 
-        span(
-          v-if="selectedOption.emoji"
-          class="dm-field-select__option-emoji"
-        ) {{ selectedOption.emoji }}
-
         span.dm-field-select__option-label {{ selectedOption.label }}
 
         span.dm-field-select__option-right
@@ -96,11 +91,6 @@ div(
             :option="option"
             name="option-left"
           )
-
-        span(
-          v-if="option.emoji"
-          class="dm-field-select__option-emoji"
-        ) {{ option.emoji }}
 
         span.dm-field-select__option-label {{ option.label }}
 
@@ -353,18 +343,12 @@ $statuses: error, normal, success, warning;
         }
 
         #{$c}__option-left,
-        #{$c}__option-right,
-        #{$c}__option-emoji {
+        #{$c}__option-right {
           flex: 0 0 auto;
         }
 
         #{$c}__option-left {
           margin-right: 6px;
-        }
-
-        #{$c}__option-emoji {
-          margin-right: 4px;
-          margin-top: 2px;
         }
 
         #{$c}__option-label {
