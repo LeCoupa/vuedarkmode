@@ -64,12 +64,20 @@ export default {
 
     onClick(event) {
       if (this.clickable) {
+        event.preventDefault();
+        event.stopPropagation();
+
         this.$emit("click", this.id, event);
       }
     },
 
     onDoubleClick(event) {
-      this.$emit("dblclick", this.id, event);
+      if (this.clickable) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        this.$emit("dblclick", this.id, event);
+      }
     },
 
     onKeypress(event) {
