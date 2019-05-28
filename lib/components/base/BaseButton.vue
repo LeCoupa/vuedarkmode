@@ -442,7 +442,7 @@ $sizes: nano, micro, mini, small, default, medium, large;
       $i: index($sizes, $size) - 1;
 
       &#{$c}--#{$size} {
-        padding: 8px + (1px * $i);
+        padding: 6px + (1px * $i);
       }
     }
   }
