@@ -154,7 +154,14 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return ["mini", "small", "default", "medium", "large"].includes(x);
+        return [
+          "micro",
+          "mini",
+          "small",
+          "default",
+          "medium",
+          "large"
+        ].includes(x);
       }
     },
     type: {
@@ -176,7 +183,9 @@ export default {
 
   computed: {
     computedIconSize() {
-      if (this.size === "mini") {
+      if (this.size === "micro") {
+        return "12px";
+      } else if (this.size === "mini") {
         return "14px";
       } else if (this.size === "small") {
         return "16px";
@@ -264,7 +273,7 @@ export default {
 // VARIABLES
 $c: ".dm-base-button";
 $colors: black, blue, green, red, orange, white;
-$sizes: mini, small, default, medium, large;
+$sizes: micro, mini, small, default, medium, large;
 
 #{$c} {
   position: relative;
@@ -390,23 +399,23 @@ $sizes: mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      padding: (8px + 2px * $i) (10px + 2px * $i);
-      border-radius: 4px + (1px * $i);
-      font-size: 12px + (1px * $i);
-      line-height: 12px + (2px * $i);
+      padding: (6px + 2px * $i) (8px + 2px * $i);
+      border-radius: 3px + (1px * $i);
+      font-size: 11px + (1px * $i);
+      line-height: 10px + (2px * $i);
 
       #{$c}__inner {
         #{$c}__left-icon {
-          margin-right: 4px + (1px * $i);
+          margin-right: 3px + (1px * $i);
         }
 
         #{$c}__right-icon {
-          margin-left: 4px + (1px * $i);
+          margin-left: 3px + (1px * $i);
         }
       }
 
       #{$c}__list {
-        border-radius: 4px + (1px * $i);
+        border-radius: 3px + (1px * $i);
       }
     }
   }

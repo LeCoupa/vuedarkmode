@@ -6,6 +6,8 @@
 
 - BaseBadge: Add micro size.
 
+- BaseButton: Add micro size.
+
 - BaseDivider: Add margin prop.
 
 - FieldCheckbox: Add autofocus, error, info, success, validation and warning prop.
