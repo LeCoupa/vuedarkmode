@@ -279,7 +279,7 @@ export default {
             details: {
               description: "Set the button size.",
               values:
-                '"micro" | "mini" | "small" | "default" | "medium" | "large"'
+                '"nano" | "micro" | "mini" | "small" | "default" | "medium" | "large"'
             }
           },
           {
