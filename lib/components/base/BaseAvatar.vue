@@ -130,7 +130,7 @@ $sizes: micro, mini, small, default, medium, large, huge;
   align-items: center;
   flex-direction: column;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  sans-serif;
 
   @include no-tap-highlight-color;
 
@@ -191,6 +191,7 @@ $sizes: micro, mini, small, default, medium, large, huge;
         padding-top: 4px + (1px * $i);
         text-transform: uppercase;
         font-size: 6px + (2px * $i);
+        line-height: 10px + (2px * $i);
       }
     }
   }
@@ -232,4 +233,5 @@ $sizes: micro, mini, small, default, medium, large, huge;
     }
   }
 }
+
 </style>
