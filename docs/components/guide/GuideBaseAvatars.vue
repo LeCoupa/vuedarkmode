@@ -204,7 +204,7 @@ export default {
             details: {
               description: "Specify the size of the avatar.",
               values:
-                '"micro" | "mini" | "small" | "default" | "medium" | "large" | "huge"'
+                '"nano" | "micro" | "mini" | "small" | "default" | "medium" | "large" | "huge"'
             }
           },
           {

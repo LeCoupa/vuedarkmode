@@ -2,7 +2,7 @@
 
 ### Added
 
-- BaseAvatar: Add micro size.
+- BaseAvatar: Add nano and micro size.
 
 - BaseBadge: Add micro size.
 

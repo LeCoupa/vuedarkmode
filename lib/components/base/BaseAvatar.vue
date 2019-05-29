@@ -78,6 +78,7 @@ export default {
       default: "default",
       validator(x) {
         return [
+          "nano",
           "micro",
           "mini",
           "small",
@@ -123,14 +124,14 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-avatar";
-$sizes: micro, mini, small, default, medium, large, huge;
+$sizes: nano, micro, mini, small, default, medium, large, huge;
 
 #{$c} {
   display: flex;
   align-items: center;
   flex-direction: column;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-  sans-serif;
+    sans-serif;
 
   @include no-tap-highlight-color;
 
@@ -139,6 +140,7 @@ $sizes: micro, mini, small, default, medium, large, huge;
     box-sizing: border-box;
     outline: 0;
     background-size: cover;
+    box-shadow: 0 1px 3px 0 rgba($woodsmoke, 0.6);
     user-select: none;
 
     #{$c}__secondaries {
@@ -161,6 +163,7 @@ $sizes: micro, mini, small, default, medium, large, huge;
 
   #{$c}__description {
     text-align: center;
+    text-transform: uppercase;
   }
 
   // --> SIZES <--
@@ -170,28 +173,43 @@ $sizes: micro, mini, small, default, medium, large, huge;
 
     &--#{$size} {
       #{$c}__image {
-        border-radius: 2px + (2px * $i);
-
-        @if ($size == micro) {
+        @if ($size == nano) {
+          width: 20px;
+          height: 20px;
+          border-radius: 2px;
+        } @else if ($size == micro) {
           width: 24px;
           height: 24px;
-          box-shadow: 0 1px 3px 0 rgba($woodsmoke, 0.6);
+          border-radius: 2px;
         } @else if ($size == mini) {
           width: 30px;
           height: 30px;
-          box-shadow: 0 1px 4px 0 rgba($woodsmoke, 0.6);
+          border-radius: 4px;
         } @else {
-          width: 20px * $i;
-          height: 20px * $i;
-          box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
+          width: 20px * ($i - 1);
+          height: 20px * ($i - 1);
+          border-radius: 2px * ($i - 1);
         }
       }
 
       #{$c}__description {
-        padding-top: 4px + (1px * $i);
-        text-transform: uppercase;
-        font-size: 6px + (2px * $i);
-        line-height: 10px + (2px * $i);
+        @if ($size == nano) {
+          padding-top: 3px;
+          font-size: 8px;
+          line-height: 12px;
+        } @else if ($size == micro) {
+          padding-top: 3px;
+          font-size: 10px;
+          line-height: 14px;
+        } @else if ($size == mini) {
+          padding-top: 3px;
+          font-size: 12px;
+          line-height: 16px;
+        } @else {
+          padding-top: 3px + (1px * $i);
+          font-size: 4px + (2px * $i);
+          line-height: 8px + (2px * $i);
+        }
       }
     }
   }
@@ -233,5 +251,4 @@ $sizes: micro, mini, small, default, medium, large, huge;
     }
   }
 }
-
 </style>
