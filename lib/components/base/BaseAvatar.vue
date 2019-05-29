@@ -61,16 +61,16 @@ export default {
       type: Boolean,
       default: false
     },
-    secondaries: {
-      type: Array,
-      default: null
-    },
     description: {
       type: String,
       default: null
     },
     id: {
-      type: String,
+      type: [String, Number],
+      default: null
+    },
+    secondaries: {
+      type: Array,
       default: null
     },
     size: {
