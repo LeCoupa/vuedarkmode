@@ -159,6 +159,10 @@ $sizes: micro, mini, small, default, medium, large, huge;
     }
   }
 
+  #{$c}__description {
+    text-align: center;
+  }
+
   // --> SIZES <--
 
   @each $size in $sizes {
