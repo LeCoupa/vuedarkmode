@@ -37,6 +37,11 @@
   )
     pre(v-highlightjs)
       code(class="html")
+        | &lt;head&gt;
+        |   &lt;!-- Only if you need to use the outlined theme --&gt;
+        |   &lt;link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"&gt;
+        | &lt;/head&gt;
+        |
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
         | &lt;dm-icon&gt;&lt;/dm-icon&gt;
