@@ -16,6 +16,7 @@ i(
   @mouseup="onMouseUp"
   :class=`[
     "dm-base-icon",
+    "dm-base-icon--" + theme,
     {
       "dm-base-icon--clickable": clickable
     }
@@ -56,6 +57,13 @@ export default {
     size: {
       type: String,
       default: "24px"
+    },
+    theme: {
+      type: String,
+      default: "filled",
+      validator(x) {
+        return ["filled", "outlined"].includes(x);
+      }
     }
   },
 
@@ -143,7 +151,6 @@ export default {
   letter-spacing: normal;
   font-weight: normal;
   font-style: normal;
-  font-family: "Material Icons";
   font-feature-settings: "liga";
   line-height: 1;
   transition: color 250ms ease-in-out;
@@ -152,6 +159,16 @@ export default {
   -webkit-font-smoothing: antialiased;
 
   @include no-tap-highlight-color;
+
+  // --> THEMES <--
+
+  &--filled {
+    font-family: "Material Icons";
+  }
+
+  &--outlined {
+    font-family: "Material Icons Outlined";
+  }
 
   // --> BOOLEANS <--
 
@@ -168,7 +185,7 @@ export default {
   font-weight: 400;
   font-style: normal;
   font-family: "Material Icons";
-  src: url("https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
+  src: url("https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
     format("woff2");
 }
 </style>

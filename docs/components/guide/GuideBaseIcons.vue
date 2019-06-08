@@ -164,6 +164,17 @@ export default {
             details: {
               description: "Specify the size in pixels of the icon."
             }
+          },
+          {
+            name: "thtme",
+            type: {
+              type: "String",
+              additional: 'Default: "filled"'
+            },
+            details: {
+              description: "Set the icon theme.",
+              values: '"filled" | "outlined"'
+            }
           }
         ]
       },

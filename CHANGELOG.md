@@ -10,6 +10,8 @@
 
 - BaseDivider: Add margin prop.
 
+- BaseIcon: Add theme to switch between filled and outlined.
+
 - FieldCheckbox: Add autofocus, error, info, success, validation and warning prop.
 
 - FieldFile: Add autofocus, error, info, success, validation and warning prop.
