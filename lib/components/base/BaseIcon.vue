@@ -174,10 +174,6 @@ export default {
 
   &--clickable {
     cursor: pointer;
-
-    &:focus {
-      color: $azure-radiance !important;
-    }
   }
 }
 
