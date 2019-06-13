@@ -101,7 +101,7 @@ $colors: black, blue, green, red, orange, white;
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all 250ms ease-in-out;
+  transition: all 250ms linear;
 
   @include no-tap-highlight-color;
 
@@ -110,10 +110,10 @@ $colors: black, blue, green, red, orange, white;
     margin-left: 20px;
     outline: 0;
     border-radius: 100%;
-    transition: all 250ms ease-in-out;
+    transition: all 250ms linear;
 
     &:focus {
-      transition: box-shadow ease-in-out 0s;
+      transition: box-shadow linear 0s;
     }
   }
 

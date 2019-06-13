@@ -178,7 +178,7 @@ $statuses: error, normal, success, warning;
       border-radius: 100%;
       background-color: rgba($ebony-clay, 0.9);
       box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
-      transition: all ease-in-out 250ms;
+      transition: all linear 250ms;
       cursor: pointer;
 
       #{$c}__icon {
@@ -237,7 +237,7 @@ $statuses: error, normal, success, warning;
         &:focus {
           box-shadow: 0 0 0 2px $mirage,
             0 0 0 3px map-get($statusColors, $status);
-          transition: box-shadow ease-in-out 0s;
+          transition: box-shadow linear 0s;
         }
       }
     }

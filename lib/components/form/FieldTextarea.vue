@@ -271,7 +271,7 @@ $statuses: error, normal, success, warning;
 
   #{$c}__container {
     position: relative;
-    transition: all ease-in-out 250ms;
+    transition: all linear 250ms;
 
     #{$c}__icon {
       position: absolute;
@@ -290,7 +290,7 @@ $statuses: error, normal, success, warning;
 
       &::placeholder {
         color: $nepal;
-        transition: color ease-in-out 250ms;
+        transition: color linear 250ms;
       }
 
       &:disabled {

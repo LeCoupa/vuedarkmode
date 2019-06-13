@@ -75,7 +75,7 @@ $sizes: mini, small, default, medium, large;
     height: 100%;
     border-radius: 50%;
     opacity: 0.6;
-    animation: bounce 2s infinite ease-in-out;
+    animation: bounce 2s infinite linear;
 
     &--second {
       animation-delay: -1s;

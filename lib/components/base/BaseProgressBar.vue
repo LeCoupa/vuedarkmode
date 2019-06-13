@@ -134,8 +134,8 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
       width: 0;
       height: 100%;
       border-radius: 10px;
-      transition: width 0.5s ease-in-out;
-      animation: fillUp 0.5s ease-in-out 0s 1;
+      transition: width 0.5s linear;
+      animation: fillUp 0.5s linear 0s 1;
     }
   }
 

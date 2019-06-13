@@ -111,7 +111,7 @@ $sizes: small, large;
   color: $white;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all 250ms ease-in-out;
+  transition: all 250ms linear;
   user-select: none;
   cursor: pointer;
 

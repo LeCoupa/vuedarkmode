@@ -216,7 +216,7 @@ $statuses: error, normal, success, warning;
       background: $ebony-clay;
       color: $nepal;
       font-weight: 500;
-      transition-timing-function: ease-in-out;
+      transition-timing-function: linear;
       transition-duration: 250ms;
       transition-property: color, background-color;
       user-select: none;

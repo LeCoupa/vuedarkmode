@@ -288,7 +288,7 @@ $sizes: nano, micro, mini, small, default, medium, large;
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  transition: all 250ms ease-in-out;
+  transition: all 250ms linear;
   user-select: none;
   cursor: pointer;
 
@@ -318,7 +318,7 @@ $sizes: nano, micro, mini, small, default, medium, large;
       background: $white;
       color: $oxford-blue;
       white-space: nowrap;
-      transition: all 250ms ease-in-out;
+      transition: all 250ms linear;
 
       &:first-of-type {
         border-top: 1px solid rgba(0, 0, 0, 0.1);

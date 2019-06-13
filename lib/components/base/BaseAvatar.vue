@@ -234,7 +234,7 @@ $sizes: nano, micro, mini, small, default, medium, large, huge;
 
       &:focus {
         box-shadow: 0 0 0 2px $mirage, 0 0 0 3px $azure-radiance;
-        transition: box-shadow ease-in-out 0s;
+        transition: box-shadow linear 0s;
       }
     }
   }

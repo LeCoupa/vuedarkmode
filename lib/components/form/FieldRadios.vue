@@ -167,7 +167,7 @@ $statuses: error, normal, success, warning;
         outline: 0;
         border: none;
         border-radius: 100%;
-        transition: all ease-in-out 250ms;
+        transition: all linear 250ms;
         -webkit-appearance: none;
         cursor: pointer;
 
@@ -176,7 +176,7 @@ $statuses: error, normal, success, warning;
           position: absolute;
           display: inline-block;
           box-sizing: border-box;
-          transition: all ease-in-out 250ms;
+          transition: all linear 250ms;
         }
 
         &:before {
@@ -268,7 +268,7 @@ $statuses: error, normal, success, warning;
             &:focus {
               box-shadow: 0 0 0 2px $mirage,
                 0 0 0 3px map-get($statusColors, $status);
-              transition: box-shadow ease-in-out 0s;
+              transition: box-shadow linear 0s;
             }
           }
         }

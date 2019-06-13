@@ -153,7 +153,7 @@ export default {
   font-style: normal;
   font-feature-settings: "liga";
   line-height: 1;
-  transition: color 250ms ease-in-out;
+  transition: color 250ms linear;
   direction: ltr;
   user-select: none;
   -webkit-font-smoothing: antialiased;

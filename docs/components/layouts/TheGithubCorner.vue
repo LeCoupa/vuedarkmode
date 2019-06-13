@@ -40,7 +40,7 @@ $c: ".github-corner";
   border-bottom-left-radius: 4px;
 
   .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
+    animation: octocat-wave 560ms linear;
   }
 
   // --> INTERACTIONS <--
@@ -71,7 +71,7 @@ $c: ".github-corner";
   }
 
   .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
+    animation: octocat-wave 560ms linear;
   }
 }
 </style>

@@ -148,7 +148,7 @@ $c: ".dm-base-list-item";
       text-decoration: underline;
       font-weight: 400;
       line-height: 24px;
-      transition: all 250ms ease-in-out;
+      transition: all 250ms linear;
 
       &:hover,
       &:focus {

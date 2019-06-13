@@ -326,7 +326,7 @@ $statuses: error, normal, success, warning;
     display: flex;
     overflow: hidden;
     align-items: center;
-    transition: all ease-in-out 250ms;
+    transition: all linear 250ms;
 
     &:hover {
       cursor: text;
@@ -357,7 +357,7 @@ $statuses: error, normal, success, warning;
 
       &::placeholder {
         color: $nepal;
-        transition: color ease-in-out 250ms;
+        transition: color linear 250ms;
       }
 
       &:disabled {

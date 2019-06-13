@@ -80,7 +80,7 @@ $c: ".c-the-logo";
   outline: 0;
 
   #{$c}__background {
-    transition: all 250ms ease-in-out;
+    transition: all 250ms linear;
   }
 
   // --> INTERACTIONS <--

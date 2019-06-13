@@ -328,7 +328,7 @@ $statuses: error, normal, success, warning;
         color: $regent-st-blue;
         text-overflow: ellipsis;
         white-space: nowrap;
-        transition: all ease-in-out 250ms;
+        transition: all linear 250ms;
 
         &--placeholder {
           color: $nepal;
@@ -396,7 +396,7 @@ $statuses: error, normal, success, warning;
 
         &--right {
           right: 9px;
-          transition: transform 250ms ease-in-out;
+          transition: transform 250ms linear;
           transform: rotate(0deg);
         }
       }
