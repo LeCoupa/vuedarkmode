@@ -12,7 +12,8 @@ div(
       "dm-base-avatar--bordered": bordered,
       "dm-base-avatar--circular": circular,
       "dm-base-avatar--clickable": clickable,
-      "dm-base-avatar--secondaries": secondaries
+      "dm-base-avatar--secondaries": secondaries,
+      "dm-base-avatar--shadow": shadow
     }
   ]`
   :id="id"
@@ -89,6 +90,10 @@ export default {
         ].includes(x);
       }
     },
+    shadow: {
+      type: Boolean,
+      default: true
+    },
     src: {
       type: String,
       required: true
@@ -140,7 +145,6 @@ $sizes: nano, micro, mini, small, default, medium, large, huge;
     box-sizing: border-box;
     outline: 0;
     background-size: cover;
-    box-shadow: 0 1px 3px 0 rgba($woodsmoke, 0.6);
     user-select: none;
 
     #{$c}__secondaries {
@@ -248,6 +252,12 @@ $sizes: nano, micro, mini, small, default, medium, large, huge;
         right: 5px;
         bottom: 5px;
       }
+    }
+  }
+
+  &--shadow {
+    #{$c}__image {
+      box-shadow: 0 1px 3px 0 rgba($woodsmoke, 0.6);
     }
   }
 }

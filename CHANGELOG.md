@@ -2,7 +2,7 @@
 
 ### Added
 
-- BaseAvatar: Add nano and micro size.
+- BaseAvatar: Add nano and micro size. Add shadow prop.
 
 - BaseBadge: Add micro size.
 

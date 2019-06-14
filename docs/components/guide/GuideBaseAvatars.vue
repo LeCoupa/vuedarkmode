@@ -208,6 +208,16 @@ export default {
             }
           },
           {
+            name: "shadow",
+            type: {
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description: "Add a box-shadow on the avatar."
+            }
+          },
+          {
             name: "src",
             type: {
               type: "String",
