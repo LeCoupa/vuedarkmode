@@ -45,7 +45,10 @@ div(
         v-if="selectedOption"
         class="dm-field-select__option dm-field-select__option--selected"
       )
-        span.dm-field-select__option-left
+        span(
+          v-if="$scopedSlots['option-left']"
+          class="dm-field-select__option-left"
+        )
           slot(
             :option="selectedOption"
             name="option-left"
@@ -53,7 +56,10 @@ div(
 
         span.dm-field-select__option-label {{ selectedOption.label }}
 
-        span.dm-field-select__option-right
+        span(
+          v-if="$scopedSlots['option-right']"
+          class="dm-field-select__option-right"
+        )
           slot(
             :option="selectedOption"
             name="option-right"
@@ -86,7 +92,10 @@ div(
         :key="option.value"
         tabindex="0"
       )
-        span.dm-field-select__option-left
+        span(
+          v-if="$scopedSlots['option-left']"
+          class="dm-field-select__option-left"
+        )
           slot(
             :option="option"
             name="option-left"
@@ -94,7 +103,10 @@ div(
 
         span.dm-field-select__option-label {{ option.label }}
 
-        span.dm-field-select__option-right
+        span(
+          v-if="$scopedSlots['option-right']"
+          class="dm-field-select__option-right"
+        )
           slot(
             :option="option"
             name="option-right"
