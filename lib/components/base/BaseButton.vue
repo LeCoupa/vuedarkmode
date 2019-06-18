@@ -448,7 +448,7 @@ $sizes: nano, micro, mini, small, default, medium, large;
   }
 
   &--disabled {
-    opacity: 0.7;
+    opacity: 0.5;
     cursor: not-allowed;
 
     #{$c}__inner {
