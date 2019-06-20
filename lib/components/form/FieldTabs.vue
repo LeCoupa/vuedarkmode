@@ -217,14 +217,17 @@ $statuses: error, normal, success, warning;
   @include no-tap-highlight-color;
 
   #{$c}__container {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
     font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
       sans-serif;
     cursor: pointer;
 
     #{$c}__tab {
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
       outline: 0;
       border-width: 1px;
       border-style: solid;
@@ -251,8 +254,11 @@ $statuses: error, normal, success, warning;
         border-bottom-right-radius: 4px;
       }
 
-      #{$c}__symbol {
-        margin-right: 3px;
+      #{$c}__tab-left,
+      #{$c}__tab-right,
+      #{$c}__label {
+        display: flex;
+        flex: 0 0 auto;
       }
 
       // --> BOOLEANS <--
@@ -287,9 +293,9 @@ $statuses: error, normal, success, warning;
     &--#{$size} {
       #{$c}__container {
         #{$c}__tab {
-          padding: (6px + (1px * $i)) (12px + (2px * $i));
-          font-size: 12px + (1px * $i);
-          line-height: 15px + (1px * $i);
+          padding: (8px + (1px * $i)) (10px + (2px * $i));
+          font-size: 11px + (1px * $i);
+          line-height: 17px + (1px * $i);
         }
       }
     }
