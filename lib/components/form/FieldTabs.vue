@@ -23,18 +23,18 @@ div(
   .dm-field-tabs__container
     span(
       v-for="(tab, index) in tabs"
-      @click="onTabClick(tab.id, $event)"
+      @click="onTabClick(tab.value, $event)"
       @keypress.prevent="onTabKeypress"
       :class=`[
         "dm-field-tabs__tab",
         {
-          "dm-field-tabs__tab--active": activeTabs.includes(tab.id),
+          "dm-field-tabs__tab--active": activeTabs.includes(tab.value),
           "dm-field-tabs__tab--active-next": checkActiveBrother("asc", index + 1),
           "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", index - 1),
           "js-tag-for-autofocus": index === 0
         }
       ]`
-      :key="tab.id"
+      :key="tab.value"
       tabindex="0"
     )
       span(
@@ -42,7 +42,7 @@ div(
         class="dm-field-tabs__symbol"
       ) {{ tab.symbol }}
 
-      span.dm-field-tabs__name {{ tab.name }}
+      span.dm-field-tabs__label {{ tab.label }}
 
   field-message(
     v-if="computedMessageLevel"
@@ -117,7 +117,7 @@ export default {
 
     checkActiveBrother(order, index) {
       if (this.multiple && this.tabs[index]) {
-        return this.activeTabs.includes(this.tabs[index].id);
+        return this.activeTabs.includes(this.tabs[index].value);
       }
     },
 
@@ -131,37 +131,44 @@ export default {
 
     // --> EVENT LISTENERS <--
 
-    onTabClick(tabId, event) {
+    onTabClick(tabValue, event) {
       // When multiple values are not allowed and tab is not already active
-      if (!this.multiple && !this.activeTabs.includes(tabId)) {
-        this.activeTabs = [tabId];
+      if (!this.multiple && !this.activeTabs.includes(tabValue)) {
+        this.activeTabs = [tabValue];
 
-        this.$emit("change", tabId, "added", this.activeTabs, this.name, event);
-        this.$emit("input", tabId); // Synchronization for v-model
+        this.$emit(
+          "change",
+          tabValue,
+          "added",
+          this.activeTabs,
+          this.label,
+          event
+        );
+        this.$emit("input", tabValue); // Synchronization for v-model
       }
 
       // When multiple values are allowed
       if (this.multiple) {
         // Remove the tab when already active
-        if (this.activeTabs.includes(tabId)) {
-          this.activeTabs.splice(this.activeTabs.indexOf(tabId), 1);
+        if (this.activeTabs.includes(tabValue)) {
+          this.activeTabs.splice(this.activeTabs.indexOf(tabValue), 1);
           this.$emit(
             "change",
-            tabId,
+            tabValue,
             "removed",
             this.activeTabs,
-            this.name,
+            this.label,
             event
           );
         } else {
           // Push the tab when not already active
-          this.activeTabs.push(tabId);
+          this.activeTabs.push(tabValue);
           this.$emit(
             "change",
-            tabId,
+            tabValue,
             "added",
             this.activeTabs,
-            this.name,
+            this.label,
             event
           );
         }
@@ -169,7 +176,7 @@ export default {
         this.$emit("input", this.activeTabs); // Synchronization for v-model
       }
 
-      this.$emit("click", tabId, this.activeTabs, this.name, event);
+      this.$emit("click", tabValue, this.activeTabs, this.label, event);
     },
 
     onTabKeypress(event) {
@@ -243,7 +250,7 @@ $statuses: error, normal, success, warning;
         color: $white;
 
         &:focus {
-          #{$c}__name {
+          #{$c}__label {
             text-decoration: underline;
           }
         }

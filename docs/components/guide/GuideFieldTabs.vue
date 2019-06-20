@@ -26,9 +26,9 @@
           :size="size"
           :status="statuses[j]"
           :tabs=`[
-            { id: "auto",  symbol: '🛍️', name: 'Auto' },
-            { id: "k", symbol: '🏘️', name: 'K', },
-            { id: "M", symbol: '📰' , name: 'M'}
+            { label: 'Auto', value: "auto",  symbol: '🛍️' },
+            { label: 'K', value: "k", symbol: '🏘️' },
+            { label: 'M', value: "M", symbol: '📰' }
           ]`
           description="This is a customizable description for tabs."
           value="auto"
@@ -232,7 +232,7 @@ export default {
             details: {
               description: "Define the tabs to display.",
               values:
-                '[{ id: "vuedarkmode", symbol: "🛍️", name: "Vue Dark Mode" }]'
+                '[{ label: "Vue Dark Mode", value: "vuedarkmode", symbol: "🛍️" }]'
             }
           },
           {
@@ -280,14 +280,14 @@ export default {
           {
             name: "change",
             parameters:
-              'tabId, status ("added"|"removed"), activeTabs, name, event',
+              'tabValue, status ("added"|"removed"), activeTabs, name, event',
             details: {
               description: "Fires when a tab is added or removed."
             }
           },
           {
             name: "click",
-            parameters: "tabId, activeTabs, name, event",
+            parameters: "tabValue, activeTabs, name, event",
             details: {
               description: "Fires on a mouse click on a tab element."
             }
