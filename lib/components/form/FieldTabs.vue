@@ -289,6 +289,7 @@ $statuses: error, normal, success, warning;
         #{$c}__tab {
           padding: (6px + (1px * $i)) (12px + (2px * $i));
           font-size: 12px + (1px * $i);
+          line-height: 15px + (1px * $i);
         }
       }
     }
