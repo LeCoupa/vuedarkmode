@@ -26,9 +26,9 @@
           :size="size"
           :status="statuses[j]"
           :tabs=`[
-            { label: 'Auto', value: "auto",  symbol: '🛍️' },
-            { label: 'K', value: "k", symbol: '🏘️' },
-            { label: 'M', value: "M", symbol: '📰' }
+            { label: 'Auto', value: "auto" },
+            { label: 'K', value: "k" },
+            { label: 'M', value: "M" }
           ]`
           description="This is a customizable description for tabs."
           value="auto"
@@ -42,7 +42,10 @@
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-tabs v-model="synchronizedValue"&gt;&lt;/dm-tabs&gt;
+        | &lt;dm-tabs v-model="synchronizedValue"&gt;
+        |   &lt;template #tab-left="{ tab }"&gt;&lt;/template&gt;
+        |   &lt;template #tab-right="{ tab }"&gt;&lt;/template&gt;
+        | &lt;/dm-tabs&gt;
 
     no-ssr
       common-table(
@@ -231,8 +234,7 @@ export default {
             },
             details: {
               description: "Define the tabs to display.",
-              values:
-                '[{ label: "Vue Dark Mode", value: "vuedarkmode", symbol: "🛍️" }]'
+              values: '[{ label: "Vue Dark Mode", value: "vuedarkmode" }]'
             }
           },
           {

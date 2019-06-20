@@ -26,7 +26,7 @@
 
 - FieldSelect: Add autofocus, error, info, success, placeholder, validation and warning prop. Add emoji to option item. New slots for option-left and option-right.
 
-- FielTabs: Add autofocus, error, info, success and warning prop. Use label and value instead of id and name.
+- FielTabs: Add autofocus, error, info, success and warning prop. Use label and value instead of id and name. New slots for tab-left and tab-right.
 
 - FieldTextarea: Add autofocus, error, icon, info, spellcheck, success, resize, validation and warning prop.
 

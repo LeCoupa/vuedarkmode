@@ -22,27 +22,38 @@ div(
 
   .dm-field-tabs__container
     span(
-      v-for="(tab, index) in tabs"
+      v-for="(tab, i) in tabs"
       @click="onTabClick(tab.value, $event)"
       @keypress.prevent="onTabKeypress"
       :class=`[
         "dm-field-tabs__tab",
         {
           "dm-field-tabs__tab--active": activeTabs.includes(tab.value),
-          "dm-field-tabs__tab--active-next": checkActiveBrother("asc", index + 1),
-          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", index - 1),
-          "js-tag-for-autofocus": index === 0
+          "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
+          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1)
         }
       ]`
-      :key="tab.value"
       tabindex="0"
     )
       span(
-        v-if="tab.symbol"
-        class="dm-field-tabs__symbol"
-      ) {{ tab.symbol }}
+        v-if="$scopedSlots['tab-left']"
+        class="dm-field-tabs__tab-left"
+      )
+        slot(
+          :tab="tab"
+          name="tab-left"
+        )
 
       span.dm-field-tabs__label {{ tab.label }}
+
+      span(
+        v-if="$scopedSlots['tab-right']"
+        class="dm-field-tabs__tab-right"
+      )
+        slot(
+          :tab="tab"
+          name="tab-right"
+        )
 
   field-message(
     v-if="computedMessageLevel"
