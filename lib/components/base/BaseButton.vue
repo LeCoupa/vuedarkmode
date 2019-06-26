@@ -37,6 +37,7 @@ button(
       :color="leftIconColor"
       :name="leftIcon"
       :size="computedIconSize"
+      :theme="leftIconTheme"
       class="dm-base-button__left-icon"
     )
     span(
@@ -50,6 +51,7 @@ button(
       :color="rightIconColor"
       :name="computedRightIcon"
       :size="computedIconSize"
+      :theme="rightIconTheme"
       class="dm-base-button__right-icon"
     )
     base-spinner(
@@ -119,6 +121,13 @@ export default {
       type: String,
       default: null
     },
+    leftIconTheme: {
+      type: String,
+      default: "filled",
+      validator(x) {
+        return ["filled", "outlined"].includes(x);
+      }
+    },
     link: {
       type: Boolean,
       default: false
@@ -145,6 +154,13 @@ export default {
     rightIconColor: {
       type: String,
       default: null
+    },
+    rightIconTheme: {
+      type: String,
+      default: "filled",
+      validator(x) {
+        return ["filled", "outlined"].includes(x);
+      }
     },
     rounded: {
       type: Boolean,
