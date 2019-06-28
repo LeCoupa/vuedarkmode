@@ -179,14 +179,6 @@ $statuses: error, normal, success, warning;
         content: "";
       }
 
-      &:hover {
-        &:after {
-          border-color: $oxford-blue;
-          border-right-width: 2px;
-          border-bottom-width: 2px;
-        }
-      }
-
       &:checked {
         &:after {
           border-color: $white;
