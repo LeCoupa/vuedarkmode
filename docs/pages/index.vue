@@ -10,6 +10,7 @@ main.c-index
       throttle: 250
     }`
   )
+
   section(
     v-for="section in sections"
     v-observe-visibility=`{
@@ -23,6 +24,7 @@ main.c-index
     base-divider(
       class="c-index__divider"
     )
+
     common-headlines(
       @toggleDocumentation="onToggleDocumentation"
       :description="section.headlines.description"
@@ -31,91 +33,114 @@ main.c-index
       :source-url="section.headlines.sourceUrl"
       :title="section.headlines.title"
     )
+
     guide-install(
       v-if="section.id === 'installation'"
     )
+
     guide-package-options(
       v-if="section.id === 'packageOptions'"
     )
+
     guide-colors(
       v-if="section.id === 'colors'"
     )
+
     guide-base-alerts(
       v-if="section.id === 'baseAlert'"
       :documentation="docs.baseAlert"
     )
+
     guide-base-avatars(
       v-if="section.id === 'baseAvatar'"
       :documentation="docs.baseAvatar"
     )
+
     guide-base-badges(
       v-if="section.id === 'baseBadge'"
       :documentation="docs.baseBadge"
     )
+
     guide-base-buttons(
       v-if="section.id === 'baseButton'"
       :documentation="docs.baseButton"
     )
+
     guide-base-dividers(
       v-if="section.id === 'baseDivider'"
       :documentation="docs.baseDivider"
     )
+
     guide-base-headings(
       v-if="section.id === 'baseHeading'"
       :documentation="docs.baseHeading"
     )
+
     guide-base-icons(
       v-if="section.id === 'baseIcon'"
       :documentation="docs.baseIcon"
     )
+
     guide-base-list-items(
       v-if="section.id === 'baseListItem'"
       :documentation="docs.baseListItem"
     )
+
     guide-base-progress-bars(
       v-if="section.id === 'baseProgressBar'"
       :documentation="docs.baseProgressBar"
     )
+
     guide-base-social-logins(
       v-if="section.id === 'baseSocialLogin'"
       :documentation="docs.baseSocialLogin"
     )
+
     guide-base-spinners(
       v-if="section.id === 'baseSpinner'"
       :documentation="docs.baseSpinner"
     )
+
     guide-base-toasts(
       v-if="section.id === 'baseToast'"
       :documentation="docs.baseToast"
     )
+
     guide-field-checkboxes(
       v-if="section.id === 'fieldCheckbox'"
       :documentation="docs.fieldCheckbox"
     )
+
     guide-field-files(
       v-if="section.id === 'fieldFile'"
       :documentation="docs.fieldFile"
     )
+
     guide-field-inputs(
       v-if="section.id === 'fieldInput'"
       :documentation="docs.fieldInput"
     )
+
     guide-field-radios(
       v-if="section.id === 'fieldRadio'"
       :documentation="docs.fieldRadio"
     )
+
     guide-field-selects(
       v-if="section.id === 'fieldSelect'"
       :documentation="docs.fieldSelect"
     )
+
     guide-field-tabs(
       v-if="section.id === 'fieldTabs'"
       :documentation="docs.fieldTabs"
     )
+
     guide-field-textareas(
       v-if="section.id === 'fieldTextarea'"
       :documentation="docs.fieldTextarea"
     )
+
     guide-field-toggles(
       v-if="section.id === 'fieldToggle'"
       :documentation="docs.fieldToggle"

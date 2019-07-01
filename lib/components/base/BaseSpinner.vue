@@ -12,6 +12,7 @@ div(
   ]`
 )
   .dm-base-spinner__wave.dm-base-spinner__wave--first
+
   .dm-base-spinner__wave.dm-base-spinner__wave--second
 </template>
 

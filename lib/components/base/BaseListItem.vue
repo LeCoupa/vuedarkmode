@@ -15,6 +15,7 @@
       :number="number"
       class="dm-base-list-item__number"
     )
+
     base-heading(
       v-if="$slots.default && $slots.default[0].text.trim()"
       class="dm-base-list-item__content"
@@ -31,6 +32,7 @@
       name="link"
       size="20px"
     )
+
     a(
       :href="source.link"
       class="dm-base-list-item__label"

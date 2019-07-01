@@ -37,6 +37,7 @@ div(
       :name="leftIcon"
       class="dm-field-input__icon dm-field-input__icon--left"
     )
+
     input(
       v-validate="validation"
       @blur="onFieldBlur"
@@ -61,6 +62,7 @@ div(
       :value="currentValue"
       class="dm-field-input__field js-tag-for-autofocus"
     )
+
     base-icon(
       v-if="computedRightIcon"
       @click="onRightIconClick"

@@ -11,11 +11,13 @@
       :categories="categories"
       class="l-default__navigation"
     )
+
     .l-default__page-wrapper.js-default-page-wrapper
       the-github-corner(
         link="https://github.com/LeCoupa/vuedarkmode"
         class="l-default__github-corner"
       )
+
       .l-default__page-inner
         nuxt
 </template>

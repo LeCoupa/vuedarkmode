@@ -11,6 +11,7 @@
       }`
       class="c-common-color__highlight",
     )
+
     .c-common-color__hex {{ hex }}
 
   .c-common-color__name {{ name }}

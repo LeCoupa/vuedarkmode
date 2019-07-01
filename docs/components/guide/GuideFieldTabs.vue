@@ -59,6 +59,7 @@
       color="white"
       size="small"
     )
+
     no-ssr
       common-table(
         :data="events.data"

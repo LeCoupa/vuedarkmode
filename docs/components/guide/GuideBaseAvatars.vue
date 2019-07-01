@@ -24,6 +24,7 @@
             :size="size"
             src="/images/docs/nada.jpeg"
           )
+
           base-avatar(
             v-else-if="type === 'thumbnails'"
             :bordered="true"
@@ -57,6 +58,7 @@
       color="white"
       size="small"
     )
+
     no-ssr
       common-table(
         :data="events.data"

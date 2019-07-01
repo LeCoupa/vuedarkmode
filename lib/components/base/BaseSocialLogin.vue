@@ -23,10 +23,12 @@ button(
       v-if="loading"
       size="mini"
     )
+
     span(
       v-if="!loading"
       class="dm-base-social-login__icon"
     )
+
     span(
       v-if="size === 'large' && !loading"
       class="dm-base-social-login__label"

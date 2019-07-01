@@ -11,6 +11,7 @@ header.c-the-header#welcome
     color="blue"
     size="small"
   )
+
   base-heading(
     :uppercase="true"
     tag="h1"
@@ -27,6 +28,7 @@ header.c-the-header#welcome
     repo="vuedarkmode"
     user="lecoupa"
   )
+
   the-subscription-box
 </template>
 

@@ -15,6 +15,7 @@ div(
     class="dm-base-alert__icon dm-base-alert__icon--left"
     size="20px"
   )
+
   span(
     v-if="$slots.default && $slots.default[0].text.trim()"
     class="dm-base-alert__slot"

@@ -22,6 +22,7 @@
       size="medium"
       validation="required|email"
     )
+
     base-button(
       :loading="loading"
       class="c-the-subscription-box__button"

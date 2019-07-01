@@ -37,6 +37,7 @@ div(
         :value="radio.value"
         type="radio"
       )
+
       field-label(
         v-if="radio.label"
         :forField="radio.id"

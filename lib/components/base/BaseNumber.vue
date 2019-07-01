@@ -21,6 +21,7 @@ span(
     :size="iconSize"
     class="dm-base-number__icon"
   )
+
   span(
     v-else-if="number"
     class="dm-base-number__number"

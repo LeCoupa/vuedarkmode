@@ -41,6 +41,7 @@ div(
         :name="computedLeftIcon"
         class="dm-field-select__icon dm-field-select__icon--left"
       )
+
       span(
         v-if="selectedOption"
         class="dm-field-select__option dm-field-select__option--selected"

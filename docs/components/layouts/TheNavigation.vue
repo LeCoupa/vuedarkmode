@@ -55,6 +55,7 @@ nav.c-the-navigation
       size="mini"
       src="/images/docs/nada.jpeg"
     )
+
     span.c-the-navigation__description Looking for a Vue.js / Nuxt.js freelancer? Ping me, I'm available! 👩‍🎨
 </template>
 

@@ -16,6 +16,7 @@ p(
     :size="computedIconSize"
     class="dm-field-message__icon"
   )
+
   span(
     v-html="message"
     class="dm-field-message__message"

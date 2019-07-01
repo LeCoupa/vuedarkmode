@@ -40,6 +40,7 @@ button(
       :theme="leftIconTheme"
       class="dm-base-button__left-icon"
     )
+
     span(
       v-if="$slots.default && $slots.default[0].text.trim() && !circular && !loading"
       class="dm-base-button__label"
@@ -54,6 +55,7 @@ button(
       :theme="rightIconTheme"
       class="dm-base-button__right-icon"
     )
+
     base-spinner(
       v-if="loading"
       :color="computedSpinnerColor"

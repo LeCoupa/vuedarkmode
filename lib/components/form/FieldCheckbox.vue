@@ -27,6 +27,7 @@ div(
       class="dm-field-checkbox__field js-tag-for-autofocus"
       type="checkbox"
     )
+
     field-label(
       v-if="label"
       :forField="uuid"

@@ -7,18 +7,21 @@ footer.c-the-footer
   span.c-the-footer__line
     | ⚡️Made by
     | &#32;
+
     a(
       class="c-the-footer__link"
       href="https://www.nadarifki.com/"
       target="_blank"
     ) Nada Rifki,
     | &#32;
+
     a(
       class="c-the-footer__link"
       href="https://twitter.com/LeCoupa"
       target="_blank"
     ) Julien Le Coupanec
     | &#32;&amp;&#32;️
+
     a(
       class="c-the-footer__link"
       href="https://twitter.com/yaeeelglx"
