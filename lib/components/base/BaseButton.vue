@@ -33,7 +33,7 @@ button(
 )
   span.dm-base-button__inner
     base-icon(
-      v-if="leftIcon && !loading"
+      v-if="leftIcon"
       :color="leftIconColor"
       :name="leftIcon"
       :size="computedIconSize"
@@ -42,13 +42,13 @@ button(
     )
 
     span(
-      v-if="$slots.default && $slots.default[0].text.trim() && !circular && !loading"
+      v-if="$slots.default && $slots.default[0].text.trim() && !circular"
       class="dm-base-button__label"
     )
       slot
 
     base-icon(
-      v-if="computedRightIcon && !loading"
+      v-if="computedRightIcon"
       :color="rightIconColor"
       :name="computedRightIcon"
       :size="computedIconSize"
@@ -56,11 +56,12 @@ button(
       class="dm-base-button__right-icon"
     )
 
-    base-spinner(
-      v-if="loading"
-      :color="computedSpinnerColor"
-      size="mini"
-    )
+  base-spinner(
+    v-if="loading"
+    :color="computedSpinnerColor"
+    class="dm-base-button__spinner"
+    size="mini"
+  )
 
   transition(
     v-if="list && listOpened && !loading"
@@ -496,8 +497,20 @@ $sizes: nano, micro, mini, small, default, medium, large;
   }
 
   &--loading {
+    position: relative;
     opacity: 1;
     cursor: wait;
+
+    #{$c}__inner {
+      opacity: 0;
+    }
+
+    #{$c}__spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   &--reverse {
@@ -518,8 +531,8 @@ $sizes: nano, micro, mini, small, default, medium, large;
 
         &:active {
           @if ($color == white) {
-            color: $oxford-blue;
             background-color: $white;
+            color: $oxford-blue;
           } @else {
             background-color: map-get($mainColors, $color);
           }
