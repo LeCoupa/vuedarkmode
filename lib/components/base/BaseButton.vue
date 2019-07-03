@@ -18,7 +18,7 @@ button(
     "dm-base-button--" + color,
     "dm-base-button--" + size,
     {
-      "dm-base-button--circular": circular || loading,
+      "dm-base-button--circular": circular,
       "dm-base-button--disabled": disabled || loading,
       "dm-base-button--full-width": fullWidth,
       "dm-base-button--link": link,
