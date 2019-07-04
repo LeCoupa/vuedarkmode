@@ -41,7 +41,7 @@ div(
       field-label(
         v-if="radio.label"
         :forField="radio.id"
-        :required="validation && validation.includes('required')"
+        :required="labelRequired"
         :size="size"
         :uppercase="false"
         class="dm-field-radios__label"

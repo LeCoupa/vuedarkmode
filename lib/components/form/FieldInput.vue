@@ -23,7 +23,7 @@ div(
   field-label(
     v-if="label"
     :forField="uuid"
-    :required="validation && validation.includes('required')"
+    :required="labelRequired"
     :size="size"
     class="dm-field-input__label"
   ) {{ label }}

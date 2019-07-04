@@ -31,7 +31,7 @@ div(
     field-label(
       v-if="label"
       :forField="uuid"
-      :required="validation && validation.includes('required')"
+      :required="labelRequired"
       :size="size"
       :uppercase="false"
       class="dm-field-toggle__label"

@@ -20,7 +20,7 @@ div(
       class="dm-field-file__information"
     )
       field-label(
-        :required="validation && validation.includes('required')"
+        :required="labelRequired"
         :size="size"
         class="dm-field-file__label"
       ) {{ label }}

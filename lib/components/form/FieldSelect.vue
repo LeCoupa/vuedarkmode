@@ -24,7 +24,7 @@ div(
     v-if="label"
     @click="onLabelClick"
     :forField="uuid"
-    :required="validation && validation.includes('required')"
+    :required="labelRequired"
     :size="size"
     class="dm-field-select__label"
   ) {{ label }}
