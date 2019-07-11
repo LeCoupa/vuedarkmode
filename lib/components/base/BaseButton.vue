@@ -45,7 +45,13 @@ button(
       v-if="$slots.default && $slots.default[0].text.trim() && !circular"
       class="dm-base-button__label"
     )
-      slot
+      template(
+        v-if="confirming"
+      ) Click to confirm
+
+      slot(
+        v-else
+      )
 
     base-icon(
       v-if="computedRightIcon"
@@ -103,6 +109,10 @@ export default {
       validator(x) {
         return ["black", "blue", "green", "orange", "red", "white"].includes(x);
       }
+    },
+    confirmation: {
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,
@@ -197,6 +207,7 @@ export default {
     return {
       // --> STATE <--
 
+      confirming: false,
       listOpened: false
     };
   },
@@ -237,6 +248,14 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
+      if (this.confirmation) {
+        if (this.confirming) {
+          this.$emit("confirm", this.id, event);
+        }
+
+        this.confirming = !this.confirming;
+      }
+
       if (this.list) {
         this.listOpened = !this.listOpened;
       }

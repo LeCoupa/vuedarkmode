@@ -147,6 +147,16 @@ export default {
             }
           },
           {
+            name: "confirmation",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Add a confirmation state to the button"
+            }
+          },
+          {
             name: "disabled",
             type: {
               type: "Boolean",
@@ -320,6 +330,14 @@ export default {
             parameters: "id, event",
             details: {
               description: "Fires on a mouse click on the element."
+            }
+          },
+          {
+            name: "confirm",
+            parameters: "id, event",
+            details: {
+              description:
+                "Fires on a mouse click when the button is in the confirmation state."
             }
           },
           {
