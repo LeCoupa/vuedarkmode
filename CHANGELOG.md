@@ -12,6 +12,8 @@
 
 - BaseIcon: Add theme to switch between filled and outlined.
 
+- BaseSpinner: Add new colors.
+
 - FieldCheckbox: Add autofocus, error, info, success, validation and warning prop.
 
 - FieldFile: Add autofocus, error, info, success, validation and warning prop.

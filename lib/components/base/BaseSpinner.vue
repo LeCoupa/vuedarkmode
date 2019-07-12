@@ -27,7 +27,17 @@ export default {
       type: String,
       default: "white",
       validator(x) {
-        return ["black", "blue", "green", "orange", "red", "white"].includes(x);
+        return [
+          "black",
+          "blue",
+          "green",
+          "grey",
+          "orange",
+          "purple",
+          "red",
+          "turquoise",
+          "white"
+        ].includes(x);
       }
     },
     size: {
@@ -59,7 +69,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-spinner";
-$colors: black, blue, green, red, orange, white;
+$colors: black, blue, green, grey, orange, purple, red, turquoise, white;
 $sizes: mini, small, default, medium, large;
 
 #{$c} {

@@ -108,7 +108,8 @@ export default {
             },
             details: {
               description: "Set the button color.",
-              values: '"black" | "blue" | "green" | "orange" | "red" | "white"'
+              values:
+                '"black" | "blue" | "green" | "grey" | "orange" | "purple" | "red" | "turquoise" | "white"'
             }
           },
           {
