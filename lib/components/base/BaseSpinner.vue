@@ -99,8 +99,8 @@ $sizes: mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      width: (16px + 10px * $i);
-      height: (16px + 10px * $i);
+      width: (20px + 10px * $i);
+      height: (20px + 10px * $i);
     }
   }
 }
