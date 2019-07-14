@@ -174,8 +174,8 @@ $statuses: error, normal, success, warning;
 
       &:after {
         border: 2px solid $white;
-        border-top: 0;
-        border-left: 0;
+        border-top: none;
+        border-left: none;
         transform: rotate(45deg);
         content: "";
       }

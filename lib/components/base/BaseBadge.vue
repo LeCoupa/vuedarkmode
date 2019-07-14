@@ -11,7 +11,8 @@ span(
     "dm-base-badge--" + color,
     "dm-base-badge--" + size,
     {
-      "dm-base-badge--clickable": clickable
+      "dm-base-badge--clickable": clickable,
+      "dm-base-badge--filled": filled
     }
   ]`
   :id="id"
@@ -46,6 +47,10 @@ export default {
           "white"
         ].includes(x);
       }
+    },
+    filled: {
+      type: Boolean,
+      default: false
     },
     id: {
       type: String,
@@ -118,6 +123,10 @@ $sizes: micro, mini, small, default, medium, large;
   @each $color in $colors {
     &--#{$color} {
       border-color: map-get($mainColors, $color);
+
+      &#{$c}--filled {
+        background-color: map-get($mainColors, $color);
+      }
 
       &:focus {
         box-shadow: 0 0 0 2px $mirage, 0 0 0 3px map-get($mainColors, $color);

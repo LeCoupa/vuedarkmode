@@ -136,6 +136,16 @@ export default {
             }
           },
           {
+            name: "filled",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Fill the badge with the chosen prop color"
+            }
+          },
+          {
             name: "id",
             type: {
               type: "String",

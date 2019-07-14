@@ -4,7 +4,7 @@
 
 - BaseAvatar: Add nano and micro size. Add shadow prop.
 
-- BaseBadge: Add micro size.
+- BaseBadge: Add micro size. Add filled prop.
 
 - BaseButton: Add nano and micro size. Add confirmation prop.
 
