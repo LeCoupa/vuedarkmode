@@ -175,10 +175,7 @@ export default {
     },
     options: {
       type: Array,
-      required: true,
-      validator(x) {
-        return x.length > 0;
-      }
+      required: true
     },
     placeholder: {
       type: String,
