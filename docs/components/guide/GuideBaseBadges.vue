@@ -114,16 +114,6 @@ export default {
         ],
         data: [
           {
-            name: "clickable",
-            type: {
-              type: "Boolean",
-              additional: "Default: false"
-            },
-            details: {
-              description: "Whether the badge is clickable or not."
-            }
-          },
-          {
             name: "color",
             type: {
               type: "String",

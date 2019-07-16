@@ -18,7 +18,7 @@ i(
     "dm-base-icon",
     "dm-base-icon--" + theme,
     {
-      "dm-base-icon--clickable": clickable
+      "dm-base-icon--clickable": $listeners.click
     }
   ]`
   :id="id"
@@ -26,7 +26,7 @@ i(
     color: color,
     fontSize: size
   }`
-  :tabindex="clickable ? '0' : null"
+  :tabindex="$listeners.click ? '0' : null"
   aria-hidden="true"
 ) {{ name }}
 </template>
@@ -38,10 +38,6 @@ i(
 <script>
 export default {
   props: {
-    clickable: {
-      type: Boolean,
-      default: false
-    },
     color: {
       type: String,
       default: null
@@ -71,25 +67,23 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      if (this.clickable) {
         event.preventDefault();
         event.stopPropagation();
 
         this.$emit("click", this.id, event);
-      }
+
     },
 
     onDoubleClick(event) {
-      if (this.clickable) {
         event.preventDefault();
         event.stopPropagation();
 
         this.$emit("dblclick", this.id, event);
-      }
+
     },
 
     onKeypress(event) {
-      if (this.clickable && event.code === "Space") {
+      if (event.code === "Space") {
         event.preventDefault();
         event.target.click();
       }

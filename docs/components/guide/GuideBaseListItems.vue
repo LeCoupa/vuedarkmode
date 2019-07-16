@@ -212,7 +212,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Add a clickable source below the list item.",
+              description: "Add a source below the list item.",
               values:
                 '{ label: "The Incredible Growth Bunker", link: "https://www.growthbunker.com/" }'
             }

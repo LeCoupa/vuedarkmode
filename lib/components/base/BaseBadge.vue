@@ -11,12 +11,12 @@ span(
     "dm-base-badge--" + color,
     "dm-base-badge--" + size,
     {
-      "dm-base-badge--clickable": clickable,
+      "dm-base-badge--clickable": $listeners.click,
       "dm-base-badge--filled": filled
     }
   ]`
   :id="id"
-  :tabindex="clickable ? '0' : null"
+  :tabindex="$listeners.click ? '0' : null"
 )
   slot
 </template>
@@ -28,10 +28,6 @@ span(
 <script>
 export default {
   props: {
-    clickable: {
-      type: Boolean,
-      default: false
-    },
     color: {
       type: String,
       default: "blue",
@@ -76,9 +72,7 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(id, event) {
-      if (this.clickable) {
-        this.$emit("click", id, event);
-      }
+      this.$emit("click", id, event);
     },
 
     onKeypress(event) {

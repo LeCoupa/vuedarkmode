@@ -22,7 +22,6 @@ div(
     v-if="closable"
     @click="onClose"
     @keypress="onTabKeypress"
-    :clickable="true"
     class="dm-base-toast__icon"
     name="close"
     size="20px"

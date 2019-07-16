@@ -26,7 +26,6 @@ div(
     v-if="closable"
     @click="onClose"
     @keypress="onTabKeypress"
-    :clickable="true"
     class="dm-base-alert__icon dm-base-alert__icon--right"
     name="close"
     size="20px"

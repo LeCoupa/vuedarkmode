@@ -14,7 +14,6 @@
         v-if="i < maxIcons"
         v-clipboard:copy="icon"
         :aria-label="icon"
-        :clickable="true"
         :key="icon"
         :name="icon"
         class="c-guide-base-icons__icon hint--top hint--no-animate"
@@ -120,16 +119,6 @@ export default {
           }
         ],
         data: [
-          {
-            name: "clickable",
-            type: {
-              type: "Boolean",
-              additional: "Default: false"
-            },
-            details: {
-              description: "Whether the icon is clickable or not."
-            }
-          },
           {
             name: "color",
             type: {

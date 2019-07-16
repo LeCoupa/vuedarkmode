@@ -11,7 +11,7 @@ div(
     {
       "dm-base-avatar--bordered": bordered,
       "dm-base-avatar--circular": circular,
-      "dm-base-avatar--clickable": clickable,
+      "dm-base-avatar--clickable": $listeners.click,
       "dm-base-avatar--secondaries": secondaries,
       "dm-base-avatar--shadow": shadow
     }
@@ -21,7 +21,7 @@ div(
   span(
     @keypress.prevent="onKeypress"
     :style=`{ backgroundImage: "url(" + src + ")" }`
-    :tabindex="clickable ? '0' : null"
+    :tabindex="$listeners.click ? '0' : null"
     class="dm-base-avatar__image"
   )
     div(
@@ -57,10 +57,6 @@ export default {
     circular: {
       type: Boolean,
       default: true
-    },
-    clickable: {
-      type: Boolean,
-      default: false
     },
     description: {
       type: String,
@@ -104,9 +100,7 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      if (this.clickable) {
-        this.$emit("click", this.id, event);
-      }
+      this.$emit("click", this.id, event);
     },
 
     onKeypress(event) {

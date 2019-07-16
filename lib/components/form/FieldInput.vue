@@ -66,7 +66,6 @@ div(
     base-icon(
       v-if="computedRightIcon"
       @click="onRightIconClick"
-      :clickable="clearable"
       :name="computedRightIcon"
       class="dm-field-input__icon dm-field-input__icon--right"
     )

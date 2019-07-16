@@ -20,7 +20,6 @@
         )
           base-avatar(
             v-if="type === 'avatars'"
-            :clickable="true"
             :size="size"
             src="/images/docs/nada.jpeg"
           )
@@ -29,7 +28,6 @@
             v-else-if="type === 'thumbnails'"
             :bordered="true"
             :circular="false"
-            :clickable="true"
             :description="size"
             :secondaries="avatars.secondaries[size]"
             :size="size"
@@ -154,16 +152,6 @@ export default {
             }
           },
           {
-            name: "clickable",
-            type: {
-              type: "Boolean",
-              additional: "Default: false"
-            },
-            details: {
-              description: "Whether the avatar is clickable or not."
-            }
-          },
-          {
             name: "description",
             type: {
               type: "String",
@@ -254,8 +242,7 @@ export default {
             name: "click",
             parameters: "id, event",
             details: {
-              description:
-                "Fires on a mouse click on the element (only when clickable is set to true)."
+              description: "Fires on a mouse click on the element."
             }
           }
         ]
