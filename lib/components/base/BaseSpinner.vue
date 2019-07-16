@@ -44,7 +44,14 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return ["mini", "small", "default", "medium", "large"].includes(x);
+        return [
+          "micro",
+          "mini",
+          "small",
+          "default",
+          "medium",
+          "large"
+        ].includes(x);
       }
     }
   },
@@ -70,7 +77,7 @@ export default {
 // VARIABLES
 $c: ".dm-base-spinner";
 $colors: black, blue, green, grey, orange, purple, red, turquoise, white;
-$sizes: mini, small, default, medium, large;
+$sizes: micro, mini, small, default, medium, large;
 
 #{$c} {
   position: relative;
@@ -109,8 +116,13 @@ $sizes: mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      width: (20px + 10px * $i);
-      height: (20px + 10px * $i);
+      @if ($size == micro) {
+        width: 16px;
+        height: 16px;
+      } @else {
+        width: (20px + 10px * ($i - 1));
+        height: (20px + 10px * ($i - 1));
+      }
     }
   }
 }
