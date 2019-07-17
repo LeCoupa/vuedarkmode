@@ -67,19 +67,11 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        this.$emit("click", this.id, event);
-
+      this.$emit("click", this.id, event);
     },
 
     onDoubleClick(event) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        this.$emit("dblclick", this.id, event);
-
+      this.$emit("dblclick", this.id, event);
     },
 
     onKeypress(event) {
