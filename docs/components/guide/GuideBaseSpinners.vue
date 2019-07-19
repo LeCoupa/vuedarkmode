@@ -121,7 +121,7 @@ export default {
             details: {
               description: "Set the spinner size.",
               values:
-                '"micro" | "mini" | "small" | "default" | "medium" | "large"'
+                '"nano" | "micro" | "mini" | "small" | "default" | "medium" | "large"'
             }
           }
         ]

@@ -45,6 +45,7 @@ export default {
       default: "default",
       validator(x) {
         return [
+          "nano",
           "micro",
           "mini",
           "small",
@@ -77,7 +78,7 @@ export default {
 // VARIABLES
 $c: ".dm-base-spinner";
 $colors: black, blue, green, grey, orange, purple, red, turquoise, white;
-$sizes: micro, mini, small, default, medium, large;
+$sizes: nano, micro, mini, small, default, medium, large;
 
 #{$c} {
   position: relative;
@@ -116,12 +117,15 @@ $sizes: micro, mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      @if ($size == micro) {
+      @if ($size == nano) {
+        width: 14px;
+        height: 14px;
+      } @else if ($size == micro) {
         width: 16px;
         height: 16px;
       } @else {
-        width: (20px + 10px * ($i - 1));
-        height: (20px + 10px * ($i - 1));
+        width: (20px + 10px * ($i - 2));
+        height: (20px + 10px * ($i - 2));
       }
     }
   }

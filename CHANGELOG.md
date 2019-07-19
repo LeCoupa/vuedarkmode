@@ -12,7 +12,7 @@
 
 - BaseIcon: Add theme to switch between filled and outlined.
 
-- BaseSpinner: Add new colors.
+- BaseSpinner: Add new colors. Add nano and micro size.
 
 - FieldCheckbox: Add autofocus, error, info, success, validation and warning prop.
 
