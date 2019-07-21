@@ -144,6 +144,18 @@ export default {
             }
           },
           {
+            name: "direction",
+            type: {
+              type: "String",
+              additional: 'Default: "bottom"'
+            },
+            details: {
+              description:
+                "Where the options should be displayed when deployed",
+              values: '"bottom" | "top"'
+            }
+          },
+          {
             name: "disabled",
             type: {
               type: "Boolean",

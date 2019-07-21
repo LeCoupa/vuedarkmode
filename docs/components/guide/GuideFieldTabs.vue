@@ -45,7 +45,7 @@
         | &lt;dm-tabs v-model="synchronizedValue"&gt;
         |   &lt;template #tab-left="{ tab }"&gt;&lt;/template&gt;
         |   &lt;template #tab-right="{ tab }"&gt;&lt;/template&gt;
-        | &lt;/dm-tabs&gt;
+        | &lt;/dm-tabs&gt;
 
     no-ssr
       common-table(

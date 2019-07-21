@@ -11,6 +11,7 @@ div(
   :class=`[
     "dm-field-select",
     "dm-field-select--" + computedStatus,
+    "dm-field-select--" + direction,
     "dm-field-select--" + size,
     {
       "dm-field-select--disabled": disabled,
@@ -161,6 +162,13 @@ export default {
   mixins: [FieldCommonMixin, FieldMessageMixin, FieldValidationMixin],
 
   props: {
+    direction: {
+      type: String,
+      default: "bottom",
+      validator(x) {
+        return ["bottom", "top"].includes(x);
+      }
+    },
     fullWidth: {
       type: Boolean,
       default: true
@@ -421,7 +429,6 @@ $statuses: error, normal, success, warning;
         &--right {
           right: 9px;
           transition: transform 250ms linear;
-          transform: rotate(0deg);
         }
       }
     }
@@ -434,7 +441,6 @@ $statuses: error, normal, success, warning;
       overflow-y: auto;
       flex-direction: column;
       max-height: 200px;
-      border-top: none;
       background-color: $ebony-clay;
       user-select: none;
 
@@ -452,6 +458,88 @@ $statuses: error, normal, success, warning;
 
   #{$c}__select {
     display: none;
+  }
+
+  // --> DIRECTIONS <--
+
+  &--bottom {
+    #{$c}__container {
+      #{$c}__field {
+        #{$c}__icon {
+          &--right {
+            transform: rotate(0deg);
+          }
+        }
+      }
+
+      #{$c}__options {
+        top: 100%;
+
+        #{$c}__option {
+          &:last-of-type {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    &#{$c}--deployed {
+      #{$c}__container {
+        #{$c}__field {
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+
+          #{$c}__icon {
+            &--right {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+        #{$c}__options {
+          border-top: none;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+      }
+    }
+  }
+
+  &--top {
+    #{$c}__container {
+      #{$c}__field {
+        #{$c}__icon {
+          &--right {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      #{$c}__options {
+        bottom: 100%;
+      }
+    }
+
+    &#{$c}--deployed {
+      #{$c}__container {
+        #{$c}__field {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+
+          #{$c}__icon {
+            &--right {
+              transform: rotate(0deg);
+            }
+          }
+        }
+
+        #{$c}__options {
+          border-bottom: none;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
   }
 
   // --> SIZES <--
@@ -523,21 +611,9 @@ $statuses: error, normal, success, warning;
       }
 
       #{$c}__field {
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-
         #{$c}__icon {
           color: $azure-radiance;
-
-          &--right {
-            transform: rotate(180deg);
-          }
         }
-      }
-
-      #{$c}__options {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
       }
     }
   }
