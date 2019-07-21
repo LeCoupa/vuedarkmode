@@ -133,6 +133,17 @@ export default {
             }
           },
           {
+            name: "clearable",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description:
+                "Display a cross on the right side of the select to clear the current value."
+            }
+          },
+          {
             name: "description",
             type: {
               type: "String",
@@ -365,6 +376,14 @@ export default {
             details: {
               description:
                 "Fires the moment when the value of the element is changed."
+            }
+          },
+          {
+            name: "clear",
+            parameters: "",
+            details: {
+              description:
+                "Fires the moment when the value of the element is cleared (clearable must be set to true)."
             }
           },
           {

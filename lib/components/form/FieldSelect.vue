@@ -14,6 +14,7 @@ div(
     "dm-field-select--" + direction,
     "dm-field-select--" + size,
     {
+      "dm-field-select--clearable": clearable,
       "dm-field-select--disabled": disabled,
       "dm-field-select--deployed": deployed,
       "dm-field-select--full-width": fullWidth,
@@ -73,7 +74,14 @@ div(
       ) {{ placeholder }}
 
       base-icon(
-        class="dm-field-select__icon dm-field-select__icon--right"
+        v-if="clearable && selectedOption"
+        @click="onClear"
+        class="dm-field-select__icon dm-field-select__icon--clear"
+        name="cancel"
+      )
+
+      base-icon(
+        class="dm-field-select__icon dm-field-select__icon--arrow"
         name="arrow_drop_down"
       )
 
@@ -162,6 +170,10 @@ export default {
   mixins: [FieldCommonMixin, FieldMessageMixin, FieldValidationMixin],
 
   props: {
+    clearable: {
+      type: Boolean,
+      default: false
+    },
     direction: {
       type: String,
       default: "bottom",
@@ -264,6 +276,16 @@ export default {
     },
 
     // --> EVENT LISTENERS <--
+
+    onClear(name, event) {
+      event.stopPropagation();
+
+      this.setSelectedOption(null);
+
+      this.$emit("change", null, null, event);
+      this.$emit("input", null); // Synchronization for v-model
+      this.$emit("clear");
+    },
 
     onClose() {
       this.deployed = false;
@@ -413,20 +435,32 @@ $statuses: error, normal, success, warning;
         border-color: $azure-radiance;
 
         #{$c}__icon {
-          color: $azure-radiance;
+          &--left,
+          &--arrow {
+            color: $azure-radiance;
+          }
         }
       }
 
       #{$c}__icon {
         position: absolute;
         flex: 0 0 auto;
-        pointer-events: none;
 
         &--left {
           left: 9px;
         }
 
-        &--right {
+        &--clear {
+          right: 30px;
+          opacity: 0.8;
+          transition: opacity 250ms linear;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        &--arrow {
           right: 9px;
           transition: transform 250ms linear;
         }
@@ -466,7 +500,7 @@ $statuses: error, normal, success, warning;
     #{$c}__container {
       #{$c}__field {
         #{$c}__icon {
-          &--right {
+          &--arrow {
             transform: rotate(0deg);
           }
         }
@@ -490,7 +524,7 @@ $statuses: error, normal, success, warning;
           border-bottom-left-radius: 0;
 
           #{$c}__icon {
-            &--right {
+            &--arrow {
               transform: rotate(180deg);
             }
           }
@@ -509,7 +543,7 @@ $statuses: error, normal, success, warning;
     #{$c}__container {
       #{$c}__field {
         #{$c}__icon {
-          &--right {
+          &--arrow {
             transform: rotate(180deg);
           }
         }
@@ -527,7 +561,7 @@ $statuses: error, normal, success, warning;
           border-top-right-radius: 0;
 
           #{$c}__icon {
-            &--right {
+            &--arrow {
               transform: rotate(0deg);
             }
           }
@@ -590,10 +624,13 @@ $statuses: error, normal, success, warning;
           }
 
           #{$c}__icon {
-            @if ($status != normal) {
-              color: map-get($statusColors, $status);
-            } @else {
-              color: $white;
+            &--left,
+            &--arrow {
+              @if ($status != normal) {
+                color: map-get($statusColors, $status);
+              } @else {
+                color: $white;
+              }
             }
           }
         }
@@ -612,7 +649,10 @@ $statuses: error, normal, success, warning;
 
       #{$c}__field {
         #{$c}__icon {
-          color: $azure-radiance;
+          &--left,
+          &--arrow {
+            color: $azure-radiance;
+          }
         }
       }
     }
@@ -629,6 +669,17 @@ $statuses: error, normal, success, warning;
 
   &--full-width {
     width: 100%;
+  }
+
+  &--clearable {
+    #{$c}__container {
+      #{$c}__field,
+      #{$c}__options {
+        #{$c}__option {
+          padding-right: 60px;
+        }
+      }
+    }
   }
 
   &--with-left-icon {

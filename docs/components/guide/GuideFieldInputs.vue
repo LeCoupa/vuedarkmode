@@ -153,7 +153,7 @@ export default {
             },
             details: {
               description:
-                "Display a cross on the right side of the input to clear the content."
+                "Display a cross on the right side of the input to clear the current value."
             }
           },
           {
