@@ -137,7 +137,7 @@ $sizes: micro, mini, small, default, medium, large;
     &--#{$size} {
       padding: 0 (10px + 1px * $i);
       font-size: 10 + (1px * $i);
-      line-height: 18px + (2px * $i);
+      line-height: 17px + (2px * $i);
     }
   }
 
