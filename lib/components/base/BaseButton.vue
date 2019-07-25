@@ -24,7 +24,8 @@ button(
       "dm-base-button--link": link,
       "dm-base-button--loading": loading,
       "dm-base-button--reverse": reverse,
-      "dm-base-button--rounded": rounded
+      "dm-base-button--rounded": rounded,
+      "dm-base-button--uppercase": uppercase
     }
   ]`
   :disabled="disabled || loading"
@@ -200,6 +201,10 @@ export default {
       validator(x) {
         return ["button", "reset", "submit"].includes(x);
       }
+    },
+    uppercase: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -576,6 +581,10 @@ $sizes: nano, micro, mini, small, default, medium, large;
   &--rounded {
     border-radius: 60px;
     color: $white;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
   }
 
   // --> INTERACTIONS <--

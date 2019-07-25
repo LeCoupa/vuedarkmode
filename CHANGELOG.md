@@ -6,7 +6,7 @@
 
 - BaseBadge: Add micro size. Add filled prop.
 
-- BaseButton: Add nano and micro size. Add confirmation prop.
+- BaseButton: Add nano and micro size. Add confirmation prop. Add uppercase prop.
 
 - BaseDivider: Add margin prop.
 

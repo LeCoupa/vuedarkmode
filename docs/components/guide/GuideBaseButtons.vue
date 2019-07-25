@@ -303,6 +303,16 @@ export default {
               description: "Set the button type.",
               values: '"button" | "reset" | "submit"'
             }
+          },
+          {
+            name: "uppercase",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description: "Transforms all characters to uppercase."
+            }
           }
         ]
       },
