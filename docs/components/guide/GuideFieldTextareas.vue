@@ -131,7 +131,7 @@ export default {
               additional: "Default: true"
             },
             details: {
-              description: "Display the border on the text area element."
+              description: "Display the border on the textarea element."
             }
           },
           {
@@ -142,7 +142,7 @@ export default {
             },
             details: {
               description:
-                "Specifies the visible width of the text area element."
+                "Specifies the visible width of the textarea element."
             }
           },
           {
@@ -153,7 +153,7 @@ export default {
             },
             details: {
               description:
-                "Display an helping description below the text area element."
+                "Display an helping description below the textarea element."
             }
           },
           {
@@ -163,7 +163,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "Disable the text area element."
+              description: "Disable the textarea element."
             }
           },
           {
@@ -174,7 +174,7 @@ export default {
             },
             details: {
               description:
-                "Specify an error message to display below the text area element."
+                "Specify an error message to display below the textarea element."
             }
           },
           {
@@ -185,7 +185,7 @@ export default {
             },
             details: {
               description:
-                "When set to true, the text area element will take all the width available."
+                "When set to true, the textarea element will take all the width available."
             }
           },
           {
@@ -196,7 +196,7 @@ export default {
             },
             details: {
               description:
-                "Specify an info message to display below the text area element."
+                "Specify an info message to display below the textarea element."
             }
           },
           {
@@ -206,7 +206,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Add a label above the text area element."
+              description: "Add a label above the textarea element."
             }
           },
           {
@@ -217,7 +217,7 @@ export default {
             },
             details: {
               description:
-                "Add an icon at the bottom left corner of the text area element (see material icons)."
+                "Add an icon at the bottom left corner of the textarea element (see material icons)."
             }
           },
           {
@@ -228,7 +228,7 @@ export default {
             },
             details: {
               description:
-                "Specify the maximum number of characters allowed in the text area element."
+                "Specify the maximum number of characters allowed in the textarea element."
             }
           },
           {
@@ -238,7 +238,7 @@ export default {
               additional: "Required: true"
             },
             details: {
-              description: "Specify the name of the text area element."
+              description: "Specify the name of the textarea element."
             }
           },
           {
@@ -259,7 +259,7 @@ export default {
               additional: "Default: false"
             },
             details: {
-              description: "Specify that the text area element is read-only."
+              description: "Specify that the textarea element is read-only."
             }
           },
           {
@@ -270,7 +270,7 @@ export default {
             },
             details: {
               description:
-                "Specify is the text area element is resizable by the user.",
+                "Specify is the textarea element is resizable by the user.",
               values:
                 '"none" | "both" | "horizontal" | "vertical" | "initial" | "inherit"'
             }
@@ -283,7 +283,7 @@ export default {
             },
             details: {
               description:
-                "Specifies the visible number of lines in the text area element."
+                "Specifies the visible number of lines in the textarea element."
             }
           },
           {
@@ -293,7 +293,7 @@ export default {
               additional: 'Default: "default"'
             },
             details: {
-              description: "Specify the size of the text area element.",
+              description: "Specify the size of the textarea element.",
               values: '"mini" | "small"  | "default" | "medium" | "large"'
             }
           },
@@ -315,7 +315,7 @@ export default {
               additional: 'Default: "normal"'
             },
             details: {
-              description: "Specify the status for the text area element.",
+              description: "Specify the status for the textarea element.",
               values: '"error" | "normal" | "success" | "warning"'
             }
           },
@@ -327,7 +327,18 @@ export default {
             },
             details: {
               description:
-                "Specify a success message to display below the text area element."
+                "Specify a success message to display below the textarea element."
+            }
+          },
+          {
+            name: "theme",
+            type: {
+              type: "String",
+              additional: 'Default: "dark"'
+            },
+            details: {
+              description: "Specify the theme to use for the textarea element.",
+              values: '"dark" | "light"'
             }
           },
           {
@@ -338,7 +349,7 @@ export default {
             },
             details: {
               description:
-                "Specify the validation rules for the text area (check <a href='https://baianat.github.io/vee-validate/guide/rules.html' target='_blank'>VeeValidate documentation</a>)."
+                "Specify the validation rules for the textarea (check <a href='https://baianat.github.io/vee-validate/guide/rules.html' target='_blank'>VeeValidate documentation</a>)."
             }
           },
           {
@@ -370,7 +381,7 @@ export default {
               additional: "Default: null"
             },
             details: {
-              description: "Specify the value of the text area element."
+              description: "Specify the value of the textarea element."
             }
           },
           {
@@ -381,7 +392,7 @@ export default {
             },
             details: {
               description:
-                "Specify a warning message to display below the text area element."
+                "Specify a warning message to display below the textarea element."
             }
           }
         ]

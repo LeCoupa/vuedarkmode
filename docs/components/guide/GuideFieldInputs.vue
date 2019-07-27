@@ -357,6 +357,17 @@ export default {
             }
           },
           {
+            name: "theme",
+            type: {
+              type: "String",
+              additional: 'Default: "dark"'
+            },
+            details: {
+              description: "Specify the theme to use for the input element.",
+              values: '"dark" | "light"'
+            }
+          },
+          {
             name: "type",
             type: {
               type: "String",

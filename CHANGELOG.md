@@ -18,7 +18,7 @@
 
 - FieldFile: Add autofocus, error, info, success, validation and warning prop.
 
-- FieldInput: Add autofocus, clearable, error, info, spellcheck, success, validation and warning prop.
+- FieldInput: Add autofocus, clearable, error, info, spellcheck, success, validation and warning prop. Add dark and light theme.
 
 - FieldLabel: Add required prop.
 
@@ -26,11 +26,11 @@
 
 - FieldRadios: Add autofocus, error, info, name, success, validation and warning prop.
 
-- FieldSelect: Add autofocus, error, info, success, placeholder, validation and warning prop. Add emoji to option item. New slots for option-left and option-right. Add direction prop. Add clearable prop.
+- FieldSelect: Add autofocus, error, info, success, placeholder, validation and warning prop. Add emoji to option item. New slots for option-left and option-right. Add direction prop. Add clearable prop. Add dark and light theme.
 
 - FielTabs: Add autofocus, error, info, success and warning prop. Use label and value instead of id and name. New slots for tab-left and tab-right.
 
-- FieldTextarea: Add autofocus, error, icon, info, spellcheck, success, resize, validation and warning prop.
+- FieldTextarea: Add autofocus, error, icon, info, spellcheck, success, resize, validation and warning prop. Add dark and light theme.
 
 - FieldToggle: Add autofocus, error, info, success, validation and warning prop.
 

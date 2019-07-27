@@ -8,6 +8,7 @@ div(
     "dm-field-input",
     "dm-field-input--" + computedStatus,
     "dm-field-input--" + size,
+    "dm-field-input--" + theme,
     {
       "dm-field-input--borders": borders,
       "dm-field-input--clearable": clearable,
@@ -353,7 +354,6 @@ $statuses: error, normal, success, warning;
       height: 100%;
       outline: 0;
       border: none;
-      background-color: transparent;
       color: $white;
 
       &::placeholder {
@@ -366,8 +366,6 @@ $statuses: error, normal, success, warning;
       }
 
       &:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 30px $ebony-clay-2 inset !important;
-
         -webkit-text-fill-color: $white !important;
       }
     }
@@ -413,6 +411,32 @@ $statuses: error, normal, success, warning;
     }
   }
 
+  // --> THEMES <--
+
+  &--dark {
+    #{$c}__container {
+      #{$c}__field {
+        background-color: $ebony-clay;
+
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 30px $ebony-clay inset !important;
+        }
+      }
+    }
+  }
+
+  &--light {
+    #{$c}__container {
+      #{$c}__field {
+        background-color: $ebony-clay-2;
+
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 30px $ebony-clay-2 inset !important;
+        }
+      }
+    }
+  }
+
   // --> BOOLEANS <--
 
   &--borders {
@@ -421,7 +445,6 @@ $statuses: error, normal, success, warning;
       border-width: 1px;
       border-style: solid;
       border-radius: 6px;
-      background-color: $ebony-clay-2;
     }
   }
 

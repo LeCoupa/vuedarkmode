@@ -8,6 +8,7 @@ div(
     "dm-field-textarea",
     "dm-field-textarea--" + computedStatus,
     "dm-field-textarea--" + size,
+    "dm-field-textarea--" + theme,
     {
       "dm-field-textarea--borders": borders,
       "dm-field-textarea--disabled": disabled,
@@ -271,6 +272,7 @@ $statuses: error, normal, success, warning;
 
   #{$c}__container {
     position: relative;
+    display: flex;
     transition: all linear 250ms;
 
     #{$c}__icon {
@@ -285,7 +287,6 @@ $statuses: error, normal, success, warning;
       height: 100%;
       outline: 0;
       border: none;
-      background-color: transparent;
       color: $white;
 
       &::placeholder {
@@ -331,6 +332,24 @@ $statuses: error, normal, success, warning;
     }
   }
 
+  // --> THEMES <--
+
+  &--dark {
+    #{$c}__container {
+      #{$c}__field {
+        background-color: $ebony-clay;
+      }
+    }
+  }
+
+  &--light {
+    #{$c}__container {
+      #{$c}__field {
+        background-color: $ebony-clay-2;
+      }
+    }
+  }
+
   // --> BOOLEANS <--
 
   &--disabled {
@@ -348,7 +367,6 @@ $statuses: error, normal, success, warning;
       border-width: 1px;
       border-style: solid;
       border-radius: 6px;
-      background-color: $ebony-clay-2;
     }
   }
 
