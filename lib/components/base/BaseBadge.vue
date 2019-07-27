@@ -149,7 +149,7 @@ $sizes: micro, mini, small, default, medium, large;
       } @else if ($size == medium) {
         line-height: 25px;
       } @else if ($size == large) {
-        line-height: 28px;
+        line-height: 30px;
       }
     }
   }
