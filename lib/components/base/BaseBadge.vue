@@ -137,7 +137,20 @@ $sizes: micro, mini, small, default, medium, large;
     &--#{$size} {
       padding: 0 (10px + 1px * $i);
       font-size: 10 + (1px * $i);
-      line-height: 17px + (2px * $i);
+
+      @if ($size == micro) {
+        line-height: 18px;
+      } @else if ($size == mini) {
+        line-height: 19px;
+      } @else if ($size == small) {
+        line-height: 22px;
+      } @else if ($size == default) {
+        line-height: 23px;
+      } @else if ($size == medium) {
+        line-height: 25px;
+      } @else if ($size == large) {
+        line-height: 28px;
+      }
     }
   }
 
