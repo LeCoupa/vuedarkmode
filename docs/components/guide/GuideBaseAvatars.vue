@@ -130,6 +130,17 @@ export default {
         ],
         data: [
           {
+            name: "animated",
+            type: {
+              type: "Boolean",
+              additional: "Default: false"
+            },
+            details: {
+              description:
+                "When set to true, this will scale the image on hover."
+            }
+          },
+          {
             name: "bordered",
             type: {
               type: "Boolean",

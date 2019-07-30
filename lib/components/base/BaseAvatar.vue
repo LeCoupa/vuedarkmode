@@ -9,6 +9,7 @@ div(
     "dm-base-avatar",
     "dm-base-avatar--" + size,
     {
+      "dm-base-avatar--animated": animated,
       "dm-base-avatar--bordered": bordered,
       "dm-base-avatar--circular": circular,
       "dm-base-avatar--clickable": $listeners.click,
@@ -50,6 +51,10 @@ div(
 <script>
 export default {
   props: {
+    animated: {
+      type: Boolean,
+      default: false
+    },
     bordered: {
       type: Boolean,
       default: false
@@ -213,6 +218,18 @@ $sizes: nano, micro, mini, small, default, medium, large, huge;
   }
 
   // --> BOOLEANS <--
+
+  &--animated {
+    #{$c}__image {
+      transition: transform 250ms linear;
+    }
+
+    &:hover {
+      #{$c}__image {
+        transform: scale(1.05);
+      }
+    }
+  }
 
   &--bordered {
     #{$c}__image {
