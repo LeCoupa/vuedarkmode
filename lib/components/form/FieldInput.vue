@@ -415,6 +415,8 @@ $statuses: error, normal, success, warning;
 
   &--dark {
     #{$c}__container {
+      background-color: $ebony-clay;
+
       #{$c}__field {
         background-color: $ebony-clay;
 
@@ -427,6 +429,8 @@ $statuses: error, normal, success, warning;
 
   &--light {
     #{$c}__container {
+      background-color: $ebony-clay-2;
+
       #{$c}__field {
         background-color: $ebony-clay-2;
 
