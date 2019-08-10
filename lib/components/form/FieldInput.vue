@@ -223,11 +223,11 @@ export default {
   watch: {
     value: {
       immediate: true,
-      handler(value) {
-        if (value === undefined || value === null) {
+      handler(newValue, oldValue) {
+        if (newValue === undefined || newValue === null) {
           this.currentValue = "";
         } else {
-          this.currentValue = value;
+          this.currentValue = newValue;
         }
       }
     }

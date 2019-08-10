@@ -235,10 +235,10 @@ export default {
 
   watch: {
     options: {
-      handler(options) {
+      handler(newValue, oldValue) {
         // When the available options are updated
         // This make sure we keep the selected option up-to-date
-        const option = options.find(option => {
+        const option = newValue.find(option => {
           if (this.selectedOption) {
             return option.value === this.selectedOption.value;
           }
