@@ -139,6 +139,11 @@ $c: ".dm-base-list-item";
     margin-top: 4px;
     padding-left: 60px;
 
+    #{$c}__icon,
+    #{$c}__label {
+      color: $regent-st-blue;
+    }
+
     #{$c}__icon {
       flex: 0 0 auto;
       margin-right: 6px;
@@ -146,7 +151,6 @@ $c: ".dm-base-list-item";
 
     #{$c}__label {
       flex: 1;
-      color: $regent-st-blue;
       text-decoration: underline;
       font-weight: 400;
       line-height: 24px;
