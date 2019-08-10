@@ -222,10 +222,8 @@ $sizes: nano, micro, mini, small, default, medium, large, huge;
   &--animated {
     #{$c}__image {
       transition: transform 250ms linear;
-    }
 
-    &:hover {
-      #{$c}__image {
+      &:hover {
         transform: scale(1.05);
       }
     }
