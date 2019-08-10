@@ -24,7 +24,7 @@
       slot
 
   div(
-    v-if="source"
+    v-if="source && source.link"
     class="dm-base-list-item__source"
   )
     base-icon(
