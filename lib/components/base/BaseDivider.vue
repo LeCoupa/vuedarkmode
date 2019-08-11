@@ -10,7 +10,7 @@ hr(
     "dm-base-divider--" + color
   ]`
   :style=`{
-    margin: computedMargin
+    margin: margin
   }`
 )
 </template>
@@ -49,20 +49,6 @@ export default {
         return ["small", "large"].includes(x);
       }
     }
-  },
-
-  computed: {
-    computedMargin() {
-      if (this.margin) {
-        return this.margin;
-      }
-
-      if (this.size === "small") {
-        return "20px auto";
-      } else if (this.size === "large") {
-        return "40px auto";
-      }
-    }
   }
 };
 </script>
@@ -95,12 +81,14 @@ $colors: black, blue, green, orange, purple, red, turquoise, white;
   // --> SIZES <--
 
   &--small {
+    margin: 20px auto;
     width: 60px;
     height: 4px;
     border-top-width: 4px;
   }
 
   &--large {
+    margin: 40px auto;
     width: 100%;
     height: 1px;
     border-top-width: 1px;
