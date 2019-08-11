@@ -137,7 +137,6 @@ $c: ".dm-base-list-item";
     display: flex;
     align-items: center;
     margin-top: 4px;
-    padding-left: 60px;
 
     #{$c}__icon,
     #{$c}__label {
@@ -182,6 +181,10 @@ $c: ".dm-base-list-item";
       #{$c}__content {
         flex: 1;
       }
+    }
+
+    #{$c}__source {
+      padding-left: 60px;
     }
   }
 }
