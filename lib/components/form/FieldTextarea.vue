@@ -309,7 +309,6 @@ $statuses: error, normal, success, warning;
       #{$c}__field {
         padding: (10px + (1px * $i));
         min-height: 60px + (20px * $i);
-        border-radius: 4px + (1px * $i);
         font-size: 12px + (1px * $i);
       }
     }
@@ -366,7 +365,7 @@ $statuses: error, normal, success, warning;
       box-sizing: border-box;
       border-width: 1px;
       border-style: solid;
-      border-radius: 6px;
+      border-radius: 4px;
     }
   }
 

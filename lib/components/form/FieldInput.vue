@@ -379,7 +379,6 @@ $statuses: error, normal, success, warning;
     &--#{$size} {
       #{$c}__container {
         height: 34px + (4px * $i);
-        border-radius: 4px + (1px * $i);
 
         #{$c}__icon {
           // Override the font-size set in style attribute
@@ -448,7 +447,7 @@ $statuses: error, normal, success, warning;
       box-sizing: border-box;
       border-width: 1px;
       border-style: solid;
-      border-radius: 6px;
+      border-radius: 4px;
     }
   }
 
