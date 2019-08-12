@@ -310,6 +310,7 @@ $statuses: error, normal, success, warning;
         padding: (10px + (1px * $i));
         min-height: 60px + (20px * $i);
         font-size: 12px + (1px * $i);
+        line-height: 18px+ (1px * $i);
       }
     }
   }
