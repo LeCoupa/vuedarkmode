@@ -81,11 +81,6 @@ main.c-index
       :documentation="docs.baseIcon"
     )
 
-    guide-base-list-items(
-      v-if="section.id === 'baseListItem'"
-      :documentation="docs.baseListItem"
-    )
-
     guide-base-progress-bars(
       v-if="section.id === 'baseProgressBar'"
       :documentation="docs.baseProgressBar"
@@ -173,7 +168,6 @@ import GuideBaseButtons from "@/components/guide/GuideBaseButtons";
 import GuideBaseDividers from "@/components/guide/GuideBaseDividers";
 import GuideBaseHeadings from "@/components/guide/GuideBaseHeadings";
 import GuideBaseIcons from "@/components/guide/GuideBaseIcons";
-import GuideBaseListItems from "@/components/guide/GuideBaseListItems";
 import GuideBaseProgressBars from "@/components/guide/GuideBaseProgressBars";
 import GuideBaseSocialLogins from "@/components/guide/GuideBaseSocialLogins";
 import GuideBaseSpinners from "@/components/guide/GuideBaseSpinners";
@@ -210,7 +204,6 @@ export default {
     GuideBaseDividers,
     GuideBaseHeadings,
     GuideBaseIcons,
-    GuideBaseListItems,
     GuideBaseProgressBars,
     GuideBaseSocialLogins,
     GuideBaseSpinners,
@@ -245,7 +238,6 @@ export default {
         baseDivider: false,
         baseHeading: false,
         baseIcon: false,
-        baseListItem: false,
         baseProgressBar: false,
         baseSocialLogin: false,
         baseSpinner: false,
@@ -349,15 +341,6 @@ export default {
             hasDocumentation: true,
             sourceUrl:
               "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseIcon.vue"
-          }
-        },
-        {
-          id: "baseListItem",
-          headlines: {
-            title: "List Items",
-            hasDocumentation: true,
-            sourceUrl:
-              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseListItem.vue"
           }
         },
         {

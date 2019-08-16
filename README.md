@@ -79,15 +79,13 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 - **BaseIcon**: [documentation](https://www.vuedarkmode.com/#baseIcon) | [source code](/lib/components/base/BaseIcon.vue).
 
-- **BaseListItem**: [documentation](https://www.vuedarkmode.com/#baseListItem) | [source code](/lib/components/base/BaseListItem.vue).
+* **BaseProgressBar**: [documentation](https://www.vuedarkmode.com/#baseProgressBar) | [source code](/lib/components/base/BaseProgressBar.vue).
 
-- **BaseProgressBar**: [documentation](https://www.vuedarkmode.com/#baseProgressBar) | [source code](/lib/components/base/BaseProgressBar.vue).
+* **BaseSocialLogin**: [documentation](https://www.vuedarkmode.com/#baseSocialLogin) | [source code](/lib/components/base/BaseSocialLogin.vue).
 
-- **BaseSocialLogin**: [documentation](https://www.vuedarkmode.com/#baseSocialLogin) | [source code](/lib/components/base/BaseSocialLogin.vue).
+* **BaseSpinner**: [documentation](https://www.vuedarkmode.com/#baseSpinner) | [source code](/lib/components/base/BaseSpinner.vue).
 
-- **BaseSpinner**: [documentation](https://www.vuedarkmode.com/#baseSpinner) | [source code](/lib/components/base/BaseSpinner.vue).
-
-- **BaseToast**: [documentation](https://www.vuedarkmode.com/#baseToast) | [source code](/lib/components/base/BaseToast.vue).
+* **BaseToast**: [documentation](https://www.vuedarkmode.com/#baseToast) | [source code](/lib/components/base/BaseToast.vue).
 
 ### Form Components
 

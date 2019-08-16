@@ -22,6 +22,8 @@
 
 - FieldLabel: Add required prop.
 
+- BaseListItem: Remove component.
+
 - FieldMessage: New component.
 
 - FieldRadios: Add autofocus, error, info, name, success, validation and warning prop.

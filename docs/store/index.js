@@ -65,11 +65,6 @@ const createStore = () => {
               active: false
             },
             {
-              label: "List Items",
-              id: "baseListItem",
-              active: false
-            },
-            {
               label: "Progress Bars",
               id: "baseProgressBar",
               active: false
