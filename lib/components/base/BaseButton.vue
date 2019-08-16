@@ -445,7 +445,7 @@ $sizes: nano, micro, mini, small, default, medium, large;
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      padding: (4px + 2px * $i) (6px + 2px * $i);
+      padding: (3px + 2px * $i) (6px + 2px * $i);
       border-radius: 2px + (1px * $i);
       font-size: 10px + (1px * $i);
       line-height: 8px + (2px * $i);
