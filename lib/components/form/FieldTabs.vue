@@ -219,7 +219,7 @@ $statuses: error, normal, success, warning;
   @include no-tap-highlight-color;
 
   #{$c}__container {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
     font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
