@@ -234,6 +234,8 @@ export default {
       } else if (this.size === "large") {
         return "22px";
       }
+
+      return null;
     },
 
     computedRightIcon() {

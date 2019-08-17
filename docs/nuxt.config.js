@@ -158,21 +158,23 @@ module.exports = {
   css: ["normalize.css/normalize.css", "hint.css/hint.min.css"],
 
   modules: [
+    "@nuxtjs/style-resources",
     ["@nuxtjs/google-analytics", { id: "UA-125493236-2" }],
-    ["@nuxtjs/pwa", { onesignal: false }],
-    [
-      "nuxt-sass-resources-loader",
-      [
-        // Global variables, site-wide settings, config switches, etc
-        "@/assets/settings/_settings.colors.scss",
-
-        // Site-wide mixins and functions
-        "@/assets/tools/_tools.mq.scss"
-      ]
-    ]
+    ["@nuxtjs/pwa", { onesignal: false }]
   ],
 
   plugins: [{ src: "@/plugins/global" }],
+
+  styleResources: {
+    scss: [
+      // Global variables, site-wide settings, config switches, etc
+      "@/assets/settings/_settings.colors.scss",
+
+      // Site-wide mixins and functions
+      "@/assets/tools/_tools.mixins.scss",
+      "@/assets/tools/_tools.mq.scss"
+    ]
+  },
 
   build: {
     extend(config, { isDev, isClient }) {

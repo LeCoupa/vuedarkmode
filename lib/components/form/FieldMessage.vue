@@ -70,6 +70,8 @@ export default {
       } else if (this.level === "warning") {
         return "warning";
       }
+
+      return null;
     },
 
     computedIconSize() {
@@ -84,6 +86,8 @@ export default {
       } else if (this.size === "large") {
         return "19px";
       }
+
+      return null;
     }
   }
 };
