@@ -134,7 +134,7 @@ div(
     option(
       v-for="option in options"
       :key="option.value"
-      :value="options.value"
+      :value="option.value"
     ) {{ option.label }}
 
   field-message(

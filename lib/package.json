@@ -29,7 +29,7 @@
     "build": "bili"
   },
   "dependencies": {
-    "v-hotkey": "0.6.0",
+    "v-hotkey": "0.3.1",
     "vee-validate": "2.2.15"
   },
   "devDependencies": {
