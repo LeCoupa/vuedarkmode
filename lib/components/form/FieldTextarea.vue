@@ -260,8 +260,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-field-textarea";
-$sizes: mini, small, default, medium, large;
-$statuses: error, normal, success, warning;
+$sizes: "mini", "small", "default", "medium", "large";
+$statuses: "error", "normal", "success", "warning";
 
 #{$c} {
   display: flex;

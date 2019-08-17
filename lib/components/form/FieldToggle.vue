@@ -129,8 +129,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-field-toggle";
-$sizes: mini, small, default, medium, large;
-$statuses: error, normal, success, warning;
+$sizes: "mini", "small", "default", "medium", "large";
+$statuses: "error", "normal", "success", "warning";
 
 #{$c} {
   display: inline-block;

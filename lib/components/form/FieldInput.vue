@@ -314,8 +314,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-field-input";
-$sizes: mini, small, default, medium, large;
-$statuses: error, normal, success, warning;
+$sizes: "mini", "small", "default", "medium", "large";
+$statuses: "error", "normal", "success", "warning";
 
 #{$c} {
   display: flex;

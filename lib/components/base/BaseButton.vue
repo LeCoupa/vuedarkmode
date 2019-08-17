@@ -318,8 +318,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-button";
-$colors: black, blue, green, red, orange, white;
-$sizes: nano, micro, mini, small, default, medium, large;
+$colors: "black", "blue", "green", "red", "orange", "white";
+$sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {
   position: relative;

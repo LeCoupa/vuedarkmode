@@ -349,8 +349,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-field-select";
-$sizes: mini, small, default, medium, large;
-$statuses: error, normal, success, warning;
+$sizes: "mini", "small", "default", "medium", "large";
+$statuses: "error", "normal", "success", "warning";
 
 #{$c} {
   display: flex;

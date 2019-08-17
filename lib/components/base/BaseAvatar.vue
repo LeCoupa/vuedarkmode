@@ -128,7 +128,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-avatar";
-$sizes: nano, micro, mini, small, default, medium, large, huge;
+$sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
 #{$c} {
   display: flex;

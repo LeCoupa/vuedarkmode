@@ -99,8 +99,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-field-message";
-$levels: description, error, info, success, warning;
-$sizes: mini, small, default, medium, large;
+$levels: "description", "error", "info", "success", "warning";
+$sizes: "mini", "small", "default", "medium", "large";
 
 #{$c} {
   display: flex;

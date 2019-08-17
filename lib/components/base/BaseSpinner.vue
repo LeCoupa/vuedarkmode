@@ -77,8 +77,9 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-spinner";
-$colors: black, blue, green, grey, orange, purple, red, turquoise, white;
-$sizes: nano, micro, mini, small, default, medium, large;
+$colors: "black", "blue", "green", "grey", "orange", "purple", "red",
+  "turquoise", "white";
+$sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {
   position: relative;

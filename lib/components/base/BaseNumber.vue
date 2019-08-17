@@ -103,7 +103,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-number";
-$colors: black, blue, green, orange, purple, red, turquoise, white;
+$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
+  "white";
 
 #{$c} {
   display: flex;

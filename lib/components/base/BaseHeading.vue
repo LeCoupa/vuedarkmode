@@ -117,7 +117,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-heading";
-$colors: black, blue, green, grey, red, orange, white;
+$colors: "black", "blue", "green", "grey", "red", "orange", "white";
 
 #{$c} {
   margin: 0;

@@ -63,7 +63,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-divider";
-$colors: black, blue, green, orange, purple, red, turquoise, white;
+$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
+  "white";
 
 #{$c} {
   display: block;

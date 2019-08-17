@@ -95,8 +95,9 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-badge";
-$colors: black, blue, green, orange, purple, red, turquoise, white;
-$sizes: micro, mini, small, default, medium, large;
+$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
+  "white";
+$sizes: "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {
   display: inline-block;

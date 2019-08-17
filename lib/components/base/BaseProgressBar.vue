@@ -93,7 +93,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-progress-bar";
-$colors: black, blue, green, orange, purple, red, turquoise, white;
+$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
+  "white";
 
 #{$c} {
   text-align: left;

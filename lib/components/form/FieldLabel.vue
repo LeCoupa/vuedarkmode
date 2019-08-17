@@ -70,7 +70,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-field-label";
-$sizes: mini, small, default, medium, large;
+$sizes: "mini", "small", "default", "medium", "large";
 
 #{$c} {
   display: block;

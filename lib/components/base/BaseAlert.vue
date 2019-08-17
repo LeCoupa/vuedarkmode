@@ -93,7 +93,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-alert";
-$colors: black, blue, green, red, orange, white;
+$colors: "black", "blue", "green", "red", "orange", "white";
 
 #{$c} {
   display: flex;

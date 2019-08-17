@@ -100,8 +100,8 @@ export default {
 // VARIABLES
 $c: ".dm-base-social-login";
 $iconPath: "/images/components/darkmode/base/BaseSocialLogin";
-$networks: facebook, google, messenger, twitter;
-$sizes: small, large;
+$networks: "facebook", "google", "messenger", "twitter";
+$sizes: "small", "large";
 
 #{$c} {
   display: inline-block;
