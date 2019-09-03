@@ -138,12 +138,12 @@ $colors: "black", "blue", "green", "red", "orange", "white";
     &--#{$color} {
       background-color: map-get($mainColors, $color);
 
-      @if ($color == white) {
+      @if ($color == "white") {
         color: $oxford-blue;
       }
 
       #{$c}__icon--right {
-        @if ($color == red) {
+        @if ($color == "red") {
           &:hover {
             color: $oxford-blue !important;
           }

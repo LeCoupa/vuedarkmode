@@ -401,22 +401,22 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
           )
           center/15000%;
 
-        @if ($color == black) {
+        @if ($color == "black") {
           border: 1px solid $oxford-blue;
           background: $ebony-clay
             radial-gradient(circle, transparent 1%, $ebony-clay 1%)
             center/15000%;
-        } @else if ($color == white) {
+        } @else if ($color == "white") {
           color: $oxford-blue;
         }
 
         &:hover {
           &:not(#{$c}--disabled) {
-            @if ($color == black) {
+            @if ($color == "black") {
               background-color: map-get($mainColors, $color);
-            } @else if ($color == white) {
+            } @else if ($color == "white") {
               background-color: darken(map-get($mainColors, $color), 10%);
-            } @else if ($color == green) {
+            } @else if ($color == "green") {
               background-color: lighten(map-get($mainColors, $color), 5%);
             } @else {
               background-color: lighten(map-get($mainColors, $color), 10%);
@@ -426,11 +426,11 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
         &:active {
           &:not(#{$c}--disabled) {
-            @if ($color == black) {
+            @if ($color == "black") {
               background-color: map-get($mainColors, $color);
-            } @else if ($color == white) {
+            } @else if ($color == "white") {
               background-color: darken(map-get($mainColors, $color), 15%);
-            } @else if ($color == green) {
+            } @else if ($color == "green") {
               background-color: lighten(map-get($mainColors, $color), 5%);
             } @else {
               background-color: lighten(map-get($mainColors, $color), 15%);
@@ -548,7 +548,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
         border-color: map-get($mainColors, $color);
 
         &:hover {
-          @if ($color == white) {
+          @if ($color == "white") {
             border-color: $azure-radiance;
           } @else {
             border-color: $white;
@@ -556,7 +556,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
         }
 
         &:active {
-          @if ($color == white) {
+          @if ($color == "white") {
             background-color: $white;
             color: $oxford-blue;
           } @else {
@@ -565,7 +565,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
         }
 
         &:focus {
-          @if ($color == white) {
+          @if ($color == "white") {
             border-color: $white;
           } @else {
             border-color: map-get($mainColors, $color);

@@ -139,17 +139,17 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
       padding: 0 (10px + 1px * $i);
       font-size: 10 + (1px * $i);
 
-      @if ($size == micro) {
+      @if ($size == "micro") {
         line-height: 18px;
-      } @else if ($size == mini) {
+      } @else if ($size == "mini") {
         line-height: 19px;
-      } @else if ($size == small) {
+      } @else if ($size == "small") {
         line-height: 22px;
-      } @else if ($size == default) {
+      } @else if ($size == "default") {
         line-height: 23px;
-      } @else if ($size == medium) {
+      } @else if ($size == "medium") {
         line-height: 25px;
-      } @else if ($size == large) {
+      } @else if ($size == "large") {
         line-height: 30px;
       }
     }

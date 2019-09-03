@@ -176,15 +176,15 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
     &--#{$size} {
       #{$c}__image {
-        @if ($size == nano) {
+        @if ($size == "nano") {
           width: 20px;
           height: 20px;
           border-radius: 2px;
-        } @else if ($size == micro) {
+        } @else if ($size == "micro") {
           width: 24px;
           height: 24px;
           border-radius: 2px;
-        } @else if ($size == mini) {
+        } @else if ($size == "mini") {
           width: 30px;
           height: 30px;
           border-radius: 4px;
@@ -196,15 +196,15 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
       }
 
       #{$c}__description {
-        @if ($size == nano) {
+        @if ($size == "nano") {
           padding-top: 3px;
           font-size: 8px;
           line-height: 12px;
-        } @else if ($size == micro) {
+        } @else if ($size == "micro") {
           padding-top: 3px;
           font-size: 10px;
           line-height: 14px;
-        } @else if ($size == mini) {
+        } @else if ($size == "mini") {
           padding-top: 3px;
           font-size: 12px;
           line-height: 16px;

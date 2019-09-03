@@ -118,10 +118,10 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      @if ($size == nano) {
+      @if ($size == "nano") {
         width: 14px;
         height: 14px;
-      } @else if ($size == micro) {
+      } @else if ($size == "micro") {
         width: 16px;
         height: 16px;
       } @else {
