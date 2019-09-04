@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss">
 // IMPORTS
-@import "assets/settings/_settings.colors.scss";
+@import "assets/stylesheets/settings/_settings.colors.scss";
 
 // VARIABLES
 $c: ".dm-base-divider";

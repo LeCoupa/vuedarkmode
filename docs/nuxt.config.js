@@ -168,11 +168,11 @@ module.exports = {
   styleResources: {
     scss: [
       // Global variables, site-wide settings, config switches, etc
-      "@/assets/settings/_settings.colors.scss",
+      "@/assets/stylesheets/settings/_settings.colors.scss",
 
       // Site-wide mixins and functions
-      "@/assets/tools/_tools.mixins.scss",
-      "@/assets/tools/_tools.mq.scss"
+      "@/assets/stylesheets/tools/_tools.mixins.scss",
+      "@/assets/stylesheets/tools/_tools.mq.scss"
     ]
   },
 

@@ -88,18 +88,18 @@ export default {
 
 <style lang="scss">
 // Imported stylesheets for Javascript libraries (e.g. nprogress)
-@import "./assets/libraries/libraries.animate";
-@import "./assets/libraries/libraries.highlightjs";
+@import "./assets/stylesheets/libraries/libraries.animate";
+@import "./assets/stylesheets/libraries/libraries.highlightjs";
 
 // Unclassed HTML elements (e.g. a {}, blockquote {}, address {})
-@import "./assets/elements/elements.links";
+@import "./assets/stylesheets/elements/elements.links";
 
 // Objects, abstractions, and design patterns (e.g. .o-flexbox-column {})
-@import "./assets/objects/objects.layouts";
+@import "./assets/stylesheets/objects/objects.layouts";
 
 // High-specificity, very explicit selectors
-@import "./assets/utilities/utilities.alignments";
-@import "./assets/utilities/utilities.inline";
+@import "./assets/stylesheets/utilities/utilities.alignments";
+@import "./assets/stylesheets/utilities/utilities.inline";
 
 // VARIABLES
 $c: ".l-default";
