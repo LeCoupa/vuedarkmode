@@ -1,4 +1,10 @@
-## 0.3.0 - Current
+## 0.4.0 - Current
+
+### Added
+
+- FieldInput: Add submit event.
+
+## 0.3.0 - 2019-09-11
 
 ### Added
 

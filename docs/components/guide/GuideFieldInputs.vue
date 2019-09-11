@@ -503,6 +503,13 @@ export default {
             details: {
               description: "Fires the moment when the user releases a key."
             }
+          },
+          {
+            name: "submit",
+            parameters: "value, name, event",
+            details: {
+              description: "Fires when the user presses enter."
+            }
           }
         ]
       }

@@ -291,6 +291,10 @@ export default {
       const value = this.getInputValue();
 
       this.$emit("keyup", value, this.name, event);
+
+      if (event.key === "Enter") {
+        this.$emit("submit", value, this.name, event);
+      }
     },
 
     onRightIconClick() {
