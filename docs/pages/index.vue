@@ -86,9 +86,9 @@ main.c-index
       :documentation="docs.baseProgressBar"
     )
 
-    guide-base-social-logins(
-      v-if="section.id === 'baseSocialLogin'"
-      :documentation="docs.baseSocialLogin"
+    guide-base-social-buttons(
+      v-if="section.id === 'baseSocialButton'"
+      :documentation="docs.baseSocialButton"
     )
 
     guide-base-spinners(
@@ -169,7 +169,7 @@ import GuideBaseDividers from "@/components/guide/GuideBaseDividers";
 import GuideBaseHeadings from "@/components/guide/GuideBaseHeadings";
 import GuideBaseIcons from "@/components/guide/GuideBaseIcons";
 import GuideBaseProgressBars from "@/components/guide/GuideBaseProgressBars";
-import GuideBaseSocialLogins from "@/components/guide/GuideBaseSocialLogins";
+import GuideBaseSocialButtons from "@/components/guide/GuideBaseSocialButtons";
 import GuideBaseSpinners from "@/components/guide/GuideBaseSpinners";
 import GuideBaseToasts from "@/components/guide/GuideBaseToasts";
 import GuideColors from "@/components/guide/GuideColors";
@@ -205,7 +205,7 @@ export default {
     GuideBaseHeadings,
     GuideBaseIcons,
     GuideBaseProgressBars,
-    GuideBaseSocialLogins,
+    GuideBaseSocialButtons,
     GuideBaseSpinners,
     GuideBaseToasts,
     GuideColors,
@@ -239,7 +239,7 @@ export default {
         baseHeading: false,
         baseIcon: false,
         baseProgressBar: false,
-        baseSocialLogin: false,
+        baseSocialButton: false,
         baseSpinner: false,
         baseToast: false,
         fieldCheckbox: false,
@@ -353,12 +353,12 @@ export default {
           }
         },
         {
-          id: "baseSocialLogin",
+          id: "baseSocialButton",
           headlines: {
-            title: "Social Logins",
+            title: "Social Buttons",
             hasDocumentation: true,
             sourceUrl:
-              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseSocialLogin.vue"
+              "https://github.com/LeCoupa/vuedarkmode/blob/master/lib/components/base/BaseSocialButton.vue"
           }
         },
         {

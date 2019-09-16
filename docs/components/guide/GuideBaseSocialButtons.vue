@@ -3,35 +3,35 @@
      ************************************************************************* -->
 
 <template lang="pug">
-.c-guide-base-social-logins
+.c-guide-base-social-buttons
   div(
     v-if="!documentation"
-    class="c-guide-base-social-logins__showroom o-elements o-elements--horizontal o-elements--vertical-on-mobile"
+    class="c-guide-base-social-buttons__showroom o-elements o-elements--horizontal o-elements--vertical-on-mobile"
   )
     div(
-      v-for="(network, i) in socialLogins.networks"
-      :key="'socialLogin' + network + i"
+      v-for="(network, i) in socialButtons.networks"
+      :key="'socialButton' + network + i"
       class="o-elements__category"
     )
       div(
-        v-for="(size, j) in socialLogins.sizes"
-        :key="'socialLogin' + network + j + size"
+        v-for="(size, j) in socialButtons.sizes"
+        :key="'socialButton' + network + j + size"
         class="o-elements__item"
       )
-        base-social-login(
+        base-social-button(
           :network="network"
           :size="size"
         ) Connect with {{ network | capitalize }}
 
   div(
     v-else
-    class="c-guide-base-social-logins__documentation"
+    class="c-guide-base-social-buttons__documentation"
   )
     pre(v-highlightjs)
       code(class="html")
         | &lt;!-- Insert this component in your code --&gt;
         | &lt;!-- Customize it with props (see table below) --&gt;
-        | &lt;dm-social-login&gt;Connect with Facebook&lt;/dm-social-login&gt;
+        | &lt;dm-social-button&gt;Connect with Facebook&lt;/dm-social-button&gt;
 
     no-ssr
       common-table(
@@ -60,7 +60,7 @@
 <script>
 // VUE DARK MODE
 import BaseDivider from "@/../lib/components/base/BaseDivider";
-import BaseSocialLogin from "@/../lib/components/base/BaseSocialLogin";
+import BaseSocialButton from "@/../lib/components/base/BaseSocialButton";
 
 // PROJECT: COMPONENTS
 const CommonTable = () => import("@/components/common/CommonTable");
@@ -76,7 +76,7 @@ export default {
 
   components: {
     BaseDivider,
-    BaseSocialLogin,
+    BaseSocialButton,
     CommonTable
   },
 
@@ -89,7 +89,7 @@ export default {
 
   data() {
     return {
-      socialLogins: {
+      socialButtons: {
         networks: ["facebook", "messenger", "twitter", "google"],
         sizes: ["large", "small"]
       },
@@ -130,7 +130,7 @@ export default {
             },
             details: {
               description:
-                "When set to true, the social login button will take all the width available."
+                "When set to true, the social button button will take all the width available."
             }
           },
           {
@@ -208,7 +208,7 @@ export default {
 
 <style lang="scss">
 // VARIABLES
-$c: ".c-guide-base-social-logins";
+$c: ".c-guide-base-social-buttons";
 
 #{$c} {
   #{$c}__showroom {

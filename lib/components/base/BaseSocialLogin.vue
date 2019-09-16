@@ -6,19 +6,19 @@
 button(
   @click="onClick"
   :class=`[
-    "dm-base-social-login",
-    "dm-base-social-login--" + network,
-    "dm-base-social-login--" + size,
+    "dm-base-social-button",
+    "dm-base-social-button--" + network,
+    "dm-base-social-button--" + size,
     {
-      "dm-base-social-login--disabled": disabled || loading,
-      "dm-base-social-login--full-width": fullWidth,
-      "dm-base-social-login--loading": loading
+      "dm-base-social-button--disabled": disabled || loading,
+      "dm-base-social-button--full-width": fullWidth,
+      "dm-base-social-button--loading": loading
     }
   ]`
   :disabled="disabled || loading"
   type="button"
 )
-  span.dm-base-social-login__inner
+  span.dm-base-social-button__inner
     base-spinner(
       v-if="loading"
       size="mini"
@@ -26,12 +26,12 @@ button(
 
     span(
       v-if="!loading"
-      class="dm-base-social-login__icon"
+      class="dm-base-social-button__icon"
     )
 
     span(
       v-if="size === 'large' && !loading"
-      class="dm-base-social-login__label"
+      class="dm-base-social-button__label"
     )
       slot
 </template>
@@ -104,7 +104,7 @@ export default {
 @import "assets/stylesheets/tools/_tools.mixins.scss";
 
 // VARIABLES
-$c: ".dm-base-social-login";
+$c: ".dm-base-social-button";
 $networks: "facebook", "google", "messenger", "shopify", "twitter";
 $sizes: "small", "large";
 

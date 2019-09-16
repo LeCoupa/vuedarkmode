@@ -70,8 +70,8 @@ const createStore = () => {
               active: false
             },
             {
-              label: "Social Logins",
-              id: "baseSocialLogin",
+              label: "Social Buttons",
+              id: "baseSocialButton",
               active: false
             },
             {

@@ -81,7 +81,7 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 * **BaseProgressBar**: [documentation](https://www.vuedarkmode.com/#baseProgressBar) | [source code](/lib/components/base/BaseProgressBar.vue).
 
-* **BaseSocialLogin**: [documentation](https://www.vuedarkmode.com/#baseSocialLogin) | [source code](/lib/components/base/BaseSocialLogin.vue).
+* **BaseSocialButton**: [documentation](https://www.vuedarkmode.com/#baseSocialButton) | [source code](/lib/components/base/BaseSocialButton.vue).
 
 * **BaseSpinner**: [documentation](https://www.vuedarkmode.com/#baseSpinner) | [source code](/lib/components/base/BaseSpinner.vue).
 

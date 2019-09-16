@@ -2,7 +2,7 @@
 
 ### Added
 
-- BaseSocialLogin: Add shopify network.
+- BaseSocialButton: Add shopify network. Rename component.
 
 - FieldInput: Add submit event.
 

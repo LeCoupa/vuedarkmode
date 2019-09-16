@@ -16,7 +16,7 @@
       |   // When undefined, null or given an empty array, all components will be imported
       |   components: [
       |     // Base components
-      |     "alert", "avatar", "badge", "button", "divider", "heading", "icon",  "progress-bar",  "social-login", "spinner",
+      |     "alert", "avatar", "badge", "button", "divider", "heading", "icon",  "progress-bar",  "social-button", "spinner",
       |
       |     // Form components
       |     "checkbox", "file", "input", "label", "message", "radios", "select", "tabs", "textarea", "toggle"
