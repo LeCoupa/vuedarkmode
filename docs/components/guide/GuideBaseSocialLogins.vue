@@ -152,7 +152,8 @@ export default {
             },
             details: {
               description: "Set the social network.",
-              values: '"facebook" | "google" | "messenger" | "twitter"'
+              values:
+                '"facebook" | "google" | "messenger" | "shopify" | "twitter"'
             }
           },
           {

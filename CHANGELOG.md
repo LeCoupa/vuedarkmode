@@ -2,6 +2,8 @@
 
 ### Added
 
+- BaseSocialLogin: Add shopify network.
+
 - FieldInput: Add submit event.
 
 ## 0.3.0 - 2019-09-11
