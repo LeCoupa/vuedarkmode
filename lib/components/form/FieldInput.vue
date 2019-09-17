@@ -33,6 +33,18 @@ div(
     @click="onContainerClick"
     class="dm-field-input__container"
   )
+    span(
+      v-if="prepend"
+      @click="onPrependClick"
+      :class=`[
+        "dm-field-input__block",
+        "dm-field-input__block--prepend",
+        {
+          "dm-field-input__block--clickable": $listeners.prependClick
+        }
+      ]`
+    ) {{ prepend }}
+
     base-icon(
       v-if="leftIcon"
       :name="leftIcon"
@@ -71,6 +83,18 @@ div(
       class="dm-field-input__icon dm-field-input__icon--right"
     )
 
+    span(
+      v-if="append"
+      @click="onAppendClick"
+      :class=`[
+        "dm-field-input__block",
+        "dm-field-input__block--append",
+        {
+          "dm-field-input__block--clickable": $listeners.appendClick
+        }
+      ]`
+    ) {{ append }}
+
   field-message(
     v-if="computedMessageLevel"
     :level="computedMessageLevel"
@@ -105,6 +129,10 @@ export default {
   mixins: [FieldCommonMixin, FieldMessageMixin, FieldValidationMixin],
 
   props: {
+    append: {
+      type: String,
+      default: null
+    },
     autocomplete: {
       type: Boolean,
       default: false
@@ -142,6 +170,10 @@ export default {
       default: null
     },
     placeholder: {
+      type: String,
+      default: null
+    },
+    prepend: {
       type: String,
       default: null
     },
@@ -252,6 +284,12 @@ export default {
 
     // --> EVENT LISTENERS <--
 
+    onAppendClick(event) {
+      event.stopPropagation();
+
+      this.$emit("appendClick", this.getInputValue(), this.name, event);
+    },
+
     onContainerClick(event) {
       this.$el.querySelector("input").focus();
 
@@ -297,6 +335,12 @@ export default {
       }
     },
 
+    onPrependClick(event) {
+      event.stopPropagation();
+
+      this.$emit("prependClick", this.getInputValue(), this.name, event);
+    },
+
     onRightIconClick() {
       if (this.clearable) {
         this.currentValue = "";
@@ -334,8 +378,26 @@ $statuses: "error", "normal", "success", "warning";
     align-items: center;
     transition: all linear 250ms;
 
-    &:hover {
-      cursor: text;
+    #{$c}__block {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+      height: 100%;
+      color: $white;
+      user-select: none;
+      cursor: default;
+
+      &--append {
+        border-left: 1px solid $oxford-blue;
+      }
+
+      &--prepend {
+        border-right: 1px solid $oxford-blue;
+      }
+
+      &--clickable {
+        cursor: pointer;
+      }
     }
 
     #{$c}__icon {
@@ -373,6 +435,10 @@ $statuses: "error", "normal", "success", "warning";
         -webkit-text-fill-color: $white !important;
       }
     }
+
+    &:hover {
+      cursor: text;
+    }
   }
 
   // --> SIZES <--
@@ -389,6 +455,7 @@ $statuses: "error", "normal", "success", "warning";
           font-size: 16px + (1px * $i) !important;
         }
 
+        #{$c}__block,
         #{$c}__field {
           padding: 0 (10px + (1px * $i));
           font-size: 12px + (1px * $i);
@@ -420,11 +487,15 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__container {
       background-color: $ebony-clay;
 
+      #{$c}__block {
+        background-color: $ebony-clay-2;
+      }
+
       #{$c}__field {
         background-color: $ebony-clay;
 
         &:-webkit-autofill {
-          -webkit-box-shadow: 0 0 0 30px $ebony-clay inset !important;
+          box-shadow: 0 0 0 30px $ebony-clay inset !important;
         }
       }
     }
@@ -434,11 +505,15 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__container {
       background-color: $ebony-clay-2;
 
+      #{$c}__block {
+        background-color: $ebony-clay;
+      }
+
       #{$c}__field {
         background-color: $ebony-clay-2;
 
         &:-webkit-autofill {
-          -webkit-box-shadow: 0 0 0 30px $ebony-clay-2 inset !important;
+          box-shadow: 0 0 0 30px $ebony-clay-2 inset !important;
         }
       }
     }

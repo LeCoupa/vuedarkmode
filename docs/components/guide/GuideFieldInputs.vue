@@ -115,6 +115,16 @@ export default {
         ],
         data: [
           {
+            name: "append",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Append an information block after the field input."
+            }
+          },
+          {
             name: "autocomplete",
             type: {
               type: "Boolean",
@@ -280,6 +290,17 @@ export default {
             details: {
               description:
                 "Specify a short hint that describes the expected value."
+            }
+          },
+          {
+            name: "prepend",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Prepend an information block before the field input."
             }
           },
           {
@@ -455,10 +476,17 @@ export default {
         ],
         data: [
           {
+            name: "appendClick",
+            parameters: "value, name, event",
+            details: {
+              description: "Fires on a mouse click on the append block."
+            }
+          },
+          {
             name: "blur",
             parameters: "value, name, event",
             details: {
-              description: "Fires the moment that the element loses focus."
+              description: "Fires the moment when the element loses focus."
             }
           },
           {
@@ -502,6 +530,13 @@ export default {
             parameters: "value, name, event",
             details: {
               description: "Fires the moment when the user releases a key."
+            }
+          },
+          {
+            name: "prependClick",
+            parameters: "value, name, event",
+            details: {
+              description: "Fires on a mouse click on the prepend block."
             }
           },
           {

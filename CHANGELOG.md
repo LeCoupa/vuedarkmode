@@ -4,7 +4,7 @@
 
 - BaseSocialButton: Add shopify network. Rename component.
 
-- FieldInput: Add submit event.
+- FieldInput: Add submit event. Add append and prepend prop.
 
 ## 0.3.0 - 2019-09-11
 
