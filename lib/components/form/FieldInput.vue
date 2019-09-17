@@ -377,6 +377,7 @@ $statuses: "error", "normal", "success", "warning";
     overflow: hidden;
     align-items: center;
     transition: all linear 250ms;
+    user-select: none;
 
     #{$c}__block {
       display: flex;

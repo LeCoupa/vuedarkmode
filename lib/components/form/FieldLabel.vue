@@ -79,7 +79,6 @@ $sizes: "mini", "small", "default", "medium", "large";
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-  user-select: none;
 
   @include no-tap-highlight-color;
 
