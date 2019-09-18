@@ -24,8 +24,8 @@ const colors = [
     name: "$apple"
   },
   {
-    hex: "#1bb934",
-    name: "$malachite"
+    hex: "#96bf47",
+    name: "$sushi"
   },
   {
     hex: "#e1112c",

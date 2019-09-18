@@ -20,7 +20,7 @@ $dodger-blue: #2ea2f9;
 // GREEN
 
 $apple: #4fcf3f;
-$malachite: #1bb934;
+$sushi: #96bf47;
 
 // GREY
 
@@ -56,6 +56,7 @@ $white: #ffffff;
 $facebook: #3b5998;
 $google: #db4437;
 $messenger: #0084ff;
+$shopify: #96bf47;
 $twitter: #1da1f2;
 
 // DATASETS
@@ -64,14 +65,14 @@ $levelColors: (
   "description": $nepal,
   "error": $crimson,
   "info": $azure-radiance,
-  "success": $malachite,
+  "success": $sushi,
   "warning": $sun
 );
 
 $mainColors: (
   "black": $oxford-blue,
   "blue": $azure-radiance,
-  "green": $malachite,
+  "green": $sushi,
   "grey": $regent-st-blue,
   "orange": $sun,
   "purple": $portage,
@@ -90,6 +91,6 @@ $socialColors: (
 $statusColors: (
   "error": $crimson,
   "normal": $azure-radiance,
-  "success": $malachite,
+  "success": $sushi,
   "warning": $sunglow
 );
