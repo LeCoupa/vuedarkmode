@@ -104,10 +104,10 @@ export default {
   watch: {
     value: {
       immediate: true,
-      handler(newValue, oldValue) {
-        if (newValue) {
+      handler(value) {
+        if (value) {
           // When a value prop is defined set the radio as active
-          this.currentValue = newValue;
+          this.currentValue = value;
         } else {
           // Or set the first radio as active
           this.currentValue = this.radios[0].value;

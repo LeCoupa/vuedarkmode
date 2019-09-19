@@ -95,8 +95,8 @@ export default {
   watch: {
     value: {
       immediate: true,
-      handler(newValue, oldValue) {
-        this.currentValue = newValue;
+      handler(value) {
+        this.currentValue = value;
       }
     }
   },

@@ -117,8 +117,8 @@ export default {
   watch: {
     value: {
       immediate: true,
-      handler(newValue, oldValue) {
-        this.setActiveTabs(newValue);
+      handler(value) {
+        this.setActiveTabs(value);
       }
     }
   },

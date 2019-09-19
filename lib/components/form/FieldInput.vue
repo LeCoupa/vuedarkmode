@@ -255,11 +255,11 @@ export default {
   watch: {
     value: {
       immediate: true,
-      handler(newValue, oldValue) {
-        if (newValue === undefined || newValue === null) {
+      handler(value) {
+        if (value === undefined || value === null) {
           this.currentValue = "";
         } else {
-          this.currentValue = newValue;
+          this.currentValue = value;
         }
       }
     }
