@@ -17,7 +17,6 @@ div(
       "dm-base-avatar--shadow": shadow
     }
   ]`
-  :id="id"
 )
   span(
     @keypress.prevent="onKeypress"
