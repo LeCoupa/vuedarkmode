@@ -15,7 +15,6 @@ span(
       "dm-base-badge--filled": filled
     }
   ]`
-  :id="id"
   :tabindex="$listeners.click ? '0' : null"
 )
   slot

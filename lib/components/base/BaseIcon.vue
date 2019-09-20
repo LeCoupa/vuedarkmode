@@ -21,7 +21,6 @@ i(
       "dm-base-icon--clickable": $listeners.click
     }
   ]`
-  :id="id"
   :style=`{
     color: color,
     fontSize: size

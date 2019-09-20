@@ -29,7 +29,6 @@ button(
     }
   ]`
   :disabled="disabled || loading"
-  :id="id"
   :type="type"
 )
   span.dm-base-button__inner
