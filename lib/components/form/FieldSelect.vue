@@ -5,9 +5,7 @@
 <template lang="pug">
 div(
   v-click-outside="onClose"
-  v-hotkey=`{
-    "esc": onClose,
-  }`
+  v-hotkey="hotkeys"
   :class=`[
     "dm-field-select",
     "dm-field-select--" + computedStatus,
@@ -230,6 +228,12 @@ export default {
       }
 
       return this.leftIcon;
+    },
+
+    hotkeys() {
+      return {
+        esc: this.onClose
+      };
     }
   },
 
