@@ -30,7 +30,8 @@ div(
         {
           "dm-field-tabs__tab--active": activeTabs.includes(tab.value),
           "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
-          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1)
+          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
+          "dm-field-tabs__tab--with-label": tab.label
         }
       ]`
       tabindex="0"
@@ -44,7 +45,17 @@ div(
           name="tab-left"
         )
 
-      span.dm-field-tabs__label {{ tab.label }}
+      span(
+        v-if="tab.label"
+        class="dm-field-tabs__label"
+      ) {{ tab.label }}
+
+      base-icon(
+        v-else-if="tab.icon"
+        :name="tab.icon"
+        :size="tab.iconSize || computedIconSize"
+        class="dm-field-tabs__label"
+      )
 
       span(
         v-if="$scopedSlots['tab-right']"
@@ -69,6 +80,7 @@ div(
 
 <script>
 // PROJECT: COMPONENTS
+import BaseIcon from "../base/BaseIcon.vue";
 import FieldLabel from "./FieldLabel.vue";
 import FieldMessage from "./FieldMessage.vue";
 
@@ -78,6 +90,7 @@ import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
 
 export default {
   components: {
+    BaseIcon,
     FieldLabel,
     FieldMessage
   },
@@ -112,6 +125,24 @@ export default {
 
       activeTabs: []
     };
+  },
+
+  computed: {
+    computedIconSize() {
+      if (this.size === "mini") {
+        return "14px";
+      } else if (this.size === "small") {
+        return "16px";
+      } else if (this.size === "default") {
+        return "18px";
+      } else if (this.size === "medium") {
+        return "20px";
+      } else if (this.size === "large") {
+        return "22px";
+      }
+
+      return null;
+    }
   },
 
   watch: {
@@ -258,7 +289,8 @@ $statuses: "error", "normal", "success", "warning";
 
       #{$c}__tab-left,
       #{$c}__tab-right,
-      #{$c}__label {
+      #{$c}__label,
+      #{$c}__icon {
         display: flex;
         flex: 0 0 auto;
       }
@@ -268,6 +300,14 @@ $statuses: "error", "normal", "success", "warning";
       &--active {
         color: $white;
 
+        &:focus {
+          #{$c}__label {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &--with-label {
         &:focus {
           #{$c}__label {
             text-decoration: underline;
@@ -295,7 +335,8 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$size} {
       #{$c}__container {
         #{$c}__tab {
-          padding: (7px + (1px * $i)) (10px + (2px * $i));
+          height: 34px + (2px * $i);
+          padding: 0 (10px + (2px * $i));
           font-size: 11px + (1px * $i);
           line-height: 17px + (1px * $i);
         }

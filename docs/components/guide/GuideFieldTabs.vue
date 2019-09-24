@@ -235,7 +235,8 @@ export default {
             },
             details: {
               description: "Define the tabs to display.",
-              values: '[{ label: "Vue Dark Mode", value: "vuedarkmode" }]'
+              values:
+                '[{ label: "Vue Dark Mode", value: "vuedarkmode", icon: "laptop", iconSize: "18px" }]'
             }
           },
           {

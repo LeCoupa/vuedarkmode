@@ -6,6 +6,8 @@
 
 - FieldInput: Add submit event. Add append and prepend prop.
 
+- FieldTabs: Add tab icon and icon size.
+
 ## 0.3.0 - 2019-09-11
 
 ### Added
