@@ -84,8 +84,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 #{$c} {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  cursor: wait;
 
   #{$c}__wave {
     position: absolute;
