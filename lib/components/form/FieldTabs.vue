@@ -295,7 +295,7 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$size} {
       #{$c}__container {
         #{$c}__tab {
-          padding: (8px + (1px * $i)) (10px + (2px * $i));
+          padding: (7px + (1px * $i)) (10px + (2px * $i));
           font-size: 11px + (1px * $i);
           line-height: 17px + (1px * $i);
         }
