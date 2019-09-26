@@ -279,7 +279,7 @@ export default {
             name: "rows",
             type: {
               type: "Number",
-              additional: "Default: null"
+              additional: "Default: 6"
             },
             details: {
               description:
