@@ -261,6 +261,7 @@ $statuses: "error", "normal", "success", "warning";
       display: flex;
       align-items: center;
       flex: 0 0 auto;
+      box-sizing: border-box;
       outline: 0;
       border-width: 1px;
       border-style: solid;
@@ -335,8 +336,8 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$size} {
       #{$c}__container {
         #{$c}__tab {
-          height: 34px + (2px * $i);
           padding: 0 (10px + (2px * $i));
+          height: 34px + (2px * $i);
           font-size: 11px + (1px * $i);
           line-height: 17px + (1px * $i);
         }
