@@ -268,11 +268,12 @@ $statuses: "error", "normal", "success", "warning";
   flex-direction: column;
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  sans-serif;
 
   #{$c}__container {
     position: relative;
     display: flex;
+    overflow: hidden;
     transition: all linear 250ms;
 
     #{$c}__icon {
@@ -388,4 +389,5 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 }
+
 </style>
