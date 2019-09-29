@@ -39,7 +39,7 @@ validation-provider(
     ) {{ label }}
 
   field-message(
-    v-if="computedMessageLevel"
+    v-if="computedMessageLevel || errors.length > 0"
     :errors="errors"
     :level="computedMessageLevel"
     :message="computedMessageContent"
