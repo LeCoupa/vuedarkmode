@@ -62,7 +62,7 @@ validation-provider(
     )
 
   field-message(
-    v-if="computedMessageLevel || errors.length > 0"
+    v-if="computedMessageLevel || (errors.length > 0 && !focused)"
     :errors="errors"
     :level="computedMessageLevel"
     :message="computedMessageContent"
