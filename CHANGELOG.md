@@ -4,7 +4,9 @@
 
 - BaseSocialButton: Add shopify network. Rename component.
 
-- FieldInput: Add submit event. Add append and prepend prop.
+- FieldInput: Add submit event. Add append and prepend prop. Remove maxlength prop.
+
+- FieldTextarea: Remove maxlength prop.
 
 - FieldTabs: Add tab icon and icon size.
 

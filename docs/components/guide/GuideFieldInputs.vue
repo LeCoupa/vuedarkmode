@@ -251,17 +251,6 @@ export default {
             }
           },
           {
-            name: "maxlength",
-            type: {
-              type: "Number",
-              additional: "Default: null"
-            },
-            details: {
-              description:
-                "Specify the maximum number of characters allowed in the input element."
-            }
-          },
-          {
             name: "min",
             type: {
               type: "String",

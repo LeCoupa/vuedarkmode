@@ -42,7 +42,6 @@ div(
       :data-vv-as="validationVvAs"
       :disabled="disabled"
       :id="uuid"
-      :maxlength="maxlength"
       :name="name"
       :placeholder="placeholder"
       :readonly="readonly"
@@ -113,10 +112,6 @@ export default {
     },
     label: {
       type: String,
-      default: null
-    },
-    maxlength: {
-      type: Number,
       default: null
     },
     placeholder: {
@@ -268,7 +263,7 @@ $statuses: "error", "normal", "success", "warning";
   flex-direction: column;
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-  sans-serif;
+    sans-serif;
 
   #{$c}__container {
     position: relative;
@@ -389,5 +384,4 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 }
-
 </style>

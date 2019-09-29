@@ -221,17 +221,6 @@ export default {
             }
           },
           {
-            name: "maxlength",
-            type: {
-              type: "Number",
-              additional: "Default: null"
-            },
-            details: {
-              description:
-                "Specify the maximum number of characters allowed in the textarea element."
-            }
-          },
-          {
             name: "name",
             type: {
               type: "String",

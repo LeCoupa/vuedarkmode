@@ -64,7 +64,6 @@ div(
       :disabled="disabled"
       :id="uuid"
       :max="max"
-      :maxlength="maxlength"
       :min="min"
       :name="name"
       :placeholder="placeholder"
@@ -158,10 +157,6 @@ export default {
       default: null
     },
     max: {
-      type: Number,
-      default: null
-    },
-    maxlength: {
       type: Number,
       default: null
     },
