@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "v-hotkey": "0.6.0",
-    "vee-validate": "2.2.15"
+    "vee-validate": "3.0.5"
   },
   "devDependencies": {
     "autoprefixer": "9.6.1",

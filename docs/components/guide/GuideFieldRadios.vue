@@ -235,7 +235,7 @@ export default {
             },
             details: {
               description:
-                "Specify the validation rules for the radio element (check <a href='https://baianat.github.io/vee-validate/guide/rules.html' target='_blank'>VeeValidate documentation</a>)."
+                "Specify the validation rules for the radio element (check <a href='https://logaretm.github.io/vee-validate/api/rules.html' target='_blank'>VeeValidate documentation</a>)."
             }
           },
           {
