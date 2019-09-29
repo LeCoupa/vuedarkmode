@@ -33,7 +33,6 @@ div(
         :disabled="disabled"
         :id="radio.id"
         :name="name"
-        :ref="validationRef"
         :value="radio.value"
         type="radio"
       )
