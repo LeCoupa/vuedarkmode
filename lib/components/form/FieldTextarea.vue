@@ -20,6 +20,7 @@ validation-provider(
   ]`
   :name="rulesName || name"
   :rules="rules"
+  :vid="rulesVid"
   tag="div"
 )
   field-label(

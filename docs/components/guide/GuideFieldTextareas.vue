@@ -298,6 +298,16 @@ export default {
             }
           },
           {
+            name: "rules-vid",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Identifier used for target/cross-field based rules."
+            }
+          },
+          {
             name: "show-errors",
             type: {
               type: "Boolean",

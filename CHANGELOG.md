@@ -4,21 +4,21 @@
 
 - BaseSocialButton: Add shopify network. Rename component.
 
-- FieldCheckbox: Add show-errors prop.
+- FieldCheckbox: Add rules-vid and show-errors prop.
 
-- FieldFile: Add show-errors prop.
+- FieldFile: Add rules-vid and show-errors prop.
 
-- FieldInput: Add submit event. Add append, prepend and show-errors prop. Remove maxlength prop.
+- FieldInput: Add submit event. Add append, prepend rules-vid and show-errors prop. Remove maxlength prop.
 
-- FieldRadio: Add show-errors prop.
+- FieldRadio: Add rules-vid and show-errors prop.
 
-- FieldSelect: Add show-errors prop.
+- FieldSelect: Add rules-vid and show-errors prop.
 
-- FieldTextarea: Remove maxlength prop. Add show-errors prop.
+- FieldTextarea: Remove maxlength prop. Add rules-vid and show-errors prop.
 
 - FieldTabs: Add tab icon and icon size.
 
-- FieldToggle: Add show-errors prop.
+- FieldToggle: Add rules-vid and show-errors prop.
 
 ## 0.3.0 - 2019-09-11
 

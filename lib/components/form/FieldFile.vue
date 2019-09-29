@@ -16,6 +16,7 @@ validation-provider(
   ]`
   :name="rulesName || name"
   :rules="rules"
+  :vid="rulesVid"
   tag="div"
 )
   .dm-field-file__container
