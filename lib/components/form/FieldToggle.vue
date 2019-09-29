@@ -16,10 +16,8 @@ div(
 )
   .dm-field-toggle__container
     input(
-      v-validate="validation"
       @change="onFieldChange"
       :checked="currentValue"
-      :data-vv-as="validationVvAs"
       :disabled="disabled"
       :id="uuid"
       :name="name"

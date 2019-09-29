@@ -45,9 +45,7 @@ div(
       )
 
     input(
-      v-validate="validation"
       @change="onFieldChange"
-      :data-vv-as="validationVvAs"
       :disabled="disabled"
       :id="uuid"
       :multiple="multiple"

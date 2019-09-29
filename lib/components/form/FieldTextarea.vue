@@ -31,7 +31,6 @@ div(
     class="dm-field-textarea__container"
   )
     textarea(
-      v-validate="validation"
       @blur="onFieldBlur"
       @change="onFieldChange"
       @focus="onFieldFocus"
@@ -39,7 +38,6 @@ div(
       @keydown="onFieldKeyDown"
       @keyup="onFieldKeyUp"
       :cols="cols"
-      :data-vv-as="validationVvAs"
       :disabled="disabled"
       :id="uuid"
       :name="name"

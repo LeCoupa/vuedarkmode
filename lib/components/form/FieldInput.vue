@@ -52,7 +52,6 @@ div(
     )
 
     input(
-      v-validate="validation"
       @blur="onFieldBlur"
       @change="onFieldChange"
       @focus="onFieldFocus"
@@ -60,7 +59,6 @@ div(
       @keydown="onFieldKeyDown"
       @keyup="onFieldKeyUp"
       :autocomplete="autocomplete ? 'on' : 'off'"
-      :data-vv-as="validationVvAs"
       :disabled="disabled"
       :id="uuid"
       :max="max"

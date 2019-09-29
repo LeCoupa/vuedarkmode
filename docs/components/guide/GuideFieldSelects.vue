@@ -263,6 +263,28 @@ export default {
             }
           },
           {
+            name: "rules",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the validation rules for the select element (check <a href='https://logaretm.github.io/vee-validate/api/rules.html' target='_blank'>VeeValidate documentation</a>)."
+            }
+          },
+          {
+            name: "rules-name",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the field name used as the field label in the error message."
+            }
+          },
+          {
             name: "size",
             type: {
               type: "String",
@@ -304,28 +326,6 @@ export default {
             details: {
               description: "Specify the theme to use for the select element.",
               values: '"dark" | "light"'
-            }
-          },
-          {
-            name: "validation",
-            type: {
-              type: "String",
-              additional: "Default: null"
-            },
-            details: {
-              description:
-                "Specify the validation rules for the select element (check <a href='https://logaretm.github.io/vee-validate/api/rules.html' target='_blank'>VeeValidate documentation</a>)."
-            }
-          },
-          {
-            name: "validation-vv-as",
-            type: {
-              type: "String",
-              additional: "Default: null"
-            },
-            details: {
-              description:
-                "Specify the field name used as the field label in the error message."
             }
           },
           {

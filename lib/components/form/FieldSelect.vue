@@ -123,8 +123,6 @@ div(
 
   select(
     v-model="(selectedOption || {}).value"
-    v-validate="validation"
-    :data-vv-as="validationVvAs"
     :name="name"
     class="dm-field-select__select"
   )

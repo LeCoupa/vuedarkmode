@@ -20,7 +20,6 @@ div(
       class="dm-field-radios__fields"
     )
       input(
-        v-validate="validation"
         @change="onFieldChange(radio, $event)"
         :class=`[
           "dm-field-radios__field",
@@ -29,7 +28,6 @@ div(
           }
         ]`
         :checked="radio.value === currentValue"
-        :data-vv-as="validationVvAs"
         :disabled="disabled"
         :id="radio.id"
         :name="name"
