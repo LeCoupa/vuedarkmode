@@ -57,10 +57,10 @@ validation-provider(
     )
 
     input(
+      v-model="currentValue"
       @blur="onFieldBlur"
       @change="onFieldChange"
       @focus="onFieldFocus"
-      @input="onFieldInput"
       @keydown="onFieldKeyDown"
       @keyup="onFieldKeyUp"
       :autocomplete="autocomplete ? 'on' : 'off'"
@@ -73,7 +73,6 @@ validation-provider(
       :spellcheck="spellcheck"
       :readonly="readonly"
       :type="type"
-      :value="currentValue"
       class="dm-field-input__field js-tag-for-autofocus"
     )
 
@@ -223,17 +222,28 @@ export default {
     return {
       // --> STATE <--
 
-      currentValue: "",
       focused: false,
       uuid: ""
     };
   },
 
   computed: {
+     currentValue: {
+      get() {
+        return this.value
+      },
+
+      set(value) {
+        value = this.type === "number" ? parseInt(value) : value
+
+        this.$emit("input", value, this.name)
+      }
+    },
+
     computedRightIcon() {
       // Add ability to clear the input
       if (this.clearable) {
-        if (this.currentValue) {
+        if (this.value) {
           return "cancel";
         }
       } else {
@@ -251,19 +261,6 @@ export default {
     }
   },
 
-  watch: {
-    value: {
-      immediate: true,
-      handler(value) {
-        if (value === undefined || value === null) {
-          this.currentValue = "";
-        } else {
-          this.currentValue = value;
-        }
-      }
-    }
-  },
-
   mounted() {
     this.uuid = generateUUID();
   },
@@ -272,13 +269,17 @@ export default {
     // --> HELPERS <--
 
     getInputValue() {
-      let value = this.$el.querySelector("input").value || "";
+      let value = ""
 
-      if (value && this.type === "number") {
-        value = parseInt(value);
+      if (this.$el) {
+        value = this.$el.querySelector("input").value || ""
+
+        if (value && this.type === "number") {
+          value = parseInt(value)
+        }
       }
 
-      return value;
+      return value
     },
 
     // --> EVENT LISTENERS <--
@@ -311,13 +312,6 @@ export default {
       this.$emit("focus", this.getInputValue(), this.name, event);
     },
 
-    onFieldInput(event) {
-      const value = this.getInputValue();
-
-      this.currentValue = value;
-      this.$emit("input", value, this.name, event);
-    },
-
     onFieldKeyDown(event) {
       const value = this.getInputValue();
 
@@ -342,9 +336,7 @@ export default {
 
     onRightIconClick() {
       if (this.clearable) {
-        this.currentValue = "";
-
-        this.$emit("input", ""); // Synchronization for v-model
+        this.$emit("input", "") // Synchronization for v-model
       }
     }
   }
