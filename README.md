@@ -4,6 +4,11 @@
   </a>
 </p>
 
+[![npm](https://img.shields.io/npm/v/vuedarkmode.svg)](https://www.npmjs.com/package/vuedarkmode)
+[![npm](https://img.shields.io/npm/dm/vuedarkmode.svg)](https://npm-stat.com/charts.html?package=vuedarkmode)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/lecoupa/vuedarkmode.svg)](http://isitmaintained.com/project/lecoupa/vuedarkmode "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/lecoupa/vuedarkmode.svg)](http://isitmaintained.com/project/lecoupa/vuedarkmode "Percentage of issues still open")
+
 ## Documentation
 
 You can browse the documentation for Vue Dark Mode [on the website](https://www.vuedarkmode.com/).
