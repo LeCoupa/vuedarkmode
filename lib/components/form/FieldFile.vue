@@ -31,6 +31,7 @@ validation-provider(
 
       field-message(
         v-if="computedMessageLevel"
+        :errors="errors"
         :level="computedMessageLevel"
         :message="computedMessageContent"
         :size="size"
