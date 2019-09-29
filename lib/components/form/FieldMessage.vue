@@ -52,7 +52,7 @@ export default {
     },
     message: {
       type: String,
-      required: true
+      default: null
     },
     showErrors: {
       type: Boolean,
