@@ -100,6 +100,7 @@ validation-provider(
     :errors="errors"
     :level="computedMessageLevel"
     :message="computedMessageContent"
+    :show-errors="showErrors"
     :size="size"
   )
 </template>

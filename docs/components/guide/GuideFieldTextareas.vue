@@ -298,6 +298,17 @@ export default {
             }
           },
           {
+            name: "show-errors",
+            type: {
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description:
+                "Specify if we should display the message for errors below the field."
+            }
+          },
+          {
             name: "size",
             type: {
               type: "String",

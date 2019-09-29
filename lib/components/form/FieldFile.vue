@@ -34,6 +34,7 @@ validation-provider(
         :errors="errors"
         :level="computedMessageLevel"
         :message="computedMessageContent"
+        :show-errors="showErrors"
         :size="size"
         class="dm-field-file__message"
       )

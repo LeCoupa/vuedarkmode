@@ -54,6 +54,10 @@ export default {
       type: String,
       required: true
     },
+    showErrors: {
+      type: Boolean,
+      default: true
+    },
     size: {
       type: String,
       default: "default",
@@ -95,7 +99,7 @@ export default {
     },
 
     computedLevel() {
-      if (this.errors && this.errors.length > 0) {
+      if (this.errors && this.errors.length > 0 && this.showErrors) {
         return "error";
       } else {
         return this.level;
@@ -103,7 +107,7 @@ export default {
     },
 
     computedMessage() {
-      if (this.errors && this.errors.length > 0) {
+      if (this.errors && this.errors.length > 0 && this.showErrors) {
         return this.errors[0];
       } else {
         return this.message;
