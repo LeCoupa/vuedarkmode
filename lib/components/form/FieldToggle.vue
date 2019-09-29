@@ -3,7 +3,8 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
+validation-provider(
+  v-slot="{ errors }"
   :class=`[
     "dm-field-toggle",
     "dm-field-toggle--" + computedStatus,
@@ -13,6 +14,9 @@ div(
       "dm-field-toggle--full-width": fullWidth
     }
   ]`
+  :name="rulesName || name"
+  :rules="rules"
+  tag="div"
 )
   .dm-field-toggle__container
     input(

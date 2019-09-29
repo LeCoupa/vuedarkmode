@@ -6,7 +6,7 @@
 p(
   :class=`[
     "dm-field-message",
-    "dm-field-message--" + level,
+    "dm-field-message--" + computedLevel,
     "dm-field-message--" + size
   ]`
 )
@@ -18,7 +18,7 @@ p(
   )
 
   span(
-    v-html="message"
+    v-html="computedMessage"
     class="dm-field-message__message"
   )
 </template>
@@ -37,6 +37,10 @@ export default {
   },
 
   props: {
+    errors: {
+      type: Array,
+      default: null
+    },
     level: {
       type: String,
       default: "description",
@@ -88,6 +92,22 @@ export default {
       }
 
       return null;
+    },
+
+    computedLevel() {
+      if (this.errors && this.errors.length > 0) {
+        return "error";
+      } else {
+        return this.level;
+      }
+    },
+
+    computedMessage() {
+      if (this.errors && this.errors.length > 0) {
+        return this.errors[0];
+      } else {
+        return this.message;
+      }
     }
   }
 };

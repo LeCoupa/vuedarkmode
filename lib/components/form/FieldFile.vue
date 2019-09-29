@@ -3,7 +3,8 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
+validation-provider(
+  v-slot="{ errors }"
   :class=`[
     "dm-field-file",
     "dm-field-file--" + computedStatus,
@@ -13,6 +14,9 @@ div(
       "dm-field-file--full-width": fullWidth
     }
   ]`
+  :name="rulesName || name"
+  :rules="rules"
+  tag="div"
 )
   .dm-field-file__container
     div(

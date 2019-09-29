@@ -3,7 +3,8 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
+validation-provider(
+  v-slot="{ errors }"
   :class=`[
     "dm-field-textarea",
     "dm-field-textarea--" + computedStatus,
@@ -17,6 +18,9 @@ div(
       "dm-field-textarea--readonly": readonly
     }
   ]`
+  :name="rulesName || name"
+  :rules="rules"
+  tag="div"
 )
   field-label(
     v-if="label"

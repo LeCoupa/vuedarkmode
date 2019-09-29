@@ -3,9 +3,10 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
+validation-provider(
   v-click-outside="onClose"
   v-hotkey="hotkeys"
+  v-slot="{ errors }"
   :class=`[
     "dm-field-select",
     "dm-field-select--" + computedStatus,
@@ -20,6 +21,9 @@ div(
       "dm-field-select--with-left-icon": computedLeftIcon
     }
   ]`
+  :name="rulesName || name"
+  :rules="rules"
+  tag="div"
 )
   field-label(
     v-if="label"

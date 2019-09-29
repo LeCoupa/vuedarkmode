@@ -3,7 +3,8 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
+validation-provider(
+  v-slot="{ errors }"
   :class=`[
     "dm-field-input",
     "dm-field-input--" + computedStatus,
@@ -20,6 +21,9 @@ div(
       "dm-field-input--with-icon": leftIcon || rightIcon
     }
   ]`
+  :name="rulesName || name"
+  :rules="rules"
+  tag="div"
 )
   field-label(
     v-if="label"

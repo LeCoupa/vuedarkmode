@@ -3,7 +3,8 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
+validation-provider(
+  v-slot="{ errors }"
   :class=`[
     "dm-field-checkbox",
     "dm-field-checkbox--" + computedStatus,
@@ -13,6 +14,9 @@ div(
       "dm-field-checkbox--full-width": fullWidth
     }
   ]`
+  :name="rulesName || name"
+  :rules="rules"
+  tag="div"
 )
   .dm-field-checkbox__container
     input(

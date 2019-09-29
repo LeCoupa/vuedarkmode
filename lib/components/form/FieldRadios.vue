@@ -3,7 +3,8 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
+validation-provider(
+  v-slot="{ errors }"
   :class=`[
     "dm-field-radios",
     "dm-field-radios--" + computedStatus,
@@ -13,6 +14,9 @@ div(
       "dm-field-radios--full-width": fullWidth
     }
   ]`
+  :name="rulesName || name"
+  :rules="rules"
+  tag="div"
 )
   .dm-field-radios__container
     div(
