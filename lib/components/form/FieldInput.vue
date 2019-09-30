@@ -13,7 +13,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-input",
-      "dm-field-input--" + (errors && errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
+      "dm-field-input--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
       "dm-field-input--" + size,
       "dm-field-input--" + theme,
       {

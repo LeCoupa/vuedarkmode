@@ -4,7 +4,7 @@
 
 <template lang="pug">
 validation-provider(
-  v-slot="{ dirty, errors }"
+  v-slot="{ errors }"
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
@@ -13,7 +13,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-file",
-      "dm-field-file--" + (errors && errors.length > 0 && dirty ? 'error' : computedStatus),
+      "dm-field-file--" + errors.length > 0 ? 'error' : computedStatus,
       "dm-field-file--" + size,
       {
         "dm-field-file--disabled": disabled,
@@ -33,7 +33,7 @@ validation-provider(
         ) {{ label }}
 
         field-message(
-          v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+          v-if="computedMessageLevel || errors.length > 0"
           :errors="errors"
           :level="computedMessageLevel"
           :message="computedMessageContent"

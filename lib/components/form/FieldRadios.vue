@@ -4,7 +4,7 @@
 
 <template lang="pug">
 validation-provider(
-  v-slot="{ dirty, errors }"
+  v-slot="{ errors }"
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
@@ -13,7 +13,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-radios",
-      "dm-field-radios--" + (errors && errors.length > 0 && dirty ? 'error' : computedStatus),
+      "dm-field-radios--" + errors.length > 0 ? 'error' : computedStatus,
       "dm-field-radios--" + size,
       {
         "dm-field-radios--disabled": disabled,
@@ -23,18 +23,18 @@ validation-provider(
   )
     .dm-field-radios__container
       div(
-        v-for="(radio, index) in radios"
+        v-for="radio in radios"
         class="dm-field-radios__fields"
       )
         input(
           @change="onFieldChange(radio, $event)"
+          :checked="radio.value === currentValue"
           :class=`[
             "dm-field-radios__field",
             {
               "js-tag-for-autofocus": index === 0
             }
           ]`
-          :checked="radio.value === currentValue"
           :disabled="disabled"
           :id="radio.id"
           :name="name"
@@ -52,7 +52,7 @@ validation-provider(
         ) {{ radio.label }}
 
     field-message(
-      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+      v-if="computedMessageLevel || errors.length > 0"
       :errors="errors"
       :level="computedMessageLevel"
       :message="computedMessageContent"
