@@ -9,7 +9,7 @@ label(
     "dm-field-label",
     "dm-field-label--" + size,
     {
-      "dm-field-label--for-field": forField,
+      "dm-field-label--clickable": forField || $listeners.clickable,
       "dm-field-label--uppercase": uppercase
     }
   ]`
