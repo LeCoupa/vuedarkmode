@@ -4,10 +4,11 @@
 
 <template lang="pug">
 validation-provider(
-  v-slot="{ dirty, errors }"
+  v-slot="{ errors }"
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
+  ref="validationProvider"
   tag="div"
 )
   div(
@@ -15,7 +16,7 @@ validation-provider(
     v-hotkey="hotkeys"
     :class=`[
       "dm-field-select",
-      "dm-field-select--" + (errors && errors.length > 0 && dirty ? 'error' : computedStatus),
+      "dm-field-select--" + (errors && errors.length > 0 ? 'error' : computedStatus),
       "dm-field-select--" + direction,
       "dm-field-select--" + size,
       "dm-field-select--" + theme,
@@ -128,19 +129,8 @@ validation-provider(
               name="option-right"
             )
 
-    select(
-      v-model="(selectedOption || {}).value"
-      :name="name"
-      class="dm-field-select__select"
-    )
-      option(
-        v-for="option in options"
-        :key="option.value"
-        :value="option.value"
-      ) {{ option.label }}
-
     field-message(
-      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+      v-if="computedMessageLevel || errors.length > 0"
       :errors="errors"
       :level="computedMessageLevel"
       :message="computedMessageContent"
@@ -217,7 +207,6 @@ export default {
       // --> STATE <--
 
       deployed: false,
-      selectedOption: null,
       uuid: ""
     };
   },
@@ -240,34 +229,19 @@ export default {
       return {
         esc: this.onClose
       };
+    },
+
+    selectedOption() {
+      return this.options.find(option => {
+        return option.value === this.value;
+      });
     }
   },
 
   watch: {
-    options: {
-      handler(value) {
-        // When the available options are updated
-        // This make sure we keep the selected option up-to-date
-        const option = value.find(option => {
-          if (this.selectedOption) {
-            return option.value === this.selectedOption.value;
-          }
-        });
-
-        this.setSelectedOption(option);
-      }
-    },
-
-    value: {
-      immediate: true,
-      handler(value) {
-        const option = this.options.find(option => option.value === value);
-
-        // Select the right option for the select value
-        this.$nextTick(() => {
-          this.setSelectedOption(option);
-        });
-      }
+    value(value) {
+      // Validate new value with vee-validate
+      this.$refs.validationProvider.validate(value);
     }
   },
 
@@ -276,22 +250,10 @@ export default {
   },
 
   methods: {
-    // --> HELPERS <--
-
-    setSelectedOption(option) {
-      if (option) {
-        this.selectedOption = option;
-      } else {
-        this.selectedOption = null;
-      }
-    },
-
     // --> EVENT LISTENERS <--
 
     onClear(name, event) {
       event.stopPropagation();
-
-      this.setSelectedOption(null);
 
       this.$emit("change", null, null, event);
       this.$emit("input", null); // Synchronization for v-model
@@ -332,8 +294,6 @@ export default {
 
       // Check that the option is not currently selected
       if ((this.selectedOption || {}).value !== option.value) {
-        this.setSelectedOption(option);
-
         this.$emit("change", option.value, this.name, event);
         this.$emit("input", option.value); // Synchronization for v-model
       }
@@ -368,8 +328,6 @@ $statuses: "error", "normal", "success", "warning";
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-
-  @include no-tap-highlight-color;
 
   #{$c}__container {
     position: relative;
@@ -480,7 +438,7 @@ $statuses: "error", "normal", "success", "warning";
       position: absolute;
       right: 0;
       left: 0;
-      z-index: 2;
+      z-index: $z-level-min;
       overflow-y: auto;
       flex-direction: column;
       max-height: 200px;
@@ -496,10 +454,6 @@ $statuses: "error", "normal", "success", "warning";
         }
       }
     }
-  }
-
-  #{$c}__select {
-    display: none;
   }
 
   // --> DIRECTIONS <--
