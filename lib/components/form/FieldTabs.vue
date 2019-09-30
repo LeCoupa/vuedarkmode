@@ -13,7 +13,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-tabs",
-      "dm-field-tabs--" + errors.length > 0 ? 'error' : computedStatus,
+      "dm-field-tabs--" + (errors.length > 0 ? 'error' : computedStatus),
       "dm-field-tabs--" + size,
       {
         "dm-field-tabs--disabled": disabled,

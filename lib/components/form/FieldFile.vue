@@ -13,7 +13,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-file",
-      "dm-field-file--" + errors.length > 0 ? 'error' : computedStatus,
+      "dm-field-file--" + (errors.length > 0 ? 'error' : computedStatus),
       "dm-field-file--" + size,
       {
         "dm-field-file--disabled": disabled,

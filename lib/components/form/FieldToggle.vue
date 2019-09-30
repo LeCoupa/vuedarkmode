@@ -13,7 +13,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-toggle",
-      "dm-field-toggle--" + errors.length > 0 ? 'error' : computedStatus,
+      "dm-field-toggle--" + (errors.length > 0 ? 'error' : computedStatus),
       "dm-field-toggle--" + size,
       {
         "dm-field-toggle--disabled": disabled,

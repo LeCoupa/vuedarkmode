@@ -13,7 +13,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-checkbox",
-      "dm-field-checkbox--" + errors.length > 0 ? 'error' : computedStatus,
+      "dm-field-checkbox--" + (errors.length > 0 ? 'error' : computedStatus),
       "dm-field-checkbox--" + size,
       {
         "dm-field-checkbox--disabled": disabled,
