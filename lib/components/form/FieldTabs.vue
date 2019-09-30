@@ -3,75 +3,85 @@
      ************************************************************************* -->
 
 <template lang="pug">
-div(
-  :class=`[
-    "dm-field-tabs",
-    "dm-field-tabs--" + computedStatus,
-    "dm-field-tabs--" + size,
-    {
-      "dm-field-tabs--disabled": disabled,
-      "dm-field-tabs--multiple": multiple
-    }
-  ]`
+validation-provider(
+  v-slot="{ dirty, errors }"
+  :name="rulesName || name"
+  :rules="rules"
+  :vid="rulesVid"
+  tag="div"
 )
-  field-label(
-    v-if="label"
-    :size="size"
-    class="dm-field-tabs__label"
-  ) {{ label }}
-
-  .dm-field-tabs__container
-    span(
-      v-for="(tab, i) in tabs"
-      @click="onTabClick(tab.value, $event)"
-      @keypress.prevent="onTabKeypress"
-      :class=`[
-        "dm-field-tabs__tab",
-        {
-          "dm-field-tabs__tab--active": activeTabs.includes(tab.value),
-          "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
-          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
-          "dm-field-tabs__tab--with-label": tab.label
-        }
-      ]`
-      tabindex="0"
-    )
-      span(
-        v-if="$scopedSlots['tab-left']"
-        class="dm-field-tabs__tab-left"
-      )
-        slot(
-          :tab="tab"
-          name="tab-left"
-        )
-
-      span(
-        v-if="tab.label"
-        class="dm-field-tabs__label"
-      ) {{ tab.label }}
-
-      base-icon(
-        v-else-if="tab.icon"
-        :name="tab.icon"
-        :size="tab.iconSize || computedIconSize"
-        class="dm-field-tabs__label"
-      )
-
-      span(
-        v-if="$scopedSlots['tab-right']"
-        class="dm-field-tabs__tab-right"
-      )
-        slot(
-          :tab="tab"
-          name="tab-right"
-        )
-
-  field-message(
-    v-if="computedMessageLevel"
-    :level="computedMessageLevel"
-    :message="computedMessageContent"
-    :size="size"
+  div(
+    :class=`[
+      "dm-field-tabs",
+      "dm-field-tabs--" + (errors && errors.length > 0 && dirty ? 'error' : computedStatus),
+      "dm-field-tabs--" + size,
+      {
+        "dm-field-tabs--disabled": disabled,
+        "dm-field-tabs--multiple": multiple
+      }
+    ]`
   )
+    field-label(
+      v-if="label"
+      :required="labelRequired"
+      :size="size"
+      class="dm-field-tabs__label"
+    ) {{ label }}
+
+    .dm-field-tabs__container
+      span(
+        v-for="(tab, i) in tabs"
+        @click="onTabClick(tab.value, $event)"
+        @keypress.prevent="onTabKeypress"
+        :class=`[
+          "dm-field-tabs__tab",
+          {
+            "dm-field-tabs__tab--active": activeTabs.includes(tab.value),
+            "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
+            "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
+            "dm-field-tabs__tab--with-label": tab.label
+          }
+        ]`
+        tabindex="0"
+      )
+        span(
+          v-if="$scopedSlots['tab-left']"
+          class="dm-field-tabs__tab-left"
+        )
+          slot(
+            :tab="tab"
+            name="tab-left"
+          )
+
+        span(
+          v-if="tab.label"
+          class="dm-field-tabs__label"
+        ) {{ tab.label }}
+
+        base-icon(
+          v-else-if="tab.icon"
+          :name="tab.icon"
+          :size="tab.iconSize || computedIconSize"
+          class="dm-field-tabs__label"
+        )
+
+        span(
+          v-if="$scopedSlots['tab-right']"
+          class="dm-field-tabs__tab-right"
+        )
+          slot(
+            :tab="tab"
+            name="tab-right"
+          )
+
+    field-message(
+      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+      :errors="errors"
+      :level="computedMessageLevel"
+      :message="computedMessageContent"
+      :show-errors="showErrors"
+      :size="size"
+    )
 </template>
 
 <!-- *************************************************************************
@@ -87,6 +97,7 @@ import FieldMessage from "./FieldMessage.vue";
 // PROJECT: MIXINS
 import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
+import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";
 
 export default {
   components: {
@@ -95,7 +106,7 @@ export default {
     FieldMessage
   },
 
-  mixins: [FieldCommonMixin, FieldMessageMixin],
+  mixins: [FieldCommonMixin, FieldMessageMixin, FieldValidationMixin],
 
   props: {
     label: {

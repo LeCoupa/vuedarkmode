@@ -16,7 +16,7 @@
 
 - FieldTextarea: Remove maxlength prop. Add rules-vid and show-errors prop.
 
-- FieldTabs: Add tab icon and icon size.
+- FieldTabs: Add tab icon and icon size. Add validation rules.
 
 - FieldToggle: Add rules-vid and show-errors prop.
 

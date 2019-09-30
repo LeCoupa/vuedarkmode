@@ -195,6 +195,49 @@ export default {
             }
           },
           {
+            name: "rules",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the validation rules for the radio element (check <a href='https://logaretm.github.io/vee-validate/api/rules.html' target='_blank'>VeeValidate documentation</a>)."
+            }
+          },
+          {
+            name: "rules-name",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "Specify the field name used as the field label in the error message."
+            }
+          },
+          {
+            name: "rules-vid",
+            type: {
+              type: "String",
+              additional: "Default: null"
+            },
+            details: {
+              description: "Identifier used for target/cross-field based rules."
+            }
+          },
+          {
+            name: "show-errors",
+            type: {
+              type: "Boolean",
+              additional: "Default: true"
+            },
+            details: {
+              description:
+                "Specify if we should display the message for errors below the field."
+            }
+          },
+          {
             name: "size",
             type: {
               type: "String",
