@@ -8,6 +8,7 @@ validation-provider(
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
+  ref="validationProvider"
   tag="div"
 )
   div(
@@ -22,19 +23,23 @@ validation-provider(
     ]`
   )
     .dm-field-checkbox__container
-      input(
-        @change="onFieldChange"
-        :checked="currentValue"
-        :disabled="disabled"
-        :id="uuid"
-        :name="name"
-        class="dm-field-checkbox__field js-tag-for-autofocus"
-        type="checkbox"
+      div(
+        @click="onClick"
+        @keypress.prevent="onKeypress"
+        :class=`[
+          "dm-field-checkbox__field",
+          "js-tag-for-autofocus",
+          {
+            "dm-field-checkbox__field--checked": value
+          }
+        ]`
+        tabindex="0"
       )
+        span.dm-field-checkbox__tick
 
       field-label(
         v-if="label"
-        :forField="uuid"
+        @click="onClick"
         :required="labelRequired"
         :size="size"
         :uppercase="false"
@@ -58,9 +63,6 @@ validation-provider(
 <script>
 // PROJECT: COMPONENTS
 import FieldLabel from "./FieldLabel.vue";
-
-// PROJECT: HELPERS
-import { generateUUID } from "../../helpers/helpers.js";
 
 // PROJECT: MIXINS
 import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
@@ -93,32 +95,39 @@ export default {
     return {
       // --> STATE <--
 
-      currentValue: null,
       uuid: ""
     };
   },
 
   watch: {
-    value: {
-      immediate: true,
-      handler(value) {
-        this.currentValue = value;
-      }
+    value(value) {
+      // Validate new value with vee-validate
+      this.$refs.validationProvider.validate(value);
     }
   },
 
-  mounted() {
-    this.uuid = generateUUID();
-  },
-
   methods: {
+    // --> HELPERS <--
+
+    focusCheckbox() {
+      const input = this.$el.querySelector(".js-tag-for-autofocus");
+
+      input.focus();
+    },
+
     // --> EVENT LISTENERS <--
 
-    onFieldChange(event) {
-      this.currentValue = event.target.checked;
+    onClick(event) {
+      this.focusCheckbox();
 
-      this.$emit("change", event.target.checked, this.name, event);
-      this.$emit("input", event.target.checked); // Synchronization for v-model
+      this.$emit("change", !this.value, this.name, event);
+      this.$emit("input", !this.value); // Synchronization for v-model
+    },
+
+    onKeypress(event) {
+      if (event.code === "Space") {
+        event.target.click();
+      }
     }
   }
 };
@@ -144,50 +153,33 @@ $statuses: "error", "normal", "success", "warning";
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
 
-  @include no-tap-highlight-color;
-
   #{$c}__container {
     display: flex;
+    align-items: center;
 
     #{$c}__field {
-      position: relative;
-      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       outline: 0;
-      border: none;
-      border-radius: 2px;
+      border: 1px solid $regent-st-blue;
+      border-radius: 3px;
+      background-color: $white;
       transition: all linear 250ms;
-      -webkit-appearance: none;
       cursor: pointer;
 
-      &:before,
-      &:after {
-        position: absolute;
-        display: inline-block;
-        box-sizing: border-box;
-        transition: all linear 250ms;
-      }
-
-      &:before {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 1px solid $regent-st-blue;
-        border-radius: 3px;
-        background-color: $white;
-        content: "";
-      }
-
-      &:after {
+      #{$c}__tick {
+        flex: 0 0 auto;
+        margin-top: -2px;
         border: 2px solid $white;
         border-top: none;
         border-left: none;
+        transition: all linear 250ms;
         transform: rotate(45deg);
-        content: "";
       }
 
-      &:checked {
-        &:after {
+      &--checked {
+        #{$c}__tick {
           border-color: $white;
         }
       }
@@ -213,30 +205,20 @@ $statuses: "error", "normal", "success", "warning";
           width: 12px + (2px * $i);
           height: 12px + (2px * $i);
 
-          &:after {
+          #{$c}__tick {
             @if ($size == "mini") {
-              top: 1px;
-              left: 4px;
               width: 4px;
               height: 8px;
             } @else if ($size == "small") {
-              top: 2px;
-              left: 5px;
               width: 4px;
               height: 8px;
             } @else if ($size == "default") {
-              top: 2px;
-              left: 6px;
               width: 5px;
               height: 10px;
             } @else if ($size == "medium") {
-              top: 3px;
-              left: 7px;
               width: 5px;
               height: 10px;
             } @else if ($size == "large") {
-              top: 3px;
-              left: 8px;
               width: 6px;
               height: 12px;
             }
@@ -256,23 +238,21 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$status} {
       #{$c}__container {
         #{$c}__field {
-          &:hover {
-            &:before {
-              border-color: map-get($statusColors, $status);
-            }
-          }
-
-          &:checked {
-            &:before {
-              border-color: map-get($statusColors, $status);
-              background: map-get($statusColors, $status);
-            }
+          &--checked {
+            border-color: map-get($statusColors, $status);
+            background: map-get($statusColors, $status);
           }
 
           &:focus {
             box-shadow: 0 0 0 2px $mirage,
               0 0 0 3px map-get($statusColors, $status);
             transition: box-shadow linear 0s;
+          }
+        }
+
+        &:hover {
+          #{$c}__field {
+            border-color: map-get($statusColors, $status);
           }
         }
       }
@@ -287,6 +267,7 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__container {
       #{$c}__field,
       #{$c}__label {
+        pointer-events: none;
         cursor: not-allowed;
       }
     }
