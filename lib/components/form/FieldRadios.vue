@@ -8,6 +8,7 @@ validation-provider(
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
+  ref="validationProvider"
   tag="div"
 )
   div(
@@ -23,12 +24,13 @@ validation-provider(
   )
     .dm-field-radios__container
       div(
-        v-for="radio in radios"
-        class="dm-field-radios__fields"
+        v-for="(radio, index) in radios"
+        :key="radio.value"
+        class="dm-field-radios__radio"
       )
         input(
-          @change="onFieldChange(radio, $event)"
-          :checked="radio.value === currentValue"
+          @change="onRadioChange(radio, $event)"
+          :checked="radio.value === value"
           :class=`[
             "dm-field-radios__field",
             {
@@ -36,15 +38,14 @@ validation-provider(
             }
           ]`
           :disabled="disabled"
-          :id="radio.id"
+          :id="radio.value"
           :name="name"
-          :value="radio.value"
           type="radio"
         )
 
         field-label(
           v-if="radio.label"
-          :forField="radio.id"
+          :forField="radio.value"
           :required="labelRequired"
           :size="size"
           :uppercase="false"
@@ -99,36 +100,18 @@ export default {
     }
   },
 
-  data() {
-    return {
-      // --> STATE <--
-
-      currentValue: null
-    };
-  },
-
   watch: {
-    value: {
-      immediate: true,
-      handler(value) {
-        if (value) {
-          // When a value prop is defined set the radio as active
-          this.currentValue = value;
-        } else {
-          // Or set the first radio as active
-          this.currentValue = this.radios[0].value;
-        }
-      }
+    value(value) {
+      // Validate new value with vee-validate
+      this.$refs.validationProvider.validate(value);
     }
   },
 
   methods: {
     // --> EVENT LISTENERS <--
 
-    onFieldChange(radio, event) {
-      this.currentValue = radio.value;
-
-      this.$emit("change", radio.value, radio.id, this.name, event);
+    onRadioChange(radio, event) {
+      this.$emit("change", radio.value, this.name, event);
       this.$emit("input", radio.value); // Synchronization for v-model
     }
   }
@@ -155,12 +138,10 @@ $statuses: "error", "normal", "success", "warning";
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
 
-  @include no-tap-highlight-color;
-
   #{$c}__container {
     margin-bottom: 20px;
 
-    #{$c}__fields {
+    #{$c}__radio {
       display: flex;
       margin-bottom: 20px;
 
@@ -237,7 +218,7 @@ $statuses: "error", "normal", "success", "warning";
 
     &--#{$size} {
       #{$c}__container {
-        #{$c}__fields {
+        #{$c}__radio {
           #{$c}__field {
             margin-right: 6px + (1px * $i);
             width: 12px + (2px * $i);
@@ -257,7 +238,7 @@ $statuses: "error", "normal", "success", "warning";
   @each $status in $statuses {
     &--#{$status} {
       #{$c}__container {
-        #{$c}__fields {
+        #{$c}__radio {
           #{$c}__field {
             &:hover {
               &:before {
@@ -289,7 +270,7 @@ $statuses: "error", "normal", "success", "warning";
     opacity: 0.7;
 
     #{$c}__container {
-      #{$c}__fields {
+      #{$c}__radio {
         #{$c}__field,
         #{$c}__label {
           cursor: not-allowed;

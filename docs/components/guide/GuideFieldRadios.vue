@@ -17,10 +17,10 @@
         field-radios(
           :name="'input_' + status"
           :radios=`[
-            { label: 'Vue Dark Mode 1', id: 'vuedarkmode1' + i, value: 'vuedarkmode1' + i },
-            { label: 'Vue Dark Mode 2', id: 'vuedarkmode2' + i, value: 'vuedarkmode2' + i },
-            { label: 'Vue Dark Mode 3', id: 'vuedarkmode3' + i, value: 'vuedarkmode3' + i },
-            { label: 'Vue Dark Mode 4', id: 'vuedarkmode4' + i, value: 'vuedarkmode4' + i }
+            { label: 'Vue Dark Mode 1', value: 'vuedarkmode1' + i },
+            { label: 'Vue Dark Mode 2', value: 'vuedarkmode2' + i },
+            { label: 'Vue Dark Mode 3', value: 'vuedarkmode3' + i },
+            { label: 'Vue Dark Mode 4', value: 'vuedarkmode4' + i }
           ]`
           :status="status"
           :size="i === 0 ? 'default' : 'large'"
@@ -190,8 +190,7 @@ export default {
             },
             details: {
               description: "Define all radio elements to display.",
-              values:
-                '[{ label: "My Label", id: "myUniqueId", value: "My Value" }]'
+              values: '[{ label: "My Label", value: "My Value" }]'
             }
           },
           {
