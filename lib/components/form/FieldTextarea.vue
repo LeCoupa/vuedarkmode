@@ -5,71 +5,73 @@
 <template lang="pug">
 validation-provider(
   v-slot="{ dirty, errors }"
-  :class=`[
-    "dm-field-textarea",
-    "dm-field-textarea--" + computedStatus,
-    "dm-field-textarea--" + size,
-    "dm-field-textarea--" + theme,
-    {
-      "dm-field-textarea--borders": borders,
-      "dm-field-textarea--disabled": disabled,
-      "dm-field-textarea--focused": focused,
-      "dm-field-textarea--full-width": fullWidth,
-      "dm-field-textarea--readonly": readonly
-    }
-  ]`
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
   tag="div"
 )
-  field-label(
-    v-if="label"
-    :forField="uuid"
-    :required="labelRequired"
-    :size="size"
-    class="dm-field-textarea__label"
-  ) {{ label }}
-
   div(
-    @click="onContainerClick"
-    class="dm-field-textarea__container"
+    :class=`[
+      "dm-field-textarea",
+      "dm-field-textarea--" + computedStatus,
+      "dm-field-textarea--" + size,
+      "dm-field-textarea--" + theme,
+      {
+        "dm-field-textarea--borders": borders,
+        "dm-field-textarea--disabled": disabled,
+        "dm-field-textarea--focused": focused,
+        "dm-field-textarea--full-width": fullWidth,
+        "dm-field-textarea--readonly": readonly
+      }
+    ]`
   )
-    textarea(
-      @blur="onFieldBlur"
-      @change="onFieldChange"
-      @focus="onFieldFocus"
-      @input="onFieldInput"
-      @keydown="onFieldKeyDown"
-      @keyup="onFieldKeyUp"
-      :cols="cols"
-      :disabled="disabled"
-      :id="uuid"
-      :name="name"
-      :placeholder="placeholder"
-      :readonly="readonly"
-      :rows="rows"
-      :spellcheck="spellcheck"
-      :style=`{
-        resize: resize
-      }`
-      class="dm-field-textarea__field js-tag-for-autofocus"
-    ) {{ currentValue }}
+    field-label(
+      v-if="label"
+      :forField="uuid"
+      :required="labelRequired"
+      :size="size"
+      class="dm-field-textarea__label"
+    ) {{ label }}
 
-    base-icon(
-      v-if="computedIcon"
-      :name="computedIcon"
-      class="dm-field-textarea__icon"
+    div(
+      @click="onContainerClick"
+      class="dm-field-textarea__container"
     )
+      textarea(
+        @blur="onFieldBlur"
+        @change="onFieldChange"
+        @focus="onFieldFocus"
+        @input="onFieldInput"
+        @keydown="onFieldKeyDown"
+        @keyup="onFieldKeyUp"
+        :cols="cols"
+        :disabled="disabled"
+        :id="uuid"
+        :name="name"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :rows="rows"
+        :spellcheck="spellcheck"
+        :style=`{
+          resize: resize
+        }`
+        class="dm-field-textarea__field js-tag-for-autofocus"
+      ) {{ currentValue }}
 
-  field-message(
-    v-if="computedMessageLevel || (errors.length > 0 && !focused && dirty)"
-    :errors="errors"
-    :level="computedMessageLevel"
-    :message="computedMessageContent"
-    :show-errors="showErrors"
-    :size="size"
-  )
+      base-icon(
+        v-if="computedIcon"
+        :name="computedIcon"
+        class="dm-field-textarea__icon"
+      )
+
+    field-message(
+      v-if="computedMessageLevel || (errors.length > 0 && !focused && dirty)"
+      :errors="errors"
+      :level="computedMessageLevel"
+      :message="computedMessageContent"
+      :show-errors="showErrors"
+      :size="size"
+    )
 </template>
 
 <!-- *************************************************************************

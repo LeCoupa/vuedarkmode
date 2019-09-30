@@ -5,48 +5,50 @@
 <template lang="pug">
 validation-provider(
   v-slot="{ dirty, errors }"
-  :class=`[
-    "dm-field-checkbox",
-    "dm-field-checkbox--" + computedStatus,
-    "dm-field-checkbox--" + size,
-    {
-      "dm-field-checkbox--disabled": disabled,
-      "dm-field-checkbox--full-width": fullWidth
-    }
-  ]`
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
   tag="div"
 )
-  .dm-field-checkbox__container
-    input(
-      @change="onFieldChange"
-      :checked="currentValue"
-      :disabled="disabled"
-      :id="uuid"
-      :name="name"
-      class="dm-field-checkbox__field js-tag-for-autofocus"
-      type="checkbox"
-    )
-
-    field-label(
-      v-if="label"
-      :forField="uuid"
-      :required="labelRequired"
-      :size="size"
-      :uppercase="false"
-      class="dm-field-checkbox__label"
-    ) {{ label }}
-
-  field-message(
-    v-if="computedMessageLevel || (errors.length > 0 && dirty)"
-    :errors="errors"
-    :level="computedMessageLevel"
-    :message="computedMessageContent"
-    :show-errors="showErrors"
-    :size="size"
+  div(
+    :class=`[
+      "dm-field-checkbox",
+      "dm-field-checkbox--" + computedStatus,
+      "dm-field-checkbox--" + size,
+      {
+        "dm-field-checkbox--disabled": disabled,
+        "dm-field-checkbox--full-width": fullWidth
+      }
+    ]`
   )
+    .dm-field-checkbox__container
+      input(
+        @change="onFieldChange"
+        :checked="currentValue"
+        :disabled="disabled"
+        :id="uuid"
+        :name="name"
+        class="dm-field-checkbox__field js-tag-for-autofocus"
+        type="checkbox"
+      )
+
+      field-label(
+        v-if="label"
+        :forField="uuid"
+        :required="labelRequired"
+        :size="size"
+        :uppercase="false"
+        class="dm-field-checkbox__label"
+      ) {{ label }}
+
+    field-message(
+      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+      :errors="errors"
+      :level="computedMessageLevel"
+      :message="computedMessageContent"
+      :show-errors="showErrors"
+      :size="size"
+    )
 </template>
 
 <!-- *************************************************************************

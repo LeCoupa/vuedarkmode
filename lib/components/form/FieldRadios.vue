@@ -5,58 +5,60 @@
 <template lang="pug">
 validation-provider(
   v-slot="{ dirty, errors }"
-  :class=`[
-    "dm-field-radios",
-    "dm-field-radios--" + computedStatus,
-    "dm-field-radios--" + size,
-    {
-      "dm-field-radios--disabled": disabled,
-      "dm-field-radios--full-width": fullWidth
-    }
-  ]`
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
   tag="div"
 )
-  .dm-field-radios__container
-    div(
-      v-for="(radio, index) in radios"
-      class="dm-field-radios__fields"
-    )
-      input(
-        @change="onFieldChange(radio, $event)"
-        :class=`[
-          "dm-field-radios__field",
-          {
-            "js-tag-for-autofocus": index === 0
-          }
-        ]`
-        :checked="radio.value === currentValue"
-        :disabled="disabled"
-        :id="radio.id"
-        :name="name"
-        :value="radio.value"
-        type="radio"
-      )
-
-      field-label(
-        v-if="radio.label"
-        :forField="radio.id"
-        :required="labelRequired"
-        :size="size"
-        :uppercase="false"
-        class="dm-field-radios__label"
-      ) {{ radio.label }}
-
-  field-message(
-    v-if="computedMessageLevel || (errors.length > 0 && dirty)"
-    :errors="errors"
-    :level="computedMessageLevel"
-    :message="computedMessageContent"
-    :show-errors="showErrors"
-    :size="size"
+  div(
+    :class=`[
+      "dm-field-radios",
+      "dm-field-radios--" + computedStatus,
+      "dm-field-radios--" + size,
+      {
+        "dm-field-radios--disabled": disabled,
+        "dm-field-radios--full-width": fullWidth
+      }
+    ]`
   )
+    .dm-field-radios__container
+      div(
+        v-for="(radio, index) in radios"
+        class="dm-field-radios__fields"
+      )
+        input(
+          @change="onFieldChange(radio, $event)"
+          :class=`[
+            "dm-field-radios__field",
+            {
+              "js-tag-for-autofocus": index === 0
+            }
+          ]`
+          :checked="radio.value === currentValue"
+          :disabled="disabled"
+          :id="radio.id"
+          :name="name"
+          :value="radio.value"
+          type="radio"
+        )
+
+        field-label(
+          v-if="radio.label"
+          :forField="radio.id"
+          :required="labelRequired"
+          :size="size"
+          :uppercase="false"
+          class="dm-field-radios__label"
+        ) {{ radio.label }}
+
+    field-message(
+      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+      :errors="errors"
+      :level="computedMessageLevel"
+      :message="computedMessageContent"
+      :show-errors="showErrors"
+      :size="size"
+    )
 </template>
 
 <!-- *************************************************************************

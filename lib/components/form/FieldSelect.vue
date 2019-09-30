@@ -4,147 +4,149 @@
 
 <template lang="pug">
 validation-provider(
-  v-click-outside="onClose"
-  v-hotkey="hotkeys"
   v-slot="{ dirty, errors }"
-  :class=`[
-    "dm-field-select",
-    "dm-field-select--" + computedStatus,
-    "dm-field-select--" + direction,
-    "dm-field-select--" + size,
-    "dm-field-select--" + theme,
-    {
-      "dm-field-select--clearable": clearable,
-      "dm-field-select--disabled": disabled,
-      "dm-field-select--deployed": deployed,
-      "dm-field-select--full-width": fullWidth,
-      "dm-field-select--with-left-icon": computedLeftIcon
-    }
-  ]`
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
   tag="div"
 )
-  field-label(
-    v-if="label"
-    @click="onLabelClick"
-    :forField="uuid"
-    :required="labelRequired"
-    :size="size"
-    class="dm-field-select__label"
-  ) {{ label }}
+  div(
+    v-click-outside="onClose"
+    v-hotkey="hotkeys"
+    :class=`[
+      "dm-field-select",
+      "dm-field-select--" + computedStatus,
+      "dm-field-select--" + direction,
+      "dm-field-select--" + size,
+      "dm-field-select--" + theme,
+      {
+        "dm-field-select--clearable": clearable,
+        "dm-field-select--disabled": disabled,
+        "dm-field-select--deployed": deployed,
+        "dm-field-select--full-width": fullWidth,
+        "dm-field-select--with-left-icon": computedLeftIcon
+      }
+    ]`
+  )
+    field-label(
+      v-if="label"
+      @click="onLabelClick"
+      :forField="uuid"
+      :required="labelRequired"
+      :size="size"
+      class="dm-field-select__label"
+    ) {{ label }}
 
-  .dm-field-select__container
-    div(
-      @click="onContainerClick"
-      @keypress.prevent="onContainerKeypress"
-      class="dm-field-select__field js-tag-for-autofocus"
-      tabindex="0"
-    )
-      base-icon(
-        v-if="computedLeftIcon"
-        :name="computedLeftIcon"
-        class="dm-field-select__icon dm-field-select__icon--left"
-      )
-
-      span(
-        v-if="selectedOption"
-        class="dm-field-select__option dm-field-select__option--selected"
-      )
-        span(
-          v-if="$scopedSlots['option-left']"
-          class="dm-field-select__option-left"
-        )
-          slot(
-            :option="selectedOption"
-            name="option-left"
-          )
-
-        span.dm-field-select__option-label {{ selectedOption.label }}
-
-        span(
-          v-if="$scopedSlots['option-right']"
-          class="dm-field-select__option-right"
-        )
-          slot(
-            :option="selectedOption"
-            name="option-right"
-          )
-
+    .dm-field-select__container
       div(
-        v-else-if="placeholder"
-        class="dm-field-select__option dm-field-select__option--placeholder"
-      ) {{ placeholder }}
-
-      base-icon(
-        v-if="clearable && selectedOption"
-        @click="onClear"
-        class="dm-field-select__icon dm-field-select__icon--clear"
-        name="cancel"
-      )
-
-      base-icon(
-        class="dm-field-select__icon dm-field-select__icon--arrow"
-        name="arrow_drop_down"
-      )
-
-    div(
-      v-show="deployed && !disabled"
-      class="dm-field-select__options"
-    )
-      div(
-        v-for="option in options"
-        @click="onOptionClick(option, $event)"
-        @keypress.prevent="onOptionKeypress(option, $event)"
-        :class=`[
-          "dm-field-select__option",
-          {
-            "dm-field-select__option--selected": selectedOption && option.value === selectedOption.value
-          }
-        ]`
-        :key="option.value"
+        @click="onContainerClick"
+        @keypress.prevent="onContainerKeypress"
+        class="dm-field-select__field js-tag-for-autofocus"
         tabindex="0"
       )
-        span(
-          v-if="$scopedSlots['option-left']"
-          class="dm-field-select__option-left"
+        base-icon(
+          v-if="computedLeftIcon"
+          :name="computedLeftIcon"
+          class="dm-field-select__icon dm-field-select__icon--left"
         )
-          slot(
-            :option="option"
-            name="option-left"
-          )
-
-        span.dm-field-select__option-label {{ option.label }}
 
         span(
-          v-if="$scopedSlots['option-right']"
-          class="dm-field-select__option-right"
+          v-if="selectedOption"
+          class="dm-field-select__option dm-field-select__option--selected"
         )
-          slot(
-            :option="option"
-            name="option-right"
+          span(
+            v-if="$scopedSlots['option-left']"
+            class="dm-field-select__option-left"
           )
+            slot(
+              :option="selectedOption"
+              name="option-left"
+            )
 
-  select(
-    v-model="(selectedOption || {}).value"
-    :name="name"
-    class="dm-field-select__select"
-  )
-    option(
-      v-for="option in options"
-      :key="option.value"
-      :value="option.value"
-    ) {{ option.label }}
+          span.dm-field-select__option-label {{ selectedOption.label }}
 
-  field-message(
-    v-if="computedMessageLevel || (errors.length > 0 && dirty)"
-    :errors="errors"
-    :level="computedMessageLevel"
-    :message="computedMessageContent"
-    :show-errors="showErrors"
-    :size="size"
-  )
+          span(
+            v-if="$scopedSlots['option-right']"
+            class="dm-field-select__option-right"
+          )
+            slot(
+              :option="selectedOption"
+              name="option-right"
+            )
+
+        div(
+          v-else-if="placeholder"
+          class="dm-field-select__option dm-field-select__option--placeholder"
+        ) {{ placeholder }}
+
+        base-icon(
+          v-if="clearable && selectedOption"
+          @click="onClear"
+          class="dm-field-select__icon dm-field-select__icon--clear"
+          name="cancel"
+        )
+
+        base-icon(
+          class="dm-field-select__icon dm-field-select__icon--arrow"
+          name="arrow_drop_down"
+        )
+
+      div(
+        v-show="deployed && !disabled"
+        class="dm-field-select__options"
+      )
+        div(
+          v-for="option in options"
+          @click="onOptionClick(option, $event)"
+          @keypress.prevent="onOptionKeypress(option, $event)"
+          :class=`[
+            "dm-field-select__option",
+            {
+              "dm-field-select__option--selected": selectedOption && option.value === selectedOption.value
+            }
+          ]`
+          :key="option.value"
+          tabindex="0"
+        )
+          span(
+            v-if="$scopedSlots['option-left']"
+            class="dm-field-select__option-left"
+          )
+            slot(
+              :option="option"
+              name="option-left"
+            )
+
+          span.dm-field-select__option-label {{ option.label }}
+
+          span(
+            v-if="$scopedSlots['option-right']"
+            class="dm-field-select__option-right"
+          )
+            slot(
+              :option="option"
+              name="option-right"
+            )
+
+    select(
+      v-model="(selectedOption || {}).value"
+      :name="name"
+      class="dm-field-select__select"
+    )
+      option(
+        v-for="option in options"
+        :key="option.value"
+        :value="option.value"
+      ) {{ option.label }}
+
+    field-message(
+      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+      :errors="errors"
+      :level="computedMessageLevel"
+      :message="computedMessageContent"
+      :show-errors="showErrors"
+      :size="size"
+    )
 </template>
 
 <!-- *************************************************************************
