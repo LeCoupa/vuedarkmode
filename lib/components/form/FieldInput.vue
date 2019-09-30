@@ -361,7 +361,7 @@ $statuses: "error", "normal", "success", "warning";
   flex-direction: column;
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  sans-serif;
 
   #{$c}__container {
     display: flex;
@@ -409,6 +409,7 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__field {
       flex: 1;
+      width: 0;
       height: 100%;
       outline: 0;
       border: none;
@@ -579,4 +580,5 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 }
+
 </style>
