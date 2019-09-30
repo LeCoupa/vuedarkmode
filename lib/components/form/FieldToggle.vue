@@ -9,6 +9,7 @@ validation-provider(
   :rules="rules"
   :vid="rulesVid"
   tag="div"
+  ref="validationProvider"
 )
   div(
     :class=`[
@@ -24,7 +25,7 @@ validation-provider(
     .dm-field-toggle__container
       input(
         @change="onFieldChange"
-        :checked="currentValue"
+        :checked="value"
         :disabled="disabled"
         :id="uuid"
         :name="name"
@@ -93,17 +94,14 @@ export default {
     return {
       // --> STATE <--
 
-      currentValue: null,
       uuid: ""
     };
   },
 
   watch: {
-    value: {
-      immediate: true,
-      handler(value) {
-        this.currentValue = value;
-      }
+    value(value) {
+      // Validate new value with vee-validate
+      this.$refs.validationProvider.validate(value);
     }
   },
 
@@ -115,8 +113,6 @@ export default {
     // --> EVENT LISTENERS <--
 
     onFieldChange(event) {
-      this.currentValue = event.target.checked;
-
       this.$emit("change", event.target.checked, this.name, event);
       this.$emit("input", event.target.checked); // Synchronization for v-model
     }
@@ -143,8 +139,6 @@ $statuses: "error", "normal", "success", "warning";
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
-
-  @include no-tap-highlight-color;
 
   #{$c}__container {
     display: flex;
