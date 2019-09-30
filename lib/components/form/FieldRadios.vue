@@ -4,7 +4,7 @@
 
 <template lang="pug">
 validation-provider(
-  v-slot="{ errors }"
+  v-slot="{ dirty, errors }"
   :class=`[
     "dm-field-radios",
     "dm-field-radios--" + computedStatus,
@@ -50,7 +50,7 @@ validation-provider(
       ) {{ radio.label }}
 
   field-message(
-    v-if="computedMessageLevel || errors.length > 0"
+    v-if="computedMessageLevel || (errors.length > 0 && dirty)"
     :errors="errors"
     :level="computedMessageLevel"
     :message="computedMessageContent"

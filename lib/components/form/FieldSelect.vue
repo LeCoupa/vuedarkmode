@@ -6,7 +6,7 @@
 validation-provider(
   v-click-outside="onClose"
   v-hotkey="hotkeys"
-  v-slot="{ errors }"
+  v-slot="{ dirty, errors }"
   :class=`[
     "dm-field-select",
     "dm-field-select--" + computedStatus,
@@ -138,7 +138,7 @@ validation-provider(
     ) {{ option.label }}
 
   field-message(
-    v-if="computedMessageLevel || errors.length > 0"
+    v-if="computedMessageLevel || (errors.length > 0 && dirty)"
     :errors="errors"
     :level="computedMessageLevel"
     :message="computedMessageContent"

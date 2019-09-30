@@ -4,7 +4,7 @@
 
 <template lang="pug">
 validation-provider(
-  v-slot="{ errors }"
+  v-slot="{ dirty, errors }"
   :class=`[
     "dm-field-input",
     "dm-field-input--" + computedStatus,
@@ -96,7 +96,7 @@ validation-provider(
     ) {{ append }}
 
   field-message(
-    v-if="computedMessageLevel || (errors.length > 0 && !focused)"
+    v-if="computedMessageLevel || (errors.length > 0 && !focused && dirty)"
     :errors="errors"
     :level="computedMessageLevel"
     :message="computedMessageContent"
@@ -228,15 +228,15 @@ export default {
   },
 
   computed: {
-     currentValue: {
+    currentValue: {
       get() {
-        return this.value
+        return this.value;
       },
 
       set(value) {
-        value = this.type === "number" ? parseInt(value) : value
+        value = this.type === "number" ? parseInt(value) : value;
 
-        this.$emit("input", value, this.name)
+        this.$emit("input", value, this.name);
       }
     },
 
@@ -269,17 +269,17 @@ export default {
     // --> HELPERS <--
 
     getInputValue() {
-      let value = ""
+      let value = "";
 
       if (this.$el) {
-        value = this.$el.querySelector("input").value || ""
+        value = this.$el.querySelector("input").value || "";
 
         if (value && this.type === "number") {
-          value = parseInt(value)
+          value = parseInt(value);
         }
       }
 
-      return value
+      return value;
     },
 
     // --> EVENT LISTENERS <--
@@ -336,7 +336,7 @@ export default {
 
     onRightIconClick() {
       if (this.clearable) {
-        this.$emit("input", "") // Synchronization for v-model
+        this.$emit("input", ""); // Synchronization for v-model
       }
     }
   }
@@ -361,7 +361,7 @@ $statuses: "error", "normal", "success", "warning";
   flex-direction: column;
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-  sans-serif;
+    sans-serif;
 
   #{$c}__container {
     display: flex;
@@ -580,5 +580,4 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 }
-
 </style>

@@ -4,7 +4,7 @@
 
 <template lang="pug">
 validation-provider(
-  v-slot="{ errors }"
+  v-slot="{ dirty, errors }"
   :class=`[
     "dm-field-textarea",
     "dm-field-textarea--" + computedStatus,
@@ -63,7 +63,7 @@ validation-provider(
     )
 
   field-message(
-    v-if="computedMessageLevel || (errors.length > 0 && !focused)"
+    v-if="computedMessageLevel || (errors.length > 0 && !focused && dirty)"
     :errors="errors"
     :level="computedMessageLevel"
     :message="computedMessageContent"
