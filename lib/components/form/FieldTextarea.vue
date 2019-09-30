@@ -13,7 +13,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-textarea",
-      "dm-field-textarea--" + computedStatus,
+      "dm-field-textarea--" + (errors && errors.length > 0 && dirty && !focused ? 'error' : computedStatus),,
       "dm-field-textarea--" + size,
       "dm-field-textarea--" + theme,
       {
@@ -65,7 +65,7 @@ validation-provider(
       )
 
     field-message(
-      v-if="computedMessageLevel || (errors.length > 0 && !focused && dirty)"
+      v-if="computedMessageLevel || (errors.length > 0 && dirty && !focused)"
       :errors="errors"
       :level="computedMessageLevel"
       :message="computedMessageContent"

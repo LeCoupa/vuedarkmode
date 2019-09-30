@@ -13,7 +13,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-radios",
-      "dm-field-radios--" + computedStatus,
+      "dm-field-radios--" + (errors && errors.length > 0 && dirty ? 'error' : computedStatus),
       "dm-field-radios--" + size,
       {
         "dm-field-radios--disabled": disabled,

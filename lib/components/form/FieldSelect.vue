@@ -15,7 +15,7 @@ validation-provider(
     v-hotkey="hotkeys"
     :class=`[
       "dm-field-select",
-      "dm-field-select--" + computedStatus,
+      "dm-field-select--" + (errors && errors.length > 0 && dirty ? 'error' : computedStatus),
       "dm-field-select--" + direction,
       "dm-field-select--" + size,
       "dm-field-select--" + theme,
