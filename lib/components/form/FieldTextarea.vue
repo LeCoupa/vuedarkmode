@@ -38,10 +38,10 @@ validation-provider(
       class="dm-field-textarea__container"
     )
       textarea(
+        v-model="currentValue"
         @blur="onFieldBlur"
         @change="onFieldChange"
         @focus="onFieldFocus"
-        @input="onFieldInput"
         @keydown="onFieldKeyDown"
         @keyup="onFieldKeyUp"
         :cols="cols"
@@ -56,7 +56,7 @@ validation-provider(
           resize: resize
         }`
         class="dm-field-textarea__field js-tag-for-autofocus"
-      ) {{ currentValue }}
+      )
 
       base-icon(
         v-if="computedIcon"
@@ -160,13 +160,22 @@ export default {
     return {
       // --> STATE <--
 
-      currentValue: "",
       focused: false,
       uuid: ""
     };
   },
 
   computed: {
+    currentValue: {
+      get() {
+        return this.value;
+      },
+
+      set(value) {
+        this.$emit("input", value, this.name);
+      }
+    },
+
     computedIcon() {
       // Return the left icon when defined as prop
       if (this.computedStatus === "error") {
@@ -178,19 +187,6 @@ export default {
       }
 
       return this.icon;
-    }
-  },
-
-  watch: {
-    value: {
-      immediate: true,
-      handler(value) {
-        if (value === undefined || value === null) {
-          this.currentValue = "";
-        } else {
-          this.currentValue = value;
-        }
-      }
     }
   },
 
@@ -227,13 +223,6 @@ export default {
       this.focused = true;
 
       this.$emit("focus", this.getTextareaValue(), this.name, event);
-    },
-
-    onFieldInput(event) {
-      const value = this.getTextareaValue();
-
-      this.currentValue = value;
-      this.$emit("input", value, this.name, event);
     },
 
     onFieldKeyDown(event) {
