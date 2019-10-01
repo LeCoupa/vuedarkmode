@@ -8,6 +8,7 @@ validation-provider(
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
+  ref="validationProvider"
   tag="div"
 )
   div(
