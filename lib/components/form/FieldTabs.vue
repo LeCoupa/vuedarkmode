@@ -8,6 +8,7 @@ validation-provider(
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
+  ref="validationProvider"
   tag="div"
 )
   div(
@@ -36,7 +37,7 @@ validation-provider(
         :class=`[
           "dm-field-tabs__tab",
           {
-            "dm-field-tabs__tab--active": activeTabs.includes(tab.value),
+            "dm-field-tabs__tab--active": value === tab.value || (Array.isArray(value) && value.includes(tab.value)),
             "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
             "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
             "dm-field-tabs__tab--with-label": tab.label
@@ -130,26 +131,23 @@ export default {
     }
   },
 
-  data() {
-    return {
-      // --> STATE <--
-
-      activeTabs: []
-    };
-  },
-
   computed: {
     computedIconSize() {
-      if (this.size === "mini") {
-        return "14px";
-      } else if (this.size === "small") {
-        return "16px";
-      } else if (this.size === "default") {
-        return "18px";
-      } else if (this.size === "medium") {
-        return "20px";
-      } else if (this.size === "large") {
-        return "22px";
+      switch (this.size) {
+        case "mini":
+          return "14px";
+
+        case "small":
+          return "16px";
+
+        case "default":
+          return "18px";
+
+        case "medium":
+          return "20px";
+
+        case "large":
+          return "22px";
       }
 
       return null;
@@ -157,11 +155,9 @@ export default {
   },
 
   watch: {
-    value: {
-      immediate: true,
-      handler(value) {
-        this.setActiveTabs(value);
-      }
+    value(value) {
+      // Validate new value with vee-validate
+      this.$refs.validationProvider.validate(value);
     }
   },
 
@@ -169,67 +165,60 @@ export default {
     // --> HELPERS <--
 
     checkActiveBrother(order, index) {
-      if (this.multiple && this.tabs[index]) {
-        return this.activeTabs.includes(this.tabs[index].value);
-      }
-    },
-
-    setActiveTabs(value) {
-      if (Array.isArray(value)) {
-        this.activeTabs = value;
-      } else {
-        this.activeTabs = [value];
+      if (this.multiple && this.tabs[index] && Array.isArray(this.value)) {
+        return this.value.includes(this.tabs[index].value);
       }
     },
 
     // --> EVENT LISTENERS <--
 
     onTabClick(tabValue, event) {
-      // When multiple values are not allowed and tab is not already active
-      if (!this.multiple && !this.activeTabs.includes(tabValue)) {
-        this.activeTabs = [tabValue];
+      let activeTabs;
 
-        this.$emit(
-          "change",
-          tabValue,
-          "added",
-          this.activeTabs,
-          this.label,
-          event
-        );
-        this.$emit("input", tabValue); // Synchronization for v-model
+      // When multiple values are not allowed and tab is not already active
+      if (!this.multiple && !this.value !== tabValue) {
+        activeTabs = tabValue;
+
+        this.$emit("change", tabValue, "added", tabValue, this.label, event);
       }
 
       // When multiple values are allowed
       if (this.multiple) {
         // Remove the tab when already active
-        if (this.activeTabs.includes(tabValue)) {
-          this.activeTabs.splice(this.activeTabs.indexOf(tabValue), 1);
+        if (Array.isArray(this.value) && this.value.includes(tabValue)) {
+          activeTabs = this.value.filter(item => {
+            return item !== tabValue;
+          });
+
           this.$emit(
             "change",
             tabValue,
             "removed",
-            this.activeTabs,
-            this.label,
-            event
-          );
-        } else {
-          // Push the tab when not already active
-          this.activeTabs.push(tabValue);
-          this.$emit(
-            "change",
-            tabValue,
-            "added",
-            this.activeTabs,
+            activeTabs,
             this.label,
             event
           );
         }
 
-        this.$emit("input", this.activeTabs); // Synchronization for v-model
+        // Push the tab when not already active
+        else {
+          activeTabs = Array.isArray(this.value)
+            ? [...this.value, tabValue]
+            : [tabValue];
+
+          this.$emit(
+            "change",
+            tabValue,
+            "added",
+            activeTabs,
+            this.label,
+            event
+          );
+        }
       }
 
-      this.$emit("click", tabValue, this.activeTabs, this.label, event);
+      this.$emit("click", tabValue, activeTabs, this.label, event);
+      this.$emit("input", activeTabs); // Synchronization for v-model
     },
 
     onTabKeypress(event) {
