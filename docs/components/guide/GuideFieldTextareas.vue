@@ -20,13 +20,13 @@
         class="o-elements__item"
       )
         field-textarea(
+          v-model="models[i + '_' + j]"
           :label="size + ' textarea (' + statuses[j] + ')'"
           :name="'textarea_' + size + '_'  + statuses[j] + i + j"
           :placeholder="statuses[j] + ' ' + size + ' textarea'"
           :size="size"
           :status="statuses[j]"
           description="This is a customizable description for textareas."
-          value="Vue Dark Mode"
         )
 
   div(
@@ -87,6 +87,7 @@ export default {
 
   data() {
     return {
+      models: {},
       textareas: {
         sizes: ["large", "medium", "default", "small", "mini"],
         statuses: [

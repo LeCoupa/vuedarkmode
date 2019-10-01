@@ -15,6 +15,7 @@
     )
       .o-elements__item
         field-radios(
+          v-model="models[i]"
           :name="'input_' + status"
           :radios=`[
             { label: 'Vue Dark Mode 1', value: 'vuedarkmode1' + i },
@@ -85,6 +86,7 @@ export default {
 
   data() {
     return {
+      models: {},
       radios: {
         statuses: ["normal", "success"]
       },
