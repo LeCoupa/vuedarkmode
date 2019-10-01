@@ -9,7 +9,6 @@ label(
     "dm-field-label",
     "dm-field-label--" + size,
     {
-      "dm-field-label--clickable": forField || $listeners.clickable,
       "dm-field-label--uppercase": uppercase
     }
   ]`
@@ -80,6 +79,7 @@ $sizes: "mini", "small", "default", "medium", "large";
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
   user-select: none;
+  cursor: pointer;
 
   @include no-tap-highlight-color;
 
@@ -100,10 +100,6 @@ $sizes: "mini", "small", "default", "medium", "large";
   }
 
   // --> BOOLEANS <--
-
-  &--clickable {
-    cursor: pointer;
-  }
 
   &--uppercase {
     text-transform: uppercase;
