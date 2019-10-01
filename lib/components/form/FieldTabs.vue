@@ -4,7 +4,7 @@
 
 <template lang="pug">
 validation-provider(
-  v-slot="{ errors }"
+  v-slot="{ dirty, errors }"
   :name="rulesName || name"
   :rules="rules"
   :vid="rulesVid"
@@ -14,7 +14,7 @@ validation-provider(
   div(
     :class=`[
       "dm-field-tabs",
-      "dm-field-tabs--" + (errors.length > 0 ? 'error' : computedStatus),
+      "dm-field-tabs--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
       "dm-field-tabs--" + size,
       {
         "dm-field-tabs--disabled": disabled,
@@ -76,7 +76,7 @@ validation-provider(
           )
 
     field-message(
-      v-if="computedMessageLevel || errors.length > 0"
+      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
       :errors="errors"
       :level="computedMessageLevel"
       :message="computedMessageContent"
@@ -156,9 +156,14 @@ export default {
 
   watch: {
     value(value) {
-      // Validate new value with vee-validate
-      this.$refs.validationProvider.validate(value);
+      this.validate(true);
     }
+  },
+
+  mounted() {
+    this.uuid = generateUUID();
+
+    this.validate();
   },
 
   methods: {
