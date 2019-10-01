@@ -439,7 +439,7 @@ $statuses: "error", "normal", "success", "warning";
       position: absolute;
       right: 0;
       left: 0;
-      z-index: $z-level-min;
+      z-index: 1;
       overflow-y: auto;
       flex-direction: column;
       max-height: 200px;

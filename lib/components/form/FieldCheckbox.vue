@@ -64,6 +64,9 @@ validation-provider(
 // PROJECT: COMPONENTS
 import FieldLabel from "./FieldLabel.vue";
 
+// PROJECT: HELPERS
+import { generateUUID } from "../../helpers/helpers.js";
+
 // PROJECT: MIXINS
 import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
 import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
