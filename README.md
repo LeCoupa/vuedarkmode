@@ -8,6 +8,7 @@
 [![npm](https://img.shields.io/npm/dm/vuedarkmode.svg)](https://npm-stat.com/charts.html?package=vuedarkmode)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/lecoupa/vuedarkmode.svg)](http://isitmaintained.com/project/lecoupa/vuedarkmode "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/lecoupa/vuedarkmode.svg)](http://isitmaintained.com/project/lecoupa/vuedarkmode "Percentage of issues still open")
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/LICENSE)
 
 ## Documentation
 
