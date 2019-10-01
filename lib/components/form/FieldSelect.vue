@@ -23,7 +23,7 @@ validation-provider(
       {
         "dm-field-select--clearable": clearable,
         "dm-field-select--disabled": disabled,
-        "dm-field-select--deployed": deployed,
+        "dm-field-select--opened": opened,
         "dm-field-select--full-width": fullWidth,
         "dm-field-select--with-left-icon": computedLeftIcon
       }
@@ -93,7 +93,7 @@ validation-provider(
         )
 
       div(
-        v-show="deployed && !disabled"
+        v-show="opened && !disabled"
         class="dm-field-select__options"
       )
         div(
@@ -206,7 +206,7 @@ export default {
     return {
       // --> STATE <--
 
-      deployed: false,
+      opened: false,
       uuid: ""
     };
   },
@@ -262,12 +262,12 @@ export default {
     },
 
     onClose() {
-      this.deployed = false;
+      this.opened = false;
     },
 
     onContainerClick(event) {
       if (!this.disabled) {
-        this.deployed = !this.deployed;
+        this.opened = !this.opened;
 
         this.$emit(
           "click",
@@ -286,12 +286,12 @@ export default {
 
     onLabelClick() {
       if (!this.disabled) {
-        this.deployed = !this.deployed;
+        this.opened = !this.opened;
       }
     },
 
     onOptionClick(option, event) {
-      this.deployed = false;
+      this.opened = false;
 
       // Check that the option is not currently selected
       if ((this.selectedOption || {}).value !== option.value) {
@@ -480,7 +480,7 @@ $statuses: "error", "normal", "success", "warning";
       }
     }
 
-    &#{$c}--deployed {
+    &#{$c}--opened {
       #{$c}__container {
         #{$c}__field {
           border-bottom-right-radius: 0;
@@ -517,7 +517,7 @@ $statuses: "error", "normal", "success", "warning";
       }
     }
 
-    &#{$c}--deployed {
+    &#{$c}--opened {
       #{$c}__container {
         #{$c}__field {
           border-top-left-radius: 0;
@@ -640,19 +640,12 @@ $statuses: "error", "normal", "success", "warning";
 
   // --> BOOLEANS <--
 
-  &--deployed {
+  &--clearable {
     #{$c}__container {
       #{$c}__field,
       #{$c}__options {
-        border-color: $azure-radiance;
-      }
-
-      #{$c}__field {
-        #{$c}__icon {
-          &--left,
-          &--arrow {
-            color: $azure-radiance;
-          }
+        #{$c}__option {
+          padding-right: 60px;
         }
       }
     }
@@ -671,12 +664,19 @@ $statuses: "error", "normal", "success", "warning";
     width: 100%;
   }
 
-  &--clearable {
+  &--opened {
     #{$c}__container {
       #{$c}__field,
       #{$c}__options {
-        #{$c}__option {
-          padding-right: 60px;
+        border-color: $azure-radiance;
+      }
+
+      #{$c}__field {
+        #{$c}__icon {
+          &--left,
+          &--arrow {
+            color: $azure-radiance;
+          }
         }
       }
     }

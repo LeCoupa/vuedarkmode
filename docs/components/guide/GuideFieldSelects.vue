@@ -162,8 +162,7 @@ export default {
               additional: 'Default: "bottom"'
             },
             details: {
-              description:
-                "Where the options should be displayed when deployed",
+              description: "Where the options should be displayed when opened",
               values: '"bottom" | "top"'
             }
           },
