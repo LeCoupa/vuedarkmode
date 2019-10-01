@@ -101,7 +101,7 @@ $sizes: "mini", "small", "default", "medium", "large";
 
   // --> BOOLEANS <--
 
-  &--for-field {
+  &--clickable {
     cursor: pointer;
   }
 
