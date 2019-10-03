@@ -25,7 +25,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: "white",
+      default: "blue",
       validator(x) {
         return [
           "black",
