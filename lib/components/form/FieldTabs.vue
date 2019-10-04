@@ -99,9 +99,7 @@ import FieldMessage from "./FieldMessage.vue";
 import { generateUUID } from "../../helpers/helpers.js";
 
 // PROJECT: MIXINS
-import FieldCommonMixin from "../../mixins/FieldCommonMixin.js";
-import FieldMessageMixin from "../../mixins/FieldMessageMixin.js";
-import FieldValidationMixin from "../../mixins/FieldValidationMixin.js";
+import FieldMixin from "../../mixins/FieldMixin.js";
 
 export default {
   components: {
@@ -110,7 +108,7 @@ export default {
     FieldMessage
   },
 
-  mixins: [FieldCommonMixin, FieldMessageMixin, FieldValidationMixin],
+  mixins: [FieldMixin],
 
   props: {
     label: {
