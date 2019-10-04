@@ -21,6 +21,7 @@ button(
   span.dm-base-social-button__inner
     base-spinner(
       v-if="loading"
+      color="white"
       size="mini"
     )
 
