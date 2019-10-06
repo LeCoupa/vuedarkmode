@@ -103,10 +103,6 @@ export default {
       type: String,
       default: null
     },
-    label: {
-      type: String,
-      default: null
-    },
     placeholder: {
       type: String,
       default: null

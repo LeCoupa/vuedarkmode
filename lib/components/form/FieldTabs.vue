@@ -97,10 +97,6 @@ export default {
   mixins: [FieldMixin],
 
   props: {
-    label: {
-      type: String,
-      default: null
-    },
     multiple: {
       type: Boolean,
       default: false

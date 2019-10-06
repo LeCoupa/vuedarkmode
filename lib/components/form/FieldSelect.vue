@@ -166,10 +166,6 @@ export default {
       type: Boolean,
       default: true
     },
-    label: {
-      type: String,
-      default: null
-    },
     leftIcon: {
       type: String,
       default: null

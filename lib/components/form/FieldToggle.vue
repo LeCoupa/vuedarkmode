@@ -68,10 +68,6 @@ export default {
       type: Boolean,
       default: true
     },
-    label: {
-      type: String,
-      default: null
-    },
     value: {
       type: Boolean,
       default: false

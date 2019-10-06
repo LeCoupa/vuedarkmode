@@ -81,10 +81,6 @@ export default {
       type: Boolean,
       default: true
     },
-    label: {
-      type: String,
-      default: null
-    },
     multiple: {
       type: Boolean,
       default: false
