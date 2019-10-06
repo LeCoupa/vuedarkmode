@@ -57,7 +57,7 @@ validation-provider(
           resize: resize
         }`
         class="dm-field-textarea__field js-tag-for-autofocus"
-      ){{ innerValue }}
+      ) {{ innerValue }}
 
       base-icon(
         v-if="computedIcon"
