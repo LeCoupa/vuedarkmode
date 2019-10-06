@@ -114,10 +114,6 @@ validation-provider(
      ************************************************************************* -->
 
 <script>
-// PROJECT: COMPONENTS
-import BaseIcon from "../base/BaseIcon.vue";
-import FieldLabel from "./FieldLabel.vue";
-
 // PROJECT: HELPERS
 import { generateUUID } from "../../helpers/helpers.js";
 
@@ -125,11 +121,6 @@ import { generateUUID } from "../../helpers/helpers.js";
 import FieldMixin from "../../mixins/FieldMixin.js";
 
 export default {
-  components: {
-    BaseIcon,
-    FieldLabel
-  },
-
   mixins: [FieldMixin],
 
   props: {

@@ -61,9 +61,6 @@ validation-provider(
      ************************************************************************* -->
 
 <script>
-// PROJECT: COMPONENTS
-import FieldLabel from "./FieldLabel.vue";
-
 // PROJECT: HELPERS
 import { generateUUID } from "../../helpers/helpers.js";
 
@@ -71,10 +68,6 @@ import { generateUUID } from "../../helpers/helpers.js";
 import FieldMixin from "../../mixins/FieldMixin.js";
 
 export default {
-  components: {
-    FieldLabel
-  },
-
   mixins: [FieldMixin],
 
   props: {
