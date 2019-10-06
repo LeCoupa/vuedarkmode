@@ -20,7 +20,6 @@
         class="o-elements__item"
       )
         field-input(
-          v-model="models[i + '_' + j]"
           :label="size + ' input (' + statuses[j] + ')'"
           :name="'input_' + size + '_'  + statuses[j] + i + j"
           :placeholder="statuses[j] + ' ' + size + ' input'"
@@ -28,6 +27,7 @@
           :status="statuses[j]"
           class="c-index__input"
           description="This is a customizable description for inputs."
+          value="Vue Dark Mode"
         )
 
   div(
@@ -88,7 +88,6 @@ export default {
 
   data() {
     return {
-      models: {},
       inputs: {
         sizes: ["large", "medium", "default", "small", "mini"],
         statuses: [

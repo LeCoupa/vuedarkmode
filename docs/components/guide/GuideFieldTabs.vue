@@ -20,7 +20,6 @@
         class="o-elements__item"
       )
         field-tabs(
-          v-model="models[i + '_' + j]"
           :label="size.charAt(0).toUpperCase() + size.slice(1) + ' tabs (' + statuses[j] + ')'"
           :multiple="i === 1"
           :name="'tabs_' + size + '_'  + statuses[j] + i + j"
@@ -32,6 +31,7 @@
             { label: 'M', value: "M" }
           ]`
           description="This is a customizable description for tabs."
+          value="auto"
         )
 
   div(
@@ -95,7 +95,6 @@ export default {
 
   data() {
     return {
-      models: {},
       tabs: {
         sizes: ["large", "medium", "default", "small", "mini"],
         statuses: [

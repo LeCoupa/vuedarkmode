@@ -20,12 +20,12 @@
         class="o-elements__item"
       )
         field-toggle(
-          v-model="models[i + '_' + j]"
           :fullWidth="false"
           :label="size.charAt(0).toUpperCase() + size.slice(1) + ' toggle (' + statuses[j] + ')'"
           :name="'toggle_' + size + '_'  + statuses[j] + i + j"
           :size="size"
           :status="statuses[j]"
+          :value="i === 1"
           description="This is a customizable description for toggles."
         )
 
@@ -87,7 +87,6 @@ export default {
 
   data() {
     return {
-      models: {},
       toggles: {
         sizes: ["large", "medium", "default", "small", "mini"],
         statuses: [

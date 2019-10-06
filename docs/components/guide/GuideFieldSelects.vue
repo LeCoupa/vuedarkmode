@@ -20,7 +20,6 @@
         class="o-elements__item"
       )
         field-select(
-          v-model="models[i + '_' + j]"
           :label="size + ' select (' + statuses[j] + ')'"
           :name="'select_' + size + '_'  + statuses[j] + i + j"
           :options=`[
@@ -32,6 +31,7 @@
           :size="size"
           :status="statuses[j]"
           description="This is a customizable description for selects."
+          value="vuedarkmode1"
         )
 
   div(
@@ -95,7 +95,6 @@ export default {
 
   data() {
     return {
-      models: {},
       selects: {
         sizes: ["large", "medium", "default", "small", "mini"],
         statuses: [

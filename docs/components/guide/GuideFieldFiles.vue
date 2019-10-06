@@ -20,7 +20,6 @@
         class="o-elements__item"
       )
         field-file(
-          v-model="models[i + '_' + j]"
           :fullWidth="false"
           :label="size.charAt(0).toUpperCase() + size.slice(1) + ' file upload (' + statuses[j] + ')'"
           :name="'file_' + size + '_'  + statuses[j] + i + j"
@@ -87,7 +86,6 @@ export default {
 
   data() {
     return {
-      models: {},
       files: {
         sizes: ["large", "medium", "default", "small", "mini"],
         statuses: [
