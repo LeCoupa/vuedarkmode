@@ -91,13 +91,6 @@ export default {
     }
   },
 
-  watch: {
-    value(value) {
-      // Validate new value with vee-validate
-      this.$refs.validationProvider.validate(value);
-    }
-  },
-
   methods: {
     // --> EVENT LISTENERS <--
 

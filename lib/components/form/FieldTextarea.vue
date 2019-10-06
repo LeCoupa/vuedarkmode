@@ -166,16 +166,6 @@ export default {
     }
   },
 
-  watch: {
-    value(value) {
-      this.validate(true);
-    }
-  },
-
-  mounted() {
-    this.validate();
-  },
-
   methods: {
     // --> HELPERS <--
 
