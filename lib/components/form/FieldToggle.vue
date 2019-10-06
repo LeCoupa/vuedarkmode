@@ -57,9 +57,6 @@ validation-provider(
      ************************************************************************* -->
 
 <script>
-// PROJECT: HELPERS
-import { generateUUID } from "../../helpers/helpers.js";
-
 // PROJECT: MIXINS
 import FieldMixin from "../../mixins/FieldMixin.js";
 
@@ -81,14 +78,6 @@ export default {
     }
   },
 
-  data() {
-    return {
-      // --> STATE <--
-
-      uuid: ""
-    };
-  },
-
   watch: {
     value(value) {
       this.validate(true);
@@ -96,8 +85,6 @@ export default {
   },
 
   mounted() {
-    this.uuid = generateUUID();
-
     this.validate();
   },
 

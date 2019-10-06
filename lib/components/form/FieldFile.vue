@@ -70,9 +70,6 @@ validation-provider(
      ************************************************************************* -->
 
 <script>
-// PROJECT: HELPERS
-import { generateUUID } from "../../helpers/helpers.js";
-
 // PROEJECT: MIXINS
 import FieldMixin from "../../mixins/FieldMixin.js";
 
@@ -92,18 +89,6 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-
-  data() {
-    return {
-      // --> STATE <--
-
-      uuid: ""
-    };
-  },
-
-  mounted() {
-    this.uuid = generateUUID();
   },
 
   methods: {
