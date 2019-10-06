@@ -60,10 +60,10 @@ validation-provider(
       )
 
       input(
-        v-model="currentValue"
         @blur="onFieldBlur"
         @change="onFieldChange"
         @focus="onFieldFocus"
+        @input="onFieldInput"
         @keydown="onFieldKeyDown"
         @keyup="onFieldKeyUp"
         :autocomplete="autocomplete ? 'on' : 'off'"
@@ -76,6 +76,7 @@ validation-provider(
         :spellcheck="spellcheck"
         :readonly="readonly"
         :type="type"
+        :value="value"
         class="dm-field-input__field js-tag-for-autofocus"
       )
 
@@ -229,18 +230,6 @@ export default {
   },
 
   computed: {
-    currentValue: {
-      get() {
-        return this.value;
-      },
-
-      set(value) {
-        value = this.type === "number" ? parseInt(value) : value;
-
-        this.$emit("input", value, this.name);
-      }
-    },
-
     computedRightIcon() {
       // Add ability to clear the input
       if (this.clearable) {
@@ -262,8 +251,16 @@ export default {
     }
   },
 
+  watch: {
+    value(value) {
+      this.validate(true);
+    }
+  },
+
   mounted() {
     this.uuid = generateUUID();
+
+    this.validate();
   },
 
   methods: {
@@ -313,10 +310,12 @@ export default {
       this.$emit("focus", this.getInputValue(), this.name, event);
     },
 
-    onFieldKeyDown(event) {
-      const value = this.getInputValue();
+    onFieldInput(event) {
+      this.$emit("input", this.getInputValue(), this.name, event);
+    },
 
-      this.$emit("keydown", value, this.name, event);
+    onFieldKeyDown(event) {
+      this.$emit("keydown", this.getInputValue(), this.name, event);
     },
 
     onFieldKeyUp(event) {

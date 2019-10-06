@@ -39,10 +39,10 @@ validation-provider(
       class="dm-field-textarea__container"
     )
       textarea(
-        v-model="currentValue"
         @blur="onFieldBlur"
         @change="onFieldChange"
         @focus="onFieldFocus"
+        @input="onFieldInput"
         @keydown="onFieldKeyDown"
         @keyup="onFieldKeyUp"
         :cols="cols"
@@ -165,16 +165,6 @@ export default {
   },
 
   computed: {
-    currentValue: {
-      get() {
-        return this.value;
-      },
-
-      set(value) {
-        this.$emit("input", value, this.name);
-      }
-    },
-
     computedIcon() {
       // Return the left icon when defined as prop
       if (this.computedStatus === "error") {
@@ -189,8 +179,16 @@ export default {
     }
   },
 
+  watch: {
+    value(value) {
+      this.validate(true);
+    }
+  },
+
   mounted() {
     this.uuid = generateUUID();
+
+    this.validate();
   },
 
   methods: {
@@ -224,16 +222,16 @@ export default {
       this.$emit("focus", this.getTextareaValue(), this.name, event);
     },
 
-    onFieldKeyDown(event) {
-      const value = this.getTextareaValue();
+    onFieldInput(event) {
+      this.$emit("input", this.getTextareaValue(), this.name, event);
+    },
 
-      this.$emit("keydown", value, this.name, event);
+    onFieldKeyDown(event) {
+      this.$emit("keydown", this.getTextareaValue(), this.name, event);
     },
 
     onFieldKeyUp(event) {
-      const value = this.getTextareaValue();
-
-      this.$emit("keyup", value, this.name, event);
+      this.$emit("keyup", this.getTextareaValue(), this.name, event);
     }
   }
 };
