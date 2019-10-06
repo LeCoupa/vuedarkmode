@@ -94,7 +94,7 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      const value = !this.value;
+      const value = !this.innerValue;
 
       this.innerValue = value;
 
