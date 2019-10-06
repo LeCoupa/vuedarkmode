@@ -76,7 +76,7 @@ validation-provider(
         :spellcheck="spellcheck"
         :readonly="readonly"
         :type="type"
-        :value="value"
+        :value="innerValue"
         class="dm-field-input__field js-tag-for-autofocus"
       )
 
@@ -220,7 +220,7 @@ export default {
     computedRightIcon() {
       // Add ability to clear the input
       if (this.clearable) {
-        if (this.value) {
+        if (this.innerValue) {
           return "cancel";
         }
       } else {
@@ -286,7 +286,11 @@ export default {
     },
 
     onFieldInput(event) {
-      this.$emit("input", this.getInputValue(), this.name, event);
+      const value = this.getInputValue();
+
+      this.innerValue = value;
+
+      this.$emit("input", value, this.name, event);
     },
 
     onFieldKeyDown(event) {

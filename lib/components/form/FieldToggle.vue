@@ -25,7 +25,7 @@ validation-provider(
     .dm-field-toggle__container
       input(
         @change="onFieldChange"
-        :checked="value"
+        :checked="innerValue"
         :disabled="disabled"
         :id="uuid"
         :name="name"
@@ -82,8 +82,12 @@ export default {
     // --> EVENT LISTENERS <--
 
     onFieldChange(event) {
-      this.$emit("change", event.target.checked, this.name, event);
-      this.$emit("input", event.target.checked); // Synchronization for v-model
+      const value = event.target.checked;
+
+      this.innerValue = value;
+
+      this.$emit("change", value, this.name, event);
+      this.$emit("input", value); // Synchronization for v-model
     }
   }
 };

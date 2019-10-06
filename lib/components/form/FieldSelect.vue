@@ -218,7 +218,7 @@ export default {
 
     selectedOption() {
       return this.options.find(option => {
-        return option.value === this.value;
+        return option.value === this.innerValue;
       });
     }
   },
@@ -268,8 +268,12 @@ export default {
 
       // Check that the option is not currently selected
       if ((this.selectedOption || {}).value !== option.value) {
-        this.$emit("change", option.value, this.name, event);
-        this.$emit("input", option.value); // Synchronization for v-model
+        const value = option.value;
+
+        this.innerValue = value;
+
+        this.$emit("change", value, this.name, event);
+        this.$emit("input", value); // Synchronization for v-model
       }
     },
 

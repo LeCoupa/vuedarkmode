@@ -57,7 +57,7 @@ validation-provider(
           resize: resize
         }`
         class="dm-field-textarea__field js-tag-for-autofocus"
-      )
+      ){{ innerValue }}
 
       base-icon(
         v-if="computedIcon"
@@ -198,7 +198,11 @@ export default {
     },
 
     onFieldInput(event) {
-      this.$emit("input", this.getTextareaValue(), this.name, event);
+      const value = this.getTextareaValue();
+
+      this.innerValue = value;
+
+      this.$emit("input", value, this.name, event);
     },
 
     onFieldKeyDown(event) {

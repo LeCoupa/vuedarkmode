@@ -30,7 +30,7 @@ validation-provider(
           "dm-field-checkbox__field",
           "js-tag-for-autofocus",
           {
-            "dm-field-checkbox__field--checked": value
+            "dm-field-checkbox__field--checked": innerValue
           }
         ]`
         tabindex="0"
@@ -94,10 +94,14 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
+      const value = !this.value;
+
+      this.innerValue = value;
+
       this.focusCheckbox();
 
-      this.$emit("change", !this.value, this.name, event);
-      this.$emit("input", !this.value); // Synchronization for v-model
+      this.$emit("change", value, this.name, event);
+      this.$emit("input", value); // Synchronization for v-model
     },
 
     onKeypress(event) {

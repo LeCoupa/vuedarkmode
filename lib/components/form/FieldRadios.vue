@@ -30,7 +30,7 @@ validation-provider(
       )
         input(
           @change="onRadioChange(radio, $event)"
-          :checked="radio.value === value"
+          :checked="radio.value === innerValue"
           :class=`[
             "dm-field-radios__field",
             {
@@ -95,8 +95,12 @@ export default {
     // --> EVENT LISTENERS <--
 
     onRadioChange(radio, event) {
-      this.$emit("change", radio.value, this.name, event);
-      this.$emit("input", radio.value); // Synchronization for v-model
+      const value = radio.value;
+
+      this.innerValue = value;
+
+      this.$emit("change", value, this.name, event);
+      this.$emit("input", value); // Synchronization for v-model
     }
   }
 };

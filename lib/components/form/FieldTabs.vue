@@ -37,7 +37,7 @@ validation-provider(
         :class=`[
           "dm-field-tabs__tab",
           {
-            "dm-field-tabs__tab--active": value === tab.value || (Array.isArray(value) && value.includes(tab.value)),
+            "dm-field-tabs__tab--active": innerValue === tab.value || (Array.isArray(innerValue) && innerValue.includes(tab.value)),
             "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
             "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
             "dm-field-tabs__tab--with-label": tab.label
@@ -145,8 +145,8 @@ export default {
     // --> HELPERS <--
 
     checkActiveBrother(order, index) {
-      if (this.multiple && this.tabs[index] && Array.isArray(this.value)) {
-        return this.value.includes(this.tabs[index].value);
+      if (this.multiple && this.tabs[index] && Array.isArray(this.innerValue)) {
+        return this.innerValue.includes(this.tabs[index].value);
       }
     },
 
@@ -156,7 +156,7 @@ export default {
       let activeTabs;
 
       // When multiple values are not allowed and tab is not already active
-      if (!this.multiple && !this.value !== tabValue) {
+      if (!this.multiple && !this.innerValue !== tabValue) {
         activeTabs = tabValue;
 
         this.$emit("change", tabValue, "added", tabValue, this.label, event);
@@ -165,8 +165,11 @@ export default {
       // When multiple values are allowed
       if (this.multiple) {
         // Remove the tab when already active
-        if (Array.isArray(this.value) && this.value.includes(tabValue)) {
-          activeTabs = this.value.filter(item => {
+        if (
+          Array.isArray(this.innerValue) &&
+          this.innerValue.includes(tabValue)
+        ) {
+          activeTabs = this.innerValue.filter(item => {
             return item !== tabValue;
           });
 
@@ -182,8 +185,8 @@ export default {
 
         // Push the tab when not already active
         else {
-          activeTabs = Array.isArray(this.value)
-            ? [...this.value, tabValue]
+          activeTabs = Array.isArray(this.innerValue)
+            ? [...this.innerValue, tabValue]
             : [tabValue];
 
           this.$emit(
@@ -196,6 +199,8 @@ export default {
           );
         }
       }
+
+      this.innerValue = activeTabs;
 
       this.$emit("click", tabValue, activeTabs, this.label, event);
       this.$emit("input", activeTabs); // Synchronization for v-model
