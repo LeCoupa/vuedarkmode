@@ -25,16 +25,13 @@ button(
       size="mini"
     )
 
-    span(
+    template(
       v-if="!loading"
-      class="dm-base-social-button__icon"
     )
+      span.dm-base-social-button__icon
 
-    span(
-      v-if="size === 'large' && !loading"
-      class="dm-base-social-button__label"
-    )
-      slot
+      span.dm-base-social-button__label
+        slot
 </template>
 
 <!-- *************************************************************************
@@ -78,9 +75,17 @@ export default {
     },
     size: {
       type: String,
-      default: "large",
+      default: "default",
       validator(x) {
-        return ["small", "large"].includes(x);
+        return [
+          "nano",
+          "micro",
+          "mini",
+          "small",
+          "default",
+          "medium",
+          "large"
+        ].includes(x);
       }
     }
   },
@@ -107,13 +112,12 @@ export default {
 // VARIABLES
 $c: ".dm-base-social-button";
 $networks: "facebook", "google", "messenger", "shopify", "twitter";
-$sizes: "small", "large";
+$sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {
   display: inline-block;
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
   background-position: center;
   box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
   color: $white;
@@ -122,8 +126,6 @@ $sizes: "small", "large";
   transition: all 250ms linear;
   user-select: none;
   cursor: pointer;
-
-  @include no-tap-highlight-color;
 
   #{$c}__inner {
     display: flex;
@@ -140,8 +142,6 @@ $sizes: "small", "large";
     #{$c}__label {
       margin-left: 6px;
       font-weight: 500;
-      font-size: 15px;
-      line-height: 20px;
     }
   }
 
@@ -199,7 +199,10 @@ $sizes: "small", "large";
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      padding: 10px (10px + 20px * $i);
+      padding: (3px + 2px * $i) (6px + 2px * $i);
+      border-radius: 2px + (1px * $i);
+      font-size: 10px + (1px * $i);
+      line-height: 8px + (2px * $i);
     }
   }
 

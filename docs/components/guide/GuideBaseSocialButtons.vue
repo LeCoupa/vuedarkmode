@@ -160,11 +160,12 @@ export default {
             name: "size",
             type: {
               type: "String",
-              additional: "Default: large"
+              additional: 'Default: "default"'
             },
             details: {
               description: "Set the button size.",
-              values: '"small" | "large"'
+              values:
+                '"nano" | "micro" | "mini" | "small" | "default" | "medium" | "large"'
             }
           }
         ]
