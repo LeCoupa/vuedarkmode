@@ -12,7 +12,7 @@ div(
       "dm-base-avatar--animated": animated,
       "dm-base-avatar--bordered": bordered,
       "dm-base-avatar--circular": circular,
-      "dm-base-avatar--clickable": $listeners.click,
+      "dm-base-avatar--clickable": $listeners.click && clickable !== false,
       "dm-base-avatar--secondaries": secondaries,
       "dm-base-avatar--shadow": shadow
     }
@@ -61,6 +61,10 @@ export default {
     circular: {
       type: Boolean,
       default: true
+    },
+    clickable: {
+      type: Boolean,
+      default: null
     },
     description: {
       type: String,

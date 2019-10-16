@@ -2,6 +2,8 @@
 
 ### Added
 
+- BaseAvatar: Add clickable prop.
+
 - BaseSocialButton: Add shopify network. Rename component. Add new sizes.
 
 - FieldCheckbox: Add rules-vid and show-errors prop.

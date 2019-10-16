@@ -163,6 +163,17 @@ export default {
             }
           },
           {
+            name: "clickable",
+            type: {
+              type: "Boolean",
+              additional: "Default: null"
+            },
+            details: {
+              description:
+                "When set to false, it will deactivate the pointer cursor even when a click listener exists."
+            }
+          },
+          {
             name: "description",
             type: {
               type: "String",
