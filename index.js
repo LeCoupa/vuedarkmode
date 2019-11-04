@@ -9,7 +9,7 @@ import VueHotkey from "v-hotkey";
 import {
   ValidationObserver,
   ValidationProvider
-} from "vee-validate/dist/vee-validate.full";
+} from "vee-validate/dist/vee-validate.full.esm";
 
 // BASE COMPONENTS
 import BaseAlert from "./components/base/BaseAlert.vue";
