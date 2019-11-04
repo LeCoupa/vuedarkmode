@@ -1,8 +1,8 @@
 {
   "private": false,
   "name": "vuedarkmode",
-  "version": "0.4.11",
-  "author": "Team <team@vuedarkmode.com>",
+  "version": "0.4.13",
+  "author": "Growth Bunker <product@growthbunker.com>",
   "license": "MIT",
   "description": "A minimalist dark design system for vue.js",
   "keywords": [
@@ -21,13 +21,19 @@
     "url": "https://github.com/lecoupa/vuedarkmode/issues",
     "email": "team@vuedarkmode.com"
   },
-  "main": "./dist/vuedarkmode.ssr.js",
-  "module": "./dist/vuedarkmode.esm.js",
-  "browser": "./dist/vuedarkmode.js",
-  "unpkg": "./dist/vuedarkmode.js",
-  "jsdelivr": "./dist/vuedarkmode.js",
+  "main": "dist/vuedarkmode.ssr.js",
+  "module": "dist/vuedarkmode.esm.js",
+  "unpkg": "dist/vuedarkmode.min.js",
+  "files": [
+    "dist/*",
+    "src/**/*.vue",
+    "!src/lib-dev.vue"
+  ],
   "scripts": {
-    "build": "rollup --config build/rollup.config.js --environment BUILD:production"
+    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+    "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
+    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
     "v-click-outside": "2.1.4",
@@ -36,17 +42,18 @@
   },
   "devDependencies": {
     "autoprefixer": "9.6.1",
+    "cross-env": "^6.0.3",
+    "minimist": "^1.2.0",
     "node-sass": "4.12.0",
     "pug": "2.0.4",
     "pug-plain-loader": "1.0.0",
-    "rollup": "1.19.4",
-    "rollup-plugin-buble": "0.19.8",
-    "rollup-plugin-commonjs": "10.1.0",
-    "rollup-plugin-vue": "5.0.1",
-    "sass-loader": "7.2.0",
-    "vue-template-compiler": "2.6.10"
-  },
-  "files": [
-    "dist/*"
-  ]
+    "rollup": "^1.26.1",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-vue": "5.1.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  }
 }

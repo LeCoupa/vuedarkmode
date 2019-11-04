@@ -1,6 +1,6 @@
 <p align="center" style="background: #1b2431; padding: 20px 0;">
   <a href="https://www.vuedarkmode.com" target="_blank">
-    <img width="100%" src="https://raw.githubusercontent.com/LeCoupa/vuedarkmode/master/images/banner.svg?sanitize=true">
+    <img width="100%" src="https://raw.githubusercontent.com/LeCoupa/vuedarkmode/master/src/images/banner.svg?sanitize=true">
   </a>
 </p>
 
@@ -146,4 +146,4 @@ Vue Dark Mode is [MIT licensed](LICENSE).
 
 Vue Dark Mode is using [BrowserStack](https://www.browserstack.com/) to make sure our components render properly on modern browsers.
 
-<img alt="BrowserStack Logo" width="200px" src="https://raw.githubusercontent.com/LeCoupa/vuedarkmode/master/images/browserstack.png">
+<img alt="BrowserStack Logo" width="200px" src="https://raw.githubusercontent.com/LeCoupa/vuedarkmode/master/src/images/browserstack.png">

@@ -12,7 +12,9 @@ module.exports = {
   // add your custom rules here
   rules: {
     "no-console": "off",
-    "no-debugger": "off"
+    "no-debugger": "off",
+    "vue/no-side-effects-in-computed-properties": "off",
+    "vue/no-async-in-computed-properties": "off"
   },
   parserOptions: {
     parser: "babel-eslint"

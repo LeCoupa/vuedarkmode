@@ -123,7 +123,7 @@ export default {
 
 <style lang="scss">
 // IMPORTS
-@import "assets/stylesheets/settings/_settings.colors.scss";
+@import "src/assets/stylesheets/settings/_settings.colors.scss";
 
 // VARIABLES
 $c: ".dm-field-message";

@@ -12,38 +12,41 @@ import {
 } from "vee-validate/dist/vee-validate.full.min";
 
 // BASE COMPONENTS
-import BaseAlert from "./../components/base/BaseAlert.vue";
-import BaseAvatar from "./../components/base/BaseAvatar.vue";
-import BaseBadge from "./../components/base/BaseBadge.vue";
-import BaseButton from "./../components/base/BaseButton.vue";
-import BaseDivider from "./../components/base/BaseDivider.vue";
-import BaseHeading from "./../components/base/BaseHeading.vue";
-import BaseIcon from "./../components/base/BaseIcon.vue";
-import BaseProgressBar from "./../components/base/BaseProgressBar.vue";
-import BaseSocialButton from "./../components/base/BaseSocialButton.vue";
-import BaseSpinner from "./../components/base/BaseSpinner.vue";
-import BaseToast from "./../components/base/BaseToast.vue";
+import BaseAlert from "./components/base/BaseAlert.vue";
+import BaseAvatar from "./components/base/BaseAvatar.vue";
+import BaseBadge from "./components/base/BaseBadge.vue";
+import BaseButton from "./components/base/BaseButton.vue";
+import BaseDivider from "./components/base/BaseDivider.vue";
+import BaseHeading from "./components/base/BaseHeading.vue";
+import BaseIcon from "./components/base/BaseIcon.vue";
+import BaseProgressBar from "./components/base/BaseProgressBar.vue";
+import BaseSocialButton from "./components/base/BaseSocialButton.vue";
+import BaseSpinner from "./components/base/BaseSpinner.vue";
+import BaseToast from "./components/base/BaseToast.vue";
 
 // FORM COMPONENTS
-import FieldCheckbox from "./../components/form/FieldCheckbox.vue";
-import FieldFile from "./../components/form/FieldFile.vue";
-import FieldInput from "./../components/form/FieldInput.vue";
-import FieldLabel from "./../components/form/FieldLabel.vue";
-import FieldMessage from "./../components/form/FieldMessage.vue";
-import FieldRadios from "./../components/form/FieldRadios.vue";
-import FieldSelect from "./../components/form/FieldSelect.vue";
-import FieldTabs from "./../components/form/FieldTabs.vue";
-import FieldTextarea from "./../components/form/FieldTextarea.vue";
-import FieldToggle from "./../components/form/FieldToggle.vue";
+import FieldCheckbox from "./components/form/FieldCheckbox.vue";
+import FieldFile from "./components/form/FieldFile.vue";
+import FieldInput from "./components/form/FieldInput.vue";
+import FieldLabel from "./components/form/FieldLabel.vue";
+import FieldMessage from "./components/form/FieldMessage.vue";
+import FieldRadios from "./components/form/FieldRadios.vue";
+import FieldSelect from "./components/form/FieldSelect.vue";
+import FieldTabs from "./components/form/FieldTabs.vue";
+import FieldTextarea from "./components/form/FieldTextarea.vue";
+import FieldToggle from "./components/form/FieldToggle.vue";
 
 /**************************************************************************
  * ENVIRONMENT CONFIGURATIONS
  ***************************************************************************/
 
-// Install function executed by Vue.use()
+// install function executed by Vue.use()
 function install(Vue, options) {
-  if (install.installed) return;
-  install.installed = true;
+  if (install.installed) {
+    return;
+  } else {
+    install.installed = true;
+  }
 
   const components = {
     alert: BaseAlert,
@@ -115,5 +118,9 @@ if (GlobalVue) {
   GlobalVue.use(plugin);
 }
 
-// To allow use as module (npm/webpack/etc.) export components
+// Default export is library as a whole, registered via Vue.use()
 export default plugin;
+
+// To allow individual component use, export components
+// each can be registered via Vue.component()
+// export * from "./components/index";
