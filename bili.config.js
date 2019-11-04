@@ -8,10 +8,18 @@ module.exports = {
   },
   plugins: {
     vue: {
-      css: true
+      css: true,
+      template: {
+        optimizeSSR: true
+      }
     },
     copy: {
-      targets: [{ src: "assets/stylesheets/settings/_settings.colors.scss", dest: "dist" }]
+      targets: [
+        {
+          src: "assets/stylesheets/settings/_settings.colors.scss",
+          dest: "dist"
+        }
+      ]
     }
   }
 };

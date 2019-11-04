@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "vuedarkmode",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "author": "Team <team@vuedarkmode.com>",
   "license": "MIT",
   "description": "A minimalist dark design system for vue.js",
@@ -21,7 +21,7 @@
     "url": "https://github.com/lecoupa/vuedarkmode/issues",
     "email": "team@vuedarkmode.com"
   },
-  "main": "dist/index.cjs.min.js",
+  "main": "dist/index.min.js",
   "module": "dist/index.esm.min.js",
   "jsdelivr": "dist/index.umd.min.js",
   "unpkg": "dist/index.umd.min.js",
