@@ -9,6 +9,7 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/lecoupa/vuedarkmode.svg)](http://isitmaintained.com/project/lecoupa/vuedarkmode "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/lecoupa/vuedarkmode.svg)](http://isitmaintained.com/project/lecoupa/vuedarkmode "Percentage of issues still open")
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/LICENSE)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ae3d4112-1c84-4868-b4eb-271c3136ede6/deploy-status)](https://app.netlify.com/sites/growthbunker/deploys)
 
 ## Documentation
 
