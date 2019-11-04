@@ -43,6 +43,7 @@ const globals = {
 
 // Customize configs for individual targets
 const buildFormats = [];
+
 if (!argv.format || argv.format === "es") {
   const esConfig = {
     ...baseConfig,
