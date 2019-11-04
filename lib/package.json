@@ -29,6 +29,7 @@
     "build": "bili"
   },
   "dependencies": {
+    "v-click-outside": "2.1.4",
     "v-hotkey": "0.6.0",
     "vee-validate": "3.0.8"
   },
