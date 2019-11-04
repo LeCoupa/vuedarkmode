@@ -16,9 +16,6 @@ npm-debug.log
 # Nuxt build
 .nuxt
 
-# Website build
-build
-
 # Package build
 dist
 
