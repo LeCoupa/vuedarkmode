@@ -2,8 +2,10 @@
  * IMPORTS
  ***************************************************************************/
 
-import vue from "rollup-plugin-vue";
-import commonjs from "rollup-plugin-commonjs";
+// NPM
+import buble from "rollup-plugin-buble"; // Transpile/polyfill with reasonable browser support
+import commonjs from "rollup-plugin-commonjs"; // Convert CommonJS modules to ES6
+import vue from "rollup-plugin-vue"; // Handle .vue SFC files
 
 /**************************************************************************
  * ROLLUP CONFIGURATION
@@ -18,7 +20,13 @@ export default [
       format: "esm",
       file: "dist/vuedarkmode.esm.js"
     },
-    plugins: [commonjs(), vue()]
+    plugins: [
+      commonjs(),
+      vue({
+        css: true
+      }),
+      buble()
+    ]
   },
 
   // SSR build.
@@ -31,10 +39,13 @@ export default [
     },
     plugins: [
       commonjs(),
-
       vue({
-        template: { optimizeSSR: true }
-      })
+        css: true,
+        template: {
+          optimizeSSR: true
+        }
+      }),
+      buble()
     ]
   },
 
@@ -47,6 +58,12 @@ export default [
       file: "dist/vuedarkmode.js",
       name: "vuedarkmode"
     },
-    plugins: [commonjs(), vue()]
+    plugins: [
+      commonjs(),
+      vue({
+        css: true
+      }),
+      buble()
+    ]
   }
 ];
