@@ -1,14 +1,14 @@
 <p align="center" style="background: #1b2431; padding: 20px 0;">
   <a href="https://www.growthbunker.dev/vuedarkmode" target="_blank">
-    <img width="100%" src="https://raw.githubusercontent.com/LeCoupa/vuedarkmode/master/src/images/banner.svg?sanitize=true">
+    <img width="100%" src="https://raw.githubusercontent.com/growthbunker/vuedarkmode/master/src/images/banner.svg?sanitize=true">
   </a>
 </p>
 
 [![npm](https://img.shields.io/npm/v/vuedarkmode.svg)](https://www.npmjs.com/package/vuedarkmode)
 [![npm](https://img.shields.io/npm/dm/vuedarkmode.svg)](https://npm-stat.com/charts.html?package=vuedarkmode)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/lecoupa/vuedarkmode.svg)](http://isitmaintained.com/project/lecoupa/vuedarkmode "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/lecoupa/vuedarkmode.svg)](http://isitmaintained.com/project/lecoupa/vuedarkmode "Percentage of issues still open")
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/LeCoupa/awesome-cheatsheets/blob/master/LICENSE)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/growthbunker/vuedarkmode.svg)](http://isitmaintained.com/project/growthbunker/vuedarkmode "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/growthbunker/vuedarkmode.svg)](http://isitmaintained.com/project/growthbunker/vuedarkmode "Percentage of issues still open")
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/growthbunker/vuedarkmode/blob/master/LICENSE)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ae3d4112-1c84-4868-b4eb-271c3136ede6/deploy-status)](https://app.netlify.com/sites/growthbunker/deploys)
 
 ## Documentation
@@ -146,4 +146,4 @@ Vue Dark Mode is [MIT licensed](LICENSE).
 
 Vue Dark Mode is using [BrowserStack](https://www.browserstack.com/) to make sure our components render properly on modern browsers.
 
-<img alt="BrowserStack Logo" width="200px" src="https://raw.githubusercontent.com/LeCoupa/vuedarkmode/master/src/images/browserstack.png">
+<img alt="BrowserStack Logo" width="200px" src="https://raw.githubusercontent.com/growthbunker/vuedarkmode/master/src/images/browserstack.png">
