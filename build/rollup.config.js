@@ -1,4 +1,5 @@
 // rollup.config.js
+import alias from "@rollup/plugin-alias";
 import vue from "rollup-plugin-vue";
 import buble from "rollup-plugin-buble";
 import commonjs from "rollup-plugin-commonjs";
@@ -12,6 +13,11 @@ const baseConfig = {
   input: "src/entry.js",
   plugins: {
     preVue: [
+      alias({
+        entries: {
+          vue: "vue/dist/vue.esm"
+        }
+      }),
       replace({
         "process.env.NODE_ENV": JSON.stringify("production")
       }),

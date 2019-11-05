@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "vuedarkmode",
-  "version": "0.4.13",
+  "version": "0.4.15",
   "author": "Growth Bunker <product@growthbunker.com>",
   "license": "MIT",
   "description": "A minimalist dark design system for vue.js",
@@ -41,6 +41,7 @@
     "vee-validate": "3.0.11"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^2.2.0",
     "autoprefixer": "9.6.1",
     "cross-env": "^6.0.3",
     "minimist": "^1.2.0",

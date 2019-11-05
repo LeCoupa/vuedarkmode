@@ -6,10 +6,7 @@
 import vClickOutside from "v-click-outside";
 import VueHotkey from "v-hotkey";
 
-import {
-  ValidationObserver,
-  ValidationProvider
-} from "vee-validate/dist/vee-validate.full.min";
+import { ValidationObserver, ValidationProvider } from "vee-validate";
 
 // BASE COMPONENTS
 import BaseAlert from "./components/base/BaseAlert.vue";
