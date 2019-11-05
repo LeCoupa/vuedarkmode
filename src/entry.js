@@ -16,6 +16,7 @@ import BaseButton from "./components/base/BaseButton.vue";
 import BaseDivider from "./components/base/BaseDivider.vue";
 import BaseHeading from "./components/base/BaseHeading.vue";
 import BaseIcon from "./components/base/BaseIcon.vue";
+import BaseNumber from "./components/base/BaseNumber.vue";
 import BaseProgressBar from "./components/base/BaseProgressBar.vue";
 import BaseSocialButton from "./components/base/BaseSocialButton.vue";
 import BaseSpinner from "./components/base/BaseSpinner.vue";
@@ -53,6 +54,7 @@ function install(Vue, options) {
     divider: BaseDivider,
     heading: BaseHeading,
     icon: BaseIcon,
+    number: BaseNumber,
     "progress-bar": BaseProgressBar,
     "social-button": BaseSocialButton,
     spinner: BaseSpinner,
