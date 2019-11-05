@@ -12,14 +12,14 @@
     "design system",
     "bootstrap"
   ],
-  "homepage": "https://www.vuedarkmode.com/",
+  "homepage": "https://www.growthbunker.dev/vuedarkmode",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lecoupa/vuedarkmode.git"
+    "url": "https://github.com/growthbunker/vuedarkmode.git"
   },
   "bugs": {
-    "url": "https://github.com/lecoupa/vuedarkmode/issues",
-    "email": "team@vuedarkmode.com"
+    "url": "https://github.com/growthbunker/vuedarkmode/issues",
+    "email": "product@growthbunker.com"
   },
   "main": "dist/vuedarkmode.ssr.js",
   "module": "dist/vuedarkmode.esm.js",

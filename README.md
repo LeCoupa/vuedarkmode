@@ -1,5 +1,5 @@
 <p align="center" style="background: #1b2431; padding: 20px 0;">
-  <a href="https://www.vuedarkmode.com" target="_blank">
+  <a href="https://www.growthbunker.dev/vuedarkmode" target="_blank">
     <img width="100%" src="https://raw.githubusercontent.com/LeCoupa/vuedarkmode/master/src/images/banner.svg?sanitize=true">
   </a>
 </p>
@@ -13,7 +13,7 @@
 
 ## Documentation
 
-You can browse the documentation for Vue Dark Mode [on the website](https://www.vuedarkmode.com/).
+You can browse the documentation for Vue Dark Mode [on the website](https://www.growthbunker.dev/vuedarkmode).
 
 ## Installation
 
@@ -72,45 +72,45 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 ### Base Components
 
-- **BaseAlert**: [documentation](https://www.vuedarkmode.com/#baseAlert) | [source code](/src/components/base/BaseAlert.vue).
+- **BaseAlert**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseAlert) | [source code](/src/components/base/BaseAlert.vue).
 
-- **BaseAvatar**: [documentation](https://www.vuedarkmode.com/#baseAvatar) | [source code](/src/components/base/BaseAvatar.vue).
+- **BaseAvatar**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseAvatar) | [source code](/src/components/base/BaseAvatar.vue).
 
-- **BaseBadge**: [documentation](https://www.vuedarkmode.com/#baseBadge) | [source code](/src/components/base/BaseBadge.vue).
+- **BaseBadge**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseBadge) | [source code](/src/components/base/BaseBadge.vue).
 
-- **BaseButton**: [documentation](https://www.vuedarkmode.com/#baseButton) | [source code](/src/components/base/BaseButton.vue).
+- **BaseButton**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseButton) | [source code](/src/components/base/BaseButton.vue).
 
-- **BaseDivider**: [documentation](https://www.vuedarkmode.com/#baseDivider) | [source code](/src/components/base/BaseDivider.vue).
+- **BaseDivider**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseDivider) | [source code](/src/components/base/BaseDivider.vue).
 
-- **BaseHeading**: [documentation](https://www.vuedarkmode.com/#baseHeading) | [source code](/src/components/base/BaseHeading.vue).
+- **BaseHeading**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseHeading) | [source code](/src/components/base/BaseHeading.vue).
 
-- **BaseIcon**: [documentation](https://www.vuedarkmode.com/#baseIcon) | [source code](/src/components/base/BaseIcon.vue).
+- **BaseIcon**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseIcon) | [source code](/src/components/base/BaseIcon.vue).
 
-* **BaseProgressBar**: [documentation](https://www.vuedarkmode.com/#baseProgressBar) | [source code](/src/components/base/BaseProgressBar.vue).
+* **BaseProgressBar**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseProgressBar) | [source code](/src/components/base/BaseProgressBar.vue).
 
-* **BaseSocialButton**: [documentation](https://www.vuedarkmode.com/#baseSocialButton) | [source code](/src/components/base/BaseSocialButton.vue).
+* **BaseSocialButton**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseSocialButton) | [source code](/src/components/base/BaseSocialButton.vue).
 
-* **BaseSpinner**: [documentation](https://www.vuedarkmode.com/#baseSpinner) | [source code](/src/components/base/BaseSpinner.vue).
+* **BaseSpinner**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseSpinner) | [source code](/src/components/base/BaseSpinner.vue).
 
-* **BaseToast**: [documentation](https://www.vuedarkmode.com/#baseToast) | [source code](/src/components/base/BaseToast.vue).
+* **BaseToast**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseToast) | [source code](/src/components/base/BaseToast.vue).
 
 ### Form Components
 
-- **FieldCheckbox**: [documentation](https://www.vuedarkmode.com/#fieldCheckbox) | [source code](/src/components/form/FieldCheckbox.vue).
+- **FieldCheckbox**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldCheckbox) | [source code](/src/components/form/FieldCheckbox.vue).
 
-- **FieldFile**: [documentation](https://www.vuedarkmode.com/#fieldFile) | [source code](/src/components/form/FieldFile.vue).
+- **FieldFile**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldFile) | [source code](/src/components/form/FieldFile.vue).
 
-- **FieldInput**: [documentation](https://www.vuedarkmode.com/#fieldInput) | [source code](/src/components/form/FieldInput.vue).
+- **FieldInput**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldInput) | [source code](/src/components/form/FieldInput.vue).
 
-- **FieldRadio**: [documentation](https://www.vuedarkmode.com/#fieldRadio) | [source code](/src/components/form/FieldRadio.vue).
+- **FieldRadio**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldRadio) | [source code](/src/components/form/FieldRadio.vue).
 
-- **FieldSelect**: [documentation](https://www.vuedarkmode.com/#fieldSelect) | [source code](/src/components/form/FieldSelect.vue).
+- **FieldSelect**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldSelect) | [source code](/src/components/form/FieldSelect.vue).
 
-- **FieldTabs**: [documentation](https://www.vuedarkmode.com/#fieldTabs) | [source code](/src/components/form/FieldTabs.vue).
+- **FieldTabs**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldTabs) | [source code](/src/components/form/FieldTabs.vue).
 
-- **FieldTextarea**: [documentation](https://www.vuedarkmode.com/#fieldTextarea) | [source code](/src/components/form/FieldTextarea.vue).
+- **FieldTextarea**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldTextarea) | [source code](/src/components/form/FieldTextarea.vue).
 
-- **FieldToggle**: [documentation](https://www.vuedarkmode.com/#fieldToggle) | [source code](/src/components/form/FieldToggle.vue).
+- **FieldToggle**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldToggle) | [source code](/src/components/form/FieldToggle.vue).
 
 ## Contributing
 
