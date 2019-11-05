@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "vuedarkmode",
-  "version": "0.4.16",
+  "version": "0.4.17",
   "author": "Growth Bunker <product@growthbunker.com>",
   "license": "MIT",
   "description": "A minimalist dark design system for vue.js",
