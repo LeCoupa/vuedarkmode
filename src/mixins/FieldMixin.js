@@ -162,7 +162,7 @@ export default {
   watch: {
     value(value) {
       this.synchronize();
-      this.validate(true);
+      // this.validate(true);
     }
   },
 
