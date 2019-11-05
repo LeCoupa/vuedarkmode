@@ -170,7 +170,7 @@ export default {
     this.uuid = generateUUID();
 
     this.synchronize();
-    this.validate();
+    // this.validate();
 
     if (this.autofocus) {
       const field = this.$el.querySelector(".js-tag-for-autofocus");

@@ -6,7 +6,7 @@
 import vClickOutside from "v-click-outside";
 import VueHotkey from "v-hotkey";
 
-import { ValidationObserver, ValidationProvider } from "vee-validate";
+// import { ValidationObserver, ValidationProvider } from "vee-validate";
 
 // BASE COMPONENTS
 import BaseAlert from "./components/base/BaseAlert.vue";
@@ -84,8 +84,8 @@ function install(Vue, options) {
 
   // Install Vee-Validate for form validation
   // https://logaretm.github.io/vee-validate/
-  Vue.component("ValidationObserver", ValidationObserver);
-  Vue.component("ValidationProvider", ValidationProvider);
+  // Vue.component("ValidationObserver", ValidationObserver);
+  // Vue.component("ValidationProvider", ValidationProvider);
 
   // Install V-Hotkeys to bind hotkeys to components
   // https://github.com/Dafrok/v-hotkey

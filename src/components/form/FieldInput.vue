@@ -3,110 +3,111 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+//- validation-provider(
+//-   v-slot="{ dirty, errors }"
+//-   :name="rulesName || name"
+//-   :rules="rules"
+//-   :vid="rulesVid"
+//-   ref="validationProvider"
+//-   tag="div"
+//- )
+//- "dm-field-input--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
+div(
+  :class=`[
+    "dm-field-input",
+    "dm-field-input--" + computedStatus,
+    "dm-field-input--" + size,
+    "dm-field-input--" + theme,
+    {
+      "dm-field-input--borders": borders,
+      "dm-field-input--clearable": clearable,
+      "dm-field-input--disabled": disabled,
+      "dm-field-input--focused": focused,
+      "dm-field-input--full-width": fullWidth,
+      "dm-field-input--readonly": readonly,
+      "dm-field-input--rounded": rounded,
+      "dm-field-input--with-icon": leftIcon || rightIcon
+    }
+  ]`
 )
+  field-label(
+    v-if="label"
+    :forField="uuid"
+    :required="labelRequired"
+    :size="size"
+    class="dm-field-input__label"
+  ) {{ label }}
+
   div(
-    :class=`[
-      "dm-field-input",
-      "dm-field-input--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
-      "dm-field-input--" + size,
-      "dm-field-input--" + theme,
-      {
-        "dm-field-input--borders": borders,
-        "dm-field-input--clearable": clearable,
-        "dm-field-input--disabled": disabled,
-        "dm-field-input--focused": focused,
-        "dm-field-input--full-width": fullWidth,
-        "dm-field-input--readonly": readonly,
-        "dm-field-input--rounded": rounded,
-        "dm-field-input--with-icon": leftIcon || rightIcon
-      }
-    ]`
+    @click="onContainerClick"
+    class="dm-field-input__container"
   )
-    field-label(
-      v-if="label"
-      :forField="uuid"
-      :required="labelRequired"
-      :size="size"
-      class="dm-field-input__label"
-    ) {{ label }}
+    span(
+      v-if="prepend"
+      @click="onPrependClick"
+      :class=`[
+        "dm-field-input__block",
+        "dm-field-input__block--prepend",
+        {
+          "dm-field-input__block--clickable": $listeners.prependClick
+        }
+      ]`
+    ) {{ prepend }}
 
-    div(
-      @click="onContainerClick"
-      class="dm-field-input__container"
+    base-icon(
+      v-if="leftIcon"
+      :name="leftIcon"
+      class="dm-field-input__icon dm-field-input__icon--left"
     )
-      span(
-        v-if="prepend"
-        @click="onPrependClick"
-        :class=`[
-          "dm-field-input__block",
-          "dm-field-input__block--prepend",
-          {
-            "dm-field-input__block--clickable": $listeners.prependClick
-          }
-        ]`
-      ) {{ prepend }}
 
-      base-icon(
-        v-if="leftIcon"
-        :name="leftIcon"
-        class="dm-field-input__icon dm-field-input__icon--left"
-      )
-
-      input(
-        @blur="onFieldBlur"
-        @change="onFieldChange"
-        @focus="onFieldFocus"
-        @input="onFieldInput"
-        @keydown="onFieldKeyDown"
-        @keyup="onFieldKeyUp"
-        :autocomplete="autocomplete ? 'on' : 'off'"
-        :disabled="disabled"
-        :id="uuid"
-        :max="max"
-        :min="min"
-        :name="name"
-        :placeholder="placeholder"
-        :spellcheck="spellcheck"
-        :readonly="readonly"
-        :type="type"
-        :value="innerValue"
-        class="dm-field-input__field js-tag-for-autofocus"
-      )
-
-      base-icon(
-        v-if="computedRightIcon"
-        @click="onRightIconClick"
-        :name="computedRightIcon"
-        class="dm-field-input__icon dm-field-input__icon--right"
-      )
-
-      span(
-        v-if="append"
-        @click="onAppendClick"
-        :class=`[
-          "dm-field-input__block",
-          "dm-field-input__block--append",
-          {
-            "dm-field-input__block--clickable": $listeners.appendClick
-          }
-        ]`
-      ) {{ append }}
-
-    field-message(
-      v-if="computedMessageLevel || (errors.length > 0 && dirty && !focused)"
-      :errors="errors"
-      :level="computedMessageLevel"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
-      :size="size"
+    input(
+      @blur="onFieldBlur"
+      @change="onFieldChange"
+      @focus="onFieldFocus"
+      @input="onFieldInput"
+      @keydown="onFieldKeyDown"
+      @keyup="onFieldKeyUp"
+      :autocomplete="autocomplete ? 'on' : 'off'"
+      :disabled="disabled"
+      :id="uuid"
+      :max="max"
+      :min="min"
+      :name="name"
+      :placeholder="placeholder"
+      :spellcheck="spellcheck"
+      :readonly="readonly"
+      :type="type"
+      :value="innerValue"
+      class="dm-field-input__field js-tag-for-autofocus"
     )
+
+    base-icon(
+      v-if="computedRightIcon"
+      @click="onRightIconClick"
+      :name="computedRightIcon"
+      class="dm-field-input__icon dm-field-input__icon--right"
+    )
+
+    span(
+      v-if="append"
+      @click="onAppendClick"
+      :class=`[
+        "dm-field-input__block",
+        "dm-field-input__block--append",
+        {
+          "dm-field-input__block--clickable": $listeners.appendClick
+        }
+      ]`
+    ) {{ append }}
+
+  //- field-message(
+  //-   v-if="computedMessageLevel || (errors.length > 0 && dirty && !focused)"
+  //-   :errors="errors"
+  //-   :level="computedMessageLevel"
+  //-   :message="computedMessageContent"
+  //-   :show-errors="showErrors"
+  //-   :size="size"
+  //- )
 </template>
 
 <!-- *************************************************************************

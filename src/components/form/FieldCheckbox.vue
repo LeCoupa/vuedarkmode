@@ -3,57 +3,58 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+//- validation-provider(
+//-   v-slot="{ dirty, errors }"
+//-   :name="rulesName || name"
+//-   :rules="rules"
+//-   :vid="rulesVid"
+//-   ref="validationProvider"
+//-   tag="div"
+//- )
+//- "dm-field-checkbox--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+div(
+  :class=`[
+    "dm-field-checkbox",
+    "dm-field-checkbox--" + computedStatus,
+    "dm-field-checkbox--" + size,
+    {
+      "dm-field-checkbox--disabled": disabled,
+      "dm-field-checkbox--full-width": fullWidth
+    }
+  ]`
 )
-  div(
-    :class=`[
-      "dm-field-checkbox",
-      "dm-field-checkbox--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
-      "dm-field-checkbox--" + size,
-      {
-        "dm-field-checkbox--disabled": disabled,
-        "dm-field-checkbox--full-width": fullWidth
-      }
-    ]`
-  )
-    .dm-field-checkbox__container
-      div(
-        @click="onClick"
-        @keypress.prevent="onKeypress"
-        :class=`[
-          "dm-field-checkbox__field",
-          "js-tag-for-autofocus",
-          {
-            "dm-field-checkbox__field--checked": innerValue
-          }
-        ]`
-        tabindex="0"
-      )
-        span.dm-field-checkbox__tick
-
-      field-label(
-        v-if="label"
-        @click="onClick"
-        :required="labelRequired"
-        :size="size"
-        :uppercase="false"
-        class="dm-field-checkbox__label"
-      ) {{ label }}
-
-    field-message(
-      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
-      :errors="errors"
-      :level="computedMessageLevel"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
-      :size="size"
+  .dm-field-checkbox__container
+    div(
+      @click="onClick"
+      @keypress.prevent="onKeypress"
+      :class=`[
+        "dm-field-checkbox__field",
+        "js-tag-for-autofocus",
+        {
+          "dm-field-checkbox__field--checked": innerValue
+        }
+      ]`
+      tabindex="0"
     )
+      span.dm-field-checkbox__tick
+
+    field-label(
+      v-if="label"
+      @click="onClick"
+      :required="labelRequired"
+      :size="size"
+      :uppercase="false"
+      class="dm-field-checkbox__label"
+    ) {{ label }}
+
+  //- field-message(
+  //-   v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+  //-   :errors="errors"
+  //-   :level="computedMessageLevel"
+  //-   :message="computedMessageContent"
+  //-   :show-errors="showErrors"
+  //-   :size="size"
+  //- )
 </template>
 
 <!-- *************************************************************************

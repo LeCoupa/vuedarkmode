@@ -3,66 +3,67 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+//- validation-provider(
+//-   v-slot="{ dirty, errors }"
+//-   :name="rulesName || name"
+//-   :rules="rules"
+//-   :vid="rulesVid"
+//-   ref="validationProvider"
+//-   tag="div"
+//- )
+//- "dm-field-file--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+div(
+  :class=`[
+    "dm-field-file",
+    "dm-field-file--" + computedStatus,
+    "dm-field-file--" + size,
+    {
+      "dm-field-file--disabled": disabled,
+      "dm-field-file--full-width": fullWidth
+    }
+  ]`
 )
-  div(
-    :class=`[
-      "dm-field-file",
-      "dm-field-file--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
-      "dm-field-file--" + size,
-      {
-        "dm-field-file--disabled": disabled,
-        "dm-field-file--full-width": fullWidth
-      }
-    ]`
-  )
-    .dm-field-file__container
-      div(
-        v-if="label"
-        class="dm-field-file__information"
-      )
-        field-label(
-          :required="labelRequired"
-          :size="size"
-          class="dm-field-file__label"
-        ) {{ label }}
+  .dm-field-file__container
+    div(
+      v-if="label"
+      class="dm-field-file__information"
+    )
+      field-label(
+        :required="labelRequired"
+        :size="size"
+        class="dm-field-file__label"
+      ) {{ label }}
 
-        field-message(
-          v-if="computedMessageLevel || (errors.length > 0 && dirty)"
-          :errors="errors"
-          :level="computedMessageLevel"
-          :message="computedMessageContent"
-          :show-errors="showErrors"
-          :size="size"
-          class="dm-field-file__message"
-        )
+      //- field-message(
+      //-   v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+      //-   :errors="errors"
+      //-   :level="computedMessageLevel"
+      //-   :message="computedMessageContent"
+      //-   :show-errors="showErrors"
+      //-   :size="size"
+      //-   class="dm-field-file__message"
+      //- )
 
-      label(
-        @keypress.prevent="onLabelKeypress"
-        :for="uuid"
-        class="dm-field-file__upload js-tag-for-autofocus"
-        tabindex="0"
+    label(
+      @keypress.prevent="onLabelKeypress"
+      :for="uuid"
+      class="dm-field-file__upload js-tag-for-autofocus"
+      tabindex="0"
+    )
+      base-icon(
+        name="cloud_upload"
+        class="dm-field-file__icon"
       )
-        base-icon(
-          name="cloud_upload"
-          class="dm-field-file__icon"
-        )
 
-      input(
-        @change="onFieldChange"
-        :disabled="disabled"
-        :id="uuid"
-        :multiple="multiple"
-        :name="name"
-        class="dm-field-file__field"
-        type="file"
-      )
+    input(
+      @change="onFieldChange"
+      :disabled="disabled"
+      :id="uuid"
+      :multiple="multiple"
+      :name="name"
+      class="dm-field-file__field"
+      type="file"
+    )
 </template>
 
 <!-- *************************************************************************

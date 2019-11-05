@@ -3,86 +3,87 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+//- validation-provider(
+//-   v-slot="{ dirty, errors }"
+//-   :name="rulesName || name"
+//-   :rules="rules"
+//-   :vid="rulesVid"
+//-   ref="validationProvider"
+//-   tag="div"
+//- )
+//- "dm-field-tabs--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+div(
+  :class=`[
+    "dm-field-tabs",
+    "dm-field-tabs--" + computedStatus,
+    "dm-field-tabs--" + size,
+    {
+      "dm-field-tabs--disabled": disabled,
+      "dm-field-tabs--multiple": multiple
+    }
+  ]`
 )
-  div(
-    :class=`[
-      "dm-field-tabs",
-      "dm-field-tabs--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
-      "dm-field-tabs--" + size,
-      {
-        "dm-field-tabs--disabled": disabled,
-        "dm-field-tabs--multiple": multiple
-      }
-    ]`
-  )
-    field-label(
-      v-if="label"
-      :required="labelRequired"
-      :size="size"
-      class="dm-field-tabs__label"
-    ) {{ label }}
+  field-label(
+    v-if="label"
+    :required="labelRequired"
+    :size="size"
+    class="dm-field-tabs__label"
+  ) {{ label }}
 
-    .dm-field-tabs__container
-      span(
-        v-for="(tab, i) in tabs"
-        @click="onTabClick(tab.value, $event)"
-        @keypress.prevent="onTabKeypress"
-        :class=`[
-          "dm-field-tabs__tab",
-          {
-            "dm-field-tabs__tab--active": innerValue === tab.value || (Array.isArray(innerValue) && innerValue.includes(tab.value)),
-            "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
-            "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
-            "dm-field-tabs__tab--with-label": tab.label
-          }
-        ]`
-        tabindex="0"
-      )
-        span(
-          v-if="$scopedSlots['tab-left']"
-          class="dm-field-tabs__tab-left"
-        )
-          slot(
-            :tab="tab"
-            name="tab-left"
-          )
-
-        span(
-          v-if="tab.label"
-          class="dm-field-tabs__label"
-        ) {{ tab.label }}
-
-        base-icon(
-          v-else-if="tab.icon"
-          :name="tab.icon"
-          :size="tab.iconSize || computedIconSize"
-          class="dm-field-tabs__label"
-        )
-
-        span(
-          v-if="$scopedSlots['tab-right']"
-          class="dm-field-tabs__tab-right"
-        )
-          slot(
-            :tab="tab"
-            name="tab-right"
-          )
-
-    field-message(
-      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
-      :errors="errors"
-      :level="computedMessageLevel"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
-      :size="size"
+  .dm-field-tabs__container
+    span(
+      v-for="(tab, i) in tabs"
+      @click="onTabClick(tab.value, $event)"
+      @keypress.prevent="onTabKeypress"
+      :class=`[
+        "dm-field-tabs__tab",
+        {
+          "dm-field-tabs__tab--active": innerValue === tab.value || (Array.isArray(innerValue) && innerValue.includes(tab.value)),
+          "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
+          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
+          "dm-field-tabs__tab--with-label": tab.label
+        }
+      ]`
+      tabindex="0"
     )
+      span(
+        v-if="$scopedSlots['tab-left']"
+        class="dm-field-tabs__tab-left"
+      )
+        slot(
+          :tab="tab"
+          name="tab-left"
+        )
+
+      span(
+        v-if="tab.label"
+        class="dm-field-tabs__label"
+      ) {{ tab.label }}
+
+      base-icon(
+        v-else-if="tab.icon"
+        :name="tab.icon"
+        :size="tab.iconSize || computedIconSize"
+        class="dm-field-tabs__label"
+      )
+
+      span(
+        v-if="$scopedSlots['tab-right']"
+        class="dm-field-tabs__tab-right"
+      )
+        slot(
+          :tab="tab"
+          name="tab-right"
+        )
+
+  //- field-message(
+  //-   v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+  //-   :errors="errors"
+  //-   :level="computedMessageLevel"
+  //-   :message="computedMessageContent"
+  //-   :show-errors="showErrors"
+  //-   :size="size"
+  //- )
 </template>
 
 <!-- *************************************************************************

@@ -3,53 +3,54 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+//- validation-provider(
+//-   v-slot="{ dirty, errors }"
+//-   :name="rulesName || name"
+//-   :rules="rules"
+//-   :vid="rulesVid"
+//-   ref="validationProvider"
+//-   tag="div"
+//- )
+//- "dm-field-toggle--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+div(
+  :class=`[
+    "dm-field-toggle",
+    "dm-field-toggle--" + computedStatus,
+    "dm-field-toggle--" + size,
+    {
+      "dm-field-toggle--disabled": disabled,
+      "dm-field-toggle--full-width": fullWidth
+    }
+  ]`
 )
-  div(
-    :class=`[
-      "dm-field-toggle",
-      "dm-field-toggle--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
-      "dm-field-toggle--" + size,
-      {
-        "dm-field-toggle--disabled": disabled,
-        "dm-field-toggle--full-width": fullWidth
-      }
-    ]`
-  )
-    .dm-field-toggle__container
-      input(
-        @change="onFieldChange"
-        :checked="innerValue"
-        :disabled="disabled"
-        :id="uuid"
-        :name="name"
-        class="dm-field-toggle__field js-tag-for-autofocus"
-        type="checkbox"
-      )
-
-      field-label(
-        v-if="label"
-        :forField="uuid"
-        :required="labelRequired"
-        :size="size"
-        :uppercase="false"
-        class="dm-field-toggle__label"
-      ) {{ label }}
-
-    field-message(
-      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
-      :errors="errors"
-      :level="computedMessageLevel"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
-      :size="size"
+  .dm-field-toggle__container
+    input(
+      @change="onFieldChange"
+      :checked="innerValue"
+      :disabled="disabled"
+      :id="uuid"
+      :name="name"
+      class="dm-field-toggle__field js-tag-for-autofocus"
+      type="checkbox"
     )
+
+    field-label(
+      v-if="label"
+      :forField="uuid"
+      :required="labelRequired"
+      :size="size"
+      :uppercase="false"
+      class="dm-field-toggle__label"
+    ) {{ label }}
+
+  //- field-message(
+  //-   v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+  //-   :errors="errors"
+  //-   :level="computedMessageLevel"
+  //-   :message="computedMessageContent"
+  //-   :show-errors="showErrors"
+  //-   :size="size"
+  //- )
 </template>
 
 <!-- *************************************************************************

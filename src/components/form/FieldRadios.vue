@@ -3,63 +3,64 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+//- validation-provider(
+//-   v-slot="{ dirty, errors }"
+//-   :name="rulesName || name"
+//-   :rules="rules"
+//-   :vid="rulesVid"
+//-   ref="validationProvider"
+//-   tag="div"
+//- )
+//- "dm-field-radios--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+div(
+  :class=`[
+    "dm-field-radios",
+    "dm-field-radios--" + computedStatus,
+    "dm-field-radios--" + size,
+    {
+      "dm-field-radios--disabled": disabled,
+      "dm-field-radios--full-width": fullWidth
+    }
+  ]`
 )
-  div(
-    :class=`[
-      "dm-field-radios",
-      "dm-field-radios--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
-      "dm-field-radios--" + size,
-      {
-        "dm-field-radios--disabled": disabled,
-        "dm-field-radios--full-width": fullWidth
-      }
-    ]`
-  )
-    .dm-field-radios__container
-      div(
-        v-for="(radio, index) in radios"
-        :key="radio.value"
-        class="dm-field-radios__radio"
-      )
-        input(
-          @change="onRadioChange(radio, $event)"
-          :checked="radio.value === innerValue"
-          :class=`[
-            "dm-field-radios__field",
-            {
-              "js-tag-for-autofocus": index === 0
-            }
-          ]`
-          :disabled="disabled"
-          :id="radio.value"
-          :name="name"
-          type="radio"
-        )
-
-        field-label(
-          v-if="radio.label"
-          :forField="radio.value"
-          :required="labelRequired"
-          :size="size"
-          :uppercase="false"
-          class="dm-field-radios__label"
-        ) {{ radio.label }}
-
-    field-message(
-      v-if="computedMessageLevel || (errors.length > 0 && dirty)"
-      :errors="errors"
-      :level="computedMessageLevel"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
-      :size="size"
+  .dm-field-radios__container
+    div(
+      v-for="(radio, index) in radios"
+      :key="radio.value"
+      class="dm-field-radios__radio"
     )
+      input(
+        @change="onRadioChange(radio, $event)"
+        :checked="radio.value === innerValue"
+        :class=`[
+          "dm-field-radios__field",
+          {
+            "js-tag-for-autofocus": index === 0
+          }
+        ]`
+        :disabled="disabled"
+        :id="radio.value"
+        :name="name"
+        type="radio"
+      )
+
+      field-label(
+        v-if="radio.label"
+        :forField="radio.value"
+        :required="labelRequired"
+        :size="size"
+        :uppercase="false"
+        class="dm-field-radios__label"
+      ) {{ radio.label }}
+
+  //- field-message(
+  //-   v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+  //-   :errors="errors"
+  //-   :level="computedMessageLevel"
+  //-   :message="computedMessageContent"
+  //-   :show-errors="showErrors"
+  //-   :size="size"
+  //- )
 </template>
 
 <!-- *************************************************************************
