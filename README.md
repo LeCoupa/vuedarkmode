@@ -18,10 +18,10 @@ You can browse the documentation for Vue Dark Mode [on the website](https://www.
 ## Installation
 
 ```
-npm install vuedarkmode
+npm install @growthbunker/vuedarkmode
 
 # Or if you prefer using yarn
-yarn add vuedarkmode
+yarn add @growthbunker/vuedarkmode
 ```
 
 ### Vue.js
@@ -30,7 +30,7 @@ In your `main.js` file:
 
 ```js
 import Vue from "vue";
-import VueDarkMode from "vuedarkmode";
+import VueDarkMode from "@growthbunker/vuedarkmode";
 
 Vue.use(VueDarkMode);
 ```
@@ -41,7 +41,7 @@ Create a new plugin in `plugins/vuedarkmode.js`:
 
 ```js
 import Vue from "vue";
-import VueDarkMode from "vuedarkmode";
+import VueDarkMode from "@growthbunker/vuedarkmode";
 
 Vue.use(VueDarkMode);
 ```
