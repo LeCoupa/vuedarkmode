@@ -122,4 +122,27 @@ export default plugin;
 
 // To allow individual component use, export components
 // each can be registered via Vue.component()
-// export * from "./components/index";
+export {
+  BaseAlert,
+  BaseAvatar,
+  BaseBadge,
+  BaseButton,
+  BaseDivider,
+  BaseHeading,
+  BaseIcon,
+  BaseNumber,
+  BaseProgressBar,
+  BaseSocialButton,
+  BaseSpinner,
+  BaseToast,
+  FieldCheckbox,
+  FieldFile,
+  FieldInput,
+  FieldLabel,
+  FieldMessage,
+  FieldRadios,
+  FieldSelect,
+  FieldTabs,
+  FieldTextarea,
+  FieldToggle
+};
