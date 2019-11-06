@@ -4,8 +4,8 @@
   </a>
 </p>
 
-[![npm](https://img.shields.io/npm/v/vuedarkmode.svg)](https://www.npmjs.com/package/vuedarkmode)
-[![npm](https://img.shields.io/npm/dm/vuedarkmode.svg)](https://npm-stat.com/charts.html?package=vuedarkmode)
+[![npm](https://img.shields.io/npm/v/@growthbunker/vuedarkmode.svg)](https://www.npmjs.com/package/@growthbunker/vuedarkmode)
+[![npm](https://img.shields.io/npm/dm/@growthbunker/vuedarkmode.svg)](https://npm-stat.com/charts.html?package=@growthbunker/vuedarkmode)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/growthbunker/vuedarkmode.svg)](http://isitmaintained.com/project/growthbunker/vuedarkmode "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/growthbunker/vuedarkmode.svg)](http://isitmaintained.com/project/growthbunker/vuedarkmode "Percentage of issues still open")
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/growthbunker/vuedarkmode/blob/master/LICENSE)
