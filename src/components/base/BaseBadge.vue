@@ -118,6 +118,10 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
     &--#{$color} {
       border-color: map-get($mainColors, $color);
 
+      @if ($color == "white") {
+        color: $oxford-blue;
+      }
+
       &#{$c}--filled {
         background-color: map-get($mainColors, $color);
       }
