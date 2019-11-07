@@ -34,15 +34,16 @@ div(
         class="dm-field-file__label"
       ) {{ label }}
 
-      //- field-message(
       //-   v-if="computedMessageLevel || (errors.length > 0 && dirty)"
       //-   :errors="errors"
-      //-   :level="computedMessageLevel"
-      //-   :message="computedMessageContent"
-      //-   :show-errors="showErrors"
-      //-   :size="size"
-      //-   class="dm-field-file__message"
-      //- )
+      field-message(
+        v-if="computedMessageLevel"
+        :level="computedMessageLevel"
+        :message="computedMessageContent"
+        :show-errors="showErrors"
+        :size="size"
+        class="dm-field-file__message"
+      )
 
     label(
       @keypress.prevent="onLabelKeypress"

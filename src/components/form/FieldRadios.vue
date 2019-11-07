@@ -53,14 +53,15 @@ div(
         class="dm-field-radios__label"
       ) {{ radio.label }}
 
-  //- field-message(
   //-   v-if="computedMessageLevel || (errors.length > 0 && dirty)"
   //-   :errors="errors"
-  //-   :level="computedMessageLevel"
-  //-   :message="computedMessageContent"
-  //-   :show-errors="showErrors"
-  //-   :size="size"
-  //- )
+  field-message(
+    v-if="computedMessageLevel"
+    :level="computedMessageLevel"
+    :message="computedMessageContent"
+    :show-errors="showErrors"
+    :size="size"
+  )
 </template>
 
 <!-- *************************************************************************
