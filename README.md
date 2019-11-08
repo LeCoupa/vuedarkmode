@@ -1,6 +1,6 @@
 <p align="center" style="background: #1b2431; padding: 20px 0;">
   <a href="https://www.growthbunker.dev/vuedarkmode" target="_blank">
-    <img width="100%" src="https://raw.githubusercontent.com/growthbunker/vuedarkmode/master/src/images/vuedarkmode.svg?sanitize=true">
+    <img width="100%" src="https://raw.githubusercontent.com/growthbunker/vuedarkmode/master/src/images/vuedarkmode.jpg">
   </a>
 </p>
 
