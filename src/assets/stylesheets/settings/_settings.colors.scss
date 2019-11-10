@@ -6,50 +6,71 @@
 // BLACK
 
 $black: #000000;
+$woodsmoke: #171819;
+$mirage: #171e29;
+$mirage2: #1b2431;
 $ebony-clay: #222c3c;
 $ebony-clay-2: #273142;
-$mirage: #1b2431;
+$rhino: #2c405a;
 $oxford-blue: #313d4f;
-$woodsmoke: #171819;
+$fiord: #45556e;
 
 // BLUE
 
 $azure-radiance: #0093ee;
+$azure-radiance-2: #00aaff;
+$curious-blue: #1991eb;
 $dodger-blue: #2da1f8;
+$lochmara: #0079c4;
+$morning-glory: #98d4e0;
+$tory-blue: #1166a5;
 
 // GREEN
 
+$limeade: #33ad00;
 $apple: #4ece3d;
 $sushi: #96bf47;
 
 // GREY
 
+$cadet-blue: #a2b1c0;
+$dusty-gray: #979797;
 $nepal: #8eacc5;
-$regent-st-blue: #a9c7df;
+$nepal-2: #8dabc4;
+$regent-st-blue: #a8c6df;
 
 // ORANGE
 
-$sunglow: #ffc02a;
-$sun: #ffb610;
+$pumpkin: #fd7b1f;
 
 // PURPLE
 
 $portage: #ab7ef6;
+$lavender: #bf8fe1;
 
 // RED
 
 $cinnabar: #e54124;
 $crimson: #e0102b;
+$radical-red: #ff4b64;
 
 // TURQUOISE
 
-$java: #26c2c9;
+$java: #26c1c9;
 
 // WHITE
 
-$athens-gray: #e6eaee;
+$aqua-haze: #eff3f6;
+$athens-gray: #fafbfc;
 $barley-white: #fff5cd;
 $white: #ffffff;
+
+// YELLOW
+
+$confetti: #ebcd63;
+$sunglow: #ffc02a;
+$supernova: #faca00;
+$sun: #ffb610;
 
 // SOCIAL
 
@@ -59,7 +80,9 @@ $messenger: #0084ff;
 $shopify: #96bf47;
 $twitter: #1da1f2;
 
-// DATASETS
+/* **************************************************************************
+   SETTINGS > COLORS > DATASETS
+   ************************************************************************** */
 
 $levelColors: (
   "description": $nepal,
