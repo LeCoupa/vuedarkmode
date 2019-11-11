@@ -1,0 +1,38 @@
+/* **************************************************************************
+   SETTINGS > DATASETS
+   ************************************************************************** */
+
+$levelColors: (
+  "description": $nepal,
+  "error": $crimson,
+  "info": $azure-radiance,
+  "success": $sushi,
+  "warning": $sun
+);
+
+$mainColors: (
+  "black": $oxford-blue,
+  "blue": $azure-radiance,
+  "green": $sushi,
+  "grey": $regent-st-blue,
+  "orange": $sun,
+  "purple": $portage,
+  "red": $crimson,
+  "turquoise": $java,
+  "white": $white
+);
+
+$socialColors: (
+  "facebook": $facebook,
+  "google": $google,
+  "messenger": $messenger,
+  "shopify": $shopify,
+  "twitter": $twitter
+);
+
+$statusColors: (
+  "error": $crimson,
+  "normal": $azure-radiance,
+  "success": $sushi,
+  "warning": $sunglow
+);

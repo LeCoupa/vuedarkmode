@@ -326,7 +326,8 @@ export default {
 
 <style lang="scss">
 // IMPORTS
-@import "src/assets/stylesheets/settings/_settings.colors.scss";
+@import "node_modules/@growthbunker/stylesheets/settings/_colors.scss";
+@import "src/assets/stylesheets/settings/_datasets.scss";
 
 // VARIABLES
 $c: ".dm-field-input";

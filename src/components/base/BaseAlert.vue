@@ -88,8 +88,9 @@ export default {
 
 <style lang="scss">
 // IMPORTS
-@import "src/assets/stylesheets/settings/_settings.colors.scss";
-@import "src/assets/stylesheets/tools/_tools.mixins.scss";
+@import "node_modules/@growthbunker/stylesheets/settings/_colors.scss";
+@import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
+@import "src/assets/stylesheets/settings/_datasets.scss";
 
 // VARIABLES
 $c: ".dm-base-alert";
