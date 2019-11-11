@@ -18,8 +18,8 @@
     "url": "https://github.com/growthbunker/vuedarkmode.git"
   },
   "bugs": {
-    "url": "https://github.com/growthbunker/vuedarkmode/issues",
-    "email": "product@growthbunker.com"
+    "email": "product@growthbunker.com",
+    "url": "https://github.com/growthbunker/vuedarkmode/issues"
   },
   "main": "dist/vuedarkmode.ssr.js",
   "module": "dist/vuedarkmode.esm.js",
@@ -36,6 +36,7 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
+    "@growthbunker/stylesheets": "0.0.6",
     "v-click-outside": "2.1.4",
     "v-hotkey": "0.6.0",
     "vee-validate": "3.0.11"
