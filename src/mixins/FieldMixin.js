@@ -172,7 +172,8 @@ export default {
     this.synchronize();
     // this.validate();
 
-    if (this.autofocus) {
+    // Focus only on desktop and larger screens
+    if (this.autofocus && window.innerWidth > 1024) {
       const field = this.$el.querySelector(".js-tag-for-autofocus");
 
       field.focus();
