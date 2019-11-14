@@ -102,7 +102,7 @@ $colors: "black", "blue", "green", "orange", "red", "white";
   display: flex;
   align-items: center;
   padding: 14px 20px;
-  color: map-deep-get($darkTheme, "fonts", "default", "primary");
+  color: mdg($darkTheme, "fonts", "default", "primary");
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
@@ -139,32 +139,32 @@ $colors: "black", "blue", "green", "orange", "red", "white";
 
   @each $color in $colors {
     &--#{$color} {
-      background-color: map-deep-get($darkTheme, "colors", $color);
+      background-color: mdg($darkTheme, "colors", $color);
 
       @if ($color == "white") {
-        color: map-deep-get($darkTheme, "fonts", "reverse", "primary");
+        color: mdg($darkTheme, "fonts", "reverse", "primary");
       }
 
       #{$c}__icon--right {
         @if ($color == "red") {
           &:hover {
-            color: map-deep-get($darkTheme, "colors", "black") !important;
+            color: mdg($darkTheme, "colors", "black") !important;
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px map-deep-get($darkTheme, "colors", $color),
-              0 0 0 3px map-deep-get($darkTheme, "colors", "black");
-            color: map-deep-get($darkTheme, "colors", "black") !important;
+            box-shadow: 0 0 0 2px mdg($darkTheme, "colors", $color),
+              0 0 0 3px mdg($darkTheme, "colors", "black");
+            color: mdg($darkTheme, "colors", "black") !important;
           }
         } @else {
           &:hover {
-            color: map-deep-get($darkTheme, "colors", "red") !important;
+            color: mdg($darkTheme, "colors", "red") !important;
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px map-deep-get($darkTheme, "colors", $color),
-              0 0 0 3px map-deep-get($darkTheme, "colors", "red");
-            color: map-deep-get($darkTheme, "colors", "red") !important;
+            box-shadow: 0 0 0 2px mdg($darkTheme, "colors", $color),
+              0 0 0 3px mdg($darkTheme, "colors", "red");
+            color: mdg($darkTheme, "colors", "red") !important;
           }
         }
       }
