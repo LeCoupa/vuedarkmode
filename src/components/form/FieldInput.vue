@@ -347,6 +347,7 @@ $statuses: "error", "normal", "success", "warning";
     display: flex;
     overflow: hidden;
     align-items: center;
+    background-color: mdg($darkTheme, "backgrounds", "default", "primary");
     transition: all linear 250ms;
     user-select: none;
 
@@ -355,16 +356,26 @@ $statuses: "error", "normal", "success", "warning";
       align-items: center;
       flex: 0 0 auto;
       height: 100%;
-      color: $white;
+      background-color: mdg($darkTheme, "backgrounds", "default", "secondary");
+      color: mdg($darkTheme, "fonts", "default", "primary");
       user-select: none;
       cursor: default;
 
+      #{$c}__field {
+        background-color: mdg($darkTheme, "backgrounds", "default", "primary");
+
+        &:-webkit-autofill {
+          box-shadow: 0 0 0 30px
+            mdg($darkTheme, "backgrounds", "default", "primary") inset !important;
+        }
+      }
+
       &--append {
-        border-left: 1px solid $oxford-blue;
+        border-left: 1px solid mdg($darkTheme, "borders", "default", "primary");
       }
 
       &--prepend {
-        border-right: 1px solid $oxford-blue;
+        border-right: 1px solid mdg($darkTheme, "borders", "default", "primary");
       }
 
       &--clickable {
@@ -393,10 +404,10 @@ $statuses: "error", "normal", "success", "warning";
       height: 100%;
       outline: 0;
       border: none;
-      color: $white;
+      color: mdg($darkTheme, "fonts", "default", "primary");
 
       &::placeholder {
-        color: $nepal;
+        color: mdg($darkTheme, "borders", "default", "tertiary");
         transition: color linear 250ms;
       }
 
@@ -405,7 +416,12 @@ $statuses: "error", "normal", "success", "warning";
       }
 
       &:-webkit-autofill {
-        -webkit-text-fill-color: $white !important;
+        -webkit-text-fill-color: mdg(
+          $darkTheme,
+          "fonts",
+          "default",
+          "primary"
+        ) !important;
       }
     }
 
@@ -443,50 +459,12 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$status} {
       #{$c}__container {
         @if ($status != normal) {
-          border-color: map-get($statusColors, $status) !important;
+          border-color: mdg($darkTheme, "statuses", $status) !important;
           // Override focused state
-          color: map-get($statusColors, $status) !important;
+          color: mdg($darkTheme, "statuses", $status) !important;
         } @else {
-          border-color: $oxford-blue;
-          color: $white;
-        }
-      }
-    }
-  }
-
-  // --> THEMES <--
-
-  &--dark {
-    #{$c}__container {
-      background-color: $ebony-clay;
-
-      #{$c}__block {
-        background-color: $ebony-clay-2;
-      }
-
-      #{$c}__field {
-        background-color: $ebony-clay;
-
-        &:-webkit-autofill {
-          box-shadow: 0 0 0 30px $ebony-clay inset !important;
-        }
-      }
-    }
-  }
-
-  &--light {
-    #{$c}__container {
-      background-color: $ebony-clay-2;
-
-      #{$c}__block {
-        background-color: $ebony-clay;
-      }
-
-      #{$c}__field {
-        background-color: $ebony-clay-2;
-
-        &:-webkit-autofill {
-          box-shadow: 0 0 0 30px $ebony-clay-2 inset !important;
+          border-color: mdg($darkTheme, "borders", "default", "tertiary");
+          color: mdg($darkTheme, "fonts", "default", "tertiary");
         }
       }
     }
@@ -507,11 +485,13 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__container {
       #{$c}__icon {
         &--right {
-          color: rgba($white, 0.8);
+          color: mdg($darkTheme, "colors", "white");
+          opacity: 0.8;
+          transition: opacity 250ms linear;
           pointer-events: auto;
 
           &:hover {
-            color: $white;
+            opacity: 1;
           }
         }
       }
@@ -529,8 +509,8 @@ $statuses: "error", "normal", "success", "warning";
 
   &--focused {
     #{$c}__container {
-      border-color: $azure-radiance;
-      color: $azure-radiance;
+      border-color: mdg($darkTheme, "statuses", "active");
+      color: mdg($darkTheme, "statuses", "active");
     }
   }
 
