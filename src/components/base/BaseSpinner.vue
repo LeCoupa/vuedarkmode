@@ -134,7 +134,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   }
 }
 
-// --> KEYFRAMES <--
+// --> ANIMATIONS <--
 
 @keyframes bounce {
   0%,

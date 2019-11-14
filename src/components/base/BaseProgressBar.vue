@@ -178,6 +178,8 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
   }
 }
 
+// --> ANIMATIONS <--
+
 @keyframes fillUp {
   0% {
     transform: translateX(-100%);
