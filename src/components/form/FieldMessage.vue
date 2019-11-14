@@ -6,7 +6,7 @@
 p(
   :class=`[
     "dm-field-message",
-    "dm-field-message--" + computedLevel,
+    "dm-field-message--" + computedStatus,
     "dm-field-message--" + size
   ]`
 )
@@ -41,7 +41,7 @@ export default {
       type: Array,
       default: null
     },
-    level: {
+    status: {
       type: String,
       default: "description",
       validator(x) {
@@ -69,13 +69,13 @@ export default {
 
   computed: {
     computedIconName() {
-      if (this.level === "error") {
+      if (this.status === "error") {
         return "error";
-      } else if (this.level === "info") {
+      } else if (this.status === "info") {
         return "info";
-      } else if (this.level === "success") {
+      } else if (this.status === "success") {
         return "check_circle";
-      } else if (this.level === "warning") {
+      } else if (this.status === "warning") {
         return "warning";
       }
 
@@ -98,11 +98,11 @@ export default {
       return null;
     },
 
-    computedLevel() {
+    computedStatus() {
       if (this.errors && this.errors.length > 0 && this.showErrors) {
         return "error";
       } else {
-        return this.level;
+        return this.status;
       }
     },
 
@@ -128,8 +128,8 @@ export default {
 
 // VARIABLES
 $c: ".dm-field-message";
-$levels: "description", "error", "info", "success", "warning";
 $sizes: "mini", "small", "default", "medium", "large";
+$statuses: "description", "error", "info", "success", "warning";
 
 #{$c} {
   display: flex;
@@ -143,11 +143,11 @@ $sizes: "mini", "small", "default", "medium", "large";
     margin-right: 5px;
   }
 
-  // --> LEVELS <--
+  // --> STATUSES <--
 
-  @each $level in $levels {
-    &--#{$level} {
-      color: map-get($levelColors, $level);
+  @each $status in $statuses {
+    &--#{$status} {
+      color: map-get($statusColors, $status);
     }
   }
 

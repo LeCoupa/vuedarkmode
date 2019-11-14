@@ -122,7 +122,7 @@ export default {
       }
     },
 
-    computedMessageLevel() {
+    computedMessageStatus() {
       if (this.error) {
         return "error";
       } else if (this.success) {

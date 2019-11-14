@@ -2,14 +2,6 @@
    SETTINGS > DATASETS
    ************************************************************************** */
 
-$levelColors: (
-  "description": $nepal,
-  "error": $crimson,
-  "info": $azure-radiance,
-  "success": $sushi,
-  "warning": $sun
-);
-
 $mainColors: (
   "black": $oxford-blue,
   "blue": $azure-radiance,
@@ -31,8 +23,10 @@ $socialColors: (
 );
 
 $statusColors: (
+  "description": $nepal,
   "error": $crimson,
   "normal": $azure-radiance,
+  "info": $azure-radiance,
   "success": $sushi,
   "warning": $sunglow
 );

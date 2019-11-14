@@ -76,14 +76,14 @@ div(
           name="tab-right"
         )
 
-  //-   v-if="computedMessageLevel || (errors.length > 0 && dirty)"
+  //-   v-if="computedMessageStatus || (errors.length > 0 && dirty)"
   //-   :errors="errors"
   field-message(
-    v-if="computedMessageLevel"
-    :level="computedMessageLevel"
+    v-if="computedMessageStatus"
     :message="computedMessageContent"
     :show-errors="showErrors"
     :size="size"
+    :status="computedMessageStatus"
   )
 </template>
 
