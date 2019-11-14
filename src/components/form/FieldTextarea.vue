@@ -251,13 +251,14 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__field {
       width: 100%;
+      background-color: mdg($darkTheme, "backgrounds", "default", "primary");
       height: 100%;
       outline: 0;
       border: none;
-      color: $white;
+      color: mdg($darkTheme, "fonts", "default", "primary");
 
       &::placeholder {
-        color: $nepal;
+        color: mdg($darkTheme, "backgrounds", "default", "tertiary");
         transition: color linear 250ms;
       }
 
@@ -291,27 +292,9 @@ $statuses: "error", "normal", "success", "warning";
           border-color: mdg($darkTheme, "statuses", $status) !important;
           color: mdg($darkTheme, "statuses", $status) !important;
         } @else {
-          border-color: $oxford-blue;
-          color: $white;
+          border-color: mdg($darkTheme, "borders", "default", "primary");
+          color: mdg($darkTheme, "fonts", "default", "primary");
         }
-      }
-    }
-  }
-
-  // --> THEMES <--
-
-  &--dark {
-    #{$c}__container {
-      #{$c}__field {
-        background-color: $ebony-clay;
-      }
-    }
-  }
-
-  &--light {
-    #{$c}__container {
-      #{$c}__field {
-        background-color: $ebony-clay-2;
       }
     }
   }
@@ -338,8 +321,8 @@ $statuses: "error", "normal", "success", "warning";
 
   &--focused {
     #{$c}__container {
-      border-color: $azure-radiance;
-      color: $azure-radiance;
+      border-color: mdg($darkTheme, "statuses", "active");
+      color: mdg($darkTheme, "statuses", "active");
     }
   }
 
