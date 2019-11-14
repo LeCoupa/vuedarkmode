@@ -158,8 +158,12 @@ $statuses: "error", "normal", "success", "warning";
       border-width: 2px;
       border-style: solid;
       border-radius: 100%;
-      background-color: rgba($ebony-clay, 0.9);
-      box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
+      background-color: rgba(
+        mdg($darkTheme, "backgrounds", "default", "primary"),
+        0.9
+      );
+      box-shadow: 0 1px 5px 0
+        rgba(mdg($darkTheme, "box-shadows", "default", "primary"), 0.6);
       transition: all linear 250ms;
       cursor: pointer;
 
@@ -172,7 +176,7 @@ $statuses: "error", "normal", "success", "warning";
       }
 
       &:hover {
-        border-color: $azure-radiance;
+        border-color: mdg($darkTheme, "status", "active");
       }
     }
 
@@ -213,11 +217,11 @@ $statuses: "error", "normal", "success", "warning";
         @if ($status != normal) {
           border-color: mdg($darkTheme, "statuses", $status);
         } @else {
-          border-color: $white;
+          border-color: mdg($darkTheme, "borders", "reverse", "primary");
         }
 
         &:focus {
-          box-shadow: 0 0 0 2px $mirage,
+          box-shadow: 0 0 0 2px rgba(0, 0, 0, 0),
             0 0 0 3px mdg($darkTheme, "statuses", $status);
           transition: box-shadow linear 0s;
         }
@@ -235,7 +239,7 @@ $statuses: "error", "normal", "success", "warning";
         cursor: not-allowed;
 
         &:hover {
-          border-color: $crimson;
+          border-color: mdg($darkTheme, "colors", "red");
         }
       }
     }
