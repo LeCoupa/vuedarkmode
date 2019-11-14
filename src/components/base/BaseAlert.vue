@@ -102,7 +102,7 @@ $colors: "black", "blue", "green", "orange", "red", "white";
   display: flex;
   align-items: center;
   padding: 14px 20px;
-  color: map-deep-get($darkTheme, "fonts", "primary");
+  color: map-deep-get($darkTheme, "fonts", "default", "primary");
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
@@ -142,7 +142,7 @@ $colors: "black", "blue", "green", "orange", "red", "white";
       background-color: map-deep-get($darkTheme, "colors", $color);
 
       @if ($color == "white") {
-        color: map-deep-get($darkTheme, "fonts", "reverse");
+        color: map-deep-get($darkTheme, "fonts", "reverse", "primary");
       }
 
       #{$c}__icon--right {
