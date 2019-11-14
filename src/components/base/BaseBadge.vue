@@ -107,7 +107,7 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
   border-width: 1px;
   border-style: solid;
   border-radius: 100px;
-  color: $white;
+  color: mdg($darkTheme, "fonts", "default", "primary");
   text-transform: uppercase;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
@@ -119,18 +119,19 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
 
   @each $color in $colors {
     &--#{$color} {
-      border-color: map-get($mainColors, $color);
+      border-color: mdg($darkTheme, "colors", $color);
 
       &#{$c}--filled {
-        background-color: map-get($mainColors, $color);
+        background-color: mdg($darkTheme, "colors", $color);
 
         @if ($color == "white") {
-          color: $oxford-blue;
+          color: mdg($darkTheme, "fonts", "reverse", "primary");
         }
       }
 
       &:focus {
-        box-shadow: 0 0 0 2px $mirage, 0 0 0 3px map-get($mainColors, $color);
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0),
+          0 0 0 3px mdg($darkTheme, "colors", $color);
         transition: box-shadow linear 0s;
       }
     }
