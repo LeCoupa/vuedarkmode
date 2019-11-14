@@ -16,11 +16,19 @@
 
 - FieldSelect: Add rules-vid and show-errors prop.
 
-- FieldTextarea: Remove maxlength prop. Add rules-vid and show-errors prop.
+- FieldTextarea: Add rules-vid and show-errors prop.
 
 - FieldTabs: Add tab icon and icon size. Add validation rules.
 
 - FieldToggle: Add rules-vid and show-errors prop.
+
+### Removed
+
+- FieldInput: Remove theme prop.
+
+- FieldSelect: Remove theme prop.
+
+- FieldTextarea: Remove maxlength and theme prop.
 
 ## 0.3.0 - 2019-09-11
 

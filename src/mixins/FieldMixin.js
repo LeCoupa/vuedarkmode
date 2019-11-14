@@ -85,13 +85,6 @@ export default {
       type: String,
       default: null
     },
-    theme: {
-      type: String,
-      default: "dark",
-      validator(x) {
-        return ["dark", "light"].includes(x);
-      }
-    },
     warning: {
       type: String,
       default: null

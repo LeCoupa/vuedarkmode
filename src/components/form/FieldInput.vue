@@ -17,7 +17,6 @@ div(
     "dm-field-input",
     "dm-field-input--" + computedStatus,
     "dm-field-input--" + size,
-    "dm-field-input--" + theme,
     {
       "dm-field-input--borders": borders,
       "dm-field-input--clearable": clearable,
