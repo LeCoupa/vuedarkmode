@@ -139,9 +139,12 @@ $statuses: "error", "normal", "success", "warning";
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid $oxford-blue;
+        border: 1px solid mdg($darkTheme, "borders", "default", "primary");
         border-radius: 20px;
-        background-color: rgba($ebony-clay-2, 0.4);
+        background-color: rgba(
+          mdg($darkTheme, "backgrounds", "default", "secondary"),
+          0.4
+        );
         content: "";
       }
 
@@ -149,20 +152,23 @@ $statuses: "error", "normal", "success", "warning";
         top: 4px;
         right: initial;
         border-radius: 100%;
-        background: $white;
+        background: mdg($darkTheme, "backgrounds", "reverse", "primary");
         transform: translateX(4px);
         content: "";
       }
 
       &:hover {
         &:before {
-          border-color: lighten($oxford-blue, 10%);
+          border-color: lighten(
+            mdg($darkTheme, "borders", "default", "primary"),
+            10%
+          );
         }
       }
 
       &:not(:checked) {
         + #{$c}__label {
-          color: $regent-st-blue;
+          color: mdg($darkTheme, "fonts", "default", "secondary");
           transition: color 250ms linear;
         }
       }
@@ -171,7 +177,7 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__label {
       flex: 1;
       margin-bottom: 0;
-      color: $white;
+      color: mdg($darkTheme, "fonts", "default", "primary");
       font-weight: 400;
     }
   }
