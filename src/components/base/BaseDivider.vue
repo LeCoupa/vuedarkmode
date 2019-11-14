@@ -78,7 +78,7 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
 
   @each $color in $colors {
     &--#{$color} {
-      border-top-color: map-get($mainColors, $color);
+      border-top-color: mdg($darkTheme, "colors", $color);
     }
   }
 
