@@ -107,6 +107,7 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "node_modules/@growthbunker/stylesheets/settings/_colors.scss";
+@import "node_modules/@growthbunker/stylesheets/settings/_maps.scss";
 @import "node_modules/@growthbunker/stylesheets/settings/_themes.scss";
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
@@ -123,7 +124,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-position: center;
   box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
-  color: $white;
+  color: mdg($darkTheme, "colors", "white");
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
   transition: all 250ms linear;
