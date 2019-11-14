@@ -149,7 +149,7 @@ $statuses: "description", "error", "info", "success", "warning";
 
   @each $status in $statuses {
     &--#{$status} {
-      color: map-get($statusColors, $status);
+      color: mdg($darkTheme, "statuses", $status);
     }
   }
 
