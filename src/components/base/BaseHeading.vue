@@ -131,7 +131,7 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
 
   @each $color in $colors {
     &--#{$color} {
-      color: map-get($mainColors, $color);
+      color: mdg($darkTheme, "colors", $color);
     }
   }
 
