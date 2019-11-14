@@ -118,7 +118,8 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
   border-style: solid;
   border-radius: 100%;
   background-size: cover;
-  box-shadow: 0 1px 5px 0 rgba($woodsmoke, 0.6);
+  box-shadow: 0 1px 5px 0
+    rgba(mdg($darkTheme, "box-shadows", "default", "primary"), 0.6);
   user-select: none;
 
   #{$c}__number {
@@ -129,7 +130,7 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
 
   @each $color in $colors {
     &--#{$color} {
-      border-color: map-get($mainColors, $color);
+      border-color: mdg($darkTheme, "colors", $color);
     }
   }
 
