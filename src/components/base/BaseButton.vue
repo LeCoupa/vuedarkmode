@@ -71,8 +71,8 @@ button(
 
   transition(
     v-if="list && listOpened && !loading"
-    enter-active-class="animated fadeIn"
-    leave-active-class="animated fadeOut"
+    enter-active-class="animated fade-in"
+    leave-active-class="animated fade-out"
   )
     .dm-base-button__list
       span(
@@ -601,13 +601,13 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
 // --> ANIMATIONS <--
 
-.fadeIn {
+.fade-in {
   animation-name: fadeIn;
   animation-duration: 250ms;
   animation-fill-mode: both;
 }
 
-.fadeOut {
+.fade-out {
   animation-name: fadeOut;
   animation-duration: 250ms;
   animation-fill-mode: both;
