@@ -66,6 +66,8 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "node_modules/@growthbunker/stylesheets/settings/_colors.scss";
+@import "node_modules/@growthbunker/stylesheets/settings/_themes.scss";
+@import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
