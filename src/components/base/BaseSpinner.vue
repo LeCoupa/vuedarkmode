@@ -109,7 +109,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   @each $color in $colors {
     &--#{$color} {
       #{$c}__wave {
-        background-color: map-get($mainColors, $color);
+        background-color: mdg($darkTheme, "colors", $color);
       }
     }
   }
