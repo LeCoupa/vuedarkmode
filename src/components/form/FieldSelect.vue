@@ -558,7 +558,7 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__field {
           @if ($status != normal) {
-            border-color: map-get($statusColors, $status);
+            border-color: mdg($darkTheme, "statuses", $status);
           } @else {
             border-color: $oxford-blue;
           }
@@ -566,7 +566,7 @@ $statuses: "error", "normal", "success", "warning";
             &--left,
             &--arrow {
               @if ($status != normal) {
-                color: map-get($statusColors, $status);
+                color: mdg($darkTheme, "statuses", $status);
               } @else {
                 color: $white;
               }

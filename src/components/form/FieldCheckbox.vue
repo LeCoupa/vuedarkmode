@@ -220,20 +220,20 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__field {
           &--checked {
-            border-color: map-get($statusColors, $status);
-            background: map-get($statusColors, $status);
+            border-color: mdg($darkTheme, "statuses", $status);
+            background: mdg($darkTheme, "statuses", $status);
           }
 
           &:focus {
             box-shadow: 0 0 0 2px $mirage,
-              0 0 0 3px map-get($statusColors, $status);
+              0 0 0 3px mdg($darkTheme, "statuses", $status);
             transition: box-shadow linear 0s;
           }
         }
 
         &:hover {
           #{$c}__field {
-            border-color: map-get($statusColors, $status);
+            border-color: mdg($darkTheme, "statuses", $status);
           }
         }
       }

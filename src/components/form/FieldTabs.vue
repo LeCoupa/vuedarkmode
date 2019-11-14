@@ -339,14 +339,14 @@ $statuses: "error", "normal", "success", "warning";
         #{$c}__tab {
           &--active {
             // !important overrides first-of-type and last-of-type
-            border-color: map-get($statusColors, $status) !important;
-            background-color: rgba(map-get($statusColors, $status), 0.4);
+            border-color: mdg($darkTheme, "statuses", $status) !important;
+            background-color: rgba(mdg($darkTheme, "statuses", $status), 0.4);
           }
 
           &--active-previous {
             // !important overrides first-of-type and last-of-type
             border-left-color: rgba(
-              map-get($statusColors, $status),
+              mdg($darkTheme, "statuses", $status),
               0.25
             ) !important;
           }
@@ -354,7 +354,7 @@ $statuses: "error", "normal", "success", "warning";
           &--active-next {
             // !important overrides first-of-type and last-of-type
             border-right-color: rgba(
-              map-get($statusColors, $status),
+              mdg($darkTheme, "statuses", $status),
               0.25
             ) !important;
           }

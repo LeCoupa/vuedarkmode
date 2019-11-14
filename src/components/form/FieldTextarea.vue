@@ -288,8 +288,8 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         @if ($status != normal) {
           // Override focused state
-          border-color: map-get($statusColors, $status) !important;
-          color: map-get($statusColors, $status) !important;
+          border-color: mdg($darkTheme, "statuses", $status) !important;
+          color: mdg($darkTheme, "statuses", $status) !important;
         } @else {
           border-color: $oxford-blue;
           color: $white;

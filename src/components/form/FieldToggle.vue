@@ -217,26 +217,26 @@ $statuses: "error", "normal", "success", "warning";
         #{$c}__field {
           @if ($status != normal) {
             &:before {
-              border-color: map-get($statusColors, $status);
+              border-color: mdg($darkTheme, "statuses", $status);
             }
           }
 
           &:checked {
             &:before {
-              border-color: map-get($statusColors, $status);
-              background-color: rgba(map-get($statusColors, $status), 0.4);
+              border-color: mdg($darkTheme, "statuses", $status);
+              background-color: rgba(mdg($darkTheme, "statuses", $status), 0.4);
             }
           }
 
           &:hover {
             &:before {
-              border-color: lighten(map-get($statusColors, $status), 10%);
+              border-color: lighten(mdg($darkTheme, "statuses", $status), 10%);
             }
           }
 
           &:focus {
             box-shadow: 0 0 0 2px $mirage,
-              0 0 0 3px map-get($statusColors, $status);
+              0 0 0 3px mdg($darkTheme, "statuses", $status);
             transition: box-shadow linear 0s;
           }
         }
