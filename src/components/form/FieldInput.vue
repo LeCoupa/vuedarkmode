@@ -462,8 +462,8 @@ $statuses: "error", "normal", "success", "warning";
           // Override focused state
           color: mdg($darkTheme, "statuses", $status) !important;
         } @else {
-          border-color: mdg($darkTheme, "borders", "default", "tertiary");
-          color: mdg($darkTheme, "fonts", "default", "tertiary");
+          border-color: mdg($darkTheme, "borders", "default", "primary");
+          color: mdg($darkTheme, "fonts", "default", "primary");
         }
       }
     }
