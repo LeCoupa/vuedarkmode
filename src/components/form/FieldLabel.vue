@@ -77,7 +77,7 @@ $sizes: "mini", "small", "default", "medium", "large";
 #{$c} {
   display: block;
   margin-bottom: 10px;
-  color: $regent-st-blue;
+  color: mdg($darkTheme, "fonts", "default", "secondary");
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
@@ -87,7 +87,7 @@ $sizes: "mini", "small", "default", "medium", "large";
 
   #{$c}__required {
     margin-left: 5px;
-    color: $crimson;
+    color: mdg($darkTheme, "colors", "red");
   }
 
   // --> SIZES <--
