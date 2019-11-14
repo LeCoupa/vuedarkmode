@@ -331,7 +331,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-position: center;
-  color: $white;
+  color: mdg($darkTheme, "colors", "white");
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;

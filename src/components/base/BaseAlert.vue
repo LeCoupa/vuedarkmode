@@ -102,7 +102,7 @@ $colors: "black", "blue", "green", "orange", "red", "white";
   display: flex;
   align-items: center;
   padding: 14px 20px;
-  color: mdg($darkTheme, "fonts", "default", "primary");
+  color: mdg($darkTheme, "colors", "white");
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;

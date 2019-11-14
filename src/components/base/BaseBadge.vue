@@ -107,7 +107,7 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
   border-width: 1px;
   border-style: solid;
   border-radius: 100px;
-  color: mdg($darkTheme, "fonts", "default", "primary");
+  color: mdg($darkTheme, "colors", "white");
   text-transform: uppercase;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
