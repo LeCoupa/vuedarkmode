@@ -176,7 +176,7 @@ $statuses: "error", "normal", "success", "warning";
       }
 
       &:hover {
-        border-color: mdg($darkTheme, "status", "active");
+        border-color: mdg($darkTheme, "statuses", "active");
       }
     }
 
