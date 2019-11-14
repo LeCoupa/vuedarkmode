@@ -89,18 +89,20 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "node_modules/@growthbunker/stylesheets/settings/_colors.scss";
+@import "node_modules/@growthbunker/stylesheets/settings/_themes.scss";
+@import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 @import "src/assets/stylesheets/settings/_datasets.scss";
 
 // VARIABLES
 $c: ".dm-base-alert";
-$colors: "black", "blue", "green", "red", "orange", "white";
+$colors: "black", "blue", "green", "orange", "red", "white";
 
 #{$c} {
   display: flex;
   align-items: center;
   padding: 14px 20px;
-  color: $white;
+  color: map-deep-get($darkTheme, "fonts", "default");
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
@@ -137,32 +139,32 @@ $colors: "black", "blue", "green", "red", "orange", "white";
 
   @each $color in $colors {
     &--#{$color} {
-      background-color: map-get($mainColors, $color);
+      background-color: map-deep-get($darkTheme, "colors", $color);
 
       @if ($color == "white") {
-        color: $oxford-blue;
+        color: map-deep-get($darkTheme, "fonts", "reverse");
       }
 
       #{$c}__icon--right {
         @if ($color == "red") {
           &:hover {
-            color: $oxford-blue !important;
+            color: map-deep-get($darkTheme, "fonts", "reverse") !important;
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px map-get($mainColors, $color),
-              0 0 0 3px $oxford-blue;
-            color: $oxford-blue !important;
+            box-shadow: 0 0 0 2px map-deep-get($darkTheme, "colors", $color),
+              0 0 0 3px map-deep-get($darkTheme, "colors", "black");
+            color: map-deep-get($darkTheme, "colors", "black") !important;
           }
         } @else {
           &:hover {
-            color: $crimson !important;
+            color: map-deep-get($darkTheme, "colors", "red") !important;
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px map-get($mainColors, $color),
-              0 0 0 3px $crimson;
-            color: $crimson !important;
+            box-shadow: 0 0 0 2px map-deep-get($darkTheme, "colors", $color),
+              0 0 0 3px map-deep-get($darkTheme, "colors", "red");
+            color: map-deep-get($darkTheme, "colors", "red") !important;
           }
         }
       }
