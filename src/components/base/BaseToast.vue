@@ -99,7 +99,7 @@ $colors: "black", "blue", "green", "red", "orange", "white";
   align-items: center;
   padding: 14px 20px;
   border-radius: 3px;
-  color: $white;
+  color: mdg($darkTheme, "colors", "white");
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
@@ -129,32 +129,32 @@ $colors: "black", "blue", "green", "red", "orange", "white";
 
   @each $color in $colors {
     &--#{$color} {
-      background-color: map-get($mainColors, $color);
+      background-color: mdg($darkTheme, "colors", $color);
 
       @if ($color == "white") {
-        color: $oxford-blue;
+        color: mdg($darkTheme, "colors", "black");
       }
 
       #{$c}__icon {
         @if ($color == "red") {
           &:hover {
-            color: $oxford-blue !important;
+            color: mdg($darkTheme, "colors", "black") !important;
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px map-get($mainColors, $color),
-              0 0 0 3px $oxford-blue;
-            color: $oxford-blue !important;
+            box-shadow: 0 0 0 2px mdg($darkTheme, "colors", $color),
+              0 0 0 3px mdg($darkTheme, "colors", "black");
+            color: mdg($darkTheme, "colors", "black") !important;
           }
         } @else {
           &:hover {
-            color: $crimson !important;
+            color: mdg($darkTheme, "colors", "red") !important;
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px map-get($mainColors, $color),
-              0 0 0 3px crimson;
-            color: $crimson !important;
+            box-shadow: 0 0 0 2px mdg($darkTheme, "colors", $color),
+              0 0 0 3px mdg($darkTheme, "colors", "red");
+            color: mdg($darkTheme, "colors", "red") !important;
           }
         }
       }
