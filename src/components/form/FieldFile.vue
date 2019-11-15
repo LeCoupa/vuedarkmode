@@ -235,6 +235,7 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__container {
       #{$c}__upload {
+        pointer-events: none;
         cursor: not-allowed;
 
         &:hover {

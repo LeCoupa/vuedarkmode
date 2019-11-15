@@ -390,10 +390,10 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__field {
       flex: 1;
       width: 0;
-      background-color: mdg($dark, "backgrounds", "default", "primary");
       height: 100%;
       outline: 0;
       border: none;
+      background-color: mdg($dark, "backgrounds", "default", "primary");
       color: mdg($dark, "fonts", "default", "primary");
 
       &::placeholder {
@@ -408,6 +408,7 @@ $statuses: "error", "normal", "success", "warning";
       &:-webkit-autofill {
         box-shadow: 0 0 0 30px mdg($dark, "backgrounds", "default", "primary")
           inset !important;
+
         -webkit-text-fill-color: mdg(
           $dark,
           "fonts",
@@ -495,6 +496,7 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__label,
     #{$c}__container {
+      pointer-events: none;
       cursor: not-allowed;
     }
   }

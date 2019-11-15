@@ -26,27 +26,26 @@ div(
   .dm-field-radios__container
     div(
       v-for="(radio, index) in radios"
+      @keypress.prevent="onKeypress(radio, $event)"
+      :class=`[
+        "dm-field-radios__radio",
+        {
+          "js-tag-for-autofocus": index === 0,
+          "dm-field-radios__radio--active": radio.value === innerValue
+        }
+      ]`
       :key="radio.value"
-      class="dm-field-radios__radio"
+      tabindex="0"
     )
-      input(
-        @change="onRadioChange(radio, $event)"
-        :checked="radio.value === innerValue"
-        :class=`[
-          "dm-field-radios__field",
-          {
-            "js-tag-for-autofocus": index === 0
-          }
-        ]`
-        :disabled="disabled"
-        :id="radio.value"
-        :name="name"
-        type="radio"
+      div(
+        @click="onClick(radio, $event)"
+        class="dm-field-radios__field"
       )
+        span.dm-field-radios__dot
 
       field-label(
         v-if="radio.label"
-        :forField="radio.value"
+        @click="onClick(radio, $event)"
         :required="labelRequired"
         :size="size"
         :uppercase="false"
@@ -96,13 +95,21 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onRadioChange(radio, event) {
+    onClick(radio, event) {
       const value = radio.value;
 
-      this.innerValue = value;
+      if (value !== this.innerValue) {
+        this.innerValue = value;
 
-      this.$emit("change", value, this.name, event);
-      this.$emit("input", value); // Synchronization for v-model
+        this.$emit("change", value, this.name, event);
+        this.$emit("input", value); // Synchronization for v-model
+      }
+    },
+
+    onKeypress(radio, event) {
+      if (event.code === "Space") {
+        this.onClick(radio, event);
+      }
     }
   }
 };
@@ -136,61 +143,27 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__radio {
       display: flex;
       margin-bottom: 20px;
+      outline: 0;
 
       &:last-of-type {
         margin-bottom: 0;
       }
 
       #{$c}__field {
-        position: relative;
-        margin-bottom: 0;
-        outline: 0;
-        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid mdg($dark, "borders", "default", "primary");
         border-radius: 100%;
+        background-color: mdg($dark, "backgrounds", "default", "primary");
         transition: all linear 250ms;
-        -webkit-appearance: none;
         cursor: pointer;
 
-        &:before,
-        &:after {
-          position: absolute;
-          display: inline-block;
-          box-sizing: border-box;
+        #{$c}__dot {
+          flex: 0 0 auto;
+          border-radius: 100%;
+          background-color: mdg($dark, "backgrounds", "default", "primary");
           transition: all linear 250ms;
-        }
-
-        &:before {
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border: 1px solid mdg($dark, "borders", "default", "primary");
-          border-radius: 100%;
-          background-color: mdg($dark, "backgrounds", "default", "primary");
-          content: "";
-        }
-
-        &:after {
-          top: 50%;
-          left: 50%;
-          width: 6px;
-          height: 6px;
-          border-radius: 100%;
-          background-color: mdg($dark, "backgrounds", "default", "primary");
-          transform: translate(-50%, -50%);
-          content: "";
-        }
-
-        &:hover {
-          &:after {
-            background-color: mdg($dark, "borders", "default", "primary");
-          }
-        }
-
-        &:checked {
-          &:after {
-            background-color: mdg($dark, "backgrounds", "reverse", "primary");
-          }
         }
       }
 
@@ -199,6 +172,14 @@ $statuses: "error", "normal", "success", "warning";
         margin-bottom: 0;
         color: mdg($dark, "fonts", "default", "primary");
         font-weight: 400;
+      }
+
+      &--active {
+        #{$c}__field {
+          #{$c}__dot {
+            background-color: mdg($dark, "backgrounds", "reverse", "primary");
+          }
+        }
       }
     }
   }
@@ -215,6 +196,19 @@ $statuses: "error", "normal", "success", "warning";
             margin-right: 6px + (1px * $i);
             width: 12px + (2px * $i);
             height: 12px + (2px * $i);
+
+            #{$c}__dot {
+              @if ($size == "mini") {
+                width: 4px;
+                height: 4px;
+              } @else if ($size == "small" or $size == "default") {
+                width: 5px;
+                height: 5px;
+              } @else if ($size == "medium" or $size == "large") {
+                width: 6px;
+                height: 6px;
+              }
+            }
           }
 
           #{$c}__label {
@@ -231,21 +225,21 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$status} {
       #{$c}__container {
         #{$c}__radio {
-          #{$c}__field {
-            &:hover {
-              &:before {
-                border-color: mdg($dark, "statuses", $status);
-              }
+          &--active {
+            #{$c}__field {
+              border-color: mdg($dark, "statuses", $status);
+              background: mdg($dark, "statuses", $status);
             }
+          }
 
-            &:checked {
-              &:before {
-                border-color: mdg($dark, "statuses", $status);
-                background: mdg($dark, "statuses", $status);
-              }
+          &:hover {
+            #{$c}__field {
+              border-color: mdg($dark, "statuses", $status);
             }
+          }
 
-            &:focus {
+          &:focus {
+            #{$c}__field {
               box-shadow: 0
                   0
                   0
@@ -269,6 +263,7 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__radio {
         #{$c}__field,
         #{$c}__label {
+          pointer-events: none;
           cursor: not-allowed;
         }
       }

@@ -305,6 +305,7 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__label,
     #{$c}__container {
+      pointer-events: none;
       cursor: not-allowed;
     }
   }
