@@ -322,7 +322,6 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-position: center;
-  color: mdg($dark, "colors", "white");
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
   transition: all 250ms linear;
@@ -350,15 +349,15 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     #{$c}__item {
       display: block;
       padding: 10px 14px;
-      border: 1px solid mdg($dark, "borders", "default", "primary");
+      border-width: 1px;
+      border-style: solid;
       border-top: none;
-      background: mdg($dark, "backgrounds", "default", "primary");
-      color: mdg($dark, "fonts", "default", "secondary");
       white-space: nowrap;
       transition: all 250ms linear;
 
       &:first-of-type {
-        border-top: 1px solid mdg($dark, "borders", "default", "primary");
+        border-top-width: 1px;
+        border-top-style: solid;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
       }
@@ -366,61 +365,6 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
       &:last-of-type {
         border-bottom-right-radius: 4px;
         border-bottom-left-radius: 4px;
-      }
-
-      &:hover {
-        background-color: mdg($dark, "backgrounds", "default", "secondary");
-        color: mdg($dark, "fonts", "default", "primary");
-      }
-    }
-  }
-
-  // --> COLORS <--
-
-  @each $color in $colors {
-    &--#{$color} {
-      &:focus {
-        box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
-          0 0 0 3px lighten(mdg($dark, "colors", $color), 10%);
-      }
-
-      // Reverse buttons have their own defined style (see below)
-      &:not(#{$c}--reverse) {
-        background: mdg($dark, "colors", $color)
-          radial-gradient(circle, transparent 1%, mdg($dark, "colors", $color) 1%)
-          center/15000%;
-
-        @if ($color == "white") {
-          color: mdg($dark, "colors", "black");
-        }
-
-        &:hover {
-          &:not(#{$c}--disabled) {
-            @if ($color == "black") {
-              background-color: mdg($dark, "colors", $color);
-            } @else if ($color == "white") {
-              background-color: darken(mdg($dark, "colors", $color), 10%);
-            } @else if ($color == "green") {
-              background-color: lighten(mdg($dark, "colors", $color), 5%);
-            } @else {
-              background-color: lighten(mdg($dark, "colors", $color), 10%);
-            }
-          }
-        }
-
-        &:active {
-          &:not(#{$c}--disabled) {
-            @if ($color == "black") {
-              background-color: mdg($dark, "colors", $color);
-            } @else if ($color == "white") {
-              background-color: darken(mdg($dark, "colors", $color), 15%);
-            } @else if ($color == "green") {
-              background-color: lighten(mdg($dark, "colors", $color), 5%);
-            } @else {
-              background-color: lighten(mdg($dark, "colors", $color), 15%);
-            }
-          }
-        }
       }
     }
   }
@@ -498,12 +442,6 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     &:focus {
       text-decoration: none;
     }
-
-    @each $color in $colors {
-      &#{$c}--#{$color} {
-        color: mdg($dark, "colors", $color);
-      }
-    }
   }
 
   &--loading {
@@ -525,22 +463,6 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
   &--reverse {
     background-color: transparent;
-    color: mdg($dark, "fonts", "default", "primary");
-
-    @each $color in $colors {
-      &#{$c}--#{$color} {
-        border-color: mdg($dark, "colors", $color);
-
-        &:hover {
-          border-color: lighten(mdg($dark, "colors", $color), 10%);
-        }
-
-        &:active {
-          // Darken instead
-          border-color: darken(mdg($dark, "colors", $color), 10%);
-        }
-      }
-    }
 
     &:hover,
     &:active {
@@ -567,6 +489,103 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      color: mdg($theme, "colors", "white");
+
+      #{$c}__list {
+        #{$c}__item {
+          border-color: mdg($theme, "borders", "default", "primary");
+          background: mdg($theme, "backgrounds", "default", "primary");
+          color: mdg($theme, "fonts", "default", "secondary");
+
+          &:first-of-type {
+            border-top-color: mdg($theme, "borders", "default", "primary");
+          }
+
+          &:hover {
+            background-color: mdg($theme, "backgrounds", "default", "secondary");
+            color: mdg($theme, "fonts", "default", "primary");
+          }
+        }
+      }
+
+      // --> COLORS <--
+
+      @each $color in $colors {
+        &#{$c}--#{$color} {
+          &:focus {
+            box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
+              0 0 0 3px lighten(mdg($theme, "colors", $color), 10%);
+          }
+
+          // Reverse buttons have their own defined style (see below)
+          &:not(#{$c}--reverse) {
+            background: mdg($theme, "colors", $color)
+              radial-gradient(circle, transparent 1%, mdg($theme, "colors", $color) 1%)
+              center/15000%;
+
+            @if ($color == "white") {
+              color: mdg($theme, "colors", "black");
+            }
+
+            &:hover {
+              &:not(#{$c}--disabled) {
+                @if ($color == "black") {
+                  background-color: mdg($theme, "colors", $color);
+                } @else if ($color == "white") {
+                  background-color: darken(mdg($theme, "colors", $color), 10%);
+                } @else if ($color == "green") {
+                  background-color: lighten(mdg($theme, "colors", $color), 5%);
+                } @else {
+                  background-color: lighten(mdg($theme, "colors", $color), 10%);
+                }
+              }
+            }
+
+            &:active {
+              &:not(#{$c}--disabled) {
+                @if ($color == "black") {
+                  background-color: mdg($theme, "colors", $color);
+                } @else if ($color == "white") {
+                  background-color: darken(mdg($theme, "colors", $color), 15%);
+                } @else if ($color == "green") {
+                  background-color: lighten(mdg($theme, "colors", $color), 5%);
+                } @else {
+                  background-color: lighten(mdg($theme, "colors", $color), 15%);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // --> BOOLEANS <--
+
+      &#{$c}--link {
+        @each $color in $colors {
+          &#{$c}--#{$color} {
+            color: mdg($theme, "colors", $color);
+          }
+        }
+      }
+
+      &#{$c}--reverse {
+        color: mdg($theme, "fonts", "default", "primary");
+
+        @each $color in $colors {
+          &#{$c}--#{$color} {
+            border-color: mdg($theme, "colors", $color);
+
+            &:hover {
+              border-color: lighten(mdg($theme, "colors", $color), 10%);
+            }
+
+            &:active {
+              // Darken instead
+              border-color: darken(mdg($theme, "colors", $color), 10%);
+            }
+          }
+        }
+      }
     }
   }
 }
