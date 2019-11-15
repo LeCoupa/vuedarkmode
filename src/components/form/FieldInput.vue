@@ -117,8 +117,8 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
-import FieldMixin from "../../mixins/FieldMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
+import FieldMixin from "../../mixins/FieldMixin.js"
 
 export default {
   mixins: [CommonMixin, FieldMixin],
@@ -198,7 +198,7 @@ export default {
           "time",
           "url",
           "week"
-        ].includes(x);
+        ].includes(x)
       }
     },
     value: {
@@ -212,7 +212,7 @@ export default {
       // --> STATE <--
 
       focused: false
-    };
+    }
   },
 
   computed: {
@@ -220,20 +220,20 @@ export default {
       // Add ability to clear the input
       if (this.clearable) {
         if (this.innerValue) {
-          return "cancel";
+          return "cancel"
         }
       } else {
         // Return the status when defined as prop
         if (this.computedStatus === "error") {
-          return "close";
+          return "close"
         } else if (this.computedStatus === "success") {
-          return "check";
+          return "check"
         } else if (this.computedStatus === "warning") {
-          return "warning";
+          return "warning"
         }
       }
 
-      return this.rightIcon;
+      return this.rightIcon
     }
   },
 
@@ -241,84 +241,84 @@ export default {
     // --> HELPERS <--
 
     getInputValue() {
-      let value = "";
+      let value = ""
 
       if (this.$el) {
-        value = this.$el.querySelector("input").value || "";
+        value = this.$el.querySelector("input").value || ""
 
         if (value && this.type === "number") {
-          value = parseInt(value);
+          value = parseInt(value)
         }
       }
 
-      return value;
+      return value
     },
 
     // --> EVENT LISTENERS <--
 
     onAppendClick(event) {
-      event.stopPropagation();
+      event.stopPropagation()
 
-      this.$emit("appendClick", this.getInputValue(), this.name, event);
+      this.$emit("appendClick", this.getInputValue(), this.name, event)
     },
 
     onContainerClick(event) {
-      this.$el.querySelector("input").focus();
+      this.$el.querySelector("input").focus()
 
-      this.$emit("click", this.getInputValue(), this.name, event);
+      this.$emit("click", this.getInputValue(), this.name, event)
     },
 
     onFieldBlur(event) {
-      this.focused = false;
+      this.focused = false
 
-      this.$emit("blur", this.getInputValue(), this.name, event);
+      this.$emit("blur", this.getInputValue(), this.name, event)
     },
 
     onFieldChange(event) {
-      this.$emit("change", this.getInputValue(), this.name, event);
+      this.$emit("change", this.getInputValue(), this.name, event)
     },
 
     onFieldFocus(event) {
-      this.focused = true;
+      this.focused = true
 
-      this.$emit("focus", this.getInputValue(), this.name, event);
+      this.$emit("focus", this.getInputValue(), this.name, event)
     },
 
     onFieldInput(event) {
-      const value = this.getInputValue();
+      const value = this.getInputValue()
 
-      this.innerValue = value;
+      this.innerValue = value
 
-      this.$emit("input", value, this.name, event);
+      this.$emit("input", value, this.name, event)
     },
 
     onFieldKeyDown(event) {
-      this.$emit("keydown", this.getInputValue(), this.name, event);
+      this.$emit("keydown", this.getInputValue(), this.name, event)
     },
 
     onFieldKeyUp(event) {
-      const value = this.getInputValue();
+      const value = this.getInputValue()
 
-      this.$emit("keyup", value, this.name, event);
+      this.$emit("keyup", value, this.name, event)
 
       if (event.key === "Enter") {
-        this.$emit("submit", value, this.name, event);
+        this.$emit("submit", value, this.name, event)
       }
     },
 
     onPrependClick(event) {
-      event.stopPropagation();
+      event.stopPropagation()
 
-      this.$emit("prependClick", this.getInputValue(), this.name, event);
+      this.$emit("prependClick", this.getInputValue(), this.name, event)
     },
 
     onRightIconClick() {
       if (this.clearable) {
-        this.$emit("input", ""); // Synchronization for v-model
+        this.$emit("input", "") // Synchronization for v-model
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -340,8 +340,7 @@ $statuses: "error", "normal", "success", "warning";
   display: flex;
   flex-direction: column;
   text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   #{$c}__container {
     display: flex;
@@ -408,15 +407,9 @@ $statuses: "error", "normal", "success", "warning";
       }
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0 30px mdg($dark, "backgrounds", "default", "primary")
-          inset !important;
+        box-shadow: 0 0 0 30px mdg($dark, "backgrounds", "default", "primary") inset !important;
 
-        -webkit-text-fill-color: mdg(
-          $dark,
-          "fonts",
-          "default",
-          "primary"
-        ) !important;
+        -webkit-text-fill-color: mdg($dark, "fonts", "default", "primary") !important;
       }
     }
 

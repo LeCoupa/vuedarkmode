@@ -30,10 +30,10 @@ p(
 
 <script>
 // PROJECT: COMPONENTS
-import BaseIcon from "../base/BaseIcon.vue";
+import BaseIcon from "../base/BaseIcon.vue"
 
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   components: {
@@ -51,9 +51,7 @@ export default {
       type: String,
       default: "description",
       validator(x) {
-        return ["description", "error", "info", "success", "warning"].includes(
-          x
-        );
+        return ["description", "error", "info", "success", "warning"].includes(x)
       }
     },
     message: {
@@ -68,7 +66,7 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return ["mini", "small", "default", "medium", "large"].includes(x);
+        return ["mini", "small", "default", "medium", "large"].includes(x)
       }
     }
   },
@@ -76,51 +74,51 @@ export default {
   computed: {
     computedIconName() {
       if (this.status === "error") {
-        return "error";
+        return "error"
       } else if (this.status === "info") {
-        return "info";
+        return "info"
       } else if (this.status === "success") {
-        return "check_circle";
+        return "check_circle"
       } else if (this.status === "warning") {
-        return "warning";
+        return "warning"
       }
 
-      return null;
+      return null
     },
 
     computedIconSize() {
       if (this.size === "mini") {
-        return "15px";
+        return "15px"
       } else if (this.size === "small") {
-        return "16px";
+        return "16px"
       } else if (this.size === "default") {
-        return "17px";
+        return "17px"
       } else if (this.size === "medium") {
-        return "18px";
+        return "18px"
       } else if (this.size === "large") {
-        return "19px";
+        return "19px"
       }
 
-      return null;
+      return null
     },
 
     computedStatus() {
       if (this.errors && this.errors.length > 0 && this.showErrors) {
-        return "error";
+        return "error"
       } else {
-        return this.status;
+        return this.status
       }
     },
 
     computedMessage() {
       if (this.errors && this.errors.length > 0 && this.showErrors) {
-        return this.errors[0];
+        return this.errors[0]
       } else {
-        return this.message;
+        return this.message
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -142,8 +140,7 @@ $statuses: "description", "error", "info", "success", "warning";
   display: flex;
   align-items: center;
   margin: 10px 0 0;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   #{$c}__icon {
     margin-top: -2px;

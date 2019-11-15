@@ -68,8 +68,8 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
-import FieldMixin from "../../mixins/FieldMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
+import FieldMixin from "../../mixins/FieldMixin.js"
 
 export default {
   mixins: [CommonMixin, FieldMixin],
@@ -89,21 +89,21 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      const value = !this.innerValue;
+      const value = !this.innerValue
 
-      this.innerValue = value;
+      this.innerValue = value
 
-      this.$emit("change", value, this.name, event);
-      this.$emit("input", value); // Synchronization for v-model
+      this.$emit("change", value, this.name, event)
+      this.$emit("input", value) // Synchronization for v-model
     },
 
     onKeypress(event) {
       if (event.code === "Space") {
-        this.onClick(event);
+        this.onClick(event)
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -125,8 +125,7 @@ $statuses: "error", "normal", "success", "warning";
 #{$c} {
   display: inline-block;
   text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   #{$c}__container {
     display: flex;
@@ -139,10 +138,7 @@ $statuses: "error", "normal", "success", "warning";
       margin-bottom: 0;
       border: 1px solid mdg($dark, "borders", "default", "primary");
       border-radius: 20px;
-      background-color: rgba(
-        mdg($dark, "backgrounds", "default", "secondary"),
-        0.4
-      );
+      background-color: rgba(mdg($dark, "backgrounds", "default", "secondary"), 0.4);
       transition: all linear 250ms;
       cursor: pointer;
 
@@ -238,11 +234,7 @@ $statuses: "error", "normal", "success", "warning";
 
         &:focus {
           #{$c}__field {
-            box-shadow: 0
-                0
-                0
-                2px
-                mdg($dark, "backgrounds", "default", "primary"),
+            box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
               0 0 0 3px mdg($dark, "statuses", $status);
             transition: box-shadow linear 0s;
           }

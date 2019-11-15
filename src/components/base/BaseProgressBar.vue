@@ -47,7 +47,7 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   mixins: [CommonMixin],
@@ -57,16 +57,9 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white"
-        ].includes(x);
+        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].includes(
+          x
+        )
       }
     },
     details: {
@@ -86,7 +79,7 @@ export default {
       default: 0
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -101,14 +94,12 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-progress-bar";
-$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
-  "white";
+$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "white";
 
 #{$c} {
   text-align: left;
   font-size: 14px;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
   user-select: none;
 
   #{$c}__content {

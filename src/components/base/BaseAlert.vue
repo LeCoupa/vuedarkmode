@@ -40,10 +40,10 @@ div(
 
 <script>
 // PROJECT: COMPONENTS
-import BaseIcon from "./BaseIcon.vue";
+import BaseIcon from "./BaseIcon.vue"
 
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   components: {
@@ -61,7 +61,7 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return ["black", "blue", "green", "orange", "red", "white"].includes(x);
+        return ["black", "blue", "green", "orange", "red", "white"].includes(x)
       }
     },
     icon: {
@@ -74,18 +74,18 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClose(event) {
-      this.$emit("close", event);
+      this.$emit("close", event)
     },
 
     onTabKeypress(id, event) {
-      event.preventDefault();
+      event.preventDefault()
 
       if (event.code === "Space") {
-        event.target.click();
+        event.target.click()
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -108,8 +108,7 @@ $colors: "black", "blue", "green", "orange", "red", "white";
   align-items: center;
   padding: 14px 20px;
   text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
   transition: all 250ms linear;
 
   @include no-tap-highlight-color;

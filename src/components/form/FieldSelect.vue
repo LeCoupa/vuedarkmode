@@ -147,8 +147,8 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
-import FieldMixin from "../../mixins/FieldMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
+import FieldMixin from "../../mixins/FieldMixin.js"
 
 export default {
   mixins: [CommonMixin, FieldMixin],
@@ -162,7 +162,7 @@ export default {
       type: String,
       default: "bottom",
       validator(x) {
-        return ["bottom", "top"].includes(x);
+        return ["bottom", "top"].includes(x)
       }
     },
     fullWidth: {
@@ -192,33 +192,33 @@ export default {
       // --> STATE <--
 
       opened: false
-    };
+    }
   },
 
   computed: {
     computedLeftIcon() {
       // Return the left icon when defined as prop
       if (this.computedStatus === "error") {
-        return "close";
+        return "close"
       } else if (this.computedStatus === "success") {
-        return "check";
+        return "check"
       } else if (this.computedStatus === "warning") {
-        return "warning";
+        return "warning"
       }
 
-      return this.leftIcon;
+      return this.leftIcon
     },
 
     hotkeys() {
       return {
         esc: this.onClose
-      };
+      }
     },
 
     selectedOption() {
       return this.options.find(option => {
-        return option.value === this.innerValue;
-      });
+        return option.value === this.innerValue
+      })
     }
   },
 
@@ -226,63 +226,58 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClear(name, event) {
-      event.stopPropagation();
+      event.stopPropagation()
 
-      this.$emit("change", null, null, event);
-      this.$emit("input", null); // Synchronization for v-model
-      this.$emit("clear");
+      this.$emit("change", null, null, event)
+      this.$emit("input", null) // Synchronization for v-model
+      this.$emit("clear")
     },
 
     onClose() {
-      this.opened = false;
+      this.opened = false
     },
 
     onContainerClick(event) {
       if (!this.disabled) {
-        this.opened = !this.opened;
+        this.opened = !this.opened
 
-        this.$emit(
-          "click",
-          (this.selectedOption || {}).value,
-          this.name,
-          event
-        );
+        this.$emit("click", (this.selectedOption || {}).value, this.name, event)
       }
     },
 
     onContainerKeypress(event) {
       if (event.code === "Space") {
-        event.target.click();
+        event.target.click()
       }
     },
 
     onLabelClick() {
       if (!this.disabled) {
-        this.opened = !this.opened;
+        this.opened = !this.opened
       }
     },
 
     onOptionClick(option, event) {
-      this.opened = false;
+      this.opened = false
 
       // Check that the option is not currently selected
       if ((this.selectedOption || {}).value !== option.value) {
-        const value = option.value;
+        const value = option.value
 
-        this.innerValue = value;
+        this.innerValue = value
 
-        this.$emit("change", value, this.name, event);
-        this.$emit("input", value); // Synchronization for v-model
+        this.$emit("change", value, this.name, event)
+        this.$emit("input", value) // Synchronization for v-model
       }
     },
 
     onOptionKeypress(option, event) {
       if (event.code === "Space") {
-        event.target.click();
+        event.target.click()
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -305,8 +300,7 @@ $statuses: "error", "normal", "success", "warning";
   display: flex;
   flex-direction: column;
   text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   #{$c}__container {
     position: relative;

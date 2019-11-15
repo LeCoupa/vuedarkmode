@@ -35,10 +35,10 @@ span(
 
 <script>
 // PROJECT: COMPONENTS
-import BaseIcon from "./BaseIcon.vue";
+import BaseIcon from "./BaseIcon.vue"
 
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   components: {
@@ -52,16 +52,9 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white"
-        ].includes(x);
+        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].includes(
+          x
+        )
       }
     },
     colorHex: {
@@ -92,11 +85,11 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return ["small", "default"].includes(x);
+        return ["small", "default"].includes(x)
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -111,8 +104,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-number";
-$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
-  "white";
+$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "white";
 
 #{$c} {
   display: flex;
@@ -123,8 +115,7 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
   border-style: solid;
   border-radius: 100%;
   background-size: cover;
-  box-shadow: 0 1px 5px 0
-    rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
+  box-shadow: 0 1px 5px 0 rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
   color: mdg($dark, "colors", "white");
   user-select: none;
 

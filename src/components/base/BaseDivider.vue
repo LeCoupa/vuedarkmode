@@ -22,7 +22,7 @@ hr(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   mixins: [CommonMixin],
@@ -32,16 +32,9 @@ export default {
       type: String,
       default: "black",
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white"
-        ].includes(x);
+        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].includes(
+          x
+        )
       }
     },
     margin: {
@@ -52,11 +45,11 @@ export default {
       type: String,
       default: "large",
       validator(x) {
-        return ["small", "large"].includes(x);
+        return ["small", "large"].includes(x)
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -71,8 +64,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-divider";
-$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
-  "white";
+$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "white";
 
 #{$c} {
   display: block;

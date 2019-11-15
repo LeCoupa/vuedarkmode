@@ -74,8 +74,8 @@ div(
 
 <script>
 // PROEJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
-import FieldMixin from "../../mixins/FieldMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
+import FieldMixin from "../../mixins/FieldMixin.js"
 
 export default {
   mixins: [CommonMixin, FieldMixin],
@@ -95,16 +95,16 @@ export default {
     // --> EVENT LISTENERS <--
 
     onFieldChange(event) {
-      this.$emit("change", this.name, event);
+      this.$emit("change", this.name, event)
     },
 
     onLabelKeypress(event) {
       if (event.code === "Space") {
-        this.$el.querySelector("input[type='file']").click();
+        this.$el.querySelector("input[type='file']").click()
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -125,8 +125,7 @@ $statuses: "error", "normal", "success", "warning";
 
 #{$c} {
   display: inline-block;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   @include no-tap-highlight-color;
 
@@ -159,12 +158,8 @@ $statuses: "error", "normal", "success", "warning";
       border-width: 2px;
       border-style: solid;
       border-radius: 100%;
-      background-color: rgba(
-        mdg($dark, "backgrounds", "default", "primary"),
-        0.9
-      );
-      box-shadow: 0 1px 5px 0
-        rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
+      background-color: rgba(mdg($dark, "backgrounds", "default", "primary"), 0.9);
+      box-shadow: 0 1px 5px 0 rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
       transition: all linear 250ms;
       cursor: pointer;
 

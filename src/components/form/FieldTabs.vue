@@ -96,8 +96,8 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
-import FieldMixin from "../../mixins/FieldMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
+import FieldMixin from "../../mixins/FieldMixin.js"
 
 export default {
   mixins: [CommonMixin, FieldMixin],
@@ -111,7 +111,7 @@ export default {
       type: Array,
       required: true,
       validator(x) {
-        return x.length > 0;
+        return x.length > 0
       }
     },
     value: {
@@ -124,22 +124,22 @@ export default {
     computedIconSize() {
       switch (this.size) {
         case "mini":
-          return "14px";
+          return "14px"
 
         case "small":
-          return "16px";
+          return "16px"
 
         case "default":
-          return "18px";
+          return "18px"
 
         case "medium":
-          return "20px";
+          return "20px"
 
         case "large":
-          return "22px";
+          return "22px"
       }
 
-      return null;
+      return null
     }
   },
 
@@ -148,85 +148,66 @@ export default {
 
     checkActiveBrother(order, index) {
       if (this.multiple && this.tabs[index] && Array.isArray(this.innerValue)) {
-        return this.innerValue.includes(this.tabs[index].value);
+        return this.innerValue.includes(this.tabs[index].value)
       }
     },
 
     focusFirstTab() {
-      const firstTab = this.$el.querySelector(".js-field-tab:first-child");
+      const firstTab = this.$el.querySelector(".js-field-tab:first-child")
 
-      firstTab.focus();
+      firstTab.focus()
     },
 
     // --> EVENT LISTENERS <--
 
     onLabelClick(event) {
       // Select and focus first tab when label is clicked
-      this.onTabClick(this.tabs[0].value, event);
-      this.focusFirstTab();
+      this.onTabClick(this.tabs[0].value, event)
+      this.focusFirstTab()
     },
 
     onTabClick(tabValue, event) {
-      let activeTabs;
+      let activeTabs
 
       // When multiple values are not allowed and tab is not already active
       if (!this.multiple && !this.innerValue !== tabValue) {
-        activeTabs = tabValue;
+        activeTabs = tabValue
 
-        this.$emit("change", tabValue, "added", tabValue, this.label, event);
+        this.$emit("change", tabValue, "added", tabValue, this.label, event)
       }
 
       // When multiple values are allowed
       if (this.multiple) {
         // Remove the tab when already active
-        if (
-          Array.isArray(this.innerValue) &&
-          this.innerValue.includes(tabValue)
-        ) {
+        if (Array.isArray(this.innerValue) && this.innerValue.includes(tabValue)) {
           activeTabs = this.innerValue.filter(item => {
-            return item !== tabValue;
-          });
+            return item !== tabValue
+          })
 
-          this.$emit(
-            "change",
-            tabValue,
-            "removed",
-            activeTabs,
-            this.label,
-            event
-          );
+          this.$emit("change", tabValue, "removed", activeTabs, this.label, event)
         }
 
         // Push the tab when not already active
         else {
-          activeTabs = Array.isArray(this.innerValue)
-            ? [...this.innerValue, tabValue]
-            : [tabValue];
+          activeTabs = Array.isArray(this.innerValue) ? [...this.innerValue, tabValue] : [tabValue]
 
-          this.$emit(
-            "change",
-            tabValue,
-            "added",
-            activeTabs,
-            this.label,
-            event
-          );
+          this.$emit("change", tabValue, "added", activeTabs, this.label, event)
         }
       }
 
-      this.innerValue = activeTabs;
+      this.innerValue = activeTabs
 
-      this.$emit("click", tabValue, activeTabs, this.label, event);
-      this.$emit("input", activeTabs); // Synchronization for v-model
+      this.$emit("click", tabValue, activeTabs, this.label, event)
+      this.$emit("input", activeTabs) // Synchronization for v-model
     },
 
     onTabKeypress(event) {
       if (event.code === "Space") {
-        event.target.click();
+        event.target.click()
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -253,10 +234,8 @@ $statuses: "error", "normal", "success", "warning";
   #{$c}__container {
     display: inline-flex;
     align-items: center;
-    box-shadow: 0 1px 5px 0
-      rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
-    font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-      sans-serif;
+    box-shadow: 0 1px 5px 0 rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
+    font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
     cursor: pointer;
 
     #{$c}__tab {
@@ -361,18 +340,12 @@ $statuses: "error", "normal", "success", "warning";
 
           &--active-previous {
             // "!important" overrides first-of-type and last-of-type
-            border-left-color: rgba(
-              mdg($dark, "statuses", $status),
-              0.25
-            ) !important;
+            border-left-color: rgba(mdg($dark, "statuses", $status), 0.25) !important;
           }
 
           &--active-next {
             // "!important" overrides first-of-type and last-of-type
-            border-right-color: rgba(
-              mdg($dark, "statuses", $status),
-              0.25
-            ) !important;
+            border-right-color: rgba(mdg($dark, "statuses", $status), 0.25) !important;
           }
         }
       }

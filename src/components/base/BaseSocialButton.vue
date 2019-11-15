@@ -41,10 +41,10 @@ button(
 
 <script>
 // PROJECT: COMPONENTS
-import BaseSpinner from "./BaseSpinner.vue";
+import BaseSpinner from "./BaseSpinner.vue"
 
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   components: {
@@ -70,28 +70,14 @@ export default {
       type: String,
       required: true,
       validator(x) {
-        return [
-          "facebook",
-          "google",
-          "messenger",
-          "shopify",
-          "twitter"
-        ].includes(x);
+        return ["facebook", "google", "messenger", "shopify", "twitter"].includes(x)
       }
     },
     size: {
       type: String,
       default: "default",
       validator(x) {
-        return [
-          "nano",
-          "micro",
-          "mini",
-          "small",
-          "default",
-          "medium",
-          "large"
-        ].includes(x);
+        return ["nano", "micro", "mini", "small", "default", "medium", "large"].includes(x)
       }
     }
   },
@@ -100,10 +86,10 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      this.$emit("click", this.network, event);
+      this.$emit("click", this.network, event)
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -130,8 +116,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   background-position: center;
   box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
   color: mdg($dark, "colors", "white");
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
   transition: all 250ms linear;
   user-select: none;
   cursor: pointer;
@@ -159,11 +144,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   @each $network in $networks {
     &--#{$network} {
       background: map-get($socialColors, $network)
-        radial-gradient(
-          circle,
-          transparent 1%,
-          map-get($socialColors, $network) 1%
-        )
+        radial-gradient(circle, transparent 1%, map-get($socialColors, $network) 1%)
         center/15000%;
 
       &:hover {

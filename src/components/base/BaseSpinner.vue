@@ -23,7 +23,7 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   mixins: [CommonMixin],
@@ -43,22 +43,14 @@ export default {
           "red",
           "turquoise",
           "white"
-        ].includes(x);
+        ].includes(x)
       }
     },
     size: {
       type: String,
       default: "default",
       validator(x) {
-        return [
-          "nano",
-          "micro",
-          "mini",
-          "small",
-          "default",
-          "medium",
-          "large"
-        ].includes(x);
+        return ["nano", "micro", "mini", "small", "default", "medium", "large"].includes(x)
       }
     }
   },
@@ -67,10 +59,10 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      this.$emit("click", event);
+      this.$emit("click", event)
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -85,8 +77,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-spinner";
-$colors: "black", "blue", "green", "grey", "orange", "purple", "red",
-  "turquoise", "white";
+$colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white";
 $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {

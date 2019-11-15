@@ -37,7 +37,7 @@ i(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   mixins: [CommonMixin],
@@ -69,51 +69,51 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      this.$emit("click", this.id, event);
+      this.$emit("click", this.id, event)
     },
 
     onDoubleClick(event) {
-      this.$emit("dblclick", this.id, event);
+      this.$emit("dblclick", this.id, event)
     },
 
     onKeypress(event) {
       if (event.code === "Space") {
-        event.preventDefault();
-        event.target.click();
+        event.preventDefault()
+        event.target.click()
       }
 
-      this.$emit("keypress", this.id, event);
+      this.$emit("keypress", this.id, event)
     },
 
     onMouseDown(event) {
-      this.$emit("mousedown", this.id, event);
+      this.$emit("mousedown", this.id, event)
     },
 
     onMouseEnter(event) {
-      this.$emit("mouseenter", this.id, event);
+      this.$emit("mouseenter", this.id, event)
     },
 
     onMouseLeave(event) {
-      this.$emit("mouseleave", this.id, event);
+      this.$emit("mouseleave", this.id, event)
     },
 
     onMouseMove(event) {
-      this.$emit("mousemove", this.id, event);
+      this.$emit("mousemove", this.id, event)
     },
 
     onMouseOut(event) {
-      this.$emit("mouseout", this.id, event);
+      this.$emit("mouseout", this.id, event)
     },
 
     onMouseOver(event) {
-      this.$emit("mouseover", this.id, event);
+      this.$emit("mouseover", this.id, event)
     },
 
     onMouseUp(event) {
-      this.$emit("mouseup", this.id, event);
+      this.$emit("mouseup", this.id, event)
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************

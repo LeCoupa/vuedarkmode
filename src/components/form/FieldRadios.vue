@@ -70,8 +70,8 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
-import FieldMixin from "../../mixins/FieldMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
+import FieldMixin from "../../mixins/FieldMixin.js"
 
 export default {
   mixins: [CommonMixin, FieldMixin],
@@ -85,7 +85,7 @@ export default {
       type: Array,
       required: true,
       validator(x) {
-        return x.length > 0;
+        return x.length > 0
       }
     },
     value: {
@@ -98,23 +98,23 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(radio, event) {
-      const value = radio.value;
+      const value = radio.value
 
       if (value !== this.innerValue) {
-        this.innerValue = value;
+        this.innerValue = value
 
-        this.$emit("change", value, this.name, event);
-        this.$emit("input", value); // Synchronization for v-model
+        this.$emit("change", value, this.name, event)
+        this.$emit("input", value) // Synchronization for v-model
       }
     },
 
     onKeypress(radio, event) {
       if (event.code === "Space") {
-        this.onClick(radio, event);
+        this.onClick(radio, event)
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -136,8 +136,7 @@ $statuses: "error", "normal", "success", "warning";
 #{$c} {
   display: inline-block;
   text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   #{$c}__container {
     margin-bottom: 20px;
@@ -240,11 +239,7 @@ $statuses: "error", "normal", "success", "warning";
 
           &:focus {
             #{$c}__field {
-              box-shadow: 0
-                  0
-                  0
-                  2px
-                  mdg($dark, "backgrounds", "default", "primary"),
+              box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
                 0 0 0 3px mdg($dark, "statuses", $status);
               transition: box-shadow linear 0s;
             }

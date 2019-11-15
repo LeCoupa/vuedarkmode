@@ -50,7 +50,7 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   mixins: [CommonMixin],
@@ -88,16 +88,7 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return [
-          "nano",
-          "micro",
-          "mini",
-          "small",
-          "default",
-          "medium",
-          "large",
-          "huge"
-        ].includes(x);
+        return ["nano", "micro", "mini", "small", "default", "medium", "large", "huge"].includes(x)
       }
     },
     shadow: {
@@ -114,16 +105,16 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(event) {
-      this.$emit("click", this.id, event);
+      this.$emit("click", this.id, event)
     },
 
     onKeypress(event) {
       if (event.code === "Space") {
-        event.target.click();
+        event.target.click()
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -145,8 +136,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   @include no-tap-highlight-color;
 
@@ -294,11 +284,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
       &#{$c}--clickable {
         #{$c}__image {
           &:focus {
-            box-shadow: 0
-                0
-                0
-                2px
-                mdg($theme, "backgrounds", "default", "primary"),
+            box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
               0 0 0 3px mdg($theme, "statuses", "active");
           }
         }
@@ -306,11 +292,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
       &#{$c}--shadow {
         #{$c}__image {
-          box-shadow: 0
-            1px
-            3px
-            0
-            rgba(mdg($theme, "box-shadows", "default", "primary"), 0.6);
+          box-shadow: 0 1px 3px 0 rgba(mdg($theme, "box-shadows", "default", "primary"), 0.6);
         }
       }
     }

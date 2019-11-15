@@ -3,12 +3,12 @@
  ***************************************************************************/
 
 // PROJECT: COMPONENTS
-import BaseIcon from "../components/base/BaseIcon.vue";
-import FieldLabel from "../components/form/FieldLabel.vue";
-import FieldMessage from "../components/form/FieldMessage.vue";
+import BaseIcon from "../components/base/BaseIcon.vue"
+import FieldLabel from "../components/form/FieldLabel.vue"
+import FieldMessage from "../components/form/FieldMessage.vue"
 
 // PROJECT: HELPERS
-import { generateUUID } from "../helpers/helpers.js";
+import { generateUUID } from "../helpers/helpers.js"
 
 /**************************************************************************
  * MIXINS > FIELDS
@@ -71,14 +71,14 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return ["mini", "small", "default", "medium", "large"].includes(x);
+        return ["mini", "small", "default", "medium", "large"].includes(x)
       }
     },
     status: {
       type: String,
       default: "normal",
       validator(x) {
-        return ["error", "normal", "success", "warning"].includes(x);
+        return ["error", "normal", "success", "warning"].includes(x)
       }
     },
     success: {
@@ -97,79 +97,79 @@ export default {
 
       innerValue: null,
       uuid: ""
-    };
+    }
   },
 
   computed: {
     computedMessageContent() {
       if (this.error) {
-        return this.error;
+        return this.error
       } else if (this.success) {
-        return this.success;
+        return this.success
       } else if (this.warning) {
-        return this.warning;
+        return this.warning
       } else if (this.info) {
-        return this.info;
+        return this.info
       } else if (this.description) {
-        return this.description;
+        return this.description
       }
     },
 
     computedMessageStatus() {
       if (this.error) {
-        return "error";
+        return "error"
       } else if (this.success) {
-        return "success";
+        return "success"
       } else if (this.warning) {
-        return "warning";
+        return "warning"
       } else if (this.info) {
-        return "info";
+        return "info"
       } else if (this.description) {
-        return "description";
+        return "description"
       }
     },
 
     computedStatus() {
       if (this.error) {
-        return "error";
+        return "error"
       } else if (this.success) {
-        return "success";
+        return "success"
       } else if (this.warning) {
-        return "warning";
+        return "warning"
       }
 
-      return this.status;
+      return this.status
     },
 
     labelRequired() {
       if (!this.rules) {
-        return false;
+        return false
       } else if (typeof this.rules === "text") {
-        return this.rules.includes("required");
+        return this.rules.includes("required")
       } else if (typeof this.rules === "object") {
-        return this.rules.required;
+        return this.rules.required
       }
     }
   },
 
   watch: {
     value(value) {
-      this.synchronize();
+      this.synchronize()
       // this.validate(true);
     }
   },
 
   mounted() {
-    this.uuid = generateUUID();
+    this.uuid = generateUUID()
 
-    this.synchronize();
+    this.synchronize()
     // this.validate();
 
     // Focus only on desktop and larger screens
     if (this.autofocus && window.innerWidth >= 1024) {
-      const field = this.$el.querySelector(".js-tag-for-autofocus");
+      const field = this.$el.querySelector(".js-tag-for-autofocus")
 
-      field.focus();
+      field.focus()
     }
   },
 
@@ -178,18 +178,18 @@ export default {
 
     synchronize() {
       // Synchronize inner value with new one
-      this.innerValue = this.value;
+      this.innerValue = this.value
     },
 
     validate(dirty) {
       // Validate new value with vee-validate
-      this.$refs.validationProvider.validate(this.value);
+      this.$refs.validationProvider.validate(this.value)
 
       if (dirty) {
         this.$refs.validationProvider.setFlags({
           dirty: true
-        });
+        })
       }
     }
   }
-};
+}

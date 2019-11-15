@@ -90,11 +90,11 @@ button(
 
 <script>
 // PROJECT: COMPONENTS
-import BaseIcon from "./BaseIcon.vue";
-import BaseSpinner from "./BaseSpinner.vue";
+import BaseIcon from "./BaseIcon.vue"
+import BaseSpinner from "./BaseSpinner.vue"
 
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   components: {
@@ -113,7 +113,7 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return ["black", "blue", "green", "orange", "red", "white"].includes(x);
+        return ["black", "blue", "green", "orange", "red", "white"].includes(x)
       }
     },
     confirmation: {
@@ -152,7 +152,7 @@ export default {
       type: Array,
       default: null,
       validator(x) {
-        return x.length > 0;
+        return x.length > 0
       }
     },
     loading: {
@@ -183,22 +183,14 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return [
-          "nano",
-          "micro",
-          "mini",
-          "small",
-          "default",
-          "medium",
-          "large"
-        ].includes(x);
+        return ["nano", "micro", "mini", "small", "default", "medium", "large"].includes(x)
       }
     },
     type: {
       type: String,
       default: "button",
       validator(x) {
-        return ["button", "reset", "submit"].includes(x);
+        return ["button", "reset", "submit"].includes(x)
       }
     },
     uppercase: {
@@ -213,40 +205,40 @@ export default {
 
       confirming: false,
       listOpened: false
-    };
+    }
   },
 
   computed: {
     computedIconSize() {
       if (this.size === "nano") {
-        return "10px";
+        return "10px"
       } else if (this.size === "micro") {
-        return "12px";
+        return "12px"
       } else if (this.size === "mini") {
-        return "14px";
+        return "14px"
       } else if (this.size === "small") {
-        return "16px";
+        return "16px"
       } else if (this.size === "default") {
-        return "18px";
+        return "18px"
       } else if (this.size === "medium") {
-        return "20px";
+        return "20px"
       } else if (this.size === "large") {
-        return "22px";
+        return "22px"
       }
 
-      return null;
+      return null
     },
 
     computedRightIcon() {
       if (this.list && !this.circular) {
-        return this.listOpened ? "arrow_drop_up" : "arrow_drop_down";
+        return this.listOpened ? "arrow_drop_up" : "arrow_drop_down"
       }
 
-      return this.rightIcon;
+      return this.rightIcon
     },
 
     computedSpinnerColor() {
-      return this.color === "white" ? "black" : "white";
+      return this.color === "white" ? "black" : "white"
     }
   },
 
@@ -256,56 +248,56 @@ export default {
     onClick(event) {
       if (this.confirmation) {
         if (this.confirming) {
-          this.$emit("confirm", this.id, event);
+          this.$emit("confirm", this.id, event)
         }
 
-        this.confirming = !this.confirming;
+        this.confirming = !this.confirming
       }
 
       if (this.list) {
-        this.listOpened = !this.listOpened;
+        this.listOpened = !this.listOpened
       }
 
-      this.$emit("click", this.id, event);
+      this.$emit("click", this.id, event)
     },
 
     onDoubleClick(event) {
-      this.$emit("dblclick", this.id, event);
+      this.$emit("dblclick", this.id, event)
     },
 
     onItemClick(itemId, event) {
-      this.$emit("itemclick", this.id, itemId, event);
+      this.$emit("itemclick", this.id, itemId, event)
     },
 
     onMouseDown(event) {
-      this.$emit("mousedown", this.id, event);
+      this.$emit("mousedown", this.id, event)
     },
 
     onMouseEnter(event) {
-      this.$emit("mouseenter", this.id, event);
+      this.$emit("mouseenter", this.id, event)
     },
 
     onMouseLeave(event) {
-      this.$emit("mouseleave", this.id, event);
+      this.$emit("mouseleave", this.id, event)
     },
 
     onMouseMove(event) {
-      this.$emit("mousemove", this.id, event);
+      this.$emit("mousemove", this.id, event)
     },
 
     onMouseOut(event) {
-      this.$emit("mouseout", this.id, event);
+      this.$emit("mouseout", this.id, event)
     },
 
     onMouseOver(event) {
-      this.$emit("mouseover", this.id, event);
+      this.$emit("mouseover", this.id, event)
     },
 
     onMouseUp(event) {
-      this.$emit("mouseup", this.id, event);
+      this.$emit("mouseup", this.id, event)
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -332,8 +324,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   background-position: center;
   color: mdg($dark, "colors", "white");
   font-weight: 500;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
   transition: all 250ms linear;
   user-select: none;
   cursor: pointer;
@@ -396,11 +387,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
       // Reverse buttons have their own defined style (see below)
       &:not(#{$c}--reverse) {
         background: mdg($dark, "colors", $color)
-          radial-gradient(
-            circle,
-            transparent 1%,
-            mdg($dark, "colors", $color) 1%
-          )
+          radial-gradient(circle, transparent 1%, mdg($dark, "colors", $color) 1%)
           center/15000%;
 
         @if ($color == "white") {

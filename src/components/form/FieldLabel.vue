@@ -30,7 +30,7 @@ label(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   mixins: [CommonMixin],
@@ -48,7 +48,7 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return ["mini", "small", "default", "medium", "large"].includes(x);
+        return ["mini", "small", "default", "medium", "large"].includes(x)
       }
     },
     uppercase: {
@@ -59,10 +59,10 @@ export default {
 
   methods: {
     onClick(event) {
-      this.$emit("click", event);
+      this.$emit("click", event)
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -85,8 +85,7 @@ $sizes: "mini", "small", "default", "medium", "large";
   margin-bottom: 10px;
   color: mdg($dark, "fonts", "default", "secondary");
   font-weight: 500;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
   user-select: none;
 
   @include no-tap-highlight-color;

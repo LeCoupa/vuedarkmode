@@ -3,20 +3,20 @@
  ***************************************************************************/
 
 // NPM
-import alias from "@rollup/plugin-alias";
-import vue from "rollup-plugin-vue";
-import buble from "rollup-plugin-buble";
-import commonjs from "rollup-plugin-commonjs";
-import replace from "rollup-plugin-replace";
-import { terser } from "rollup-plugin-terser";
-import minimist from "minimist";
+import alias from "@rollup/plugin-alias"
+import vue from "rollup-plugin-vue"
+import buble from "rollup-plugin-buble"
+import commonjs from "rollup-plugin-commonjs"
+import replace from "rollup-plugin-replace"
+import { terser } from "rollup-plugin-terser"
+import minimist from "minimist"
 
 /**************************************************************************
  * ROLLUP CONFIGURATION
  * https://rollupjs.org/guide/en/
  ***************************************************************************/
 
-const argv = minimist(process.argv.slice(2));
+const argv = minimist(process.argv.slice(2))
 
 const baseConfig = {
   input: "src/entry.js",
@@ -40,7 +40,7 @@ const baseConfig = {
     },
     postVue: [buble()]
   }
-};
+}
 
 // ESM/UMD/IIFE shared settings: externals
 // Refer to https://rollupjs.org/guide/en/#warning-treating-module-as-external-dependency
@@ -49,7 +49,7 @@ const external = [
   "v-click-outside",
   "v-hotkey",
   "vee-validate"
-];
+]
 
 // UMD/IIFE shared settings: output.globals
 // Refer to https://rollupjs.org/guide/en#output-globals for details
@@ -57,10 +57,10 @@ const globals = {
   "v-click-outside": "vClickOutside",
   "v-hotkey": "VueHotkey",
   "vee-validate": "VeeValidate"
-};
+}
 
 // Customize configs for individual targets
-const buildFormats = [];
+const buildFormats = []
 
 if (!argv.format || argv.format === "es") {
   const esConfig = {
@@ -81,8 +81,8 @@ if (!argv.format || argv.format === "es") {
         }
       })
     ]
-  };
-  buildFormats.push(esConfig);
+  }
+  buildFormats.push(esConfig)
 }
 
 if (!argv.format || argv.format === "cjs") {
@@ -108,8 +108,8 @@ if (!argv.format || argv.format === "cjs") {
       }),
       ...baseConfig.plugins.postVue
     ]
-  };
-  buildFormats.push(umdConfig);
+  }
+  buildFormats.push(umdConfig)
 }
 
 if (!argv.format || argv.format === "iife") {
@@ -134,12 +134,12 @@ if (!argv.format || argv.format === "iife") {
         }
       })
     ]
-  };
-  buildFormats.push(unpkgConfig);
+  }
+  buildFormats.push(unpkgConfig)
 }
 
 /**************************************************************************
  * EXPORT
  ***************************************************************************/
 
-export default buildFormats;
+export default buildFormats

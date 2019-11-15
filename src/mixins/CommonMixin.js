@@ -9,8 +9,8 @@ export default {
       type: String,
       default: "dark",
       validator(x) {
-        return ["dark", "light"].includes(x);
+        return ["dark", "light"].includes(x)
       }
     }
   }
-};
+}

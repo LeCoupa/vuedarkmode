@@ -26,7 +26,7 @@ component(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   mixins: [CommonMixin],
@@ -36,22 +36,14 @@ export default {
       type: String,
       default: null,
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "grey",
-          "red",
-          "orange",
-          "white"
-        ].includes(x);
+        return ["black", "blue", "green", "grey", "red", "orange", "white"].includes(x)
       }
     },
     tag: {
       type: String,
       required: true,
       validator(x) {
-        return ["h1", "h2", "h3", "h4", "h5", "h6", "p", "small"].includes(x);
+        return ["h1", "h2", "h3", "h4", "h5", "h6", "p", "small"].includes(x)
       }
     },
     uppercase: {
@@ -62,44 +54,36 @@ export default {
       type: String,
       default: null,
       validator(x) {
-        return [
-          "thin",
-          "light",
-          "regular",
-          "medium",
-          "bold",
-          "extrabold",
-          "black"
-        ].includes(x);
+        return ["thin", "light", "regular", "medium", "bold", "extrabold", "black"].includes(x)
       }
     }
   },
 
   computed: {
     computedColor() {
-      let color = "white";
+      let color = "white"
 
       if (this.color) {
-        color = this.color;
+        color = this.color
       } else if (["h3", "h4", "h5", "h6"].includes(this.tag)) {
-        color = "grey";
+        color = "grey"
       }
 
-      return color;
+      return color
     },
 
     computedWeight() {
-      let weight = "regular";
+      let weight = "regular"
 
       if (this.weight) {
-        weight = this.weight;
+        weight = this.weight
       } else if (this.tag === "h1") {
-        weight = "bold";
+        weight = "bold"
       } else if (["h2", "h3", "h4"].includes(this.tag)) {
-        weight = "medium";
+        weight = "medium"
       }
 
-      return weight;
+      return weight
     }
   },
 
@@ -107,10 +91,10 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick() {
-      this.$emit("click");
+      this.$emit("click")
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -129,8 +113,7 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
 
 #{$c} {
   margin: 0;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   // --> COLORS <--
 

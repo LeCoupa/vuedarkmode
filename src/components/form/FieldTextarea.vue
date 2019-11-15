@@ -83,8 +83,8 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
-import FieldMixin from "../../mixins/FieldMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
+import FieldMixin from "../../mixins/FieldMixin.js"
 
 export default {
   mixins: [CommonMixin, FieldMixin],
@@ -118,14 +118,7 @@ export default {
       type: String,
       default: "none",
       validator(x) {
-        return [
-          "none",
-          "both",
-          "horizontal",
-          "vertical",
-          "initial",
-          "inherit"
-        ].includes(x);
+        return ["none", "both", "horizontal", "vertical", "initial", "inherit"].includes(x)
       }
     },
     rows: {
@@ -147,21 +140,21 @@ export default {
       // --> STATE <--
 
       focused: false
-    };
+    }
   },
 
   computed: {
     computedIcon() {
       // Return the left icon when defined as prop
       if (this.computedStatus === "error") {
-        return "close";
+        return "close"
       } else if (this.computedStatus === "success") {
-        return "check";
+        return "check"
       } else if (this.computedStatus === "warning") {
-        return "warning";
+        return "warning"
       }
 
-      return this.icon;
+      return this.icon
     }
   },
 
@@ -169,50 +162,50 @@ export default {
     // --> HELPERS <--
 
     getTextareaValue() {
-      return this.$el.querySelector("textarea").value || "";
+      return this.$el.querySelector("textarea").value || ""
     },
 
     // --> EVENT LISTENERS <--
 
     onContainerClick(event) {
-      this.$el.querySelector("textarea").focus();
+      this.$el.querySelector("textarea").focus()
 
-      this.$emit("click", this.getTextareaValue(), this.name, event);
+      this.$emit("click", this.getTextareaValue(), this.name, event)
     },
 
     onFieldBlur(event) {
-      this.focused = false;
+      this.focused = false
 
-      this.$emit("blur", this.getTextareaValue(), this.name, event);
+      this.$emit("blur", this.getTextareaValue(), this.name, event)
     },
 
     onFieldChange(event) {
-      this.$emit("change", this.getTextareaValue(), this.name, event);
+      this.$emit("change", this.getTextareaValue(), this.name, event)
     },
 
     onFieldFocus(event) {
-      this.focused = true;
+      this.focused = true
 
-      this.$emit("focus", this.getTextareaValue(), this.name, event);
+      this.$emit("focus", this.getTextareaValue(), this.name, event)
     },
 
     onFieldInput(event) {
-      const value = this.getTextareaValue();
+      const value = this.getTextareaValue()
 
-      this.innerValue = value;
+      this.innerValue = value
 
-      this.$emit("input", value, this.name, event);
+      this.$emit("input", value, this.name, event)
     },
 
     onFieldKeyDown(event) {
-      this.$emit("keydown", this.getTextareaValue(), this.name, event);
+      this.$emit("keydown", this.getTextareaValue(), this.name, event)
     },
 
     onFieldKeyUp(event) {
-      this.$emit("keyup", this.getTextareaValue(), this.name, event);
+      this.$emit("keyup", this.getTextareaValue(), this.name, event)
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -234,8 +227,7 @@ $statuses: "error", "normal", "success", "warning";
   display: flex;
   flex-direction: column;
   text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   #{$c}__container {
     position: relative;
