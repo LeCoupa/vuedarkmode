@@ -169,7 +169,7 @@ $statuses: "error", "normal", "success", "warning";
 
       #{$c}__label {
         flex: 1;
-        margin-bottom: 0;
+        margin-top: 2px;
         color: mdg($dark, "fonts", "default", "primary");
         font-weight: 400;
       }
@@ -209,10 +209,6 @@ $statuses: "error", "normal", "success", "warning";
                 height: 6px;
               }
             }
-          }
-
-          #{$c}__label {
-            line-height: 12px + (2px * $i);
           }
         }
       }
