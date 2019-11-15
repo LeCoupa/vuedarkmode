@@ -43,15 +43,10 @@ button(
 // PROJECT: COMPONENTS
 import BaseSpinner from "./BaseSpinner.vue"
 
-// PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js"
-
 export default {
   components: {
     BaseSpinner
   },
-
-  mixins: [CommonMixin],
 
   props: {
     disabled: {
@@ -216,13 +211,6 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   &:active {
     background-size: 100%;
     transition: background 0s;
-  }
-
-  // --> THEMES <--
-
-  @each $theme in $themes {
-    &--#{map-get($theme, "name")} {
-    }
   }
 }
 </style>
