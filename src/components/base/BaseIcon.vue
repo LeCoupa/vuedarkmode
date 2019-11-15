@@ -121,15 +121,15 @@ export default {
      ************************************************************************* -->
 
 <style lang="scss">
-// IMPORTS
-@import "node_modules/@growthbunker/stylesheets/settings/_colors.scss";
-@import "node_modules/@growthbunker/stylesheets/settings/_themes.scss";
-@import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
+// IMPORT
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
+
+// VARIABLES
+$c: ".dm-base-icon";
 
 // Based on Material Icons
 // https://google.github.io/material-design-icons/#icon-font-for-the-web
-.dm-base-icon {
+#{$c} {
   display: inline-block;
   outline: 0;
   border-radius: 2px;
@@ -158,14 +158,6 @@ export default {
 
   &--outlined {
     font-family: "Material Icons Outlined";
-  }
-
-  // --> THEMES <--
-
-  @each $theme in $themes {
-    &--#{map-get($theme, "name")} {
-      color: mdg($theme, "fonts", "default", "primary");
-    }
   }
 }
 
