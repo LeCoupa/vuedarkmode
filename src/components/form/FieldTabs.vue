@@ -38,6 +38,7 @@ div(
       @keypress.prevent="onTabKeypress"
       :class=`[
         "dm-field-tabs__tab",
+        "js-field-tab",
         {
           "dm-field-tabs__tab--active": innerValue === tab.value || (Array.isArray(innerValue) && innerValue.includes(tab.value)),
           "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
@@ -149,11 +150,18 @@ export default {
       }
     },
 
+    focusFirstTab() {
+      const firstTab = this.$el.querySelector(".js-field-tab:first-child");
+
+      firstTab.focus();
+    },
+
     // --> EVENT LISTENERS <--
 
     onLabelClick(event) {
-      // Select first tab when label is clicked
+      // Select and focus first tab when label is clicked
       this.onTabClick(this.tabs[0].value, event);
+      this.focusFirstTab();
     },
 
     onTabClick(tabValue, event) {
