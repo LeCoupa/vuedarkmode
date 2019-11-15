@@ -378,7 +378,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
       }
 
       &:hover {
-        background-color: mdg($dark, "borders", "default", "secondary");
+        background-color: mdg($dark, "backgrounds", "default", "secondary");
         color: mdg($dark, "fonts", "default", "primary");
       }
     }
