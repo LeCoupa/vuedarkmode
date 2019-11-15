@@ -31,10 +31,15 @@ p(
 // PROJECT: COMPONENTS
 import BaseIcon from "../base/BaseIcon.vue";
 
+// PROJECT: MIXINS
+import CommonMixin from "../../mixins/CommonMixin.js";
+
 export default {
   components: {
     BaseIcon
   },
+
+  mixins: [CommonMixin],
 
   props: {
     errors: {

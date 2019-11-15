@@ -24,7 +24,12 @@ component(
      ************************************************************************* -->
 
 <script>
+// PROJECT: MIXINS
+import CommonMixin from "../../mixins/CommonMixin.js";
+
 export default {
+  mixins: [CommonMixin],
+
   props: {
     color: {
       type: String,

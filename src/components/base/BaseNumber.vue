@@ -36,10 +36,15 @@ span(
 // PROJECT: COMPONENTS
 import BaseIcon from "./BaseIcon.vue";
 
+// PROJECT: MIXINS
+import CommonMixin from "../../mixins/CommonMixin.js";
+
 export default {
   components: {
     BaseIcon
   },
+
+  mixins: [CommonMixin],
 
   props: {
     color: {

@@ -11,7 +11,7 @@ import FieldMessage from "../components/form/FieldMessage.vue";
 import { generateUUID } from "../helpers/helpers.js";
 
 /**************************************************************************
- * MIXIN FOR FIELDS
+ * MIXINS > FIELDS
  * @docs https://vuejs.org/v2/guide/mixins.html
  ***************************************************************************/
 

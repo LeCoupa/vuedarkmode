@@ -42,10 +42,15 @@ button(
 // PROJECT: COMPONENTS
 import BaseSpinner from "./BaseSpinner.vue";
 
+// PROJECT: MIXINS
+import CommonMixin from "../../mixins/CommonMixin.js";
+
 export default {
   components: {
     BaseSpinner
   },
+
+  mixins: [CommonMixin],
 
   props: {
     disabled: {
