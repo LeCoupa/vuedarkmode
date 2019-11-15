@@ -143,16 +143,18 @@ $statuses: "error", "normal", "success", "warning";
       align-items: center;
       justify-content: center;
       outline: 0;
-      border: 1px solid $regent-st-blue;
+      border: 1px solid solid mdg($darkTheme, "borders", "default", "primary");
       border-radius: 3px;
-      background-color: $white;
+      background-color: solid
+        mdg($darkTheme, "backgrounds", "default", "primary");
       transition: all linear 250ms;
       cursor: pointer;
 
       #{$c}__tick {
         flex: 0 0 auto;
         margin-top: -2px;
-        border: 2px solid $white;
+        border: 2px solid solid
+          mdg($darkTheme, "backgrounds", "reverse", "primary");
         border-top: none;
         border-left: none;
         transition: all linear 250ms;
@@ -161,7 +163,7 @@ $statuses: "error", "normal", "success", "warning";
 
       &--checked {
         #{$c}__tick {
-          border-color: $white;
+          border-color: solid mdg($darkTheme, "borders", "reverse", "primary");
         }
       }
     }
@@ -169,7 +171,7 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__label {
       flex: 1;
       margin-bottom: 0;
-      color: $white;
+      color: solid mdg($darkTheme, "fonts", "default", "primary");
       font-weight: 400;
     }
   }
