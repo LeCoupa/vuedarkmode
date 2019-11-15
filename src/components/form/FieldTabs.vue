@@ -339,7 +339,7 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__tab {
           padding: 0 (10px + (2px * $i));
-          height: 30px + (2px * $i);
+          height: 32px + (2px * $i);
           font-size: 11px + (1px * $i);
           line-height: 17px + (1px * $i);
         }
