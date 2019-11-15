@@ -27,7 +27,7 @@ span(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js";
+import CommonMixin from "../../mixins/CommonMixin.js"
 
 export default {
   mixins: [CommonMixin],
@@ -37,16 +37,9 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white"
-        ].includes(x);
+        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].includes(
+          x
+        )
       }
     },
     filled: {
@@ -61,14 +54,7 @@ export default {
       type: String,
       default: "default",
       validator(x) {
-        return [
-          "micro",
-          "mini",
-          "small",
-          "default",
-          "medium",
-          "large"
-        ].includes(x);
+        return ["micro", "mini", "small", "default", "medium", "large"].includes(x)
       }
     }
   },
@@ -77,16 +63,16 @@ export default {
     // --> EVENT LISTENERS <--
 
     onClick(id, event) {
-      this.$emit("click", id, event);
+      this.$emit("click", id, event)
     },
 
     onKeypress(event) {
       if (event.code === "Space") {
-        event.target.click();
+        event.target.click()
       }
     }
   }
-};
+}
 </script>
 
 <!-- *************************************************************************
@@ -102,8 +88,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-badge";
-$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
-  "white";
+$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "white";
 $sizes: "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {
@@ -112,35 +97,11 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
   border-width: 1px;
   border-style: solid;
   border-radius: 100px;
-  color: mdg($dark, "colors", "white");
   text-transform: uppercase;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
-    sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
   user-select: none;
 
   @include no-tap-highlight-color;
-
-  // --> COLORS <--
-
-  @each $color in $colors {
-    &--#{$color} {
-      border-color: mdg($dark, "colors", $color);
-
-      &#{$c}--filled {
-        background-color: mdg($dark, "colors", $color);
-
-        @if ($color == "white") {
-          color: mdg($dark, "fonts", "reverse", "primary");
-        }
-      }
-
-      &:focus {
-        box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
-          0 0 0 3px mdg($dark, "colors", $color);
-        transition: box-shadow linear 0s;
-      }
-    }
-  }
 
   // --> SIZES <--
 
@@ -177,6 +138,29 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      color: mdg($theme, "colors", "white");
+
+      // --> COLORS <--
+
+      @each $color in $colors {
+        &--#{$color} {
+          border-color: mdg($theme, "colors", $color);
+
+          &#{$c}--filled {
+            background-color: mdg($theme, "colors", $color);
+
+            @if ($color == "white") {
+              color: mdg($theme, "fonts", "reverse", "primary");
+            }
+          }
+
+          &:focus {
+            box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
+              0 0 0 3px mdg($theme, "colors", $color);
+            transition: box-shadow linear 0s;
+          }
+        }
+      }
     }
   }
 }
