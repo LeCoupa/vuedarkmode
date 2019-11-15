@@ -181,6 +181,13 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
       }
     }
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 
 // --> ANIMATIONS <--

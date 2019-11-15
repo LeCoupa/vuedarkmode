@@ -153,5 +153,12 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
     height: 40px;
     font-size: 16px;
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 </style>

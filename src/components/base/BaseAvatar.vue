@@ -282,5 +282,12 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
         rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
     }
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 </style>

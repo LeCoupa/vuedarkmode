@@ -116,5 +116,12 @@ $sizes: "mini", "small", "default", "medium", "large";
   &--uppercase {
     text-transform: uppercase;
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 </style>

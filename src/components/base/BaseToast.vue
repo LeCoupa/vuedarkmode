@@ -165,5 +165,12 @@ $colors: "black", "blue", "green", "red", "orange", "white";
       }
     }
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 </style>

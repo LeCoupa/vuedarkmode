@@ -102,5 +102,12 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
     height: 1px;
     border-top-width: 1px;
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 </style>

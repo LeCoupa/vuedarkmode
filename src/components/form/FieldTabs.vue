@@ -393,5 +393,12 @@ $statuses: "error", "normal", "success", "warning";
       }
     }
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 </style>

@@ -172,5 +172,12 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
   &--clickable {
     cursor: pointer;
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 </style>

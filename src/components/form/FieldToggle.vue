@@ -268,5 +268,12 @@ $statuses: "error", "normal", "success", "warning";
   &--full-width {
     width: 100%;
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 </style>

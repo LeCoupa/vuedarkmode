@@ -219,5 +219,12 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
   &--uppercase {
     text-transform: uppercase;
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 </style>

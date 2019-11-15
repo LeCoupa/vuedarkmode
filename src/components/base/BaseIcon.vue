@@ -123,6 +123,8 @@ export default {
 <style lang="scss">
 // IMPORTS
 @import "node_modules/@growthbunker/stylesheets/settings/_colors.scss";
+@import "node_modules/@growthbunker/stylesheets/settings/_themes.scss";
+@import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // Based on Material Icons
@@ -156,6 +158,14 @@ export default {
 
   &--outlined {
     font-family: "Material Icons Outlined";
+  }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+      color: mdg($theme, "fonts", "default", "primary");
+    }
   }
 }
 

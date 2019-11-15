@@ -575,6 +575,13 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     background-size: 100%;
     transition: background 0s;
   }
+
+  // --> THEMES <--
+
+  @each $theme in $themes {
+    &--#{map-get($theme, "name")} {
+    }
+  }
 }
 
 // --> ANIMATIONS <--
