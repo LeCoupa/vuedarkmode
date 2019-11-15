@@ -113,15 +113,8 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
 
 #{$c} {
   margin: 0;
+  color: mdg($dark, "fonts", "default", "primary");
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
-
-  // --> COLORS <--
-
-  @each $color in $colors {
-    &--#{$color} {
-      color: mdg($dark, "colors", $color);
-    }
-  }
 
   // --> TAGS <--
 
@@ -207,6 +200,13 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      // --> COLORS <--
+
+      @each $color in $colors {
+        &#{$c}--#{$color} {
+          color: mdg($theme, "colors", $color);
+        }
+      }
     }
   }
 }
