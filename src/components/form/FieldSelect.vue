@@ -312,6 +312,7 @@ $statuses: "error", "normal", "success", "warning";
       box-sizing: border-box;
       border-width: 1px;
       border-style: solid;
+      transition: all linear 250ms;
       user-select: none;
       cursor: pointer;
 
@@ -574,8 +575,8 @@ $statuses: "error", "normal", "success", "warning";
           background-color: mdg($theme, "backgrounds", "default", "primary");
 
           #{$c}__option {
-            color: mdg($theme, "fonts", "default", "secondary");
             border-bottom-color: mdg($theme, "borders", "default", "primary");
+            color: mdg($theme, "fonts", "default", "secondary");
 
             &--placeholder {
               color: mdg($theme, "fonts", "default", "tertiary");
