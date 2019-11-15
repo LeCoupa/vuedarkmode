@@ -115,20 +115,10 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "whit
   border-style: solid;
   border-radius: 100%;
   background-size: cover;
-  box-shadow: 0 1px 5px 0 rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
-  color: mdg($dark, "colors", "white");
   user-select: none;
 
   #{$c}__number {
     font-weight: 800;
-  }
-
-  // --> COLORS <--
-
-  @each $color in $colors {
-    &--#{$color} {
-      border-color: mdg($dark, "colors", $color);
-    }
   }
 
   // --> SIZES <--
@@ -149,6 +139,16 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "whit
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      box-shadow: 0 1px 5px 0 rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
+      color: mdg($dark, "colors", "white");
+
+      // --> COLORS <--
+
+      @each $color in $colors {
+        &#{$c}--#{$color} {
+          border-color: mdg($dark, "colors", $color);
+        }
+      }
     }
   }
 }
