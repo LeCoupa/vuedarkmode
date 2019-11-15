@@ -143,7 +143,7 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
       // --> COLORS <--
 
       @each $color in $colors {
-        &--#{$color} {
+        &#{$c}--#{$color} {
           border-color: mdg($theme, "colors", $color);
 
           &#{$c}--filled {
