@@ -71,14 +71,6 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "whit
   border: 0;
   border-top-style: solid;
 
-  // --> COLORS <--
-
-  @each $color in $colors {
-    &--#{$color} {
-      border-top-color: mdg($dark, "colors", $color);
-    }
-  }
-
   // --> SIZES <--
 
   &--small {
@@ -99,6 +91,13 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "whit
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      // --> COLORS <--
+
+      @each $color in $colors {
+        &#{$c}--#{$color} {
+          border-top-color: mdg($dark, "colors", $color);
+        }
+      }
     }
   }
 }
