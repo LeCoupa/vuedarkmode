@@ -170,6 +170,7 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__label {
         flex: 1;
         margin-top: 2px;
+        margin-bottom: 0;
         color: mdg($dark, "fonts", "default", "primary");
         font-weight: 400;
       }
