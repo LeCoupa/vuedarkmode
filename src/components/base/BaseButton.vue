@@ -37,8 +37,8 @@ button(
       v-if="leftIcon"
       :color="leftIconColor"
       :name="leftIcon"
+      :outlined="leftIconOutlined"
       :size="computedIconSize"
-      :theme="leftIconTheme"
       class="dm-base-button__left-icon"
     )
 
@@ -58,8 +58,8 @@ button(
       v-if="computedRightIcon"
       :color="rightIconColor"
       :name="computedRightIcon"
+      :outlined="rightIconOutlined"
       :size="computedIconSize"
-      :theme="rightIconTheme"
       class="dm-base-button__right-icon"
     )
 
@@ -140,12 +140,9 @@ export default {
       type: String,
       default: null
     },
-    leftIconTheme: {
-      type: String,
-      default: "filled",
-      validator(x) {
-        return ["filled", "outlined"].includes(x);
-      }
+    leftIconOutlined: {
+      type: Boolean,
+      default: false
     },
     link: {
       type: Boolean,
@@ -174,12 +171,9 @@ export default {
       type: String,
       default: null
     },
-    rightIconTheme: {
-      type: String,
-      default: "filled",
-      validator(x) {
-        return ["filled", "outlined"].includes(x);
-      }
+    rightIconOutlined: {
+      type: Boolean,
+      default: false
     },
     rounded: {
       type: Boolean,
