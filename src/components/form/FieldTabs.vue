@@ -17,6 +17,7 @@ div(
     "dm-field-tabs",
     "dm-field-tabs--" + computedStatus,
     "dm-field-tabs--" + size,
+    "dm-field-tabs--" + theme,
     {
       "dm-field-tabs--disabled": disabled,
       "dm-field-tabs--multiple": multiple

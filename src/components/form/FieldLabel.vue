@@ -8,6 +8,7 @@ label(
   :class=`[
     "dm-field-label",
     "dm-field-label--" + size,
+    "dm-field-label--" + theme,
     {
       "dm-field-label--clickable": $listeners.click || forField,
       "dm-field-label--uppercase": uppercase

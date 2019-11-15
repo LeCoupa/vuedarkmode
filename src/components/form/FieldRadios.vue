@@ -17,6 +17,7 @@ div(
     "dm-field-radios",
     "dm-field-radios--" + computedStatus,
     "dm-field-radios--" + size,
+    "dm-field-radios--" + theme,
     {
       "dm-field-radios--disabled": disabled,
       "dm-field-radios--full-width": fullWidth

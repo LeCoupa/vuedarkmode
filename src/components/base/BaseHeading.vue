@@ -10,6 +10,7 @@ component(
     "dm-base-heading--" + computedColor,
     "dm-base-heading--" + computedWeight,
     "dm-base-heading--" + tag,
+    "dm-base-heading--" + theme,
     {
       "dm-base-heading--uppercase": uppercase
     }

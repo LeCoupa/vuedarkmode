@@ -9,6 +9,7 @@ button(
     "dm-base-social-button",
     "dm-base-social-button--" + network,
     "dm-base-social-button--" + size,
+    "dm-base-social-button--" + theme,
     {
       "dm-base-social-button--disabled": disabled || loading,
       "dm-base-social-button--full-width": fullWidth,

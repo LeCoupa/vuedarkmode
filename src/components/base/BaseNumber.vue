@@ -7,7 +7,8 @@ span(
   :class=`[
     "dm-base-number",
     "dm-base-number--" + color,
-    "dm-base-number--" + size
+    "dm-base-number--" + size,
+    "dm-base-number--" + theme
   ]`
   :style=`{
     backgroundImage: image ? "url(" + image + ")" : null,

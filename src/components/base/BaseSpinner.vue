@@ -8,7 +8,8 @@ div(
   :class=`[
     "dm-base-spinner",
     "dm-base-spinner--" + color,
-    "dm-base-spinner--" + size
+    "dm-base-spinner--" + size,
+    "dm-base-spinner--" + theme
   ]`
 )
   .dm-base-spinner__wave.dm-base-spinner__wave--first

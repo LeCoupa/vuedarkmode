@@ -16,6 +16,7 @@ i(
   @mouseup="onMouseUp"
   :class=`[
     "dm-base-icon",
+    "dm-base-icon--" + style,
     "dm-base-icon--" + theme,
     {
       "dm-base-icon--clickable": $listeners.click
@@ -58,7 +59,7 @@ export default {
       type: String,
       default: "24px"
     },
-    theme: {
+    style: {
       type: String,
       default: "filled",
       validator(x) {
@@ -149,7 +150,7 @@ export default {
 
   @include no-tap-highlight-color;
 
-  // --> THEMES <--
+  // --> STYLES <--
 
   &--filled {
     font-family: "Material Icons";

@@ -7,7 +7,8 @@ p(
   :class=`[
     "dm-field-message",
     "dm-field-message--" + computedStatus,
-    "dm-field-message--" + size
+    "dm-field-message--" + size,
+    "dm-field-message--" + theme
   ]`
 )
   base-icon(

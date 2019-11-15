@@ -10,6 +10,7 @@ span(
     "dm-base-badge",
     "dm-base-badge--" + color,
     "dm-base-badge--" + size,
+    "dm-base-badge--" + theme,
     {
       "dm-base-badge--clickable": $listeners.click,
       "dm-base-badge--filled": filled

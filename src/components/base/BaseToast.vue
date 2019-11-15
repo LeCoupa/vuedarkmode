@@ -6,7 +6,8 @@
 div(
   :class=`[
     "dm-base-toast",
-    "dm-base-toast--" + color
+    "dm-base-toast--" + color,
+    "dm-base-toast--" + theme
   ]`
   :style=`{
     width: width

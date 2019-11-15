@@ -17,6 +17,7 @@ div(
     "dm-field-textarea",
     "dm-field-textarea--" + computedStatus,
     "dm-field-textarea--" + size,
+    "dm-field-textarea--" + theme,
     {
       "dm-field-textarea--borders": borders,
       "dm-field-textarea--disabled": disabled,

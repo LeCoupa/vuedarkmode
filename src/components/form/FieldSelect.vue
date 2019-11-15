@@ -20,6 +20,7 @@ div(
     "dm-field-select--" + computedStatus,
     "dm-field-select--" + direction,
     "dm-field-select--" + size,
+    "dm-field-select--" + theme,
     {
       "dm-field-select--clearable": clearable,
       "dm-field-select--disabled": disabled,

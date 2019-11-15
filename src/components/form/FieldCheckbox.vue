@@ -17,6 +17,7 @@ div(
     "dm-field-checkbox",
     "dm-field-checkbox--" + computedStatus,
     "dm-field-checkbox--" + size,
+    "dm-field-checkbox--" + theme,
     {
       "dm-field-checkbox--disabled": disabled,
       "dm-field-checkbox--full-width": fullWidth

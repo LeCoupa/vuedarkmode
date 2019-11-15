@@ -7,6 +7,7 @@ div(
   :class=`[
     "dm-base-progress-bar",
     "dm-base-progress-bar--" + color,
+    "dm-base-progress-bar--" + theme,
     {
       "dm-base-progress-bar--with-details-hover": detailsHover
     }

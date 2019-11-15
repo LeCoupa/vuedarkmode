@@ -6,7 +6,8 @@
 div(
   :class=`[
     "dm-base-alert",
-    "dm-base-alert--" + color
+    "dm-base-alert--" + color,
+    "dm-base-alert--" + theme
   ]`
 )
   base-icon(

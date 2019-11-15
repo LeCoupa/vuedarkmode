@@ -6,8 +6,9 @@
 hr(
   :class=`[
     "dm-base-divider",
+    "dm-base-divider--" + color,
     "dm-base-divider--" + size,
-    "dm-base-divider--" + color
+    "dm-base-divider--" + theme
   ]`
   :style=`{
     margin: margin

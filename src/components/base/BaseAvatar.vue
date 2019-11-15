@@ -8,6 +8,7 @@ div(
   :class=`[
     "dm-base-avatar",
     "dm-base-avatar--" + size,
+    "dm-base-avatar--" + theme,
     {
       "dm-base-avatar--animated": animated,
       "dm-base-avatar--bordered": bordered,

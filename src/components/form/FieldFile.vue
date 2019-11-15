@@ -17,6 +17,7 @@ div(
     "dm-field-file",
     "dm-field-file--" + computedStatus,
     "dm-field-file--" + size,
+    "dm-field-file--" + theme,
     {
       "dm-field-file--disabled": disabled,
       "dm-field-file--full-width": fullWidth
