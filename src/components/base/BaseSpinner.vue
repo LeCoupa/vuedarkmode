@@ -100,16 +100,6 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     }
   }
 
-  // --> COLORS <--
-
-  @each $color in $colors {
-    &--#{$color} {
-      #{$c}__wave {
-        background-color: mdg($dark, "colors", $color);
-      }
-    }
-  }
-
   // --> SIZES <--
 
   @each $size in $sizes {
@@ -133,6 +123,15 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      // --> COLORS <--
+
+      @each $color in $colors {
+        &#{$c}--#{$color} {
+          #{$c}__wave {
+            background-color: mdg($dark, "colors", $color);
+          }
+        }
+      }
     }
   }
 }
