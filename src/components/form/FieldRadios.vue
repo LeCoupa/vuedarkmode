@@ -165,9 +165,14 @@ $statuses: "error", "normal", "success", "warning";
           left: 0;
           width: 100%;
           height: 100%;
-          border: 1px solid $regent-st-blue;
+          border: 1px solid mdg($darkTheme, "borders", "default", "primary");
           border-radius: 100%;
-          background-color: $white;
+          background-color: mdg(
+            $darkTheme,
+            "backgrounds",
+            "default",
+            "primary"
+          );
           content: "";
         }
 
@@ -177,20 +182,25 @@ $statuses: "error", "normal", "success", "warning";
           width: 6px;
           height: 6px;
           border-radius: 100%;
-          background-color: $white;
+          background-color: mdg($darkTheme, "borders", "default", "primary");
           transform: translate(-50%, -50%);
           content: "";
         }
 
         &:hover {
           &:after {
-            background-color: $oxford-blue;
+            background-color: mdg(
+              $darkTheme,
+              "borders",
+              "default",
+              "secondary"
+            );
           }
         }
 
         &:checked {
           &:after {
-            background-color: $white;
+            background-color: mdg($darkTheme, "borders", "reverse", "primary");
           }
         }
       }
@@ -198,7 +208,7 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__label {
         flex: 1;
         margin-bottom: 0;
-        color: $white;
+        color: mdg($darkTheme, "fonts", "default", "primary");
         font-weight: 400;
       }
     }
@@ -247,7 +257,7 @@ $statuses: "error", "normal", "success", "warning";
             }
 
             &:focus {
-              box-shadow: 0 0 0 2px $mirage,
+              box-shadow: 0 0 0 2px rgba(0, 0, 0, 0),
                 0 0 0 3px mdg($darkTheme, "statuses", $status);
               transition: box-shadow linear 0s;
             }
