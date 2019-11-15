@@ -212,5 +212,9 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     background-size: 100%;
     transition: background 0s;
   }
+
+  &:focus {
+    transition: box-shadow linear 250ms;
+  }
 }
 </style>

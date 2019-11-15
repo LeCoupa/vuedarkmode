@@ -485,6 +485,10 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     transition: background 0s;
   }
 
+  &:focus {
+    transition: box-shadow linear 250ms;
+  }
+
   // --> THEMES <--
 
   @each $theme in $themes {
