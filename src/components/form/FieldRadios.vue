@@ -183,13 +183,13 @@ $statuses: "error", "normal", "success", "warning";
 
         &:hover {
           &:after {
-            background-color: mdg($dark, "borders", "default", "secondary");
+            background-color: mdg($dark, "backgrounds", "default", "secondary");
           }
         }
 
         &:checked {
           &:after {
-            background-color: mdg($dark, "borders", "reverse", "primary");
+            background-color: mdg($dark, "backgrounds", "reverse", "primary");
           }
         }
       }
