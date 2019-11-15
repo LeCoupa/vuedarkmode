@@ -250,14 +250,14 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__field {
       width: 100%;
-      background-color: mdg($darkTheme, "backgrounds", "default", "primary");
+      background-color: mdg($dark, "backgrounds", "default", "primary");
       height: 100%;
       outline: 0;
       border: none;
-      color: mdg($darkTheme, "fonts", "default", "primary");
+      color: mdg($dark, "fonts", "default", "primary");
 
       &::placeholder {
-        color: mdg($darkTheme, "backgrounds", "default", "tertiary");
+        color: mdg($dark, "backgrounds", "default", "tertiary");
         transition: color linear 250ms;
       }
 
@@ -288,11 +288,11 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         @if ($status != normal) {
           // Override focused state
-          border-color: mdg($darkTheme, "statuses", $status) !important;
-          color: mdg($darkTheme, "statuses", $status) !important;
+          border-color: mdg($dark, "statuses", $status) !important;
+          color: mdg($dark, "statuses", $status) !important;
         } @else {
-          border-color: mdg($darkTheme, "borders", "default", "primary");
-          color: mdg($darkTheme, "fonts", "default", "primary");
+          border-color: mdg($dark, "borders", "default", "primary");
+          color: mdg($dark, "fonts", "default", "primary");
         }
       }
     }
@@ -320,8 +320,8 @@ $statuses: "error", "normal", "success", "warning";
 
   &--focused {
     #{$c}__container {
-      border-color: mdg($darkTheme, "statuses", "active");
-      color: mdg($darkTheme, "statuses", "active");
+      border-color: mdg($dark, "statuses", "active");
+      color: mdg($dark, "statuses", "active");
     }
   }
 

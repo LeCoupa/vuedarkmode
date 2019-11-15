@@ -138,10 +138,10 @@ $statuses: "error", "normal", "success", "warning";
         left: 0;
         width: 100%;
         height: 100%;
-        border: 1px solid mdg($darkTheme, "borders", "default", "primary");
+        border: 1px solid mdg($dark, "borders", "default", "primary");
         border-radius: 20px;
         background-color: rgba(
-          mdg($darkTheme, "backgrounds", "default", "secondary"),
+          mdg($dark, "backgrounds", "default", "secondary"),
           0.4
         );
         content: "";
@@ -151,7 +151,7 @@ $statuses: "error", "normal", "success", "warning";
         top: 4px;
         right: initial;
         border-radius: 100%;
-        background: mdg($darkTheme, "backgrounds", "reverse", "primary");
+        background: mdg($dark, "backgrounds", "reverse", "primary");
         transform: translateX(4px);
         content: "";
       }
@@ -159,7 +159,7 @@ $statuses: "error", "normal", "success", "warning";
       &:hover {
         &:before {
           border-color: lighten(
-            mdg($darkTheme, "borders", "default", "primary"),
+            mdg($dark, "borders", "default", "primary"),
             10%
           );
         }
@@ -167,7 +167,7 @@ $statuses: "error", "normal", "success", "warning";
 
       &:not(:checked) {
         + #{$c}__label {
-          color: mdg($darkTheme, "fonts", "default", "secondary");
+          color: mdg($dark, "fonts", "default", "secondary");
           transition: color 250ms linear;
         }
       }
@@ -176,7 +176,7 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__label {
       flex: 1;
       margin-bottom: 0;
-      color: mdg($darkTheme, "fonts", "default", "primary");
+      color: mdg($dark, "fonts", "default", "primary");
       font-weight: 400;
     }
   }
@@ -222,20 +222,20 @@ $statuses: "error", "normal", "success", "warning";
         #{$c}__field {
           @if ($status != normal) {
             &:before {
-              border-color: mdg($darkTheme, "statuses", $status);
+              border-color: mdg($dark, "statuses", $status);
             }
           }
 
           &:checked {
             &:before {
-              border-color: mdg($darkTheme, "statuses", $status);
-              background-color: rgba(mdg($darkTheme, "statuses", $status), 0.4);
+              border-color: mdg($dark, "statuses", $status);
+              background-color: rgba(mdg($dark, "statuses", $status), 0.4);
             }
           }
 
           &:hover {
             &:before {
-              border-color: lighten(mdg($darkTheme, "statuses", $status), 10%);
+              border-color: lighten(mdg($dark, "statuses", $status), 10%);
             }
           }
 
@@ -244,8 +244,8 @@ $statuses: "error", "normal", "success", "warning";
                 0
                 0
                 2px
-                mdg($darkTheme, "backgrounds", "default", "primary"),
-              0 0 0 3px mdg($darkTheme, "statuses", $status);
+                mdg($dark, "backgrounds", "default", "primary"),
+              0 0 0 3px mdg($dark, "statuses", $status);
             transition: box-shadow linear 0s;
           }
         }

@@ -142,16 +142,16 @@ $statuses: "error", "normal", "success", "warning";
       align-items: center;
       justify-content: center;
       outline: 0;
-      border: 1px solid mdg($darkTheme, "borders", "default", "primary");
+      border: 1px solid mdg($dark, "borders", "default", "primary");
       border-radius: 3px;
-      background-color: mdg($darkTheme, "backgrounds", "default", "primary");
+      background-color: mdg($dark, "backgrounds", "default", "primary");
       transition: all linear 250ms;
       cursor: pointer;
 
       #{$c}__tick {
         flex: 0 0 auto;
         margin-top: -2px;
-        border: 2px solid mdg($darkTheme, "backgrounds", "default", "primary");
+        border: 2px solid mdg($dark, "backgrounds", "default", "primary");
         border-top: none;
         border-left: none;
         transition: all linear 250ms;
@@ -160,7 +160,7 @@ $statuses: "error", "normal", "success", "warning";
 
       &--checked {
         #{$c}__tick {
-          border-color: mdg($darkTheme, "borders", "reverse", "primary");
+          border-color: mdg($dark, "borders", "reverse", "primary");
         }
       }
     }
@@ -168,7 +168,7 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__label {
       flex: 1;
       margin-bottom: 0;
-      color: mdg($darkTheme, "fonts", "default", "primary");
+      color: mdg($dark, "fonts", "default", "primary");
       font-weight: 400;
     }
   }
@@ -213,8 +213,8 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__field {
           &--checked {
-            border-color: mdg($darkTheme, "statuses", $status);
-            background: mdg($darkTheme, "statuses", $status);
+            border-color: mdg($dark, "statuses", $status);
+            background: mdg($dark, "statuses", $status);
           }
 
           &:focus {
@@ -222,15 +222,15 @@ $statuses: "error", "normal", "success", "warning";
                 0
                 0
                 2px
-                mdg($darkTheme, "backgrounds", "default", "primary"),
-              0 0 0 3px mdg($darkTheme, "statuses", $status);
+                mdg($dark, "backgrounds", "default", "primary"),
+              0 0 0 3px mdg($dark, "statuses", $status);
             transition: box-shadow linear 0s;
           }
         }
 
         &:hover {
           #{$c}__field {
-            border-color: mdg($darkTheme, "statuses", $status);
+            border-color: mdg($dark, "statuses", $status);
           }
         }
       }

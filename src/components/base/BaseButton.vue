@@ -330,7 +330,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-position: center;
-  color: mdg($darkTheme, "colors", "white");
+  color: mdg($dark, "colors", "white");
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
@@ -359,15 +359,15 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     #{$c}__item {
       display: block;
       padding: 10px 14px;
-      border: 1px solid mdg($darkTheme, "borders", "default", "primary");
+      border: 1px solid mdg($dark, "borders", "default", "primary");
       border-top: none;
-      background: mdg($darkTheme, "backgrounds", "default", "primary");
-      color: mdg($darkTheme, "fonts", "default", "secondary");
+      background: mdg($dark, "backgrounds", "default", "primary");
+      color: mdg($dark, "fonts", "default", "secondary");
       white-space: nowrap;
       transition: all 250ms linear;
 
       &:first-of-type {
-        border-top: 1px solid mdg($darkTheme, "borders", "default", "primary");
+        border-top: 1px solid mdg($dark, "borders", "default", "primary");
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
       }
@@ -378,8 +378,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
       }
 
       &:hover {
-        background-color: mdg($darkTheme, "borders", "default", "secondary");
-        color: mdg($darkTheme, "fonts", "default", "primary");
+        background-color: mdg($dark, "borders", "default", "secondary");
+        color: mdg($dark, "fonts", "default", "primary");
       }
     }
   }
@@ -389,38 +389,34 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   @each $color in $colors {
     &--#{$color} {
       &:focus {
-        box-shadow: 0
-            0
-            0
-            2px
-            mdg($darkTheme, "backgrounds", "default", "primary"),
-          0 0 0 3px lighten(mdg($darkTheme, "colors", $color), 10%);
+        box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
+          0 0 0 3px lighten(mdg($dark, "colors", $color), 10%);
       }
 
       // Reverse buttons have their own defined style (see below)
       &:not(#{$c}--reverse) {
-        background: mdg($darkTheme, "colors", $color)
+        background: mdg($dark, "colors", $color)
           radial-gradient(
             circle,
             transparent 1%,
-            mdg($darkTheme, "colors", $color) 1%
+            mdg($dark, "colors", $color) 1%
           )
           center/15000%;
 
         @if ($color == "white") {
-          color: mdg($darkTheme, "colors", "black");
+          color: mdg($dark, "colors", "black");
         }
 
         &:hover {
           &:not(#{$c}--disabled) {
             @if ($color == "black") {
-              background-color: mdg($darkTheme, "colors", $color);
+              background-color: mdg($dark, "colors", $color);
             } @else if ($color == "white") {
-              background-color: darken(mdg($darkTheme, "colors", $color), 10%);
+              background-color: darken(mdg($dark, "colors", $color), 10%);
             } @else if ($color == "green") {
-              background-color: lighten(mdg($darkTheme, "colors", $color), 5%);
+              background-color: lighten(mdg($dark, "colors", $color), 5%);
             } @else {
-              background-color: lighten(mdg($darkTheme, "colors", $color), 10%);
+              background-color: lighten(mdg($dark, "colors", $color), 10%);
             }
           }
         }
@@ -428,13 +424,13 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
         &:active {
           &:not(#{$c}--disabled) {
             @if ($color == "black") {
-              background-color: mdg($darkTheme, "colors", $color);
+              background-color: mdg($dark, "colors", $color);
             } @else if ($color == "white") {
-              background-color: darken(mdg($darkTheme, "colors", $color), 15%);
+              background-color: darken(mdg($dark, "colors", $color), 15%);
             } @else if ($color == "green") {
-              background-color: lighten(mdg($darkTheme, "colors", $color), 5%);
+              background-color: lighten(mdg($dark, "colors", $color), 5%);
             } @else {
-              background-color: lighten(mdg($darkTheme, "colors", $color), 15%);
+              background-color: lighten(mdg($dark, "colors", $color), 15%);
             }
           }
         }
@@ -518,7 +514,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
     @each $color in $colors {
       &#{$c}--#{$color} {
-        color: mdg($darkTheme, "colors", $color);
+        color: mdg($dark, "colors", $color);
       }
     }
   }
@@ -542,19 +538,19 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
   &--reverse {
     background-color: transparent;
-    color: mdg($darkTheme, "fonts", "default", "primary");
+    color: mdg($dark, "fonts", "default", "primary");
 
     @each $color in $colors {
       &#{$c}--#{$color} {
-        border-color: mdg($darkTheme, "colors", $color);
+        border-color: mdg($dark, "colors", $color);
 
         &:hover {
-          border-color: lighten(mdg($darkTheme, "colors", $color), 10%);
+          border-color: lighten(mdg($dark, "colors", $color), 10%);
         }
 
         &:active {
           // Darken instead
-          border-color: darken(mdg($darkTheme, "colors", $color), 10%);
+          border-color: darken(mdg($dark, "colors", $color), 10%);
         }
       }
     }

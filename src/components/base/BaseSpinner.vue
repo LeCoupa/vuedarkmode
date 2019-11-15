@@ -108,7 +108,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   @each $color in $colors {
     &--#{$color} {
       #{$c}__wave {
-        background-color: mdg($darkTheme, "colors", $color);
+        background-color: mdg($dark, "colors", $color);
       }
     }
   }

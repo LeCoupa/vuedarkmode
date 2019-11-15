@@ -123,7 +123,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-position: center;
   box-shadow: inset -1px 1px 0 0 rgba(255, 255, 255, 0);
-  color: mdg($darkTheme, "colors", "white");
+  color: mdg($dark, "colors", "white");
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
   transition: all 250ms linear;
@@ -173,11 +173,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
       }
 
       &:focus {
-        box-shadow: 0
-            0
-            0
-            2px
-            mdg($darkTheme, "backgrounds", "default", "primary"),
+        box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
           0 0 0 3px lighten(map-get($socialColors, $network), 10%);
       }
 

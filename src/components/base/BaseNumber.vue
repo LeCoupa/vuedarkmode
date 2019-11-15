@@ -118,8 +118,8 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
   border-radius: 100%;
   background-size: cover;
   box-shadow: 0 1px 5px 0
-    rgba(mdg($darkTheme, "box-shadows", "default", "primary"), 0.6);
-  color: mdg($darkTheme, "colors", "white");
+    rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
+  color: mdg($dark, "colors", "white");
   user-select: none;
 
   #{$c}__number {
@@ -130,7 +130,7 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
 
   @each $color in $colors {
     &--#{$color} {
-      border-color: mdg($darkTheme, "colors", $color);
+      border-color: mdg($dark, "colors", $color);
     }
   }
 

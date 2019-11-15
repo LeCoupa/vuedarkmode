@@ -345,7 +345,7 @@ $statuses: "error", "normal", "success", "warning";
     display: flex;
     overflow: hidden;
     align-items: center;
-    background-color: mdg($darkTheme, "backgrounds", "default", "primary");
+    background-color: mdg($dark, "backgrounds", "default", "primary");
     transition: all linear 250ms;
     user-select: none;
 
@@ -354,17 +354,17 @@ $statuses: "error", "normal", "success", "warning";
       align-items: center;
       flex: 0 0 auto;
       height: 100%;
-      background-color: mdg($darkTheme, "backgrounds", "default", "secondary");
-      color: mdg($darkTheme, "fonts", "default", "primary");
+      background-color: mdg($dark, "backgrounds", "default", "secondary");
+      color: mdg($dark, "fonts", "default", "primary");
       user-select: none;
       cursor: default;
 
       &--append {
-        border-left: 1px solid mdg($darkTheme, "borders", "default", "primary");
+        border-left: 1px solid mdg($dark, "borders", "default", "primary");
       }
 
       &--prepend {
-        border-right: 1px solid mdg($darkTheme, "borders", "default", "primary");
+        border-right: 1px solid mdg($dark, "borders", "default", "primary");
       }
 
       &--clickable {
@@ -390,14 +390,14 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__field {
       flex: 1;
       width: 0;
-      background-color: mdg($darkTheme, "backgrounds", "default", "primary");
+      background-color: mdg($dark, "backgrounds", "default", "primary");
       height: 100%;
       outline: 0;
       border: none;
-      color: mdg($darkTheme, "fonts", "default", "primary");
+      color: mdg($dark, "fonts", "default", "primary");
 
       &::placeholder {
-        color: mdg($darkTheme, "fonts", "default", "tertiary");
+        color: mdg($dark, "fonts", "default", "tertiary");
         transition: color linear 250ms;
       }
 
@@ -406,10 +406,10 @@ $statuses: "error", "normal", "success", "warning";
       }
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0 30px
-          mdg($darkTheme, "backgrounds", "default", "primary") inset !important;
+        box-shadow: 0 0 0 30px mdg($dark, "backgrounds", "default", "primary")
+          inset !important;
         -webkit-text-fill-color: mdg(
-          $darkTheme,
+          $dark,
           "fonts",
           "default",
           "primary"
@@ -451,12 +451,12 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$status} {
       #{$c}__container {
         @if ($status != normal) {
-          border-color: mdg($darkTheme, "statuses", $status) !important;
+          border-color: mdg($dark, "statuses", $status) !important;
           // Override focused state
-          color: mdg($darkTheme, "statuses", $status) !important;
+          color: mdg($dark, "statuses", $status) !important;
         } @else {
-          border-color: mdg($darkTheme, "borders", "default", "primary");
-          color: mdg($darkTheme, "fonts", "default", "primary");
+          border-color: mdg($dark, "borders", "default", "primary");
+          color: mdg($dark, "fonts", "default", "primary");
         }
       }
     }
@@ -477,7 +477,7 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__container {
       #{$c}__icon {
         &--right {
-          color: mdg($darkTheme, "colors", "white");
+          color: mdg($dark, "colors", "white");
           opacity: 0.8;
           transition: opacity 250ms linear;
           pointer-events: auto;
@@ -501,8 +501,8 @@ $statuses: "error", "normal", "success", "warning";
 
   &--focused {
     #{$c}__container {
-      border-color: mdg($darkTheme, "statuses", "active");
-      color: mdg($darkTheme, "statuses", "active");
+      border-color: mdg($dark, "statuses", "active");
+      color: mdg($dark, "statuses", "active");
     }
   }
 

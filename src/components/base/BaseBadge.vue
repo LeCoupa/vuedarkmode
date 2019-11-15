@@ -106,7 +106,7 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
   border-width: 1px;
   border-style: solid;
   border-radius: 100px;
-  color: mdg($darkTheme, "colors", "white");
+  color: mdg($dark, "colors", "white");
   text-transform: uppercase;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
@@ -118,23 +118,19 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
 
   @each $color in $colors {
     &--#{$color} {
-      border-color: mdg($darkTheme, "colors", $color);
+      border-color: mdg($dark, "colors", $color);
 
       &#{$c}--filled {
-        background-color: mdg($darkTheme, "colors", $color);
+        background-color: mdg($dark, "colors", $color);
 
         @if ($color == "white") {
-          color: mdg($darkTheme, "fonts", "reverse", "primary");
+          color: mdg($dark, "fonts", "reverse", "primary");
         }
       }
 
       &:focus {
-        box-shadow: 0
-            0
-            0
-            2px
-            mdg($darkTheme, "backgrounds", "default", "primary"),
-          0 0 0 3px mdg($darkTheme, "colors", $color);
+        box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
+          0 0 0 3px mdg($dark, "colors", $color);
         transition: box-shadow linear 0s;
       }
     }

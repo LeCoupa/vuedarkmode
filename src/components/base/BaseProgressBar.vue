@@ -108,7 +108,7 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
   #{$c}__content {
     display: flex;
     margin-bottom: 10px;
-    color: mdg($darkTheme, "fonts", "default", "primary");
+    color: mdg($dark, "fonts", "default", "primary");
 
     #{$c}__title,
     #{$c}__details,
@@ -148,7 +148,7 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise",
     &--#{$color} {
       #{$c}__bar {
         #{$c}__progress {
-          background-color: mdg($darkTheme, "colors", $color);
+          background-color: mdg($dark, "colors", $color);
         }
       }
     }

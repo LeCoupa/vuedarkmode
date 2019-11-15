@@ -130,7 +130,7 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
 
   @each $color in $colors {
     &--#{$color} {
-      color: mdg($darkTheme, "colors", $color);
+      color: mdg($dark, "colors", $color);
     }
   }
 

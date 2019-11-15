@@ -101,7 +101,7 @@ $colors: "black", "blue", "green", "orange", "red", "white";
   display: flex;
   align-items: center;
   padding: 14px 20px;
-  color: mdg($darkTheme, "colors", "white");
+  color: mdg($dark, "colors", "white");
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial,
     sans-serif;
@@ -138,32 +138,32 @@ $colors: "black", "blue", "green", "orange", "red", "white";
 
   @each $color in $colors {
     &--#{$color} {
-      background-color: mdg($darkTheme, "colors", $color);
+      background-color: mdg($dark, "colors", $color);
 
       @if ($color == "white") {
-        color: mdg($darkTheme, "fonts", "reverse", "primary");
+        color: mdg($dark, "fonts", "reverse", "primary");
       }
 
       #{$c}__icon--right {
         @if ($color == "red") {
           &:hover {
-            color: mdg($darkTheme, "colors", "black") !important;
+            color: mdg($dark, "colors", "black") !important;
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px mdg($darkTheme, "colors", $color),
-              0 0 0 3px mdg($darkTheme, "colors", "black");
-            color: mdg($darkTheme, "colors", "black") !important;
+            box-shadow: 0 0 0 2px mdg($dark, "colors", $color),
+              0 0 0 3px mdg($dark, "colors", "black");
+            color: mdg($dark, "colors", "black") !important;
           }
         } @else {
           &:hover {
-            color: mdg($darkTheme, "colors", "red") !important;
+            color: mdg($dark, "colors", "red") !important;
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px mdg($darkTheme, "colors", $color),
-              0 0 0 3px mdg($darkTheme, "colors", "red");
-            color: mdg($darkTheme, "colors", "red") !important;
+            box-shadow: 0 0 0 2px mdg($dark, "colors", $color),
+              0 0 0 3px mdg($dark, "colors", "red");
+            color: mdg($dark, "colors", "red") !important;
           }
         }
       }

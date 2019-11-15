@@ -159,7 +159,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
         margin-right: 4px;
         width: 30px;
         height: 30px;
-        border: 1px solid mdg($darkTheme, "borders", "default", "secondary");
+        border: 1px solid mdg($dark, "borders", "default", "secondary");
         border-radius: 4px;
 
         &:last-of-type {
@@ -236,7 +236,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
   &--bordered {
     #{$c}__image {
-      border: 1px solid mdg($darkTheme, "borders", "default", "secondary");
+      border: 1px solid mdg($dark, "borders", "default", "secondary");
     }
   }
 
@@ -251,9 +251,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
     #{$c}__image {
       &:focus {
-        box-shadow: 0 0 0 2px
-            mdg($darkTheme, "backgrounds", "default", "primary"),
-          0 0 0 3px mdg($darkTheme, "statuses", "active");
+        box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
+          0 0 0 3px mdg($dark, "statuses", "active");
         transition: box-shadow linear 0s;
       }
     }
@@ -274,7 +273,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
   &--shadow {
     #{$c}__image {
       box-shadow: 0 1px 3px 0
-        rgba(mdg($darkTheme, "box-shadows", "default", "primary"), 0.6);
+        rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
     }
   }
 }

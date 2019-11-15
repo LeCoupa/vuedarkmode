@@ -314,7 +314,7 @@ $statuses: "error", "normal", "success", "warning";
       display: flex;
       overflow: hidden;
       box-sizing: border-box;
-      background-color: mdg($darkTheme, "backgrounds", "default", "primary");
+      background-color: mdg($dark, "backgrounds", "default", "primary");
       border-width: 1px;
       border-style: solid;
       user-select: none;
@@ -325,19 +325,18 @@ $statuses: "error", "normal", "success", "warning";
         overflow: hidden;
         align-items: center;
         flex: 1;
-        border-bottom: 1px solid
-          mdg($darkTheme, "borders", "default", "primary");
-        color: mdg($darkTheme, "fonts", "default", "secondary");
+        border-bottom: 1px solid mdg($dark, "borders", "default", "primary");
+        color: mdg($dark, "fonts", "default", "secondary");
         text-overflow: ellipsis;
         white-space: nowrap;
         transition: all linear 250ms;
 
         &--placeholder {
-          color: mdg($darkTheme, "fonts", "default", "tertiary");
+          color: mdg($dark, "fonts", "default", "tertiary");
         }
 
         &--selected {
-          color: mdg($darkTheme, "fonts", "default", "primary");
+          color: mdg($dark, "fonts", "default", "primary");
         }
 
         &:last-of-type {
@@ -367,7 +366,7 @@ $statuses: "error", "normal", "success", "warning";
         }
 
         &:focus {
-          color: mdg($darkTheme, "fonts", "default", "primary");
+          color: mdg($dark, "fonts", "default", "primary");
         }
       }
     }
@@ -378,12 +377,12 @@ $statuses: "error", "normal", "success", "warning";
 
       &:focus {
         outline: 0;
-        border-color: mdg($darkTheme, "statuses", "active");
+        border-color: mdg($dark, "statuses", "active");
 
         #{$c}__icon {
           &--left,
           &--arrow {
-            color: mdg($darkTheme, "statuses", "active");
+            color: mdg($dark, "statuses", "active");
           }
         }
       }
@@ -434,12 +433,7 @@ $statuses: "error", "normal", "success", "warning";
 
         &:hover,
         &:focus {
-          background-color: mdg(
-            $darkTheme,
-            "backgrounds",
-            "default",
-            "secondary"
-          );
+          background-color: mdg($dark, "backgrounds", "default", "secondary");
         }
       }
     }
@@ -569,18 +563,18 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__field {
           @if ($status != normal) {
-            border-color: mdg($darkTheme, "statuses", $status);
+            border-color: mdg($dark, "statuses", $status);
           } @else {
-            border-color: mdg($darkTheme, "borders", "default", "primary");
+            border-color: mdg($dark, "borders", "default", "primary");
           }
 
           #{$c}__icon {
             &--left,
             &--arrow {
               @if ($status != normal) {
-                color: mdg($darkTheme, "statuses", $status);
+                color: mdg($dark, "statuses", $status);
               } @else {
-                color: mdg($darkTheme, "fonts", "default", "primary");
+                color: mdg($dark, "fonts", "default", "primary");
               }
             }
           }
@@ -619,14 +613,14 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__container {
       #{$c}__field,
       #{$c}__options {
-        border-color: mdg($darkTheme, "statuses", "active");
+        border-color: mdg($dark, "statuses", "active");
       }
 
       #{$c}__field {
         #{$c}__icon {
           &--left,
           &--arrow {
-            color: mdg($darkTheme, "statuses", "active");
+            color: mdg($dark, "statuses", "active");
           }
         }
       }
