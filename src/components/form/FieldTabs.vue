@@ -25,6 +25,7 @@ div(
 )
   field-label(
     v-if="label"
+    @click="onLabelClick"
     :required="labelRequired"
     :size="size"
     class="dm-field-tabs__label"
@@ -149,6 +150,11 @@ export default {
     },
 
     // --> EVENT LISTENERS <--
+
+    onLabelClick(event) {
+      // Select first tab when label is clicked
+      this.onTabClick(this.tabs[0].value, event);
+    },
 
     onTabClick(tabValue, event) {
       let activeTabs;
