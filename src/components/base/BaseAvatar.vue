@@ -159,7 +159,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
         margin-right: 4px;
         width: 30px;
         height: 30px;
-        border: 1px solid mdg($dark, "borders", "default", "secondary");
+        border: 1px solid mdg($dark, "borders", "reverse", "primary");
         border-radius: 4px;
 
         &:last-of-type {
@@ -236,7 +236,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
   &--bordered {
     #{$c}__image {
-      border: 1px solid mdg($dark, "borders", "default", "secondary");
+      border: 1px solid mdg($dark, "borders", "reverse", "primary");
     }
   }
 
