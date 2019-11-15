@@ -104,7 +104,6 @@ $colors: "black", "blue", "green", "red", "orange", "white";
   align-items: center;
   padding: 14px 20px;
   border-radius: 3px;
-  color: mdg($dark, "colors", "white");
   text-align: left;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
   transition: all 250ms linear;
@@ -129,46 +128,47 @@ $colors: "black", "blue", "green", "red", "orange", "white";
     line-height: 22px;
   }
 
-  // --> COLORS <--
-
-  @each $color in $colors {
-    &--#{$color} {
-      background-color: mdg($dark, "colors", $color);
-
-      @if ($color == "white") {
-        color: mdg($dark, "colors", "black");
-      }
-
-      #{$c}__icon {
-        @if ($color == "red") {
-          &:hover {
-            color: mdg($dark, "colors", "black") !important;
-          }
-
-          &:focus {
-            box-shadow: 0 0 0 2px mdg($dark, "colors", $color),
-              0 0 0 3px mdg($dark, "colors", "black");
-            color: mdg($dark, "colors", "black") !important;
-          }
-        } @else {
-          &:hover {
-            color: mdg($dark, "colors", "red") !important;
-          }
-
-          &:focus {
-            box-shadow: 0 0 0 2px mdg($dark, "colors", $color),
-              0 0 0 3px mdg($dark, "colors", "red");
-            color: mdg($dark, "colors", "red") !important;
-          }
-        }
-      }
-    }
-  }
-
   // --> THEMES <--
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      color: mdg($theme, "colors", "white");
+
+      // --> COLORS <--
+
+      @each $color in $colors {
+        &#{$c}--#{$color} {
+          background-color: mdg($theme, "colors", $color);
+
+          @if ($color == "white") {
+            color: mdg($theme, "colors", "black");
+          }
+
+          #{$c}__icon {
+            @if ($color == "red") {
+              &:hover {
+                color: mdg($theme, "colors", "black") !important;
+              }
+
+              &:focus {
+                box-shadow: 0 0 0 2px mdg($theme, "colors", $color),
+                  0 0 0 3px mdg($theme, "colors", "black");
+                color: mdg($theme, "colors", "black") !important;
+              }
+            } @else {
+              &:hover {
+                color: mdg($theme, "colors", "red") !important;
+              }
+
+              &:focus {
+                box-shadow: 0 0 0 2px mdg($theme, "colors", $color),
+                  0 0 0 3px mdg($theme, "colors", "red");
+                color: mdg($theme, "colors", "red") !important;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
