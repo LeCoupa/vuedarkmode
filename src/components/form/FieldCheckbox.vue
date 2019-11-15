@@ -23,18 +23,20 @@ div(
     }
   ]`
 )
-  .dm-field-checkbox__container
+  div(
+    @keypress.prevent="onKeypress"
+    :class=`[
+      "dm-field-checkbox__container",
+      "js-tag-for-autofocus",
+      {
+        "dm-field-checkbox__container--active": innerValue
+      }
+    ]`
+    tabindex="0"
+  )
     div(
       @click="onClick"
-      @keypress.prevent="onKeypress"
-      :class=`[
-        "dm-field-checkbox__field",
-        "js-tag-for-autofocus",
-        {
-          "dm-field-checkbox__field--active": innerValue
-        }
-      ]`
-      tabindex="0"
+      class="dm-field-checkbox__field"
     )
       span.dm-field-checkbox__tick
 
@@ -81,14 +83,6 @@ export default {
   },
 
   methods: {
-    // --> HELPERS <--
-
-    focusCheckbox() {
-      const input = this.$el.querySelector(".js-tag-for-autofocus");
-
-      input.focus();
-    },
-
     // --> EVENT LISTENERS <--
 
     onClick(event) {
@@ -96,15 +90,13 @@ export default {
 
       this.innerValue = value;
 
-      this.focusCheckbox();
-
       this.$emit("change", value, this.name, event);
       this.$emit("input", value); // Synchronization for v-model
     },
 
     onKeypress(event) {
       if (event.code === "Space") {
-        event.target.click();
+        this.onClick(event);
       }
     }
   }
@@ -136,12 +128,12 @@ $statuses: "error", "normal", "success", "warning";
   #{$c}__container {
     display: flex;
     align-items: center;
+    outline: 0;
 
     #{$c}__field {
       display: flex;
       align-items: center;
       justify-content: center;
-      outline: 0;
       border: 1px solid mdg($dark, "borders", "default", "primary");
       border-radius: 3px;
       background-color: mdg($dark, "backgrounds", "default", "primary");
@@ -157,12 +149,6 @@ $statuses: "error", "normal", "success", "warning";
         transition: all linear 250ms;
         transform: rotate(45deg);
       }
-
-      &--active {
-        #{$c}__tick {
-          border-color: mdg($dark, "borders", "reverse", "primary");
-        }
-      }
     }
 
     #{$c}__label {
@@ -170,6 +156,14 @@ $statuses: "error", "normal", "success", "warning";
       margin-bottom: 0;
       color: mdg($dark, "fonts", "default", "primary");
       font-weight: 400;
+    }
+
+    &--active {
+      #{$c}__field {
+        #{$c}__tick {
+          border-color: mdg($dark, "borders", "reverse", "primary");
+        }
+      }
     }
   }
 
@@ -211,13 +205,21 @@ $statuses: "error", "normal", "success", "warning";
   @each $status in $statuses {
     &--#{$status} {
       #{$c}__container {
-        #{$c}__field {
-          &--active {
+        &--active {
+          #{$c}__field {
             border-color: mdg($dark, "statuses", $status);
             background: mdg($dark, "statuses", $status);
           }
+        }
 
-          &:focus {
+        &:hover {
+          #{$c}__field {
+            border-color: mdg($dark, "statuses", $status);
+          }
+        }
+
+        &:focus {
+          #{$c}__field {
             box-shadow: 0
                 0
                 0
@@ -225,12 +227,6 @@ $statuses: "error", "normal", "success", "warning";
                 mdg($dark, "backgrounds", "default", "primary"),
               0 0 0 3px mdg($dark, "statuses", $status);
             transition: box-shadow linear 0s;
-          }
-        }
-
-        &:hover {
-          #{$c}__field {
-            border-color: mdg($dark, "statuses", $status);
           }
         }
       }
