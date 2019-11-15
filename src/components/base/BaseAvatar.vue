@@ -156,6 +156,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
     outline: 0;
     background-size: cover;
     user-select: none;
+    transition: all linear 0s;
 
     #{$c}__secondaries {
       display: flex;
@@ -165,7 +166,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
         margin-right: 4px;
         width: 30px;
         height: 30px;
-        border: 1px solid mdg($dark, "borders", "reverse", "primary");
+        border-width: 1px;
+        border-style: solid;
         border-radius: 4px;
 
         &:last-of-type {
@@ -242,7 +244,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
   &--bordered {
     #{$c}__image {
-      border: 1px solid mdg($dark, "borders", "reverse", "primary");
+      border-width: 1px;
+      border-style: solid;
     }
   }
 
@@ -254,14 +257,6 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
   &--clickable {
     cursor: pointer;
-
-    #{$c}__image {
-      &:focus {
-        box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
-          0 0 0 3px mdg($dark, "statuses", "active");
-        transition: box-shadow linear 0s;
-      }
-    }
   }
 
   &--secondaries {
@@ -276,17 +271,48 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
     }
   }
 
-  &--shadow {
-    #{$c}__image {
-      box-shadow: 0 1px 3px 0
-        rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
-    }
-  }
-
   // --> THEMES <--
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      #{$c}__image {
+        #{$c}__secondaries {
+          #{$c}__secondary {
+            border-color: mdg($theme, "borders", "reverse", "primary");
+          }
+        }
+      }
+
+      // --> BOOLEANS <--
+
+      &#{$c}--bordered {
+        #{$c}__image {
+          border-color: mdg($theme, "borders", "reverse", "primary");
+        }
+      }
+
+      &#{$c}--clickable {
+        #{$c}__image {
+          &:focus {
+            box-shadow: 0
+                0
+                0
+                2px
+                mdg($theme, "backgrounds", "default", "primary"),
+              0 0 0 3px mdg($theme, "statuses", "active");
+          }
+        }
+      }
+
+      &#{$c}--shadow {
+        #{$c}__image {
+          box-shadow: 0
+            1px
+            3px
+            0
+            rgba(mdg($theme, "box-shadows", "default", "primary"), 0.6);
+        }
+      }
     }
   }
 }
