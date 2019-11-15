@@ -31,7 +31,7 @@ div(
         "dm-field-checkbox__field",
         "js-tag-for-autofocus",
         {
-          "dm-field-checkbox__field--checked": innerValue
+          "dm-field-checkbox__field--active": innerValue
         }
       ]`
       tabindex="0"
@@ -158,7 +158,7 @@ $statuses: "error", "normal", "success", "warning";
         transform: rotate(45deg);
       }
 
-      &--checked {
+      &--active {
         #{$c}__tick {
           border-color: mdg($dark, "borders", "reverse", "primary");
         }
@@ -212,7 +212,7 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$status} {
       #{$c}__container {
         #{$c}__field {
-          &--checked {
+          &--active {
             border-color: mdg($dark, "statuses", $status);
             background: mdg($dark, "statuses", $status);
           }
