@@ -116,10 +116,6 @@ $colors: "black", "blue", "green", "red", "orange", "white";
     outline: 0;
     border-radius: 100%;
     transition: all 250ms linear;
-
-    &:focus {
-      transition: box-shadow linear 0s;
-    }
   }
 
   #{$c}__slot {

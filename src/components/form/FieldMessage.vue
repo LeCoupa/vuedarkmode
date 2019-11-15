@@ -147,14 +147,6 @@ $statuses: "description", "error", "info", "success", "warning";
     margin-right: 5px;
   }
 
-  // --> STATUSES <--
-
-  @each $status in $statuses {
-    &--#{$status} {
-      color: mdg($dark, "statuses", $status);
-    }
-  }
-
   // --> SIZES <--
 
   @each $size in $sizes {
@@ -172,6 +164,13 @@ $statuses: "description", "error", "info", "success", "warning";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      // --> STATUSES <--
+
+      @each $status in $statuses {
+        &#{$c}--#{$status} {
+          color: mdg($theme, "statuses", $status);
+        }
+      }
     }
   }
 }

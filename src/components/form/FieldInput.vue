@@ -346,7 +346,6 @@ $statuses: "error", "normal", "success", "warning";
     display: flex;
     overflow: hidden;
     align-items: center;
-    background-color: mdg($dark, "backgrounds", "default", "primary");
     transition: all linear 250ms;
     user-select: none;
 
@@ -355,17 +354,17 @@ $statuses: "error", "normal", "success", "warning";
       align-items: center;
       flex: 0 0 auto;
       height: 100%;
-      background-color: mdg($dark, "backgrounds", "default", "secondary");
-      color: mdg($dark, "fonts", "default", "primary");
       user-select: none;
       cursor: default;
 
       &--append {
-        border-left: 1px solid mdg($dark, "borders", "default", "primary");
+        border-left-style: solid;
+        border-left-width: 1px;
       }
 
       &--prepend {
-        border-right: 1px solid mdg($dark, "borders", "default", "primary");
+        border-right-style: solid;
+        border-right-width: 1px;
       }
 
       &--clickable {
@@ -394,22 +393,9 @@ $statuses: "error", "normal", "success", "warning";
       height: 100%;
       outline: 0;
       border: none;
-      background-color: mdg($dark, "backgrounds", "default", "primary");
-      color: mdg($dark, "fonts", "default", "primary");
-
-      &::placeholder {
-        color: mdg($dark, "fonts", "default", "tertiary");
-        transition: color linear 250ms;
-      }
 
       &:disabled {
         cursor: not-allowed;
-      }
-
-      &:-webkit-autofill {
-        box-shadow: 0 0 0 30px mdg($dark, "backgrounds", "default", "primary") inset !important;
-
-        -webkit-text-fill-color: mdg($dark, "fonts", "default", "primary") !important;
       }
     }
 
@@ -441,23 +427,6 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 
-  // --> STATUSES <--
-
-  @each $status in $statuses {
-    &--#{$status} {
-      #{$c}__container {
-        @if ($status != normal) {
-          border-color: mdg($dark, "statuses", $status) !important;
-          // Override focused state
-          color: mdg($dark, "statuses", $status) !important;
-        } @else {
-          border-color: mdg($dark, "borders", "default", "primary");
-          color: mdg($dark, "fonts", "default", "primary");
-        }
-      }
-    }
-  }
-
   // --> BOOLEANS <--
 
   &--borders {
@@ -473,7 +442,6 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__container {
       #{$c}__icon {
         &--right {
-          color: mdg($dark, "colors", "white");
           opacity: 0.8;
           transition: opacity 250ms linear;
           pointer-events: auto;
@@ -493,13 +461,6 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__container {
       pointer-events: none;
       cursor: not-allowed;
-    }
-  }
-
-  &--focused {
-    #{$c}__container {
-      border-color: mdg($dark, "statuses", "active");
-      color: mdg($dark, "statuses", "active");
     }
   }
 
@@ -533,6 +494,78 @@ $statuses: "error", "normal", "success", "warning";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      #{$c}__container {
+        background-color: mdg($theme, "backgrounds", "default", "primary");
+
+        #{$c}__block {
+          background-color: mdg($theme, "backgrounds", "default", "secondary");
+          color: mdg($theme, "fonts", "default", "primary");
+
+          &--append {
+            border-left-color: mdg($theme, "borders", "default", "primary");
+          }
+
+          &--prepend {
+            border-right-color: mdg($theme, "borders", "default", "primary");
+          }
+        }
+
+        #{$c}__field {
+          background-color: mdg($theme, "backgrounds", "default", "primary");
+          color: mdg($theme, "fonts", "default", "primary");
+
+          &::placeholder {
+            color: mdg($theme, "fonts", "default", "tertiary");
+          }
+
+          &:-webkit-autofill {
+            box-shadow: 0
+              0
+              0
+              30px
+              mdg($theme, "backgrounds", "default", "primary")
+              inset !important;
+
+            -webkit-text-fill-color: mdg($theme, "fonts", "default", "primary") !important;
+          }
+        }
+      }
+
+      // --> STATUSES <--
+
+      @each $status in $statuses {
+        &#{$c}--#{$status} {
+          #{$c}__container {
+            @if ($status != normal) {
+              border-color: mdg($theme, "statuses", $status) !important;
+              // Override focused state
+              color: mdg($theme, "statuses", $status) !important;
+            } @else {
+              border-color: mdg($theme, "borders", "default", "primary");
+              color: mdg($theme, "fonts", "default", "primary");
+            }
+          }
+        }
+      }
+
+      // --> BOOLEANS <--
+
+      &#{$c}--clearable {
+        #{$c}__container {
+          #{$c}__icon {
+            &--right {
+              color: mdg($theme, "colors", "white");
+            }
+          }
+        }
+      }
+
+      &#{$c}--focused {
+        #{$c}__container {
+          border-color: mdg($theme, "statuses", "active");
+          color: mdg($theme, "statuses", "active");
+        }
+      }
     }
   }
 }

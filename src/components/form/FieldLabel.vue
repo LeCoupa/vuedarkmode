@@ -83,7 +83,6 @@ $sizes: "mini", "small", "default", "medium", "large";
 #{$c} {
   display: block;
   margin-bottom: 10px;
-  color: mdg($dark, "fonts", "default", "secondary");
   font-weight: 500;
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
   user-select: none;
@@ -92,7 +91,6 @@ $sizes: "mini", "small", "default", "medium", "large";
 
   #{$c}__required {
     margin-left: 5px;
-    color: mdg($dark, "colors", "red");
   }
 
   // --> SIZES <--
@@ -120,6 +118,11 @@ $sizes: "mini", "small", "default", "medium", "large";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      color: mdg($theme, "fonts", "default", "secondary");
+
+      #{$c}__required {
+        color: mdg($theme, "colors", "red");
+      }
     }
   }
 }

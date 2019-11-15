@@ -158,8 +158,6 @@ $statuses: "error", "normal", "success", "warning";
       border-width: 2px;
       border-style: solid;
       border-radius: 100%;
-      background-color: rgba(mdg($dark, "backgrounds", "default", "primary"), 0.9);
-      box-shadow: 0 1px 5px 0 rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
       transition: all linear 250ms;
       cursor: pointer;
 
@@ -169,10 +167,6 @@ $statuses: "error", "normal", "success", "warning";
         left: 50%;
         margin-top: -1px;
         transform: translate(-50%, -50%);
-      }
-
-      &:hover {
-        border-color: mdg($dark, "statuses", "active");
       }
     }
 
@@ -205,26 +199,6 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 
-  // --> STATUSES <--
-
-  @each $status in $statuses {
-    &--#{$status} {
-      #{$c}__upload {
-        @if ($status != normal) {
-          border-color: mdg($dark, "statuses", $status);
-        } @else {
-          border-color: mdg($dark, "borders", "reverse", "primary");
-        }
-
-        &:focus {
-          box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
-            0 0 0 3px mdg($dark, "statuses", $status);
-          transition: box-shadow linear 0s;
-        }
-      }
-    }
-  }
-
   // --> BOOLEANS <--
 
   &--disabled {
@@ -234,10 +208,6 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__upload {
         pointer-events: none;
         cursor: not-allowed;
-
-        &:hover {
-          border-color: mdg($dark, "colors", "red");
-        }
       }
     }
   }
@@ -250,6 +220,47 @@ $statuses: "error", "normal", "success", "warning";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      #{$c}__container {
+        #{$c}__upload {
+          background-color: rgba(mdg($theme, "backgrounds", "default", "primary"), 0.9);
+          box-shadow: 0 1px 5px 0 rgba(mdg($theme, "box-shadows", "default", "primary"), 0.6);
+
+          &:hover {
+            border-color: mdg($theme, "statuses", "active");
+          }
+        }
+      }
+
+      // --> STATUSES <--
+
+      @each $status in $statuses {
+        &#{$c}--#{$status} {
+          #{$c}__upload {
+            @if ($status != normal) {
+              border-color: mdg($theme, "statuses", $status);
+            } @else {
+              border-color: mdg($theme, "borders", "reverse", "primary");
+            }
+
+            &:focus {
+              box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
+                0 0 0 3px mdg($theme, "statuses", $status);
+            }
+          }
+        }
+      }
+
+      // --> BOOLEANS <--
+
+      &#{$c}--disabled {
+        #{$c}__container {
+          #{$c}__upload {
+            &:hover {
+              border-color: mdg($theme, "colors", "red");
+            }
+          }
+        }
+      }
     }
   }
 }

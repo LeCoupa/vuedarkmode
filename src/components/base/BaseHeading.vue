@@ -113,7 +113,6 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
 
 #{$c} {
   margin: 0;
-  color: mdg($dark, "fonts", "default", "primary");
   font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
 
   // --> TAGS <--
@@ -200,6 +199,8 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      color: mdg($theme, "fonts", "default", "primary");
+
       // --> COLORS <--
 
       @each $color in $colors {

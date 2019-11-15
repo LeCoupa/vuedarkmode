@@ -153,16 +153,15 @@ $statuses: "error", "normal", "success", "warning";
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid mdg($dark, "borders", "default", "primary");
+        border-width: 1px;
+        border-style: solid;
         border-radius: 100%;
-        background-color: mdg($dark, "backgrounds", "default", "primary");
         transition: all linear 250ms;
         cursor: pointer;
 
         #{$c}__dot {
           flex: 0 0 auto;
           border-radius: 100%;
-          background-color: mdg($dark, "backgrounds", "default", "primary");
           transition: all linear 250ms;
         }
       }
@@ -171,16 +170,7 @@ $statuses: "error", "normal", "success", "warning";
         flex: 1;
         margin-top: 2px;
         margin-bottom: 0;
-        color: mdg($dark, "fonts", "default", "primary");
         font-weight: 400;
-      }
-
-      &--active {
-        #{$c}__field {
-          #{$c}__dot {
-            background-color: mdg($dark, "backgrounds", "reverse", "primary");
-          }
-        }
       }
     }
   }
@@ -218,37 +208,6 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 
-  // --> STATUSES <--
-
-  @each $status in $statuses {
-    &--#{$status} {
-      #{$c}__container {
-        #{$c}__radio {
-          &--active {
-            #{$c}__field {
-              border-color: mdg($dark, "statuses", $status);
-              background: mdg($dark, "statuses", $status);
-            }
-          }
-
-          &:hover {
-            #{$c}__field {
-              border-color: mdg($dark, "statuses", $status);
-            }
-          }
-
-          &:focus {
-            #{$c}__field {
-              box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
-                0 0 0 3px mdg($dark, "statuses", $status);
-              transition: box-shadow linear 0s;
-            }
-          }
-        }
-      }
-    }
-  }
-
   // --> BOOLEANS <--
 
   &--disabled {
@@ -273,6 +232,60 @@ $statuses: "error", "normal", "success", "warning";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      #{$c}__container {
+        #{$c}__radio {
+          #{$c}__field {
+            border-color: mdg($theme, "borders", "default", "primary");
+            background-color: mdg($theme, "backgrounds", "default", "primary");
+
+            #{$c}__dot {
+              background-color: mdg($theme, "backgrounds", "default", "primary");
+            }
+          }
+
+          #{$c}__label {
+            color: mdg($theme, "fonts", "default", "primary");
+          }
+
+          &--active {
+            #{$c}__field {
+              #{$c}__dot {
+                background-color: mdg($theme, "backgrounds", "reverse", "primary");
+              }
+            }
+          }
+        }
+      }
+
+      // --> STATUSES <--
+
+      @each $status in $statuses {
+        &#{$c}--#{$status} {
+          #{$c}__container {
+            #{$c}__radio {
+              &--active {
+                #{$c}__field {
+                  border-color: mdg($theme, "statuses", $status);
+                  background: mdg($theme, "statuses", $status);
+                }
+              }
+
+              &:hover {
+                #{$c}__field {
+                  border-color: mdg($theme, "statuses", $status);
+                }
+              }
+
+              &:focus {
+                #{$c}__field {
+                  box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
+                    0 0 0 3px mdg($theme, "statuses", $status);
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

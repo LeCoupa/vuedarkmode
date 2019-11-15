@@ -310,7 +310,6 @@ $statuses: "error", "normal", "success", "warning";
       display: flex;
       overflow: hidden;
       box-sizing: border-box;
-      background-color: mdg($dark, "backgrounds", "default", "primary");
       border-width: 1px;
       border-style: solid;
       user-select: none;
@@ -321,19 +320,11 @@ $statuses: "error", "normal", "success", "warning";
         overflow: hidden;
         align-items: center;
         flex: 1;
-        border-bottom: 1px solid mdg($dark, "borders", "default", "primary");
-        color: mdg($dark, "fonts", "default", "secondary");
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
         text-overflow: ellipsis;
         white-space: nowrap;
         transition: all linear 250ms;
-
-        &--placeholder {
-          color: mdg($dark, "fonts", "default", "tertiary");
-        }
-
-        &--selected {
-          color: mdg($dark, "fonts", "default", "primary");
-        }
 
         &:last-of-type {
           border-bottom: none;
@@ -360,10 +351,6 @@ $statuses: "error", "normal", "success", "warning";
         &:focus {
           outline: 0;
         }
-
-        &:focus {
-          color: mdg($dark, "fonts", "default", "primary");
-        }
       }
     }
 
@@ -373,14 +360,6 @@ $statuses: "error", "normal", "success", "warning";
 
       &:focus {
         outline: 0;
-        border-color: mdg($dark, "statuses", "active");
-
-        #{$c}__icon {
-          &--left,
-          &--arrow {
-            color: mdg($dark, "statuses", "active");
-          }
-        }
       }
 
       #{$c}__icon {
@@ -425,11 +404,6 @@ $statuses: "error", "normal", "success", "warning";
           #{$c}__option-label {
             text-decoration: underline;
           }
-        }
-
-        &:hover,
-        &:focus {
-          background-color: mdg($dark, "backgrounds", "default", "secondary");
         }
       }
     }
@@ -552,33 +526,6 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 
-  // --> STATUSES <--
-
-  @each $status in $statuses {
-    &--#{$status} {
-      #{$c}__container {
-        #{$c}__field {
-          @if ($status != normal) {
-            border-color: mdg($dark, "statuses", $status);
-          } @else {
-            border-color: mdg($dark, "borders", "default", "primary");
-          }
-
-          #{$c}__icon {
-            &--left,
-            &--arrow {
-              @if ($status != normal) {
-                color: mdg($dark, "statuses", $status);
-              } @else {
-                color: mdg($dark, "fonts", "default", "primary");
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   // --> BOOLEANS <--
 
   &--clearable {
@@ -606,24 +553,6 @@ $statuses: "error", "normal", "success", "warning";
     width: 100%;
   }
 
-  &--opened {
-    #{$c}__container {
-      #{$c}__field,
-      #{$c}__options {
-        border-color: mdg($dark, "statuses", "active");
-      }
-
-      #{$c}__field {
-        #{$c}__icon {
-          &--left,
-          &--arrow {
-            color: mdg($dark, "statuses", "active");
-          }
-        }
-      }
-    }
-  }
-
   &--with-left-icon {
     #{$c}__container {
       #{$c}__field,
@@ -639,6 +568,98 @@ $statuses: "error", "normal", "success", "warning";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      #{$c}__container {
+        #{$c}__field,
+        #{$c}__options {
+          background-color: mdg($theme, "backgrounds", "default", "primary");
+
+          #{$c}__option {
+            color: mdg($theme, "fonts", "default", "secondary");
+            border-bottom-color: mdg($theme, "borders", "default", "primary");
+
+            &--placeholder {
+              color: mdg($theme, "fonts", "default", "tertiary");
+            }
+
+            &--selected {
+              color: mdg($theme, "fonts", "default", "primary");
+            }
+
+            &:focus {
+              color: mdg($theme, "fonts", "default", "primary");
+            }
+          }
+        }
+
+        #{$c}__field {
+          &:focus {
+            border-color: mdg($theme, "statuses", "active");
+
+            #{$c}__icon {
+              &--left,
+              &--arrow {
+                color: mdg($theme, "statuses", "active");
+              }
+            }
+          }
+        }
+
+        #{$c}__options {
+          #{$c}__option {
+            &:hover,
+            &:focus {
+              background-color: mdg($theme, "backgrounds", "default", "secondary");
+            }
+          }
+        }
+      }
+
+      // --> STATUSES <--
+
+      @each $status in $statuses {
+        &#{$c}--#{$status} {
+          #{$c}__container {
+            #{$c}__field {
+              @if ($status != normal) {
+                border-color: mdg($theme, "statuses", $status);
+              } @else {
+                border-color: mdg($theme, "borders", "default", "primary");
+              }
+
+              #{$c}__icon {
+                &--left,
+                &--arrow {
+                  @if ($status != normal) {
+                    color: mdg($theme, "statuses", $status);
+                  } @else {
+                    color: mdg($theme, "fonts", "default", "primary");
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // --> BOOLEANS <--
+
+      &#{$c}--opened {
+        #{$c}__container {
+          #{$c}__field,
+          #{$c}__options {
+            border-color: mdg($theme, "statuses", "active");
+          }
+
+          #{$c}__field {
+            #{$c}__icon {
+              &--left,
+              &--arrow {
+                color: mdg($theme, "statuses", "active");
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

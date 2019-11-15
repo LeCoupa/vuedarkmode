@@ -234,7 +234,6 @@ $statuses: "error", "normal", "success", "warning";
   #{$c}__container {
     display: inline-flex;
     align-items: center;
-    box-shadow: 0 1px 5px 0 rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
     font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
     cursor: pointer;
 
@@ -247,10 +246,6 @@ $statuses: "error", "normal", "success", "warning";
       border-width: 1px;
       border-style: solid;
       border-color: transparent;
-      border-top-color: mdg($dark, "borders", "default", "primary");
-      border-bottom-color: mdg($dark, "borders", "default", "primary");
-      background: mdg($dark, "backgrounds", "default", "primary");
-      color: mdg($dark, "fonts", "default", "tertiary");
       font-weight: 500;
       transition-timing-function: linear;
       transition-duration: 250ms;
@@ -258,13 +253,11 @@ $statuses: "error", "normal", "success", "warning";
       user-select: none;
 
       &:first-of-type {
-        border-left-color: mdg($dark, "borders", "default", "primary");
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
       }
 
       &:last-of-type {
-        border-right-color: mdg($dark, "borders", "default", "primary");
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
       }
@@ -277,11 +270,7 @@ $statuses: "error", "normal", "success", "warning";
         flex: 0 0 auto;
       }
 
-      // --> BOOLEANS <--
-
       &--active {
-        color: $white;
-
         &:focus {
           #{$c}__label {
             text-decoration: underline;
@@ -295,16 +284,6 @@ $statuses: "error", "normal", "success", "warning";
             text-decoration: underline;
           }
         }
-      }
-
-      // --> INTERACTIONS <--
-
-      &:hover {
-        color: mdg($dark, "fonts", "default", "primary");
-      }
-
-      &:focus {
-        color: mdg($dark, "fonts", "default", "primary");
       }
     }
   }
@@ -321,32 +300,6 @@ $statuses: "error", "normal", "success", "warning";
           height: 32px + (2px * $i);
           font-size: 11px + (1px * $i);
           line-height: 17px + (1px * $i);
-        }
-      }
-    }
-  }
-
-  // --> STATUSES <--
-
-  @each $status in $statuses {
-    &--#{$status} {
-      #{$c}__container {
-        #{$c}__tab {
-          &--active {
-            // "!important" overrides first-of-type and last-of-type
-            border-color: mdg($dark, "statuses", $status) !important;
-            background-color: rgba(mdg($dark, "statuses", $status), 0.4);
-          }
-
-          &--active-previous {
-            // "!important" overrides first-of-type and last-of-type
-            border-left-color: rgba(mdg($dark, "statuses", $status), 0.25) !important;
-          }
-
-          &--active-next {
-            // "!important" overrides first-of-type and last-of-type
-            border-right-color: rgba(mdg($dark, "statuses", $status), 0.25) !important;
-          }
         }
       }
     }
@@ -371,6 +324,62 @@ $statuses: "error", "normal", "success", "warning";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      #{$c}__container {
+        box-shadow: 0 1px 5px 0 rgba(mdg($theme, "box-shadows", "default", "primary"), 0.6);
+
+        #{$c}__tab {
+          border-top-color: mdg($theme, "borders", "default", "primary");
+          border-bottom-color: mdg($theme, "borders", "default", "primary");
+          background: mdg($theme, "backgrounds", "default", "primary");
+          color: mdg($theme, "fonts", "default", "tertiary");
+
+          &:first-of-type {
+            border-left-color: mdg($theme, "borders", "default", "primary");
+          }
+
+          &:last-of-type {
+            border-right-color: mdg($theme, "borders", "default", "primary");
+          }
+
+          &--active {
+            color: mdg($theme, "colors", "white");
+          }
+
+          &:hover {
+            color: mdg($theme, "fonts", "default", "primary");
+          }
+
+          &:focus {
+            color: mdg($theme, "fonts", "default", "primary");
+          }
+        }
+      }
+
+      // --> STATUSES <--
+
+      @each $status in $statuses {
+        &#{$c}--#{$status} {
+          #{$c}__container {
+            #{$c}__tab {
+              &--active {
+                // "!important" overrides first-of-type and last-of-type
+                border-color: mdg($theme, "statuses", $status) !important;
+                background-color: rgba(mdg($theme, "statuses", $status), 0.4);
+              }
+
+              &--active-previous {
+                // "!important" overrides first-of-type and last-of-type
+                border-left-color: rgba(mdg($theme, "statuses", $status), 0.25) !important;
+              }
+
+              &--active-next {
+                // "!important" overrides first-of-type and last-of-type
+                border-right-color: rgba(mdg($theme, "statuses", $status), 0.25) !important;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

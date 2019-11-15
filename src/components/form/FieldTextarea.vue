@@ -244,16 +244,9 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__field {
       width: 100%;
-      background-color: mdg($dark, "backgrounds", "default", "primary");
       height: 100%;
       outline: 0;
       border: none;
-      color: mdg($dark, "fonts", "default", "primary");
-
-      &::placeholder {
-        color: mdg($dark, "backgrounds", "default", "tertiary");
-        transition: color linear 250ms;
-      }
 
       &:disabled {
         cursor: not-allowed;
@@ -271,23 +264,6 @@ $statuses: "error", "normal", "success", "warning";
         padding: (10px + (1px * $i));
         font-size: 12px + (1px * $i);
         line-height: 18px+ (1px * $i);
-      }
-    }
-  }
-
-  // --> STATUSES <--
-
-  @each $status in $statuses {
-    &--#{$status} {
-      #{$c}__container {
-        @if ($status != normal) {
-          // Override focused state
-          border-color: mdg($dark, "statuses", $status) !important;
-          color: mdg($dark, "statuses", $status) !important;
-        } @else {
-          border-color: mdg($dark, "borders", "default", "primary");
-          color: mdg($dark, "fonts", "default", "primary");
-        }
       }
     }
   }
@@ -313,13 +289,6 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 
-  &--focused {
-    #{$c}__container {
-      border-color: mdg($dark, "statuses", "active");
-      color: mdg($dark, "statuses", "active");
-    }
-  }
-
   &--full-width {
     width: 100%;
   }
@@ -336,6 +305,42 @@ $statuses: "error", "normal", "success", "warning";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      #{$c}__container {
+        #{$c}__field {
+          background-color: mdg($theme, "backgrounds", "default", "primary");
+          color: mdg($theme, "fonts", "default", "primary");
+
+          &::placeholder {
+            color: mdg($theme, "backgrounds", "default", "tertiary");
+          }
+        }
+      }
+
+      // --> STATUSES <--
+
+      @each $status in $statuses {
+        &#{$c}--#{$status} {
+          #{$c}__container {
+            @if ($status != normal) {
+              // Override focused state
+              border-color: mdg($theme, "statuses", $status) !important;
+              color: mdg($theme, "statuses", $status) !important;
+            } @else {
+              border-color: mdg($theme, "borders", "default", "primary");
+              color: mdg($theme, "fonts", "default", "primary");
+            }
+          }
+        }
+      }
+
+      // --> BOOLEANS <--
+
+      &#{$c}--focused {
+        #{$c}__container {
+          border-color: mdg($theme, "statuses", "active");
+          color: mdg($theme, "statuses", "active");
+        }
+      }
     }
   }
 }
