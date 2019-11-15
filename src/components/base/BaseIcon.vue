@@ -16,10 +16,10 @@ i(
   @mouseup="onMouseUp"
   :class=`[
     "dm-base-icon",
-    "dm-base-icon--" + style,
     "dm-base-icon--" + theme,
     {
-      "dm-base-icon--clickable": $listeners.click
+      "dm-base-icon--clickable": $listeners.click,
+      "dm-base-icon--outlined": outlined
     }
   ]`
   :style=`{
@@ -55,16 +55,13 @@ export default {
       type: String,
       required: true
     },
+    outlined: {
+      type: Boolean,
+      default: false
+    },
     size: {
       type: String,
       default: "24px"
-    },
-    style: {
-      type: String,
-      default: "filled",
-      validator(x) {
-        return ["filled", "outlined"].includes(x);
-      }
     }
   },
 
@@ -142,6 +139,7 @@ export default {
   letter-spacing: normal;
   font-weight: normal;
   font-style: normal;
+  font-family: "Material Icons";
   font-feature-settings: "liga";
   line-height: 1;
   direction: ltr;
@@ -150,20 +148,14 @@ export default {
 
   @include no-tap-highlight-color;
 
-  // --> STYLES <--
-
-  &--filled {
-    font-family: "Material Icons";
-  }
-
-  &--outlined {
-    font-family: "Material Icons Outlined";
-  }
-
   // --> BOOLEANS <--
 
   &--clickable {
     cursor: pointer;
+  }
+
+  &--outlined {
+    font-family: "Material Icons Outlined";
   }
 }
 
