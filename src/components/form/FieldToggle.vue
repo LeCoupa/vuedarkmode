@@ -23,20 +23,27 @@ div(
     }
   ]`
 )
-  .dm-field-toggle__container
-    input(
-      @change="onFieldChange"
-      :checked="innerValue"
-      :disabled="disabled"
-      :id="uuid"
-      :name="name"
-      class="dm-field-toggle__field js-tag-for-autofocus"
-      type="checkbox"
+  div(
+    @keypress.prevent="onKeypress"
+    :class=`[
+      "dm-field-toggle__container",
+      "js-tag-for-autofocus",
+      {
+        "dm-field-toggle__container--active": innerValue,
+        "dm-field-toggle__container--inactive": !innerValue
+      }
+    ]`
+    tabindex="0"
+  )
+    div(
+      @click="onClick"
+      class="dm-field-toggle__field"
     )
+      span.dm-field-toggle__handle
 
     field-label(
       v-if="label"
-      :forField="uuid"
+      @click="onClick"
       :required="labelRequired"
       :size="size"
       :uppercase="false"
@@ -79,13 +86,19 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
-    onFieldChange(event) {
-      const value = event.target.checked;
+    onClick(event) {
+      const value = !this.innerValue;
 
       this.innerValue = value;
 
       this.$emit("change", value, this.name, event);
       this.$emit("input", value); // Synchronization for v-model
+    },
+
+    onKeypress(event) {
+      if (event.code === "Space") {
+        this.onClick(event);
+      }
     }
   }
 };
@@ -115,69 +128,48 @@ $statuses: "error", "normal", "success", "warning";
 
   #{$c}__container {
     display: flex;
+    outline: 0;
 
     #{$c}__field {
-      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 0;
-      outline: 0;
-      border: none;
-      border-radius: 100px;
-      -webkit-appearance: none;
+      border: 1px solid mdg($dark, "borders", "default", "primary");
+      border-radius: 20px;
+      background-color: rgba(
+        mdg($dark, "backgrounds", "default", "secondary"),
+        0.4
+      );
+      transition: all linear 250ms;
       cursor: pointer;
 
-      &:before,
-      &:after {
-        position: absolute;
-        display: inline-block;
-        box-sizing: border-box;
+      #{$c}__handle {
+        flex: 0 0 auto;
+        border-radius: 100%;
+        background: mdg($dark, "backgrounds", "reverse", "primary");
         transition: all linear 250ms;
       }
 
-      &:before {
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 1px solid mdg($dark, "borders", "default", "primary");
-        border-radius: 20px;
-        background-color: rgba(
-          mdg($dark, "backgrounds", "default", "secondary"),
-          0.4
-        );
-        content: "";
-      }
-
-      &:after {
-        top: 4px;
-        right: initial;
-        border-radius: 100%;
-        background: mdg($dark, "backgrounds", "reverse", "primary");
-        transform: translateX(4px);
-        content: "";
-      }
-
       &:hover {
-        &:before {
-          border-color: lighten(
-            mdg($dark, "borders", "default", "primary"),
-            10%
-          );
-        }
-      }
-
-      &:not(:checked) {
-        + #{$c}__label {
-          color: mdg($dark, "fonts", "default", "secondary");
-          transition: color 250ms linear;
-        }
+        border-color: lighten(mdg($dark, "borders", "default", "primary"), 10%);
       }
     }
 
     #{$c}__label {
       flex: 1;
+      margin-top: 1px;
       margin-bottom: 0;
       color: mdg($dark, "fonts", "default", "primary");
       font-weight: 400;
+      opacity: 0.8;
+      transition: opacity 250ms linear;
+    }
+
+    &--active {
+      #{$c}__label {
+        opacity: 1;
+      }
     }
   }
 
@@ -190,25 +182,29 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__field {
           margin-right: 6px + (1px * $i);
-          width: (18px + (2px * $i)) * 2;
-          height: 18px + (2px * $i);
+          width: (16px + (2px * $i)) * 2;
+          height: 16px + (2px * $i);
 
-          &:after {
-            width: 10px + (2px * $i);
-            height: 10px + (2px * $i);
+          #{$c}__handle {
+            width: 10px + (1px * $i);
+            height: 10px + (1px * $i);
           }
+        }
 
-          &:checked {
-            &:after {
-              transform: translateX(
-                ((18px + (2px * $i)) * 2) - (10px + (2px * $i) + 4px)
-              );
+        &--inactive {
+          #{$c}__field {
+            #{$c}__handle {
+              transform: translateX(-8px - (1px * $i));
             }
           }
         }
 
-        #{$c}__label {
-          line-height: 18px + (2px * $i);
+        &--active {
+          #{$c}__field {
+            #{$c}__handle {
+              transform: translateX(8px + (1px * $i));
+            }
+          }
         }
       }
     }
@@ -221,25 +217,25 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__field {
           @if ($status != normal) {
-            &:before {
-              border-color: mdg($dark, "statuses", $status);
-            }
+            border-color: mdg($dark, "statuses", $status);
           }
+        }
 
-          &:checked {
-            &:before {
-              border-color: mdg($dark, "statuses", $status);
-              background-color: rgba(mdg($dark, "statuses", $status), 0.4);
-            }
+        &--active {
+          #{$c}__field {
+            border-color: mdg($dark, "statuses", $status);
+            background-color: rgba(mdg($dark, "statuses", $status), 0.4);
           }
+        }
 
-          &:hover {
-            &:before {
-              border-color: lighten(mdg($dark, "statuses", $status), 10%);
-            }
+        &:hover {
+          #{$c}__field {
+            border-color: lighten(mdg($dark, "statuses", $status), 10%);
           }
+        }
 
-          &:focus {
+        &:focus {
+          #{$c}__field {
             box-shadow: 0
                 0
                 0
