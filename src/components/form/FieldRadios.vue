@@ -142,7 +142,6 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__radio {
       display: flex;
-      margin-bottom: 20px;
       outline: 0;
 
       &:last-of-type {
@@ -193,6 +192,8 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$size} {
       #{$c}__container {
         #{$c}__radio {
+          margin-bottom: 16px + (1px * $i);
+
           #{$c}__field {
             margin-right: 6px + (1px * $i);
             width: 12px + (2px * $i);
