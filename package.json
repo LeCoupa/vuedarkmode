@@ -36,7 +36,7 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
   },
   "dependencies": {
-    "@growthbunker/stylesheets": "0.1.5",
+    "@growthbunker/stylesheets": "0.1.6",
     "v-click-outside": "2.1.4",
     "v-hotkey": "0.6.0",
     "vee-validate": "3.0.11"
