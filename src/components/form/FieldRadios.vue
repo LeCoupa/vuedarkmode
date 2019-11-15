@@ -118,7 +118,6 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/settings/_themes.scss";
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
-@import "src/assets/stylesheets/settings/_datasets.scss";
 
 // VARIABLES
 $c: ".dm-field-radios";
