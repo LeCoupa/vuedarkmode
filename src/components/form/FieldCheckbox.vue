@@ -142,18 +142,16 @@ $statuses: "error", "normal", "success", "warning";
       align-items: center;
       justify-content: center;
       outline: 0;
-      border: 1px solid solid mdg($darkTheme, "borders", "default", "primary");
+      border: 1px solid mdg($darkTheme, "borders", "default", "primary");
       border-radius: 3px;
-      background-color: solid
-        mdg($darkTheme, "backgrounds", "default", "primary");
+      background-color: mdg($darkTheme, "backgrounds", "default", "primary");
       transition: all linear 250ms;
       cursor: pointer;
 
       #{$c}__tick {
         flex: 0 0 auto;
         margin-top: -2px;
-        border: 2px solid solid
-          mdg($darkTheme, "backgrounds", "reverse", "primary");
+        border: 2px solid mdg($darkTheme, "backgrounds", "default", "primary");
         border-top: none;
         border-left: none;
         transition: all linear 250ms;
@@ -162,7 +160,7 @@ $statuses: "error", "normal", "success", "warning";
 
       &--checked {
         #{$c}__tick {
-          border-color: solid mdg($darkTheme, "borders", "reverse", "primary");
+          border-color: mdg($darkTheme, "borders", "reverse", "primary");
         }
       }
     }
@@ -170,7 +168,7 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__label {
       flex: 1;
       margin-bottom: 0;
-      color: solid mdg($darkTheme, "fonts", "default", "primary");
+      color: mdg($darkTheme, "fonts", "default", "primary");
       font-weight: 400;
     }
   }
@@ -189,20 +187,14 @@ $statuses: "error", "normal", "success", "warning";
 
           #{$c}__tick {
             @if ($size == "mini") {
+              width: 3px;
+              height: 6px;
+            } @else if ($size == "small" or $size == "default") {
               width: 4px;
               height: 8px;
-            } @else if ($size == "small") {
-              width: 4px;
-              height: 8px;
-            } @else if ($size == "default") {
+            } @else if ($size == "medium" or $size == "large") {
               width: 5px;
               height: 10px;
-            } @else if ($size == "medium") {
-              width: 5px;
-              height: 10px;
-            } @else if ($size == "large") {
-              width: 6px;
-              height: 12px;
             }
           }
         }
@@ -226,7 +218,11 @@ $statuses: "error", "normal", "success", "warning";
           }
 
           &:focus {
-            box-shadow: 0 0 0 2px $mirage,
+            box-shadow: 0
+                0
+                0
+                2px
+                mdg($darkTheme, "backgrounds", "default", "primary"),
               0 0 0 3px mdg($darkTheme, "statuses", $status);
             transition: box-shadow linear 0s;
           }

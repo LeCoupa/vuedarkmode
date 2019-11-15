@@ -389,7 +389,11 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   @each $color in $colors {
     &--#{$color} {
       &:focus {
-        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0),
+        box-shadow: 0
+            0
+            0
+            2px
+            mdg($darkTheme, "backgrounds", "default", "primary"),
           0 0 0 3px lighten(mdg($darkTheme, "colors", $color), 10%);
       }
 

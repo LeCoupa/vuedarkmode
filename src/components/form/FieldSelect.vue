@@ -314,7 +314,7 @@ $statuses: "error", "normal", "success", "warning";
       display: flex;
       overflow: hidden;
       box-sizing: border-box;
-      background-color: mdg($darkTheme, "backgrounds", "default", "primary") y;
+      background-color: mdg($darkTheme, "backgrounds", "default", "primary");
       border-width: 1px;
       border-style: solid;
       user-select: none;

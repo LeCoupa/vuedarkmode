@@ -359,15 +359,6 @@ $statuses: "error", "normal", "success", "warning";
       user-select: none;
       cursor: default;
 
-      #{$c}__field {
-        background-color: mdg($darkTheme, "backgrounds", "default", "primary");
-
-        &:-webkit-autofill {
-          box-shadow: 0 0 0 30px
-            mdg($darkTheme, "backgrounds", "default", "primary") inset !important;
-        }
-      }
-
       &--append {
         border-left: 1px solid mdg($darkTheme, "borders", "default", "primary");
       }
@@ -399,13 +390,14 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__field {
       flex: 1;
       width: 0;
+      background-color: mdg($darkTheme, "backgrounds", "default", "primary");
       height: 100%;
       outline: 0;
       border: none;
       color: mdg($darkTheme, "fonts", "default", "primary");
 
       &::placeholder {
-        color: mdg($darkTheme, "borders", "default", "tertiary");
+        color: mdg($darkTheme, "fonts", "default", "tertiary");
         transition: color linear 250ms;
       }
 
@@ -414,6 +406,8 @@ $statuses: "error", "normal", "success", "warning";
       }
 
       &:-webkit-autofill {
+        box-shadow: 0 0 0 30px
+          mdg($darkTheme, "backgrounds", "default", "primary") inset !important;
         -webkit-text-fill-color: mdg(
           $darkTheme,
           "fonts",

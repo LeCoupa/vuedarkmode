@@ -251,7 +251,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
     #{$c}__image {
       &:focus {
-        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0),
+        box-shadow: 0 0 0 2px
+            mdg($darkTheme, "backgrounds", "default", "primary"),
           0 0 0 3px mdg($darkTheme, "statuses", "active");
         transition: box-shadow linear 0s;
       }

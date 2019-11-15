@@ -181,7 +181,12 @@ $statuses: "error", "normal", "success", "warning";
           width: 6px;
           height: 6px;
           border-radius: 100%;
-          background-color: mdg($darkTheme, "borders", "default", "primary");
+          background-color: mdg(
+            $darkTheme,
+            "backgrounds",
+            "default",
+            "primary"
+          );
           transform: translate(-50%, -50%);
           content: "";
         }
@@ -256,7 +261,11 @@ $statuses: "error", "normal", "success", "warning";
             }
 
             &:focus {
-              box-shadow: 0 0 0 2px rgba(0, 0, 0, 0),
+              box-shadow: 0
+                  0
+                  0
+                  2px
+                  mdg($darkTheme, "backgrounds", "default", "primary"),
                 0 0 0 3px mdg($darkTheme, "statuses", $status);
               transition: box-shadow linear 0s;
             }
