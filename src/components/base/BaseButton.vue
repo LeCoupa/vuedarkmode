@@ -318,7 +318,6 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/settings/_themes.scss";
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
-@import "src/assets/stylesheets/settings/_datasets.scss";
 
 // VARIABLES
 $c: ".dm-base-button";
@@ -360,15 +359,15 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     #{$c}__item {
       display: block;
       padding: 10px 14px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: 1px solid mdg($darkTheme, "borders", "default", "primary");
       border-top: none;
-      background: $white;
-      color: $oxford-blue;
+      background: mdg($darkTheme, "backgrounds", "default", "primary");
+      color: mdg($darkTheme, "fonts", "default", "secondary");
       white-space: nowrap;
       transition: all 250ms linear;
 
       &:first-of-type {
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 1px solid mdg($darkTheme, "borders", "default", "primary");
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
       }
@@ -379,7 +378,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
       }
 
       &:hover {
-        background-color: darken($white, 5%);
+        background-color: mdg($darkTheme, "borders", "default", "secondary");
+        color: mdg($darkTheme, "fonts", "default", "primary");
       }
     }
   }
@@ -389,39 +389,34 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   @each $color in $colors {
     &--#{$color} {
       &:focus {
-        box-shadow: 0 0 0 2px $mirage,
-          0 0 0 3px lighten(map-get($mainColors, $color), 10%);
+        box-shadow: 0 0 0 2px rgba(0, 0, 0, 0),
+          0 0 0 3px lighten(mdg($darkTheme, "colors", $color), 10%);
       }
 
       // Reverse buttons have their own defined style (see below)
       &:not(#{$c}--reverse) {
-        background: map-get($mainColors, $color)
+        background: mdg($darkTheme, "colors", $color)
           radial-gradient(
             circle,
             transparent 1%,
-            map-get($mainColors, $color) 1%
+            mdg($darkTheme, "colors", $color) 1%
           )
           center/15000%;
 
-        @if ($color == "black") {
-          border: 1px solid $oxford-blue;
-          background: $ebony-clay
-            radial-gradient(circle, transparent 1%, $ebony-clay 1%)
-            center/15000%;
-        } @else if ($color == "white") {
-          color: $oxford-blue;
+        @if ($color == "white") {
+          color: mdg($darkTheme, "colors", "black");
         }
 
         &:hover {
           &:not(#{$c}--disabled) {
             @if ($color == "black") {
-              background-color: map-get($mainColors, $color);
+              background-color: mdg($darkTheme, "colors", $color);
             } @else if ($color == "white") {
-              background-color: darken(map-get($mainColors, $color), 10%);
+              background-color: darken(mdg($darkTheme, "colors", $color), 10%);
             } @else if ($color == "green") {
-              background-color: lighten(map-get($mainColors, $color), 5%);
+              background-color: lighten(mdg($darkTheme, "colors", $color), 5%);
             } @else {
-              background-color: lighten(map-get($mainColors, $color), 10%);
+              background-color: lighten(mdg($darkTheme, "colors", $color), 10%);
             }
           }
         }
@@ -429,13 +424,13 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
         &:active {
           &:not(#{$c}--disabled) {
             @if ($color == "black") {
-              background-color: map-get($mainColors, $color);
+              background-color: mdg($darkTheme, "colors", $color);
             } @else if ($color == "white") {
-              background-color: darken(map-get($mainColors, $color), 15%);
+              background-color: darken(mdg($darkTheme, "colors", $color), 15%);
             } @else if ($color == "green") {
-              background-color: lighten(map-get($mainColors, $color), 5%);
+              background-color: lighten(mdg($darkTheme, "colors", $color), 5%);
             } @else {
-              background-color: lighten(map-get($mainColors, $color), 15%);
+              background-color: lighten(mdg($darkTheme, "colors", $color), 15%);
             }
           }
         }
@@ -519,7 +514,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
     @each $color in $colors {
       &#{$c}--#{$color} {
-        color: map-get($mainColors, $color);
+        color: mdg($darkTheme, "colors", $color);
       }
     }
   }
@@ -543,35 +538,19 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
   &--reverse {
     background-color: transparent;
-    color: $white;
+    color: mdg($darkTheme, "fonts", "default", "primary");
 
     @each $color in $colors {
       &#{$c}--#{$color} {
-        border-color: map-get($mainColors, $color);
+        border-color: mdg($darkTheme, "colors", $color);
 
         &:hover {
-          @if ($color == "white") {
-            border-color: $azure-radiance;
-          } @else {
-            border-color: $white;
-          }
+          border-color: lighten(mdg($darkTheme, "colors", $color), 10%);
         }
 
         &:active {
-          @if ($color == "white") {
-            background-color: $white;
-            color: $oxford-blue;
-          } @else {
-            background-color: map-get($mainColors, $color);
-          }
-        }
-
-        &:focus {
-          @if ($color == "white") {
-            border-color: $white;
-          } @else {
-            border-color: map-get($mainColors, $color);
-          }
+          // Darken instead
+          border-color: darken(mdg($darkTheme, "colors", $color), 10%);
         }
       }
     }
@@ -584,7 +563,6 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
   &--rounded {
     border-radius: 60px;
-    color: $white;
   }
 
   &--uppercase {
