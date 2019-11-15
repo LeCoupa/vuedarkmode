@@ -139,14 +139,14 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "whit
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
-      box-shadow: 0 1px 5px 0 rgba(mdg($dark, "box-shadows", "default", "primary"), 0.6);
-      color: mdg($dark, "colors", "white");
+      box-shadow: 0 1px 5px 0 rgba(mdg($theme, "box-shadows", "default", "primary"), 0.6);
+      color: mdg($theme, "colors", "white");
 
       // --> COLORS <--
 
       @each $color in $colors {
         &#{$c}--#{$color} {
-          border-color: mdg($dark, "colors", $color);
+          border-color: mdg($theme, "colors", $color);
         }
       }
     }
