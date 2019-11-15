@@ -183,7 +183,7 @@ $statuses: "error", "normal", "success", "warning";
 
         &:hover {
           &:after {
-            background-color: mdg($dark, "backgrounds", "default", "secondary");
+            background-color: mdg($dark, "borders", "default", "primary");
           }
         }
 
