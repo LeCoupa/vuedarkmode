@@ -105,7 +105,6 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "whit
   #{$c}__content {
     display: flex;
     margin-bottom: 10px;
-    color: mdg($dark, "fonts", "default", "primary");
 
     #{$c}__title,
     #{$c}__details,
@@ -139,18 +138,6 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "whit
     }
   }
 
-  // --> COLORS <--
-
-  @each $color in $colors {
-    &--#{$color} {
-      #{$c}__bar {
-        #{$c}__progress {
-          background-color: mdg($dark, "colors", $color);
-        }
-      }
-    }
-  }
-
   // --> BOOLEANS <--
 
   &--with-details-hover {
@@ -177,6 +164,21 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "whit
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      #{$c}__content {
+        color: mdg($theme, "fonts", "default", "primary");
+      }
+
+      // --> COLORS <--
+
+      @each $color in $colors {
+        &#{$c}--#{$color} {
+          #{$c}__bar {
+            #{$c}__progress {
+              background-color: mdg($theme, "colors", $color);
+            }
+          }
+        }
+      }
     }
   }
 }
