@@ -36,12 +36,7 @@ i(
      ************************************************************************* -->
 
 <script>
-// PROJECT: MIXINS
-import ThemeMixin from "../../mixins/ThemeMixin.js"
-
 export default {
-  mixins: [ThemeMixin],
-
   props: {
     color: {
       type: String,
