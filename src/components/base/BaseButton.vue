@@ -94,7 +94,7 @@ import BaseIcon from "./BaseIcon.vue"
 import BaseSpinner from "./BaseSpinner.vue"
 
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js"
+import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
   components: {
@@ -102,7 +102,7 @@ export default {
     BaseSpinner
   },
 
-  mixins: [CommonMixin],
+  mixins: [ThemeMixin],
 
   props: {
     circular: {

@@ -30,10 +30,10 @@ label(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js"
+import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
-  mixins: [CommonMixin],
+  mixins: [ThemeMixin],
 
   props: {
     forField: {

@@ -83,11 +83,11 @@ div(
 
 <script>
 // PROJECT: MIXINS
-import CommonMixin from "../../mixins/CommonMixin.js"
 import FieldMixin from "../../mixins/FieldMixin.js"
+import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
-  mixins: [CommonMixin, FieldMixin],
+  mixins: [FieldMixin, ThemeMixin],
 
   props: {
     borders: {
