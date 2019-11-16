@@ -29,6 +29,7 @@ div(
     @click="onLabelClick"
     :required="labelRequired"
     :size="size"
+    :theme="theme"
     class="dm-field-tabs__label"
   ) {{ label }}
 
@@ -87,6 +88,7 @@ div(
     :show-errors="showErrors"
     :size="size"
     :status="computedMessageStatus"
+    :theme="theme"
   )
 </template>
 

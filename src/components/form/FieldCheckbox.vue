@@ -46,6 +46,7 @@ div(
       @click="onClick"
       :required="labelRequired"
       :size="size"
+      :theme="theme"
       :uppercase="false"
       class="dm-field-checkbox__label"
     ) {{ label }}
@@ -58,6 +59,7 @@ div(
     :show-errors="showErrors"
     :size="size"
     :status="computedMessageStatus"
+    :theme="theme"
   )
 </template>
 

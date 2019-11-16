@@ -36,6 +36,7 @@ div(
     :forField="uuid"
     :required="labelRequired"
     :size="size"
+    :theme="theme"
     class="dm-field-select__label"
   ) {{ label }}
 
@@ -138,6 +139,7 @@ div(
     :show-errors="showErrors"
     :size="size"
     :status="computedMessageStatus"
+    :theme="theme"
   )
 </template>
 

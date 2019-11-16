@@ -49,6 +49,7 @@ div(
         @click="onClick(radio, $event)"
         :required="labelRequired"
         :size="size"
+        :theme="theme"
         :uppercase="false"
         class="dm-field-radios__label"
       ) {{ radio.label }}
@@ -61,6 +62,7 @@ div(
     :show-errors="showErrors"
     :size="size"
     :status="computedMessageStatus"
+    :theme="theme"
   )
 </template>
 

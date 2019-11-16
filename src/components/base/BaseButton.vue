@@ -66,6 +66,7 @@ button(
   base-spinner(
     v-if="loading"
     :color="computedSpinnerColor"
+    :theme="theme"
     class="dm-base-button__spinner"
     size="mini"
   )

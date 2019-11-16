@@ -32,6 +32,7 @@ div(
       field-label(
         :required="labelRequired"
         :size="size"
+        :theme="theme"
         class="dm-field-file__label"
       ) {{ label }}
 
@@ -43,6 +44,7 @@ div(
         :show-errors="showErrors"
         :size="size"
         :status="computedMessageStatus"
+        :theme="theme"
         class="dm-field-file__message"
       )
 
