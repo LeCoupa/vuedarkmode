@@ -313,7 +313,7 @@ $statuses: "error", "normal", "success", "warning";
           color: mdg($theme, "fonts", "default", "primary");
 
           &::placeholder {
-            color: mdg($theme, "backgrounds", "default", "tertiary");
+            color: mdg($theme, "fonts", "default", "tertiary");
           }
         }
       }
