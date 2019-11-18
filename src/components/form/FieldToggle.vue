@@ -235,7 +235,7 @@ $statuses: "error", "normal", "success", "warning";
           background-color: rgba(mdg($theme, "backgrounds", "default", "secondary"), 0.4);
 
           #{$c}__handle {
-            background: mdg($theme, "backgrounds", "reverse", "primary");
+            background: mdg($theme, "colors", "white");
           }
 
           &:hover {
