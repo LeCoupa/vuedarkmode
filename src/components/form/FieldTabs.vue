@@ -344,7 +344,7 @@ $statuses: "error", "normal", "success", "warning";
           }
 
           &--active {
-            color: mdg($theme, "colors", "white");
+            color: mdg($theme, "colors", "white") !important; // Override color for hover and focus
           }
 
           &:hover {
