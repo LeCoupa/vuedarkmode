@@ -175,7 +175,6 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$size} {
       #{$c}__container {
         #{$c}__field {
-          margin-right: 6px + (1px * $i);
           width: (16px + (2px * $i)) * 2;
           height: 16px + (2px * $i);
 
@@ -183,6 +182,10 @@ $statuses: "error", "normal", "success", "warning";
             width: 10px + (1px * $i);
             height: 10px + (1px * $i);
           }
+        }
+
+        #{$c}__label {
+          margin-left: 6px + (1px * $i);
         }
 
         &--inactive {
