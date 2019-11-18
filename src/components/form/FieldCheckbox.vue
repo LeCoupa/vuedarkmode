@@ -231,7 +231,7 @@ $statuses: "error", "normal", "success", "warning";
         &--active {
           #{$c}__field {
             #{$c}__tick {
-              border-color: mdg($theme, "borders", "reverse", "primary");
+              border-color: mdg($theme, "colors", "white");
             }
           }
         }
