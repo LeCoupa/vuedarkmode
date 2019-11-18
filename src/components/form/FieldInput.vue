@@ -360,13 +360,13 @@ $statuses: "error", "normal", "success", "warning";
       cursor: default;
 
       &--append {
-        border-left-style: solid;
         border-left-width: 1px;
+        border-left-style: solid;
       }
 
       &--prepend {
-        border-right-style: solid;
         border-right-width: 1px;
+        border-right-style: solid;
       }
 
       &--clickable {

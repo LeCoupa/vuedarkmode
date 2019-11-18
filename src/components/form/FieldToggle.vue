@@ -243,6 +243,14 @@ $statuses: "error", "normal", "success", "warning";
         #{$c}__label {
           color: mdg($theme, "fonts", "default", "primary");
         }
+
+        &--active {
+          #{$c}__field {
+            #{$c}__handle {
+              background: mdg($theme, "colors", "white");
+            }
+          }
+        }
       }
 
       // --> STATUSES <--
