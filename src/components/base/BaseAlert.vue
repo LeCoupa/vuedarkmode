@@ -147,7 +147,7 @@ $colors: "black", "blue", "green", "orange", "red", "white";
           background-color: mdg($theme, "colors", $color);
 
           @if ($color == "white") {
-            color: mdg($theme, "fonts", "reverse", "primary");
+            color: mdg($theme, "colors", "black");
           }
 
           #{$c}__icon--right {
