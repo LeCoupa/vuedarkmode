@@ -138,7 +138,7 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
-      color: mdg($theme, "colors", "white");
+      color: mdg($theme, "fonts", "default", "primary");
 
       // --> COLORS <--
 
@@ -150,7 +150,7 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
             background-color: mdg($theme, "colors", $color);
 
             @if ($color == "white") {
-              color: mdg($theme, "fonts", "reverse", "primary");
+              color: mdg($theme, "colors", "black");
             }
           }
 
