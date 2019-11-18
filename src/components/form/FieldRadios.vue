@@ -252,7 +252,7 @@ $statuses: "error", "normal", "success", "warning";
           &--active {
             #{$c}__field {
               #{$c}__dot {
-                background-color: mdg($theme, "backgrounds", "reverse", "primary");
+                background-color: mdg($theme, "colors", "white");
               }
             }
           }
