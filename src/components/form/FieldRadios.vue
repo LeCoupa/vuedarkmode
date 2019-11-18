@@ -152,9 +152,7 @@ $statuses: "error", "normal", "success", "warning";
       }
 
       #{$c}__field {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        position: relative;
         border-width: 1px;
         border-style: solid;
         border-radius: 100%;
@@ -162,9 +160,13 @@ $statuses: "error", "normal", "success", "warning";
         cursor: pointer;
 
         #{$c}__dot {
-          flex: 0 0 auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: inline-block;
           border-radius: 100%;
           transition: all linear 250ms;
+          transform: translate(-50%, -50%);
         }
       }
 
