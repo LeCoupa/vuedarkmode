@@ -135,7 +135,7 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
   &--small {
     margin-bottom: 20px;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
   }
 
