@@ -6,13 +6,13 @@
 component(
   @click="onClick"
   :class=`[
-    "dm-base-heading",
-    "dm-base-heading--" + tag,
-    "dm-base-heading--" + theme,
+    "gb-base-heading",
+    "gb-base-heading--" + tag,
+    "gb-base-heading--" + theme,
     {
-      ["dm-base-heading--" + color]: color,
-      ["dm-base-heading--weight-" + weight]: weight,
-      "dm-base-heading--uppercase": uppercase
+      ["gb-base-heading--" + color]: color,
+      ["gb-base-heading--weight-" + weight]: weight,
+      "gb-base-heading--uppercase": uppercase
     }
   ]`
   :is="tag"
@@ -80,7 +80,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 
 // VARIABLES
-$c: ".dm-base-heading";
+$c: ".gb-base-heading";
 $colors: "black", "blue", "green", "grey", "orange", "red", "white";
 
 #{$c} {

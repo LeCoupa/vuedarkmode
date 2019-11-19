@@ -6,16 +6,16 @@
 div(
   @click="onClick"
   :class=`[
-    "dm-base-avatar",
-    "dm-base-avatar--" + size,
-    "dm-base-avatar--" + theme,
+    "gb-base-avatar",
+    "gb-base-avatar--" + size,
+    "gb-base-avatar--" + theme,
     {
-      "dm-base-avatar--animated": animated,
-      "dm-base-avatar--bordered": bordered,
-      "dm-base-avatar--circular": circular,
-      "dm-base-avatar--clickable": $listeners.click && clickable !== false,
-      "dm-base-avatar--secondaries": secondaries,
-      "dm-base-avatar--shadow": shadow
+      "gb-base-avatar--animated": animated,
+      "gb-base-avatar--bordered": bordered,
+      "gb-base-avatar--circular": circular,
+      "gb-base-avatar--clickable": $listeners.click && clickable !== false,
+      "gb-base-avatar--secondaries": secondaries,
+      "gb-base-avatar--shadow": shadow
     }
   ]`
 )
@@ -23,11 +23,11 @@ div(
     @keypress.prevent="onKeypress"
     :style=`{ backgroundImage: "url(" + src + ")" }`
     :tabindex="$listeners.click ? '0' : null"
-    class="dm-base-avatar__image"
+    class="gb-base-avatar__image"
   )
     div(
       v-if="secondaries"
-      class="dm-base-avatar__secondaries"
+      class="gb-base-avatar__secondaries"
     )
       span(
         v-for="secondary in secondaries"
@@ -35,12 +35,12 @@ div(
         :style=`{
           backgroundImage: "url(" + secondary.src + ")",
         }`
-        class="dm-base-avatar__image dm-base-avatar__secondary"
+        class="gb-base-avatar__image gb-base-avatar__secondary"
       )
 
   span(
     v-if="description"
-    class="dm-base-avatar__description"
+    class="gb-base-avatar__description"
   ) {{ description }}
 </template>
 
@@ -129,7 +129,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-base-avatar";
+$c: ".gb-base-avatar";
 $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
 #{$c} {

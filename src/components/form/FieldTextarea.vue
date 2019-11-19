@@ -11,19 +11,19 @@
 //-   ref="validationProvider"
 //-   tag="div"
 //- )
-//- "dm-field-textarea--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
+//- "gb-field-textarea--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
 div(
   :class=`[
-    "dm-field-textarea",
-    "dm-field-textarea--" + computedStatus,
-    "dm-field-textarea--" + size,
-    "dm-field-textarea--" + theme,
+    "gb-field-textarea",
+    "gb-field-textarea--" + computedStatus,
+    "gb-field-textarea--" + size,
+    "gb-field-textarea--" + theme,
     {
-      "dm-field-textarea--borders": borders,
-      "dm-field-textarea--disabled": disabled,
-      "dm-field-textarea--focused": focused,
-      "dm-field-textarea--full-width": fullWidth,
-      "dm-field-textarea--readonly": readonly
+      "gb-field-textarea--borders": borders,
+      "gb-field-textarea--disabled": disabled,
+      "gb-field-textarea--focused": focused,
+      "gb-field-textarea--full-width": fullWidth,
+      "gb-field-textarea--readonly": readonly
     }
   ]`
 )
@@ -33,12 +33,12 @@ div(
     :required="labelRequired"
     :size="size"
     :theme="theme"
-    class="dm-field-textarea__label"
+    class="gb-field-textarea__label"
   ) {{ label }}
 
   div(
     @click="onContainerClick"
-    class="dm-field-textarea__container"
+    class="gb-field-textarea__container"
   )
     textarea(
       @blur="onFieldBlur"
@@ -58,13 +58,13 @@ div(
       :style=`{
         resize: resize
       }`
-      class="dm-field-textarea__field js-tag-for-autofocus"
+      class="gb-field-textarea__field js-tag-for-autofocus"
     ) {{ innerValue }}
 
     base-icon(
       v-if="computedIcon"
       :name="computedIcon"
-      class="dm-field-textarea__icon"
+      class="gb-field-textarea__icon"
     )
 
   //-   v-if="computedMessageStatus || (errors.length > 0 && dirty && !focused)"
@@ -221,7 +221,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 
 // VARIABLES
-$c: ".dm-field-textarea";
+$c: ".gb-field-textarea";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 

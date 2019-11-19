@@ -11,28 +11,28 @@
 //-   ref="validationProvider"
 //-   tag="div"
 //- )
-//- "dm-field-radios--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+//- "gb-field-radios--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
 div(
   :class=`[
-    "dm-field-radios",
-    "dm-field-radios--" + computedStatus,
-    "dm-field-radios--" + size,
-    "dm-field-radios--" + theme,
+    "gb-field-radios",
+    "gb-field-radios--" + computedStatus,
+    "gb-field-radios--" + size,
+    "gb-field-radios--" + theme,
     {
-      "dm-field-radios--disabled": disabled,
-      "dm-field-radios--full-width": fullWidth
+      "gb-field-radios--disabled": disabled,
+      "gb-field-radios--full-width": fullWidth
     }
   ]`
 )
-  .dm-field-radios__container
+  .gb-field-radios__container
     div(
       v-for="(radio, index) in radios"
       @keypress.prevent="onKeypress(radio, $event)"
       :class=`[
-        "dm-field-radios__radio",
+        "gb-field-radios__radio",
         {
           "js-tag-for-autofocus": index === 0,
-          "dm-field-radios__radio--active": radio.value === innerValue
+          "gb-field-radios__radio--active": radio.value === innerValue
         }
       ]`
       :key="radio.value"
@@ -40,9 +40,9 @@ div(
     )
       div(
         @click="onClick(radio, $event)"
-        class="dm-field-radios__field"
+        class="gb-field-radios__field"
       )
-        span.dm-field-radios__dot
+        span.gb-field-radios__dot
 
       field-label(
         v-if="radio.label"
@@ -51,7 +51,7 @@ div(
         :size="size"
         :theme="theme"
         :uppercase="false"
-        class="dm-field-radios__label"
+        class="gb-field-radios__label"
       ) {{ radio.label }}
 
   //-   v-if="computedMessageStatus || (errors.length > 0 && dirty)"
@@ -131,7 +131,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-field-radios";
+$c: ".gb-field-radios";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 

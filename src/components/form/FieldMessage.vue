@@ -5,22 +5,22 @@
 <template lang="pug">
 p(
   :class=`[
-    "dm-field-message",
-    "dm-field-message--" + computedStatus,
-    "dm-field-message--" + size,
-    "dm-field-message--" + theme
+    "gb-field-message",
+    "gb-field-message--" + computedStatus,
+    "gb-field-message--" + size,
+    "gb-field-message--" + theme
   ]`
 )
   base-icon(
     v-if="computedIconName"
     :name="computedIconName"
     :size="computedIconSize"
-    class="dm-field-message__icon"
+    class="gb-field-message__icon"
   )
 
   span(
     v-html="computedMessage"
-    class="dm-field-message__message"
+    class="gb-field-message__message"
   )
 </template>
 
@@ -132,7 +132,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 
 // VARIABLES
-$c: ".dm-field-message";
+$c: ".gb-field-message";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "description", "error", "info", "success", "warning";
 

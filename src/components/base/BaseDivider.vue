@@ -5,10 +5,10 @@
 <template lang="pug">
 hr(
   :class=`[
-    "dm-base-divider",
-    "dm-base-divider--" + color,
-    "dm-base-divider--" + size,
-    "dm-base-divider--" + theme
+    "gb-base-divider",
+    "gb-base-divider--" + color,
+    "gb-base-divider--" + size,
+    "gb-base-divider--" + theme
   ]`
   :style=`{
     margin: margin
@@ -63,7 +63,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 
 // VARIABLES
-$c: ".dm-base-divider";
+$c: ".gb-base-divider";
 $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "white";
 
 #{$c} {

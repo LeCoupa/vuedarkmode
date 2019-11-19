@@ -5,21 +5,21 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-base-alert",
-    "dm-base-alert--" + color,
-    "dm-base-alert--" + theme
+    "gb-base-alert",
+    "gb-base-alert--" + color,
+    "gb-base-alert--" + theme
   ]`
 )
   base-icon(
     v-if="icon"
     :name="icon"
-    class="dm-base-alert__icon dm-base-alert__icon--left"
+    class="gb-base-alert__icon gb-base-alert__icon--left"
     size="20px"
   )
 
   span(
     v-if="$slots.default && $slots.default[0].text.trim()"
-    class="dm-base-alert__slot"
+    class="gb-base-alert__slot"
   )
     slot
 
@@ -27,7 +27,7 @@ div(
     v-if="closable"
     @click="onClose"
     @keypress="onTabKeypress"
-    class="dm-base-alert__icon dm-base-alert__icon--right"
+    class="gb-base-alert__icon gb-base-alert__icon--right"
     name="close"
     size="20px"
     tabindex="0"
@@ -100,7 +100,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-base-alert";
+$c: ".gb-base-alert";
 $colors: "black", "blue", "green", "orange", "red", "white";
 
 #{$c} {

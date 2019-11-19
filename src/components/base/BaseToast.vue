@@ -5,9 +5,9 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-base-toast",
-    "dm-base-toast--" + color,
-    "dm-base-toast--" + theme
+    "gb-base-toast",
+    "gb-base-toast--" + color,
+    "gb-base-toast--" + theme
   ]`
   :style=`{
     width: width
@@ -15,7 +15,7 @@ div(
 )
   span(
     v-if="$slots.default && $slots.default[0].text.trim()"
-    class="dm-base-toast__slot"
+    class="gb-base-toast__slot"
   )
     slot
 
@@ -23,7 +23,7 @@ div(
     v-if="closable"
     @click="onClose"
     @keypress="onTabKeypress"
-    class="dm-base-toast__icon"
+    class="gb-base-toast__icon"
     name="close"
     size="20px"
     tabindex="0"
@@ -96,7 +96,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-base-toast";
+$c: ".gb-base-toast";
 $colors: "black", "blue", "green", "orange", "red", "white";
 
 #{$c} {

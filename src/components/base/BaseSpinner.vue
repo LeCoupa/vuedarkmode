@@ -6,15 +6,15 @@
 div(
   @click="onClick"
   :class=`[
-    "dm-base-spinner",
-    "dm-base-spinner--" + color,
-    "dm-base-spinner--" + size,
-    "dm-base-spinner--" + theme
+    "gb-base-spinner",
+    "gb-base-spinner--" + color,
+    "gb-base-spinner--" + size,
+    "gb-base-spinner--" + theme
   ]`
 )
-  .dm-base-spinner__wave.dm-base-spinner__wave--first
+  .gb-base-spinner__wave.gb-base-spinner__wave--first
 
-  .dm-base-spinner__wave.dm-base-spinner__wave--second
+  .gb-base-spinner__wave.gb-base-spinner__wave--second
 </template>
 
 <!-- *************************************************************************
@@ -76,7 +76,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 
 // VARIABLES
-$c: ".dm-base-spinner";
+$c: ".gb-base-spinner";
 $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white";
 $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 

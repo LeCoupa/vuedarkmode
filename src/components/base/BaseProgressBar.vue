@@ -5,39 +5,39 @@
 <template lang="pug">
 div(
   :class=`[
-    "dm-base-progress-bar",
-    "dm-base-progress-bar--" + color,
-    "dm-base-progress-bar--" + theme,
+    "gb-base-progress-bar",
+    "gb-base-progress-bar--" + color,
+    "gb-base-progress-bar--" + theme,
     {
-      "dm-base-progress-bar--with-details-hover": detailsHover
+      "gb-base-progress-bar--with-details-hover": detailsHover
     }
   ]`
 )
   span(
     v-if="title || details"
-    class="dm-base-progress-bar__content"
+    class="gb-base-progress-bar__content"
   )
     span(
       v-if="title"
-      class="dm-base-progress-bar__title"
+      class="gb-base-progress-bar__title"
     ) {{ title }}
 
     span(
       v-if="details"
-      class="dm-base-progress-bar__details"
+      class="gb-base-progress-bar__details"
     ) {{ details }}
 
     span(
       v-if="detailsHover"
-      class="dm-base-progress-bar__details-hover"
+      class="gb-base-progress-bar__details-hover"
     ) {{ detailsHover }}
 
-  .dm-base-progress-bar__bar
+  .gb-base-progress-bar__bar
     div(
       :style=`{
         width: progress + "%"
       }`
-      class="dm-base-progress-bar__progress"
+      class="gb-base-progress-bar__progress"
     )
 </template>
 
@@ -93,7 +93,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 
 // VARIABLES
-$c: ".dm-base-progress-bar";
+$c: ".gb-base-progress-bar";
 $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "white";
 
 #{$c} {

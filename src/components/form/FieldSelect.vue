@@ -11,22 +11,22 @@
 //-   ref="validationProvider"
 //-   tag="div"
 //- )
-//- "dm-field-select--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+//- "gb-field-select--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
 div(
   v-click-outside="onClose"
   v-hotkey="hotkeys"
   :class=`[
-    "dm-field-select",
-    "dm-field-select--" + computedStatus,
-    "dm-field-select--" + direction,
-    "dm-field-select--" + size,
-    "dm-field-select--" + theme,
+    "gb-field-select",
+    "gb-field-select--" + computedStatus,
+    "gb-field-select--" + direction,
+    "gb-field-select--" + size,
+    "gb-field-select--" + theme,
     {
-      "dm-field-select--clearable": clearable,
-      "dm-field-select--disabled": disabled,
-      "dm-field-select--opened": opened,
-      "dm-field-select--full-width": fullWidth,
-      "dm-field-select--with-left-icon": computedLeftIcon
+      "gb-field-select--clearable": clearable,
+      "gb-field-select--disabled": disabled,
+      "gb-field-select--opened": opened,
+      "gb-field-select--full-width": fullWidth,
+      "gb-field-select--with-left-icon": computedLeftIcon
     }
   ]`
 )
@@ -37,40 +37,40 @@ div(
     :required="labelRequired"
     :size="size"
     :theme="theme"
-    class="dm-field-select__label"
+    class="gb-field-select__label"
   ) {{ label }}
 
-  .dm-field-select__container
+  .gb-field-select__container
     div(
       @click="onContainerClick"
       @keypress.prevent="onContainerKeypress"
-      class="dm-field-select__field js-tag-for-autofocus"
+      class="gb-field-select__field js-tag-for-autofocus"
       tabindex="0"
     )
       base-icon(
         v-if="computedLeftIcon"
         :name="computedLeftIcon"
-        class="dm-field-select__icon dm-field-select__icon--left"
+        class="gb-field-select__icon gb-field-select__icon--left"
       )
 
       span(
         v-if="selectedOption"
-        class="dm-field-select__option dm-field-select__option--selected"
+        class="gb-field-select__option gb-field-select__option--selected"
       )
         span(
           v-if="$scopedSlots['option-left']"
-          class="dm-field-select__option-left"
+          class="gb-field-select__option-left"
         )
           slot(
             :option="selectedOption"
             name="option-left"
           )
 
-        span.dm-field-select__option-label {{ selectedOption.label }}
+        span.gb-field-select__option-label {{ selectedOption.label }}
 
         span(
           v-if="$scopedSlots['option-right']"
-          class="dm-field-select__option-right"
+          class="gb-field-select__option-right"
         )
           slot(
             :option="selectedOption"
@@ -79,33 +79,33 @@ div(
 
       div(
         v-else-if="placeholder"
-        class="dm-field-select__option dm-field-select__option--placeholder"
+        class="gb-field-select__option gb-field-select__option--placeholder"
       ) {{ placeholder }}
 
       base-icon(
         v-if="clearable && selectedOption"
         @click="onClear"
-        class="dm-field-select__icon dm-field-select__icon--clear"
+        class="gb-field-select__icon gb-field-select__icon--clear"
         name="cancel"
       )
 
       base-icon(
-        class="dm-field-select__icon dm-field-select__icon--arrow"
+        class="gb-field-select__icon gb-field-select__icon--arrow"
         name="arrow_drop_down"
       )
 
     div(
       v-show="opened && !disabled"
-      class="dm-field-select__options"
+      class="gb-field-select__options"
     )
       div(
         v-for="option in options"
         @click="onOptionClick(option, $event)"
         @keypress.prevent="onOptionKeypress(option, $event)"
         :class=`[
-          "dm-field-select__option",
+          "gb-field-select__option",
           {
-            "dm-field-select__option--selected": selectedOption && option.value === selectedOption.value
+            "gb-field-select__option--selected": selectedOption && option.value === selectedOption.value
           }
         ]`
         :key="option.value"
@@ -113,18 +113,18 @@ div(
       )
         span(
           v-if="$scopedSlots['option-left']"
-          class="dm-field-select__option-left"
+          class="gb-field-select__option-left"
         )
           slot(
             :option="option"
             name="option-left"
           )
 
-        span.dm-field-select__option-label {{ option.label }}
+        span.gb-field-select__option-label {{ option.label }}
 
         span(
           v-if="$scopedSlots['option-right']"
-          class="dm-field-select__option-right"
+          class="gb-field-select__option-right"
         )
           slot(
             :option="option"
@@ -294,7 +294,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-field-select";
+$c: ".gb-field-select";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 

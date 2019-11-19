@@ -11,36 +11,36 @@
 //-   ref="validationProvider"
 //-   tag="div"
 //- )
-//- "dm-field-toggle--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+//- "gb-field-toggle--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
 div(
   :class=`[
-    "dm-field-toggle",
-    "dm-field-toggle--" + computedStatus,
-    "dm-field-toggle--" + size,
-    "dm-field-toggle--" + theme,
+    "gb-field-toggle",
+    "gb-field-toggle--" + computedStatus,
+    "gb-field-toggle--" + size,
+    "gb-field-toggle--" + theme,
     {
-      "dm-field-toggle--disabled": disabled,
-      "dm-field-toggle--full-width": fullWidth
+      "gb-field-toggle--disabled": disabled,
+      "gb-field-toggle--full-width": fullWidth
     }
   ]`
 )
   div(
     @keypress.prevent="onKeypress"
     :class=`[
-      "dm-field-toggle__container",
+      "gb-field-toggle__container",
       "js-tag-for-autofocus",
       {
-        "dm-field-toggle__container--active": innerValue,
-        "dm-field-toggle__container--inactive": !innerValue
+        "gb-field-toggle__container--active": innerValue,
+        "gb-field-toggle__container--inactive": !innerValue
       }
     ]`
     tabindex="0"
   )
     div(
       @click="onClick"
-      class="dm-field-toggle__field"
+      class="gb-field-toggle__field"
     )
-      span.dm-field-toggle__handle
+      span.gb-field-toggle__handle
 
     field-label(
       v-if="label"
@@ -49,7 +49,7 @@ div(
       :size="size"
       :theme="theme"
       :uppercase="false"
-      class="dm-field-toggle__label"
+      class="gb-field-toggle__label"
     ) {{ label }}
 
   //-   v-if="computedMessageStatus || (errors.length > 0 && dirty)"
@@ -120,7 +120,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-field-toggle";
+$c: ".gb-field-toggle";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 

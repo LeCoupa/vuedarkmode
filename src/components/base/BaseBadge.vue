@@ -7,13 +7,13 @@ span(
   @click="onClick(id, $event)"
   @keypress.prevent="onKeypress"
   :class=`[
-    "dm-base-badge",
-    "dm-base-badge--" + color,
-    "dm-base-badge--" + size,
-    "dm-base-badge--" + theme,
+    "gb-base-badge",
+    "gb-base-badge--" + color,
+    "gb-base-badge--" + size,
+    "gb-base-badge--" + theme,
     {
-      "dm-base-badge--clickable": $listeners.click,
-      "dm-base-badge--filled": filled
+      "gb-base-badge--clickable": $listeners.click,
+      "gb-base-badge--filled": filled
     }
   ]`
   :tabindex="$listeners.click ? '0' : null"
@@ -96,7 +96,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-base-badge";
+$c: ".gb-base-badge";
 $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow";
 $sizes: "micro", "mini", "small", "default", "medium", "large";
 

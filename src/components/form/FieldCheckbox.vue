@@ -11,35 +11,35 @@
 //-   ref="validationProvider"
 //-   tag="div"
 //- )
-//- "dm-field-checkbox--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+//- "gb-field-checkbox--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
 div(
   :class=`[
-    "dm-field-checkbox",
-    "dm-field-checkbox--" + computedStatus,
-    "dm-field-checkbox--" + size,
-    "dm-field-checkbox--" + theme,
+    "gb-field-checkbox",
+    "gb-field-checkbox--" + computedStatus,
+    "gb-field-checkbox--" + size,
+    "gb-field-checkbox--" + theme,
     {
-      "dm-field-checkbox--disabled": disabled,
-      "dm-field-checkbox--full-width": fullWidth
+      "gb-field-checkbox--disabled": disabled,
+      "gb-field-checkbox--full-width": fullWidth
     }
   ]`
 )
   div(
     @keypress.prevent="onKeypress"
     :class=`[
-      "dm-field-checkbox__container",
+      "gb-field-checkbox__container",
       "js-tag-for-autofocus",
       {
-        "dm-field-checkbox__container--active": innerValue
+        "gb-field-checkbox__container--active": innerValue
       }
     ]`
     tabindex="0"
   )
     div(
       @click="onClick"
-      class="dm-field-checkbox__field"
+      class="gb-field-checkbox__field"
     )
-      span.dm-field-checkbox__tick
+      span.gb-field-checkbox__tick
 
     field-label(
       v-if="label"
@@ -48,7 +48,7 @@ div(
       :size="size"
       :theme="theme"
       :uppercase="false"
-      class="dm-field-checkbox__label"
+      class="gb-field-checkbox__label"
     ) {{ label }}
 
   //-   v-if="computedMessageStatus || (errors.length > 0 && dirty)"
@@ -119,7 +119,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-field-checkbox";
+$c: ".gb-field-checkbox";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 

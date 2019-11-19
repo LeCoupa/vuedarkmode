@@ -5,10 +5,10 @@
 <template lang="pug">
 span(
   :class=`[
-    "dm-base-number",
-    "dm-base-number--" + color,
-    "dm-base-number--" + size,
-    "dm-base-number--" + theme
+    "gb-base-number",
+    "gb-base-number--" + color,
+    "gb-base-number--" + size,
+    "gb-base-number--" + theme
   ]`
   :style=`{
     backgroundImage: image ? "url(" + image + ")" : null,
@@ -20,12 +20,12 @@ span(
     :color="iconColor"
     :name="icon"
     :size="iconSize"
-    class="dm-base-number__icon"
+    class="gb-base-number__icon"
   )
 
   span(
     v-else-if="number"
-    class="dm-base-number__number"
+    class="gb-base-number__number"
   ) {{ number }}
 </template>
 
@@ -103,7 +103,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 
 // VARIABLES
-$c: ".dm-base-number";
+$c: ".gb-base-number";
 $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "white";
 
 #{$c} {

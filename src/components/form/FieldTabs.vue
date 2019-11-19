@@ -11,16 +11,16 @@
 //-   ref="validationProvider"
 //-   tag="div"
 //- )
-//- "dm-field-tabs--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+//- "gb-field-tabs--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
 div(
   :class=`[
-    "dm-field-tabs",
-    "dm-field-tabs--" + computedStatus,
-    "dm-field-tabs--" + size,
-    "dm-field-tabs--" + theme,
+    "gb-field-tabs",
+    "gb-field-tabs--" + computedStatus,
+    "gb-field-tabs--" + size,
+    "gb-field-tabs--" + theme,
     {
-      "dm-field-tabs--disabled": disabled,
-      "dm-field-tabs--multiple": multiple
+      "gb-field-tabs--disabled": disabled,
+      "gb-field-tabs--multiple": multiple
     }
   ]`
 )
@@ -30,29 +30,29 @@ div(
     :required="labelRequired"
     :size="size"
     :theme="theme"
-    class="dm-field-tabs__label"
+    class="gb-field-tabs__label"
   ) {{ label }}
 
-  .dm-field-tabs__container
+  .gb-field-tabs__container
     span(
       v-for="(tab, i) in tabs"
       @click="onTabClick(tab.value, $event)"
       @keypress.prevent="onTabKeypress"
       :class=`[
-        "dm-field-tabs__tab",
+        "gb-field-tabs__tab",
         "js-field-tab",
         {
-          "dm-field-tabs__tab--active": innerValue === tab.value || (Array.isArray(innerValue) && innerValue.includes(tab.value)),
-          "dm-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
-          "dm-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
-          "dm-field-tabs__tab--with-label": tab.label
+          "gb-field-tabs__tab--active": innerValue === tab.value || (Array.isArray(innerValue) && innerValue.includes(tab.value)),
+          "gb-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
+          "gb-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
+          "gb-field-tabs__tab--with-label": tab.label
         }
       ]`
       tabindex="0"
     )
       span(
         v-if="$scopedSlots['tab-left']"
-        class="dm-field-tabs__tab-left"
+        class="gb-field-tabs__tab-left"
       )
         slot(
           :tab="tab"
@@ -61,19 +61,19 @@ div(
 
       span(
         v-if="tab.label"
-        class="dm-field-tabs__label"
+        class="gb-field-tabs__label"
       ) {{ tab.label }}
 
       base-icon(
         v-else-if="tab.icon"
         :name="tab.icon"
         :size="tab.iconSize || computedIconSize"
-        class="dm-field-tabs__label"
+        class="gb-field-tabs__label"
       )
 
       span(
         v-if="$scopedSlots['tab-right']"
-        class="dm-field-tabs__tab-right"
+        class="gb-field-tabs__tab-right"
       )
         slot(
           :tab="tab"
@@ -224,7 +224,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-field-tabs";
+$c: ".gb-field-tabs";
 $borderRadius: 4px;
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";

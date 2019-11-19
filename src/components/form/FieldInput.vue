@@ -11,22 +11,22 @@
 //-   ref="validationProvider"
 //-   tag="div"
 //- )
-//- "dm-field-input--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
+//- "gb-field-input--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
 div(
   :class=`[
-    "dm-field-input",
-    "dm-field-input--" + computedStatus,
-    "dm-field-input--" + size,
-    "dm-field-input--" + theme,
+    "gb-field-input",
+    "gb-field-input--" + computedStatus,
+    "gb-field-input--" + size,
+    "gb-field-input--" + theme,
     {
-      "dm-field-input--borders": borders,
-      "dm-field-input--clearable": clearable,
-      "dm-field-input--disabled": disabled,
-      "dm-field-input--focused": focused,
-      "dm-field-input--full-width": fullWidth,
-      "dm-field-input--readonly": readonly,
-      "dm-field-input--rounded": rounded,
-      "dm-field-input--with-icon": leftIcon || rightIcon
+      "gb-field-input--borders": borders,
+      "gb-field-input--clearable": clearable,
+      "gb-field-input--disabled": disabled,
+      "gb-field-input--focused": focused,
+      "gb-field-input--full-width": fullWidth,
+      "gb-field-input--readonly": readonly,
+      "gb-field-input--rounded": rounded,
+      "gb-field-input--with-icon": leftIcon || rightIcon
     }
   ]`
 )
@@ -36,21 +36,21 @@ div(
     :required="labelRequired"
     :size="size"
     :theme="theme"
-    class="dm-field-input__label"
+    class="gb-field-input__label"
   ) {{ label }}
 
   div(
     @click="onContainerClick"
-    class="dm-field-input__container"
+    class="gb-field-input__container"
   )
     span(
       v-if="prepend"
       @click="onPrependClick"
       :class=`[
-        "dm-field-input__block",
-        "dm-field-input__block--prepend",
+        "gb-field-input__block",
+        "gb-field-input__block--prepend",
         {
-          "dm-field-input__block--clickable": $listeners.prependClick
+          "gb-field-input__block--clickable": $listeners.prependClick
         }
       ]`
     ) {{ prepend }}
@@ -58,7 +58,7 @@ div(
     base-icon(
       v-if="leftIcon"
       :name="leftIcon"
-      class="dm-field-input__icon dm-field-input__icon--left"
+      class="gb-field-input__icon gb-field-input__icon--left"
     )
 
     input(
@@ -79,24 +79,24 @@ div(
       :readonly="readonly"
       :type="type"
       :value="innerValue"
-      class="dm-field-input__field js-tag-for-autofocus"
+      class="gb-field-input__field js-tag-for-autofocus"
     )
 
     base-icon(
       v-if="computedRightIcon"
       @click="onRightIconClick"
       :name="computedRightIcon"
-      class="dm-field-input__icon dm-field-input__icon--right"
+      class="gb-field-input__icon gb-field-input__icon--right"
     )
 
     span(
       v-if="append"
       @click="onAppendClick"
       :class=`[
-        "dm-field-input__block",
-        "dm-field-input__block--append",
+        "gb-field-input__block",
+        "gb-field-input__block--append",
         {
-          "dm-field-input__block--clickable": $listeners.appendClick
+          "gb-field-input__block--clickable": $listeners.appendClick
         }
       ]`
     ) {{ append }}
@@ -334,7 +334,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_functions.scss";
 
 // VARIABLES
-$c: ".dm-field-input";
+$c: ".gb-field-input";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 

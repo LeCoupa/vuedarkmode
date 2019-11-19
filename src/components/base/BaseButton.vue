@@ -14,37 +14,37 @@ button(
   @mouseover="onMouseOver"
   @mouseup="onMouseUp"
   :class=`[
-    "dm-base-button",
-    "dm-base-button--" + color,
-    "dm-base-button--" + size,
-    "dm-base-button--" + theme,
+    "gb-base-button",
+    "gb-base-button--" + color,
+    "gb-base-button--" + size,
+    "gb-base-button--" + theme,
     {
-      "dm-base-button--circular": circular,
-      "dm-base-button--disabled": disabled || loading,
-      "dm-base-button--full-width": fullWidth,
-      "dm-base-button--link": link,
-      "dm-base-button--loading": loading,
-      "dm-base-button--reverse": reverse,
-      "dm-base-button--rounded": rounded,
-      "dm-base-button--uppercase": uppercase
+      "gb-base-button--circular": circular,
+      "gb-base-button--disabled": disabled || loading,
+      "gb-base-button--full-width": fullWidth,
+      "gb-base-button--link": link,
+      "gb-base-button--loading": loading,
+      "gb-base-button--reverse": reverse,
+      "gb-base-button--rounded": rounded,
+      "gb-base-button--uppercase": uppercase
     }
   ]`
   :disabled="disabled || loading"
   :type="type"
 )
-  span.dm-base-button__inner
+  span.gb-base-button__inner
     base-icon(
       v-if="leftIcon"
       :color="leftIconColor"
       :name="leftIcon"
       :outlined="leftIconOutlined"
       :size="computedIconSize"
-      class="dm-base-button__left-icon"
+      class="gb-base-button__left-icon"
     )
 
     span(
       v-if="$slots.default && $slots.default[0].text.trim() && !circular"
-      class="dm-base-button__label"
+      class="gb-base-button__label"
     )
       template(
         v-if="confirming"
@@ -60,14 +60,14 @@ button(
       :name="computedRightIcon"
       :outlined="rightIconOutlined"
       :size="computedIconSize"
-      class="dm-base-button__right-icon"
+      class="gb-base-button__right-icon"
     )
 
   base-spinner(
     v-if="loading"
     :color="computedSpinnerColor"
     :theme="theme"
-    class="dm-base-button__spinner"
+    class="gb-base-button__spinner"
     size="mini"
   )
 
@@ -76,12 +76,12 @@ button(
     enter-active-class="animated fade-in"
     leave-active-class="animated fade-out"
   )
-    .dm-base-button__list
+    .gb-base-button__list
       span(
         v-for="item in list"
         @click="onItemClick(item.id, $event)"
         :key="item.id"
-        class="dm-base-button__item"
+        class="gb-base-button__item"
       ) {{ item.label }}
 </template>
 
@@ -324,7 +324,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-base-button";
+$c: ".gb-base-button";
 $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow";
 $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 

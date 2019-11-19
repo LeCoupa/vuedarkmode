@@ -6,12 +6,12 @@
 label(
   @click="onClick"
   :class=`[
-    "dm-field-label",
-    "dm-field-label--" + size,
-    "dm-field-label--" + theme,
+    "gb-field-label",
+    "gb-field-label--" + size,
+    "gb-field-label--" + theme,
     {
-      "dm-field-label--clickable": $listeners.click || forField,
-      "dm-field-label--uppercase": uppercase
+      "gb-field-label--clickable": $listeners.click || forField,
+      "gb-field-label--uppercase": uppercase
     }
   ]`
   :for="forField"
@@ -20,7 +20,7 @@ label(
 
   span(
     v-if="required"
-    class="dm-field-label__required"
+    class="gb-field-label__required"
   ) *
 </template>
 
@@ -77,7 +77,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-field-label";
+$c: ".gb-field-label";
 $sizes: "mini", "small", "default", "medium", "large";
 
 #{$c} {

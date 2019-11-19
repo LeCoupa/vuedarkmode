@@ -15,11 +15,11 @@ i(
   @mouseover="onMouseOver"
   @mouseup="onMouseUp"
   :class=`[
-    "dm-base-icon",
-    "dm-base-icon--" + theme,
+    "gb-base-icon",
+    "gb-base-icon--" + theme,
     {
-      "dm-base-icon--clickable": $listeners.click,
-      "dm-base-icon--outlined": outlined
+      "gb-base-icon--clickable": $listeners.click,
+      "gb-base-icon--outlined": outlined
     }
   ]`
   :style=`{
@@ -120,7 +120,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-base-icon";
+$c: ".gb-base-icon";
 
 // Based on Material Icons
 // https://google.github.io/material-design-icons/#icon-font-for-the-web

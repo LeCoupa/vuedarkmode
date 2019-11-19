@@ -11,29 +11,29 @@
 //-   ref="validationProvider"
 //-   tag="div"
 //- )
-//- "dm-field-file--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+//- "gb-field-file--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
 div(
   :class=`[
-    "dm-field-file",
-    "dm-field-file--" + computedStatus,
-    "dm-field-file--" + size,
-    "dm-field-file--" + theme,
+    "gb-field-file",
+    "gb-field-file--" + computedStatus,
+    "gb-field-file--" + size,
+    "gb-field-file--" + theme,
     {
-      "dm-field-file--disabled": disabled,
-      "dm-field-file--full-width": fullWidth
+      "gb-field-file--disabled": disabled,
+      "gb-field-file--full-width": fullWidth
     }
   ]`
 )
-  .dm-field-file__container
+  .gb-field-file__container
     div(
       v-if="label"
-      class="dm-field-file__information"
+      class="gb-field-file__information"
     )
       field-label(
         :required="labelRequired"
         :size="size"
         :theme="theme"
-        class="dm-field-file__label"
+        class="gb-field-file__label"
       ) {{ label }}
 
       //-   v-if="computedMessageStatus || (errors.length > 0 && dirty)"
@@ -45,18 +45,18 @@ div(
         :size="size"
         :status="computedMessageStatus"
         :theme="theme"
-        class="dm-field-file__message"
+        class="gb-field-file__message"
       )
 
     label(
       @keypress.prevent="onLabelKeypress"
       :for="uuid"
-      class="dm-field-file__upload js-tag-for-autofocus"
+      class="gb-field-file__upload js-tag-for-autofocus"
       tabindex="0"
     )
       base-icon(
         name="cloud_upload"
-        class="dm-field-file__icon"
+        class="gb-field-file__icon"
       )
 
     input(
@@ -65,7 +65,7 @@ div(
       :id="uuid"
       :multiple="multiple"
       :name="name"
-      class="dm-field-file__field"
+      class="gb-field-file__field"
       type="file"
     )
 </template>
@@ -121,7 +121,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-field-file";
+$c: ".gb-field-file";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 

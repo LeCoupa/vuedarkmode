@@ -6,20 +6,20 @@
 button(
   @click="onClick"
   :class=`[
-    "dm-base-social-button",
-    "dm-base-social-button--" + network,
-    "dm-base-social-button--" + size,
-    "dm-base-social-button--" + theme,
+    "gb-base-social-button",
+    "gb-base-social-button--" + network,
+    "gb-base-social-button--" + size,
+    "gb-base-social-button--" + theme,
     {
-      "dm-base-social-button--disabled": disabled || loading,
-      "dm-base-social-button--full-width": fullWidth,
-      "dm-base-social-button--loading": loading
+      "gb-base-social-button--disabled": disabled || loading,
+      "gb-base-social-button--full-width": fullWidth,
+      "gb-base-social-button--loading": loading
     }
   ]`
   :disabled="disabled || loading"
   type="button"
 )
-  span.dm-base-social-button__inner
+  span.gb-base-social-button__inner
     base-spinner(
       v-if="loading"
       color="white"
@@ -29,9 +29,9 @@ button(
     template(
       v-if="!loading"
     )
-      span.dm-base-social-button__icon
+      span.gb-base-social-button__icon
 
-      span.dm-base-social-button__label
+      span.gb-base-social-button__label
         slot
 </template>
 
@@ -100,7 +100,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".dm-base-social-button";
+$c: ".gb-base-social-button";
 $networks: "facebook", "google", "messenger", "shopify", "twitter";
 $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 

@@ -80,7 +80,7 @@ function install(Vue, options) {
       options.components.length === 0 ||
       options.components.includes(component)
     ) {
-      Vue.component("dm-" + component, components[component])
+      Vue.component("gb-" + component, components[component])
     }
   }
 
