@@ -114,7 +114,18 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return ["black", "blue", "green", "orange", "red", "white"].includes(x)
+        return [
+          "black",
+          "blue",
+          "green",
+          "grey",
+          "orange",
+          "purple",
+          "red",
+          "turquoise",
+          "white",
+          "yellow"
+        ].includes(x)
       }
     },
     confirmation: {
@@ -314,7 +325,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-button";
-$colors: "black", "blue", "green", "red", "orange", "white";
+$colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow";
 $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {

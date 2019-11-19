@@ -97,7 +97,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-toast";
-$colors: "black", "blue", "green", "red", "orange", "white";
+$colors: "black", "blue", "green", "orange", "red", "white";
 
 #{$c} {
   display: flex;

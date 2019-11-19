@@ -36,7 +36,7 @@ export default {
       type: String,
       default: null,
       validator(x) {
-        return ["black", "blue", "green", "grey", "red", "orange", "white"].includes(x)
+        return ["black", "blue", "green", "grey", "orange", "red", "white"].includes(x)
       }
     },
     tag: {
@@ -81,7 +81,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-heading";
-$colors: "black", "blue", "green", "grey", "red", "orange", "white";
+$colors: "black", "blue", "green", "grey", "orange", "red", "white";
 
 #{$c} {
   margin: 0;
