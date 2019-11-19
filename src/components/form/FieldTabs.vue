@@ -225,6 +225,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-field-tabs";
+$borderRadius: 4px;
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 
@@ -236,6 +237,7 @@ $statuses: "error", "normal", "success", "warning";
   #{$c}__container {
     display: inline-flex;
     align-items: center;
+    border-radius: $borderRadius;
     font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
     cursor: pointer;
 
@@ -255,13 +257,13 @@ $statuses: "error", "normal", "success", "warning";
       user-select: none;
 
       &:first-of-type {
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
+        border-top-left-radius: $borderRadius;
+        border-bottom-left-radius: $borderRadius;
       }
 
       &:last-of-type {
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
+        border-top-right-radius: $borderRadius;
+        border-bottom-right-radius: $borderRadius;
       }
 
       #{$c}__tab-left,
@@ -366,7 +368,12 @@ $statuses: "error", "normal", "success", "warning";
               &--active {
                 // "!important" overrides first-of-type and last-of-type
                 border-color: mdg($theme, "statuses", $status) !important;
-                background-color: rgba(mdg($theme, "statuses", $status), 0.4);
+
+                @if (map-get($theme, "name") == "dark") {
+                  background-color: rgba(mdg($theme, "statuses", $status), 0.4);
+                } @else {
+                  background-color: rgba(mdg($theme, "statuses", $status), 0.9);
+                }
               }
 
               &--active-previous {
