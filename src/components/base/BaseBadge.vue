@@ -155,6 +155,10 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
         &#{$c}--#{$color} {
           border-color: mdg($theme, "colors", $color);
 
+          @if (map-get($theme, "name") == "light") {
+            color: mdg($theme, "colors", $color);
+          }
+
           &#{$c}--filled {
             background-color: mdg($theme, "colors", $color);
 
