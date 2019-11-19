@@ -37,9 +37,18 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].includes(
-          x
-        )
+        return [
+          "black",
+          "blue",
+          "green",
+          "grey",
+          "orange",
+          "purple",
+          "red",
+          "turquoise",
+          "white",
+          "yellow"
+        ].includes(x)
       }
     },
     filled: {
@@ -88,7 +97,7 @@ export default {
 
 // VARIABLES
 $c: ".dm-base-badge";
-$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "white";
+$colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow";
 $sizes: "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {
