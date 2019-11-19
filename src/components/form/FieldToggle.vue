@@ -199,6 +199,7 @@ $statuses: "error", "normal", "success", "warning";
         &--active {
           #{$c}__field {
             #{$c}__handle {
+              box-shadow: none !important;
               transform: translateX(8px + (1px * $i));
             }
           }
@@ -232,10 +233,16 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__field {
           border-color: mdg($theme, "borders", "default", "primary");
-          background-color: rgba(mdg($theme, "backgrounds", "default", "secondary"), 0.4);
+
+          @if (map-get($theme, "name") == "dark") {
+            background-color: rgba(mdg($theme, "backgrounds", "default", "secondary"), 0.4);
+          } @else {
+            background-color: rgba(mdg($theme, "backgrounds", "default", "secondary"), 0.9);
+          }
 
           #{$c}__handle {
             background: mdg($theme, "colors", "white");
+            box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
           }
 
           &:hover {
@@ -270,7 +277,11 @@ $statuses: "error", "normal", "success", "warning";
             &--active {
               #{$c}__field {
                 border-color: mdg($theme, "statuses", $status);
-                background-color: rgba(mdg($theme, "statuses", $status), 0.4);
+                @if (map-get($theme, "name") == "dark") {
+                  background-color: rgba(mdg($theme, "statuses", $status), 0.4);
+                } @else {
+                  background-color: rgba(mdg($theme, "statuses", $status), 0.9);
+                }
               }
             }
 
