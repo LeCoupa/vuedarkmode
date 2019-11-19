@@ -156,7 +156,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
       &:focus {
         box-shadow: 0 0 0 2px mdg($dark, "backgrounds", "default", "primary"),
-          0 0 0 3px lighten(map-get($socialColors, $network), 10%);
+          0 0 0 3px map-get($socialColors, $network);
       }
 
       #{$c}__inner {

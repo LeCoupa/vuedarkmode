@@ -508,7 +508,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
         &#{$c}--#{$color} {
           &:focus {
             box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-              0 0 0 3px lighten(mdg($theme, "colors", $color), 10%);
+              0 0 0 3px mdg($theme, "colors", $color);
           }
 
           // Reverse buttons have their own defined style (see below)

@@ -145,8 +145,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
     box-sizing: border-box;
     outline: 0;
     background-size: cover;
-    user-select: none;
     transition: all linear 0s;
+    user-select: none;
 
     #{$c}__secondaries {
       display: flex;
@@ -159,6 +159,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
         border-width: 1px;
         border-style: solid;
         border-radius: 4px;
+        box-shadow: none;
 
         &:last-of-type {
           margin-right: 0;
@@ -292,7 +293,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
       &#{$c}--shadow {
         #{$c}__image {
-          box-shadow: 0 1px 3px 0 rgba(mdg($theme, "box-shadows", "default", "primary"), 0.6);
+          box-shadow: 0 1px 3px 0 mdg($theme, "box-shadows", "default", "primary");
         }
       }
     }

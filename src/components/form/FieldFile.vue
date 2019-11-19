@@ -224,8 +224,8 @@ $statuses: "error", "normal", "success", "warning";
     &--#{map-get($theme, "name")} {
       #{$c}__container {
         #{$c}__upload {
-          background-color: rgba(mdg($theme, "backgrounds", "default", "primary"), 0.9);
-          box-shadow: 0 1px 5px 0 rgba(mdg($theme, "box-shadows", "default", "primary"), 0.6);
+          background-color: mdg($theme, "backgrounds", "default", "primary");
+          box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
 
           &:hover {
             border-color: mdg($theme, "statuses", "active");
