@@ -42,7 +42,8 @@ export default {
           "purple",
           "red",
           "turquoise",
-          "white"
+          "white",
+          "yellow"
         ].includes(x)
       }
     },
@@ -77,7 +78,7 @@ export default {
 
 // VARIABLES
 $c: ".gb-base-spinner";
-$colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white";
+$colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow";
 $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {

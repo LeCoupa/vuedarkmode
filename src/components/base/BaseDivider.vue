@@ -32,9 +32,18 @@ export default {
       type: String,
       default: "black",
       validator(x) {
-        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].includes(
-          x
-        )
+        return [
+          "black",
+          "blue",
+          "green",
+          "grey",
+          "orange",
+          "purple",
+          "red",
+          "turquoise",
+          "white",
+          "yellow"
+        ].includes(x)
       }
     },
     margin: {
@@ -64,7 +73,7 @@ export default {
 
 // VARIABLES
 $c: ".gb-base-divider";
-$colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "white";
+$colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow";
 
 #{$c} {
   display: block;

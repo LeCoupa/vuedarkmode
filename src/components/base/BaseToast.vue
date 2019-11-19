@@ -57,7 +57,18 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return ["black", "blue", "green", "orange", "red", "white"].includes(x)
+        return [
+          "black",
+          "blue",
+          "green",
+          "grey",
+          "orange",
+          "purple",
+          "red",
+          "turquoise",
+          "white",
+          "yellow"
+        ].includes(x)
       }
     },
     width: {
@@ -97,7 +108,7 @@ export default {
 
 // VARIABLES
 $c: ".gb-base-toast";
-$colors: "black", "blue", "green", "orange", "red", "white";
+$colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow";
 
 #{$c} {
   display: flex;
