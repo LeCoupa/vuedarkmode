@@ -498,6 +498,7 @@ $statuses: "error", "normal", "success", "warning";
     &--#{map-get($theme, "name")} {
       #{$c}__container {
         background-color: mdg($theme, "backgrounds", "default", "primary");
+        box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
 
         #{$c}__block {
           background-color: mdg($theme, "backgrounds", "default", "secondary");
