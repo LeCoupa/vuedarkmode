@@ -7,11 +7,11 @@ component(
   @click="onClick"
   :class=`[
     "dm-base-heading",
-    "dm-base-heading--" + computedColor,
-    "dm-base-heading--" + computedWeight,
     "dm-base-heading--" + tag,
     "dm-base-heading--" + theme,
     {
+      ["dm-base-heading--" + color]: color,
+      ["dm-base-heading--weight-" + weight]: weight,
       "dm-base-heading--uppercase": uppercase
     }
   ]`
@@ -59,34 +59,6 @@ export default {
     }
   },
 
-  computed: {
-    computedColor() {
-      let color = "white"
-
-      if (this.color) {
-        color = this.color
-      } else if (["h3", "h4", "h5", "h6"].includes(this.tag)) {
-        color = "grey"
-      }
-
-      return color
-    },
-
-    computedWeight() {
-      let weight = "regular"
-
-      if (this.weight) {
-        weight = this.weight
-      } else if (this.tag === "h1") {
-        weight = "bold"
-      } else if (["h2", "h3", "h4"].includes(this.tag)) {
-        weight = "medium"
-      }
-
-      return weight
-    }
-  },
-
   methods: {
     // --> EVENT LISTENERS <--
 
@@ -118,74 +90,82 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
   // --> TAGS <--
 
   &--h1 {
+    font-weight: 700;
     font-size: 26px;
     line-height: 36px;
   }
 
   &--h2 {
+    font-weight: 500;
     font-size: 24px;
     line-height: 34px;
   }
 
   &--h3 {
+    font-weight: 500;
     font-size: 22px;
     line-height: 32px;
   }
 
   &--h4 {
+    font-weight: 500;
     font-size: 20px;
     line-height: 30px;
   }
 
   &--h5 {
+    font-weight: 400;
     font-size: 18px;
     line-height: 28px;
   }
 
   &--h6 {
+    font-weight: 400;
     font-size: 16px;
     line-height: 28px;
   }
 
   &--p {
     margin-bottom: 20px;
+    font-weight: 400;
     font-size: 16px;
     line-height: 28px;
   }
 
   &--small {
     margin-bottom: 20px;
+    font-weight: 400;
     font-size: 16px;
     line-height: 24px;
   }
 
   // --> WEIGHTS <--
 
-  &--thin {
+  &--weight-thin {
     font-weight: 100;
   }
 
-  &--light {
+  &--weight-light {
     font-weight: 300;
   }
 
-  &--regular {
+  &--weight-regular {
     font-weight: 400;
   }
 
-  &--medium {
+  &--weight-medium {
     font-weight: 500;
   }
 
-  &--bold {
+  &--weight-bold {
     font-weight: 700;
   }
 
-  &--extrabold {
+  &--weight-extrabold {
     font-weight: 800;
   }
 
-  &--black {
+  &--weight-black {
     font-weight: 900;
   }
 
@@ -207,6 +187,22 @@ $colors: "black", "blue", "green", "grey", "red", "orange", "white";
         &#{$c}--#{$color} {
           color: mdg($theme, "colors", $color);
         }
+      }
+
+      // --> TAGS <--
+
+      &#{$c}--h1,
+      &#{$c}--h2,
+      &#{$c}--p,
+      &#{$c}--small {
+        color: mdg($theme, "fonts", "default", "primary");
+      }
+
+      &#{$c}--h3,
+      &#{$c}--h4,
+      &#{$c}--h5,
+      &#{$c}--h6 {
+        color: mdg($theme, "fonts", "default", "secondary");
       }
     }
   }
