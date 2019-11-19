@@ -6,9 +6,11 @@
 hr(
   :class=`[
     "gb-base-divider",
-    "gb-base-divider--" + color,
     "gb-base-divider--" + size,
-    "gb-base-divider--" + theme
+    "gb-base-divider--" + theme,
+    {
+      ["gb-base-divider--" + color]: color
+    }
   ]`
   :style=`{
     margin: margin
@@ -30,7 +32,7 @@ export default {
   props: {
     color: {
       type: String,
-      default: "black",
+      default: null,
       validator(x) {
         return [
           "black",
@@ -100,6 +102,8 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
+      border-top-color: mdg($theme, "borders", "default", "primary");
+
       // --> COLORS <--
 
       @each $color in $colors {
