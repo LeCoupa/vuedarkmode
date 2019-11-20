@@ -598,12 +598,12 @@ $statuses: "error", "normal", "success", "warning";
 
         #{$c}__field {
           &:focus {
-            border-color: mdg($theme, "statuses", "active");
+            border-color: mdg($theme, "interactions", "active");
 
             #{$c}__icon {
               &--left,
               &--arrow {
-                color: mdg($theme, "statuses", "active");
+                color: mdg($theme, "interactions", "active");
               }
             }
           }
@@ -652,14 +652,14 @@ $statuses: "error", "normal", "success", "warning";
         #{$c}__container {
           #{$c}__field,
           #{$c}__options {
-            border-color: mdg($theme, "statuses", "active");
+            border-color: mdg($theme, "interactions", "active");
           }
 
           #{$c}__field {
             #{$c}__icon {
               &--left,
               &--arrow {
-                color: mdg($theme, "statuses", "active");
+                color: mdg($theme, "interactions", "active");
               }
             }
           }

@@ -228,7 +228,11 @@ $statuses: "error", "normal", "success", "warning";
           box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
 
           &:hover {
-            border-color: mdg($theme, "statuses", "active");
+            border-color: mdg($theme, "interactions", "hover");
+          }
+
+          &:active {
+            border-color: mdg($theme, "interactions", "active");
           }
         }
       }
@@ -238,11 +242,7 @@ $statuses: "error", "normal", "success", "warning";
       @each $status in $statuses {
         &#{$c}--#{$status} {
           #{$c}__upload {
-            @if ($status != normal) {
-              border-color: mdg($theme, "statuses", $status);
-            } @else {
-              border-color: mdg($theme, "borders", "reverse", "primary");
-            }
+            border-color: mdg($theme, "statuses", $status);
 
             &:focus {
               box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),

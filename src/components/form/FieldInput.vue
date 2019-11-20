@@ -565,8 +565,8 @@ $statuses: "error", "normal", "success", "warning";
 
       &#{$c}--focused {
         #{$c}__container {
-          border-color: mdg($theme, "statuses", "active");
-          color: mdg($theme, "statuses", "active");
+          border-color: mdg($theme, "interactions", "active");
+          color: mdg($theme, "interactions", "active");
         }
       }
     }
