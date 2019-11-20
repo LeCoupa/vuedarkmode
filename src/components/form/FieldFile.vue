@@ -226,14 +226,6 @@ $statuses: "error", "normal", "success", "warning";
         #{$c}__upload {
           background-color: mdg($theme, "backgrounds", "default", "primary");
           box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
-
-          &:hover {
-            border-color: mdg($theme, "interactions", "hover");
-          }
-
-          &:active {
-            border-color: mdg($theme, "interactions", "active");
-          }
         }
       }
 
@@ -241,12 +233,22 @@ $statuses: "error", "normal", "success", "warning";
 
       @each $status in $statuses {
         &#{$c}--#{$status} {
-          #{$c}__upload {
-            border-color: mdg($theme, "statuses", $status);
+          #{$c}__container {
+            #{$c}__upload {
+              border-color: mdg($theme, "statuses", $status);
 
-            &:focus {
-              box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-                0 0 0 3px mdg($theme, "statuses", $status);
+              &:hover {
+                border-color: mdg($theme, "interactions", "hover");
+              }
+
+              &:active {
+                border-color: mdg($theme, "statuses", $status);
+              }
+
+              &:focus {
+                box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
+                  0 0 0 3px mdg($theme, "statuses", $status);
+              }
             }
           }
         }
