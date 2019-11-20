@@ -13,7 +13,8 @@ span(
     "gb-base-badge--" + theme,
     {
       "gb-base-badge--clickable": $listeners.click,
-      "gb-base-badge--filled": filled
+      "gb-base-badge--filled": filled,
+      "gb-base-badge--not-filled": !filled,
     }
   ]`
   :tabindex="$listeners.click ? '0' : null"
@@ -147,7 +148,7 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
-      color: mdg($theme, "fonts", "default", "primary");
+      color: mdg($theme, "colors", "white");
 
       // --> COLORS <--
 
@@ -155,15 +156,17 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
         &#{$c}--#{$color} {
           border-color: mdg($theme, "colors", $color);
 
-          @if (map-get($theme, "name") == "light") {
-            color: mdg($theme, "colors", $color);
-          }
-
           &#{$c}--filled {
             background-color: mdg($theme, "colors", $color);
 
             @if ($color == "white") {
               color: mdg($theme, "colors", "black");
+            }
+          }
+
+          &#{$c}--not-filled {
+            @if (map-get($theme, "name") == "light") {
+              color: mdg($theme, "colors", $color);
             }
           }
 
