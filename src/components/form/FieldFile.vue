@@ -30,6 +30,7 @@ div(
       class="gb-field-file__information"
     )
       field-label(
+        :for-field="uuid"
         :required="labelRequired"
         :size="size"
         :theme="theme"
