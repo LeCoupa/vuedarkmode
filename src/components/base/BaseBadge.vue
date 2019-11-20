@@ -14,7 +14,7 @@ span(
     {
       "gb-base-badge--clickable": $listeners.click,
       "gb-base-badge--filled": filled,
-      "gb-base-badge--not-filled": !filled,
+      "gb-base-badge--not-filled": !filled
     }
   ]`
   :tabindex="$listeners.click ? '0' : null"

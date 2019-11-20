@@ -67,7 +67,7 @@ export default {
     },
     iconColor: {
       type: String,
-      default: "white"
+      default: null
     },
     iconSize: {
       type: String,
