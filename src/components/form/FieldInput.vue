@@ -522,12 +522,7 @@ $statuses: "error", "normal", "success", "warning";
           }
 
           &:-webkit-autofill {
-            box-shadow: 0
-              0
-              0
-              30px
-              mdg($theme, "backgrounds", "default", "primary")
-              inset !important;
+            box-shadow: 0 0 0 30px mdg($theme, "backgrounds", "default", "primary") inset !important;
 
             -webkit-text-fill-color: mdg($theme, "fonts", "default", "primary") !important;
           }
@@ -539,13 +534,22 @@ $statuses: "error", "normal", "success", "warning";
       @each $status in $statuses {
         &#{$c}--#{$status} {
           #{$c}__container {
-            @if ($status != normal) {
-              border-color: mdg($theme, "statuses", $status) !important;
-              // Override focused state
-              color: mdg($theme, "statuses", $status) !important;
-            } @else {
-              border-color: mdg($theme, "borders", "default", "primary");
-              color: mdg($theme, "fonts", "default", "primary");
+            border-color: mdg($theme, "statuses", $status);
+
+            #{$c}__icon {
+              color: mdg($theme, "statuses", $status);
+            }
+
+            &:hover {
+              @if (map-get($theme, "name") == "dark") {
+                border-color: lighten(mdg($theme, "statuses", $status), 10%);
+              } @else if (map-get($theme, "name") == "light") {
+                border-color: darken(mdg($theme, "statuses", $status), 10%);
+              }
+            }
+
+            &:active {
+              border-color: mdg($theme, "statuses", $status);
             }
           }
         }
@@ -565,8 +569,11 @@ $statuses: "error", "normal", "success", "warning";
 
       &#{$c}--focused {
         #{$c}__container {
-          border-color: mdg($theme, "interactions", "active");
-          color: mdg($theme, "interactions", "active");
+          border-color: mdg($theme, "statuses", "active");
+
+          #{$c}__icon {
+            color: mdg($theme, "statuses", "active");
+          }
         }
       }
     }

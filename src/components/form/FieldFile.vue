@@ -249,7 +249,11 @@ $statuses: "error", "normal", "success", "warning";
               border-color: mdg($theme, "statuses", $status);
 
               &:hover {
-                border-color: mdg($theme, "interactions", "hover");
+                @if (map-get($theme, "name") == "dark") {
+                  border-color: lighten(mdg($theme, "statuses", $status), 10%);
+                } @else if (map-get($theme, "name") == "light") {
+                  border-color: darken(mdg($theme, "statuses", $status), 10%);
+                }
               }
 
               &:active {

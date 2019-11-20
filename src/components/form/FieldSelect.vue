@@ -598,12 +598,12 @@ $statuses: "error", "normal", "success", "warning";
 
         #{$c}__field {
           &:focus {
-            border-color: mdg($theme, "interactions", "active");
+            border-color: mdg($theme, "statuses", "active");
 
             #{$c}__icon {
               &--left,
               &--arrow {
-                color: mdg($theme, "interactions", "active");
+                color: mdg($theme, "statuses", "active");
               }
             }
           }
@@ -625,11 +625,7 @@ $statuses: "error", "normal", "success", "warning";
         &#{$c}--#{$status} {
           #{$c}__container {
             #{$c}__field {
-              @if ($status != normal) {
-                border-color: mdg($theme, "statuses", $status);
-              } @else {
-                border-color: mdg($theme, "borders", "default", "primary");
-              }
+              border-color: mdg($theme, "statuses", $status);
 
               #{$c}__icon {
                 &--left,
@@ -640,6 +636,18 @@ $statuses: "error", "normal", "success", "warning";
                     color: mdg($theme, "fonts", "default", "primary");
                   }
                 }
+              }
+
+              &:hover {
+                @if (map-get($theme, "name") == "dark") {
+                  border-color: lighten(mdg($theme, "statuses", $status), 10%);
+                } @else if (map-get($theme, "name") == "light") {
+                  border-color: darken(mdg($theme, "statuses", $status), 10%);
+                }
+              }
+
+              &:active {
+                border-color: mdg($theme, "statuses", $status);
               }
             }
           }
@@ -652,14 +660,14 @@ $statuses: "error", "normal", "success", "warning";
         #{$c}__container {
           #{$c}__field,
           #{$c}__options {
-            border-color: mdg($theme, "interactions", "active");
+            border-color: mdg($theme, "statuses", "active") !important;
           }
 
           #{$c}__field {
             #{$c}__icon {
               &--left,
               &--arrow {
-                color: mdg($theme, "interactions", "active");
+                color: mdg($theme, "statuses", "active") !important;
               }
             }
           }

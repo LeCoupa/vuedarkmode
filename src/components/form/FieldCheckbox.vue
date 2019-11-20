@@ -216,7 +216,6 @@ $statuses: "error", "normal", "success", "warning";
     &--#{map-get($theme, "name")} {
       #{$c}__container {
         #{$c}__field {
-          border-color: mdg($theme, "borders", "default", "primary");
           background-color: mdg($theme, "backgrounds", "default", "primary");
           box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
 
@@ -243,14 +242,21 @@ $statuses: "error", "normal", "success", "warning";
       @each $status in $statuses {
         &#{$c}--#{$status} {
           #{$c}__container {
-            &--active {
-              #{$c}__field {
-                border-color: mdg($theme, "statuses", $status);
-                background: mdg($theme, "statuses", $status);
-              }
+            #{$c}__field {
+              border-color: mdg($theme, "statuses", $status);
             }
 
             &:hover {
+              #{$c}__field {
+                @if (map-get($theme, "name") == "dark") {
+                  border-color: lighten(mdg($theme, "statuses", $status), 10%);
+                } @else if (map-get($theme, "name") == "light") {
+                  border-color: darken(mdg($theme, "statuses", $status), 10%);
+                }
+              }
+            }
+
+            &:active {
               #{$c}__field {
                 border-color: mdg($theme, "statuses", $status);
               }
@@ -260,6 +266,31 @@ $statuses: "error", "normal", "success", "warning";
               #{$c}__field {
                 box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
                   0 0 0 3px mdg($theme, "statuses", $status);
+              }
+            }
+
+            &--active {
+              @if ($status == "normal") {
+                #{$c}__field {
+                  border-color: mdg($theme, "statuses", "active");
+                }
+
+                &:hover {
+                  #{$c}__field {
+                    @if (map-get($theme, "name") == "dark") {
+                      border-color: lighten(mdg($theme, "statuses", "active"), 10%);
+                    } @else if (map-get($theme, "name") == "light") {
+                      border-color: darken(mdg($theme, "statuses", "active"), 10%);
+                    }
+                  }
+                }
+
+                &:focus {
+                  #{$c}__field {
+                    box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
+                      0 0 0 3px mdg($theme, "statuses", "active");
+                  }
+                }
               }
             }
           }

@@ -232,7 +232,6 @@ $statuses: "error", "normal", "success", "warning";
     &--#{map-get($theme, "name")} {
       #{$c}__container {
         #{$c}__field {
-          border-color: mdg($theme, "borders", "default", "primary");
           box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
 
           @if (map-get($theme, "name") == "dark") {
@@ -244,10 +243,6 @@ $statuses: "error", "normal", "success", "warning";
           #{$c}__handle {
             background: mdg($theme, "colors", "white");
             box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
-          }
-
-          &:hover {
-            border-color: lighten(mdg($theme, "borders", "default", "primary"), 10%);
           }
         }
 
@@ -270,25 +265,22 @@ $statuses: "error", "normal", "success", "warning";
         &#{$c}--#{$status} {
           #{$c}__container {
             #{$c}__field {
-              @if ($status != normal) {
-                border-color: mdg($theme, "statuses", $status);
-              }
-            }
-
-            &--active {
-              #{$c}__field {
-                border-color: mdg($theme, "statuses", $status);
-                @if (map-get($theme, "name") == "dark") {
-                  background-color: rgba(mdg($theme, "statuses", $status), 0.4);
-                } @else {
-                  background-color: rgba(mdg($theme, "statuses", $status), 0.9);
-                }
-              }
+              border-color: mdg($theme, "statuses", $status);
             }
 
             &:hover {
               #{$c}__field {
-                border-color: lighten(mdg($theme, "statuses", $status), 10%);
+                @if (map-get($theme, "name") == "dark") {
+                  border-color: lighten(mdg($theme, "statuses", $status), 10%);
+                } @else if (map-get($theme, "name") == "light") {
+                  border-color: darken(mdg($theme, "statuses", $status), 10%);
+                }
+              }
+            }
+
+            &:active {
+              #{$c}__field {
+                border-color: mdg($theme, "statuses", $status);
               }
             }
 
@@ -296,6 +288,39 @@ $statuses: "error", "normal", "success", "warning";
               #{$c}__field {
                 box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
                   0 0 0 3px mdg($theme, "statuses", $status);
+              }
+            }
+
+            &--active {
+              #{$c}__field {
+                $value: if($status == "normal", "active", $status);
+
+                border-color: mdg($theme, "statuses", $value);
+
+                @if (map-get($theme, "name") == "dark") {
+                  background-color: rgba(mdg($theme, "statuses", $value), 0.4);
+                } @else {
+                  background-color: rgba(mdg($theme, "statuses", $value), 0.9);
+                }
+              }
+
+              @if ($status == "normal") {
+                &:hover {
+                  #{$c}__field {
+                    @if (map-get($theme, "name") == "dark") {
+                      border-color: lighten(mdg($theme, "statuses", "active"), 10%);
+                    } @else if (map-get($theme, "name") == "light") {
+                      border-color: darken(mdg($theme, "statuses", "active"), 10%);
+                    }
+                  }
+                }
+
+                &:focus {
+                  #{$c}__field {
+                    box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
+                      0 0 0 3px mdg($theme, "statuses", "active");
+                  }
+                }
               }
             }
           }

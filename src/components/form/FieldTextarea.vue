@@ -325,13 +325,22 @@ $statuses: "error", "normal", "success", "warning";
       @each $status in $statuses {
         &#{$c}--#{$status} {
           #{$c}__container {
-            @if ($status != normal) {
-              // Override focused state
-              border-color: mdg($theme, "statuses", $status) !important;
-              color: mdg($theme, "statuses", $status) !important;
-            } @else {
-              border-color: mdg($theme, "borders", "default", "primary");
-              color: mdg($theme, "fonts", "default", "primary");
+            border-color: mdg($theme, "statuses", $status);
+
+            #{$c}__icon {
+              color: mdg($theme, "statuses", $status);
+            }
+
+            &:hover {
+              @if (map-get($theme, "name") == "dark") {
+                border-color: lighten(mdg($theme, "statuses", $status), 10%);
+              } @else if (map-get($theme, "name") == "light") {
+                border-color: darken(mdg($theme, "statuses", $status), 10%);
+              }
+            }
+
+            &:active {
+              border-color: mdg($theme, "statuses", $status);
             }
           }
         }
@@ -341,8 +350,11 @@ $statuses: "error", "normal", "success", "warning";
 
       &#{$c}--focused {
         #{$c}__container {
-          border-color: mdg($theme, "interactions", "active");
-          color: mdg($theme, "interactions", "active");
+          border-color: mdg($theme, "statuses", "active");
+
+          #{$c}__icon {
+            color: mdg($theme, "statuses", "active");
+          }
         }
       }
     }

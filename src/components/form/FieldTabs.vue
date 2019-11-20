@@ -367,12 +367,22 @@ $statuses: "error", "normal", "success", "warning";
             #{$c}__tab {
               &--active {
                 // "!important" overrides first-of-type and last-of-type
-                border-color: mdg($theme, "statuses", $status) !important;
-
-                @if (map-get($theme, "name") == "dark") {
-                  background-color: rgba(mdg($theme, "statuses", $status), 0.4);
+                @if ($status == "normal") {
+                  @if (map-get($theme, "name") == "dark") {
+                    border-color: mdg($theme, "statuses", "active") !important;
+                    background-color: rgba(mdg($theme, "statuses", "active"), 0.4);
+                  } @else {
+                    border-color: mdg($theme, "statuses", "active") !important;
+                    background-color: rgba(mdg($theme, "statuses", "active"), 0.9);
+                  }
                 } @else {
-                  background-color: rgba(mdg($theme, "statuses", $status), 0.9);
+                  @if (map-get($theme, "name") == "dark") {
+                    border-color: mdg($theme, "statuses", $status) !important;
+                    background-color: rgba(mdg($theme, "statuses", $status), 0.4);
+                  } @else {
+                    border-color: mdg($theme, "statuses", $status) !important;
+                    background-color: rgba(mdg($theme, "statuses", $status), 0.9);
+                  }
                 }
               }
 
