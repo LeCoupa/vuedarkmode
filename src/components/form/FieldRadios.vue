@@ -299,7 +299,12 @@ $statuses: "error", "normal", "success", "warning";
                   $value: if($status == "normal", "active", $status);
 
                   border-color: mdg($theme, "statuses", $value);
-                  background: mdg($theme, "statuses", $value);
+
+                  @if (map-get($theme, "name") == "dark") {
+                    background-color: rgba(mdg($theme, "statuses", $value), 0.4);
+                  } @else {
+                    background-color: rgba(mdg($theme, "statuses", $value), 0.9);
+                  }
                 }
 
                 @if ($status == "normal") {
