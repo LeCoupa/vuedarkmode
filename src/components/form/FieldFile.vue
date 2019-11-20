@@ -223,6 +223,16 @@ $statuses: "error", "normal", "success", "warning";
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
       #{$c}__container {
+        #{$c}__information {
+          #{$c}__label {
+            color: mdg($theme, "fonts", "default", "primary");
+          }
+
+          #{$c}__message {
+            color: mdg($theme, "fonts", "default", "secondary");
+          }
+        }
+
         #{$c}__upload {
           background-color: mdg($theme, "backgrounds", "default", "primary");
           box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
