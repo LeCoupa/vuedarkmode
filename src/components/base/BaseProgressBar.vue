@@ -177,6 +177,12 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
         color: mdg($theme, "fonts", "default", "primary");
       }
 
+      #{$c}__bar {
+        #{$c}__progress {
+          box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
+        }
+      }
+
       // --> COLORS <--
 
       @each $color in $colors {

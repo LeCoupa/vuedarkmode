@@ -495,6 +495,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
       color: mdg($theme, "colors", "white");
+      box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
 
       #{$c}__list {
         #{$c}__item {
