@@ -33,7 +33,6 @@ import FieldSelect from "./components/form/FieldSelect.vue"
 import FieldTabs from "./components/form/FieldTabs.vue"
 import FieldTextarea from "./components/form/FieldTextarea.vue"
 import FieldToggle from "./components/form/FieldToggle.vue"
-import { settings } from "cluster"
 
 /**************************************************************************
  * ENVIRONMENT CONFIGURATIONS
