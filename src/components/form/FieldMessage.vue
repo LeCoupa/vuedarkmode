@@ -8,7 +8,7 @@ p(
     "gb-field-message",
     "gb-field-message--" + computedStatus,
     "gb-field-message--" + size,
-    "gb-field-message--" + theme
+    "gb-field-message--" + computedTheme
   ]`
 )
   base-icon(

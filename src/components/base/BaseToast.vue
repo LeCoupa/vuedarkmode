@@ -7,7 +7,7 @@ div(
   :class=`[
     "gb-base-toast",
     "gb-base-toast--" + color,
-    "gb-base-toast--" + theme
+    "gb-base-toast--" + computedTheme
   ]`
   :style=`{
     width: width
@@ -57,18 +57,7 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "grey",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white",
-          "yellow"
-        ].includes(x)
+        return ["black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow"].includes(x)
       }
     },
     width: {
@@ -159,8 +148,7 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
               }
 
               &:focus {
-                box-shadow: 0 0 0 2px mdg($theme, "colors", $color),
-                  0 0 0 3px mdg($theme, "colors", "black");
+                box-shadow: 0 0 0 2px mdg($theme, "colors", $color), 0 0 0 3px mdg($theme, "colors", "black");
                 color: mdg($theme, "colors", "black") !important;
               }
             } @else {
@@ -169,8 +157,7 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
               }
 
               &:focus {
-                box-shadow: 0 0 0 2px mdg($theme, "colors", $color),
-                  0 0 0 3px mdg($theme, "colors", "red");
+                box-shadow: 0 0 0 2px mdg($theme, "colors", $color), 0 0 0 3px mdg($theme, "colors", "red");
                 color: mdg($theme, "colors", "red") !important;
               }
             }

@@ -9,7 +9,7 @@ div(
     "gb-base-spinner",
     "gb-base-spinner--" + color,
     "gb-base-spinner--" + size,
-    "gb-base-spinner--" + theme
+    "gb-base-spinner--" + computedTheme
   ]`
 )
   .gb-base-spinner__wave.gb-base-spinner__wave--first
@@ -33,18 +33,7 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "grey",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white",
-          "yellow"
-        ].includes(x)
+        return ["black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow"].includes(x)
       }
     },
     size: {

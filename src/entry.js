@@ -33,6 +33,7 @@ import FieldSelect from "./components/form/FieldSelect.vue"
 import FieldTabs from "./components/form/FieldTabs.vue"
 import FieldTextarea from "./components/form/FieldTextarea.vue"
 import FieldToggle from "./components/form/FieldToggle.vue"
+import { settings } from "cluster"
 
 /**************************************************************************
  * ENVIRONMENT CONFIGURATIONS
@@ -74,15 +75,18 @@ function install(Vue, options) {
   // Declare all components when options is not set or array is empty
   // Or when the user explicitely specify it
   for (let component in components) {
-    if (
-      !options ||
-      !options.components ||
-      options.components.length === 0 ||
-      options.components.includes(component)
-    ) {
+    if (!options || !options.components || options.components.length === 0 || options.components.includes(component)) {
       Vue.component("gb-" + component, components[component])
     }
   }
+
+  // Configure the theme to use (dark will always be the default theme)
+  if (!Vue.prototype.$gb) {
+    Vue.prototype.$gb = {}
+  }
+
+  Vue.prototype.$gb.vuedarkmode = {}
+  Vue.prototype.$gb.vuedarkmode.theme = (options || {}).theme || "dark"
 
   // Install Vee-Validate for form validation
   // https://logaretm.github.io/vee-validate/

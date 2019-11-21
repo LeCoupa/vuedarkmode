@@ -20,7 +20,7 @@ div(
     "gb-field-select--" + computedStatus,
     "gb-field-select--" + direction,
     "gb-field-select--" + size,
-    "gb-field-select--" + theme,
+    "gb-field-select--" + computedTheme,
     {
       "gb-field-select--clearable": clearable,
       "gb-field-select--disabled": disabled,

@@ -17,7 +17,7 @@ div(
     "gb-field-file",
     "gb-field-file--" + computedStatus,
     "gb-field-file--" + size,
-    "gb-field-file--" + theme,
+    "gb-field-file--" + computedTheme,
     {
       "gb-field-file--disabled": disabled,
       "gb-field-file--full-width": fullWidth

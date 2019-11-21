@@ -8,7 +8,7 @@ component(
   :class=`[
     "gb-base-heading",
     "gb-base-heading--" + tag,
-    "gb-base-heading--" + theme,
+    "gb-base-heading--" + computedTheme,
     {
       ["gb-base-heading--" + color]: color,
       ["gb-base-heading--weight-" + weight]: weight,

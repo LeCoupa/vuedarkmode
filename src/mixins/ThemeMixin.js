@@ -7,10 +7,20 @@ export default {
   props: {
     theme: {
       type: String,
-      default: "dark",
+      default: null,
       validator(x) {
         return ["dark", "light"].includes(x)
       }
+    }
+  },
+
+  computed: {
+    computedTheme() {
+      if (this.theme) {
+        return this.theme
+      }
+
+      return this.$gb.vuedarkmode.theme
     }
   }
 }

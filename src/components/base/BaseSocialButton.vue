@@ -9,7 +9,7 @@ button(
     "gb-base-social-button",
     "gb-base-social-button--" + network,
     "gb-base-social-button--" + size,
-    "gb-base-social-button--" + theme,
+    "gb-base-social-button--" + computedTheme,
     {
       "gb-base-social-button--disabled": disabled || loading,
       "gb-base-social-button--full-width": fullWidth,

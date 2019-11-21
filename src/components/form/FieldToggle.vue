@@ -17,7 +17,7 @@ div(
     "gb-field-toggle",
     "gb-field-toggle--" + computedStatus,
     "gb-field-toggle--" + size,
-    "gb-field-toggle--" + theme,
+    "gb-field-toggle--" + computedTheme,
     {
       "gb-field-toggle--disabled": disabled,
       "gb-field-toggle--full-width": fullWidth

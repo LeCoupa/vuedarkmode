@@ -17,7 +17,7 @@ div(
     "gb-field-checkbox",
     "gb-field-checkbox--" + computedStatus,
     "gb-field-checkbox--" + size,
-    "gb-field-checkbox--" + theme,
+    "gb-field-checkbox--" + computedTheme,
     {
       "gb-field-checkbox--disabled": disabled,
       "gb-field-checkbox--full-width": fullWidth

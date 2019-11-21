@@ -8,7 +8,7 @@ span(
     "gb-base-number",
     "gb-base-number--" + color,
     "gb-base-number--" + size,
-    "gb-base-number--" + theme
+    "gb-base-number--" + computedTheme
   ]`
   :style=`{
     backgroundImage: image ? "url(" + image + ")" : null,
@@ -52,9 +52,7 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].includes(
-          x
-        )
+        return ["black", "blue", "green", "orange", "purple", "red", "turquoise", "white"].includes(x)
       }
     },
     colorHex: {

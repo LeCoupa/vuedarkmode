@@ -8,7 +8,7 @@ label(
   :class=`[
     "gb-field-label",
     "gb-field-label--" + size,
-    "gb-field-label--" + theme,
+    "gb-field-label--" + computedTheme,
     {
       "gb-field-label--clickable": $listeners.click || forField,
       "gb-field-label--uppercase": uppercase

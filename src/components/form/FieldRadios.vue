@@ -17,7 +17,7 @@ div(
     "gb-field-radios",
     "gb-field-radios--" + computedStatus,
     "gb-field-radios--" + size,
-    "gb-field-radios--" + theme,
+    "gb-field-radios--" + computedTheme,
     {
       "gb-field-radios--disabled": disabled,
       "gb-field-radios--full-width": fullWidth

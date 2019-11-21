@@ -8,7 +8,7 @@ div(
   :class=`[
     "gb-base-avatar",
     "gb-base-avatar--" + size,
-    "gb-base-avatar--" + theme,
+    "gb-base-avatar--" + computedTheme,
     {
       "gb-base-avatar--animated": animated,
       "gb-base-avatar--bordered": bordered,

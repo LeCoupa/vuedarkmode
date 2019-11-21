@@ -17,7 +17,7 @@ div(
     "gb-field-input",
     "gb-field-input--" + computedStatus,
     "gb-field-input--" + size,
-    "gb-field-input--" + theme,
+    "gb-field-input--" + computedTheme,
     {
       "gb-field-input--borders": borders,
       "gb-field-input--clearable": clearable,

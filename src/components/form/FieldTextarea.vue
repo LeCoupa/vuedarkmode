@@ -17,7 +17,7 @@ div(
     "gb-field-textarea",
     "gb-field-textarea--" + computedStatus,
     "gb-field-textarea--" + size,
-    "gb-field-textarea--" + theme,
+    "gb-field-textarea--" + computedTheme,
     {
       "gb-field-textarea--borders": borders,
       "gb-field-textarea--disabled": disabled,

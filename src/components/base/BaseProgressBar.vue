@@ -7,7 +7,7 @@ div(
   :class=`[
     "gb-base-progress-bar",
     "gb-base-progress-bar--" + color,
-    "gb-base-progress-bar--" + theme,
+    "gb-base-progress-bar--" + computedTheme,
     {
       "gb-base-progress-bar--with-details-hover": detailsHover
     }
@@ -57,18 +57,7 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "grey",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white",
-          "yellow"
-        ].includes(x)
+        return ["black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow"].includes(x)
       }
     },
     details: {

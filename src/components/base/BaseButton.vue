@@ -17,7 +17,7 @@ button(
     "gb-base-button",
     "gb-base-button--" + color,
     "gb-base-button--" + size,
-    "gb-base-button--" + theme,
+    "gb-base-button--" + computedTheme,
     {
       "gb-base-button--circular": circular,
       "gb-base-button--disabled": disabled || loading,
@@ -114,18 +114,7 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "grey",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white",
-          "yellow"
-        ].includes(x)
+        return ["black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow"].includes(x)
       }
     },
     confirmation: {

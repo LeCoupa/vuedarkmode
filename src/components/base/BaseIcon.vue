@@ -16,7 +16,7 @@ i(
   @mouseup="onMouseUp"
   :class=`[
     "gb-base-icon",
-    "gb-base-icon--" + theme,
+    "gb-base-icon--" + computedTheme,
     {
       "gb-base-icon--clickable": $listeners.click,
       "gb-base-icon--outlined": outlined
@@ -160,7 +160,6 @@ $c: ".gb-base-icon";
   font-weight: 400;
   font-style: normal;
   font-family: "Material Icons";
-  src: url("https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2")
-    format("woff2");
+  src: url("https://fonts.gstatic.com/s/materialicons/v47/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2") format("woff2");
 }
 </style>

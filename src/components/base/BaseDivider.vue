@@ -7,7 +7,7 @@ hr(
   :class=`[
     "gb-base-divider",
     "gb-base-divider--" + size,
-    "gb-base-divider--" + theme,
+    "gb-base-divider--" + computedTheme,
     {
       ["gb-base-divider--" + color]: color
     }
@@ -34,18 +34,7 @@ export default {
       type: String,
       default: null,
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "grey",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white",
-          "yellow"
-        ].includes(x)
+        return ["black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow"].includes(x)
       }
     },
     margin: {

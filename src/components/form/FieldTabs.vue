@@ -17,7 +17,7 @@ div(
     "gb-field-tabs",
     "gb-field-tabs--" + computedStatus,
     "gb-field-tabs--" + size,
-    "gb-field-tabs--" + theme,
+    "gb-field-tabs--" + computedTheme,
     {
       "gb-field-tabs--disabled": disabled,
       "gb-field-tabs--multiple": multiple

@@ -10,7 +10,7 @@ span(
     "gb-base-badge",
     "gb-base-badge--" + color,
     "gb-base-badge--" + size,
-    "gb-base-badge--" + theme,
+    "gb-base-badge--" + computedTheme,
     {
       "gb-base-badge--clickable": $listeners.click,
       "gb-base-badge--filled": filled,
@@ -38,18 +38,7 @@ export default {
       type: String,
       default: "blue",
       validator(x) {
-        return [
-          "black",
-          "blue",
-          "green",
-          "grey",
-          "orange",
-          "purple",
-          "red",
-          "turquoise",
-          "white",
-          "yellow"
-        ].includes(x)
+        return ["black", "blue", "green", "grey", "orange", "purple", "red", "turquoise", "white", "yellow"].includes(x)
       }
     },
     filled: {
