@@ -18,7 +18,6 @@ import BaseHeading from "./components/base/BaseHeading.vue"
 import BaseIcon from "./components/base/BaseIcon.vue"
 import BaseNumber from "./components/base/BaseNumber.vue"
 import BaseProgressBar from "./components/base/BaseProgressBar.vue"
-import BaseSocialButton from "./components/base/BaseSocialButton.vue"
 import BaseSpinner from "./components/base/BaseSpinner.vue"
 import BaseToast from "./components/base/BaseToast.vue"
 
@@ -56,7 +55,6 @@ function install(Vue, options) {
     icon: BaseIcon,
     number: BaseNumber,
     "progress-bar": BaseProgressBar,
-    "social-button": BaseSocialButton,
     spinner: BaseSpinner,
     toast: BaseToast,
     checkbox: FieldCheckbox,
@@ -135,7 +133,6 @@ export {
   BaseIcon,
   BaseNumber,
   BaseProgressBar,
-  BaseSocialButton,
   BaseSpinner,
   BaseToast,
   FieldCheckbox,

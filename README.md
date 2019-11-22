@@ -29,10 +29,10 @@ yarn add @growthbunker/vuedarkmode
 In your `main.js` file:
 
 ```js
-import Vue from "vue";
-import VueDarkMode from "@growthbunker/vuedarkmode";
+import Vue from "vue"
+import VueDarkMode from "@growthbunker/vuedarkmode"
 
-Vue.use(VueDarkMode);
+Vue.use(VueDarkMode)
 ```
 
 ### Nuxt.js
@@ -40,10 +40,10 @@ Vue.use(VueDarkMode);
 Create a new plugin in `plugins/vuedarkmode.js`:
 
 ```js
-import Vue from "vue";
-import VueDarkMode from "@growthbunker/vuedarkmode";
+import Vue from "vue"
+import VueDarkMode from "@growthbunker/vuedarkmode"
 
-Vue.use(VueDarkMode);
+Vue.use(VueDarkMode)
 ```
 
 Add this new plugin to `nuxt.config.js`.
@@ -87,8 +87,6 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 - **BaseIcon**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseIcon) | [source code](/src/components/base/BaseIcon.vue).
 
 * **BaseProgressBar**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseProgressBar) | [source code](/src/components/base/BaseProgressBar.vue).
-
-* **BaseSocialButton**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseSocialButton) | [source code](/src/components/base/BaseSocialButton.vue).
 
 * **BaseSpinner**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseSpinner) | [source code](/src/components/base/BaseSpinner.vue).
 

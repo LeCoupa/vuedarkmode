@@ -1,4 +1,10 @@
-## 0.4.0 - Current
+## 0.5.0 - Current
+
+### Removed
+
+- BaseSocialButton: migrate to its own package @growthbunker/vuesocial.
+
+## 0.4.0 - 2019-11-22
 
 ### Added
 
@@ -21,8 +27,6 @@
 - FieldTabs: Add tab icon and icon size. Add validation rules.
 
 - FieldToggle: Add rules-vid and show-errors prop.
-
-### Removed
 
 - FieldInput: Remove theme prop.
 
