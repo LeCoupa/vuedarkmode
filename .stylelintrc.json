@@ -5,6 +5,6 @@
   "processors": ["stylelint-processor-html"],
   "rules": {
     "no-empty-source": null,
-    "unit-whitelist": ["deg", "ms", "px", "%"]
+    "unit-whitelist": ["deg", "fr", "ms", "px", "vh", "%"]
   }
 }
