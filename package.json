@@ -33,7 +33,10 @@
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife"
+    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
+    "lint": "npm run lint:es; npm run lint:scss;",
+    "lint:es": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:scss": "stylelint '**/*.scss'; stylelint '**/*.vue' --syntax scss; exit 0;"
   },
   "dependencies": {
     "@growthbunker/stylesheets": "0.1.19",
@@ -55,6 +58,10 @@
     "rollup-plugin-replace": "2.2.0",
     "rollup-plugin-terser": "5.1.2",
     "rollup-plugin-vue": "5.1.1",
+    "stylelint": "^12.0.0",
+    "stylelint-config-recommended-scss": "^4.1.0",
+    "stylelint-processor-html": "^1.0.0",
+    "stylelint-scss": "^3.13.0",
     "vue": "2.6.10",
     "vue-template-compiler": "2.6.10"
   }

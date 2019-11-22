@@ -1,0 +1,10 @@
+{
+  "syntax": "scss",
+  "defaultSeverity": "warning",
+  "extends": "stylelint-config-recommended-scss",
+  "processors": ["stylelint-processor-html"],
+  "rules": {
+    "no-empty-source": null,
+    "unit-whitelist": ["deg", "ms", "px", "%"]
+  }
+}
