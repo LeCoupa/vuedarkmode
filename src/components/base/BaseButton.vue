@@ -29,7 +29,7 @@ button(
       "gb-base-button--uppercase": uppercase
     }
   ]`
-  :disabled="disabled || loading"
+  :disabled="disabled"
   :type="type"
 )
   span.gb-base-button__inner
