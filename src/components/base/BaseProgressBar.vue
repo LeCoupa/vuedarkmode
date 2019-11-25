@@ -35,7 +35,7 @@ div(
   .gb-base-progress-bar__bar
     div(
       :style=`{
-        width: formattedProgress + "%"
+        width: safeProgress + "%"
       }`
       class="gb-base-progress-bar__progress"
     )
@@ -79,7 +79,7 @@ export default {
   },
 
   computed: {
-    formattedProgress() {
+    safeProgress() {
       if (this.progress < 0) {
         return 0
       } else if (this.progress <= 100) {
