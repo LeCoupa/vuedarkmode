@@ -74,7 +74,11 @@ export default {
     },
     progress: {
       type: Number,
-      default: 0
+      default: 0,
+
+      validator(x) {
+        return x >= 0 && x <= 100
+      }
     }
   },
 
