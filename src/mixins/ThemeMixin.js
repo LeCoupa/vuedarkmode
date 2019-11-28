@@ -18,9 +18,11 @@ export default {
     computedTheme() {
       if (this.theme) {
         return this.theme
+      } else if (this.$gb && this.$gb.vuedarkmode && this.$gb.vuedarkmode.theme) {
+        return this.$gb.vuedarkmode.theme
+      } else {
+        return "dark"
       }
-
-      return this.$gb.vuedarkmode.theme
     }
   }
 }
