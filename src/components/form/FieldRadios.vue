@@ -240,7 +240,6 @@ $statuses: "error", "normal", "success", "warning";
         #{$c}__radio {
           #{$c}__field {
             background-color: mdg($theme, "backgrounds", "default", "primary");
-            box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
 
             #{$c}__dot {
               background-color: mdg($theme, "backgrounds", "default", "primary");

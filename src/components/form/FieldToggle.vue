@@ -232,8 +232,6 @@ $statuses: "error", "normal", "success", "warning";
     &--#{map-get($theme, "name")} {
       #{$c}__container {
         #{$c}__field {
-          box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
-
           @if (map-get($theme, "name") == "dark") {
             background-color: rgba(mdg($theme, "backgrounds", "default", "secondary"), 0.4);
           } @else {

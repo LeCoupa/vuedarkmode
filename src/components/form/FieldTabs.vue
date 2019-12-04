@@ -329,8 +329,6 @@ $statuses: "error", "normal", "success", "warning";
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
       #{$c}__container {
-        box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
-
         #{$c}__tab {
           border-top-color: mdg($theme, "borders", "default", "primary");
           border-bottom-color: mdg($theme, "borders", "default", "primary");

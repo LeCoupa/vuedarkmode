@@ -217,7 +217,6 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__field {
           background-color: mdg($theme, "backgrounds", "default", "primary");
-          box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
 
           #{$c}__tick {
             border-color: mdg($theme, "backgrounds", "default", "primary");

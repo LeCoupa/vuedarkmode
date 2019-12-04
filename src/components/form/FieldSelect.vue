@@ -572,8 +572,6 @@ $statuses: "error", "normal", "success", "warning";
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
       #{$c}__container {
-        box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
-
         #{$c}__field,
         #{$c}__options {
           background-color: mdg($theme, "backgrounds", "default", "primary");
