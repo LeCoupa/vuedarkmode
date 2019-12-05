@@ -458,11 +458,11 @@ $statuses: "error", "normal", "success", "warning";
 
   &--disabled {
     opacity: 0.7;
+    cursor: not-allowed;
 
     #{$c}__label,
     #{$c}__container {
       pointer-events: none;
-      cursor: not-allowed;
     }
   }
 
@@ -579,4 +579,5 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 }
+
 </style>
