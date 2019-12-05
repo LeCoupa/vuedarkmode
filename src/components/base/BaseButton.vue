@@ -379,7 +379,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
       padding: (3px + 2px * $i) (6px + 2px * $i);
       border-radius: 2px + (1px * $i);
       font-size: 10px + (1px * $i);
-      line-height: 8px + (2px * $i);
+      line-height: 10px + (2px * $i);
 
       #{$c}__inner {
         #{$c}__left-icon {
