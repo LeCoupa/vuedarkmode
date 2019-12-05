@@ -333,12 +333,6 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
   @include no-tap-highlight-color;
 
-  #{$c}__inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   #{$c}__focuser {
     position: absolute;
     top: -4px;
@@ -349,6 +343,12 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     border-style: solid;
     opacity: 0;
     transition: all linear 250ms;
+  }
+
+  #{$c}__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   #{$c}__list {
