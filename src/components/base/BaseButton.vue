@@ -32,6 +32,8 @@ button(
   :disabled="disabled"
   :type="type"
 )
+  span.gb-base-button__focuser
+
   span.gb-base-button__inner
     base-icon(
       v-if="leftIcon"
@@ -337,6 +339,18 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     justify-content: center;
   }
 
+  #{$c}__focuser {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    border-width: 1px;
+    border-style: solid;
+    opacity: 0;
+    transition: all linear 250ms;
+  }
+
   #{$c}__list {
     position: absolute;
     bottom: 0;
@@ -381,6 +395,10 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
       font-size: 10px + (1px * $i);
       line-height: 10px + (2px * $i);
 
+      #{$c}__focuser {
+        border-radius: 4px + (1px * $i);
+      }
+
       #{$c}__inner {
         #{$c}__left-icon {
           margin-right: 2px + (1px * $i);
@@ -401,6 +419,10 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
   &--circular {
     border-radius: 100px;
+
+    #{$c}__focuser {
+      border-radius: 100px;
+    }
 
     #{$c}__inner {
       #{$c}__left-icon {
@@ -472,7 +494,11 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   }
 
   &--rounded {
-    border-radius: 60px;
+    border-radius: 100px;
+
+    #{$c}__focuser {
+      border-radius: 100px;
+    }
   }
 
   &--uppercase {
@@ -506,9 +532,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
       @each $color in $colors {
         &#{$c}--#{$color} {
-          &:focus {
-            box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-              0 0 0 3px mdg($theme, "colors", $color);
+          #{$c}__focuser {
+            border-color: mdg($theme, "colors", $color);
           }
 
           // Reverse buttons have their own defined style (see below)
@@ -591,7 +616,9 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   }
 
   &:focus {
-    transition: box-shadow linear 250ms;
+    #{$c}__focuser {
+      opacity: 1;
+    }
   }
 }
 
