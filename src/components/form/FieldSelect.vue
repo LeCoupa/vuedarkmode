@@ -100,7 +100,7 @@ div(
     )
       field-input(
         v-if="searchable && opened"
-        v-model="searchQuery"
+        @input="onSearchInput"
         :autofocus="true"
         :borders="false"
         :size="size"
@@ -110,12 +110,14 @@ div(
       )
 
       div(
-        v-for="option in computedOptions"
+        v-for="(option, index) in computedOptions"
         @click="onOptionClick(option, $event)"
         @keypress.prevent="onOptionKeypress(option, $event)"
         :class=`[
           "gb-field-select__option",
           {
+            "js-keyboard-focused-option": keyboardIndex === index,
+            "gb-field-select__option--keyboard-focused": keyboardIndex === index,
             "gb-field-select__option--selected": selectedOption && option.value === selectedOption.value
           }
         ]`
@@ -195,7 +197,9 @@ export default {
     },
     options: {
       type: Array,
-      required: true
+      default() {
+        return []
+      }
     },
     placeholder: {
       type: String,
@@ -217,6 +221,7 @@ export default {
 
       opened: false,
 
+      keyboardIndex: 0,
       searchQuery: ""
     }
   },
@@ -248,7 +253,10 @@ export default {
 
     hotkeys() {
       return {
-        esc: this.onClose
+        esc: this.onClose,
+        down: this.onNavigateWithKeyboard,
+        enter: this.onNavigateWithKeyboard,
+        up: this.onNavigateWithKeyboard
       }
     },
 
@@ -260,6 +268,24 @@ export default {
   },
 
   methods: {
+    // --> HELPERS <--
+
+    reset() {
+      this.opened = false
+      this.keyboardIndex = 0
+      this.searchQuery = ""
+    },
+
+    selectOption(value) {
+      this.innerValue = value
+
+      this.$emit("change", value, this.name, event)
+      this.$emit("input", value) // Synchronization for v-model
+
+      this.reset()
+      this.focus()
+    },
+
     // --> EVENT LISTENERS <--
 
     onClear(name, event) {
@@ -271,8 +297,7 @@ export default {
     },
 
     onClose() {
-      this.opened = false
-      this.searchQuery = ""
+      this.reset()
     },
 
     onContainerClick(event) {
@@ -295,17 +320,41 @@ export default {
       }
     },
 
-    onOptionClick(option, event) {
-      this.opened = false
+    onNavigateWithKeyboard(event) {
+      event.preventDefault()
 
+      if (this.opened) {
+        const code = event.code
+
+        if (["ArrowDown", "ArrowUp"].includes(code)) {
+          if (code === "ArrowDown") {
+            // Select next option or go back to first one
+            this.keyboardIndex = this.keyboardIndex < this.computedOptions.length - 1 ? this.keyboardIndex + 1 : 0
+          } else if (code === "ArrowUp") {
+            // Select previous option or go back to last one
+            this.keyboardIndex = this.keyboardIndex === 0 ? this.computedOptions.length - 1 : this.keyboardIndex - 1
+          }
+
+          // Scroll to the newly focused option
+          this.$nextTick(() => {
+            const focusedOption = this.$el.querySelector(".js-keyboard-focused-option")
+
+            focusedOption.scrollIntoView({
+              behavior: "auto",
+              block: "center"
+            })
+          })
+        } else if (code === "Enter") {
+          // Select the focused option
+          this.selectOption(this.computedOptions[this.keyboardIndex].value)
+        }
+      }
+    },
+
+    onOptionClick(option, event) {
       // Check that the option is not currently selected
       if ((this.selectedOption || {}).value !== option.value) {
-        const value = option.value
-
-        this.innerValue = value
-
-        this.$emit("change", value, this.name, event)
-        this.$emit("input", value) // Synchronization for v-model
+        this.selectOption(option.value)
       }
     },
 
@@ -313,6 +362,13 @@ export default {
       if (event.code === "Space") {
         event.target.click()
       }
+    },
+
+    onSearchInput(query) {
+      this.searchQuery = query
+
+      // Refocus the first option
+      this.keyboardIndex = 0
     }
   }
 }
@@ -359,15 +415,8 @@ $statuses: "error", "normal", "success", "warning";
         overflow: hidden;
         align-items: center;
         flex: 1;
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
         text-overflow: ellipsis;
         white-space: nowrap;
-        transition: all linear 250ms;
-
-        &:last-of-type {
-          border-bottom: none;
-        }
 
         #{$c}__option-left,
         #{$c}__option-right {
@@ -443,6 +492,12 @@ $statuses: "error", "normal", "success", "warning";
 
       #{$c}__option {
         flex: 0 0 auto;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+
+        &:last-of-type {
+          border-bottom: none;
+        }
 
         &--selected {
           #{$c}__option-label {
@@ -617,7 +672,6 @@ $statuses: "error", "normal", "success", "warning";
           background-color: mdg($theme, "backgrounds", "default", "primary");
 
           #{$c}__option {
-            border-bottom-color: mdg($theme, "borders", "default", "primary");
             color: mdg($theme, "fonts", "default", "secondary");
 
             &--placeholder {
@@ -653,6 +707,8 @@ $statuses: "error", "normal", "success", "warning";
           }
 
           #{$c}__option {
+            border-bottom-color: mdg($theme, "borders", "default", "primary");
+
             &:hover,
             &:focus {
               background-color: mdg($theme, "backgrounds", "default", "secondary");
@@ -710,6 +766,16 @@ $statuses: "error", "normal", "success", "warning";
               &--left,
               &--arrow {
                 color: mdg($theme, "statuses", "active") !important;
+              }
+            }
+          }
+
+          #{$c}__options {
+            #{$c}__option {
+              &--keyboard-focused {
+                border-bottom-color: mdg($theme, "statuses", "active");
+                background-color: mdg($theme, "statuses", "active");
+                color: mdg($theme, "colors", "white");
               }
             }
           }
