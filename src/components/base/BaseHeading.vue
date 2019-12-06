@@ -114,13 +114,13 @@ $colors: "black", "blue", "green", "grey", "orange", "red", "white";
   }
 
   &--h5 {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 18px;
     line-height: 18px;
   }
 
   &--h6 {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     line-height: 16px;
   }
