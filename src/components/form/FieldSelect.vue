@@ -416,7 +416,7 @@ $statuses: "error", "normal", "success", "warning";
       box-sizing: border-box;
       border-width: 1px;
       border-style: solid;
-      transition: all linear 250ms;
+      transition: border-color linear 250ms;
       user-select: none;
       cursor: pointer;
 
