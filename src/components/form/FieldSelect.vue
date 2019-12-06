@@ -628,10 +628,10 @@ $statuses: "error", "normal", "success", "warning";
               #{$c}__icon {
                 &--left,
                 &--arrow {
-                  @if ($status != normal) {
-                    color: mdg($theme, "statuses", $status);
+                  @if ($status == normal) {
+                    color: mdg($theme, "fonts", "default", "tertiary");
                   } @else {
-                    color: mdg($theme, "fonts", "default", "primary");
+                    color: mdg($theme, "statuses", $status);
                   }
                 }
               }
