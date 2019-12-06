@@ -536,7 +536,11 @@ $statuses: "error", "normal", "success", "warning";
             border-color: mdg($theme, "statuses", $status);
 
             #{$c}__icon {
-              color: mdg($theme, "statuses", $status);
+              @if ($status == "normal") {
+                color: mdg($theme, "fonts", "default", "tertiary");
+              } @else {
+                color: mdg($theme, "statuses", $status);
+              }
             }
 
             &:hover {
@@ -579,5 +583,4 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 }
-
 </style>
