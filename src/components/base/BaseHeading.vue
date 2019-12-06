@@ -92,51 +92,51 @@ $colors: "black", "blue", "green", "grey", "orange", "red", "white";
   &--h1 {
     font-weight: 700;
     font-size: 26px;
-    line-height: 36px;
+    line-height: 26px;
   }
 
   &--h2 {
     font-weight: 500;
     font-size: 24px;
-    line-height: 34px;
+    line-height: 24px;
   }
 
   &--h3 {
     font-weight: 500;
     font-size: 22px;
-    line-height: 32px;
+    line-height: 22px;
   }
 
   &--h4 {
     font-weight: 500;
     font-size: 20px;
-    line-height: 30px;
+    line-height: 20px;
   }
 
   &--h5 {
     font-weight: 400;
     font-size: 18px;
-    line-height: 28px;
+    line-height: 18px;
   }
 
   &--h6 {
     font-weight: 400;
     font-size: 16px;
-    line-height: 28px;
+    line-height: 16px;
   }
 
   &--p {
     margin-bottom: 20px;
     font-weight: 400;
     font-size: 16px;
-    line-height: 28px;
+    line-height: 16px;
   }
 
   &--small {
     margin-bottom: 20px;
     font-weight: 400;
     font-size: 14px;
-    line-height: 24px;
+    line-height: 14px;
   }
 
   // --> WEIGHTS <--
