@@ -98,8 +98,19 @@ div(
       v-show="opened && !disabled"
       class="gb-field-select__options"
     )
+      field-input(
+        v-if="searchable && opened"
+        v-model="searchQuery"
+        :autofocus="true"
+        :borders="false"
+        :size="size"
+        class="gb-field-select__search"
+        placeholder="Search..."
+        left-icon="search"
+      )
+
       div(
-        v-for="option in options"
+        v-for="option in computedOptions"
         @click="onOptionClick(option, $event)"
         @keypress.prevent="onOptionKeypress(option, $event)"
         :class=`[
@@ -148,11 +159,18 @@ div(
      ************************************************************************* -->
 
 <script>
+// PROJECT: COMPONENTS
+import FieldInput from "./FieldInput.vue"
+
 // PROJECT: MIXINS
 import FieldMixin from "../../mixins/FieldMixin.js"
 import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
+  components: {
+    FieldInput
+  },
+
   mixins: [FieldMixin, ThemeMixin],
 
   props: {
@@ -183,6 +201,10 @@ export default {
       type: String,
       default: null
     },
+    searchable: {
+      type: Boolean,
+      default: false
+    },
     value: {
       type: [Number, String],
       default: null
@@ -193,7 +215,9 @@ export default {
     return {
       // --> STATE <--
 
-      opened: false
+      opened: false,
+
+      searchQuery: ""
     }
   },
 
@@ -209,6 +233,17 @@ export default {
       }
 
       return this.leftIcon
+    },
+
+    computedOptions() {
+      // Return only searched options
+      if (this.searchQuery) {
+        return this.options.filter(option => {
+          return option.label.toLowerCase().includes(this.searchQuery)
+        })
+      }
+
+      return this.options
     },
 
     hotkeys() {
@@ -237,6 +272,7 @@ export default {
 
     onClose() {
       this.opened = false
+      this.searchQuery = ""
     },
 
     onContainerClick(event) {
@@ -400,6 +436,11 @@ $statuses: "error", "normal", "success", "warning";
       max-height: 200px;
       user-select: none;
 
+      #{$c}__search {
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+      }
+
       #{$c}__option {
         flex: 0 0 auto;
 
@@ -558,8 +599,7 @@ $statuses: "error", "normal", "success", "warning";
 
   &--with-left-icon {
     #{$c}__container {
-      #{$c}__field,
-      #{$c}__options {
+      #{$c}__field {
         #{$c}__option {
           padding-left: 35px;
         }
@@ -608,6 +648,10 @@ $statuses: "error", "normal", "success", "warning";
         }
 
         #{$c}__options {
+          #{$c}__search {
+            border-bottom-color: mdg($theme, "borders", "default", "primary");
+          }
+
           #{$c}__option {
             &:hover,
             &:focus {
