@@ -16,7 +16,6 @@ i(
   @mouseup="onMouseUp"
   :class=`[
     "gb-base-icon",
-    "gb-base-icon--" + computedTheme,
     {
       "gb-base-icon--clickable": $listeners.click,
       "gb-base-icon--outlined": outlined
