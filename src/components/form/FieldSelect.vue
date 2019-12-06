@@ -221,7 +221,7 @@ export default {
 
       opened: false,
 
-      keyboardIndex: 0,
+      keyboardIndex: null,
       searchQuery: ""
     }
   },
@@ -272,7 +272,7 @@ export default {
 
     reset() {
       this.opened = false
-      this.keyboardIndex = 0
+      this.keyboardIndex = null
       this.searchQuery = ""
     },
 
@@ -328,11 +328,19 @@ export default {
 
         if (["ArrowDown", "ArrowUp"].includes(code)) {
           if (code === "ArrowDown") {
-            // Select next option or go back to first one
-            this.keyboardIndex = this.keyboardIndex < this.computedOptions.length - 1 ? this.keyboardIndex + 1 : 0
+            // Select next option or go to the first one
+            if (this.keyboardIndex < this.computedOptions.length - 1 && this.keyboardIndex !== null) {
+              this.keyboardIndex += 1
+            } else {
+              this.keyboardIndex = 0
+            }
           } else if (code === "ArrowUp") {
-            // Select previous option or go back to last one
-            this.keyboardIndex = this.keyboardIndex === 0 ? this.computedOptions.length - 1 : this.keyboardIndex - 1
+            // Select previous option or go to the last one
+            if (this.keyboardIndex !== 0 && this.keyboardIndex !== null) {
+              this.keyboardIndex -= 1
+            } else {
+              this.keyboardIndex = this.computedOptions.length - 1
+            }
           }
 
           // Scroll to the newly focused option
