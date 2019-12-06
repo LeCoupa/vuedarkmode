@@ -339,10 +339,12 @@ export default {
           this.$nextTick(() => {
             const focusedOption = this.$el.querySelector(".js-keyboard-focused-option")
 
-            focusedOption.scrollIntoView({
-              behavior: "auto",
-              block: "center"
-            })
+            if (focusedOption) {
+              focusedOption.scrollIntoView({
+                behavior: "auto",
+                block: "center"
+              })
+            }
           })
         } else if (code === "Enter") {
           // Select the focused option
