@@ -239,7 +239,7 @@ export default {
       // Return only searched options
       if (this.searchQuery) {
         return this.options.filter(option => {
-          return option.label.toLowerCase().includes(this.searchQuery)
+          return option.label.toLowerCase().includes(this.searchQuery.toLowerCase())
         })
       }
 
