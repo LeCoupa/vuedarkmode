@@ -26,7 +26,7 @@ div(
       "gb-field-select--disabled": disabled,
       "gb-field-select--opened": opened,
       "gb-field-select--full-width": fullWidth,
-      "gb-field-select--with-left-icon": computedLeftIcon
+      "gb-field-select--with-left-icon": computedLeftIcon && !$scopedSlots['option-left']
     }
   ]`
 )
@@ -48,7 +48,7 @@ div(
       tabindex="0"
     )
       base-icon(
-        v-if="computedLeftIcon"
+        v-if="computedLeftIcon && !$scopedSlots['option-left']"
         :name="computedLeftIcon"
         class="gb-field-select__icon gb-field-select__icon--left"
       )
