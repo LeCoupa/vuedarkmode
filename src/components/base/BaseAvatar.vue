@@ -25,6 +25,8 @@ div(
     :tabindex="$listeners.click ? '0' : null"
     class="gb-base-avatar__image"
   )
+    span.gb-base-avatar__focuser
+
     div(
       v-if="secondaries"
       class="gb-base-avatar__secondaries"
@@ -141,12 +143,25 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
   @include no-tap-highlight-color;
 
   #{$c}__image {
+    position: relative;
     display: inline-block;
     box-sizing: border-box;
     outline: 0;
     background-size: cover;
     transition: all linear 0s;
     user-select: none;
+
+    #{$c}__focuser {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      bottom: -3px;
+      left: -3px;
+      border-width: 1px;
+      border-style: solid;
+      opacity: 0;
+      transition: all linear 250ms;
+    }
 
     #{$c}__secondaries {
       display: flex;
@@ -184,18 +199,34 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
           width: 20px;
           height: 20px;
           border-radius: 2px;
+
+          #{$c}__focuser {
+            border-radius: 4px;
+          }
         } @else if ($size == "micro") {
           width: 24px;
           height: 24px;
           border-radius: 2px;
+
+          #{$c}__focuser {
+            border-radius: 4px;
+          }
         } @else if ($size == "mini") {
           width: 30px;
           height: 30px;
           border-radius: 4px;
+
+          #{$c}__focuser {
+            border-radius: 6px;
+          }
         } @else {
           width: 20px * ($i - 1);
           height: 20px * ($i - 1);
           border-radius: 2px * ($i - 1);
+
+          #{$c}__focuser {
+            border-radius: 2px * ($i - 1) + 2px;
+          }
         }
       }
 
@@ -243,6 +274,10 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
   &--circular {
     #{$c}__image {
       border-radius: 100%;
+
+      #{$c}__focuser {
+        border-radius: 100%;
+      }
     }
   }
 
@@ -285,8 +320,9 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
       &#{$c}--clickable {
         #{$c}__image {
           &:focus {
-            box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-              0 0 0 3px mdg($theme, "statuses", "active");
+            #{$c}__focuser {
+              border-color: mdg($theme, "statuses", "active");
+            }
           }
         }
       }
@@ -294,6 +330,18 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
       &#{$c}--shadow {
         #{$c}__image {
           box-shadow: 0 1px 3px 0 mdg($theme, "box-shadows", "default", "primary");
+        }
+      }
+    }
+  }
+
+  // --> INTERACTIONS <--
+
+  &--clickable {
+    #{$c}__image {
+      &:focus {
+        #{$c}__focuser {
+          opacity: 1;
         }
       }
     }
