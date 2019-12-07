@@ -77,11 +77,12 @@ function install(Vue, options) {
     }
   }
 
-  // Configure the theme to use (dark will always be the default theme)
+  // Create growthbunker namespace
   if (!Vue.prototype.$gb) {
     Vue.prototype.$gb = {}
   }
 
+  // Set global options for the packages
   Vue.prototype.$gb.vuedarkmode = {}
   Vue.prototype.$gb.vuedarkmode.theme = (options || {}).theme || "dark"
 
