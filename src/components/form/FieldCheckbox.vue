@@ -39,6 +39,8 @@ div(
       @click="onClick"
       class="gb-field-checkbox__field"
     )
+      span.gb-field-checkbox__focuser
+
       span.gb-field-checkbox__tick
 
     field-label(
@@ -134,6 +136,7 @@ $statuses: "error", "normal", "success", "warning";
     outline: 0;
 
     #{$c}__field {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -142,6 +145,20 @@ $statuses: "error", "normal", "success", "warning";
       border-radius: 3px;
       transition: all linear 250ms;
       cursor: pointer;
+
+      #{$c}__focuser {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        bottom: -4px;
+        left: -4px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: transparent;
+        border-radius: 5px;
+        opacity: 0;
+        transition: all linear 250ms;
+      }
 
       #{$c}__tick {
         flex: 0 0 auto;
@@ -160,6 +177,14 @@ $statuses: "error", "normal", "success", "warning";
       margin-top: 2px;
       margin-bottom: 0;
       font-weight: 400;
+    }
+
+    &:focus {
+      #{$c}__field {
+        #{$c}__focuser {
+          opacity: 1;
+        }
+      }
     }
   }
 
@@ -263,15 +288,16 @@ $statuses: "error", "normal", "success", "warning";
 
             &:focus {
               #{$c}__field {
-                box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-                  0 0 0 3px mdg($theme, "statuses", $status);
+                #{$c}__focuser {
+                  border-color: mdg($theme, "statuses", $status);
+                }
               }
             }
 
             &--active {
-              #{$c}__field {
-                $value: if($status == "normal", "active", $status);
+              $value: if($status == "normal", "active", $status);
 
+              #{$c}__field {
                 border-color: mdg($theme, "statuses", $value);
 
                 @if (map-get($theme, "name") == "dark") {
@@ -294,8 +320,9 @@ $statuses: "error", "normal", "success", "warning";
 
                 &:focus {
                   #{$c}__field {
-                    box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-                      0 0 0 3px mdg($theme, "statuses", "active");
+                    #{$c}__focuser {
+                      border-color: mdg($theme, "statuses", "active");
+                    }
                   }
                 }
               }
