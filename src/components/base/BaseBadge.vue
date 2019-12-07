@@ -19,6 +19,8 @@ span(
   ]`
   :tabindex="$listeners.click ? '0' : null"
 )
+  span.gb-base-badge__focuser
+
   slot
 </template>
 
@@ -91,6 +93,7 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
 $sizes: "micro", "mini", "small", "default", "medium", "large";
 
 #{$c} {
+  position: relative;
   display: inline-block;
   outline: 0;
   border-width: 1px;
@@ -101,6 +104,19 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
   user-select: none;
 
   @include no-tap-highlight-color;
+
+  #{$c}__focuser {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 100px;
+    opacity: 0;
+    transition: all linear 250ms;
+  }
 
   // --> SIZES <--
 
@@ -137,14 +153,18 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
 
   @each $theme in $themes {
     &--#{map-get($theme, "name")} {
-      color: mdg($theme, "colors", "white");
       box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
+      color: mdg($theme, "colors", "white");
 
       // --> COLORS <--
 
       @each $color in $colors {
         &#{$c}--#{$color} {
           border-color: mdg($theme, "colors", $color);
+
+          #{$c}__focuser {
+            border-color: mdg($theme, "colors", $color);
+          }
 
           &#{$c}--filled {
             background-color: mdg($theme, "colors", $color);
@@ -159,13 +179,16 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
               color: mdg($theme, "colors", $color);
             }
           }
-
-          &:focus {
-            box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-              0 0 0 3px mdg($theme, "colors", $color);
-          }
         }
       }
+    }
+  }
+
+  // --> INTERACTIONS <--
+
+  &:focus {
+    #{$c}__focuser {
+      opacity: 1;
     }
   }
 }
