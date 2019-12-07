@@ -350,7 +350,7 @@ export default {
             if (focusedOption) {
               focusedOption.scrollIntoView({
                 behavior: "auto",
-                block: "center"
+                block: "nearest"
               })
             }
           })
