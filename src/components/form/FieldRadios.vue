@@ -319,9 +319,9 @@ $statuses: "error", "normal", "success", "warning";
               }
 
               &--active {
-                #{$c}__field {
-                  $value: if($status == "normal", "active", $status);
+                $value: if($status == "normal", "active", $status);
 
+                #{$c}__field {
                   border-color: mdg($theme, "statuses", $value);
 
                   @if (map-get($theme, "name") == "dark") {
