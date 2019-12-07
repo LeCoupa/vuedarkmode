@@ -159,6 +159,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
       left: -3px;
       border-width: 1px;
       border-style: solid;
+      border-color: transparent;
       opacity: 0;
       transition: all linear 250ms;
     }
