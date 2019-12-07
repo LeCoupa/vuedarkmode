@@ -42,6 +42,8 @@ div(
         @click="onClick(radio, $event)"
         class="gb-field-radios__field"
       )
+        span.gb-field-radios__focuser
+
         span.gb-field-radios__dot
 
       field-label(
@@ -159,6 +161,20 @@ $statuses: "error", "normal", "success", "warning";
         transition: all linear 250ms;
         cursor: pointer;
 
+        #{$c}__focuser {
+          position: absolute;
+          top: -4px;
+          right: -4px;
+          bottom: -4px;
+          left: -4px;
+          border-width: 1px;
+          border-style: solid;
+          border-color: transparent;
+          border-radius: 100%;
+          opacity: 0;
+          transition: all linear 250ms;
+        }
+
         #{$c}__dot {
           position: absolute;
           top: 50%;
@@ -175,6 +191,14 @@ $statuses: "error", "normal", "success", "warning";
         margin-top: 2px;
         margin-bottom: 0;
         font-weight: 400;
+      }
+
+      &:focus {
+        #{$c}__field {
+          #{$c}__focuser {
+            opacity: 1;
+          }
+        }
       }
     }
   }
@@ -288,8 +312,9 @@ $statuses: "error", "normal", "success", "warning";
 
               &:focus {
                 #{$c}__field {
-                  box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-                    0 0 0 3px mdg($theme, "statuses", $status);
+                  #{$c}__focuser {
+                    border-color: mdg($theme, "statuses", $status);
+                  }
                 }
               }
 
@@ -319,8 +344,9 @@ $statuses: "error", "normal", "success", "warning";
 
                   &:focus {
                     #{$c}__field {
-                      box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-                        0 0 0 3px mdg($theme, "statuses", "active");
+                      #{$c}__focuser {
+                        border-color: mdg($theme, "statuses", "active");
+                      }
                     }
                   }
                 }
