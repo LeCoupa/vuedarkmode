@@ -55,6 +55,8 @@ div(
       class="gb-field-file__upload js-tag-for-autofocus"
       tabindex="0"
     )
+      span.gb-field-file__focuser
+
       base-icon(
         name="cloud_upload"
         class="gb-field-file__icon"
@@ -164,12 +166,32 @@ $statuses: "error", "normal", "success", "warning";
       transition: all linear 250ms;
       cursor: pointer;
 
+      #{$c}__focuser {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        bottom: -4px;
+        left: -4px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: transparent;
+        border-radius: 100%;
+        opacity: 0;
+        transition: all linear 250ms;
+      }
+
       #{$c}__icon {
         position: absolute;
         top: 50%;
         left: 50%;
         margin-top: -1px;
         transform: translate(-50%, -50%);
+      }
+
+      &:focus {
+        #{$c}__focuser {
+          opacity: 1;
+        }
       }
     }
 
@@ -260,8 +282,9 @@ $statuses: "error", "normal", "success", "warning";
               }
 
               &:focus {
-                box-shadow: 0 0 0 2px mdg($theme, "backgrounds", "default", "primary"),
-                  0 0 0 3px mdg($theme, "statuses", $status);
+                #{$c}__focuser {
+                  border-color: mdg($theme, "statuses", $status);
+                }
               }
             }
           }
