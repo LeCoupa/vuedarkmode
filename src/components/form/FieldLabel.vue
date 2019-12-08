@@ -117,7 +117,9 @@ $sizes: "mini", "small", "default", "medium", "large";
   // --> THEMES <--
 
   @each $theme in $themes {
-    &--#{map-get($theme, "name")} {
+    $themeName: map-get($theme, "name");
+
+    &--#{themeName} {
       color: mdg($theme, "fonts", "default", "secondary");
 
       #{$c}__required {

@@ -153,7 +153,9 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
   // --> THEMES <--
 
   @each $theme in $themes {
-    &--#{map-get($theme, "name")} {
+    $themeName: map-get($theme, "name");
+
+    &--#{themeName} {
       box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
       color: mdg($theme, "colors", "white");
 

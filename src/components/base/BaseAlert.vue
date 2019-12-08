@@ -137,7 +137,9 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
   // --> THEMES <--
 
   @each $theme in $themes {
-    &--#{map-get($theme, "name")} {
+    $themeName: map-get($theme, "name");
+
+    &--#{themeName} {
       color: mdg($theme, "colors", "white");
       box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
 

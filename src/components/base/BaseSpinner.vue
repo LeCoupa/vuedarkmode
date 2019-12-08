@@ -112,7 +112,9 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   // --> THEMES <--
 
   @each $theme in $themes {
-    &--#{map-get($theme, "name")} {
+    $themeName: map-get($theme, "name");
+
+    &--#{themeName} {
       // --> COLORS <--
 
       @each $color in $colors {

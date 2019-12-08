@@ -254,7 +254,9 @@ $statuses: "error", "normal", "success", "warning";
   // --> THEMES <--
 
   @each $theme in $themes {
-    &--#{map-get($theme, "name")} {
+    $themeName: map-get($theme, "name");
+
+    &--#{themeName} {
       #{$c}__container {
         #{$c}__field {
           @if (map-get($theme, "name") == "dark") {
