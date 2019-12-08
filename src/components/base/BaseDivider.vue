@@ -92,7 +92,7 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
   @each $theme in $themes {
     $themeName: map-get($theme, "name");
 
-    &--#{themeName} {
+    &--#{$themeName} {
       border-top-color: mdg($theme, "borders", "default", "primary");
 
       // --> COLORS <--

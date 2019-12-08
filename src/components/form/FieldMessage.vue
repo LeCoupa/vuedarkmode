@@ -165,7 +165,7 @@ $statuses: "description", "error", "info", "success", "warning";
   @each $theme in $themes {
     $themeName: map-get($theme, "name");
 
-    &--#{themeName} {
+    &--#{$themeName} {
       // --> STATUSES <--
 
       @each $status in $statuses {

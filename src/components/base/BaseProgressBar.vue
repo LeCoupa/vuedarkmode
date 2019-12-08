@@ -179,7 +179,7 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
   @each $theme in $themes {
     $themeName: map-get($theme, "name");
 
-    &--#{themeName} {
+    &--#{$themeName} {
       #{$c}__content {
         color: mdg($theme, "fonts", "default", "primary");
       }

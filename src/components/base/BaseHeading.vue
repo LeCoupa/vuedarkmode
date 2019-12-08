@@ -180,7 +180,7 @@ $colors: "black", "blue", "green", "grey", "orange", "red", "white";
   @each $theme in $themes {
     $themeName: map-get($theme, "name");
 
-    &--#{themeName} {
+    &--#{$themeName} {
       color: mdg($theme, "fonts", "default", "primary");
 
       // --> COLORS <--

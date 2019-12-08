@@ -497,7 +497,7 @@ $statuses: "error", "normal", "success", "warning";
   @each $theme in $themes {
     $themeName: map-get($theme, "name");
 
-    &--#{themeName} {
+    &--#{$themeName} {
       #{$c}__container {
         background-color: mdg($theme, "backgrounds", "default", "primary");
 

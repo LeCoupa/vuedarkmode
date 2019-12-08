@@ -114,7 +114,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   @each $theme in $themes {
     $themeName: map-get($theme, "name");
 
-    &--#{themeName} {
+    &--#{$themeName} {
       // --> COLORS <--
 
       @each $color in $colors {

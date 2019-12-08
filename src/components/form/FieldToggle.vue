@@ -256,7 +256,7 @@ $statuses: "error", "normal", "success", "warning";
   @each $theme in $themes {
     $themeName: map-get($theme, "name");
 
-    &--#{themeName} {
+    &--#{$themeName} {
       #{$c}__container {
         #{$c}__field {
           @if (map-get($theme, "name") == "dark") {

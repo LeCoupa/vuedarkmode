@@ -303,7 +303,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
   @each $theme in $themes {
     $themeName: map-get($theme, "name");
 
-    &--#{themeName} {
+    &--#{$themeName} {
       #{$c}__image {
         #{$c}__secondaries {
           #{$c}__secondary {
