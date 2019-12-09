@@ -183,14 +183,6 @@ $colors: "black", "blue", "green", "grey", "orange", "red", "white";
     &--#{$themeName} {
       color: mdg($theme, "fonts", "default", "primary");
 
-      // --> COLORS <--
-
-      @each $color in $colors {
-        &#{$c}--#{$color} {
-          color: mdg($theme, "colors", $color);
-        }
-      }
-
       // --> TAGS <--
 
       &#{$c}--h1,
@@ -205,6 +197,14 @@ $colors: "black", "blue", "green", "grey", "orange", "red", "white";
       &#{$c}--h5,
       &#{$c}--h6 {
         color: mdg($theme, "fonts", "default", "secondary");
+      }
+
+      // --> COLORS <--
+
+      @each $color in $colors {
+        &#{$c}--#{$color} {
+          color: mdg($theme, "colors", $color);
+        }
       }
     }
   }
