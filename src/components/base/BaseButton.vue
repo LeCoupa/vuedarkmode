@@ -598,12 +598,15 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
             border-color: mdg($theme, "colors", $color);
 
             &:hover {
-              border-color: lighten(mdg($theme, "colors", $color), 10%);
+              &:not(#{$c}--disabled) {
+                border-color: lighten(mdg($theme, "colors", $color), 10%);
+              }
             }
 
             &:active {
-              // Darken instead
-              border-color: darken(mdg($theme, "colors", $color), 10%);
+              &:not(#{$c}--disabled) {
+                border-color: darken(mdg($theme, "colors", $color), 10%);
+              }
             }
           }
         }
@@ -614,20 +617,26 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   // --> INTERACTIONS <--
 
   &:hover {
-    transform: translateY(-1px);
+    &:not(#{$c}--disabled) {
+      transform: translateY(-1px);
+    }
   }
 
   &:active {
-    background-size: 100%;
-    transition: background 0s;
-    transform: translateY(0px);
+    &:not(#{$c}--disabled) {
+      background-size: 100%;
+      transition: background 0s;
+      transform: translateY(0px);
+    }
   }
 
   &:focus {
-    transform: translateY(0px);
+    &:not(#{$c}--disabled) {
+      transform: translateY(0px);
 
-    #{$c}__focuser {
-      opacity: 1;
+      #{$c}__focuser {
+        opacity: 1;
+      }
     }
   }
 }
