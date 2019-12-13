@@ -700,19 +700,6 @@ $statuses: "error", "normal", "success", "warning";
           }
         }
 
-        #{$c}__field {
-          &:focus {
-            border-color: mdg($theme, "statuses", "active");
-
-            #{$c}__icon {
-              &--left,
-              &--arrow {
-                color: mdg($theme, "statuses", "active");
-              }
-            }
-          }
-        }
-
         #{$c}__options {
           #{$c}__search {
             border-bottom-color: mdg($theme, "borders", "default", "primary");
@@ -753,6 +740,17 @@ $statuses: "error", "normal", "success", "warning";
                   border-color: lighten(mdg($theme, "statuses", $status), 10%);
                 } @else if (map-get($theme, "name") == "light") {
                   border-color: darken(mdg($theme, "statuses", $status), 10%);
+                }
+              }
+
+              &:focus {
+                border-color: mdg($theme, "statuses", "active");
+
+                #{$c}__icon {
+                  &--left,
+                  &--arrow {
+                    color: mdg($theme, "statuses", "active");
+                  }
                 }
               }
 
