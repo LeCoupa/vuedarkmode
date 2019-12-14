@@ -126,7 +126,7 @@ $statuses: "error", "normal", "success", "warning";
 #{$c} {
   display: inline-block;
   text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   #{$c}__container {
     display: flex;

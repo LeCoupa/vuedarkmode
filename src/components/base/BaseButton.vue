@@ -326,7 +326,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   border: 1px solid rgba(0, 0, 0, 0.1);
   background-position: center;
   font-weight: 500;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
   transition: all 250ms linear;
   user-select: none;
   cursor: pointer;

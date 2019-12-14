@@ -140,7 +140,7 @@ $statuses: "description", "error", "info", "success", "warning";
   display: flex;
   align-items: center;
   margin: 10px 0 0;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   #{$c}__icon {
     margin-top: -2px;

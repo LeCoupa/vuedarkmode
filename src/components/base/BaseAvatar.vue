@@ -138,7 +138,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   @include no-tap-highlight-color;
 

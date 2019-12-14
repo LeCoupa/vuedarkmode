@@ -236,7 +236,7 @@ $statuses: "error", "normal", "success", "warning";
     display: inline-flex;
     align-items: center;
     border-radius: $borderRadius;
-    font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
+    font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
     cursor: pointer;
 
     #{$c}__tab {

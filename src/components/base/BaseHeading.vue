@@ -85,7 +85,7 @@ $colors: "black", "blue", "green", "grey", "orange", "red", "white";
 
 #{$c} {
   margin: 0;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   // --> TAGS <--
 

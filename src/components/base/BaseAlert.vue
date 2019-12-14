@@ -108,7 +108,7 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
   align-items: center;
   padding: 14px 20px;
   text-align: left;
-  font-family: "Heebo", "Helvetica Neue", Source Sans Pro, Helvetica, Arial, sans-serif;
+  font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
   transition: all 250ms linear;
 
   @include no-tap-highlight-color;
