@@ -16,7 +16,7 @@ validation-provider(
       "gb-field-toggle",
       "gb-field-toggle--" + size,
       "gb-field-toggle--" + computedTheme,
-      "gb-field-toggle--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+      "gb-field-toggle--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
       {
         "gb-field-toggle--disabled": disabled,
         "gb-field-toggle--full-width": fullWidth

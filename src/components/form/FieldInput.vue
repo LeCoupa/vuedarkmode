@@ -16,7 +16,7 @@ validation-provider(
       "gb-field-input",
       "gb-field-input--" + size,
       "gb-field-input--" + computedTheme,
-      "gb-field-input--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
+      "gb-field-input--" + (errors.length > 0 && dirty && !focused && showErrors ? 'error' : computedStatus),
       {
         "gb-field-input--borders": borders,
         "gb-field-input--clearable": clearable,

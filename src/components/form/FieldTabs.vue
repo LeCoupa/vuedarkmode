@@ -16,7 +16,7 @@ validation-provider(
       "gb-field-tabs",
       "gb-field-tabs--" + size,
       "gb-field-tabs--" + computedTheme,
-      "gb-field-tabs--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+      "gb-field-tabs--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
       {
         "gb-field-tabs--disabled": disabled,
         "gb-field-tabs--multiple": multiple

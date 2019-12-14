@@ -19,7 +19,7 @@ validation-provider(
       "gb-field-select--" + direction,
       "gb-field-select--" + size,
       "gb-field-select--" + computedTheme,
-      "gb-field-select--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+      "gb-field-select--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
       {
         "gb-field-select--clearable": clearable,
         "gb-field-select--disabled": disabled,

@@ -16,7 +16,7 @@ validation-provider(
       "gb-field-radios",
       "gb-field-radios--" + size,
       "gb-field-radios--" + computedTheme,
-      "gb-field-radios--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+      "gb-field-radios--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
       {
         "gb-field-radios--disabled": disabled,
         "gb-field-radios--full-width": fullWidth

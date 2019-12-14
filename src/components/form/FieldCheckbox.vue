@@ -16,7 +16,7 @@ validation-provider(
       "gb-field-checkbox",
       "gb-field-checkbox--" + size,
       "gb-field-checkbox--" + computedTheme,
-      "gb-field-checkbox--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+      "gb-field-checkbox--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
       {
         "gb-field-checkbox--disabled": disabled,
         "gb-field-checkbox--full-width": fullWidth

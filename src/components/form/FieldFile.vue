@@ -16,7 +16,7 @@ validation-provider(
       "gb-field-file",
       "gb-field-file--" + size,
       "gb-field-file--" + computedTheme,
-      "gb-field-file--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+      "gb-field-file--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
       {
         "gb-field-file--disabled": disabled,
         "gb-field-file--full-width": fullWidth

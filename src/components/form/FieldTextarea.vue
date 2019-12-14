@@ -16,7 +16,7 @@ validation-provider(
       "gb-field-textarea",
       "gb-field-textarea--" + size,
       "gb-field-textarea--" + computedTheme,
-      "gb-field-textarea--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
+      "gb-field-textarea--" + (errors.length > 0 && dirty && !focused && showErrors ? 'error' : computedStatus),
       {
         "gb-field-textarea--borders": borders,
         "gb-field-textarea--disabled": disabled,
