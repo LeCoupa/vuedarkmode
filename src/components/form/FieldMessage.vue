@@ -6,8 +6,8 @@
 p(
   :class=`[
     "gb-field-message",
-    "gb-field-message--" + computedStatus,
     "gb-field-message--" + size,
+    "gb-field-message--" + computedStatus,
     "gb-field-message--" + computedTheme
   ]`
 )

@@ -15,7 +15,6 @@ validation-provider(
     :class=`[
       "gb-field-checkbox",
       "gb-field-checkbox--" + size,
-      "gb-field-checkbox--" + computedStatus,
       "gb-field-checkbox--" + computedTheme,
       "gb-field-checkbox--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
       {

@@ -15,7 +15,6 @@ validation-provider(
     :class=`[
       "gb-field-radios",
       "gb-field-radios--" + size,
-      "gb-field-radios--" + computedStatus,
       "gb-field-radios--" + computedTheme,
       "gb-field-radios--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
       {

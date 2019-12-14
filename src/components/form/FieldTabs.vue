@@ -15,7 +15,6 @@ validation-provider(
     :class=`[
       "gb-field-tabs",
       "gb-field-tabs--" + size,
-      "gb-field-tabs--" + computedStatus,
       "gb-field-tabs--" + computedTheme,
       "gb-field-tabs--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
       {

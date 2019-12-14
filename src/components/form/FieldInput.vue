@@ -15,7 +15,6 @@ validation-provider(
     :class=`[
       "gb-field-input",
       "gb-field-input--" + size,
-      "gb-field-input--" + computedStatus,
       "gb-field-input--" + computedTheme,
       "gb-field-input--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
       {

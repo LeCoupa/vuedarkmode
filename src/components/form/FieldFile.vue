@@ -15,7 +15,6 @@ validation-provider(
     :class=`[
       "gb-field-file",
       "gb-field-file--" + size,
-      "gb-field-file--" + computedStatus,
       "gb-field-file--" + computedTheme,
       "gb-field-file--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
       {

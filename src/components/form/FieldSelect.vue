@@ -18,7 +18,6 @@ validation-provider(
       "gb-field-select",
       "gb-field-select--" + direction,
       "gb-field-select--" + size,
-      "gb-field-select--" + computedStatus,
       "gb-field-select--" + computedTheme,
       "gb-field-select--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
       {
