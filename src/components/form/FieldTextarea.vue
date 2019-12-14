@@ -3,80 +3,79 @@
      ************************************************************************* -->
 
 <template lang="pug">
-//- validation-provider(
-//-   v-slot="{ dirty, errors }"
-//-   :name="rulesName || name"
-//-   :rules="rules"
-//-   :vid="rulesVid"
-//-   ref="validationProvider"
-//-   tag="div"
-//- )
-//- "gb-field-textarea--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
-div(
-  :class=`[
-    "gb-field-textarea",
-    "gb-field-textarea--" + computedStatus,
-    "gb-field-textarea--" + size,
-    "gb-field-textarea--" + computedTheme,
-    {
-      "gb-field-textarea--borders": borders,
-      "gb-field-textarea--disabled": disabled,
-      "gb-field-textarea--focused": focused,
-      "gb-field-textarea--full-width": fullWidth,
-      "gb-field-textarea--readonly": readonly
-    }
-  ]`
+validation-provider(
+  v-slot="{ dirty, errors }"
+  :name="rulesName || name"
+  :rules="rules"
+  :vid="rulesVid"
+  ref="validationProvider"
+  tag="div"
 )
-  field-label(
-    v-if="label"
-    :forField="uuid"
-    :required="labelRequired"
-    :size="size"
-    :theme="theme"
-    class="gb-field-textarea__label"
-  ) {{ label }}
-
   div(
-    @click="onContainerClick"
-    class="gb-field-textarea__container"
+    :class=`[
+      "gb-field-textarea",
+      "gb-field-textarea--" + size,
+      "gb-field-textarea--" + computedStatus,
+      "gb-field-textarea--" + computedTheme,
+      "gb-field-textarea--" + (errors.length > 0 && dirty && !focused ? 'error' : computedStatus),
+      {
+        "gb-field-textarea--borders": borders,
+        "gb-field-textarea--disabled": disabled,
+        "gb-field-textarea--focused": focused,
+        "gb-field-textarea--full-width": fullWidth,
+        "gb-field-textarea--readonly": readonly
+      }
+    ]`
   )
-    textarea(
-      @blur="onFieldBlur"
-      @change="onFieldChange"
-      @focus="onFieldFocus"
-      @input="onFieldInput"
-      @keydown="onFieldKeyDown"
-      @keyup="onFieldKeyUp"
-      :cols="cols"
-      :disabled="disabled"
-      :id="uuid"
-      :name="name"
-      :placeholder="placeholder"
-      :readonly="readonly"
-      :rows="rows"
-      :spellcheck="spellcheck"
-      :style=`{
-        resize: resize
-      }`
-      class="gb-field-textarea__field js-tag-for-autofocus"
-    ) {{ innerValue }}
+    field-label(
+      v-if="label"
+      :forField="uuid"
+      :required="labelRequired"
+      :size="size"
+      :theme="theme"
+      class="gb-field-textarea__label"
+    ) {{ label }}
 
-    base-icon(
-      v-if="computedIcon"
-      :name="computedIcon"
-      class="gb-field-textarea__icon"
+    div(
+      @click="onContainerClick"
+      class="gb-field-textarea__container"
     )
+      textarea(
+        @blur="onFieldBlur"
+        @change="onFieldChange"
+        @focus="onFieldFocus"
+        @input="onFieldInput"
+        @keydown="onFieldKeyDown"
+        @keyup="onFieldKeyUp"
+        :cols="cols"
+        :disabled="disabled"
+        :id="uuid"
+        :name="name"
+        :placeholder="placeholder"
+        :readonly="readonly"
+        :rows="rows"
+        :spellcheck="spellcheck"
+        :style=`{
+          resize: resize
+        }`
+        class="gb-field-textarea__field js-tag-for-autofocus"
+      ) {{ innerValue }}
 
-  //-   v-if="computedMessageStatus || (errors.length > 0 && dirty && !focused)"
-  //-   :errors="errors"
-  field-message(
-    v-if="computedMessageStatus"
-    :message="computedMessageContent"
-    :show-errors="showErrors"
-    :size="size"
-    :status="computedMessageStatus"
-    :theme="theme"
-  )
+      base-icon(
+        v-if="computedIcon"
+        :name="computedIcon"
+        class="gb-field-textarea__icon"
+      )
+
+    field-message(
+      v-if="computedMessageStatus || (errors.length > 0 && dirty && !focused)"
+      :errors="errors"
+      :message="computedMessageContent"
+      :show-errors="showErrors"
+      :size="size"
+      :status="computedMessageStatus"
+      :theme="theme"
+    )
 </template>
 
 <!-- *************************************************************************

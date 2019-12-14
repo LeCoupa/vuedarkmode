@@ -3,74 +3,73 @@
      ************************************************************************* -->
 
 <template lang="pug">
-//- validation-provider(
-//-   v-slot="{ dirty, errors }"
-//-   :name="rulesName || name"
-//-   :rules="rules"
-//-   :vid="rulesVid"
-//-   ref="validationProvider"
-//-   tag="div"
-//- )
-//- "gb-field-file--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
-div(
-  :class=`[
-    "gb-field-file",
-    "gb-field-file--" + computedStatus,
-    "gb-field-file--" + size,
-    "gb-field-file--" + computedTheme,
-    {
-      "gb-field-file--disabled": disabled,
-      "gb-field-file--full-width": fullWidth
-    }
-  ]`
+validation-provider(
+  v-slot="{ dirty, errors }"
+  :name="rulesName || name"
+  :rules="rules"
+  :vid="rulesVid"
+  ref="validationProvider"
+  tag="div"
 )
-  .gb-field-file__container
-    div(
-      v-if="label"
-      class="gb-field-file__information"
-    )
-      field-label(
-        :for-field="uuid"
-        :required="labelRequired"
-        :size="size"
-        :theme="theme"
-        class="gb-field-file__label"
-      ) {{ label }}
-
-      //-   v-if="computedMessageStatus || (errors.length > 0 && dirty)"
-      //-   :errors="errors"
-      field-message(
-        v-if="computedMessageStatus"
-        :message="computedMessageContent"
-        :show-errors="showErrors"
-        :size="size"
-        :status="computedMessageStatus"
-        :theme="theme"
-        class="gb-field-file__message"
+  div(
+    :class=`[
+      "gb-field-file",
+      "gb-field-file--" + size,
+      "gb-field-file--" + computedStatus,
+      "gb-field-file--" + computedTheme,
+      "gb-field-file--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+      {
+        "gb-field-file--disabled": disabled,
+        "gb-field-file--full-width": fullWidth
+      }
+    ]`
+  )
+    .gb-field-file__container
+      div(
+        v-if="label"
+        class="gb-field-file__information"
       )
+        field-label(
+          :for-field="uuid"
+          :required="labelRequired"
+          :size="size"
+          :theme="theme"
+          class="gb-field-file__label"
+        ) {{ label }}
 
-    label(
-      @keypress.prevent="onLabelKeypress"
-      :for="uuid"
-      class="gb-field-file__upload js-tag-for-autofocus"
-      tabindex="0"
-    )
-      span.gb-field-file__focuser
+        field-message(
+          v-if="computedMessageStatus || (errors.length > 0 && dirty)"
+          :errors="errors"
+          :message="computedMessageContent"
+          :show-errors="showErrors"
+          :size="size"
+          :status="computedMessageStatus"
+          :theme="theme"
+          class="gb-field-file__message"
+        )
 
-      base-icon(
-        name="cloud_upload"
-        class="gb-field-file__icon"
+      label(
+        @keypress.prevent="onLabelKeypress"
+        :for="uuid"
+        class="gb-field-file__upload js-tag-for-autofocus"
+        tabindex="0"
       )
+        span.gb-field-file__focuser
 
-    input(
-      @change="onFieldChange"
-      :disabled="disabled"
-      :id="uuid"
-      :multiple="multiple"
-      :name="name"
-      class="gb-field-file__field"
-      type="file"
-    )
+        base-icon(
+          name="cloud_upload"
+          class="gb-field-file__icon"
+        )
+
+      input(
+        @change="onFieldChange"
+        :disabled="disabled"
+        :id="uuid"
+        :multiple="multiple"
+        :name="name"
+        class="gb-field-file__field"
+        type="file"
+      )
 </template>
 
 <!-- *************************************************************************

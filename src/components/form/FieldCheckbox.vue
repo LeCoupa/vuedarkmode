@@ -3,66 +3,65 @@
      ************************************************************************* -->
 
 <template lang="pug">
-//- validation-provider(
-//-   v-slot="{ dirty, errors }"
-//-   :name="rulesName || name"
-//-   :rules="rules"
-//-   :vid="rulesVid"
-//-   ref="validationProvider"
-//-   tag="div"
-//- )
-//- "gb-field-checkbox--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
-div(
-  :class=`[
-    "gb-field-checkbox",
-    "gb-field-checkbox--" + computedStatus,
-    "gb-field-checkbox--" + size,
-    "gb-field-checkbox--" + computedTheme,
-    {
-      "gb-field-checkbox--disabled": disabled,
-      "gb-field-checkbox--full-width": fullWidth
-    }
-  ]`
+validation-provider(
+  v-slot="{ dirty, errors }"
+  :name="rulesName || name"
+  :rules="rules"
+  :vid="rulesVid"
+  ref="validationProvider"
+  tag="div"
 )
   div(
-    @keypress.prevent="onKeypress"
     :class=`[
-      "gb-field-checkbox__container",
-      "js-tag-for-autofocus",
+      "gb-field-checkbox",
+      "gb-field-checkbox--" + size,
+      "gb-field-checkbox--" + computedStatus,
+      "gb-field-checkbox--" + computedTheme,
+      "gb-field-checkbox--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
       {
-        "gb-field-checkbox__container--active": innerValue
+        "gb-field-checkbox--disabled": disabled,
+        "gb-field-checkbox--full-width": fullWidth
       }
     ]`
-    tabindex="0"
   )
     div(
-      @click="onClick"
-      class="gb-field-checkbox__field"
+      @keypress.prevent="onKeypress"
+      :class=`[
+        "gb-field-checkbox__container",
+        "js-tag-for-autofocus",
+        {
+          "gb-field-checkbox__container--active": innerValue
+        }
+      ]`
+      tabindex="0"
     )
-      span.gb-field-checkbox__focuser
+      div(
+        @click="onClick"
+        class="gb-field-checkbox__field"
+      )
+        span.gb-field-checkbox__focuser
 
-      span.gb-field-checkbox__tick
+        span.gb-field-checkbox__tick
 
-    field-label(
-      v-if="label"
-      @click="onClick"
-      :required="labelRequired"
+      field-label(
+        v-if="label"
+        @click="onClick"
+        :required="labelRequired"
+        :size="size"
+        :theme="theme"
+        :uppercase="false"
+        class="gb-field-checkbox__label"
+      ) {{ label }}
+
+    field-message(
+      v-if="computedMessageStatus || (errors.length > 0 && dirty)"
+      :errors="errors"
+      :message="computedMessageContent"
+      :show-errors="showErrors"
       :size="size"
+      :status="computedMessageStatus"
       :theme="theme"
-      :uppercase="false"
-      class="gb-field-checkbox__label"
-    ) {{ label }}
-
-  //-   v-if="computedMessageStatus || (errors.length > 0 && dirty)"
-  //-   :errors="errors"
-  field-message(
-    v-if="computedMessageStatus"
-    :message="computedMessageContent"
-    :show-errors="showErrors"
-    :size="size"
-    :status="computedMessageStatus"
-    :theme="theme"
-  )
+    )
 </template>
 
 <!-- *************************************************************************

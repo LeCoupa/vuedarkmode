@@ -3,67 +3,66 @@
      ************************************************************************* -->
 
 <template lang="pug">
-//- validation-provider(
-//-   v-slot="{ dirty, errors }"
-//-   :name="rulesName || name"
-//-   :rules="rules"
-//-   :vid="rulesVid"
-//-   ref="validationProvider"
-//-   tag="div"
-//- )
-//- "gb-field-toggle--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
-div(
-  :class=`[
-    "gb-field-toggle",
-    "gb-field-toggle--" + computedStatus,
-    "gb-field-toggle--" + size,
-    "gb-field-toggle--" + computedTheme,
-    {
-      "gb-field-toggle--disabled": disabled,
-      "gb-field-toggle--full-width": fullWidth
-    }
-  ]`
+validation-provider(
+  v-slot="{ dirty, errors }"
+  :name="rulesName || name"
+  :rules="rules"
+  :vid="rulesVid"
+  ref="validationProvider"
+  tag="div"
 )
   div(
-    @keypress.prevent="onKeypress"
     :class=`[
-      "gb-field-toggle__container",
-      "js-tag-for-autofocus",
+      "gb-field-toggle",
+      "gb-field-toggle--" + size,
+      "gb-field-toggle--" + computedStatus,
+      "gb-field-toggle--" + computedTheme,
+      "gb-field-toggle--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
       {
-        "gb-field-toggle__container--active": innerValue,
-        "gb-field-toggle__container--inactive": !innerValue
+        "gb-field-toggle--disabled": disabled,
+        "gb-field-toggle--full-width": fullWidth
       }
     ]`
-    tabindex="0"
   )
     div(
-      @click="onClick"
-      class="gb-field-toggle__field"
+      @keypress.prevent="onKeypress"
+      :class=`[
+        "gb-field-toggle__container",
+        "js-tag-for-autofocus",
+        {
+          "gb-field-toggle__container--active": innerValue,
+          "gb-field-toggle__container--inactive": !innerValue
+        }
+      ]`
+      tabindex="0"
     )
-      span.gb-field-toggle__focuser
+      div(
+        @click="onClick"
+        class="gb-field-toggle__field"
+      )
+        span.gb-field-toggle__focuser
 
-      span.gb-field-toggle__handle
+        span.gb-field-toggle__handle
 
-    field-label(
-      v-if="label"
-      @click="onClick"
-      :required="labelRequired"
+      field-label(
+        v-if="label"
+        @click="onClick"
+        :required="labelRequired"
+        :size="size"
+        :theme="theme"
+        :uppercase="false"
+        class="gb-field-toggle__label"
+      ) {{ label }}
+
+    field-message(
+      v-if="computedMessageStatus || (errors.length > 0 && dirty)"
+      :errors="errors"
+      :message="computedMessageContent"
+      :show-errors="showErrors"
       :size="size"
+      :status="computedMessageStatus"
       :theme="theme"
-      :uppercase="false"
-      class="gb-field-toggle__label"
-    ) {{ label }}
-
-  //-   v-if="computedMessageStatus || (errors.length > 0 && dirty)"
-  //-   :errors="errors"
-  field-message(
-    v-if="computedMessageStatus"
-    :message="computedMessageContent"
-    :show-errors="showErrors"
-    :size="size"
-    :status="computedMessageStatus"
-    :theme="theme"
-  )
+    )
 </template>
 
 <!-- *************************************************************************

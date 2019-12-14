@@ -155,7 +155,7 @@ export default {
   watch: {
     value(value) {
       this.synchronize()
-      // this.validate(true);
+      this.validate(true)
     }
   },
 
@@ -163,7 +163,7 @@ export default {
     this.uuid = generateUUID()
 
     this.synchronize()
-    // this.validate();
+    this.validate()
 
     // Focus only on desktop and larger screens
     if (this.autofocus && window.innerWidth >= 1024) {

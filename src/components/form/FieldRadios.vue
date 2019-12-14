@@ -3,69 +3,68 @@
      ************************************************************************* -->
 
 <template lang="pug">
-//- validation-provider(
-//-   v-slot="{ dirty, errors }"
-//-   :name="rulesName || name"
-//-   :rules="rules"
-//-   :vid="rulesVid"
-//-   ref="validationProvider"
-//-   tag="div"
-//- )
-//- "gb-field-radios--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
-div(
-  :class=`[
-    "gb-field-radios",
-    "gb-field-radios--" + computedStatus,
-    "gb-field-radios--" + size,
-    "gb-field-radios--" + computedTheme,
-    {
-      "gb-field-radios--disabled": disabled,
-      "gb-field-radios--full-width": fullWidth
-    }
-  ]`
+validation-provider(
+  v-slot="{ dirty, errors }"
+  :name="rulesName || name"
+  :rules="rules"
+  :vid="rulesVid"
+  ref="validationProvider"
+  tag="div"
 )
-  .gb-field-radios__container
-    div(
-      v-for="(radio, index) in radios"
-      @keypress.prevent="onKeypress(radio, $event)"
-      :class=`[
-        "gb-field-radios__radio",
-        {
-          "js-tag-for-autofocus": index === 0,
-          "gb-field-radios__radio--active": radio.value === innerValue
-        }
-      ]`
-      :key="radio.value"
-      tabindex="0"
-    )
-      div(
-        @click="onClick(radio, $event)"
-        class="gb-field-radios__field"
-      )
-        span.gb-field-radios__focuser
-
-        span.gb-field-radios__dot
-
-      field-label(
-        v-if="radio.label"
-        @click="onClick(radio, $event)"
-        :required="labelRequired"
-        :size="size"
-        :theme="theme"
-        :uppercase="false"
-        class="gb-field-radios__label"
-      ) {{ radio.label }}
-
-  //-   v-if="computedMessageStatus || (errors.length > 0 && dirty)"
-  //-   :errors="errors"
-  field-message(
-    v-if="computedMessageStatus"
-    :message="computedMessageContent"
-    :show-errors="showErrors"
-    :size="size"
-    :status="computedMessageStatus"
-    :theme="theme"
+  div(
+    :class=`[
+      "gb-field-radios",
+      "gb-field-radios--" + size,
+      "gb-field-radios--" + computedStatus,
+      "gb-field-radios--" + computedTheme,
+      "gb-field-radios--" + (errors.length > 0 && dirty ? 'error' : computedStatus),
+      {
+        "gb-field-radios--disabled": disabled,
+        "gb-field-radios--full-width": fullWidth
+      }
+    ]`
   )
+    .gb-field-radios__container
+      div(
+        v-for="(radio, index) in radios"
+        @keypress.prevent="onKeypress(radio, $event)"
+        :class=`[
+          "gb-field-radios__radio",
+          {
+            "js-tag-for-autofocus": index === 0,
+            "gb-field-radios__radio--active": radio.value === innerValue
+          }
+        ]`
+        :key="radio.value"
+        tabindex="0"
+      )
+        div(
+          @click="onClick(radio, $event)"
+          class="gb-field-radios__field"
+        )
+          span.gb-field-radios__focuser
+
+          span.gb-field-radios__dot
+
+        field-label(
+          v-if="radio.label"
+          @click="onClick(radio, $event)"
+          :required="labelRequired"
+          :size="size"
+          :theme="theme"
+          :uppercase="false"
+          class="gb-field-radios__label"
+        ) {{ radio.label }}
+
+    field-message(
+      v-if="computedMessageStatus || (errors.length > 0 && dirty)"
+      :errors="errors"
+      :message="computedMessageContent"
+      :show-errors="showErrors"
+      :size="size"
+      :status="computedMessageStatus"
+      :theme="theme"
+    )
 </template>
 
 <!-- *************************************************************************
