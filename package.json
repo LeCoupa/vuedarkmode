@@ -44,7 +44,7 @@
     "vee-validate": "3.2.0"
   },
   "devDependencies": {
-    "@growthbunker/stylesheets": "0.2.3",
+    "@growthbunker/stylesheets": "0.2.4",
     "@rollup/plugin-alias": "2.2.0",
     "autoprefixer": "9.6.1",
     "cross-env": "6.0.3",

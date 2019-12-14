@@ -139,7 +139,7 @@ $colors: "black", "blue", "green", "orange", "purple", "red", "turquoise", "whit
     $themeName: map-get($theme, "name");
 
     &--#{$themeName} {
-      box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
+      box-shadow: 0 1px 5px 0 mdg($theme, "shadows", "default", "primary");
       color: mdg($theme, "fonts", "default", "primary");
 
       // --> COLORS <--

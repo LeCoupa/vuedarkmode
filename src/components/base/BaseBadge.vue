@@ -156,7 +156,7 @@ $sizes: "micro", "mini", "small", "default", "medium", "large";
     $themeName: map-get($theme, "name");
 
     &--#{$themeName} {
-      box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
+      box-shadow: 0 1px 5px 0 mdg($theme, "shadows", "default", "primary");
       color: mdg($theme, "colors", "white");
 
       // --> COLORS <--

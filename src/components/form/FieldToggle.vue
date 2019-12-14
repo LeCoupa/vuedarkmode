@@ -265,7 +265,7 @@ $statuses: "error", "normal", "success", "warning";
 
           #{$c}__handle {
             background: mdg($theme, "colors", "white");
-            box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
+            box-shadow: 0 1px 5px 0 mdg($theme, "shadows", "default", "primary");
           }
         }
 

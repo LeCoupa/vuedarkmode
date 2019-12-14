@@ -332,7 +332,7 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large", "huge";
 
       &#{$c}--shadow {
         #{$c}__image {
-          box-shadow: 0 1px 3px 0 mdg($theme, "box-shadows", "default", "primary");
+          box-shadow: 0 1px 3px 0 mdg($theme, "shadows", "default", "primary");
         }
       }
     }

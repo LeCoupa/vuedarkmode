@@ -141,7 +141,7 @@ $colors: "black", "blue", "green", "grey", "orange", "purple", "red", "turquoise
 
     &--#{$themeName} {
       color: mdg($theme, "colors", "white");
-      box-shadow: 0 1px 5px 0 mdg($theme, "box-shadows", "default", "primary");
+      box-shadow: 0 1px 5px 0 mdg($theme, "shadows", "default", "primary");
 
       // --> COLORS <--
 
