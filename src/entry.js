@@ -5,6 +5,7 @@
 // NPM
 import vClickOutside from "v-click-outside"
 import VueHotkey from "v-hotkey"
+import { ValidationProvider } from "vee-validate"
 
 // BASE COMPONENTS
 import BaseAlert from "./components/base/BaseAlert.vue"
@@ -83,6 +84,10 @@ function install(Vue, options) {
   // Set global options for the packages
   Vue.prototype.$gb.vuedarkmode = {}
   Vue.prototype.$gb.vuedarkmode.theme = (options || {}).theme || "dark"
+
+  // Install Vee-Validate for form validation
+  // https://logaretm.github.io/vee-validate/
+  Vue.component("ValidationProvider", ValidationProvider)
 
   // Install V-Hotkeys to bind hotkeys to components
   // https://github.com/Dafrok/v-hotkey

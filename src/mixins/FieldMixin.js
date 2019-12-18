@@ -2,9 +2,6 @@
  * IMPORTS
  ***************************************************************************/
 
-// NPM
-import { ValidationProvider } from "vee-validate"
-
 // PROJECT: COMPONENTS
 import BaseIcon from "../components/base/BaseIcon.vue"
 import FieldLabel from "../components/form/FieldLabel.vue"
@@ -22,8 +19,7 @@ export default {
   components: {
     BaseIcon,
     FieldLabel,
-    FieldMessage,
-    ValidationProvider
+    FieldMessage
   },
 
   props: {
