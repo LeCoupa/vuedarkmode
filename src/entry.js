@@ -3,7 +3,6 @@
  ***************************************************************************/
 
 // NPM
-import vClickOutside from "v-click-outside"
 import VueHotkey from "v-hotkey"
 import { ValidationProvider } from "vee-validate"
 
@@ -92,10 +91,6 @@ function install(Vue, options) {
   // Install V-Hotkeys to bind hotkeys to components
   // https://github.com/Dafrok/v-hotkey
   Vue.use(VueHotkey)
-
-  // Install V-Click-Outside to react on clicks outside elements
-  // https://github.com/ndelvalle/v-click-outside
-  Vue.use(vClickOutside)
 }
 
 // Create module definition for Vue.use()

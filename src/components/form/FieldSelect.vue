@@ -159,6 +159,9 @@ validation-provider(
      ************************************************************************* -->
 
 <script>
+// NPM
+import vClickOutside from "v-click-outside"
+
 // PROJECT: COMPONENTS
 import FieldInput from "./FieldInput.vue"
 
@@ -167,6 +170,10 @@ import FieldMixin from "../../mixins/FieldMixin.js"
 import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
+
   components: {
     FieldInput
   },
