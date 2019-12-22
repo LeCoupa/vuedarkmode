@@ -207,13 +207,11 @@ export default {
     }
   },
 
-  data() {
-    return {
-      // --> STATE <--
+  data: () => ({
+    // --> STATE <--
 
-      focused: false
-    }
-  },
+    focused: false
+  }),
 
   computed: {
     computedRightIcon() {

@@ -220,16 +220,14 @@ export default {
     }
   },
 
-  data() {
-    return {
-      // --> STATE <--
+  data: () => ({
+    // --> STATE <--
 
-      opened: false,
+    opened: false,
 
-      keyboardIndex: null,
-      searchQuery: ""
-    }
-  },
+    keyboardIndex: null,
+    searchQuery: ""
+  }),
 
   computed: {
     computedLeftIcon() {

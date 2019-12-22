@@ -202,14 +202,12 @@ export default {
     }
   },
 
-  data() {
-    return {
-      // --> STATE <--
+  data: () => ({
+    // --> STATE <--
 
-      confirming: false,
-      listOpened: false
-    }
-  },
+    confirming: false,
+    listOpened: false
+  }),
 
   computed: {
     computedIconSize() {

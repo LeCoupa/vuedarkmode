@@ -91,14 +91,12 @@ export default {
     }
   },
 
-  data() {
-    return {
-      // --> STATE <--
+  data: () => ({
+    // --> STATE <--
 
-      innerValue: null,
-      uuid: ""
-    }
-  },
+    innerValue: null,
+    uuid: ""
+  }),
 
   computed: {
     computedMessageContent() {
