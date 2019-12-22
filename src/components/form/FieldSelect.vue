@@ -202,9 +202,7 @@ export default {
     },
     options: {
       type: Array,
-      default() {
-        return []
-      }
+      default: () => []
     },
     placeholder: {
       type: String,
