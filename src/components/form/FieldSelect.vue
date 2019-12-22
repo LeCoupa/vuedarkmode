@@ -25,7 +25,7 @@ validation-provider(
         "gb-field-select--disabled": disabled,
         "gb-field-select--opened": opened,
         "gb-field-select--full-width": fullWidth,
-        "gb-field-select--with-left-icon": computedLeftIcon && !$scopedSlots['option-left']
+        "gb-field-select--with-left-icon": computedLeftIcon && (!$scopedSlots['option-left'] || !selectedOption)
       }
     ]`
   )
@@ -47,7 +47,7 @@ validation-provider(
         tabindex="0"
       )
         base-icon(
-          v-if="computedLeftIcon && !$scopedSlots['option-left']"
+          v-if="computedLeftIcon && (!$scopedSlots['option-left'] || !selectedOption)"
           :name="computedLeftIcon"
           class="gb-field-select__icon gb-field-select__icon--left"
         )
