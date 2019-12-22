@@ -4,12 +4,12 @@
 
 // NPM
 import alias from "@rollup/plugin-alias"
-import vue from "rollup-plugin-vue"
 import buble from "rollup-plugin-buble"
 import commonjs from "rollup-plugin-commonjs"
-import replace from "rollup-plugin-replace"
-import { terser } from "rollup-plugin-terser"
 import minimist from "minimist"
+import replace from "rollup-plugin-replace"
+import vue from "rollup-plugin-vue"
+import { terser } from "rollup-plugin-terser"
 
 /**************************************************************************
  * ROLLUP CONFIGURATION
