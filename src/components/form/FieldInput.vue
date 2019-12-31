@@ -344,7 +344,7 @@ $statuses: "error", "normal", "success", "warning";
     display: flex;
     overflow: hidden;
     align-items: center;
-    transition: all linear 250ms;
+    transition: border-color linear 250ms;
     user-select: none;
 
     #{$c}__block {
