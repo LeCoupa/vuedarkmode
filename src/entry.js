@@ -18,17 +18,17 @@ import BaseProgressBar from "./components/base/BaseProgressBar.vue"
 import BaseSpinner from "./components/base/BaseSpinner.vue"
 import BaseToast from "./components/base/BaseToast.vue"
 
-// FORM COMPONENTS
-import FieldCheckbox from "./components/form/FieldCheckbox.vue"
-import FieldFile from "./components/form/FieldFile.vue"
-import FieldInput from "./components/form/FieldInput.vue"
-import FieldLabel from "./components/form/FieldLabel.vue"
-import FieldMessage from "./components/form/FieldMessage.vue"
-import FieldRadios from "./components/form/FieldRadios.vue"
-import FieldSelect from "./components/form/FieldSelect.vue"
-import FieldTabs from "./components/form/FieldTabs.vue"
-import FieldTextarea from "./components/form/FieldTextarea.vue"
-import FieldToggle from "./components/form/FieldToggle.vue"
+// FIELD COMPONENTS
+import FieldCheckbox from "./components/fields/FieldCheckbox.vue"
+import FieldFile from "./components/fields/FieldFile.vue"
+import FieldInput from "./components/fields/FieldInput.vue"
+import FieldLabel from "./components/fields/FieldLabel.vue"
+import FieldMessage from "./components/fields/FieldMessage.vue"
+import FieldRadios from "./components/fields/FieldRadios.vue"
+import FieldSelect from "./components/fields/FieldSelect.vue"
+import FieldTabs from "./components/fields/FieldTabs.vue"
+import FieldTextarea from "./components/fields/FieldTextarea.vue"
+import FieldToggle from "./components/fields/FieldToggle.vue"
 
 /**************************************************************************
  * ENVIRONMENT CONFIGURATIONS

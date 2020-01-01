@@ -92,23 +92,23 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 * **BaseToast**: [documentation](https://www.growthbunker.dev/vuedarkmode/#baseToast) | [source code](/src/components/base/BaseToast.vue).
 
-### Form Components
+### Field Components
 
-- **FieldCheckbox**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldCheckbox) | [source code](/src/components/form/FieldCheckbox.vue).
+- **FieldCheckbox**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldCheckbox) | [source code](/src/components/fields/FieldCheckbox.vue).
 
-- **FieldFile**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldFile) | [source code](/src/components/form/FieldFile.vue).
+- **FieldFile**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldFile) | [source code](/src/components/fields/FieldFile.vue).
 
-- **FieldInput**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldInput) | [source code](/src/components/form/FieldInput.vue).
+- **FieldInput**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldInput) | [source code](/src/components/fields/FieldInput.vue).
 
-- **FieldRadio**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldRadio) | [source code](/src/components/form/FieldRadio.vue).
+- **FieldRadio**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldRadio) | [source code](/src/components/fields/FieldRadio.vue).
 
-- **FieldSelect**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldSelect) | [source code](/src/components/form/FieldSelect.vue).
+- **FieldSelect**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldSelect) | [source code](/src/components/fields/FieldSelect.vue).
 
-- **FieldTabs**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldTabs) | [source code](/src/components/form/FieldTabs.vue).
+- **FieldTabs**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldTabs) | [source code](/src/components/fields/FieldTabs.vue).
 
-- **FieldTextarea**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldTextarea) | [source code](/src/components/form/FieldTextarea.vue).
+- **FieldTextarea**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldTextarea) | [source code](/src/components/fields/FieldTextarea.vue).
 
-- **FieldToggle**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldToggle) | [source code](/src/components/form/FieldToggle.vue).
+- **FieldToggle**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldToggle) | [source code](/src/components/fields/FieldToggle.vue).
 
 ## Contributing
 

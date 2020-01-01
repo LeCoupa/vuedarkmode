@@ -7,8 +7,8 @@ import { ValidationProvider } from "vee-validate"
 
 // PROJECT: COMPONENTS
 import BaseIcon from "../components/base/BaseIcon.vue"
-import FieldLabel from "../components/form/FieldLabel.vue"
-import FieldMessage from "../components/form/FieldMessage.vue"
+import FieldLabel from "../components/fields/FieldLabel.vue"
+import FieldMessage from "../components/fields/FieldMessage.vue"
 
 // PROJECT: HELPERS
 import { generateUUID } from "../helpers/helpers.js"
