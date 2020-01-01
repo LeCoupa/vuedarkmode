@@ -30,10 +30,11 @@ label(
 
 <script>
 // PROJECT: MIXINS
+import FieldSizeMixin from "../../mixins/FieldSizeMixin.js"
 import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
-  mixins: [ThemeMixin],
+  mixins: [FieldSizeMixin, ThemeMixin],
 
   props: {
     forField: {
@@ -43,13 +44,6 @@ export default {
     required: {
       type: Boolean,
       default: false
-    },
-    size: {
-      type: String,
-      default: "default",
-      validator(x) {
-        return ["mini", "small", "default", "medium", "large"].includes(x)
-      }
     },
     uppercase: {
       type: Boolean,

@@ -97,10 +97,11 @@ validation-provider(
 <script>
 // PROJECT: MIXINS
 import FieldMixin from "../../mixins/FieldMixin.js"
+import FieldSizeMixin from "../../mixins/FieldSizeMixin.js"
 import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
-  mixins: [FieldMixin, ThemeMixin],
+  mixins: [FieldMixin, FieldSizeMixin, ThemeMixin],
 
   props: {
     multiple: {

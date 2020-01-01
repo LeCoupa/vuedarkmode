@@ -71,13 +71,6 @@ export default {
       type: Boolean,
       default: true
     },
-    size: {
-      type: String,
-      default: "default",
-      validator(x) {
-        return ["mini", "small", "default", "medium", "large"].includes(x)
-      }
-    },
     status: {
       type: String,
       default: "normal",
