@@ -139,7 +139,7 @@ $statuses: "description", "error", "info", "success", "warning";
 #{$c} {
   display: flex;
   align-items: center;
-  margin: 10px 0 0;
+  margin: 0;
   font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   #{$c}__icon {
@@ -153,6 +153,8 @@ $statuses: "description", "error", "info", "success", "warning";
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
+      margin-top: 8px + (1px * $i);
+
       #{$c}__message {
         font-size: 12px + (1px * $i);
         line-height: 16px + (2px * $i);
