@@ -14,7 +14,7 @@ import FieldMessage from "../components/form/FieldMessage.vue"
 import { generateUUID } from "../helpers/helpers.js"
 
 /**************************************************************************
- * MIXINS > FIELDS
+ * MIXINS > FIELD
  * @docs https://vuejs.org/v2/guide/mixins.html
  ***************************************************************************/
 
@@ -70,13 +70,6 @@ export default {
     showErrors: {
       type: Boolean,
       default: true
-    },
-    status: {
-      type: String,
-      default: "normal",
-      validator(x) {
-        return ["error", "normal", "success", "warning"].includes(x)
-      }
     },
     success: {
       type: String,
