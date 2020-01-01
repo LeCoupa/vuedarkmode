@@ -34,7 +34,6 @@ import BaseIcon from "../base/BaseIcon.vue"
 
 // PROJECT: MIXINS
 import FieldSizeMixin from "../../mixins/FieldSizeMixin.js"
-import FieldStatusMixin from "../../mixins/FieldStatusMixin.js"
 import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
@@ -42,7 +41,7 @@ export default {
     BaseIcon
   },
 
-  mixins: [FieldSizeMixin, FieldStatusMixin, ThemeMixin],
+  mixins: [FieldSizeMixin, ThemeMixin],
 
   props: {
     errors: {
@@ -56,6 +55,13 @@ export default {
     showErrors: {
       type: Boolean,
       default: true
+    },
+    status: {
+      type: String,
+      default: "description",
+      validator(x) {
+        return ["description", "error", "info", "success", "warning"].includes(x)
+      }
     }
   },
 

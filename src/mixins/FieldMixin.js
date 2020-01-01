@@ -71,6 +71,13 @@ export default {
       type: Boolean,
       default: true
     },
+    status: {
+      type: String,
+      default: "normal",
+      validator(x) {
+        return ["error", "normal", "success", "warning"].includes(x)
+      }
+    },
     success: {
       type: String,
       default: null

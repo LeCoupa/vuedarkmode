@@ -168,7 +168,6 @@ import FieldInput from "./FieldInput.vue"
 // PROJECT: MIXINS
 import FieldMixin from "../../mixins/FieldMixin.js"
 import FieldSizeMixin from "../../mixins/FieldSizeMixin.js"
-import FieldStatusMixin from "../../mixins/FieldStatusMixin.js"
 import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
@@ -180,7 +179,7 @@ export default {
     FieldInput
   },
 
-  mixins: [FieldMixin, FieldSizeMixin, FieldStatusMixin, ThemeMixin],
+  mixins: [FieldMixin, FieldSizeMixin, ThemeMixin],
 
   props: {
     clearable: {
