@@ -3,65 +3,55 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+div(
+  :class=`[
+    "gb-field-toggle",
+    "gb-field-toggle--" + size,
+    "gb-field-toggle--" + computedTheme,
+    "gb-field-toggle--" + computedStatus,
+    {
+      "gb-field-toggle--disabled": disabled,
+      "gb-field-toggle--full-width": fullWidth
+    }
+  ]`
 )
   div(
+    @keypress.prevent="onKeypress"
     :class=`[
-      "gb-field-toggle",
-      "gb-field-toggle--" + size,
-      "gb-field-toggle--" + computedTheme,
-      "gb-field-toggle--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
+      "gb-field-toggle__container",
+      "js-tag-for-autofocus",
       {
-        "gb-field-toggle--disabled": disabled,
-        "gb-field-toggle--full-width": fullWidth
+        "gb-field-toggle__container--active": innerValue,
+        "gb-field-toggle__container--inactive": !innerValue
       }
     ]`
+    tabindex="0"
   )
     div(
-      @keypress.prevent="onKeypress"
-      :class=`[
-        "gb-field-toggle__container",
-        "js-tag-for-autofocus",
-        {
-          "gb-field-toggle__container--active": innerValue,
-          "gb-field-toggle__container--inactive": !innerValue
-        }
-      ]`
-      tabindex="0"
+      @click="onClick"
+      class="gb-field-toggle__field"
     )
-      div(
-        @click="onClick"
-        class="gb-field-toggle__field"
-      )
-        span.gb-field-toggle__focuser
+      span.gb-field-toggle__focuser
 
-        span.gb-field-toggle__handle
+      span.gb-field-toggle__handle
 
-      field-label(
-        v-if="label"
-        @click="onClick"
-        :required="labelRequired"
-        :size="size"
-        :theme="theme"
-        :uppercase="false"
-        class="gb-field-toggle__label"
-      ) {{ label }}
-
-    field-message(
-      v-if="computedMessageStatus || (errors.length > 0 && dirty)"
-      :errors="errors"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
+    field-label(
+      v-if="label"
+      @click="onClick"
+      :required="required"
       :size="size"
-      :status="computedMessageStatus"
       :theme="theme"
-    )
+      :uppercase="false"
+      class="gb-field-toggle__label"
+    ) {{ label }}
+
+  field-message(
+    v-if="computedMessageStatus"
+    :message="computedMessageContent"
+    :size="size"
+    :status="computedMessageStatus"
+    :theme="theme"
+  )
 </template>
 
 <!-- *************************************************************************

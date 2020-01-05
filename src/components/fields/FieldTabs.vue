@@ -3,91 +3,81 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+div(
+  :class=`[
+    "gb-field-tabs",
+    "gb-field-tabs--" + size,
+    "gb-field-tabs--" + computedTheme,
+    "gb-field-tabs--" + computedStatus,
+    {
+      "gb-field-tabs--disabled": disabled,
+      "gb-field-tabs--multiple": multiple
+    }
+  ]`
 )
-  div(
-    :class=`[
-      "gb-field-tabs",
-      "gb-field-tabs--" + size,
-      "gb-field-tabs--" + computedTheme,
-      "gb-field-tabs--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
-      {
-        "gb-field-tabs--disabled": disabled,
-        "gb-field-tabs--multiple": multiple
-      }
-    ]`
-  )
-    field-label(
-      v-if="label"
-      @click="onLabelClick"
-      :required="labelRequired"
-      :size="size"
-      :theme="theme"
-      class="gb-field-tabs__label"
-    ) {{ label }}
+  field-label(
+    v-if="label"
+    @click="onLabelClick"
+    :required="required"
+    :size="size"
+    :theme="theme"
+    class="gb-field-tabs__label"
+  ) {{ label }}
 
-    .gb-field-tabs__container
-      span(
-        v-for="(tab, i) in tabs"
-        @click="onTabClick(tab.value, $event)"
-        @keypress.prevent="onTabKeypress"
-        :class=`[
-          "gb-field-tabs__tab",
-          "js-field-tab",
-          {
-            "gb-field-tabs__tab--active": innerValue === tab.value || (Array.isArray(innerValue) && innerValue.includes(tab.value)),
-            "gb-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
-            "gb-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
-            "gb-field-tabs__tab--with-label": tab.label
-          }
-        ]`
-        tabindex="0"
-      )
-        span(
-          v-if="$scopedSlots['tab-left']"
-          class="gb-field-tabs__tab-left"
-        )
-          slot(
-            :tab="tab"
-            name="tab-left"
-          )
-
-        span(
-          v-if="tab.label"
-          class="gb-field-tabs__label"
-        ) {{ tab.label }}
-
-        base-icon(
-          v-else-if="tab.icon"
-          :name="tab.icon"
-          :size="tab.iconSize || computedIconSize"
-          class="gb-field-tabs__label"
-        )
-
-        span(
-          v-if="$scopedSlots['tab-right']"
-          class="gb-field-tabs__tab-right"
-        )
-          slot(
-            :tab="tab"
-            name="tab-right"
-          )
-
-    field-message(
-      v-if="computedMessageStatus || (errors.length > 0 && dirty)"
-      :errors="errors"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
-      :size="size"
-      :status="computedMessageStatus"
-      :theme="theme"
+  .gb-field-tabs__container
+    span(
+      v-for="(tab, i) in tabs"
+      @click="onTabClick(tab.value, $event)"
+      @keypress.prevent="onTabKeypress"
+      :class=`[
+        "gb-field-tabs__tab",
+        "js-field-tab",
+        {
+          "gb-field-tabs__tab--active": innerValue === tab.value || (Array.isArray(innerValue) && innerValue.includes(tab.value)),
+          "gb-field-tabs__tab--active-next": checkActiveBrother("asc", i+1),
+          "gb-field-tabs__tab--active-previous": checkActiveBrother("desc", i-1),
+          "gb-field-tabs__tab--with-label": tab.label
+        }
+      ]`
+      tabindex="0"
     )
+      span(
+        v-if="$scopedSlots['tab-left']"
+        class="gb-field-tabs__tab-left"
+      )
+        slot(
+          :tab="tab"
+          name="tab-left"
+        )
+
+      span(
+        v-if="tab.label"
+        class="gb-field-tabs__label"
+      ) {{ tab.label }}
+
+      base-icon(
+        v-else-if="tab.icon"
+        :name="tab.icon"
+        :size="tab.iconSize || computedIconSize"
+        class="gb-field-tabs__label"
+      )
+
+      span(
+        v-if="$scopedSlots['tab-right']"
+        class="gb-field-tabs__tab-right"
+      )
+        slot(
+          :tab="tab"
+          name="tab-right"
+        )
+
+  field-message(
+    v-if="computedMessageStatus"
+    :message="computedMessageContent"
+    :size="size"
+    :status="computedMessageStatus"
+    :theme="theme"
+  )
 </template>
 
 <!-- *************************************************************************

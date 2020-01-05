@@ -2,9 +2,6 @@
  * IMPORTS
  ***************************************************************************/
 
-// NPM
-import { ValidationProvider } from "vee-validate"
-
 // PROJECT: COMPONENTS
 import BaseIcon from "../components/base/BaseIcon.vue"
 import FieldLabel from "../components/fields/FieldLabel.vue"
@@ -22,8 +19,7 @@ export default {
   components: {
     BaseIcon,
     FieldLabel,
-    FieldMessage,
-    ValidationProvider
+    FieldMessage
   },
 
   props: {
@@ -55,21 +51,9 @@ export default {
       type: String,
       default: null
     },
-    rules: {
-      type: [Object, String],
-      default: null
-    },
-    rulesName: {
-      type: String,
-      default: null
-    },
-    rulesVid: {
-      type: String,
-      default: null
-    },
-    showErrors: {
+    required: {
       type: Boolean,
-      default: true
+      default: false
     },
     status: {
       type: String,
@@ -134,23 +118,12 @@ export default {
       }
 
       return this.status
-    },
-
-    labelRequired() {
-      if (!this.rules) {
-        return false
-      } else if (typeof this.rules === "text") {
-        return this.rules.includes("required")
-      } else if (typeof this.rules === "object") {
-        return this.rules.required
-      }
     }
   },
 
   watch: {
     value(value) {
       this.synchronize()
-      this.validate(true)
     }
   },
 
@@ -158,7 +131,6 @@ export default {
     this.uuid = generateUUID()
 
     this.synchronize()
-    this.validate()
 
     // Focus only on desktop and larger screens
     if (this.autofocus && window.innerWidth >= 1024) {
@@ -180,17 +152,6 @@ export default {
     synchronize() {
       // Synchronize inner value with new one
       this.innerValue = this.value
-    },
-
-    validate(dirty) {
-      // Validate new value with vee-validate
-      this.$refs.validationProvider.validate(this.value)
-
-      if (dirty) {
-        this.$refs.validationProvider.setFlags({
-          dirty: true
-        })
-      }
     }
   }
 }

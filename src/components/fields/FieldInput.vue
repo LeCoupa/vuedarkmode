@@ -3,112 +3,102 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+div(
+  :class=`[
+    "gb-field-input",
+    "gb-field-input--" + size,
+    "gb-field-input--" + computedTheme,
+    "gb-field-input--" + computedStatus,
+    {
+      "gb-field-input--borders": borders,
+      "gb-field-input--clearable": clearable,
+      "gb-field-input--disabled": disabled,
+      "gb-field-input--focused": focused,
+      "gb-field-input--full-width": fullWidth,
+      "gb-field-input--readonly": readonly,
+      "gb-field-input--rounded": rounded,
+      "gb-field-input--with-icon": leftIcon || rightIcon
+    }
+  ]`
 )
+  field-label(
+    v-if="label"
+    :forField="uuid"
+    :required="required"
+    :size="size"
+    :theme="theme"
+    class="gb-field-input__label"
+  ) {{ label }}
+
   div(
-    :class=`[
-      "gb-field-input",
-      "gb-field-input--" + size,
-      "gb-field-input--" + computedTheme,
-      "gb-field-input--" + (errors.length > 0 && dirty && !focused && showErrors ? 'error' : computedStatus),
-      {
-        "gb-field-input--borders": borders,
-        "gb-field-input--clearable": clearable,
-        "gb-field-input--disabled": disabled,
-        "gb-field-input--focused": focused,
-        "gb-field-input--full-width": fullWidth,
-        "gb-field-input--readonly": readonly,
-        "gb-field-input--rounded": rounded,
-        "gb-field-input--with-icon": leftIcon || rightIcon
-      }
-    ]`
+    @click="onContainerClick"
+    class="gb-field-input__container"
   )
-    field-label(
-      v-if="label"
-      :forField="uuid"
-      :required="labelRequired"
-      :size="size"
-      :theme="theme"
-      class="gb-field-input__label"
-    ) {{ label }}
+    span(
+      v-if="prepend"
+      @click="onPrependClick"
+      :class=`[
+        "gb-field-input__block",
+        "gb-field-input__block--prepend",
+        {
+          "gb-field-input__block--clickable": $listeners.prependClick
+        }
+      ]`
+    ) {{ prepend }}
 
-    div(
-      @click="onContainerClick"
-      class="gb-field-input__container"
+    base-icon(
+      v-if="leftIcon"
+      :name="leftIcon"
+      class="gb-field-input__icon gb-field-input__icon--left"
     )
-      span(
-        v-if="prepend"
-        @click="onPrependClick"
-        :class=`[
-          "gb-field-input__block",
-          "gb-field-input__block--prepend",
-          {
-            "gb-field-input__block--clickable": $listeners.prependClick
-          }
-        ]`
-      ) {{ prepend }}
 
-      base-icon(
-        v-if="leftIcon"
-        :name="leftIcon"
-        class="gb-field-input__icon gb-field-input__icon--left"
-      )
-
-      input(
-        @blur="onFieldBlur"
-        @change="onFieldChange"
-        @focus="onFieldFocus"
-        @input="onFieldInput"
-        @keydown="onFieldKeyDown"
-        @keyup="onFieldKeyUp"
-        :autocomplete="autocomplete ? 'on' : 'off'"
-        :disabled="disabled"
-        :id="uuid"
-        :max="max"
-        :min="min"
-        :name="name"
-        :placeholder="placeholder"
-        :spellcheck="spellcheck"
-        :readonly="readonly"
-        :type="type"
-        :value="innerValue"
-        class="gb-field-input__field js-tag-for-autofocus"
-      )
-
-      base-icon(
-        v-if="computedRightIcon"
-        @click="onRightIconClick"
-        :name="computedRightIcon"
-        class="gb-field-input__icon gb-field-input__icon--right"
-      )
-
-      span(
-        v-if="append"
-        @click="onAppendClick"
-        :class=`[
-          "gb-field-input__block",
-          "gb-field-input__block--append",
-          {
-            "gb-field-input__block--clickable": $listeners.appendClick
-          }
-        ]`
-      ) {{ append }}
-
-    field-message(
-      v-if="computedMessageStatus || (errors.length > 0 && dirty && !focused)"
-      :errors="errors"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
-      :size="size"
-      :status="computedMessageStatus"
-      :theme="theme"
+    input(
+      @blur="onFieldBlur"
+      @change="onFieldChange"
+      @focus="onFieldFocus"
+      @input="onFieldInput"
+      @keydown="onFieldKeyDown"
+      @keyup="onFieldKeyUp"
+      :autocomplete="autocomplete ? 'on' : 'off'"
+      :disabled="disabled"
+      :id="uuid"
+      :max="max"
+      :min="min"
+      :name="name"
+      :placeholder="placeholder"
+      :spellcheck="spellcheck"
+      :readonly="readonly"
+      :type="type"
+      :value="innerValue"
+      class="gb-field-input__field js-tag-for-autofocus"
     )
+
+    base-icon(
+      v-if="computedRightIcon"
+      @click="onRightIconClick"
+      :name="computedRightIcon"
+      class="gb-field-input__icon gb-field-input__icon--right"
+    )
+
+    span(
+      v-if="append"
+      @click="onAppendClick"
+      :class=`[
+        "gb-field-input__block",
+        "gb-field-input__block--append",
+        {
+          "gb-field-input__block--clickable": $listeners.appendClick
+        }
+      ]`
+    ) {{ append }}
+
+  field-message(
+    v-if="computedMessageStatus"
+    :message="computedMessageContent"
+    :size="size"
+    :status="computedMessageStatus"
+    :theme="theme"
+  )
 </template>
 
 <!-- *************************************************************************

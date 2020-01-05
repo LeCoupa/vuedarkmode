@@ -3,155 +3,145 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+div(
+  v-click-outside="onClose"
+  v-hotkey="hotkeys"
+  :class=`[
+    "gb-field-select",
+    "gb-field-select--" + direction,
+    "gb-field-select--" + size,
+    "gb-field-select--" + computedTheme,
+    "gb-field-select--" + computedStatus,
+    {
+      "gb-field-select--clearable": clearable,
+      "gb-field-select--disabled": disabled,
+      "gb-field-select--opened": opened,
+      "gb-field-select--full-width": fullWidth,
+      "gb-field-select--with-left-icon": computedLeftIcon && (!$scopedSlots['option-left'] || !selectedOption)
+    }
+  ]`
 )
-  div(
-    v-click-outside="onClose"
-    v-hotkey="hotkeys"
-    :class=`[
-      "gb-field-select",
-      "gb-field-select--" + direction,
-      "gb-field-select--" + size,
-      "gb-field-select--" + computedTheme,
-      "gb-field-select--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
-      {
-        "gb-field-select--clearable": clearable,
-        "gb-field-select--disabled": disabled,
-        "gb-field-select--opened": opened,
-        "gb-field-select--full-width": fullWidth,
-        "gb-field-select--with-left-icon": computedLeftIcon && (!$scopedSlots['option-left'] || !selectedOption)
-      }
-    ]`
-  )
-    field-label(
-      v-if="label"
-      @click="onLabelClick"
-      :forField="uuid"
-      :required="labelRequired"
-      :size="size"
-      :theme="theme"
-      class="gb-field-select__label"
-    ) {{ label }}
+  field-label(
+    v-if="label"
+    @click="onLabelClick"
+    :forField="uuid"
+    :required="required"
+    :size="size"
+    :theme="theme"
+    class="gb-field-select__label"
+  ) {{ label }}
 
-    .gb-field-select__container
-      div(
-        @click="onContainerClick"
-        @keypress.prevent="onContainerKeypress"
-        class="gb-field-select__field js-tag-for-autofocus"
-        tabindex="0"
+  .gb-field-select__container
+    div(
+      @click="onContainerClick"
+      @keypress.prevent="onContainerKeypress"
+      class="gb-field-select__field js-tag-for-autofocus"
+      tabindex="0"
+    )
+      base-icon(
+        v-if="computedLeftIcon && (!$scopedSlots['option-left'] || !selectedOption)"
+        :name="computedLeftIcon"
+        class="gb-field-select__icon gb-field-select__icon--left"
       )
-        base-icon(
-          v-if="computedLeftIcon && (!$scopedSlots['option-left'] || !selectedOption)"
-          :name="computedLeftIcon"
-          class="gb-field-select__icon gb-field-select__icon--left"
+
+      span(
+        v-if="selectedOption"
+        class="gb-field-select__option gb-field-select__option--selected"
+      )
+        span(
+          v-if="$scopedSlots['option-left']"
+          class="gb-field-select__option-left"
         )
+          slot(
+            :option="selectedOption"
+            name="option-left"
+          )
+
+        span.gb-field-select__option-label {{ selectedOption.label }}
 
         span(
-          v-if="selectedOption"
-          class="gb-field-select__option gb-field-select__option--selected"
+          v-if="$scopedSlots['option-right']"
+          class="gb-field-select__option-right"
         )
-          span(
-            v-if="$scopedSlots['option-left']"
-            class="gb-field-select__option-left"
+          slot(
+            :option="selectedOption"
+            name="option-right"
           )
-            slot(
-              :option="selectedOption"
-              name="option-left"
-            )
-
-          span.gb-field-select__option-label {{ selectedOption.label }}
-
-          span(
-            v-if="$scopedSlots['option-right']"
-            class="gb-field-select__option-right"
-          )
-            slot(
-              :option="selectedOption"
-              name="option-right"
-            )
-
-        div(
-          v-else-if="placeholder"
-          class="gb-field-select__option gb-field-select__option--placeholder"
-        ) {{ placeholder }}
-
-        base-icon(
-          v-if="clearable && selectedOption"
-          @click="onClear"
-          class="gb-field-select__icon gb-field-select__icon--clear"
-          name="cancel"
-        )
-
-        base-icon(
-          class="gb-field-select__icon gb-field-select__icon--arrow"
-          name="arrow_drop_down"
-        )
 
       div(
-        v-show="opened && !disabled"
-        class="gb-field-select__options"
+        v-else-if="placeholder"
+        class="gb-field-select__option gb-field-select__option--placeholder"
+      ) {{ placeholder }}
+
+      base-icon(
+        v-if="clearable && selectedOption"
+        @click="onClear"
+        class="gb-field-select__icon gb-field-select__icon--clear"
+        name="cancel"
       )
-        field-input(
-          v-if="searchable && opened"
-          @input="onSearchInput"
-          :autofocus="true"
-          :borders="false"
-          :size="size"
-          class="gb-field-select__search"
-          placeholder="Search..."
-          left-icon="search"
-        )
 
-        div(
-          v-for="(option, index) in computedOptions"
-          @click="onOptionClick(option, $event)"
-          @keypress.prevent="onOptionKeypress(option, $event)"
-          :class=`[
-            "gb-field-select__option",
-            {
-              "js-keyboard-focused-option": keyboardIndex === index,
-              "gb-field-select__option--keyboard-focused": keyboardIndex === index,
-              "gb-field-select__option--selected": selectedOption && option.value === selectedOption.value
-            }
-          ]`
-          :key="option.value"
-          tabindex="0"
-        )
-          span(
-            v-if="$scopedSlots['option-left']"
-            class="gb-field-select__option-left"
-          )
-            slot(
-              :option="option"
-              name="option-left"
-            )
+      base-icon(
+        class="gb-field-select__icon gb-field-select__icon--arrow"
+        name="arrow_drop_down"
+      )
 
-          span.gb-field-select__option-label {{ option.label }}
-
-          span(
-            v-if="$scopedSlots['option-right']"
-            class="gb-field-select__option-right"
-          )
-            slot(
-              :option="option"
-              name="option-right"
-            )
-
-    field-message(
-      v-if="computedMessageStatus || (errors.length > 0 && dirty)"
-      :errors="errors"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
-      :size="size"
-      :status="computedMessageStatus"
-      :theme="theme"
+    div(
+      v-show="opened && !disabled"
+      class="gb-field-select__options"
     )
+      field-input(
+        v-if="searchable && opened"
+        @input="onSearchInput"
+        :autofocus="true"
+        :borders="false"
+        :size="size"
+        class="gb-field-select__search"
+        placeholder="Search..."
+        left-icon="search"
+      )
+
+      div(
+        v-for="(option, index) in computedOptions"
+        @click="onOptionClick(option, $event)"
+        @keypress.prevent="onOptionKeypress(option, $event)"
+        :class=`[
+          "gb-field-select__option",
+          {
+            "js-keyboard-focused-option": keyboardIndex === index,
+            "gb-field-select__option--keyboard-focused": keyboardIndex === index,
+            "gb-field-select__option--selected": selectedOption && option.value === selectedOption.value
+          }
+        ]`
+        :key="option.value"
+        tabindex="0"
+      )
+        span(
+          v-if="$scopedSlots['option-left']"
+          class="gb-field-select__option-left"
+        )
+          slot(
+            :option="option"
+            name="option-left"
+          )
+
+        span.gb-field-select__option-label {{ option.label }}
+
+        span(
+          v-if="$scopedSlots['option-right']"
+          class="gb-field-select__option-right"
+        )
+          slot(
+            :option="option"
+            name="option-right"
+          )
+
+  field-message(
+    v-if="computedMessageStatus"
+    :message="computedMessageContent"
+    :size="size"
+    :status="computedMessageStatus"
+    :theme="theme"
+  )
 </template>
 
 <!-- *************************************************************************

@@ -7,7 +7,7 @@ p(
   :class=`[
     "gb-field-message",
     "gb-field-message--" + size,
-    "gb-field-message--" + computedStatus,
+    "gb-field-message--" + status,
     "gb-field-message--" + computedTheme
   ]`
 )
@@ -19,7 +19,7 @@ p(
   )
 
   span(
-    v-html="computedMessage"
+    v-html="message"
     class="gb-field-message__message"
   )
 </template>
@@ -44,17 +44,9 @@ export default {
   mixins: [FieldSizeMixin, ThemeMixin],
 
   props: {
-    errors: {
-      type: Array,
-      default: null
-    },
     message: {
       type: String,
       default: null
-    },
-    showErrors: {
-      type: Boolean,
-      default: true
     },
     status: {
       type: String,
@@ -94,22 +86,6 @@ export default {
       }
 
       return null
-    },
-
-    computedStatus() {
-      if (this.errors && this.errors.length > 0 && this.showErrors) {
-        return "error"
-      } else {
-        return this.status
-      }
-    },
-
-    computedMessage() {
-      if (this.errors && this.errors.length > 0 && this.showErrors) {
-        return this.errors[0]
-      } else {
-        return this.message
-      }
     }
   }
 }

@@ -3,64 +3,54 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+div(
+  :class=`[
+    "gb-field-checkbox",
+    "gb-field-checkbox--" + size,
+    "gb-field-checkbox--" + computedTheme,
+    "gb-field-checkbox--" + computedStatus,
+    {
+      "gb-field-checkbox--disabled": disabled,
+      "gb-field-checkbox--full-width": fullWidth
+    }
+  ]`
 )
   div(
+    @keypress.prevent="onKeypress"
     :class=`[
-      "gb-field-checkbox",
-      "gb-field-checkbox--" + size,
-      "gb-field-checkbox--" + computedTheme,
-      "gb-field-checkbox--" + (errors.length > 0 && dirty && showErrors ? 'error' : computedStatus),
+      "gb-field-checkbox__container",
+      "js-tag-for-autofocus",
       {
-        "gb-field-checkbox--disabled": disabled,
-        "gb-field-checkbox--full-width": fullWidth
+        "gb-field-checkbox__container--active": innerValue
       }
     ]`
+    tabindex="0"
   )
     div(
-      @keypress.prevent="onKeypress"
-      :class=`[
-        "gb-field-checkbox__container",
-        "js-tag-for-autofocus",
-        {
-          "gb-field-checkbox__container--active": innerValue
-        }
-      ]`
-      tabindex="0"
+      @click="onClick"
+      class="gb-field-checkbox__field"
     )
-      div(
-        @click="onClick"
-        class="gb-field-checkbox__field"
-      )
-        span.gb-field-checkbox__focuser
+      span.gb-field-checkbox__focuser
 
-        span.gb-field-checkbox__tick
+      span.gb-field-checkbox__tick
 
-      field-label(
-        v-if="label"
-        @click="onClick"
-        :required="labelRequired"
-        :size="size"
-        :theme="theme"
-        :uppercase="false"
-        class="gb-field-checkbox__label"
-      ) {{ label }}
-
-    field-message(
-      v-if="computedMessageStatus || (errors.length > 0 && dirty)"
-      :errors="errors"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
+    field-label(
+      v-if="label"
+      @click="onClick"
+      :required="required"
       :size="size"
-      :status="computedMessageStatus"
       :theme="theme"
-    )
+      :uppercase="false"
+      class="gb-field-checkbox__label"
+    ) {{ label }}
+
+  field-message(
+    v-if="computedMessageStatus"
+    :message="computedMessageContent"
+    :size="size"
+    :status="computedMessageStatus"
+    :theme="theme"
+  )
 </template>
 
 <!-- *************************************************************************

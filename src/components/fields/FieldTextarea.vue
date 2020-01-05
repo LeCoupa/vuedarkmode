@@ -3,78 +3,68 @@
      ************************************************************************* -->
 
 <template lang="pug">
-validation-provider(
-  v-slot="{ dirty, errors }"
-  :name="rulesName || name"
-  :rules="rules"
-  :vid="rulesVid"
-  ref="validationProvider"
-  tag="div"
+div(
+  :class=`[
+    "gb-field-textarea",
+    "gb-field-textarea--" + size,
+    "gb-field-textarea--" + computedTheme,
+    "gb-field-textarea--" + computedStatus,
+    {
+      "gb-field-textarea--borders": borders,
+      "gb-field-textarea--disabled": disabled,
+      "gb-field-textarea--focused": focused,
+      "gb-field-textarea--full-width": fullWidth,
+      "gb-field-textarea--readonly": readonly
+    }
+  ]`
 )
+  field-label(
+    v-if="label"
+    :forField="uuid"
+    :required="required"
+    :size="size"
+    :theme="theme"
+    class="gb-field-textarea__label"
+  ) {{ label }}
+
   div(
-    :class=`[
-      "gb-field-textarea",
-      "gb-field-textarea--" + size,
-      "gb-field-textarea--" + computedTheme,
-      "gb-field-textarea--" + (errors.length > 0 && dirty && !focused && showErrors ? 'error' : computedStatus),
-      {
-        "gb-field-textarea--borders": borders,
-        "gb-field-textarea--disabled": disabled,
-        "gb-field-textarea--focused": focused,
-        "gb-field-textarea--full-width": fullWidth,
-        "gb-field-textarea--readonly": readonly
-      }
-    ]`
+    @click="onContainerClick"
+    class="gb-field-textarea__container"
   )
-    field-label(
-      v-if="label"
-      :forField="uuid"
-      :required="labelRequired"
-      :size="size"
-      :theme="theme"
-      class="gb-field-textarea__label"
-    ) {{ label }}
+    textarea(
+      @blur="onFieldBlur"
+      @change="onFieldChange"
+      @focus="onFieldFocus"
+      @input="onFieldInput"
+      @keydown="onFieldKeyDown"
+      @keyup="onFieldKeyUp"
+      :cols="cols"
+      :disabled="disabled"
+      :id="uuid"
+      :name="name"
+      :placeholder="placeholder"
+      :readonly="readonly"
+      :rows="rows"
+      :spellcheck="spellcheck"
+      :style=`{
+        resize: resize
+      }`
+      class="gb-field-textarea__field js-tag-for-autofocus"
+    ) {{ innerValue }}
 
-    div(
-      @click="onContainerClick"
-      class="gb-field-textarea__container"
+    base-icon(
+      v-if="computedIcon"
+      :name="computedIcon"
+      class="gb-field-textarea__icon"
     )
-      textarea(
-        @blur="onFieldBlur"
-        @change="onFieldChange"
-        @focus="onFieldFocus"
-        @input="onFieldInput"
-        @keydown="onFieldKeyDown"
-        @keyup="onFieldKeyUp"
-        :cols="cols"
-        :disabled="disabled"
-        :id="uuid"
-        :name="name"
-        :placeholder="placeholder"
-        :readonly="readonly"
-        :rows="rows"
-        :spellcheck="spellcheck"
-        :style=`{
-          resize: resize
-        }`
-        class="gb-field-textarea__field js-tag-for-autofocus"
-      ) {{ innerValue }}
 
-      base-icon(
-        v-if="computedIcon"
-        :name="computedIcon"
-        class="gb-field-textarea__icon"
-      )
-
-    field-message(
-      v-if="computedMessageStatus || (errors.length > 0 && dirty && !focused)"
-      :errors="errors"
-      :message="computedMessageContent"
-      :show-errors="showErrors"
-      :size="size"
-      :status="computedMessageStatus"
-      :theme="theme"
-    )
+  field-message(
+    v-if="computedMessageStatus"
+    :message="computedMessageContent"
+    :size="size"
+    :status="computedMessageStatus"
+    :theme="theme"
+  )
 </template>
 
 <!-- *************************************************************************
