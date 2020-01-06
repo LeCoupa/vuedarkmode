@@ -134,6 +134,18 @@ export default {
           message = "This field is required."
         } else if (this.validation.email === false) {
           message = "This field is not a valid email."
+        } else if (this.validation.minLength === false) {
+          const min = this.validation.$params.minLength.min
+          message = `This field is too short (min: ${min}).`
+        } else if (this.validation.maxLength === false) {
+          const max = this.validation.$params.minLength.max
+          message = `This field is too long (max ${max}).`
+        } else if (this.validation.sameAs === false) {
+          const field = this.validation.$params.sameAs.eq
+          message = `This field does not match: ${field}.`
+        } else if (this.validation.$invalid === true) {
+        } else if (this.validation.url === false) {
+          message = "This field is not a valid url."
         } else if (this.validation.$invalid === true) {
           message = "This field is invalid."
         }
