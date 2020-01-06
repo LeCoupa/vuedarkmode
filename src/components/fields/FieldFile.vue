@@ -59,6 +59,28 @@ div(
       class="gb-field-file__field"
       type="file"
     )
+
+  div(
+    v-if="hasPreview && value"
+    class="gb-field-file__preview"
+  )
+    img(
+      v-for="preview in previews"
+      :key="preview"
+      :src="preview"
+      class="gb-field-file__image"
+    )
+
+    base-button(
+      v-if="clearable"
+      @confirm="onRemoveImage"
+      :confirmation="true"
+      :reverse="true"
+      :full-width="true"
+      :size="size"
+      class="gb-field-file__remove"
+      left-icon="delete_outline"
+    ) Remove image
 </template>
 
 <!-- *************************************************************************
@@ -66,36 +88,91 @@ div(
      ************************************************************************* -->
 
 <script>
+// PROEJECT: COMPONENTS
+import BaseButton from "../base/BaseButton.vue"
+
 // PROEJECT: MIXINS
 import FieldMixin from "../../mixins/FieldMixin.js"
 import FieldSizeMixin from "../../mixins/FieldSizeMixin.js"
 import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
+  components: {
+    BaseButton
+  },
+
   mixins: [FieldMixin, FieldSizeMixin, ThemeMixin],
 
   props: {
+    clearable: {
+      type: Boolean,
+      default: true
+    },
     fullWidth: {
+      type: Boolean,
+      default: true
+    },
+    hasPreview: {
       type: Boolean,
       default: true
     },
     multiple: {
       type: Boolean,
       default: false
+    },
+    value: {
+      type: Array,
+      default: null
+    }
+  },
+
+  computed: {
+    previews() {
+      return this.value.map(async file => {
+        return await this.convertToBase64(file)
+      })
     }
   },
 
   methods: {
+    // --> HELPERS <--
+
+    convertToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+        reader.addEventListener("load", () => resolve(reader.result))
+        reader.addEventListener("error", error => reject(error))
+      })
+    },
+
     // --> EVENT LISTENERS <--
 
     onFieldChange(event) {
-      this.$emit("change", this.name, event)
+      let files = null
+
+      if (event.target && event.target.files.length > 0) {
+        files = event.target.files
+
+        this.innerValue = files
+
+        this.$emit("change", this.name, files, event)
+        this.$emit("input", files) // Synchronization for v-model
+      }
     },
 
     onLabelKeypress(event) {
       if (event.code === "Space") {
         this.$el.querySelector("input[type='file']").click()
       }
+    },
+
+    onRemoveImage() {
+      this.innerValue = null
+
+      this.$emit("change", this.name, null, event)
+      this.$emit("remove", this.name, event)
+      this.$emit("input", null) // Synchronization for v-model
     }
   }
 }
@@ -189,25 +266,48 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 
+  #{$c}__container {
+    #{$c}__image {
+      margin-top: 10px;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
   // --> SIZES <--
 
   @each $size in $sizes {
     $i: index($sizes, $size) - 1;
 
     &--#{$size} {
-      #{$c}__information {
-        #{$c}__message {
-          font-size: 10px + (1px * $i);
+      #{$c}__container {
+        #{$c}__information {
+          #{$c}__message {
+            font-size: 10px + (1px * $i);
+          }
+        }
+
+        #{$c}__upload {
+          width: 40px + (5px * $i);
+          height: 40px + (5px * $i);
+
+          #{$c}__icon {
+            // Will override the font-size set in style attribute
+            font-size: 18px + (2px * $i) !important;
+          }
         }
       }
 
-      #{$c}__upload {
-        width: 40px + (5px * $i);
-        height: 40px + (5px * $i);
+      #{$c}__preview {
+        #{$c}__image {
+          height: 60px + (10px * $i);
+          border-width: 1px;
+          border-style: solid;
+          border-radius: 4px;
+        }
 
-        #{$c}__icon {
-          // Will override the font-size set in style attribute
-          font-size: 18px + (2px * $i) !important;
+        #{$c}__remove {
+          margin-top: 8px + (1px * $i);
         }
       }
     }
@@ -249,6 +349,12 @@ $statuses: "error", "normal", "success", "warning";
 
         #{$c}__upload {
           background-color: mdg($theme, "backgrounds", "default", "primary");
+        }
+      }
+
+      #{$c}__preview {
+        #{$c}__image {
+          border-color: mdg($theme, "borders", "default", "primary");
         }
       }
 
