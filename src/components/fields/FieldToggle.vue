@@ -46,10 +46,10 @@ div(
     ) {{ label }}
 
   field-message(
-    v-if="computedMessageStatus"
-    :message="computedMessageContent"
+    v-if="fieldMessageStatus"
+    :message="fieldMessageContent"
     :size="size"
-    :status="computedMessageStatus"
+    :status="fieldMessageStatus"
     :theme="theme"
   )
 </template>

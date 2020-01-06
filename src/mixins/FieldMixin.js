@@ -66,6 +66,10 @@ export default {
       type: String,
       default: null
     },
+    validation: {
+      type: Object,
+      default: null
+    },
     warning: {
       type: String,
       default: null
@@ -80,8 +84,22 @@ export default {
   }),
 
   computed: {
-    computedMessageContent() {
-      if (this.error) {
+    computedStatus() {
+      if (this.error || this.validationMessage) {
+        return "error"
+      } else if (this.success) {
+        return "success"
+      } else if (this.warning) {
+        return "warning"
+      }
+
+      return this.status
+    },
+
+    fieldMessageContent() {
+      if (this.validationMessage) {
+        return this.validationMessage
+      } else if (this.error) {
         return this.error
       } else if (this.success) {
         return this.success
@@ -94,8 +112,8 @@ export default {
       }
     },
 
-    computedMessageStatus() {
-      if (this.error) {
+    fieldMessageStatus() {
+      if (this.error || this.validationMessage) {
         return "error"
       } else if (this.success) {
         return "success"
@@ -108,16 +126,20 @@ export default {
       }
     },
 
-    computedStatus() {
-      if (this.error) {
-        return "error"
-      } else if (this.success) {
-        return "success"
-      } else if (this.warning) {
-        return "warning"
+    validationMessage() {
+      let message = ""
+
+      if (this.validation && this.validation.$dirty) {
+        if (this.validation.required === false) {
+          message = "This field is required."
+        } else if (this.validation.email === false) {
+          message = "This field is not a valid email."
+        } else if (this.validation.$invalid === true) {
+          message = "This field is invalid."
+        }
       }
 
-      return this.status
+      return message
     }
   },
 

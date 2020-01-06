@@ -93,10 +93,10 @@ div(
     ) {{ append }}
 
   field-message(
-    v-if="computedMessageStatus"
-    :message="computedMessageContent"
+    v-if="fieldMessageStatus"
+    :message="fieldMessageContent"
     :size="size"
-    :status="computedMessageStatus"
+    :status="fieldMessageStatus"
     :theme="theme"
   )
 </template>
@@ -561,7 +561,6 @@ $statuses: "error", "normal", "success", "warning";
 
       &#{$c}--focused {
         #{$c}__container {
-          // "!important" overrides overrides hover
           border-color: mdg($theme, "statuses", "active") !important;
 
           #{$c}__icon {
