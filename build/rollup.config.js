@@ -4,7 +4,7 @@
 
 // NPM
 import alias from "@rollup/plugin-alias"
-import buble from "rollup-plugin-buble"
+import babel from "rollup-plugin-babel"
 import commonjs from "rollup-plugin-commonjs"
 import minimist from "minimist"
 import replace from "rollup-plugin-replace"
@@ -38,7 +38,7 @@ const baseConfig = {
         isProduction: true
       }
     },
-    postVue: [buble()]
+    postVue: [babel()]
   }
 }
 
