@@ -117,7 +117,7 @@ export default {
       default: true
     },
     value: {
-      type: [String, Object],
+      type: [String, File],
       default: null
     }
   },
@@ -132,13 +132,12 @@ export default {
     value: {
       immediate: true,
       async handler(value) {
-        // Convert image to base64 when file
         if (typeof value === "object" && value !== null) {
+          // Convert image to base64 when it is a file
           this.preview = await this.convertToBase64(value)
+        } else {
+          this.preview = value
         }
-
-        // Or return the url string
-        this.preview = value
       }
     }
   },
