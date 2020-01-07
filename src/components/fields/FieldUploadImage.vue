@@ -5,27 +5,27 @@
 <template lang="pug">
 div(
   :class=`[
-    "gb-field-upload-image",
-    "gb-field-upload-image--" + size,
-    "gb-field-upload-image--" + computedTheme,
-    "gb-field-upload-image--" + computedStatus,
+    "gb-field-image-uploader",
+    "gb-field-image-uploader--" + size,
+    "gb-field-image-uploader--" + computedTheme,
+    "gb-field-image-uploader--" + computedStatus,
     {
-      "gb-field-upload-image--disabled": disabled,
-      "gb-field-upload-image--full-width": fullWidth
+      "gb-field-image-uploader--disabled": disabled,
+      "gb-field-image-uploader--full-width": fullWidth
     }
   ]`
 )
-  .gb-field-upload-image__container
+  .gb-field-image-uploader__container
     div(
       v-if="label"
-      class="gb-field-upload-image__information"
+      class="gb-field-image-uploader__information"
     )
       field-label(
         :for-field="uuid"
         :required="required"
         :size="size"
         :theme="theme"
-        class="gb-field-upload-image__label"
+        class="gb-field-image-uploader__label"
       ) {{ label }}
 
       field-message(
@@ -34,20 +34,20 @@ div(
         :size="size"
         :status="fieldMessageStatus"
         :theme="theme"
-        class="gb-field-upload-image__message"
+        class="gb-field-image-uploader__message"
       )
 
     label(
       @keypress.prevent="onLabelKeypress"
       :for="uuid"
-      class="gb-field-upload-image__upload js-tag-for-autofocus"
+      class="gb-field-image-uploader__upload js-tag-for-autofocus"
       tabindex="0"
     )
-      span.gb-field-upload-image__focuser
+      span.gb-field-image-uploader__focuser
 
       base-icon(
         name="cloud_upload"
-        class="gb-field-upload-image__icon"
+        class="gb-field-image-uploader__icon"
       )
 
     input(
@@ -56,16 +56,16 @@ div(
       :id="uuid"
       :name="name"
       accept="image/*"
-      class="gb-field-upload-image__field"
+      class="gb-field-image-uploader__field"
       type="file"
     )
 
   div(
     v-if="hasPreview && innerValue"
-    class="gb-field-upload-image__preview"
+    class="gb-field-image-uploader__preview"
   )
     div(
-      class="gb-field-upload-image__image"
+      class="gb-field-image-uploader__image"
       :style=`{
         backgroundImage: innerValue ? "url(" + innerValue + ")" : null
       }`
@@ -78,7 +78,7 @@ div(
       :confirmation="true"
       :full-width="true"
       :reverse="true"
-      class="gb-field-upload-image__remove"
+      class="gb-field-image-uploader__remove"
       left-icon="delete_outline"
       size="mini"
     ) Remove image
@@ -177,7 +177,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".gb-field-upload-image";
+$c: ".gb-field-image-uploader";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 

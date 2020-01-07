@@ -2,7 +2,7 @@
 
 ### Added
 
-- FieldUploadImage: new component
+- FieldImageUploader: new component
 
 ### Removed
 

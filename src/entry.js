@@ -28,7 +28,7 @@ import FieldSelect from "./components/fields/FieldSelect.vue"
 import FieldTabs from "./components/fields/FieldTabs.vue"
 import FieldTextarea from "./components/fields/FieldTextarea.vue"
 import FieldToggle from "./components/fields/FieldToggle.vue"
-import FieldUploadImage from "./components/fields/FieldUploadImage.vue"
+import FieldImageUploader from "./components/fields/FieldImageUploader.vue"
 
 /**************************************************************************
  * ENVIRONMENT CONFIGURATIONS
@@ -55,6 +55,7 @@ function install(Vue, options) {
     spinner: BaseSpinner,
     toast: BaseToast,
     checkbox: FieldCheckbox,
+    "image-uploader": FieldImageUploader,
     input: FieldInput,
     label: FieldLabel,
     message: FieldMessage,
@@ -62,8 +63,7 @@ function install(Vue, options) {
     select: FieldSelect,
     tabs: FieldTabs,
     textarea: FieldTextarea,
-    toggle: FieldToggle,
-    "upload-image": FieldUploadImage
+    toggle: FieldToggle
   }
 
   // Declare all components when options is not set or array is empty
@@ -133,5 +133,5 @@ export {
   FieldTabs,
   FieldTextarea,
   FieldToggle,
-  FieldUploadImage
+  FieldImageUploader
 }
