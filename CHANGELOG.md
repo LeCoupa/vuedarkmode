@@ -1,8 +1,14 @@
 ## 0.5.0 - Current
 
+### Added
+
+- FieldUploadImage: new component
+
 ### Removed
 
 - BaseSocialButton: migrate to its own package @growthbunker/vuesocial.
+
+- FieldFile: remove component
 
 ## 0.4.0 - 2019-11-22
 

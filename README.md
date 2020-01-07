@@ -96,7 +96,7 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 - **FieldCheckbox**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldCheckbox) | [source code](/src/components/fields/FieldCheckbox.vue).
 
-- **FieldFile**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldFile) | [source code](/src/components/fields/FieldFile.vue).
+- **FieldUploadImage**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldUploadImage) | [source code](/src/components/fields/FieldUploadImage.vue).
 
 - **FieldInput**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldInput) | [source code](/src/components/fields/FieldInput.vue).
 

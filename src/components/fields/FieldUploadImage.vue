@@ -5,27 +5,27 @@
 <template lang="pug">
 div(
   :class=`[
-    "gb-field-file",
-    "gb-field-file--" + size,
-    "gb-field-file--" + computedTheme,
-    "gb-field-file--" + computedStatus,
+    "gb-field-upload-image",
+    "gb-field-upload-image--" + size,
+    "gb-field-upload-image--" + computedTheme,
+    "gb-field-upload-image--" + computedStatus,
     {
-      "gb-field-file--disabled": disabled,
-      "gb-field-file--full-width": fullWidth
+      "gb-field-upload-image--disabled": disabled,
+      "gb-field-upload-image--full-width": fullWidth
     }
   ]`
 )
-  .gb-field-file__container
+  .gb-field-upload-image__container
     div(
       v-if="label"
-      class="gb-field-file__information"
+      class="gb-field-upload-image__information"
     )
       field-label(
         :for-field="uuid"
         :required="required"
         :size="size"
         :theme="theme"
-        class="gb-field-file__label"
+        class="gb-field-upload-image__label"
       ) {{ label }}
 
       field-message(
@@ -34,20 +34,20 @@ div(
         :size="size"
         :status="fieldMessageStatus"
         :theme="theme"
-        class="gb-field-file__message"
+        class="gb-field-upload-image__message"
       )
 
     label(
       @keypress.prevent="onLabelKeypress"
       :for="uuid"
-      class="gb-field-file__upload js-tag-for-autofocus"
+      class="gb-field-upload-image__upload js-tag-for-autofocus"
       tabindex="0"
     )
-      span.gb-field-file__focuser
+      span.gb-field-upload-image__focuser
 
       base-icon(
         name="cloud_upload"
-        class="gb-field-file__icon"
+        class="gb-field-upload-image__icon"
       )
 
     input(
@@ -55,18 +55,19 @@ div(
       :disabled="disabled"
       :id="uuid"
       :name="name"
-      class="gb-field-file__field"
+      accept="image/*"
+      class="gb-field-upload-image__field"
       type="file"
     )
 
   div(
-    v-if="hasPreview && value"
-    class="gb-field-file__preview"
+    v-if="hasPreview && innerValue"
+    class="gb-field-upload-image__preview"
   )
     div(
-      class="gb-field-file__image"
+      class="gb-field-upload-image__image"
       :style=`{
-        backgroundImage: preview ? "url(" + preview + ")" : null
+        backgroundImage: innerValue ? "url(" + innerValue + ")" : null
       }`
     )
 
@@ -77,7 +78,7 @@ div(
       :confirmation="true"
       :full-width="true"
       :reverse="true"
-      class="gb-field-file__remove"
+      class="gb-field-upload-image__remove"
       left-icon="delete_outline"
       size="mini"
     ) Remove image
@@ -117,28 +118,8 @@ export default {
       default: true
     },
     value: {
-      type: [String, File],
+      type: String,
       default: null
-    }
-  },
-
-  data: () => ({
-    // --> STATE <--
-
-    preview: null
-  }),
-
-  watch: {
-    value: {
-      immediate: true,
-      async handler(value) {
-        if (typeof value === "object" && value !== null) {
-          // Convert image to base64 when it is a file
-          this.preview = await this.convertToBase64(value)
-        } else {
-          this.preview = value
-        }
-      }
     }
   },
 
@@ -156,14 +137,14 @@ export default {
 
     // --> EVENT LISTENERS <--
 
-    onFieldChange(event) {
+    async onFieldChange(event) {
       if (event.target && event.target.files.length > 0) {
-        let file = event.target.files[0]
+        const base64Image = await this.convertToBase64(event.target.files[0])
 
-        this.innerValue = file
+        this.innerValue = base64Image
 
-        this.$emit("change", this.name, file, event)
-        this.$emit("input", file) // Synchronization for v-model
+        this.$emit("change", this.name, base64Image, event)
+        this.$emit("input", base64Image) // Synchronization for v-model
       }
     },
 
@@ -196,7 +177,7 @@ export default {
 @import "node_modules/@growthbunker/stylesheets/tools/_mixins.scss";
 
 // VARIABLES
-$c: ".gb-field-file";
+$c: ".gb-field-upload-image";
 $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 
