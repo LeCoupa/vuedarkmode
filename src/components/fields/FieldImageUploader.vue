@@ -198,6 +198,10 @@ $statuses: "error", "normal", "success", "warning";
       margin-right: 20px;
       text-align: left;
 
+      #{$c}__label {
+        margin-bottom: 0;
+      }
+
       #{$c}__message {
         margin-top: 6px;
         user-select: none;
