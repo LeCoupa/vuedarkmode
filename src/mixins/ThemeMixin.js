@@ -7,7 +7,7 @@ export default {
   props: {
     theme: {
       type: String,
-      default: null,
+      default: "dark",
       validator(x) {
         return ["dark", "light"].includes(x)
       }
