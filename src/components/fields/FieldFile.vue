@@ -278,9 +278,16 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__image {
       width: 100%;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
+    }
+
+    #{$c}__remove {
+      margin-top: 10px;
     }
   }
 
@@ -311,13 +318,6 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__preview {
         #{$c}__image {
           height: 80px + (10px * $i);
-          border-width: 1px;
-          border-style: solid;
-          border-radius: 4px;
-        }
-
-        #{$c}__remove {
-          margin-top: 8px + (1px * $i);
         }
       }
     }
