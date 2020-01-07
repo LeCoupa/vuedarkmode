@@ -54,7 +54,6 @@ div(
       @change="onFieldChange"
       :disabled="disabled"
       :id="uuid"
-      :multiple="multiple"
       :name="name"
       class="gb-field-file__field"
       type="file"
@@ -64,22 +63,23 @@ div(
     v-if="hasPreview && value"
     class="gb-field-file__preview"
   )
-    img(
-      v-for="preview in previews"
-      :key="preview"
-      :src="preview"
+    div(
       class="gb-field-file__image"
+      :style=`{
+        backgroundImage: preview ? "url(" + preview + ")" : null
+      }`
     )
 
     base-button(
       v-if="clearable"
       @confirm="onRemoveImage"
+      :color="theme === 'dark' ? 'white' : 'black'"
       :confirmation="true"
-      :reverse="true"
       :full-width="true"
-      :size="size"
+      :reverse="true"
       class="gb-field-file__remove"
       left-icon="delete_outline"
+      size="mini"
     ) Remove image
 </template>
 
@@ -116,21 +116,30 @@ export default {
       type: Boolean,
       default: true
     },
-    multiple: {
-      type: Boolean,
-      default: false
-    },
     value: {
-      type: Array,
+      type: [String, Object],
       default: null
     }
   },
 
-  computed: {
-    previews() {
-      return this.value.map(async file => {
-        return await this.convertToBase64(file)
-      })
+  data: () => ({
+    // --> STATE <--
+
+    preview: null
+  }),
+
+  watch: {
+    value: {
+      immediate: true,
+      async handler(value) {
+        // Convert image to base64 when file
+        if (typeof value === "object" && value !== null) {
+          this.preview = await this.convertToBase64(value)
+        }
+
+        // Or return the url string
+        this.preview = value
+      }
     }
   },
 
@@ -149,15 +158,13 @@ export default {
     // --> EVENT LISTENERS <--
 
     onFieldChange(event) {
-      let files = null
-
       if (event.target && event.target.files.length > 0) {
-        files = event.target.files
+        let file = event.target.files[0]
 
-        this.innerValue = files
+        this.innerValue = file
 
-        this.$emit("change", this.name, files, event)
-        this.$emit("input", files) // Synchronization for v-model
+        this.$emit("change", this.name, file, event)
+        this.$emit("input", file) // Synchronization for v-model
       }
     },
 
@@ -266,11 +273,14 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 
-  #{$c}__container {
+  #{$c}__preview {
+    margin-top: 10px;
+
     #{$c}__image {
-      margin-top: 10px;
       width: 100%;
-      object-fit: cover;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
   }
 
@@ -300,7 +310,7 @@ $statuses: "error", "normal", "success", "warning";
 
       #{$c}__preview {
         #{$c}__image {
-          height: 60px + (10px * $i);
+          height: 80px + (10px * $i);
           border-width: 1px;
           border-style: solid;
           border-radius: 4px;
