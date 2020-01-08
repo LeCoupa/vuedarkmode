@@ -4,6 +4,7 @@
 
 <template lang="pug">
 div(
+  @dragenter="onDragEnter"
   :class=`[
     "gb-field-image-uploader",
     "gb-field-image-uploader--" + size,
@@ -11,6 +12,7 @@ div(
     "gb-field-image-uploader--" + computedStatus,
     {
       "gb-field-image-uploader--disabled": disabled,
+      "gb-field-image-uploader--dragging": dragging,
       "gb-field-image-uploader--full-width": fullWidth
     }
   ]`
@@ -82,6 +84,19 @@ div(
       left-icon="delete_outline"
       size="mini"
     ) Remove image
+
+
+  div(
+    v-if="dragging"
+    @dragover="onDragOver"
+    @dragleave="onDragLeave"
+    @drop="onDrop"
+    class="gb-field-image-uploader__dropzone"
+  )
+    base-icon(
+      name="cloud_upload"
+      class="gb-field-image-uploader__icon"
+    )
 </template>
 
 <!-- *************************************************************************
@@ -91,6 +106,7 @@ div(
 <script>
 // PROEJECT: COMPONENTS
 import BaseButton from "../base/BaseButton.vue"
+import BaseIcon from "../base/BaseIcon.vue"
 
 // PROEJECT: MIXINS
 import FieldMixin from "../../mixins/FieldMixin.js"
@@ -99,7 +115,8 @@ import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
   components: {
-    BaseButton
+    BaseButton,
+    BaseIcon
   },
 
   mixins: [FieldMixin, FieldSizeMixin, ThemeMixin],
@@ -123,6 +140,12 @@ export default {
     }
   },
 
+  data: () => ({
+    // --> STATE <--
+
+    dragging: false
+  }),
+
   methods: {
     // --> HELPERS <--
 
@@ -135,16 +158,51 @@ export default {
       })
     },
 
+    async processFile(file) {
+      const base64Image = await this.convertToBase64(file)
+
+      this.innerValue = base64Image
+
+      this.$emit("change", this.name, base64Image, event)
+      this.$emit("input", base64Image) // Synchronization for v-model
+    },
+
     // --> EVENT LISTENERS <--
 
-    async onFieldChange(event) {
+    onDragEnter(event) {
+      event.preventDefault()
+
+      this.dragging = true
+    },
+
+    onDragLeave(event) {
+      event.preventDefault()
+
+      this.dragging = false
+    },
+
+    onDragOver(event) {
+      event.preventDefault()
+    },
+
+    onDrop(event) {
+      event.preventDefault()
+
+      if (event.dataTransfer && event.dataTransfer.files.length > 0) {
+        const file = event.dataTransfer.files[0]
+
+        this.processFile(file)
+        this.$emit("drop", this.name, file, event)
+      }
+
+      this.dragging = false
+    },
+
+    onFieldChange(event) {
       if (event.target && event.target.files.length > 0) {
-        const base64Image = await this.convertToBase64(event.target.files[0])
+        const file = event.target.files[0]
 
-        this.innerValue = base64Image
-
-        this.$emit("change", this.name, base64Image, event)
-        this.$emit("input", base64Image) // Synchronization for v-model
+        this.processFile(file)
       }
     },
 
@@ -182,10 +240,17 @@ $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 
 #{$c} {
+  position: relative;
   display: inline-block;
   font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   @include no-tap-highlight-color;
+
+  #{$c}__container,
+  #{$c}__preview,
+  #{$c}__dropzone {
+    transition: opacity linear 100ms;
+  }
 
   #{$c}__container {
     display: flex;
@@ -271,6 +336,21 @@ $statuses: "error", "normal", "success", "warning";
     }
   }
 
+  #{$c}__dropzone {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 2px;
+    border-style: dashed;
+    border-radius: 4px;
+    opacity: 0;
+  }
+
   // --> SIZES <--
 
   @each $size in $sizes {
@@ -300,6 +380,12 @@ $statuses: "error", "normal", "success", "warning";
           height: 80px + (10px * $i);
         }
       }
+
+      #{$c}__dropzone {
+        #{$c}__icon {
+          font-size: 24px + (6px * $i) !important; // Override base-icon's size prop
+        }
+      }
     }
   }
 
@@ -313,6 +399,17 @@ $statuses: "error", "normal", "success", "warning";
         pointer-events: none;
         cursor: not-allowed;
       }
+    }
+  }
+
+  &--dragging {
+    #{$c}__container,
+    #{$c}__preview {
+      opacity: 0;
+    }
+
+    #{$c}__dropzone {
+      opacity: 1;
     }
   }
 
@@ -346,6 +443,11 @@ $statuses: "error", "normal", "success", "warning";
         #{$c}__image {
           border-color: mdg($theme, "borders", "default", "primary");
         }
+      }
+
+      #{$c}__dropzone {
+        border-color: mdg($theme, "borders", "default", "primary");
+        color: mdg($theme, "fonts", "default", "primary");
       }
 
       // --> STATUSES <--
