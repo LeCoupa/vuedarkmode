@@ -12,7 +12,7 @@ div(
     "gb-field-image-uploader--" + computedStatus,
     {
       "gb-field-image-uploader--disabled": disabled,
-      "gb-field-image-uploader--dragging": dragging,
+      "gb-field-image-uploader--dragging": dragging || dragError,
       "gb-field-image-uploader--full-width": fullWidth
     }
   ]`
@@ -87,16 +87,27 @@ div(
 
 
   div(
-    v-if="dragging"
-    @dragover="onDragOver"
+    v-if="dragging || dragError"
+    @dragenter="onDragEnter"
     @dragleave="onDragLeave"
+    @dragover="onDragOver"
     @drop="onDrop"
-    class="gb-field-image-uploader__dropzone"
+    :class=`[
+      "gb-field-image-uploader__dropzone",
+      {
+        "gb-field-image-uploader__dropzone--invalid": dragError
+      }
+    ]`
   )
     base-icon(
-      name="cloud_upload"
+      :name="dragError ? 'cloud_off' : 'cloud_upload'"
       class="gb-field-image-uploader__icon"
     )
+
+    span(
+      v-if="dragError"
+      class="gb-field-image-uploader__error"
+    ) The file is not an image
 </template>
 
 <!-- *************************************************************************
@@ -143,7 +154,8 @@ export default {
   data: () => ({
     // --> STATE <--
 
-    dragging: false
+    dragging: false,
+    dragError: false
   }),
 
   methods: {
@@ -191,8 +203,13 @@ export default {
       if (event.dataTransfer && event.dataTransfer.files.length > 0) {
         const file = event.dataTransfer.files[0]
 
-        this.processFile(file)
-        this.$emit("drop", this.name, file, event)
+        // Make sure the dropped file is an image
+        this.dragError = !file.type.includes("image/")
+
+        if (!this.dragError) {
+          this.processFile(file)
+          this.$emit("drop", this.name, file, event)
+        }
       }
 
       this.dragging = false
@@ -240,17 +257,10 @@ $sizes: "mini", "small", "default", "medium", "large";
 $statuses: "error", "normal", "success", "warning";
 
 #{$c} {
-  position: relative;
   display: inline-block;
   font-family: "Heebo", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   @include no-tap-highlight-color;
-
-  #{$c}__container,
-  #{$c}__preview,
-  #{$c}__dropzone {
-    transition: opacity linear 100ms;
-  }
 
   #{$c}__container {
     display: flex;
@@ -337,18 +347,24 @@ $statuses: "error", "normal", "success", "warning";
   }
 
   #{$c}__dropzone {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
+    display: none;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
+    padding: 20px;
     border-width: 2px;
     border-style: dashed;
     border-radius: 4px;
-    opacity: 0;
+
+    #{$c}__icon,
+    #{$c}__error {
+      flex: 0 0 auto;
+      pointer-events: none;
+    }
+
+    #{$c}__error {
+      margin-top: 4px;
+    }
   }
 
   // --> SIZES <--
@@ -382,8 +398,14 @@ $statuses: "error", "normal", "success", "warning";
       }
 
       #{$c}__dropzone {
+        height: 170px + (15px * $i);
+
         #{$c}__icon {
           font-size: 24px + (6px * $i) !important; // Override base-icon's size prop
+        }
+
+        #{$c}__error {
+          font-size: 14px + (1px * $i);
         }
       }
     }
@@ -405,11 +427,11 @@ $statuses: "error", "normal", "success", "warning";
   &--dragging {
     #{$c}__container,
     #{$c}__preview {
-      opacity: 0;
+      display: none;
     }
 
     #{$c}__dropzone {
-      opacity: 1;
+      display: flex;
     }
   }
 
@@ -448,6 +470,11 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__dropzone {
         border-color: mdg($theme, "borders", "default", "primary");
         color: mdg($theme, "fonts", "default", "primary");
+
+        &--invalid {
+          border-color: mdg($theme, "statuses", "error");
+          color: mdg($theme, "statuses", "error");
+        }
       }
 
       // --> STATUSES <--
