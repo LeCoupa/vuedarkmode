@@ -20,6 +20,7 @@ import BaseToast from "./components/base/BaseToast.vue"
 
 // FIELD COMPONENTS
 import FieldCheckbox from "./components/fields/FieldCheckbox.vue"
+import FieldImageUploader from "./components/fields/FieldImageUploader.vue"
 import FieldInput from "./components/fields/FieldInput.vue"
 import FieldLabel from "./components/fields/FieldLabel.vue"
 import FieldMessage from "./components/fields/FieldMessage.vue"
@@ -28,7 +29,6 @@ import FieldSelect from "./components/fields/FieldSelect.vue"
 import FieldTabs from "./components/fields/FieldTabs.vue"
 import FieldTextarea from "./components/fields/FieldTextarea.vue"
 import FieldToggle from "./components/fields/FieldToggle.vue"
-import FieldImageUploader from "./components/fields/FieldImageUploader.vue"
 
 /**************************************************************************
  * ENVIRONMENT CONFIGURATIONS
@@ -125,6 +125,7 @@ export {
   BaseSpinner,
   BaseToast,
   FieldCheckbox,
+  FieldImageUploader,
   FieldInput,
   FieldLabel,
   FieldMessage,
@@ -132,6 +133,5 @@ export {
   FieldSelect,
   FieldTabs,
   FieldTextarea,
-  FieldToggle,
-  FieldImageUploader
+  FieldToggle
 }
