@@ -11,6 +11,7 @@ div(
     "gb-field-tabs--" + computedStatus,
     {
       "gb-field-tabs--disabled": disabled,
+      "gb-field-tabs--full-width": fullWidth,
       "gb-field-tabs--multiple": multiple
     }
   ]`
@@ -94,6 +95,10 @@ export default {
   mixins: [FieldMixin, FieldSizeMixin, ThemeMixin],
 
   props: {
+    fullWidth: {
+      type: Boolean,
+      default: false
+    },
     multiple: {
       type: Boolean,
       default: false
@@ -290,7 +295,7 @@ $statuses: "error", "normal", "success", "warning";
       #{$c}__container {
         #{$c}__tab {
           padding: 0 (10px + (2px * $i));
-          height: 34px + (4px * $i);
+          height: 32px + (4px * $i);
           font-size: 11px + (1px * $i);
           line-height: 17px + (1px * $i);
         }
@@ -309,6 +314,19 @@ $statuses: "error", "normal", "success", "warning";
 
       #{$c}__tab {
         pointer-events: none;
+      }
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+
+    #{$c}__container {
+      display: flex;
+
+      #{$c}__tab {
+        flex: 1;
+        justify-content: center;
       }
     }
   }
