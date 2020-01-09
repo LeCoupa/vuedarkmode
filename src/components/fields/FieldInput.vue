@@ -133,7 +133,7 @@ export default {
     },
     fullWidth: {
       type: Boolean,
-      default: true
+      default: false
     },
     leftIcon: {
       type: String,

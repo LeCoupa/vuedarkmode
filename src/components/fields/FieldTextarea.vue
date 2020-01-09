@@ -91,7 +91,7 @@ export default {
     },
     fullWidth: {
       type: Boolean,
-      default: true
+      default: false
     },
     icon: {
       type: String,

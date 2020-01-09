@@ -185,7 +185,7 @@ export default {
     },
     fullWidth: {
       type: Boolean,
-      default: true
+      default: false
     },
     leftIcon: {
       type: String,
@@ -610,7 +610,7 @@ $statuses: "error", "normal", "success", "warning";
         }
 
         #{$c}__field {
-          height: 34px + (4px * $i);
+          height: 32px + (4px * $i);
 
           #{$c}__icon {
             // Will override the font-size set in style attribute
@@ -620,7 +620,7 @@ $statuses: "error", "normal", "success", "warning";
 
         #{$c}__options {
           #{$c}__option {
-            height: 34px + (4px * $i);
+            height: 32px + (4px * $i);
           }
         }
       }

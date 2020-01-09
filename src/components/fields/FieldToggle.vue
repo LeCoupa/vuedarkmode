@@ -70,7 +70,7 @@ export default {
   props: {
     fullWidth: {
       type: Boolean,
-      default: true
+      default: false
     },
     value: {
       type: Boolean,

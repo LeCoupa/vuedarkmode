@@ -72,7 +72,7 @@ export default {
   props: {
     fullWidth: {
       type: Boolean,
-      default: true
+      default: false
     },
     radios: {
       type: Array,
