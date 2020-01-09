@@ -89,10 +89,6 @@ export default {
       type: Number,
       default: null
     },
-    fullWidth: {
-      type: Boolean,
-      default: false
-    },
     icon: {
       type: String,
       default: null

@@ -183,10 +183,6 @@ export default {
         return ["bottom", "top"].includes(x)
       }
     },
-    fullWidth: {
-      type: Boolean,
-      default: false
-    },
     leftIcon: {
       type: String,
       default: null

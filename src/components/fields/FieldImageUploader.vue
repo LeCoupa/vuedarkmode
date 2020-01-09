@@ -137,10 +137,6 @@ export default {
       type: Boolean,
       default: true
     },
-    fullWidth: {
-      type: Boolean,
-      default: false
-    },
     hasPreview: {
       type: Boolean,
       default: true

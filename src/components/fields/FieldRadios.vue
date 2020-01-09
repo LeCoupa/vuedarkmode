@@ -70,10 +70,6 @@ export default {
   mixins: [FieldMixin, FieldSizeMixin, ThemeMixin],
 
   props: {
-    fullWidth: {
-      type: Boolean,
-      default: false
-    },
     radios: {
       type: Array,
       required: true,

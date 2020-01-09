@@ -95,10 +95,6 @@ export default {
   mixins: [FieldMixin, FieldSizeMixin, ThemeMixin],
 
   props: {
-    fullWidth: {
-      type: Boolean,
-      default: false
-    },
     multiple: {
       type: Boolean,
       default: false

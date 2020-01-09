@@ -131,10 +131,6 @@ export default {
       type: Boolean,
       default: false
     },
-    fullWidth: {
-      type: Boolean,
-      default: false
-    },
     leftIcon: {
       type: String,
       default: null

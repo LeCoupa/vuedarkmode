@@ -39,6 +39,10 @@ export default {
       type: String,
       default: null
     },
+    fullWidth: {
+      type: Boolean,
+      default: false
+    },
     info: {
       type: String,
       default: null
