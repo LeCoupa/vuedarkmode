@@ -22,7 +22,7 @@ import BaseToast from "./components/base/BaseToast.vue"
 import FieldCheckbox from "./components/fields/FieldCheckbox.vue"
 import FieldImageUploader from "./components/fields/FieldImageUploader.vue"
 import FieldInput from "./components/fields/FieldInput.vue"
-import FieldInputNumber from "./components/fields/FieldInputNumber.vue"
+import FieldInputNumeric from "./components/fields/FieldInputNumeric.vue"
 import FieldLabel from "./components/fields/FieldLabel.vue"
 import FieldMessage from "./components/fields/FieldMessage.vue"
 import FieldRadios from "./components/fields/FieldRadios.vue"
@@ -58,7 +58,7 @@ function install(Vue, options) {
     checkbox: FieldCheckbox,
     "image-uploader": FieldImageUploader,
     input: FieldInput,
-    "input-number": FieldInputNumber,
+    "input-numeric": FieldInputNumeric,
     label: FieldLabel,
     message: FieldMessage,
     radios: FieldRadios,

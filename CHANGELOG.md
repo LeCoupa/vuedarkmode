@@ -2,7 +2,7 @@
 
 ### Added
 
-- FieldInputNumber: new component.
+- FieldInputNumeric: new component.
 
 - FieldImageUploader: new component.
 
