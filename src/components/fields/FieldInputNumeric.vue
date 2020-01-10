@@ -7,11 +7,14 @@
   field-input(
     v-bind="$attrs"
     v-on="$listeners"
+    @prependClick="onDecrement"
+    @appendClick="onIncrement"
     @input="onInput"
-    :value="innerValue"
+    v-model="innerValue"
+    append="+"
+    prepend="-"
+    type="number"
   )
-
-  .gb-field-input-numeric__controls
 </template>
 
 <!-- *************************************************************************
@@ -55,10 +58,20 @@ export default {
   methods: {
     // --> EVENT LISTENERS <--
 
+    onDecrement() {
+      this.innerValue -= 1
+    },
+
+    onIncrement() {
+      this.innerValue += 1
+    },
+
     onInput(value, name, event) {
-      // Only accept a numeric value
-      if ((event.keyCode >= 48 && event.keyCode <= 57) || (event.keyCode >= 96 && event.keyCode <= 105)) {
-        this.innerValue = value
+      console.log(value, event)
+
+      if (event.data !== "e") {
+        console.log("not e")
+        this.innerValue = value || 0
       }
     }
   }
@@ -72,4 +85,22 @@ export default {
 <style lang="scss">
 // VARIABLES
 $c: ".gb-field-input-numeric";
+
+#{$c} {
+  input {
+    text-align: center;
+
+    // Disable the spin-button for webkit browsers
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+}
 </style>
