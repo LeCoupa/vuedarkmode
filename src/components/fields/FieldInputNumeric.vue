@@ -10,7 +10,9 @@
     @prependClick="onDecrement"
     @appendClick="onIncrement"
     @input="onInput"
-    v-model="innerValue"
+    @keydown="onKeyDown"
+    :disable-inner-value="true"
+    :value="innerValue"
     append="+"
     prepend="-"
     type="number"
@@ -66,13 +68,16 @@ export default {
       this.innerValue += 1
     },
 
-    onInput(value, name, event) {
-      console.log(value, event)
-
-      if (event.data !== "e") {
-        console.log("not e")
-        this.innerValue = value || 0
+    onKeyDown(value, name, event) {
+      if (event.key === "ArrowDown") {
+        this.innerValue -= 1
+      } else if (event.key === "ArrowUp") {
+        this.innerValue += 1
       }
+    },
+
+    onInput(value, name, event) {
+      this.innerValue = value || 0
     }
   }
 }
