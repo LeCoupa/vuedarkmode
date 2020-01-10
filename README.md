@@ -100,6 +100,8 @@ We are releasing new components on a monthly basis. [Subscribe to our newsletter
 
 - **FieldInput**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldInput) | [source code](/src/components/fields/FieldInput.vue).
 
+- **FieldInputNumber**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldInputNumber) | [source code](/src/components/fields/FieldInputNumber.vue).
+
 - **FieldRadio**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldRadio) | [source code](/src/components/fields/FieldRadio.vue).
 
 - **FieldSelect**: [documentation](https://www.growthbunker.dev/vuedarkmode/#fieldSelect) | [source code](/src/components/fields/FieldSelect.vue).
