@@ -160,15 +160,17 @@ export default {
   },
 
   watch: {
-    value(value) {
-      this.synchronize()
+    value: {
+      immediate: true,
+      handler(value) {
+        // Synchronize inner value with new one
+        this.innerValue = this.value
+      }
     }
   },
 
   mounted() {
     this.uuid = generateUUID()
-
-    this.synchronize()
 
     // Focus only on desktop and larger screens
     if (this.autofocus && window.innerWidth >= 1024) {
@@ -183,13 +185,6 @@ export default {
       const field = this.$el.querySelector(".js-tag-for-autofocus")
 
       field.focus()
-    },
-
-    // --> EVENT LISTENERS <--
-
-    synchronize() {
-      // Synchronize inner value with new one
-      this.innerValue = this.value
     }
   }
 }
