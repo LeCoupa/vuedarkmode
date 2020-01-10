@@ -69,7 +69,7 @@ div(
       :spellcheck="spellcheck"
       :readonly="readonly"
       :type="type"
-      :value="innerValue"
+      :value="disableInnerValue? value : innerValue"
       class="gb-field-input__field js-tag-for-autofocus"
     )
 
@@ -128,6 +128,10 @@ export default {
       default: true
     },
     clearable: {
+      type: Boolean,
+      default: false
+    },
+    disableInnerValue: {
       type: Boolean,
       default: false
     },
@@ -339,6 +343,7 @@ $statuses: "error", "normal", "success", "warning";
       align-items: center;
       flex: 0 0 auto;
       height: 100%;
+      transition: color linear 250ms;
       user-select: none;
       cursor: default;
 
@@ -405,7 +410,7 @@ $statuses: "error", "normal", "success", "warning";
 
         #{$c}__block,
         #{$c}__field {
-          padding: 0 (10px + (1px * $i));
+          padding: 0 (12px + (2px * $i));
           font-size: 12px + (1px * $i);
         }
       }
@@ -494,6 +499,16 @@ $statuses: "error", "normal", "success", "warning";
 
           &--prepend {
             border-right-color: mdg($theme, "borders", "default", "primary");
+          }
+
+          &--clickable {
+            &:hover {
+              color: mdg($theme, "fonts", "default", "secondary");
+            }
+
+            &:active {
+              color: mdg($theme, "fonts", "default", "primary");
+            }
           }
         }
 
