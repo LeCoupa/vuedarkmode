@@ -9,22 +9,18 @@ div(
     "gb-field-toggle--" + size,
     "gb-field-toggle--" + computedTheme,
     "gb-field-toggle--" + computedStatus,
+    "gb-field-toggle--label-" + labelPosition,
     {
+      "gb-field-toggle--active": innerValue,
       "gb-field-toggle--disabled": disabled,
-      "gb-field-toggle--full-width": fullWidth
+      "gb-field-toggle--full-width": fullWidth,
+      "gb-field-toggle--inactive": !innerValue
     }
   ]`
 )
   div(
     @keypress.prevent="onKeypress"
-    :class=`[
-      "gb-field-toggle__container",
-      "js-tag-for-autofocus",
-      {
-        "gb-field-toggle__container--active": innerValue,
-        "gb-field-toggle__container--inactive": !innerValue
-      }
-    ]`
+    class="gb-field-toggle__container js-tag-for-autofocus"
     tabindex="0"
   )
     div(
@@ -41,7 +37,7 @@ div(
       :required="required"
       :size="size"
       :theme="theme"
-      :uppercase="false"
+      :uppercase="labelPosition === 'top'"
       class="gb-field-toggle__label"
     ) {{ label }}
 
@@ -68,6 +64,13 @@ export default {
   mixins: [FieldMixin, FieldSizeMixin, ThemeMixin],
 
   props: {
+    labelPosition: {
+      type: String,
+      default: "right",
+      validator(x) {
+        return ["right", "top"].includes(x)
+      }
+    },
     value: {
       type: Boolean,
       default: false
@@ -153,26 +156,48 @@ $statuses: "error", "normal", "success", "warning";
       }
     }
 
-    #{$c}__label {
-      flex: 1;
-      margin-top: 5px;
-      margin-bottom: 0;
-      font-weight: 400;
-      opacity: 0.8;
-      transition: opacity 250ms linear;
-    }
-
-    &--active {
-      #{$c}__label {
-        opacity: 1;
-      }
-    }
-
     &:focus {
       #{$c}__field {
         #{$c}__focuser {
           opacity: 1;
         }
+      }
+    }
+  }
+
+  // --> LABEL POSITIONS <--
+
+  &--label-right {
+    #{$c}__container {
+      #{$c}__label {
+        flex: 1;
+        margin-top: 4px;
+        margin-bottom: 0;
+        font-weight: 400;
+        opacity: 0.8;
+        transition: opacity 250ms linear;
+      }
+    }
+
+    &#{$c}--active {
+      #{$c}__container {
+        #{$c}__label {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &--label-top {
+    #{$c}__container {
+      flex-direction: column;
+
+      #{$c}__field {
+        order: 1;
+      }
+
+      #{$c}__label {
+        order: 0;
       }
     }
   }
@@ -193,25 +218,33 @@ $statuses: "error", "normal", "success", "warning";
             height: 12px + (1px * $i);
           }
         }
+      }
 
-        #{$c}__label {
-          margin-left: 8px + (1px * $i);
+      &#{$c}--active {
+        #{$c}__container {
+          #{$c}__field {
+            #{$c}__handle {
+              box-shadow: none !important;
+              transform: translateX(10px + (1px * $i));
+            }
+          }
         }
+      }
 
-        &--inactive {
+      &#{$c}--inactive {
+        #{$c}__container {
           #{$c}__field {
             #{$c}__handle {
               transform: translateX(-10px - (1px * $i));
             }
           }
         }
+      }
 
-        &--active {
-          #{$c}__field {
-            #{$c}__handle {
-              box-shadow: none !important;
-              transform: translateX(10px + (1px * $i));
-            }
+      &#{$c}--label-right {
+        #{$c}__container {
+          #{$c}__label {
+            margin-left: 8px + (1px * $i);
           }
         }
       }
@@ -255,21 +288,15 @@ $statuses: "error", "normal", "success", "warning";
             box-shadow: 0 1px 5px 0 mdg($theme, "shadows", "default", "primary");
           }
         }
+      }
 
-        #{$c}__label {
-          color: mdg($theme, "fonts", "default", "primary");
-        }
-
-        &--active {
-          #{$c}__field {
-            #{$c}__handle {
-              background: mdg($theme, "colors", "white");
-            }
+      &#{$c}--label-right {
+        #{$c}__container {
+          #{$c}__label {
+            color: mdg($theme, "fonts", "default", "primary");
           }
         }
       }
-
-      // --> STATUSES <--
 
       @each $status in $statuses {
         &#{$c}--#{$status} {
@@ -301,10 +328,12 @@ $statuses: "error", "normal", "success", "warning";
                 }
               }
             }
+          }
 
-            &--active {
-              $value: if($status == "normal", "active", $status);
+          &#{$c}--active {
+            $value: if($status == "normal", "active", $status);
 
+            #{$c}__container {
               #{$c}__field {
                 border-color: mdg($theme, "statuses", $value);
 
@@ -334,6 +363,16 @@ $statuses: "error", "normal", "success", "warning";
                   }
                 }
               }
+            }
+          }
+        }
+      }
+
+      &#{$c}--active {
+        #{$c}__container {
+          #{$c}__field {
+            #{$c}__handle {
+              background: mdg($theme, "colors", "white");
             }
           }
         }
