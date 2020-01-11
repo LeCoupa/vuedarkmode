@@ -155,7 +155,7 @@ $statuses: "error", "normal", "success", "warning";
 
     #{$c}__label {
       flex: 1;
-      margin-top: 3px;
+      margin-top: 4px;
       margin-bottom: 0;
       font-weight: 400;
       opacity: 0.8;
@@ -185,23 +185,23 @@ $statuses: "error", "normal", "success", "warning";
     &--#{$size} {
       #{$c}__container {
         #{$c}__field {
-          width: (18px + (2px * $i)) * 2;
-          height: 18px + (2px * $i);
+          width: (20px + (2px * $i)) * 2;
+          height: 20px + (2px * $i);
 
           #{$c}__handle {
-            width: 11px + (1px * $i);
-            height: 11px + (1px * $i);
+            width: 12px + (1px * $i);
+            height: 12px + (1px * $i);
           }
         }
 
         #{$c}__label {
-          margin-left: 7px + (1px * $i);
+          margin-left: 8px + (1px * $i);
         }
 
         &--inactive {
           #{$c}__field {
             #{$c}__handle {
-              transform: translateX(-9px - (1px * $i));
+              transform: translateX(-10px - (1px * $i));
             }
           }
         }
@@ -210,7 +210,7 @@ $statuses: "error", "normal", "success", "warning";
           #{$c}__field {
             #{$c}__handle {
               box-shadow: none !important;
-              transform: translateX(9px + (1px * $i));
+              transform: translateX(10px + (1px * $i));
             }
           }
         }
