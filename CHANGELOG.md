@@ -6,6 +6,8 @@
 
 - FieldImageUploader: new component.
 
+- FieldToggle: Add label-position prop.
+
 ### Removed
 
 - BaseSocialButton: migrate to its own package @growthbunker/vuesocial.
