@@ -165,7 +165,7 @@ export default {
       if (!this.multiple && this.innerValue !== tabValue) {
         activeTabs = tabValue
 
-        this.$emit("change", tabValue, "added", tabValue, this.label, event)
+        this.$emit("change", tabValue, "added", activeTabs, this.label, event)
       }
 
       // When multiple values are allowed
