@@ -162,7 +162,7 @@ export default {
       let activeTabs
 
       // When multiple values are not allowed and tab is not already active
-      if (!this.multiple && !this.innerValue !== tabValue) {
+      if (!this.multiple && this.innerValue !== tabValue) {
         activeTabs = tabValue
 
         this.$emit("change", tabValue, "added", tabValue, this.label, event)
