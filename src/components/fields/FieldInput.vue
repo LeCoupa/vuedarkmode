@@ -518,6 +518,7 @@ $statuses: "error", "normal", "success", "warning";
 
           &::placeholder {
             color: mdg($theme, "fonts", "default", "tertiary");
+            opacity: 1;
           }
 
           &:-webkit-autofill {
