@@ -165,7 +165,7 @@ export default {
       if (!this.multiple && this.innerValue !== tabValue) {
         activeTabs = tabValue
 
-        this.$emit("change", tabValue, "added", activeTabs, this.label, event)
+        this.$emit("change", tabValue, "added", activeTabs, this.name, event)
       }
 
       // When multiple values are allowed
@@ -176,20 +176,20 @@ export default {
             return item !== tabValue
           })
 
-          this.$emit("change", tabValue, "removed", activeTabs, this.label, event)
+          this.$emit("change", tabValue, "removed", activeTabs, this.name, event)
         }
 
         // Push the tab when not already active
         else {
           activeTabs = Array.isArray(this.innerValue) ? [...this.innerValue, tabValue] : [tabValue]
 
-          this.$emit("change", tabValue, "added", activeTabs, this.label, event)
+          this.$emit("change", tabValue, "added", activeTabs, this.name, event)
         }
       }
 
       this.innerValue = activeTabs
 
-      this.$emit("click", tabValue, activeTabs, this.label, event)
+      this.$emit("click", tabValue, activeTabs, this.name, event)
       this.$emit("input", activeTabs) // Synchronization for v-model
     },
 
