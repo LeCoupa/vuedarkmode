@@ -47,6 +47,7 @@ const baseConfig = {
 const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   "v-click-outside",
+  "@lecoupa/v-hotkey",
   "v-hotkey",
   "vee-validate"
 ]
@@ -55,6 +56,7 @@ const external = [
 // Refer to https://rollupjs.org/guide/en#output-globals for details
 const globals = {
   "v-click-outside": "vClickOutside",
+  "@lecoupa/v-hotkey": "LeCoupaVueHotkey",
   "v-hotkey": "VueHotkey",
   "vee-validate": "VeeValidate"
 }
