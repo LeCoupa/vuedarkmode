@@ -8,7 +8,7 @@ import FieldLabel from "../components/fields/FieldLabel.vue"
 import FieldMessage from "../components/fields/FieldMessage.vue"
 
 // PROJECT: HELPERS
-import { generateUUID } from "../helpers/helpers.js"
+import { generateUUID, detectMobileDevice } from "../helpers/helpers.js"
 
 /**************************************************************************
  * MIXINS > FIELD
@@ -170,10 +170,13 @@ export default {
   },
 
   mounted() {
+    const isMobile = detectMobileDevice()
+
+    // Generate a unique identifier
     this.uuid = generateUUID()
 
-    // Focus only on desktop and larger screens
-    if (this.autofocus && window.innerWidth >= 1024) {
+    // Focus only on desktop browsers
+    if (this.autofocus && !isMobile) {
       this.focus()
     }
   },
