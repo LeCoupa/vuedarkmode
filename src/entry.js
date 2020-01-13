@@ -2,9 +2,6 @@
  * IMPORTS
  ***************************************************************************/
 
-// NPM
-import VueHotkey from "v-hotkey"
-
 // BASE COMPONENTS
 import BaseAlert from "./components/base/BaseAlert.vue"
 import BaseAvatar from "./components/base/BaseAvatar.vue"
@@ -84,10 +81,6 @@ function install(Vue, options) {
   // Set global options for the packages
   Vue.prototype.$gb.vuedarkmode = {}
   Vue.prototype.$gb.vuedarkmode.theme = (options || {}).theme || "dark"
-
-  // Install V-Hotkeys to bind hotkeys to components
-  // https://github.com/Dafrok/v-hotkey
-  Vue.use(VueHotkey)
 }
 
 // Create module definition for Vue.use()

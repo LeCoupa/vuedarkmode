@@ -151,6 +151,7 @@ div(
 <script>
 // NPM
 import vClickOutside from "v-click-outside"
+import vHotkey from "@lecoupa/v-hotkey"
 
 // PROJECT: COMPONENTS
 import FieldInput from "./FieldInput.vue"
@@ -162,7 +163,8 @@ import ThemeMixin from "../../mixins/ThemeMixin.js"
 
 export default {
   directives: {
-    clickOutside: vClickOutside.directive
+    clickOutside: vClickOutside.directive,
+    hotkey: vHotkey.directive
   },
 
   components: {
