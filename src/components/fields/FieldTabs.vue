@@ -159,12 +159,10 @@ export default {
     },
 
     onTabClick(tabValue, event) {
-      let activeTabs
+      let activeTabs = tabValue
 
       // When multiple values are not allowed and tab is not already active
       if (!this.multiple && this.innerValue !== tabValue) {
-        activeTabs = tabValue
-
         this.$emit("change", tabValue, "added", activeTabs, this.name, event)
       }
 
