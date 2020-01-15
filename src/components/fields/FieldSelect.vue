@@ -151,7 +151,7 @@ div(
 <script>
 // NPM
 import vClickOutside from "v-click-outside"
-import vHotkey from "@lecoupa/v-hotkey"
+import vHotkey from "v-hotkey"
 
 // PROJECT: COMPONENTS
 import FieldInput from "./FieldInput.vue"
