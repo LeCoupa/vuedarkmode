@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "v-click-outside": "2.1.4",
-    "@lecoupa/v-hotkey": "0.7.3"
+    "v-hotkey": "0.8.0"
   },
   "devDependencies": {
     "@growthbunker/stylesheets": "0.2.7",
