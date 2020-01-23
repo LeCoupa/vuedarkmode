@@ -43,7 +43,7 @@
     "v-hotkey": "0.8.0"
   },
   "devDependencies": {
-    "@growthbunker/stylesheets": "0.2.7",
+    "@growthbunker/stylesheets": "0.2.15",
     "@rollup/plugin-alias": "2.2.0",
     "autoprefixer": "9.6.1",
     "cross-env": "6.0.3",
