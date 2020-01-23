@@ -99,8 +99,8 @@ $c: ".gb-field-input-numeric";
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
       display: none;
-      -webkit-appearance: none;
       margin: 0;
+      -webkit-appearance: none;
     }
 
     &[type="number"] {
@@ -108,4 +108,5 @@ $c: ".gb-field-input-numeric";
     }
   }
 }
+
 </style>

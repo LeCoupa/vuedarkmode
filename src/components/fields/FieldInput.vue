@@ -383,6 +383,7 @@ $statuses: "error", "normal", "success", "warning";
       height: 100%;
       outline: 0;
       border: none;
+      line-height: initial; // Disable line-height for Safari
 
       &:disabled {
         cursor: not-allowed;
