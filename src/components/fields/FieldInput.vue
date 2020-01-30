@@ -69,7 +69,7 @@ div(
       :spellcheck="spellcheck"
       :readonly="readonly"
       :type="type"
-      :value="disableInnerValue? value : innerValue"
+      :value="innerValue"
       class="gb-field-input__field js-tag-for-autofocus"
     )
 
@@ -128,10 +128,6 @@ export default {
       default: true
     },
     clearable: {
-      type: Boolean,
-      default: false
-    },
-    disableInnerValue: {
       type: Boolean,
       default: false
     },
