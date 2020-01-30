@@ -240,12 +240,13 @@ export default {
     },
 
     onFieldKeyDown(event) {
-      if (["ArrowDow", "ArrowUp"].includes(event.key)) {
+      if (["ArrowDown", "ArrowUp"].includes(event.key)) {
         if (event.key === "ArrowDown") {
           this.innerValue -= 1
         } else if (event.key === "ArrowUp") {
           this.innerValue += 1
         }
+
         this.$emit("input", this.innerValue) // Synchronization for v-model
       }
 
