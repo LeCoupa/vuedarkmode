@@ -296,7 +296,7 @@ $statuses: "error", "normal", "success", "warning";
       align-items: center;
       flex: 0 0 auto;
       height: 100%;
-      transition: color linear 250ms;
+      transition: all linear 250ms;
       user-select: none;
       cursor: default;
 
@@ -443,7 +443,7 @@ $statuses: "error", "normal", "success", "warning";
 
         #{$c}__block {
           background-color: mdg($theme, "backgrounds", "default", "secondary");
-          color: mdg($theme, "fonts", "default", "primary");
+          color: mdg($theme, "fonts", "default", "secondary");
 
           &--decrement,
           &--increment  {
@@ -456,11 +456,13 @@ $statuses: "error", "normal", "success", "warning";
 
           &--clickable {
             &:hover {
-              color: mdg($theme, "fonts", "default", "secondary");
+              background-color: mdg($theme, "backgrounds", "default", "primary");
+              color: mdg($theme, "fonts", "default", "primary");
             }
 
             &:active {
-              color: mdg($theme, "fonts", "default", "primary");
+              background-color: mdg($theme, "backgrounds", "default", "secondary");
+              color: mdg($theme, "fonts", "default", "secondary");
             }
           }
         }
