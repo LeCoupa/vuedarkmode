@@ -238,9 +238,9 @@ export default {
 
     onFieldKeyDown(event) {
       if (["ArrowDown", "ArrowUp"].includes(event.key)) {
-        if (event.key === "ArrowDown") {
+        if (event.key === "ArrowDown" && (this.innerValue > this.min || this.min === null)) {
           this.innerValue -= 1
-        } else if (event.key === "ArrowUp") {
+        } else if (event.key === "ArrowUp" && (this.innerValue < this.max || this.max === null)) {
           this.innerValue += 1
         }
 
