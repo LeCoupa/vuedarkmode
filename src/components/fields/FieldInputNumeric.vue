@@ -461,8 +461,7 @@ $statuses: "error", "normal", "success", "warning";
             }
 
             &:active {
-              background-color: mdg($theme, "backgrounds", "default", "secondary");
-              color: mdg($theme, "fonts", "default", "secondary");
+              background-color: mdg($theme, "backgrounds", "default", "tertiary");
             }
           }
         }
