@@ -180,10 +180,7 @@ export default {
 
       if (this.$el) {
         value = this.$el.querySelector("input").value || ""
-
-        if (value && this.type === "number") {
-          value = parseInt(value)
-        }
+        value = parseInt(value)
       }
 
       return value
