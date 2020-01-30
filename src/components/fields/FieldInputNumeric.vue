@@ -62,17 +62,25 @@ export default {
 
     onDecrement() {
       this.innerValue -= 1
+
+      this.$emit("input", this.innerValue) // Synchronization for v-model
     },
 
     onIncrement() {
       this.innerValue += 1
+
+      this.$emit("input", this.innerValue) // Synchronization for v-model
     },
 
     onKeyDown(value, name, event) {
-      if (event.key === "ArrowDown") {
-        this.innerValue -= 1
-      } else if (event.key === "ArrowUp") {
-        this.innerValue += 1
+      if (["ArrowDow", "ArrowUp"].includes(event.key)) {
+        if (event.key === "ArrowDown") {
+          this.innerValue -= 1
+        } else if (event.key === "ArrowUp") {
+          this.innerValue += 1
+        }
+
+        this.$emit("input", this.innerValue) // Synchronization for v-model
       }
     },
 
@@ -108,5 +116,4 @@ $c: ".gb-field-input-numeric";
     }
   }
 }
-
 </style>
