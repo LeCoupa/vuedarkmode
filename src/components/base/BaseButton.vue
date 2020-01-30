@@ -614,24 +614,16 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
 
   // --> INTERACTIONS <--
 
-  &:hover {
-    &:not(#{$c}--disabled) {
-      transform: translateY(-1px);
-    }
-  }
 
   &:active {
     &:not(#{$c}--disabled) {
       background-size: 100%;
       transition: background 0s;
-      transform: translateY(0px);
     }
   }
 
   &:focus {
     &:not(#{$c}--disabled) {
-      transform: translateY(0px);
-
       #{$c}__focuser {
         opacity: 1;
       }
