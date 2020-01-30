@@ -482,7 +482,7 @@ $statuses: "error", "normal", "success", "warning";
       z-index: 1;
       overflow-y: auto;
       flex-direction: column;
-      max-height: 200px;
+      max-height: 180px;
       user-select: none;
 
       #{$c}__search {
