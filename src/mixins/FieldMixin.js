@@ -141,7 +141,7 @@ export default {
           this.validation.requiredIf === false ||
           this.validation.requiredUnless === false
         ) {
-          message = "The value is required."
+          message = "A value is required."
         }
         // Min Length
         else if (this.validation.minLength === false) {
