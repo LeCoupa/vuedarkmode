@@ -53,8 +53,8 @@ div(
     ) {{ innerValue }}
 
     base-icon(
-      v-if="computedIcon"
-      :name="computedIcon"
+      v-if="icon"
+      :name="icon"
       class="gb-field-textarea__icon"
     )
 
@@ -127,21 +127,6 @@ export default {
 
     focused: false
   }),
-
-  computed: {
-    computedIcon() {
-      // Return the left icon when defined as prop
-      if (this.computedStatus === "error") {
-        return "close"
-      } else if (this.computedStatus === "success") {
-        return "check"
-      } else if (this.computedStatus === "warning") {
-        return "warning"
-      }
-
-      return this.icon
-    }
-  },
 
   methods: {
     // --> HELPERS <--
@@ -255,6 +240,15 @@ $statuses: "error", "normal", "success", "warning";
 
   // --> BOOLEANS <--
 
+  &--borders {
+    #{$c}__container {
+      box-sizing: border-box;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 4px;
+    }
+  }
+
   &--disabled {
     opacity: 0.7;
 
@@ -262,15 +256,6 @@ $statuses: "error", "normal", "success", "warning";
     #{$c}__container {
       pointer-events: none;
       cursor: not-allowed;
-    }
-  }
-
-  &--borders {
-    #{$c}__container {
-      box-sizing: border-box;
-      border-width: 1px;
-      border-style: solid;
-      border-radius: 4px;
     }
   }
 
