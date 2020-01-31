@@ -65,7 +65,7 @@ div(
       :readonly="readonly"
       :value="innerValue"
       class="gb-field-input-numeric__field js-tag-for-autofocus"
-      type="number"
+      type="text"
     )
 
     base-icon(
@@ -222,11 +222,30 @@ export default {
     },
 
     onFieldKeyDown(event) {
+      const numberKeys = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+      const allowedKeys = ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Backspace", "Delete"]
+
+      // Do not continue when the key is not allowed
+      if (!numberKeys.includes(event.key) && !allowedKeys.includes(event.key)) {
+        return event.preventDefault()
+      }
+
+      // Increment or decrement when an arrow key is pressed
       if (["ArrowDown", "ArrowUp"].includes(event.key)) {
-        if (event.key === "ArrowDown" && (this.innerValue > this.min || this.min === null)) {
-          this.innerValue -= 1
-        } else if (event.key === "ArrowUp" && (this.innerValue < this.max || this.max === null)) {
-          this.innerValue += 1
+        const value = event.shiftKey ? 10 : 1
+
+        if (event.key === "ArrowDown") {
+          if (this.min !== null) {
+            this.innerValue = this.innerValue - value < this.min ? this.min : this.innerValue - value
+          } else {
+            this.innerValue -= value
+          }
+        } else if (event.key === "ArrowUp") {
+          if (this.max !== null) {
+            this.innerValue = this.innerValue + value > this.max ? this.max : this.innerValue + value
+          } else {
+            this.innerValue += value
+          }
         }
 
         this.$emit("input", this.innerValue) // Synchronization for v-model
@@ -464,6 +483,10 @@ $statuses: "error", "normal", "success", "warning";
             box-shadow: 0 0 0 30px mdg($theme, "backgrounds", "default", "primary") inset !important;
 
             -webkit-text-fill-color: mdg($theme, "fonts", "default", "primary") !important;
+          }
+
+          &::selection {
+            background: transparent;
           }
         }
       }
