@@ -69,8 +69,8 @@ div(
     )
 
     base-icon(
-      v-if="computedRightIcon"
-      :name="computedRightIcon"
+      v-if="rightIcon"
+      :name="rightIcon"
       class="gb-field-input-numeric__icon gb-field-input-numeric__icon--right"
     )
 
@@ -156,21 +156,6 @@ export default {
 
     focused: false
   }),
-
-  computed: {
-    computedRightIcon() {
-      // Return the status when defined as prop
-      if (this.computedStatus === "error") {
-        return "close"
-      } else if (this.computedStatus === "success") {
-        return "check"
-      } else if (this.computedStatus === "warning") {
-        return "warning"
-      }
-
-      return this.rightIcon
-    }
-  },
 
   methods: {
     // --> HELPERS <--
