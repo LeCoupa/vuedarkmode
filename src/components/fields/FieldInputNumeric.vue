@@ -161,10 +161,10 @@ export default {
     // --> HELPERS <--
 
     getInputValue() {
-      let value = ""
+      let value = 0
 
       if (this.$el) {
-        value = this.$el.querySelector("input").value || ""
+        value = this.$el.querySelector("input").value || 0
         value = parseInt(value)
       }
 
@@ -222,11 +222,11 @@ export default {
     },
 
     onFieldKeyDown(event) {
-      const numberKeys = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
       const allowedKeys = ["ArrowDown", "ArrowUp", "ArrowLeft", "ArrowRight", "Backspace", "Delete"]
+      const numberKeys = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
       // Do not continue when the key is not allowed
-      if (!numberKeys.includes(event.key) && !allowedKeys.includes(event.key)) {
+      if (!allowedKeys.includes(event.key) && !numberKeys.includes(event.key)) {
         return event.preventDefault()
       }
 
