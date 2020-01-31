@@ -203,19 +203,8 @@ export default {
   computed: {
     computedRightIcon() {
       // Add ability to clear the input
-      if (this.clearable) {
-        if (this.innerValue) {
-          return "cancel"
-        }
-      } else {
-        // Return the status when defined as prop
-        if (this.computedStatus === "error") {
-          return "close"
-        } else if (this.computedStatus === "success") {
-          return "check"
-        } else if (this.computedStatus === "warning") {
-          return "warning"
-        }
+      if (this.clearable && this.innerValue) {
+        return "cancel"
       }
 
       return this.rightIcon
