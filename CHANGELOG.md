@@ -2,6 +2,8 @@
 
 ### Added
 
+- BaseButton: Add href prop.
+
 - FieldNumeric: new component.
 
 - FieldImageUploader: new component.

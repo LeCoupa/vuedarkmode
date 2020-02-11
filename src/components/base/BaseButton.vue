@@ -3,7 +3,7 @@
      ************************************************************************* -->
 
 <template lang="pug">
-button(
+component(
   @click="onClick"
   @dblclick="onDoubleClick"
   @mousedown="onMouseDown"
@@ -30,6 +30,8 @@ button(
     }
   ]`
   :disabled="disabled"
+  :is="href ? 'a' : 'button'"
+  :href="href"
   :type="type"
 )
   span.gb-base-button__focuser
@@ -130,6 +132,10 @@ export default {
     fullWidth: {
       type: Boolean,
       default: false
+    },
+    href: {
+      type: String,
+      default: null
     },
     id: {
       type: String,
@@ -540,8 +546,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
           // Reverse buttons have their own defined style (see below)
           &:not(#{$c}--reverse) {
             background: mdg($theme, "colors", $color)
-              radial-gradient(circle, transparent 1%, mdg($theme, "colors", $color) 1%)
-              center/15000%;
+            radial-gradient(circle, transparent 1%, mdg($theme, "colors", $color) 1%)
+            center/15000%;
 
             @if ($color == "white") {
               color: mdg($theme, "colors", "black");
@@ -623,6 +629,8 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
   }
 
   &:focus {
+    outline: none;
+
     &:not(#{$c}--disabled) {
       #{$c}__focuser {
         opacity: 1;
@@ -664,4 +672,5 @@ $sizes: "nano", "micro", "mini", "small", "default", "medium", "large";
     opacity: 0;
   }
 }
+
 </style>
