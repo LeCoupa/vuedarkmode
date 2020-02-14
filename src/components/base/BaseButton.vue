@@ -32,7 +32,7 @@ component(
   :disabled="disabled"
   :is="href ? 'a' : 'button'"
   :href="href"
-  :type="type"
+  :type="href ? null : type"
 )
   span.gb-base-button__focuser
 
