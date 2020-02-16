@@ -311,9 +311,9 @@ export default {
     },
 
     onNavigateWithKeyboard(event) {
-      event.preventDefault()
-
       if (this.opened) {
+        event.preventDefault()
+
         const code = event.code
 
         if (["ArrowDown", "ArrowUp"].includes(code)) {
