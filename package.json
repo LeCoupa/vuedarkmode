@@ -47,7 +47,7 @@
     "@rollup/plugin-alias": "2.2.0",
     "autoprefixer": "9.6.1",
     "cross-env": "6.0.3",
-    "minimist": "1.2.3",
+    "minimist": "1.2.6",
     "node-sass": "7.0.0",
     "pug": "3.0.1",
     "pug-plain-loader": "1.0.0",
